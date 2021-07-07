@@ -75,7 +75,7 @@ final class AssertTest extends TestCase
 
     public function testIsInstanceOf(): void
     {
-        $testClass = new DateTime();
+        $testClass = new \DateTime();
         verify($testClass)->instanceOf('DateTime');
         verify($testClass)->notInstanceOf('DateTimeZone');
     }
@@ -296,17 +296,17 @@ final class AssertTest extends TestCase
         };
 
         verify($func)->callableThrows();
-        verify($func)->callableThrows(Exception::class);
-        verify($func)->callableThrows(Exception::class, 'foo');
+        verify($func)->callableThrows(\Exception::class);
+        verify($func)->callableThrows(\Exception::class, 'foo');
         verify($func)->callableThrows(new Exception());
         verify($func)->callableThrows(new Exception('foo'));
 
         verify(function () use ($func): void {
-            verify($func)->callableThrows(RuntimeException::class);
+            verify($func)->callableThrows(\RuntimeException::class);
         })->callableThrows(ExpectationFailedException::class);
 
         verify(function (): void {
-            verify(function (): void {})->callableThrows(Exception::class);
+            verify(function (): void {})->callableThrows(\Exception::class);
         })->callableThrows(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
     }
 
@@ -317,13 +317,13 @@ final class AssertTest extends TestCase
         };
 
         verify(function (): void {})->callableDoesNotThrow();
-        verify($func)->callableDoesNotThrow(RuntimeException::class);
-        verify($func)->callableDoesNotThrow(RuntimeException::class, 'bar');
-        verify($func)->callableDoesNotThrow(RuntimeException::class, 'foo');
-        verify($func)->callableDoesNotThrow(new RuntimeException());
-        verify($func)->callableDoesNotThrow(new RuntimeException('bar'));
-        verify($func)->callableDoesNotThrow(new RuntimeException('foo'));
-        verify($func)->callableDoesNotThrow(Exception::class, 'bar');
+        verify($func)->callableDoesNotThrow(\RuntimeException::class);
+        verify($func)->callableDoesNotThrow(\RuntimeException::class, 'bar');
+        verify($func)->callableDoesNotThrow(\RuntimeException::class, 'foo');
+        verify($func)->callableDoesNotThrow(new \RuntimeException());
+        verify($func)->callableDoesNotThrow(new \RuntimeException('bar'));
+        verify($func)->callableDoesNotThrow(new \RuntimeException('foo'));
+        verify($func)->callableDoesNotThrow(\Exception::class, 'bar');
         verify($func)->callableDoesNotThrow(new Exception('bar'));
 
         verify(function () use ($func): void {
@@ -331,11 +331,11 @@ final class AssertTest extends TestCase
         })->callableThrows(new ExpectationFailedException('exception was not expected to be thrown'));
 
         verify(function () use ($func): void {
-            verify($func)->callableDoesNotThrow(Exception::class);
+            verify($func)->callableDoesNotThrow(\Exception::class);
         })->callableThrows(new ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
 
         verify(function () use ($func): void {
-            verify($func)->callableDoesNotThrow(Exception::class, 'foo');
+            verify($func)->callableDoesNotThrow(\Exception::class, 'foo');
         })->callableThrows(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
 }

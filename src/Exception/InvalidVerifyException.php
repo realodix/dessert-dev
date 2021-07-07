@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeception\Exception;
+namespace Realodix\NextProject\Exception;
 
 use InvalidArgumentException;
 use function gettype;

@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Verifiers;
 
-use Codeception\Exception\InvalidVerifyException;
+use Realodix\NextProject\Exception\InvalidVerifyException;
 use Realodix\NextProject\Verify;
 use DOMDocument;
 use PHPUnit\Framework\Assert;

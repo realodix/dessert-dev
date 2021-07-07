@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Verifiers;
 
 use ArrayAccess;
-use Codeception\Exception\InvalidVerifyException;
+use Realodix\NextProject\Exception\InvalidVerifyException;
 use Realodix\NextProject\Verify;
 use Countable;
 use PHPUnit\Framework\Assert;
