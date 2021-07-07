@@ -157,7 +157,7 @@ class VerifyString extends Verify
     public function matchesRegExp(string $pattern, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            Assert::assertRegExp($this->actual, $message);
+            Assert::assertRegExp($pattern, $this->actual, $message);
 
             return $this;
         }
