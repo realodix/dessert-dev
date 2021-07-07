@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use Realodix\NextProject\Expect;
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Expect;
 
 class ExpectJsonString extends Expect
 {
@@ -17,11 +17,13 @@ class ExpectJsonString extends Expect
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function notToEqualJsonFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
@@ -30,11 +32,13 @@ class ExpectJsonString extends Expect
      *
      * @param string $expectedJson
      * @param string $message
+     *
      * @return self
      */
     public function notToEqualJsonString(string $expectedJson, string $message = ''): self
     {
         Assert::assertJsonStringNotEqualsJsonString($expectedJson, $this->actual, $message);
+
         return $this;
     }
 
@@ -43,11 +47,13 @@ class ExpectJsonString extends Expect
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function toEqualJsonFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
@@ -56,11 +62,13 @@ class ExpectJsonString extends Expect
      *
      * @param string $expectedJson
      * @param string $message
+     *
      * @return self
      */
     public function toEqualJsonString(string $expectedJson, string $message = ''): self
     {
         Assert::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
+
         return $this;
     }
 }

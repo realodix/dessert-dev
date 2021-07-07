@@ -2,9 +2,9 @@
 
 namespace Realodix\NextProject\Expectations;
 
+use Exception;
 use Realodix\NextProject\Asserts\AssertThrows;
 use Realodix\NextProject\Expect;
-use Exception;
 use Throwable;
 
 class ExpectCallable extends Expect
@@ -18,7 +18,8 @@ class ExpectCallable extends Expect
 
     /**
      * @param Exception|string|null $throws
-     * @param string|false $message
+     * @param string|false          $message
+     *
      * @return $this
      */
     public function notToThrow($throws = null, $message = false): self
@@ -28,9 +29,11 @@ class ExpectCallable extends Expect
 
     /**
      * @param Exception|string|null $throws
-     * @param string|false $message
-     * @return ExpectCallable
+     * @param string|false          $message
+     *
      * @throws Throwable
+     *
+     * @return self
      */
     public function toThrow($throws = null, $message = false): self
     {

@@ -3,19 +3,17 @@
 namespace Realodix\NextProject\Expectations;
 
 use ArrayAccess;
-use Realodix\NextProject\Exception\InvalidVerifyException;
-use Realodix\NextProject\Expect;
-use Countable;
-use PHPUnit\Framework\Assert;
 use function basename;
+use Countable;
 use function is_array;
 use function is_iterable;
+use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Exception\InvalidVerifyException;
+use Realodix\NextProject\Expect;
 
 class ExpectArray extends Expect
 {
     /**
-     * ExpectArray constructor
-     *
      * @param array|ArrayAccess|Countable|iterable $actual
      */
     public function __construct($actual)
@@ -27,6 +25,7 @@ class ExpectArray extends Expect
             is_iterable($actual)
         ) {
             parent::__construct($actual);
+
             return;
         }
         throw new InvalidVerifyException(basename(self::class), $actual);
@@ -35,46 +34,53 @@ class ExpectArray extends Expect
     /**
      * Expect that a haystack does not contain a needle.
      *
-     * @param $needle
+     * @param mixed  $needle
      * @param string $message
+     *
      * @return self
      */
     public function notToContain($needle, string $message = ''): self
     {
         Assert::assertNotContains($needle, $this->actual, $message);
+
         return $this;
     }
 
     public function notToContainEqual($needle, $message = ''): self
     {
         Assert::assertNotContainsEquals($needle, $this->actual, $message);
+
         return $this;
     }
 
     /**
      * Expect that a haystack does not contain only values of a given type.
      *
-     * @param string $type
+     * @param string    $type
      * @param bool|null $isNativeType
-     * @param string $message
+     * @param string    $message
+     *
      * @return self
      */
     public function notToContainOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
+
         return $this;
     }
 
     /**
      * Expect the number of elements of an array, Countable or Traversable.
      *
-     * @param int $expectedCount
+     * @param int    $expectedCount
      * @param string $message
+     *
      * @return self
      */
     public function notToHaveCount(int $expectedCount, string $message = ''): self
     {
         Assert::assertNotCount($expectedCount, $this->actual, $message);
+
         return $this;
     }
 
@@ -82,12 +88,14 @@ class ExpectArray extends Expect
      * Expect that an array does not have a specified key.
      *
      * @param int|string $key
-     * @param string $message
+     * @param string     $message
+     *
      * @return self
      */
     public function notToHaveKey($key, string $message = ''): self
     {
         Assert::assertArrayNotHasKey($key, $this->actual, $message);
+
         return $this;
     }
 
@@ -95,45 +103,52 @@ class ExpectArray extends Expect
      * Expect that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
      *
      * @param Countable|iterable $expected
-     * @param string $message
+     * @param string             $message
+     *
      * @return self
      */
     public function notToHaveSameSizeAs($expected, string $message = ''): self
     {
         Assert::assertNotSameSize($expected, $this->actual, $message);
+
         return $this;
     }
 
     /**
      * Expect that a haystack contains a needle.
      *
-     * @param $needle
+     * @param mixed  $needle
      * @param string $message
+     *
      * @return self
      */
     public function toContain($needle, string $message = ''): self
     {
         Assert::assertContains($needle, $this->actual, $message);
+
         return $this;
     }
 
     public function toContainEqual($needle, string $message = ''): self
     {
         Assert::assertContainsEquals($needle, $this->actual, $message);
+
         return $this;
     }
 
     /**
      * Expect that a haystack contains only values of a given type.
      *
-     * @param string $type
+     * @param string    $type
      * @param bool|null $isNativeType
-     * @param string $message
+     * @param string    $message
+     *
      * @return self
      */
     public function toContainOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
+
         return $this;
     }
 
@@ -142,24 +157,28 @@ class ExpectArray extends Expect
      *
      * @param string $className
      * @param string $message
+     *
      * @return self
      */
     public function toContainOnlyInstancesOf(string $className, string $message = ''): self
     {
         Assert::assertContainsOnlyInstancesOf($className, $this->actual, $message);
+
         return $this;
     }
 
     /**
      * Expect the number of elements of an array, Countable or Traversable.
      *
-     * @param int $expectedCount
+     * @param int    $expectedCount
      * @param string $message
+     *
      * @return self
      */
     public function toHaveCount(int $expectedCount, string $message = ''): self
     {
         Assert::assertCount($expectedCount, $this->actual, $message);
+
         return $this;
     }
 
@@ -167,12 +186,14 @@ class ExpectArray extends Expect
      * Expect that an array has a specified key.
      *
      * @param int|string $key
-     * @param string $message
+     * @param string     $message
+     *
      * @return self
      */
     public function toHaveKey($key, string $message = ''): self
     {
         Assert::assertArrayHasKey($key, $this->actual, $message);
+
         return $this;
     }
 
@@ -180,12 +201,14 @@ class ExpectArray extends Expect
      * Expect that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
      *
      * @param Countable|iterable $expected
-     * @param string $message
+     * @param string             $message
+     *
      * @return self
      */
     public function toHaveSameSizeAs($expected, string $message = ''): self
     {
         Assert::assertSameSize($expected, $this->actual, $message);
+
         return $this;
     }
 }

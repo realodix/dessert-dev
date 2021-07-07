@@ -2,14 +2,12 @@
 
 namespace Realodix\NextProject\Verifiers;
 
-use Realodix\NextProject\Verify;
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Verify;
 
 class VerifyClass extends Verify
 {
     /**
-     * VerifyClass constructor
-     *
      * @param string $className
      */
     public function __construct(string $className)
@@ -22,11 +20,13 @@ class VerifyClass extends Verify
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function hasAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassHasAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 
@@ -35,11 +35,13 @@ class VerifyClass extends Verify
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function hasStaticAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 
@@ -48,11 +50,13 @@ class VerifyClass extends Verify
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function notHasAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassNotHasAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 
@@ -61,11 +65,13 @@ class VerifyClass extends Verify
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function notHasStaticAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 }

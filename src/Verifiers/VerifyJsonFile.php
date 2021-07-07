@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Verifiers;
 
-use Realodix\NextProject\Verify;
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Verify;
 
 class VerifyJsonFile extends Verify
 {
@@ -17,11 +17,13 @@ class VerifyJsonFile extends Verify
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function equalsJsonFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
@@ -30,11 +32,13 @@ class VerifyJsonFile extends Verify
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function notEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 }

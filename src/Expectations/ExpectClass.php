@@ -2,17 +2,15 @@
 
 namespace Realodix\NextProject\Expectations;
 
+use PHPUnit\Framework\Assert;
 use Realodix\NextProject\Expect;
 use Realodix\NextProject\Verifiers\VerifyDataTrait;
-use PHPUnit\Framework\Assert;
 
 class ExpectClass extends Expect
 {
     use VerifyDataTrait;
 
     /**
-     * ExpectClass constructor
-     *
      * @param string $className
      */
     public function __construct(string $className)
@@ -25,11 +23,13 @@ class ExpectClass extends Expect
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function notToHaveAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassNotHasAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 
@@ -38,11 +38,13 @@ class ExpectClass extends Expect
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function notToHaveStaticAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 
@@ -51,11 +53,13 @@ class ExpectClass extends Expect
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function toHaveAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassHasAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 
@@ -64,11 +68,13 @@ class ExpectClass extends Expect
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function toHaveStaticAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 }

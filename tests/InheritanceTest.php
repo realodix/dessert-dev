@@ -2,9 +2,9 @@
 
 namespace Realodix\NextProject\Test;
 
-use Realodix\NextProject\Verify;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
+use Realodix\NextProject\Verify;
 
 final class InheritanceTest extends TestCase
 {
@@ -19,7 +19,6 @@ final class InheritanceTest extends TestCase
         verify(new MyVerify())->instanceOf(Verify::class);
     }
 }
-
 
 final class MyVerify extends Verify
 {

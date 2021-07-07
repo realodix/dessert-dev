@@ -2,16 +2,14 @@
 
 namespace Realodix\NextProject\Verifiers;
 
-use Realodix\NextProject\Verify;
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Verify;
 
 class VerifyBaseObject extends Verify
 {
     use VerifyDataTrait;
 
     /**
-     * VerifyBaseObject constructor
-     *
      * @param object $object
      */
     public function __construct(object $object)
@@ -24,11 +22,13 @@ class VerifyBaseObject extends Verify
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function hasAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 
@@ -37,11 +37,13 @@ class VerifyBaseObject extends Verify
      *
      * @param string $attributeName
      * @param string $message
+     *
      * @return self
      */
     public function notHasAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
+
         return $this;
     }
 }

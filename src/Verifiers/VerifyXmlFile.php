@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Verifiers;
 
-use Realodix\NextProject\Verify;
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Verify;
 
 class VerifyXmlFile extends Verify
 {
@@ -17,11 +17,13 @@ class VerifyXmlFile extends Verify
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function equalsXmlFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
@@ -30,11 +32,13 @@ class VerifyXmlFile extends Verify
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function notEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 }

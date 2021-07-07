@@ -2,9 +2,9 @@
 
 namespace Realodix\NextProject\Verifiers;
 
+use Exception;
 use Realodix\NextProject\Asserts\AssertThrows;
 use Realodix\NextProject\Verify;
-use Exception;
 use Throwable;
 
 class VerifyCallable extends Verify
@@ -18,22 +18,25 @@ class VerifyCallable extends Verify
 
     /**
      * @param Exception|string|null $throws
-     * @param string|false $message
-     * @return VerifyCallable
-     * @throws Throwable
-     */
-    public function throws($throws = null, $message = false): self
-    {
-        return $this->assertThrows($throws, $message);
-    }
-
-    /**
-     * @param Exception|string|null $throws
-     * @param string|false $message
+     * @param string|false          $message
+     *
      * @return $this
      */
     public function doesNotThrow($throws = null, $message = false): self
     {
         return $this->assertDoesNotThrow($throws, $message);
+    }
+
+    /**
+     * @param Exception|string|null $throws
+     * @param string|false          $message
+     *
+     * @throws Throwable
+     *
+     * @return self
+     */
+    public function throws($throws = null, $message = false): self
+    {
+        return $this->assertThrows($throws, $message);
     }
 }

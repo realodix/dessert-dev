@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use Realodix\NextProject\Expect;
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Expect;
 
 class ExpectXmlFile extends Expect
 {
@@ -17,11 +17,13 @@ class ExpectXmlFile extends Expect
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function notToEqualXmlFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
@@ -30,11 +32,13 @@ class ExpectXmlFile extends Expect
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function toEqualXmlFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 }

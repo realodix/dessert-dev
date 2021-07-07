@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Verifiers;
 
-use Realodix\NextProject\Verify;
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Verify;
 
 class VerifyJsonString extends Verify
 {
@@ -17,11 +17,13 @@ class VerifyJsonString extends Verify
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function equalsJsonFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
@@ -30,11 +32,13 @@ class VerifyJsonString extends Verify
      *
      * @param string $expectedJson
      * @param string $message
+     *
      * @return self
      */
     public function equalsJsonString(string $expectedJson, string $message = ''): self
     {
         Assert::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
+
         return $this;
     }
 
@@ -43,11 +47,13 @@ class VerifyJsonString extends Verify
      *
      * @param string $expectedFile
      * @param string $message
+     *
      * @return self
      */
     public function notEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
@@ -56,11 +62,13 @@ class VerifyJsonString extends Verify
      *
      * @param string $expectedJson
      * @param string $message
+     *
      * @return self
      */
     public function notEqualsJsonString(string $expectedJson, string $message = ''): self
     {
         Assert::assertJsonStringNotEqualsJsonString($expectedJson, $this->actual, $message);
+
         return $this;
     }
 }

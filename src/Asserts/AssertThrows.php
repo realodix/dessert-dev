@@ -9,6 +9,39 @@ use Throwable;
 
 trait AssertThrows
 {
+    public function assertDoesNotThrow($throws = null, $message = false): self
+    {
+        if ($throws instanceof Exception) {
+            $message = $throws->getMessage();
+            $throws = get_class($throws);
+        }
+
+        try {
+            call_user_func($this->actual);
+        } catch (Throwable $exception) {
+            if (! $throws) {
+                throw new ExpectationFailedException('exception was not expected to be thrown');
+            }
+
+            $actualThrows = get_class($exception);
+            $actualMessage = $exception->getMessage();
+
+            if ($throws !== $actualThrows) {
+                return $this;
+            }
+
+            if (! $message) {
+                throw new ExpectationFailedException(sprintf('exception \'%s\' was not expected to be thrown', $throws));
+            }
+
+            if ($message === $actualMessage) {
+                throw new ExpectationFailedException(sprintf('exception \'%s\' with message \'%s\' was not expected to be thrown', $throws, $message));
+            }
+        }
+
+        return $this;
+    }
+
     public function assertThrows($throws = null, $message = false): self
     {
         if ($throws instanceof Exception) {
@@ -19,7 +52,7 @@ trait AssertThrows
         try {
             call_user_func($this->actual);
         } catch (Throwable $exception) {
-            if (!$throws) {
+            if (! $throws) {
                 return $this; // it throws
             }
 
@@ -33,41 +66,8 @@ trait AssertThrows
             }
         }
 
-        if (!isset($exception)) {
+        if (! isset($exception)) {
             throw new ExpectationFailedException(sprintf('exception \'%s\' was not thrown as expected', $throws));
-        }
-
-        return $this;
-    }
-
-    public function assertDoesNotThrow($throws = null, $message = false): self
-    {
-        if ($throws instanceof Exception) {
-            $message = $throws->getMessage();
-            $throws = get_class($throws);
-        }
-
-        try {
-            call_user_func($this->actual);
-        } catch (Throwable $exception) {
-            if (!$throws) {
-                throw new ExpectationFailedException('exception was not expected to be thrown');
-            }
-
-            $actualThrows = get_class($exception);
-            $actualMessage = $exception->getMessage();
-
-            if ($throws !== $actualThrows) {
-                return $this;
-            }
-
-            if (!$message) {
-                throw new ExpectationFailedException(sprintf('exception \'%s\' was not expected to be thrown', $throws));
-            }
-
-            if ($message === $actualMessage) {
-                throw new ExpectationFailedException(sprintf('exception \'%s\' with message \'%s\' was not expected to be thrown', $throws, $message));
-            }
         }
 
         return $this;
