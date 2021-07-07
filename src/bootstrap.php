@@ -1,13 +1,39 @@
-<?php
+<?php declare(strict_types=1);
 
-use Realodix\NextProject\Assert;
+use Codeception\Verify\Expectations\ExpectAny;
+use Codeception\Verify\Verifiers\VerifyAny;
 
-if (! function_exists('ass')) {
+if (!function_exists('verify'))
+{
     /**
      * @param mixed $actual
+     * @return VerifyAny
      */
-    function ass($actual)
+    function verify($actual): VerifyAny
     {
-        return new Assert($actual);
+        return new VerifyAny($actual);
+    }
+}
+
+if (!function_exists('verify_that'))
+{
+    /**
+     * @param mixed $actual
+     * @return VerifyAny
+     */
+    function verify_that($actual): VerifyAny
+    {
+        return new VerifyAny($actual);
+    }
+}
+
+if (!function_exists('expect'))
+{
+    /**
+     * @param mixed $actual
+     * @return ExpectAny
+     */
+    function expect($actual): ExpectAny {
+        return new ExpectAny($actual);
     }
 }
