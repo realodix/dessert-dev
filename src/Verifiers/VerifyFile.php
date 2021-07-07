@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Verifiers;
 
 use PHPUnit\Framework\Assert;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Verify;
 use Yoast\PHPUnitPolyfills\Polyfills\AssertionRenames;
 
@@ -25,7 +26,13 @@ class VerifyFile extends Verify
      */
     public function doesNotExists(string $message = ''): self
     {
-        self::assertFileDoesNotExist($this->actual, $message);
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            Assert::assertFileNotExists($this->actual, $message);
+
+            return $this;
+        }
+
+        Assert::assertFileDoesNotExist($this->actual, $message);
 
         return $this;
     }
