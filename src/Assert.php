@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject;
 
-use PHPUnit\Framework\Assert as A;
+use PHPUnit\Framework\Assert as PHPUnit;
 
 class Assert
 {
@@ -35,7 +35,7 @@ class Assert
      */
     public function empty(string $message = ''): self
     {
-        A::assertEmpty($this->actual, $message);
+        PHPUnit::assertEmpty($this->actual, $message);
 
         return $this;
     }
@@ -50,7 +50,7 @@ class Assert
      */
     public function equals($expected, string $message = ''): self
     {
-        A::assertEquals($expected, $this->actual, $message);
+        PHPUnit::assertEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -65,7 +65,7 @@ class Assert
      */
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
-        A::assertEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -80,7 +80,7 @@ class Assert
      */
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
-        A::assertEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -96,7 +96,7 @@ class Assert
      */
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
-        A::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
+        PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
     }
@@ -110,7 +110,7 @@ class Assert
      */
     public function false(string $message = ''): self
     {
-        A::assertFalse($this->actual, $message);
+        PHPUnit::assertFalse($this->actual, $message);
 
         return $this;
     }
@@ -124,7 +124,7 @@ class Assert
      */
     public function finite(string $message = ''): self
     {
-        A::assertFinite($this->actual, $message);
+        PHPUnit::assertFinite($this->actual, $message);
 
         return $this;
     }
@@ -139,7 +139,7 @@ class Assert
      */
     public function greaterThan($expected, string $message = ''): self
     {
-        A::assertGreaterThan($expected, $this->actual, $message);
+        PHPUnit::assertGreaterThan($expected, $this->actual, $message);
 
         return $this;
     }
@@ -154,7 +154,7 @@ class Assert
      */
     public function greaterThanOrEqual($expected, string $message = ''): self
     {
-        A::assertGreaterThanOrEqual($expected, $this->actual, $message);
+        PHPUnit::assertGreaterThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
@@ -168,7 +168,7 @@ class Assert
      */
     public function infinite(string $message = ''): self
     {
-        A::assertInfinite($this->actual, $message);
+        PHPUnit::assertInfinite($this->actual, $message);
 
         return $this;
     }
@@ -183,7 +183,7 @@ class Assert
      */
     public function instanceOf(string $expected, string $message = ''): self
     {
-        A::assertInstanceOf($expected, $this->actual, $message);
+        PHPUnit::assertInstanceOf($expected, $this->actual, $message);
 
         return $this;
     }
@@ -197,7 +197,7 @@ class Assert
      */
     public function isArray(string $message = ''): self
     {
-        A::assertIsArray($this->actual, $message);
+        PHPUnit::assertIsArray($this->actual, $message);
 
         return $this;
     }
@@ -211,7 +211,7 @@ class Assert
      */
     public function isBool(string $message = ''): self
     {
-        A::assertIsBool($this->actual, $message);
+        PHPUnit::assertIsBool($this->actual, $message);
 
         return $this;
     }
@@ -225,7 +225,7 @@ class Assert
      */
     public function isCallable(string $message = ''): self
     {
-        A::assertIsCallable($this->actual, $message);
+        PHPUnit::assertIsCallable($this->actual, $message);
 
         return $this;
     }
@@ -239,7 +239,7 @@ class Assert
      */
     public function isClosedResource(string $message = ''): self
     {
-        A::assertIsClosedResource($this->actual, $message);
+        PHPUnit::assertIsClosedResource($this->actual, $message);
 
         return $this;
     }
@@ -253,7 +253,7 @@ class Assert
      */
     public function isFloat(string $message = ''): self
     {
-        A::assertIsFloat($this->actual, $message);
+        PHPUnit::assertIsFloat($this->actual, $message);
 
         return $this;
     }
@@ -267,7 +267,7 @@ class Assert
      */
     public function isInt(string $message = ''): self
     {
-        A::assertIsInt($this->actual, $message);
+        PHPUnit::assertIsInt($this->actual, $message);
 
         return $this;
     }
@@ -281,7 +281,7 @@ class Assert
      */
     public function isIterable(string $message = ''): self
     {
-        A::assertIsIterable($this->actual, $message);
+        PHPUnit::assertIsIterable($this->actual, $message);
 
         return $this;
     }
@@ -295,7 +295,7 @@ class Assert
      */
     public function isNotArray(string $message = ''): self
     {
-        A::assertIsNotArray($this->actual, $message);
+        PHPUnit::assertIsNotArray($this->actual, $message);
 
         return $this;
     }
@@ -309,7 +309,7 @@ class Assert
      */
     public function isNotBool(string $message = ''): self
     {
-        A::assertIsNotBool($this->actual, $message);
+        PHPUnit::assertIsNotBool($this->actual, $message);
 
         return $this;
     }
@@ -323,7 +323,7 @@ class Assert
      */
     public function isNotCallable(string $message = ''): self
     {
-        A::assertIsNotCallable($this->actual, $message);
+        PHPUnit::assertIsNotCallable($this->actual, $message);
 
         return $this;
     }
@@ -337,7 +337,7 @@ class Assert
      */
     public function isNotClosedResource(string $message = ''): self
     {
-        A::assertIsNotClosedResource($this->actual, $message);
+        PHPUnit::assertIsNotClosedResource($this->actual, $message);
 
         return $this;
     }
@@ -351,7 +351,7 @@ class Assert
      */
     public function isNotFloat(string $message = ''): self
     {
-        A::assertIsNotFloat($this->actual, $message);
+        PHPUnit::assertIsNotFloat($this->actual, $message);
 
         return $this;
     }
@@ -365,7 +365,7 @@ class Assert
      */
     public function isNotInt(string $message = ''): self
     {
-        A::assertIsNotInt($this->actual, $message);
+        PHPUnit::assertIsNotInt($this->actual, $message);
 
         return $this;
     }
@@ -379,7 +379,7 @@ class Assert
      */
     public function isNotIterable(string $message = ''): self
     {
-        A::assertIsNotIterable($this->actual, $message);
+        PHPUnit::assertIsNotIterable($this->actual, $message);
 
         return $this;
     }
@@ -393,7 +393,7 @@ class Assert
      */
     public function isNotNumeric(string $message = ''): self
     {
-        A::assertIsNotNumeric($this->actual, $message);
+        PHPUnit::assertIsNotNumeric($this->actual, $message);
 
         return $this;
     }
@@ -407,7 +407,7 @@ class Assert
      */
     public function isNotObject(string $message = ''): self
     {
-        A::assertIsNotObject($this->actual, $message);
+        PHPUnit::assertIsNotObject($this->actual, $message);
 
         return $this;
     }
@@ -421,7 +421,7 @@ class Assert
      */
     public function isNotResource(string $message = ''): self
     {
-        A::assertIsNotResource($this->actual, $message);
+        PHPUnit::assertIsNotResource($this->actual, $message);
 
         return $this;
     }
@@ -435,7 +435,7 @@ class Assert
      */
     public function isNotScalar(string $message = ''): self
     {
-        A::assertIsNotScalar($this->actual, $message);
+        PHPUnit::assertIsNotScalar($this->actual, $message);
 
         return $this;
     }
@@ -449,7 +449,7 @@ class Assert
      */
     public function isNotString(string $message = ''): self
     {
-        A::assertIsNotString($this->actual, $message);
+        PHPUnit::assertIsNotString($this->actual, $message);
 
         return $this;
     }
@@ -463,7 +463,7 @@ class Assert
      */
     public function isNumeric(string $message = ''): self
     {
-        A::assertIsNumeric($this->actual, $message);
+        PHPUnit::assertIsNumeric($this->actual, $message);
 
         return $this;
     }
@@ -477,7 +477,7 @@ class Assert
      */
     public function isObject(string $message = ''): self
     {
-        A::assertIsObject($this->actual, $message);
+        PHPUnit::assertIsObject($this->actual, $message);
 
         return $this;
     }
@@ -491,7 +491,7 @@ class Assert
      */
     public function isResource(string $message = ''): self
     {
-        A::assertIsResource($this->actual, $message);
+        PHPUnit::assertIsResource($this->actual, $message);
 
         return $this;
     }
@@ -505,7 +505,7 @@ class Assert
      */
     public function isScalar(string $message = ''): self
     {
-        A::assertIsScalar($this->actual, $message);
+        PHPUnit::assertIsScalar($this->actual, $message);
 
         return $this;
     }
@@ -519,7 +519,7 @@ class Assert
      */
     public function isString(string $message = ''): self
     {
-        A::assertIsString($this->actual, $message);
+        PHPUnit::assertIsString($this->actual, $message);
 
         return $this;
     }
@@ -534,7 +534,7 @@ class Assert
      */
     public function lessThan($expected, string $message = ''): self
     {
-        A::assertLessThan($expected, $this->actual, $message);
+        PHPUnit::assertLessThan($expected, $this->actual, $message);
 
         return $this;
     }
@@ -549,7 +549,7 @@ class Assert
      */
     public function lessThanOrEqual($expected, string $message = ''): self
     {
-        A::assertLessThanOrEqual($expected, $this->actual, $message);
+        PHPUnit::assertLessThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
@@ -563,7 +563,7 @@ class Assert
      */
     public function nan(string $message = ''): self
     {
-        A::assertNan($this->actual, $message);
+        PHPUnit::assertNan($this->actual, $message);
 
         return $this;
     }
@@ -577,7 +577,7 @@ class Assert
      */
     public function notEmpty(string $message = ''): self
     {
-        A::assertNotEmpty($this->actual, $message);
+        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
@@ -592,7 +592,7 @@ class Assert
      */
     public function notEquals($expected, string $message = ''): self
     {
-        A::assertNotEquals($expected, $this->actual, $message);
+        PHPUnit::assertNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -607,7 +607,7 @@ class Assert
      */
     public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
-        A::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -622,7 +622,7 @@ class Assert
      */
     public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
-        A::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -638,7 +638,7 @@ class Assert
      */
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
-        A::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
+        PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
     }
@@ -652,7 +652,7 @@ class Assert
      */
     public function notFalse(string $message = ''): self
     {
-        A::assertNotFalse($this->actual, $message);
+        PHPUnit::assertNotFalse($this->actual, $message);
 
         return $this;
     }
@@ -667,7 +667,7 @@ class Assert
      */
     public function notInstanceOf(string $expected, string $message = ''): self
     {
-        A::assertNotInstanceOf($expected, $this->actual, $message);
+        PHPUnit::assertNotInstanceOf($expected, $this->actual, $message);
 
         return $this;
     }
@@ -681,7 +681,7 @@ class Assert
      */
     public function notNull(string $message = ''): self
     {
-        A::assertNotNull($this->actual, $message);
+        PHPUnit::assertNotNull($this->actual, $message);
 
         return $this;
     }
@@ -696,7 +696,7 @@ class Assert
      */
     public function notSame($expected, string $message = ''): self
     {
-        A::assertNotSame($expected, $this->actual, $message);
+        PHPUnit::assertNotSame($expected, $this->actual, $message);
 
         return $this;
     }
@@ -710,7 +710,7 @@ class Assert
      */
     public function notTrue(string $message = ''): self
     {
-        A::assertNotTrue($this->actual, $message);
+        PHPUnit::assertNotTrue($this->actual, $message);
 
         return $this;
     }
@@ -724,7 +724,7 @@ class Assert
      */
     public function null(string $message = ''): self
     {
-        A::assertNull($this->actual, $message);
+        PHPUnit::assertNull($this->actual, $message);
 
         return $this;
     }
@@ -739,7 +739,7 @@ class Assert
      */
     public function same($expected, string $message = ''): self
     {
-        A::assertSame($expected, $this->actual, $message);
+        PHPUnit::assertSame($expected, $this->actual, $message);
 
         return $this;
     }
@@ -753,7 +753,7 @@ class Assert
      */
     public function true(string $message = ''): self
     {
-        A::assertTrue($this->actual, $message);
+        PHPUnit::assertTrue($this->actual, $message);
 
         return $this;
     }
