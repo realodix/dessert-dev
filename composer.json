@@ -18,7 +18,6 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.14",
-        "icanhazstring/composer-unused": "^0.7.5",
         "phpstan/phpstan": "^0.12.90",
         "realodix/php-cs-fixer-config": "^3.0"
     },
