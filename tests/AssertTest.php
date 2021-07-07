@@ -292,14 +292,14 @@ final class AssertTest extends TestCase
     public function testThrows(): void
     {
         $func = function (): void {
-            throw new Exception('foo');
+            throw new \Exception('foo');
         };
 
         verify($func)->callableThrows();
         verify($func)->callableThrows(\Exception::class);
         verify($func)->callableThrows(\Exception::class, 'foo');
-        verify($func)->callableThrows(new Exception());
-        verify($func)->callableThrows(new Exception('foo'));
+        verify($func)->callableThrows(new \Exception());
+        verify($func)->callableThrows(new \Exception('foo'));
 
         verify(function () use ($func): void {
             verify($func)->callableThrows(\RuntimeException::class);
