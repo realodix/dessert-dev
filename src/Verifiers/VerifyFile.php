@@ -5,11 +5,9 @@ namespace Realodix\NextProject\Verifiers;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Verify;
-use Yoast\PHPUnitPolyfills\Polyfills\AssertionRenames;
 
 class VerifyFile extends Verify
 {
-    use AssertionRenames;
     use VerifyDataTrait;
 
     public function __construct(string $actual)

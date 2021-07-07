@@ -3,13 +3,11 @@
 namespace Realodix\NextProject\Verifiers;
 
 use PHPUnit\Framework\Assert;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Verify;
-use Yoast\PHPUnitPolyfills\Polyfills\AssertionRenames;
 
 class VerifyString extends Verify
 {
-    use AssertionRenames;
-
     public function __construct(string $string)
     {
         parent::__construct($string);
@@ -158,6 +156,12 @@ class VerifyString extends Verify
      */
     public function matchesRegExp(string $pattern, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            Assert::assertRegExp($this->actual, $message);
+
+            return $this;
+        }
+
         Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
 
         return $this;
