@@ -4,9 +4,12 @@ namespace Realodix\NextProject\Verifiers;
 
 use PHPUnit\Framework\Assert;
 use Realodix\NextProject\Verify;
+use Yoast\PHPUnitPolyfills\Polyfills\AssertionRenames;
 
 class VerifyString extends Verify
 {
+    use AssertionRenames;
+
     public function __construct(string $string)
     {
         parent::__construct($string);
