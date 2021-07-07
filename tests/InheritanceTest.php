@@ -1,12 +1,10 @@
-<?php declare(strict_types=1);
+<?php
 
-include_once __DIR__.'/../src/Codeception/bootstrap.php';
+namespace Realodix\NextProject\Test;
 
-use Codeception\Verify\Verify;
+use Realodix\NextProject\Verify;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
-
-include __DIR__.'/../vendor/autoload.php';
 
 final class InheritanceTest extends TestCase
 {

@@ -1,7 +1,9 @@
-<?php declare(strict_types=1);
+<?php
 
-use Codeception\Verify\Expectations\ExpectAny;
-use Codeception\Verify\Verifiers\VerifyAny;
+namespace Realodix\NextProject;
+
+use Realodix\NextProject\Expectations\ExpectAny;
+use Realodix\NextProject\Verifiers\VerifyAny;
 
 if (!function_exists('verify'))
 {
