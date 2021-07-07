@@ -1,0 +1,56 @@
+{
+    "name": "realodix/next-project",
+    "description": "next-project",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/realodix/next-project",
+    "authors": [
+        {
+            "name": "Budi Hermawan",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0",
+        "phpunit/phpunit": "^8.5.8|^9.3.3",
+        "yoast/phpunit-polyfills": "^1.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.14",
+        "icanhazstring/composer-unused": "^0.7.5",
+        "infection/infection": "^0.23.0",
+        "phpstan/phpstan": "^0.12.90",
+        "realodix/php-cs-fixer-config": "^3.0"
+    },
+    "autoload": {
+        "files": [
+            "src/bootstrap.php"
+        ],
+        "psr-4": {
+            "Realodix\\NextProject\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Realodix\\NextProject\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs",
+            "@test"
+        ],
+        "cs": "php-cs-fixer fix -v",
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
