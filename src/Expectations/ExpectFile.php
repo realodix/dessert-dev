@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Expectations;
 
 use PHPUnit\Framework\Assert;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Expect;
 
 class ExpectFile extends Expect
