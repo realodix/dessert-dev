@@ -23,6 +23,12 @@ class ExpectFile extends Expect
      */
     public function notToExist(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            Assert::assertFileNotExists($this->actual, $message);
+
+            return $this;
+        }
+
         Assert::assertFileDoesNotExist($this->actual, $message);
 
         return $this;

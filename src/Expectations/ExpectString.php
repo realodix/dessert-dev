@@ -274,6 +274,12 @@ class ExpectString extends Expect
      */
     public function toMatchRegExp(string $pattern, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            Assert::assertRegExp($pattern, $this->actual, $message);
+
+            return $this;
+        }
+
         Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
 
         return $this;
