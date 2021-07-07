@@ -95,63 +95,6 @@ final class ExpectTest extends TestCase
         expect('A completely not funny string')->stringNotToEndWith('A completely');
     }
 
-    public function testToEqual(): void
-    {
-        expect(5)->toEqual(5);
-        expect('hello')->toEqual('hello');
-        expect(5)->toEqual(5, 'user have 5 posts');
-        expect(3.251)->toEqualWithDelta(3.25, 0.01);
-        expect(3.251)->toEqualWithDelta(3.25, 0.01, 'respects delta');
-        expect(__FILE__)->fileToBeEqual(__FILE__);
-    }
-
-    public function testToEqualCanonicalizing(): void
-    {
-        expect([3, 2, 1])->toEqualCanonicalizing([1, 2, 3]);
-    }
-
-    public function testToEqualFile(): void
-    {
-        expect('%i')->stringtoEqualFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-        expect('Another string')->stringNottoEqualFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-    }
-
-    public function testToEqualIgnoringCase(): void
-    {
-        expect('foo')->toEqualIgnoringCase('FOO');
-    }
-
-    public function testToEqualJsonFile(): void
-    {
-        expect(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-test-file.json')
-            ->jsonFiletoEqualJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
-        expect('{"some" : "data"}')->jsonStringtoEqualJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
-    }
-
-    public function testToEqualJsonString(): void
-    {
-        expect('{"some" : "data"}')->jsonStringtoEqualJsonString('{"some" : "data"}');
-    }
-
-    public function testToEqualWithDelta(): void
-    {
-        expect(1.01)->toEqualWithDelta(1.0, 0.1);
-    }
-
-    public function testToEqualXmlFile(): void
-    {
-        expect(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml')
-            ->xmlFiletoEqualXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
-        expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
-            ->xmlStringtoEqualXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
-    }
-
-    public function testToEqualXmlString(): void
-    {
-        expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
-            ->xmlStringtoEqualXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
-    }
-
     public function testFileExists(): void
     {
         expect(__FILE__)->fileToExist();
@@ -336,6 +279,63 @@ final class ExpectTest extends TestCase
             expect(function (): void {
             })->callableToThrow(Exception::class);
         })->callableToThrow(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
+    }
+
+    public function testToEqual(): void
+    {
+        expect(5)->toEqual(5);
+        expect('hello')->toEqual('hello');
+        expect(5)->toEqual(5, 'user have 5 posts');
+        expect(3.251)->toEqualWithDelta(3.25, 0.01);
+        expect(3.251)->toEqualWithDelta(3.25, 0.01, 'respects delta');
+        expect(__FILE__)->fileToBeEqual(__FILE__);
+    }
+
+    public function testToEqualCanonicalizing(): void
+    {
+        expect([3, 2, 1])->toEqualCanonicalizing([1, 2, 3]);
+    }
+
+    public function testToEqualFile(): void
+    {
+        expect('%i')->stringtoEqualFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        expect('Another string')->stringNottoEqualFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+    }
+
+    public function testToEqualIgnoringCase(): void
+    {
+        expect('foo')->toEqualIgnoringCase('FOO');
+    }
+
+    public function testToEqualJsonFile(): void
+    {
+        expect(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-test-file.json')
+            ->jsonFiletoEqualJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
+        expect('{"some" : "data"}')->jsonStringtoEqualJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
+    }
+
+    public function testToEqualJsonString(): void
+    {
+        expect('{"some" : "data"}')->jsonStringtoEqualJsonString('{"some" : "data"}');
+    }
+
+    public function testToEqualWithDelta(): void
+    {
+        expect(1.01)->toEqualWithDelta(1.0, 0.1);
+    }
+
+    public function testToEqualXmlFile(): void
+    {
+        expect(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml')
+            ->xmlFiletoEqualXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
+        expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
+            ->xmlStringtoEqualXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
+    }
+
+    public function testToEqualXmlString(): void
+    {
+        expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
+            ->xmlStringtoEqualXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
     public function testTrueFalseNull(): void
