@@ -12,7 +12,7 @@ final class AssertTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->xml = new DOMDocument;
+        $this->xml = new \DOMDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
