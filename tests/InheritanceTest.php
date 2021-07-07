@@ -14,7 +14,7 @@ final class InheritanceTest extends TestCase
 
         $myVerify->success();
 
-        $myVerify::Mixed('this also')->notEquals('works');
+        $myVerify::Any('this also')->notEquals('works');
 
         verify(new MyVerify())->instanceOf(Verify::class);
     }

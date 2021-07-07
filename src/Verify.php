@@ -10,7 +10,7 @@ use Realodix\NextProject\Verifiers\VerifyDirectory;
 use Realodix\NextProject\Verifiers\VerifyFile;
 use Realodix\NextProject\Verifiers\VerifyJsonFile;
 use Realodix\NextProject\Verifiers\VerifyJsonString;
-use Realodix\NextProject\Verifiers\VerifyMixed;
+use Realodix\NextProject\Verifiers\VerifyAny;
 use Realodix\NextProject\Verifiers\VerifyBaseObject;
 use Realodix\NextProject\Verifiers\VerifyString;
 use Realodix\NextProject\Verifiers\VerifyXmlFile;
@@ -102,10 +102,10 @@ abstract class Verify
 
     /**
      * @param mixed $actual
-     * @return VerifyMixed
+     * @return VerifyAny
      */
-    public static function Mixed($actual): VerifyMixed
+    public static function Any($actual): VerifyAny
     {
-        return new VerifyMixed($actual);
+        return new VerifyAny($actual);
     }
 }
