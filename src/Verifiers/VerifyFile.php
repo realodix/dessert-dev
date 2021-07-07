@@ -25,7 +25,7 @@ class VerifyFile extends Verify
      */
     public function doesNotExists(string $message = ''): self
     {
-        Assert::assertFileDoesNotExist($this->actual, $message);
+        self::assertFileDoesNotExist($this->actual, $message);
 
         return $this;
     }
