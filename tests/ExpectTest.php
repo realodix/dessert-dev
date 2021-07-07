@@ -264,44 +264,44 @@ final class ExpectTest extends TestCase
         expect('asdfas')->stringNotMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
     }
 
-    public function testNottoEqual(): void
+    public function testNotToEqual(): void
     {
-        expect(3)->nottoEqual(5);
-        expect(3.252)->nottoEqualWithDelta(3.25, 0.001);
-        expect(3.252)->nottoEqualWithDelta(3.25, 0.001, 'respects delta');
-        expect(__FILE__)->fileNottoEqual(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json');
+        expect(3)->notToEqual(5);
+        expect(3.252)->notToEqualWithDelta(3.25, 0.001);
+        expect(3.252)->notToEqualWithDelta(3.25, 0.001, 'respects delta');
+        expect(__FILE__)->fileNotToEqual(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json');
     }
 
-    public function testNottoEqualCanonicalizing(): void
+    public function testnotToEqualCanonicalizing(): void
     {
-        expect([3, 2, 1])->nottoEqualCanonicalizing([2, 3, 0, 1]);
+        expect([3, 2, 1])->notToEqualCanonicalizing([2, 3, 0, 1]);
     }
 
-    public function testNottoEqualIgnoringCase(): void
+    public function testNotToEqualIgnoringCase(): void
     {
-        expect('foo')->nottoEqualIgnoringCase('BAR');
+        expect('foo')->notToEqualIgnoringCase('BAR');
     }
 
-    public function testNottoEqualWithDelta(): void
+    public function testNotToEqualWithDelta(): void
     {
-        expect(1.2)->nottoEqualWithDelta(1.0, 0.1);
+        expect(1.2)->notToEqualWithDelta(1.0, 0.1);
     }
 
     public function testRegExp(): void
     {
-        expect('somestring')->stringMatchesRegExp('/string/');
+        expect('somestring')->stringToMatchRegExp('/string/');
     }
 
     public function testSame(): void
     {
-        expect(1)->same(0 + 1);
-        expect(1)->notSame(true);
+        expect(1)->toBe(0 + 1);
+        expect(1)->notToBe(true);
     }
 
     public function testStartsWith(): void
     {
-        expect('A completely not funny string')->stringStartsWith('A completely');
-        expect('A completely not funny string')->stringStartsNotWith('string');
+        expect('A completely not funny string')->stringToStartWith('A completely');
+        expect('A completely not funny string')->stringNotToStartWith('string');
     }
 
     public function testStringContainsString(): void
