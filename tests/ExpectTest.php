@@ -21,19 +21,19 @@ final class ExpectTest extends TestCase
     {
         $errors = ['title' => 'You should add title'];
         expect($errors)->arrayToHaveKey('title');
-        expect($errors)->arrayHasNotKey('body');
+        expect($errors)->arrayNotToHaveKey('body');
     }
 
     public function testContains(): void
     {
         expect([3, 2])->arrayToContain(3);
-        expect([3, 2])->arrayNotContains(5, 'user have 5 posts');
+        expect([3, 2])->arrayNotToContain(5, 'user have 5 posts');
     }
 
     public function testContainsOnly(): void
     {
         expect(['1', '2', '3'])->arrayToContainOnly('string');
-        expect(['1', '2', 3])->arrayNotContainsOnly('string');
+        expect(['1', '2', 3])->arrayNotToContainOnly('string');
     }
 
     public function testContainsOnlyInstancesOf(): void
@@ -49,8 +49,8 @@ final class ExpectTest extends TestCase
 
     public function testCount(): void
     {
-        expect([1, 2, 3])->arrayCount(3);
-        expect([1, 2, 3])->arrayNotCount(2);
+        expect([1, 2, 3])->arrayToHaveCount(3);
+        expect([1, 2, 3])->arrayNotToHaveCount(2);
     }
 
     public function testDoesNotThrow(): void
@@ -85,17 +85,17 @@ final class ExpectTest extends TestCase
 
     public function testEmptyNotEmpty(): void
     {
-        expect(['3', '5'])->notEmpty();
-        expect([])->empty();
+        expect(['3', '5'])->notToBeEmpty();
+        expect([])->toBeEmpty();
     }
 
     public function testEndsWith(): void
     {
-        expect('A completely not funny string')->stringEndsWith('ny string');
-        expect('A completely not funny string')->stringNotEndsWith('A completely');
+        expect('A completely not funny string')->stringToEndWith('ny string');
+        expect('A completely not funny string')->stringNotToEndWith('A completely');
     }
 
-    public function testtoEqual(): void
+    public function testToEqual(): void
     {
         expect(5)->toEqual(5);
         expect('hello')->toEqual('hello');
@@ -105,40 +105,40 @@ final class ExpectTest extends TestCase
         expect(__FILE__)->fileToBeEqual(__FILE__);
     }
 
-    public function testtoEqualCanonicalizing(): void
+    public function testToEqualCanonicalizing(): void
     {
         expect([3, 2, 1])->toEqualCanonicalizing([1, 2, 3]);
     }
 
-    public function testtoEqualFile(): void
+    public function testToEqualFile(): void
     {
         expect('%i')->stringtoEqualFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
         expect('Another string')->stringNottoEqualFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
     }
 
-    public function testtoEqualIgnoringCase(): void
+    public function testToEqualIgnoringCase(): void
     {
         expect('foo')->toEqualIgnoringCase('FOO');
     }
 
-    public function testtoEqualJsonFile(): void
+    public function testToEqualJsonFile(): void
     {
         expect(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-test-file.json')
             ->jsonFiletoEqualJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
         expect('{"some" : "data"}')->jsonStringtoEqualJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
     }
 
-    public function testtoEqualJsonString(): void
+    public function testToEqualJsonString(): void
     {
         expect('{"some" : "data"}')->jsonStringtoEqualJsonString('{"some" : "data"}');
     }
 
-    public function testtoEqualWithDelta(): void
+    public function testToEqualWithDelta(): void
     {
         expect(1.01)->toEqualWithDelta(1.0, 0.1);
     }
 
-    public function testtoEqualXmlFile(): void
+    public function testToEqualXmlFile(): void
     {
         expect(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml')
             ->xmlFiletoEqualXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
@@ -146,7 +146,7 @@ final class ExpectTest extends TestCase
             ->xmlStringtoEqualXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
     }
 
-    public function testtoEqualXmlString(): void
+    public function testToEqualXmlString(): void
     {
         expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
             ->xmlStringtoEqualXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
@@ -155,113 +155,113 @@ final class ExpectTest extends TestCase
     public function testFileExists(): void
     {
         expect(__FILE__)->fileToExist();
-        expect('completelyrandomfilename.txt')->fileDoesNotExists();
+        expect('completelyrandomfilename.txt')->fileNotToExist();
     }
 
     public function testGreaterLowerThan(): void
     {
-        expect(7)->greaterThan(5);
-        expect(7)->lessThan(10);
-        expect(7)->lessThanOrEqual(7);
-        expect(7)->lessThanOrEqual(8);
-        expect(7)->greaterThanOrEqual(7);
-        expect(7)->greaterThanOrEqual(5);
+        expect(7)->toBeGreaterThan(5);
+        expect(7)->toBeLessThan(10);
+        expect(7)->toBeLessThanOrEqualTo(7);
+        expect(7)->toBeLessThanOrEqualTo(8);
+        expect(7)->toBeGreaterThanOrEqualTo(7);
+        expect(7)->toBeGreaterThanOrEqualTo(5);
     }
 
     public function testHasAttribute(): void
     {
-        expect('Exception')->classHasAttribute('message');
-        expect('Exception')->classNotHasAttribute('fakeproperty');
+        expect('Exception')->classToHaveAttribute('message');
+        expect('Exception')->classNotToHaveAttribute('fakeproperty');
 
         $testObject = (object) ['existingAttribute' => true];
-        expect($testObject)->baseObjectHasAttribute('existingAttribute');
-        expect($testObject)->baseObjectNotHasAttribute('fakeproperty');
+        expect($testObject)->baseObjectToHaveAttribute('existingAttribute');
+        expect($testObject)->baseObjectNotToHaveAttribute('fakeproperty');
     }
 
     public function testHasStaticAttribute(): void
     {
-        expect(FakeClassForExpectTest::class)->classHasStaticAttribute('staticProperty');
-        expect(FakeClassForExpectTest::class)->classNotHasStaticAttribute('fakeProperty');
+        expect(FakeClassForExpectTest::class)->classToHaveStaticAttribute('staticProperty');
+        expect(FakeClassForExpectTest::class)->classNotToHaveStaticAttribute('fakeProperty');
     }
 
     public function testIsArray(): void
     {
-        expect([1, 2, 3])->isArray();
-        expect(false)->isNotArray();
+        expect([1, 2, 3])->toBeArray();
+        expect(false)->notToBeArray();
     }
 
     public function testIsBool(): void
     {
-        expect(false)->isBool();
-        expect([1, 2, 3])->isNotBool();
+        expect(false)->toBeBool();
+        expect([1, 2, 3])->notToBeBool();
     }
 
     public function testIsCallable(): void
     {
         expect(function (): void {
-        })->isCallable();
-        expect(false)->isNotCallable();
+        })->toBeCallable();
+        expect(false)->notToBeCallable();
     }
 
     public function testIsFloat(): void
     {
-        expect(1.5)->isFloat();
-        expect(1)->isNotFloat();
+        expect(1.5)->toBeFloat();
+        expect(1)->notToBeFloat();
     }
 
     public function testIsInstanceOf(): void
     {
         $testClass = new \DateTime();
-        expect($testClass)->instanceOf('DateTime');
-        expect($testClass)->notInstanceOf('DateTimeZone');
+        expect($testClass)->toBeInstanceOf('DateTime');
+        expect($testClass)->notToBeInstanceOf('DateTimeZone');
     }
 
     public function testIsInt(): void
     {
-        expect(5)->isInt();
-        expect(1.5)->isNotInt();
+        expect(5)->toBeInt();
+        expect(1.5)->notToBeInt();
     }
 
     public function testIsNumeric(): void
     {
-        expect('1.5')->isNumeric();
-        expect('foo bar')->isNotNumeric();
+        expect('1.5')->toBeNumeric();
+        expect('foo bar')->notToBeNumeric();
     }
 
     public function testIsObject(): void
     {
-        expect(new \stdClass)->isObject();
-        expect(false)->isNotObject();
+        expect(new \stdClass)->toBeObject();
+        expect(false)->notToBeObject();
     }
 
     public function testIsResource(): void
     {
-        expect(fopen(__FILE__, 'r'))->isResource();
-        expect(false)->isNotResource();
+        expect(fopen(__FILE__, 'r'))->toBeResource();
+        expect(false)->notToBeResource();
     }
 
     public function testIsScalar(): void
     {
-        expect('foo bar')->isScalar();
-        expect([1, 2, 3])->isNotScalar();
+        expect('foo bar')->toBeScalar();
+        expect([1, 2, 3])->notToBeScalar();
     }
 
     public function testIsString(): void
     {
-        expect('foo bar')->isString();
-        expect(false)->isNotString();
+        expect('foo bar')->toBeString();
+        expect(false)->notToBeString();
     }
 
     public function testMatchesFormat(): void
     {
-        expect('somestring')->stringMatchesFormat('%s');
-        expect('somestring')->stringNotMatchesFormat('%i');
+        expect('somestring')->stringToMatchFormat('%s');
+        expect('somestring')->stringNotToMatchFormat('%i');
     }
 
     public function testMatchesFormatFile(): void
     {
-        expect('23')->stringMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-        expect('asdfas')->stringNotMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        expect('23')->stringToMatchFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        expect('asdfas')->stringNotToMatchFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
     }
 
     public function testNotToEqual(): void
@@ -269,7 +269,7 @@ final class ExpectTest extends TestCase
         expect(3)->notToEqual(5);
         expect(3.252)->notToEqualWithDelta(3.25, 0.001);
         expect(3.252)->notToEqualWithDelta(3.25, 0.001, 'respects delta');
-        expect(__FILE__)->fileNotToEqual(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json');
+        expect(__FILE__)->fileToNotEqual(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json');
     }
 
     public function testnotToEqualCanonicalizing(): void
