@@ -93,8 +93,8 @@ final class AssertTest extends TestCase
 
     public function testHasStaticAttribute(): void
     {
-        verify('FakeClassForTesting')->classHasStaticAttribute('staticProperty');
-        verify('FakeClassForTesting')->classNotHasStaticAttribute('fakeProperty');
+        verify(FakeClassForTesting::class)->classHasStaticAttribute('staticProperty');
+        verify(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
     }
 
     public function testContainsOnly(): void
@@ -243,7 +243,7 @@ final class AssertTest extends TestCase
 
     public function testIsObject(): void
     {
-        verify(new stdClass)->isObject();
+        verify(new \stdClass)->isObject();
         verify(false)->isNotObject();
     }
 
