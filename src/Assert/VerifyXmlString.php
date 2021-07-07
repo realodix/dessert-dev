@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeception\Verify\Verifiers;
+namespace Realodix\NextProject\Assert;
 
 use function basename;
 use Codeception\Exception\InvalidVerifyException;

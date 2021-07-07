@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeception\Verify\Verifiers;
+namespace Realodix\NextProject\Assert;
 
 use Codeception\Verify\Verify;
 use PHPUnit\Framework\Assert;
