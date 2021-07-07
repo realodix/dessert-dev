@@ -13,7 +13,7 @@
     "require": {
         "php": "^7.2|^8.0",
         "ext-dom": "*",
-        "phpunit/phpunit": "^8.5.8|^9.3.3",
+        "phpunit/phpunit": "^8.5|^9.3",
         "yoast/phpunit-polyfills": "^1.0"
     },
     "require-dev": {
