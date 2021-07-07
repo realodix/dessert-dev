@@ -105,8 +105,13 @@ final class AssertTest extends TestCase
 
     public function testContainsOnlyInstancesOf(): void
     {
-        verify([new FakeClassForTesting(), new FakeClassForTesting(), new FakeClassForTesting()])
-            ->arrayContainsOnlyInstancesOf('FakeClassForTesting');
+        $array = [
+            new FakeClassForTesting(),
+            new FakeClassForTesting(),
+            new FakeClassForTesting()
+        ];
+
+        verify($array)->arrayContainsOnlyInstancesOf(FakeClassForTesting::class);
     }
 
     public function testCount(): void
