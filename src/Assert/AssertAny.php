@@ -605,6 +605,12 @@ class AssertAny extends Assert
      */
     public function isNotArray(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('array', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotArray($this->actual, $message);
 
         return $this;
@@ -619,6 +625,12 @@ class AssertAny extends Assert
      */
     public function isNotBool(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('bool', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotBool($this->actual, $message);
 
         return $this;
@@ -661,6 +673,12 @@ class AssertAny extends Assert
      */
     public function isNotFloat(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('float', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotFloat($this->actual, $message);
 
         return $this;
@@ -675,6 +693,12 @@ class AssertAny extends Assert
      */
     public function isNotInt(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('int', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotInt($this->actual, $message);
 
         return $this;
@@ -703,6 +727,12 @@ class AssertAny extends Assert
      */
     public function isNotNumeric(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('numeric', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotNumeric($this->actual, $message);
 
         return $this;
@@ -745,6 +775,12 @@ class AssertAny extends Assert
      */
     public function isNotScalar(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('scalar', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotScalar($this->actual, $message);
 
         return $this;
@@ -759,6 +795,12 @@ class AssertAny extends Assert
      */
     public function isNotString(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('string', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotString($this->actual, $message);
 
         return $this;
