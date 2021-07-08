@@ -43,7 +43,7 @@ abstract class Assert
     /**
      * @param mixed $actual
      *
-     * @return VerifyAny
+     * @return AssertAny
      */
     public static function Any($actual): AssertAny
     {
@@ -53,7 +53,7 @@ abstract class Assert
     /**
      * @param array|ArrayAccess|Countable|iterable $array
      *
-     * @return VerifyArray
+     * @return AssertArray
      */
     public static function Array($array): AssertArray
     {
