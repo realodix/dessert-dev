@@ -4,18 +4,18 @@ namespace Realodix\NextProject;
 
 use ArrayAccess;
 use Countable;
-use Realodix\NextProject\Verifiers\VerifyAny;
-use Realodix\NextProject\Verifiers\VerifyArray;
-use Realodix\NextProject\Verifiers\VerifyBaseObject;
-use Realodix\NextProject\Verifiers\VerifyCallable;
-use Realodix\NextProject\Verifiers\VerifyClass;
-use Realodix\NextProject\Verifiers\VerifyDirectory;
-use Realodix\NextProject\Verifiers\VerifyFile;
-use Realodix\NextProject\Verifiers\VerifyJsonFile;
-use Realodix\NextProject\Verifiers\VerifyJsonString;
-use Realodix\NextProject\Verifiers\VerifyString;
-use Realodix\NextProject\Verifiers\VerifyXmlFile;
-use Realodix\NextProject\Verifiers\VerifyXmlString;
+use Realodix\NextProject\Assert\VerifyAny;
+use Realodix\NextProject\Assert\VerifyArray;
+use Realodix\NextProject\Assert\VerifyBaseObject;
+use Realodix\NextProject\Assert\VerifyCallable;
+use Realodix\NextProject\Assert\VerifyClass;
+use Realodix\NextProject\Assert\VerifyDirectory;
+use Realodix\NextProject\Assert\VerifyFile;
+use Realodix\NextProject\Assert\VerifyJsonFile;
+use Realodix\NextProject\Assert\VerifyJsonString;
+use Realodix\NextProject\Assert\VerifyString;
+use Realodix\NextProject\Assert\VerifyXmlFile;
+use Realodix\NextProject\Assert\VerifyXmlString;
 
 abstract class Verify
 {

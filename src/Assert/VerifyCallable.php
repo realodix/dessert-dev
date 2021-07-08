@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Verifiers;
+namespace Realodix\NextProject\Assert;
 
 use Exception;
 use Realodix\NextProject\Assert\AssertThrows;

@@ -1,7 +1,7 @@
 <?php
 
 use Realodix\NextProject\Expectations\ExpectAny;
-use Realodix\NextProject\Verifiers\VerifyAny;
+use Realodix\NextProject\Assert\VerifyAny;
 
 if (! function_exists('verify')) {
     /**
