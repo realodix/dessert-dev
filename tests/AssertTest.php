@@ -201,6 +201,7 @@ final class AssertTest extends TestCase
     {
         ass(function (): void {
         })->isCallable();
+
         ass(false)->isNotCallable();
     }
 
@@ -261,8 +262,13 @@ final class AssertTest extends TestCase
 
     public function testMatchesFormatFile(): void
     {
-        ass('23')->stringMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-        ass('asdfas')->stringNotMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        ass('23')->stringMatchesFormatFile(
+            __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt'
+        );
+
+        ass('asdfas')->stringNotMatchesFormatFile(
+            __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt'
+        );
     }
 
     public function testNotEquals(): void
@@ -270,7 +276,10 @@ final class AssertTest extends TestCase
         ass(3)->notEquals(5);
         ass(3.252)->notEqualsWithDelta(3.25, 0.001);
         ass(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
-        ass(__FILE__)->fileNotEquals(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json');
+
+        ass(__FILE__)->fileNotEquals(
+            __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json'
+        );
     }
 
     public function testNotEqualsCanonicalizing(): void
