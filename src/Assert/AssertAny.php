@@ -645,6 +645,12 @@ class AssertAny extends Assert
      */
     public function isNotCallable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('callable', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotCallable($this->actual, $message);
 
         return $this;
@@ -747,6 +753,12 @@ class AssertAny extends Assert
      */
     public function isNotObject(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('object', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotObject($this->actual, $message);
 
         return $this;
@@ -761,6 +773,12 @@ class AssertAny extends Assert
      */
     public function isNotResource(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertNotInternalType('resource', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNotResource($this->actual, $message);
 
         return $this;
