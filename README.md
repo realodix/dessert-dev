@@ -23,7 +23,7 @@ composer require realodix/next-project
 Use in any test `verify` function instead of `$this->assert*` methods:
 
 ```php
-use Codeception\Verify\Verify;
+use Realodix\NextProject\Assert\Assert;
 
 $user = User::find(1);
 
@@ -35,7 +35,7 @@ verify($user->getNumPosts())
     ->notEquals(3);
 
 // contains
-Verify::Array($user->getRoles())
+Assert::Array($user->getRoles())
     ->contains('admin', 'first user is admin')
     ->notContains('banned', 'first user is not banned');
 
@@ -57,7 +57,7 @@ verify($user->getComments())->empty();
 verify($user->getRoles())->notEmpty();
 
 // throws
-Verify::Callable($callback)
+Assert::Callable($callback)
     ->throws()
     ->throws(Exception::class)
     ->throws(Exception::class, 'exception message')
@@ -65,7 +65,7 @@ Verify::Callable($callback)
     ->throws(new Exception('message'));
 
 // does not throw
-Verify::Callable($callback)
+Assert::Callable($callback)
     ->doesNotThrow()
     ->throws(Exception::class)
     ->doesNotThrow(new Exception());
@@ -93,7 +93,7 @@ expect($user->getNumPosts())
 In order to add more assertions you can extend the abstract class `Verify`:
 
 ```php
-use Codeception\Verify\Verify;
+use Realodix\NextProject\Assert\Assert;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class MyVerify extends Assert {
@@ -120,7 +120,7 @@ $myVerify = new MyVerify;
 
 $myVerify->success('it works!');
 
-$myVerify::Mixed('this also')->notEquals('works');
+$myAssert::Mixed('this also')->notEquals('works');
 ```
 
 ## License
