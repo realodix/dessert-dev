@@ -192,6 +192,22 @@ class AssertString extends Assert
 
     public function notContainsString(string $needle, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            if ($needle === '') {
+                if ($message === '') {
+                    $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
+                }
+
+                PHPUnit::fail($message);
+
+                return $this;
+            }
+
+            PHPUnit::assertNotContains($needle, $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
 
         return $this;
@@ -199,6 +215,22 @@ class AssertString extends Assert
 
     public function notContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            if ($needle === '') {
+                if ($message === '') {
+                    $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
+                }
+
+                PHPUnit::fail($message);
+
+                return $this;
+            }
+
+            PHPUnit::assertNotContains($needle, $this->actual, $message, true);
+
+            return $this;
+        }
+
         PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
