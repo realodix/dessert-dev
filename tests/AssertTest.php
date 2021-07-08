@@ -6,7 +6,7 @@ use Exception;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
-final class VerifyTest extends TestCase
+final class AssertTest extends TestCase
 {
     /** @var DOMDocument */
     protected $xml;
