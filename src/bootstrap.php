@@ -1,7 +1,7 @@
 <?php
 
 use Realodix\NextProject\Assert\AssertAny;
-use Realodix\NextProject\BddStyles\ExpectAny;
+use Realodix\NextProject\BddStyles\BddAny;
 
 if (! function_exists('verify')) {
     /**
@@ -19,10 +19,10 @@ if (! function_exists('expect')) {
     /**
      * @param mixed $actual
      *
-     * @return ExpectAny
+     * @return BddAny
      */
-    function expect($actual): ExpectAny
+    function expect($actual): BddAny
     {
-        return new ExpectAny($actual);
+        return new BddAny($actual);
     }
 }

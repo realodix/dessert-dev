@@ -6,7 +6,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
 use Realodix\NextProject\Traits\ExpectDataTrait;
 
-class ExpectDirectory extends Expect
+class BddDirectory extends Expect
 {
     use ExpectDataTrait;
 

@@ -7,7 +7,7 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Expect;
 use Realodix\NextProject\Traits\ExpectDataTrait;
 
-class ExpectFile extends Expect
+class BddFile extends Expect
 {
     use ExpectDataTrait;
 

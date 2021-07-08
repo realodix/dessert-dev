@@ -9,7 +9,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Exception\InvalidVerifyException;
 use Realodix\NextProject\Expect;
 
-class ExpectXmlString extends Expect
+class BddXmlString extends Expect
 {
     /**
      * @param DOMDocument|string $actualXml

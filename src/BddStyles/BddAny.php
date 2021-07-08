@@ -5,7 +5,7 @@ namespace Realodix\NextProject\BddStyles;
 use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
 
-class ExpectAny extends Expect
+class BddAny extends Expect
 {
     /**
      * @param mixed $actual

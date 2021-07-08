@@ -4,17 +4,17 @@ namespace Realodix\NextProject;
 
 use ArrayAccess;
 use Countable;
-use Realodix\NextProject\BddStyles\ExpectArray;
-use Realodix\NextProject\BddStyles\ExpectBaseObject;
-use Realodix\NextProject\BddStyles\ExpectCallable;
-use Realodix\NextProject\BddStyles\ExpectClass;
-use Realodix\NextProject\BddStyles\ExpectDirectory;
-use Realodix\NextProject\BddStyles\ExpectFile;
-use Realodix\NextProject\BddStyles\ExpectJsonFile;
-use Realodix\NextProject\BddStyles\ExpectJsonString;
-use Realodix\NextProject\BddStyles\ExpectString;
-use Realodix\NextProject\BddStyles\ExpectXmlFile;
-use Realodix\NextProject\BddStyles\ExpectXmlString;
+use Realodix\NextProject\BddStyles\BddArray;
+use Realodix\NextProject\BddStyles\BddBaseObject;
+use Realodix\NextProject\BddStyles\BddCallable;
+use Realodix\NextProject\BddStyles\BddClass;
+use Realodix\NextProject\BddStyles\BddDirectory;
+use Realodix\NextProject\BddStyles\BddFile;
+use Realodix\NextProject\BddStyles\BddJsonFile;
+use Realodix\NextProject\BddStyles\BddJsonString;
+use Realodix\NextProject\BddStyles\BddString;
+use Realodix\NextProject\BddStyles\BddXmlFile;
+use Realodix\NextProject\BddStyles\BddXmlString;
 
 abstract class Expect
 {
@@ -42,70 +42,70 @@ abstract class Expect
     /**
      * @param array|ArrayAccess|Countable|iterable $array
      *
-     * @return ExpectArray
+     * @return BddArray
      */
-    public static function Array($array): ExpectArray
+    public static function Array($array): BddArray
     {
-        return new ExpectArray($array);
+        return new BddArray($array);
     }
 
-    public static function BaseObject(object $object): ExpectBaseObject
+    public static function BaseObject(object $object): BddBaseObject
     {
-        return new ExpectBaseObject($object);
+        return new BddBaseObject($object);
     }
 
-    public static function Callable(callable $callable): ExpectCallable
+    public static function Callable(callable $callable): BddCallable
     {
-        return new ExpectCallable($callable);
+        return new BddCallable($callable);
     }
 
-    public static function Class(string $className): ExpectClass
+    public static function Class(string $className): BddClass
     {
-        return new ExpectClass($className);
+        return new BddClass($className);
     }
 
-    public static function Directory(string $directory): ExpectDirectory
+    public static function Directory(string $directory): BddDirectory
     {
-        return new ExpectDirectory($directory);
+        return new BddDirectory($directory);
     }
 
-    public static function File(string $filename): ExpectFile
+    public static function File(string $filename): BddFile
     {
-        return new ExpectFile($filename);
+        return new BddFile($filename);
     }
 
-    public static function JsonFile(string $filename): ExpectJsonFile
+    public static function JsonFile(string $filename): BddJsonFile
     {
-        return new ExpectJsonFile($filename);
+        return new BddJsonFile($filename);
     }
 
-    public static function JsonString(string $json): ExpectJsonString
+    public static function JsonString(string $json): BddJsonString
     {
-        return new ExpectJsonString($json);
+        return new BddJsonString($json);
     }
 
     /**
      * @param mixed $actual
      *
-     * @return ExpectCallable
+     * @return BddCallable
      */
-    public static function Mixed($actual): ExpectCallable
+    public static function Mixed($actual): BddCallable
     {
-        return new ExpectCallable($actual);
+        return new BddCallable($actual);
     }
 
-    public static function String(string $string): ExpectString
+    public static function String(string $string): BddString
     {
-        return new ExpectString($string);
+        return new BddString($string);
     }
 
-    public static function XmlFile(string $filename): ExpectXmlFile
+    public static function XmlFile(string $filename): BddXmlFile
     {
-        return new ExpectXmlFile($filename);
+        return new BddXmlFile($filename);
     }
 
-    public static function XmlString(string $xml): ExpectXmlString
+    public static function XmlString(string $xml): BddXmlString
     {
-        return new ExpectXmlString($xml);
+        return new BddXmlString($xml);
     }
 }

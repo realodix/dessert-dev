@@ -6,7 +6,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Expect;
 
-class ExpectString extends Expect
+class BddString extends Expect
 {
     public function __construct(string $string)
     {

@@ -5,7 +5,7 @@ namespace Realodix\NextProject\BddStyles;
 use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
 
-class ExpectJsonString extends Expect
+class BddJsonString extends Expect
 {
     public function __construct(string $actualJson)
     {

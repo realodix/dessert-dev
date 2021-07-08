@@ -11,7 +11,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Exception\InvalidVerifyException;
 use Realodix\NextProject\Expect;
 
-class ExpectArray extends Expect
+class BddArray extends Expect
 {
     /**
      * @param array|ArrayAccess|Countable|iterable $actual

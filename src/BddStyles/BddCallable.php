@@ -7,7 +7,7 @@ use Realodix\NextProject\Expect;
 use Realodix\NextProject\Traits\AssertThrowsTrait;
 use Throwable;
 
-class ExpectCallable extends Expect
+class BddCallable extends Expect
 {
     use AssertThrowsTrait;
 
