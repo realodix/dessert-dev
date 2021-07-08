@@ -14,6 +14,18 @@ class AssertString extends Assert
 
     public function containsString(string $needle, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            if ($needle === '') {
+                PHPUnit::assertSame($needle, $needle, $message);
+
+                return $this;
+            }
+
+            PHPUnit::assertContains($needle, $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertStringContainsString($needle, $this->actual, $message);
 
         return $this;
@@ -21,6 +33,18 @@ class AssertString extends Assert
 
     public function containsStringIgnoringCase($needle, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            if ($needle === '') {
+                PHPUnit::assertSame($needle, $needle, $message);
+
+                return $this;
+            }
+
+            PHPUnit::assertContains($needle, $this->actual, $message, true);
+
+            return $this;
+        }
+
         PHPUnit::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
