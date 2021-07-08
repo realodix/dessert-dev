@@ -477,6 +477,12 @@ class AssertAny extends Assert
      */
     public function isArray(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('array', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsArray($this->actual, $message);
 
         return $this;
@@ -491,6 +497,12 @@ class AssertAny extends Assert
      */
     public function isBool(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('bool', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsBool($this->actual, $message);
 
         return $this;
@@ -505,6 +517,12 @@ class AssertAny extends Assert
      */
     public function isCallable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('callable', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsCallable($this->actual, $message);
 
         return $this;
@@ -533,6 +551,12 @@ class AssertAny extends Assert
      */
     public function isFloat(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('float', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsFloat($this->actual, $message);
 
         return $this;
@@ -547,6 +571,12 @@ class AssertAny extends Assert
      */
     public function isInt(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('int', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsInt($this->actual, $message);
 
         return $this;
@@ -743,6 +773,12 @@ class AssertAny extends Assert
      */
     public function isNumeric(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('numeric', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsNumeric($this->actual, $message);
 
         return $this;
@@ -757,6 +793,12 @@ class AssertAny extends Assert
      */
     public function isObject(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('object', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsObject($this->actual, $message);
 
         return $this;
@@ -771,6 +813,12 @@ class AssertAny extends Assert
      */
     public function isResource(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('resource', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsResource($this->actual, $message);
 
         return $this;
@@ -785,6 +833,12 @@ class AssertAny extends Assert
      */
     public function isScalar(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('scalar', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsScalar($this->actual, $message);
 
         return $this;
@@ -799,6 +853,12 @@ class AssertAny extends Assert
      */
     public function isString(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertInternalType('string', $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertIsString($this->actual, $message);
 
         return $this;
