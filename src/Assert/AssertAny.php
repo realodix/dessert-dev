@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Assert;
 
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 
 class AssertAny extends Assert
 {
