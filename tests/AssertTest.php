@@ -174,7 +174,7 @@ final class AssertTest extends TestCase
         ass('Exception')->classHasAttribute('message');
         ass('Exception')->classNotHasAttribute('fakeproperty');
 
-        $testObject = (object) ['existingAttribute' => true];
+        $testObject = (object) array('existingAttribute' => true);
         ass($testObject)->baseObjectHasAttribute('existingAttribute');
         ass($testObject)->baseObjectNotHasAttribute('fakeproperty');
     }
