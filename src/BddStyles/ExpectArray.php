@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Expectations;
+namespace Realodix\NextProject\BddStyles;
 
 use ArrayAccess;
 use function basename;

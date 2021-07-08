@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Expectations;
+namespace Realodix\NextProject\BddStyles;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;

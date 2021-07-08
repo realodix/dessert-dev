@@ -4,17 +4,17 @@ namespace Realodix\NextProject;
 
 use ArrayAccess;
 use Countable;
-use Realodix\NextProject\Expectations\ExpectArray;
-use Realodix\NextProject\Expectations\ExpectBaseObject;
-use Realodix\NextProject\Expectations\ExpectCallable;
-use Realodix\NextProject\Expectations\ExpectClass;
-use Realodix\NextProject\Expectations\ExpectDirectory;
-use Realodix\NextProject\Expectations\ExpectFile;
-use Realodix\NextProject\Expectations\ExpectJsonFile;
-use Realodix\NextProject\Expectations\ExpectJsonString;
-use Realodix\NextProject\Expectations\ExpectString;
-use Realodix\NextProject\Expectations\ExpectXmlFile;
-use Realodix\NextProject\Expectations\ExpectXmlString;
+use Realodix\NextProject\BddStyles\ExpectArray;
+use Realodix\NextProject\BddStyles\ExpectBaseObject;
+use Realodix\NextProject\BddStyles\ExpectCallable;
+use Realodix\NextProject\BddStyles\ExpectClass;
+use Realodix\NextProject\BddStyles\ExpectDirectory;
+use Realodix\NextProject\BddStyles\ExpectFile;
+use Realodix\NextProject\BddStyles\ExpectJsonFile;
+use Realodix\NextProject\BddStyles\ExpectJsonString;
+use Realodix\NextProject\BddStyles\ExpectString;
+use Realodix\NextProject\BddStyles\ExpectXmlFile;
+use Realodix\NextProject\BddStyles\ExpectXmlString;
 
 abstract class Expect
 {
