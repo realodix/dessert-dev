@@ -3,13 +3,13 @@
 use Realodix\NextProject\Assert\AssertAny;
 use Realodix\NextProject\BddStyles\BddAny;
 
-if (! function_exists('verify')) {
+if (! function_exists('ass')) {
     /**
      * @param mixed $actual
      *
      * @return AssertAny
      */
-    function verify($actual): AssertAny
+    function ass($actual): AssertAny
     {
         return new AssertAny($actual);
     }

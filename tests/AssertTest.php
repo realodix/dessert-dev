@@ -20,20 +20,20 @@ final class AssertTest extends TestCase
     public function testArrayHasKey(): void
     {
         $errors = ['title' => 'You should add title'];
-        verify($errors)->arrayHasKey('title');
-        verify($errors)->arrayHasNotKey('body');
+        ass($errors)->arrayHasKey('title');
+        ass($errors)->arrayHasNotKey('body');
     }
 
     public function testContains(): void
     {
-        verify([3, 2])->arrayContains(3);
-        verify([3, 2])->arrayNotContains(5, 'user have 5 posts');
+        ass([3, 2])->arrayContains(3);
+        ass([3, 2])->arrayNotContains(5, 'user have 5 posts');
     }
 
     public function testContainsOnly(): void
     {
-        verify(['1', '2', '3'])->arrayContainsOnly('string');
-        verify(['1', '2', 3])->arrayNotContainsOnly('string');
+        ass(['1', '2', '3'])->arrayContainsOnly('string');
+        ass(['1', '2', 3])->arrayNotContainsOnly('string');
     }
 
     public function testContainsOnlyInstancesOf(): void
@@ -44,13 +44,13 @@ final class AssertTest extends TestCase
             new FakeClassForTesting(),
         ];
 
-        verify($array)->arrayContainsOnlyInstancesOf(FakeClassForTesting::class);
+        ass($array)->arrayContainsOnlyInstancesOf(FakeClassForTesting::class);
     }
 
     public function testCount(): void
     {
-        verify([1, 2, 3])->arrayCount(3);
-        verify([1, 2, 3])->arrayNotCount(2);
+        ass([1, 2, 3])->arrayCount(3);
+        ass([1, 2, 3])->arrayNotCount(2);
     }
 
     public function testDoesNotThrow(): void
@@ -59,261 +59,261 @@ final class AssertTest extends TestCase
             throw new Exception('foo');
         };
 
-        verify(function (): void {
+        ass(function (): void {
         })->callableDoesNotThrow();
-        verify($func)->callableDoesNotThrow(\RuntimeException::class);
-        verify($func)->callableDoesNotThrow(\RuntimeException::class, 'bar');
-        verify($func)->callableDoesNotThrow(\RuntimeException::class, 'foo');
-        verify($func)->callableDoesNotThrow(new \RuntimeException());
-        verify($func)->callableDoesNotThrow(new \RuntimeException('bar'));
-        verify($func)->callableDoesNotThrow(new \RuntimeException('foo'));
-        verify($func)->callableDoesNotThrow(Exception::class, 'bar');
-        verify($func)->callableDoesNotThrow(new Exception('bar'));
+        ass($func)->callableDoesNotThrow(\RuntimeException::class);
+        ass($func)->callableDoesNotThrow(\RuntimeException::class, 'bar');
+        ass($func)->callableDoesNotThrow(\RuntimeException::class, 'foo');
+        ass($func)->callableDoesNotThrow(new \RuntimeException());
+        ass($func)->callableDoesNotThrow(new \RuntimeException('bar'));
+        ass($func)->callableDoesNotThrow(new \RuntimeException('foo'));
+        ass($func)->callableDoesNotThrow(Exception::class, 'bar');
+        ass($func)->callableDoesNotThrow(new Exception('bar'));
 
-        verify(function () use ($func): void {
-            verify($func)->callableDoesNotThrow();
+        ass(function () use ($func): void {
+            ass($func)->callableDoesNotThrow();
         })->callableThrows(new ExpectationFailedException('exception was not expected to be thrown'));
 
-        verify(function () use ($func): void {
-            verify($func)->callableDoesNotThrow(Exception::class);
+        ass(function () use ($func): void {
+            ass($func)->callableDoesNotThrow(Exception::class);
         })->callableThrows(new ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
 
-        verify(function () use ($func): void {
-            verify($func)->callableDoesNotThrow(Exception::class, 'foo');
+        ass(function () use ($func): void {
+            ass($func)->callableDoesNotThrow(Exception::class, 'foo');
         })->callableThrows(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
 
     public function testEmptyNotEmpty(): void
     {
-        verify(['3', '5'])->notEmpty();
-        verify([])->empty();
+        ass(['3', '5'])->notEmpty();
+        ass([])->empty();
     }
 
     public function testEndsWith(): void
     {
-        verify('A completely not funny string')->stringEndsWith('ny string');
-        verify('A completely not funny string')->stringNotEndsWith('A completely');
+        ass('A completely not funny string')->stringEndsWith('ny string');
+        ass('A completely not funny string')->stringNotEndsWith('A completely');
     }
 
     public function testEquals(): void
     {
-        verify(5)->equals(5);
-        verify('hello')->equals('hello');
-        verify(5)->equals(5, 'user have 5 posts');
-        verify(3.251)->equalsWithDelta(3.25, 0.01);
-        verify(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
-        verify(__FILE__)->fileEquals(__FILE__);
+        ass(5)->equals(5);
+        ass('hello')->equals('hello');
+        ass(5)->equals(5, 'user have 5 posts');
+        ass(3.251)->equalsWithDelta(3.25, 0.01);
+        ass(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
+        ass(__FILE__)->fileEquals(__FILE__);
     }
 
     public function testEqualsCanonicalizing(): void
     {
-        verify([3, 2, 1])->equalsCanonicalizing([1, 2, 3]);
+        ass([3, 2, 1])->equalsCanonicalizing([1, 2, 3]);
     }
 
     public function testEqualsFile(): void
     {
-        verify('%i')->stringEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-        verify('Another string')->stringNotEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        ass('%i')->stringEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        ass('Another string')->stringNotEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
     }
 
     public function testEqualsIgnoringCase(): void
     {
-        verify('foo')->equalsIgnoringCase('FOO');
+        ass('foo')->equalsIgnoringCase('FOO');
     }
 
     public function testEqualsJsonFile(): void
     {
-        verify(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-test-file.json')
+        ass(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-test-file.json')
             ->jsonFileEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
-        verify('{"some" : "data"}')->jsonStringEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
+        ass('{"some" : "data"}')->jsonStringEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
     }
 
     public function testEqualsJsonString(): void
     {
-        verify('{"some" : "data"}')->jsonStringEqualsJsonString('{"some" : "data"}');
+        ass('{"some" : "data"}')->jsonStringEqualsJsonString('{"some" : "data"}');
     }
 
     public function testEqualsWithDelta(): void
     {
-        verify(1.01)->equalsWithDelta(1.0, 0.1);
+        ass(1.01)->equalsWithDelta(1.0, 0.1);
     }
 
     public function testEqualsXmlFile(): void
     {
-        verify(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml')
+        ass(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml')
             ->xmlFileEqualsXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
-        verify('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
+        ass('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
             ->xmlStringEqualsXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
     }
 
     public function testEqualsXmlString(): void
     {
-        verify('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
+        ass('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
             ->xmlStringEqualsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
     public function testFileExists(): void
     {
-        verify(__FILE__)->fileExists();
-        verify('completelyrandomfilename.txt')->fileDoesNotExists();
+        ass(__FILE__)->fileExists();
+        ass('completelyrandomfilename.txt')->fileDoesNotExists();
     }
 
     public function testGreaterLowerThan(): void
     {
-        verify(7)->greaterThan(5);
-        verify(7)->lessThan(10);
-        verify(7)->lessThanOrEqual(7);
-        verify(7)->lessThanOrEqual(8);
-        verify(7)->greaterThanOrEqual(7);
-        verify(7)->greaterThanOrEqual(5);
+        ass(7)->greaterThan(5);
+        ass(7)->lessThan(10);
+        ass(7)->lessThanOrEqual(7);
+        ass(7)->lessThanOrEqual(8);
+        ass(7)->greaterThanOrEqual(7);
+        ass(7)->greaterThanOrEqual(5);
     }
 
     public function testHasAttribute(): void
     {
-        verify('Exception')->classHasAttribute('message');
-        verify('Exception')->classNotHasAttribute('fakeproperty');
+        ass('Exception')->classHasAttribute('message');
+        ass('Exception')->classNotHasAttribute('fakeproperty');
 
         $testObject = (object) ['existingAttribute' => true];
-        verify($testObject)->baseObjectHasAttribute('existingAttribute');
-        verify($testObject)->baseObjectNotHasAttribute('fakeproperty');
+        ass($testObject)->baseObjectHasAttribute('existingAttribute');
+        ass($testObject)->baseObjectNotHasAttribute('fakeproperty');
     }
 
     public function testHasStaticAttribute(): void
     {
-        verify(FakeClassForTesting::class)->classHasStaticAttribute('staticProperty');
-        verify(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
+        ass(FakeClassForTesting::class)->classHasStaticAttribute('staticProperty');
+        ass(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
     }
 
     public function testIsArray(): void
     {
-        verify([1, 2, 3])->isArray();
-        verify(false)->isNotArray();
+        ass([1, 2, 3])->isArray();
+        ass(false)->isNotArray();
     }
 
     public function testIsBool(): void
     {
-        verify(false)->isBool();
-        verify([1, 2, 3])->isNotBool();
+        ass(false)->isBool();
+        ass([1, 2, 3])->isNotBool();
     }
 
     public function testIsCallable(): void
     {
-        verify(function (): void {
+        ass(function (): void {
         })->isCallable();
-        verify(false)->isNotCallable();
+        ass(false)->isNotCallable();
     }
 
     public function testIsFloat(): void
     {
-        verify(1.5)->isFloat();
-        verify(1)->isNotFloat();
+        ass(1.5)->isFloat();
+        ass(1)->isNotFloat();
     }
 
     public function testIsInstanceOf(): void
     {
         $testClass = new \DateTime();
-        verify($testClass)->instanceOf('DateTime');
-        verify($testClass)->notInstanceOf('DateTimeZone');
+        ass($testClass)->instanceOf('DateTime');
+        ass($testClass)->notInstanceOf('DateTimeZone');
     }
 
     public function testIsInt(): void
     {
-        verify(5)->isInt();
-        verify(1.5)->isNotInt();
+        ass(5)->isInt();
+        ass(1.5)->isNotInt();
     }
 
     public function testIsNumeric(): void
     {
-        verify('1.5')->isNumeric();
-        verify('foo bar')->isNotNumeric();
+        ass('1.5')->isNumeric();
+        ass('foo bar')->isNotNumeric();
     }
 
     public function testIsObject(): void
     {
-        verify(new \stdClass)->isObject();
-        verify(false)->isNotObject();
+        ass(new \stdClass)->isObject();
+        ass(false)->isNotObject();
     }
 
     public function testIsResource(): void
     {
-        verify(fopen(__FILE__, 'r'))->isResource();
-        verify(false)->isNotResource();
+        ass(fopen(__FILE__, 'r'))->isResource();
+        ass(false)->isNotResource();
     }
 
     public function testIsScalar(): void
     {
-        verify('foo bar')->isScalar();
-        verify([1, 2, 3])->isNotScalar();
+        ass('foo bar')->isScalar();
+        ass([1, 2, 3])->isNotScalar();
     }
 
     public function testIsString(): void
     {
-        verify('foo bar')->isString();
-        verify(false)->isNotString();
+        ass('foo bar')->isString();
+        ass(false)->isNotString();
     }
 
     public function testMatchesFormat(): void
     {
-        verify('somestring')->stringMatchesFormat('%s');
-        verify('somestring')->stringNotMatchesFormat('%i');
+        ass('somestring')->stringMatchesFormat('%s');
+        ass('somestring')->stringNotMatchesFormat('%i');
     }
 
     public function testMatchesFormatFile(): void
     {
-        verify('23')->stringMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-        verify('asdfas')->stringNotMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        ass('23')->stringMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        ass('asdfas')->stringNotMatchesFormatFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
     }
 
     public function testNotEquals(): void
     {
-        verify(3)->notEquals(5);
-        verify(3.252)->notEqualsWithDelta(3.25, 0.001);
-        verify(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
-        verify(__FILE__)->fileNotEquals(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json');
+        ass(3)->notEquals(5);
+        ass(3.252)->notEqualsWithDelta(3.25, 0.001);
+        ass(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
+        ass(__FILE__)->fileNotEquals(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json');
     }
 
     public function testNotEqualsCanonicalizing(): void
     {
-        verify([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
+        ass([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
     public function testNotEqualsIgnoringCase(): void
     {
-        verify('foo')->notEqualsIgnoringCase('BAR');
+        ass('foo')->notEqualsIgnoringCase('BAR');
     }
 
     public function testNotEqualsWithDelta(): void
     {
-        verify(1.2)->notEqualsWithDelta(1.0, 0.1);
+        ass(1.2)->notEqualsWithDelta(1.0, 0.1);
     }
 
     public function testRegExp(): void
     {
-        verify('somestring')->stringMatchesRegExp('/string/');
+        ass('somestring')->stringMatchesRegExp('/string/');
     }
 
     public function testSame(): void
     {
-        verify(1)->same(0 + 1);
-        verify(1)->notSame(true);
+        ass(1)->same(0 + 1);
+        ass(1)->notSame(true);
     }
 
     public function testStartsWith(): void
     {
-        verify('A completely not funny string')->stringStartsWith('A completely');
-        verify('A completely not funny string')->stringStartsNotWith('string');
+        ass('A completely not funny string')->stringStartsWith('A completely');
+        ass('A completely not funny string')->stringStartsNotWith('string');
     }
 
     public function testStringContainsString(): void
     {
-        verify('foo bar')->stringContainsString('o b');
-        verify('foo bar')->stringNotContainsString('BAR');
+        ass('foo bar')->stringContainsString('o b');
+        ass('foo bar')->stringNotContainsString('BAR');
     }
 
     public function testStringContainsStringIgnoringCase(): void
     {
-        verify('foo bar')->stringContainsStringIgnoringCase('O b');
-        verify('foo bar')->stringNotContainsStringIgnoringCase('baz');
+        ass('foo bar')->stringContainsStringIgnoringCase('O b');
+        ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
     }
 
     public function testThrows(): void
@@ -322,30 +322,30 @@ final class AssertTest extends TestCase
             throw new Exception('foo');
         };
 
-        verify($func)->callableThrows();
-        verify($func)->callableThrows(Exception::class);
-        verify($func)->callableThrows(Exception::class, 'foo');
-        verify($func)->callableThrows(new Exception());
-        verify($func)->callableThrows(new Exception('foo'));
+        ass($func)->callableThrows();
+        ass($func)->callableThrows(Exception::class);
+        ass($func)->callableThrows(Exception::class, 'foo');
+        ass($func)->callableThrows(new Exception());
+        ass($func)->callableThrows(new Exception('foo'));
 
-        verify(function () use ($func): void {
-            verify($func)->callableThrows(\RuntimeException::class);
+        ass(function () use ($func): void {
+            ass($func)->callableThrows(\RuntimeException::class);
         })->callableThrows(ExpectationFailedException::class);
 
-        verify(function (): void {
-            verify(function (): void {
+        ass(function (): void {
+            ass(function (): void {
             })->callableThrows(Exception::class);
         })->callableThrows(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
     }
 
     public function testTrueFalseNull(): void
     {
-        verify(true)->true();
-        verify(false)->false();
-        verify(null)->null();
-        verify(true)->notNull();
-        verify(false)->false('something should be false');
-        verify(true)->true('something should be true');
+        ass(true)->true();
+        ass(false)->false();
+        ass(null)->null();
+        ass(true)->notNull();
+        ass(false)->false('something should be false');
+        ass(true)->true('something should be true');
     }
 }
 

@@ -8,7 +8,8 @@ use Realodix\NextProject\Assert;
 
 final class InheritanceTest extends TestCase
 {
-    public function testVerifyCanBeExtended(): void
+    /** @test */
+    public function canBeExtended(): void
     {
         $myVerify = new MyVerify;
 
@@ -16,7 +17,7 @@ final class InheritanceTest extends TestCase
 
         $myVerify::Any('this also')->notEquals('works');
 
-        verify(new MyVerify())->instanceOf(Assert::class);
+        ass(new MyVerify())->instanceOf(Assert::class);
     }
 }
 
