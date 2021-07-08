@@ -61,6 +61,7 @@ final class AssertTest extends TestCase
 
         ass(function (): void {
         })->callableDoesNotThrow();
+
         ass($func)->callableDoesNotThrow(\RuntimeException::class);
         ass($func)->callableDoesNotThrow(\RuntimeException::class, 'bar');
         ass($func)->callableDoesNotThrow(\RuntimeException::class, 'foo');
