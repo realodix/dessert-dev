@@ -31,11 +31,15 @@ trait AssertThrowsTrait
             }
 
             if (! $message) {
-                throw new ExpectationFailedException(sprintf('exception \'%s\' was not expected to be thrown', $throws));
+                throw new ExpectationFailedException(
+                    sprintf('exception \'%s\' was not expected to be thrown', $throws)
+                );
             }
 
             if ($message === $actualMessage) {
-                throw new ExpectationFailedException(sprintf('exception \'%s\' with message \'%s\' was not expected to be thrown', $throws, $message));
+                throw new ExpectationFailedException(
+                    sprintf('exception \'%s\' with message \'%s\' was not expected to be thrown', $throws, $message)
+                );
             }
         }
 
@@ -59,15 +63,25 @@ trait AssertThrowsTrait
             $actualThrows = get_class($exception);
             $actualMessage = $exception->getMessage();
 
-            PHPUnit::assertSame($throws, $actualThrows, sprintf('exception \'%s\' was expected, but \'%s\' was thrown', $throws, $actualThrows));
+            PHPUnit::assertSame(
+                $throws,
+                $actualThrows,
+                sprintf('exception \'%s\' was expected, but \'%s\' was thrown', $throws, $actualThrows)
+            );
 
             if ($message) {
-                PHPUnit::assertSame($message, $actualMessage, sprintf('exception message \'%s\' was expected, but \'%s\' was received', $message, $actualMessage));
+                PHPUnit::assertSame(
+                    $message,
+                    $actualMessage,
+                    sprintf('exception message \'%s\' was expected, but \'%s\' was received', $message, $actualMessage)
+                );
             }
         }
 
         if (! isset($exception)) {
-            throw new ExpectationFailedException(sprintf('exception \'%s\' was not thrown as expected', $throws));
+            throw new ExpectationFailedException(
+                sprintf('exception \'%s\' was not thrown as expected', $throws)
+            );
         }
 
         return $this;
