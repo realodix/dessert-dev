@@ -242,6 +242,12 @@ class AssertAny extends Assert
      */
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, true);
+
+            return $this;
+        }
+
         PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
@@ -257,6 +263,12 @@ class AssertAny extends Assert
      */
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, false, true);
+
+            return $this;
+        }
+
         PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
@@ -273,6 +285,12 @@ class AssertAny extends Assert
      */
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            PHPUnit::assertEquals($expected, $this->actual, $message, $delta);
+
+            return $this;
+        }
+
         PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
