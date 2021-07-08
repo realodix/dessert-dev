@@ -48,7 +48,7 @@ class Assert
         return new AssertArray($array);
     }
 
-    public static function BaseObject(object $object): AssertBaseObject
+    public static function BaseObject($object): AssertBaseObject
     {
         return new AssertBaseObject($object);
     }
