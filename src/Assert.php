@@ -17,7 +17,7 @@ use Realodix\NextProject\Assert\AssertString;
 use Realodix\NextProject\Assert\AssertXmlFile;
 use Realodix\NextProject\Assert\AssertXmlString;
 
-abstract class Assert
+class Assert
 {
     /** @var mixed */
     protected $actual = null;
