@@ -174,9 +174,12 @@ final class AssertTest extends TestCase
         ass('Exception')->classHasAttribute('message');
         ass('Exception')->classNotHasAttribute('fakeproperty');
 
-        $testObject = (object) array('existingAttribute' => true);
-        ass($testObject)->baseObjectHasAttribute('existingAttribute');
+        $testObject = (object) ['existingAttribute' => true];
         ass($testObject)->baseObjectNotHasAttribute('fakeproperty');
+
+        if (version_compare(PHP_VERSION, '7.1.0', '>')) {
+            ass($testObject)->baseObjectHasAttribute('existingAttribute');
+        }
     }
 
     public function testHasStaticAttribute(): void
