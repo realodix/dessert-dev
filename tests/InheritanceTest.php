@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Assert;
+use Realodix\NextProject\Assert\Assert;
 
 final class InheritanceTest extends TestCase
 {

@@ -3,7 +3,6 @@
 namespace Realodix\NextProject\Assert;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use Realodix\NextProject\Assert;
 
 class AssertJsonFile extends Assert
 {

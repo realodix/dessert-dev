@@ -1,21 +1,9 @@
 <?php
 
-namespace Realodix\NextProject;
+namespace Realodix\NextProject\Assert;
 
 use ArrayAccess;
 use Countable;
-use Realodix\NextProject\Assert\AssertAny;
-use Realodix\NextProject\Assert\AssertArray;
-use Realodix\NextProject\Assert\AssertBaseObject;
-use Realodix\NextProject\Assert\AssertCallable;
-use Realodix\NextProject\Assert\AssertClass;
-use Realodix\NextProject\Assert\AssertDirectory;
-use Realodix\NextProject\Assert\AssertFile;
-use Realodix\NextProject\Assert\AssertJsonFile;
-use Realodix\NextProject\Assert\AssertJsonString;
-use Realodix\NextProject\Assert\AssertString;
-use Realodix\NextProject\Assert\AssertXmlFile;
-use Realodix\NextProject\Assert\AssertXmlString;
 
 class Assert
 {

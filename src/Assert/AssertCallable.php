@@ -3,7 +3,6 @@
 namespace Realodix\NextProject\Assert;
 
 use Exception;
-use Realodix\NextProject\Assert;
 use Realodix\NextProject\Traits\AssertThrowsTrait;
 use Throwable;
 

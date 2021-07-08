@@ -6,7 +6,6 @@ use function basename;
 use DOMDocument;
 use function is_string;
 use PHPUnit\Framework\Assert as PHPUnit;
-use Realodix\NextProject\Assert;
 use Realodix\NextProject\Exception\InvalidVerifyException;
 
 class AssertXmlString extends Assert

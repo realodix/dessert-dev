@@ -8,7 +8,6 @@ use Countable;
 use function is_array;
 use function is_iterable;
 use PHPUnit\Framework\Assert as PHPUnit;
-use Realodix\NextProject\Assert;
 use Realodix\NextProject\Exception\InvalidVerifyException;
 
 class AssertArray extends Assert
