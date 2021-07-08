@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Asserts;
+namespace Realodix\NextProject\Assert;
 
 use Exception;
 use PHPUnit\Framework\Assert;

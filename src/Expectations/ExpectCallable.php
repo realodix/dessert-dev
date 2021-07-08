@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Expectations;
 
 use Exception;
-use Realodix\NextProject\Asserts\AssertThrows;
+use Realodix\NextProject\Assert\AssertThrows;
 use Realodix\NextProject\Expect;
 use Throwable;
 
