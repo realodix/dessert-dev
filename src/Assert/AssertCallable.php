@@ -4,11 +4,12 @@ namespace Realodix\NextProject\Assert;
 
 use Exception;
 use Realodix\NextProject\Assert;
+use Realodix\NextProject\Trait\AssertThrowsTrait;
 use Throwable;
 
 class AssertCallable extends Assert
 {
-    use AssertThrows;
+    use AssertThrowsTrait;
 
     public function __construct(callable $callable)
     {

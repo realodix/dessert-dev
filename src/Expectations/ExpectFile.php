@@ -5,6 +5,7 @@ namespace Realodix\NextProject\Expectations;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Expect;
+use Realodix\NextProject\Trait\ExpectDataTrait;
 
 class ExpectFile extends Expect
 {

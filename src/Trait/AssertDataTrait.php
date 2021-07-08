@@ -1,19 +1,19 @@
 <?php
 
-namespace Realodix\NextProject\Expectations;
+namespace Realodix\NextProject\Trait;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 
-trait ExpectDataTrait
+trait AssertDataTrait
 {
     /**
-     * Expect that a file/dir is not readable.
+     * Verifies that a file/dir is not readable.
      *
      * @param string $message
      *
      * @return self
      */
-    public function notToBeReadable(string $message = ''): self
+    public function isNotReadable(string $message = ''): self
     {
         PHPUnit::assertIsNotReadable($this->actual, $message);
 
@@ -21,13 +21,13 @@ trait ExpectDataTrait
     }
 
     /**
-     * Expect that a file/dir is not writable.
+     * Verifies that a file/dir is not writable.
      *
      * @param string $message
      *
      * @return self
      */
-    public function notToBeWritable(string $message = ''): self
+    public function isNotWritable(string $message = ''): self
     {
         PHPUnit::assertIsNotWritable($this->actual, $message);
 
@@ -35,13 +35,13 @@ trait ExpectDataTrait
     }
 
     /**
-     * Expect that a file/dir is readable.
+     * Verifies that a file/dir is readable.
      *
      * @param string $message
      *
      * @return self
      */
-    public function toBeReadable(string $message = ''): self
+    public function isReadable(string $message = ''): self
     {
         PHPUnit::assertIsReadable($this->actual, $message);
 
@@ -49,13 +49,13 @@ trait ExpectDataTrait
     }
 
     /**
-     * Expect that a file/dir is writable.
+     * Verifies that a file/dir is writable.
      *
      * @param string $message
      *
      * @return self
      */
-    public function toBeWritable(string $message = ''): self
+    public function isWritable(string $message = ''): self
     {
         PHPUnit::assertIsWritable($this->actual, $message);
 

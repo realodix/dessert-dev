@@ -1,13 +1,13 @@
 <?php
 
-namespace Realodix\NextProject\Assert;
+namespace Realodix\NextProject\Trait;
 
 use Exception;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\ExpectationFailedException;
 use Throwable;
 
-trait AssertThrows
+trait AssertThrowsTrait
 {
     public function assertDoesNotThrow($throws = null, $message = false): self
     {

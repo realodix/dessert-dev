@@ -3,8 +3,8 @@
 namespace Realodix\NextProject\Expectations;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use Realodix\NextProject\Assert\AssertDataTrait;
 use Realodix\NextProject\Expect;
+use Realodix\NextProject\Trait\AssertDataTrait;
 
 class ExpectClass extends Expect
 {

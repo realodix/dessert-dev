@@ -3,13 +3,13 @@
 namespace Realodix\NextProject\Expectations;
 
 use Exception;
-use Realodix\NextProject\Assert\AssertThrows;
 use Realodix\NextProject\Expect;
+use Realodix\NextProject\Trait\AssertThrowsTrait;
 use Throwable;
 
 class ExpectCallable extends Expect
 {
-    use AssertThrows;
+    use AssertThrowsTrait;
 
     public function __construct(callable $callable)
     {
