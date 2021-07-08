@@ -1,7 +1,7 @@
 # NextProject
 
 ![PHPVersion](https://img.shields.io/badge/PHP-^7.1|^8-777BB4.svg?style=flat-square)
-![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^7|^8|^9-3C9CD7.svg?style=flat-square)
+![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^7.5|^8|^9-3C9CD7.svg?style=flat-square)
 
 ## Usage
 
