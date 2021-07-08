@@ -359,6 +359,13 @@ final class AssertTest extends TestCase
         ass(false)->false('something should be false');
         ass(true)->true('something should be true');
     }
+
+    public function testVariants(): void
+    {
+        expect([])->empty();
+        should([])->empty();
+        verify([])->empty();
+    }
 }
 
 class FakeClassForTesting
