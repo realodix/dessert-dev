@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Expectations;
 
 use Exception;
 use Realodix\NextProject\Expect;
-use Realodix\NextProject\Trait\AssertThrowsTrait;
+use Realodix\NextProject\Traits\AssertThrowsTrait;
 use Throwable;
 
 class ExpectCallable extends Expect

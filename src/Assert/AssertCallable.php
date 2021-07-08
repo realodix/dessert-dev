@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Assert;
 
 use Exception;
 use Realodix\NextProject\Assert;
-use Realodix\NextProject\Trait\AssertThrowsTrait;
+use Realodix\NextProject\Traits\AssertThrowsTrait;
 use Throwable;
 
 class AssertCallable extends Assert

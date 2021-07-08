@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Assert;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Assert;
-use Realodix\NextProject\Trait\AssertDataTrait;
+use Realodix\NextProject\Traits\AssertDataTrait;
 
 class AssertFile extends Assert
 {

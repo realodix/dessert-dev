@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Expectations;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
-use Realodix\NextProject\Trait\ExpectDataTrait;
+use Realodix\NextProject\Traits\ExpectDataTrait;
 
 class ExpectDirectory extends Expect
 {
