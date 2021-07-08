@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Assert;
 
 use Exception;
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\ExpectationFailedException;
 use Throwable;
 
@@ -59,10 +59,10 @@ trait AssertThrows
             $actualThrows = get_class($exception);
             $actualMessage = $exception->getMessage();
 
-            Assert::assertSame($throws, $actualThrows, sprintf('exception \'%s\' was expected, but \'%s\' was thrown', $throws, $actualThrows));
+            PHPUnit::assertSame($throws, $actualThrows, sprintf('exception \'%s\' was expected, but \'%s\' was thrown', $throws, $actualThrows));
 
             if ($message) {
-                Assert::assertSame($message, $actualMessage, sprintf('exception message \'%s\' was expected, but \'%s\' was received', $message, $actualMessage));
+                PHPUnit::assertSame($message, $actualMessage, sprintf('exception message \'%s\' was expected, but \'%s\' was received', $message, $actualMessage));
             }
         }
 

@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
 
 class ExpectJsonFile extends Expect
@@ -22,7 +22,7 @@ class ExpectJsonFile extends Expect
      */
     public function notToEqualJsonFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -37,7 +37,7 @@ class ExpectJsonFile extends Expect
      */
     public function toEqualJsonFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }

@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 
 trait ExpectDataTrait
 {
@@ -15,7 +15,7 @@ trait ExpectDataTrait
      */
     public function notToBeReadable(string $message = ''): self
     {
-        Assert::assertIsNotReadable($this->actual, $message);
+        PHPUnit::assertIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -29,7 +29,7 @@ trait ExpectDataTrait
      */
     public function notToBeWritable(string $message = ''): self
     {
-        Assert::assertIsNotWritable($this->actual, $message);
+        PHPUnit::assertIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -43,7 +43,7 @@ trait ExpectDataTrait
      */
     public function toBeReadable(string $message = ''): self
     {
-        Assert::assertIsReadable($this->actual, $message);
+        PHPUnit::assertIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -57,7 +57,7 @@ trait ExpectDataTrait
      */
     public function toBeWritable(string $message = ''): self
     {
-        Assert::assertIsWritable($this->actual, $message);
+        PHPUnit::assertIsWritable($this->actual, $message);
 
         return $this;
     }

@@ -7,7 +7,7 @@ use function basename;
 use Countable;
 use function is_array;
 use function is_iterable;
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Exception\InvalidVerifyException;
 use Realodix\NextProject\Expect;
 
@@ -41,14 +41,14 @@ class ExpectArray extends Expect
      */
     public function notToContain($needle, string $message = ''): self
     {
-        Assert::assertNotContains($needle, $this->actual, $message);
+        PHPUnit::assertNotContains($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function notToContainEqual($needle, $message = ''): self
     {
-        Assert::assertNotContainsEquals($needle, $this->actual, $message);
+        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
 
         return $this;
     }
@@ -64,7 +64,7 @@ class ExpectArray extends Expect
      */
     public function notToContainOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
+        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
@@ -79,7 +79,7 @@ class ExpectArray extends Expect
      */
     public function notToHaveCount(int $expectedCount, string $message = ''): self
     {
-        Assert::assertNotCount($expectedCount, $this->actual, $message);
+        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
 
         return $this;
     }
@@ -94,7 +94,7 @@ class ExpectArray extends Expect
      */
     public function notToHaveKey($key, string $message = ''): self
     {
-        Assert::assertArrayNotHasKey($key, $this->actual, $message);
+        PHPUnit::assertArrayNotHasKey($key, $this->actual, $message);
 
         return $this;
     }
@@ -109,7 +109,7 @@ class ExpectArray extends Expect
      */
     public function notToHaveSameSizeAs($expected, string $message = ''): self
     {
-        Assert::assertNotSameSize($expected, $this->actual, $message);
+        PHPUnit::assertNotSameSize($expected, $this->actual, $message);
 
         return $this;
     }
@@ -124,14 +124,14 @@ class ExpectArray extends Expect
      */
     public function toContain($needle, string $message = ''): self
     {
-        Assert::assertContains($needle, $this->actual, $message);
+        PHPUnit::assertContains($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function toContainEqual($needle, string $message = ''): self
     {
-        Assert::assertContainsEquals($needle, $this->actual, $message);
+        PHPUnit::assertContainsEquals($needle, $this->actual, $message);
 
         return $this;
     }
@@ -147,7 +147,7 @@ class ExpectArray extends Expect
      */
     public function toContainOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
+        PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
@@ -162,7 +162,7 @@ class ExpectArray extends Expect
      */
     public function toContainOnlyInstancesOf(string $className, string $message = ''): self
     {
-        Assert::assertContainsOnlyInstancesOf($className, $this->actual, $message);
+        PHPUnit::assertContainsOnlyInstancesOf($className, $this->actual, $message);
 
         return $this;
     }
@@ -177,7 +177,7 @@ class ExpectArray extends Expect
      */
     public function toHaveCount(int $expectedCount, string $message = ''): self
     {
-        Assert::assertCount($expectedCount, $this->actual, $message);
+        PHPUnit::assertCount($expectedCount, $this->actual, $message);
 
         return $this;
     }
@@ -192,7 +192,7 @@ class ExpectArray extends Expect
      */
     public function toHaveKey($key, string $message = ''): self
     {
-        Assert::assertArrayHasKey($key, $this->actual, $message);
+        PHPUnit::assertArrayHasKey($key, $this->actual, $message);
 
         return $this;
     }
@@ -207,7 +207,7 @@ class ExpectArray extends Expect
      */
     public function toHaveSameSizeAs($expected, string $message = ''): self
     {
-        Assert::assertSameSize($expected, $this->actual, $message);
+        PHPUnit::assertSameSize($expected, $this->actual, $message);
 
         return $this;
     }

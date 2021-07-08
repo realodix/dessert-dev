@@ -1,17 +1,17 @@
 <?php
 
+use Realodix\NextProject\Assert\AssertAny;
 use Realodix\NextProject\Expectations\ExpectAny;
-use Realodix\NextProject\Assert\VerifyAny;
 
 if (! function_exists('verify')) {
     /**
      * @param mixed $actual
      *
-     * @return VerifyAny
+     * @return AssertAny
      */
-    function verify($actual): VerifyAny
+    function verify($actual): AssertAny
     {
-        return new VerifyAny($actual);
+        return new AssertAny($actual);
     }
 }
 

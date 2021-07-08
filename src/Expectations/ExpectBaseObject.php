@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
 
 class ExpectBaseObject extends Expect
@@ -27,7 +27,7 @@ class ExpectBaseObject extends Expect
      */
     public function notToHaveAttribute(string $attributeName, string $message = ''): self
     {
-        Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
+        PHPUnit::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
@@ -42,7 +42,7 @@ class ExpectBaseObject extends Expect
      */
     public function toHaveAttribute(string $attributeName, string $message = ''): self
     {
-        Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
+        PHPUnit::assertObjectHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }

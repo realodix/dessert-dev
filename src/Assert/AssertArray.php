@@ -7,11 +7,11 @@ use function basename;
 use Countable;
 use function is_array;
 use function is_iterable;
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
+use Realodix\NextProject\Assert;
 use Realodix\NextProject\Exception\InvalidVerifyException;
-use Realodix\NextProject\Verify;
 
-class VerifyArray extends Verify
+class AssertArray extends Assert
 {
     /**
      * @param array|ArrayAccess|Countable|iterable $actual
@@ -41,14 +41,14 @@ class VerifyArray extends Verify
      */
     public function contains($needle, string $message = ''): self
     {
-        Assert::assertContains($needle, $this->actual, $message);
+        PHPUnit::assertContains($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function containsEquals($needle, string $message = ''): self
     {
-        Assert::assertContainsEquals($needle, $this->actual, $message);
+        PHPUnit::assertContainsEquals($needle, $this->actual, $message);
 
         return $this;
     }
@@ -64,7 +64,7 @@ class VerifyArray extends Verify
      */
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
+        PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
@@ -79,7 +79,7 @@ class VerifyArray extends Verify
      */
     public function containsOnlyInstancesOf(string $className, string $message = ''): self
     {
-        Assert::assertContainsOnlyInstancesOf($className, $this->actual, $message);
+        PHPUnit::assertContainsOnlyInstancesOf($className, $this->actual, $message);
 
         return $this;
     }
@@ -94,7 +94,7 @@ class VerifyArray extends Verify
      */
     public function count(int $expectedCount, string $message = ''): self
     {
-        Assert::assertCount($expectedCount, $this->actual, $message);
+        PHPUnit::assertCount($expectedCount, $this->actual, $message);
 
         return $this;
     }
@@ -109,7 +109,7 @@ class VerifyArray extends Verify
      */
     public function hasKey($key, string $message = ''): self
     {
-        Assert::assertArrayHasKey($key, $this->actual, $message);
+        PHPUnit::assertArrayHasKey($key, $this->actual, $message);
 
         return $this;
     }
@@ -124,7 +124,7 @@ class VerifyArray extends Verify
      */
     public function hasNotKey($key, string $message = ''): self
     {
-        Assert::assertArrayNotHasKey($key, $this->actual, $message);
+        PHPUnit::assertArrayNotHasKey($key, $this->actual, $message);
 
         return $this;
     }
@@ -139,14 +139,14 @@ class VerifyArray extends Verify
      */
     public function notContains($needle, string $message = ''): self
     {
-        Assert::assertNotContains($needle, $this->actual, $message);
+        PHPUnit::assertNotContains($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function notContainsEquals($needle, $message = ''): self
     {
-        Assert::assertNotContainsEquals($needle, $this->actual, $message);
+        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
 
         return $this;
     }
@@ -162,7 +162,7 @@ class VerifyArray extends Verify
      */
     public function notContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
+        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
@@ -177,7 +177,7 @@ class VerifyArray extends Verify
      */
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        Assert::assertNotCount($expectedCount, $this->actual, $message);
+        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
 
         return $this;
     }
@@ -192,7 +192,7 @@ class VerifyArray extends Verify
      */
     public function notSameSize($expected, string $message = ''): self
     {
-        Assert::assertNotSameSize($expected, $this->actual, $message);
+        PHPUnit::assertNotSameSize($expected, $this->actual, $message);
 
         return $this;
     }
@@ -207,7 +207,7 @@ class VerifyArray extends Verify
      */
     public function sameSize($expected, string $message = ''): self
     {
-        Assert::assertSameSize($expected, $this->actual, $message);
+        PHPUnit::assertSameSize($expected, $this->actual, $message);
 
         return $this;
     }

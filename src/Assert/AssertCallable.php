@@ -3,11 +3,10 @@
 namespace Realodix\NextProject\Assert;
 
 use Exception;
-use Realodix\NextProject\Assert\AssertThrows;
-use Realodix\NextProject\Verify;
+use Realodix\NextProject\Assert;
 use Throwable;
 
-class VerifyCallable extends Verify
+class AssertCallable extends Assert
 {
     use AssertThrows;
 

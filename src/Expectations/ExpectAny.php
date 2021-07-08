@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
 
 class ExpectAny extends Expect
@@ -340,7 +340,7 @@ class ExpectAny extends Expect
      */
     public function notToBe($expected, string $message = ''): self
     {
-        Assert::assertNotSame($expected, $this->actual, $message);
+        PHPUnit::assertNotSame($expected, $this->actual, $message);
 
         return $this;
     }
@@ -354,7 +354,7 @@ class ExpectAny extends Expect
      */
     public function notToBeArray(string $message = ''): self
     {
-        Assert::assertIsNotArray($this->actual, $message);
+        PHPUnit::assertIsNotArray($this->actual, $message);
 
         return $this;
     }
@@ -368,7 +368,7 @@ class ExpectAny extends Expect
      */
     public function notToBeBool(string $message = ''): self
     {
-        Assert::assertIsNotBool($this->actual, $message);
+        PHPUnit::assertIsNotBool($this->actual, $message);
 
         return $this;
     }
@@ -382,7 +382,7 @@ class ExpectAny extends Expect
      */
     public function notToBeCallable(string $message = ''): self
     {
-        Assert::assertIsNotCallable($this->actual, $message);
+        PHPUnit::assertIsNotCallable($this->actual, $message);
 
         return $this;
     }
@@ -396,7 +396,7 @@ class ExpectAny extends Expect
      */
     public function notToBeClosedResource(string $message = ''): self
     {
-        Assert::assertIsNotClosedResource($this->actual, $message);
+        PHPUnit::assertIsNotClosedResource($this->actual, $message);
 
         return $this;
     }
@@ -410,7 +410,7 @@ class ExpectAny extends Expect
      */
     public function notToBeEmpty(string $message = ''): self
     {
-        Assert::assertNotEmpty($this->actual, $message);
+        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
@@ -424,7 +424,7 @@ class ExpectAny extends Expect
      */
     public function notToBeFalse(string $message = ''): self
     {
-        Assert::assertNotFalse($this->actual, $message);
+        PHPUnit::assertNotFalse($this->actual, $message);
 
         return $this;
     }
@@ -438,7 +438,7 @@ class ExpectAny extends Expect
      */
     public function notToBeFloat(string $message = ''): self
     {
-        Assert::assertIsNotFloat($this->actual, $message);
+        PHPUnit::assertIsNotFloat($this->actual, $message);
 
         return $this;
     }
@@ -453,7 +453,7 @@ class ExpectAny extends Expect
      */
     public function notToBeInstanceOf(string $expected, string $message = ''): self
     {
-        Assert::assertNotInstanceOf($expected, $this->actual, $message);
+        PHPUnit::assertNotInstanceOf($expected, $this->actual, $message);
 
         return $this;
     }
@@ -467,7 +467,7 @@ class ExpectAny extends Expect
      */
     public function notToBeInt(string $message = ''): self
     {
-        Assert::assertIsNotInt($this->actual, $message);
+        PHPUnit::assertIsNotInt($this->actual, $message);
 
         return $this;
     }
@@ -481,7 +481,7 @@ class ExpectAny extends Expect
      */
     public function notToBeIterable(string $message = ''): self
     {
-        Assert::assertIsNotIterable($this->actual, $message);
+        PHPUnit::assertIsNotIterable($this->actual, $message);
 
         return $this;
     }
@@ -495,7 +495,7 @@ class ExpectAny extends Expect
      */
     public function notToBeNull(string $message = ''): self
     {
-        Assert::assertNotNull($this->actual, $message);
+        PHPUnit::assertNotNull($this->actual, $message);
 
         return $this;
     }
@@ -509,7 +509,7 @@ class ExpectAny extends Expect
      */
     public function notToBeNumeric(string $message = ''): self
     {
-        Assert::assertIsNotNumeric($this->actual, $message);
+        PHPUnit::assertIsNotNumeric($this->actual, $message);
 
         return $this;
     }
@@ -523,7 +523,7 @@ class ExpectAny extends Expect
      */
     public function notToBeObject(string $message = ''): self
     {
-        Assert::assertIsNotObject($this->actual, $message);
+        PHPUnit::assertIsNotObject($this->actual, $message);
 
         return $this;
     }
@@ -537,7 +537,7 @@ class ExpectAny extends Expect
      */
     public function notToBeResource(string $message = ''): self
     {
-        Assert::assertIsNotResource($this->actual, $message);
+        PHPUnit::assertIsNotResource($this->actual, $message);
 
         return $this;
     }
@@ -551,7 +551,7 @@ class ExpectAny extends Expect
      */
     public function notToBeScalar(string $message = ''): self
     {
-        Assert::assertIsNotScalar($this->actual, $message);
+        PHPUnit::assertIsNotScalar($this->actual, $message);
 
         return $this;
     }
@@ -565,7 +565,7 @@ class ExpectAny extends Expect
      */
     public function notToBeString(string $message = ''): self
     {
-        Assert::assertIsNotString($this->actual, $message);
+        PHPUnit::assertIsNotString($this->actual, $message);
 
         return $this;
     }
@@ -579,7 +579,7 @@ class ExpectAny extends Expect
      */
     public function notToBeTrue(string $message = ''): self
     {
-        Assert::assertNotTrue($this->actual, $message);
+        PHPUnit::assertNotTrue($this->actual, $message);
 
         return $this;
     }
@@ -594,7 +594,7 @@ class ExpectAny extends Expect
      */
     public function notToEqual($expected, string $message = ''): self
     {
-        Assert::assertNotEquals($expected, $this->actual, $message);
+        PHPUnit::assertNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -609,7 +609,7 @@ class ExpectAny extends Expect
      */
     public function notToEqualCanonicalizing($expected, string $message = ''): self
     {
-        Assert::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -624,7 +624,7 @@ class ExpectAny extends Expect
      */
     public function notToEqualIgnoringCase($expected, string $message = ''): self
     {
-        Assert::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -640,7 +640,7 @@ class ExpectAny extends Expect
      */
     public function notToEqualWithDelta($expected, float $delta, string $message = ''): self
     {
-        Assert::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
+        PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
     }
@@ -802,7 +802,7 @@ class ExpectAny extends Expect
      */
     public function toBe($expected, string $message = ''): self
     {
-        Assert::assertSame($expected, $this->actual, $message);
+        PHPUnit::assertSame($expected, $this->actual, $message);
 
         return $this;
     }
@@ -816,7 +816,7 @@ class ExpectAny extends Expect
      */
     public function toBeArray(string $message = ''): self
     {
-        Assert::assertIsArray($this->actual, $message);
+        PHPUnit::assertIsArray($this->actual, $message);
 
         return $this;
     }
@@ -830,7 +830,7 @@ class ExpectAny extends Expect
      */
     public function toBeBool(string $message = ''): self
     {
-        Assert::assertIsBool($this->actual, $message);
+        PHPUnit::assertIsBool($this->actual, $message);
 
         return $this;
     }
@@ -844,7 +844,7 @@ class ExpectAny extends Expect
      */
     public function toBeCallable(string $message = ''): self
     {
-        Assert::assertIsCallable($this->actual, $message);
+        PHPUnit::assertIsCallable($this->actual, $message);
 
         return $this;
     }
@@ -858,7 +858,7 @@ class ExpectAny extends Expect
      */
     public function toBeClosedResource(string $message = ''): self
     {
-        Assert::assertIsClosedResource($this->actual, $message);
+        PHPUnit::assertIsClosedResource($this->actual, $message);
 
         return $this;
     }
@@ -872,7 +872,7 @@ class ExpectAny extends Expect
      */
     public function toBeEmpty(string $message = ''): self
     {
-        Assert::assertEmpty($this->actual, $message);
+        PHPUnit::assertEmpty($this->actual, $message);
 
         return $this;
     }
@@ -886,7 +886,7 @@ class ExpectAny extends Expect
      */
     public function toBeFalse(string $message = ''): self
     {
-        Assert::assertFalse($this->actual, $message);
+        PHPUnit::assertFalse($this->actual, $message);
 
         return $this;
     }
@@ -900,7 +900,7 @@ class ExpectAny extends Expect
      */
     public function toBeFinite(string $message = ''): self
     {
-        Assert::assertFinite($this->actual, $message);
+        PHPUnit::assertFinite($this->actual, $message);
 
         return $this;
     }
@@ -914,7 +914,7 @@ class ExpectAny extends Expect
      */
     public function toBeFloat(string $message = ''): self
     {
-        Assert::assertIsFloat($this->actual, $message);
+        PHPUnit::assertIsFloat($this->actual, $message);
 
         return $this;
     }
@@ -929,7 +929,7 @@ class ExpectAny extends Expect
      */
     public function toBeGreaterThan($expected, string $message = ''): self
     {
-        Assert::assertGreaterThan($expected, $this->actual, $message);
+        PHPUnit::assertGreaterThan($expected, $this->actual, $message);
 
         return $this;
     }
@@ -944,7 +944,7 @@ class ExpectAny extends Expect
      */
     public function toBeGreaterThanOrEqualTo($expected, string $message = ''): self
     {
-        Assert::assertGreaterThanOrEqual($expected, $this->actual, $message);
+        PHPUnit::assertGreaterThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
@@ -958,7 +958,7 @@ class ExpectAny extends Expect
      */
     public function toBeInfinite(string $message = ''): self
     {
-        Assert::assertInfinite($this->actual, $message);
+        PHPUnit::assertInfinite($this->actual, $message);
 
         return $this;
     }
@@ -973,7 +973,7 @@ class ExpectAny extends Expect
      */
     public function toBeInstanceOf(string $expected, string $message = ''): self
     {
-        Assert::assertInstanceOf($expected, $this->actual, $message);
+        PHPUnit::assertInstanceOf($expected, $this->actual, $message);
 
         return $this;
     }
@@ -987,7 +987,7 @@ class ExpectAny extends Expect
      */
     public function toBeInt(string $message = ''): self
     {
-        Assert::assertIsInt($this->actual, $message);
+        PHPUnit::assertIsInt($this->actual, $message);
 
         return $this;
     }
@@ -1001,7 +1001,7 @@ class ExpectAny extends Expect
      */
     public function toBeIterable(string $message = ''): self
     {
-        Assert::assertIsIterable($this->actual, $message);
+        PHPUnit::assertIsIterable($this->actual, $message);
 
         return $this;
     }
@@ -1016,7 +1016,7 @@ class ExpectAny extends Expect
      */
     public function toBeLessThan($expected, string $message = ''): self
     {
-        Assert::assertLessThan($expected, $this->actual, $message);
+        PHPUnit::assertLessThan($expected, $this->actual, $message);
 
         return $this;
     }
@@ -1031,7 +1031,7 @@ class ExpectAny extends Expect
      */
     public function toBeLessThanOrEqualTo($expected, string $message = ''): self
     {
-        Assert::assertLessThanOrEqual($expected, $this->actual, $message);
+        PHPUnit::assertLessThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
@@ -1045,7 +1045,7 @@ class ExpectAny extends Expect
      */
     public function toBeNan(string $message = ''): self
     {
-        Assert::assertNan($this->actual, $message);
+        PHPUnit::assertNan($this->actual, $message);
 
         return $this;
     }
@@ -1059,7 +1059,7 @@ class ExpectAny extends Expect
      */
     public function toBeNull(string $message = ''): self
     {
-        Assert::assertNull($this->actual, $message);
+        PHPUnit::assertNull($this->actual, $message);
 
         return $this;
     }
@@ -1073,7 +1073,7 @@ class ExpectAny extends Expect
      */
     public function toBeNumeric(string $message = ''): self
     {
-        Assert::assertIsNumeric($this->actual, $message);
+        PHPUnit::assertIsNumeric($this->actual, $message);
 
         return $this;
     }
@@ -1087,7 +1087,7 @@ class ExpectAny extends Expect
      */
     public function toBeObject(string $message = ''): self
     {
-        Assert::assertIsObject($this->actual, $message);
+        PHPUnit::assertIsObject($this->actual, $message);
 
         return $this;
     }
@@ -1101,7 +1101,7 @@ class ExpectAny extends Expect
      */
     public function toBeResource(string $message = ''): self
     {
-        Assert::assertIsResource($this->actual, $message);
+        PHPUnit::assertIsResource($this->actual, $message);
 
         return $this;
     }
@@ -1115,7 +1115,7 @@ class ExpectAny extends Expect
      */
     public function toBeScalar(string $message = ''): self
     {
-        Assert::assertIsScalar($this->actual, $message);
+        PHPUnit::assertIsScalar($this->actual, $message);
 
         return $this;
     }
@@ -1129,7 +1129,7 @@ class ExpectAny extends Expect
      */
     public function toBeString(string $message = ''): self
     {
-        Assert::assertIsString($this->actual, $message);
+        PHPUnit::assertIsString($this->actual, $message);
 
         return $this;
     }
@@ -1143,7 +1143,7 @@ class ExpectAny extends Expect
      */
     public function toBeTrue(string $message = ''): self
     {
-        Assert::assertTrue($this->actual, $message);
+        PHPUnit::assertTrue($this->actual, $message);
 
         return $this;
     }
@@ -1158,7 +1158,7 @@ class ExpectAny extends Expect
      */
     public function toEqual($expected, string $message = ''): self
     {
-        Assert::assertEquals($expected, $this->actual, $message);
+        PHPUnit::assertEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -1173,7 +1173,7 @@ class ExpectAny extends Expect
      */
     public function toEqualCanonicalizing($expected, string $message = ''): self
     {
-        Assert::assertEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -1188,7 +1188,7 @@ class ExpectAny extends Expect
      */
     public function toEqualIgnoringCase($expected, string $message = ''): self
     {
-        Assert::assertEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -1204,7 +1204,7 @@ class ExpectAny extends Expect
      */
     public function toEqualWithDelta($expected, float $delta, string $message = ''): self
     {
-        Assert::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
+        PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
     }

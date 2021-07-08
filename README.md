@@ -79,9 +79,9 @@ In order to add more assertions you can extend the abstract class `Verify`:
 
 ```php
 use Codeception\Verify\Verify;
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 
-class MyVerify extends Verify {
+class MyVerify extends Assert {
 
     //you can type $actual to only receive a specific data type
 
@@ -92,7 +92,7 @@ class MyVerify extends Verify {
 
     public function success(string $message = '')
     {
-        Assert::assertTrue(true, $message);
+        PHPUnit::assertTrue(true, $message);
     }
 
 }

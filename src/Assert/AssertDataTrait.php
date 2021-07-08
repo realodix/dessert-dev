@@ -2,9 +2,9 @@
 
 namespace Realodix\NextProject\Assert;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 
-trait VerifyDataTrait
+trait AssertDataTrait
 {
     /**
      * Verifies that a file/dir is not readable.
@@ -15,7 +15,7 @@ trait VerifyDataTrait
      */
     public function isNotReadable(string $message = ''): self
     {
-        Assert::assertIsNotReadable($this->actual, $message);
+        PHPUnit::assertIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -29,7 +29,7 @@ trait VerifyDataTrait
      */
     public function isNotWritable(string $message = ''): self
     {
-        Assert::assertIsNotWritable($this->actual, $message);
+        PHPUnit::assertIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -43,7 +43,7 @@ trait VerifyDataTrait
      */
     public function isReadable(string $message = ''): self
     {
-        Assert::assertIsReadable($this->actual, $message);
+        PHPUnit::assertIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -57,7 +57,7 @@ trait VerifyDataTrait
      */
     public function isWritable(string $message = ''): self
     {
-        Assert::assertIsWritable($this->actual, $message);
+        PHPUnit::assertIsWritable($this->actual, $message);
 
         return $this;
     }

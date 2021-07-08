@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Expect;
 
@@ -25,12 +25,12 @@ class ExpectFile extends Expect
     public function notToExist(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            Assert::assertFileNotExists($this->actual, $message);
+            PHPUnit::assertFileNotExists($this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertFileDoesNotExist($this->actual, $message);
+        PHPUnit::assertFileDoesNotExist($this->actual, $message);
 
         return $this;
     }
@@ -45,7 +45,7 @@ class ExpectFile extends Expect
      */
     public function toBeEqual(string $expected, string $message = ''): self
     {
-        Assert::assertFileEquals($expected, $this->actual, $message);
+        PHPUnit::assertFileEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -60,7 +60,7 @@ class ExpectFile extends Expect
      */
     public function toBeEqualCanonicalizing(string $expected, string $message = ''): self
     {
-        Assert::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -75,7 +75,7 @@ class ExpectFile extends Expect
      */
     public function toBeEqualIgnoringCase(string $expected, string $message = ''): self
     {
-        Assert::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -89,7 +89,7 @@ class ExpectFile extends Expect
      */
     public function toExist(string $message = ''): self
     {
-        Assert::assertFileExists($this->actual, $message);
+        PHPUnit::assertFileExists($this->actual, $message);
 
         return $this;
     }
@@ -103,7 +103,7 @@ class ExpectFile extends Expect
      */
     public function toExistAndNotToBeReadable(string $message = ''): self
     {
-        Assert::assertFileIsNotReadable($this->actual, $message);
+        PHPUnit::assertFileIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -117,7 +117,7 @@ class ExpectFile extends Expect
      */
     public function toExistAndNotToBeWritable(string $message = ''): self
     {
-        Assert::assertFileIsNotWritable($this->actual, $message);
+        PHPUnit::assertFileIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -131,7 +131,7 @@ class ExpectFile extends Expect
      */
     public function toExistAndToBeReadable(string $message = ''): self
     {
-        Assert::assertFileIsReadable($this->actual, $message);
+        PHPUnit::assertFileIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -145,7 +145,7 @@ class ExpectFile extends Expect
      */
     public function toExistAndToBeWritable(string $message = ''): self
     {
-        Assert::assertFileIsWritable($this->actual, $message);
+        PHPUnit::assertFileIsWritable($this->actual, $message);
 
         return $this;
     }
@@ -160,7 +160,7 @@ class ExpectFile extends Expect
      */
     public function toNotEqual(string $expected, string $message = ''): self
     {
-        Assert::assertFileNotEquals($expected, $this->actual, $message);
+        PHPUnit::assertFileNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -175,7 +175,7 @@ class ExpectFile extends Expect
      */
     public function toNotEqualCanonicalizing(string $expected, string $message = ''): self
     {
-        Assert::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -190,7 +190,7 @@ class ExpectFile extends Expect
      */
     public function toNotEqualIgnoringCase(string $expected, string $message = ''): self
     {
-        Assert::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }

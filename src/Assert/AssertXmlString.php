@@ -5,11 +5,11 @@ namespace Realodix\NextProject\Assert;
 use function basename;
 use DOMDocument;
 use function is_string;
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
+use Realodix\NextProject\Assert;
 use Realodix\NextProject\Exception\InvalidVerifyException;
-use Realodix\NextProject\Verify;
 
-class VerifyXmlString extends Verify
+class AssertXmlString extends Assert
 {
     /**
      * @param DOMDocument|string $actualXml
@@ -34,7 +34,7 @@ class VerifyXmlString extends Verify
      */
     public function equalsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -49,7 +49,7 @@ class VerifyXmlString extends Verify
      */
     public function equalsXmlString($expectedXml, string $message = ''): self
     {
-        Assert::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
+        PHPUnit::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
     }
@@ -64,7 +64,7 @@ class VerifyXmlString extends Verify
      */
     public function notEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -79,7 +79,7 @@ class VerifyXmlString extends Verify
      */
     public function notEqualsXmlString($expectedXml, string $message = ''): self
     {
-        Assert::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
+        PHPUnit::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
     }

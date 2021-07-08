@@ -2,12 +2,12 @@
 
 namespace Realodix\NextProject\Assert;
 
-use PHPUnit\Framework\Assert;
-use Realodix\NextProject\Verify;
+use PHPUnit\Framework\Assert as PHPUnit;
+use Realodix\NextProject\Assert;
 
-class VerifyDirectory extends Verify
+class AssertDirectory extends Assert
 {
-    use VerifyDataTrait;
+    use AssertDataTrait;
 
     /**
      * @param string $directory
@@ -26,7 +26,7 @@ class VerifyDirectory extends Verify
      */
     public function doesNotExist(string $message = ''): self
     {
-        Assert::assertDirectoryDoesNotExist($this->actual, $message);
+        PHPUnit::assertDirectoryDoesNotExist($this->actual, $message);
 
         return $this;
     }
@@ -40,7 +40,7 @@ class VerifyDirectory extends Verify
      */
     public function exists(string $message = ''): self
     {
-        Assert::assertDirectoryExists($this->actual, $message);
+        PHPUnit::assertDirectoryExists($this->actual, $message);
 
         return $this;
     }
@@ -54,7 +54,7 @@ class VerifyDirectory extends Verify
      */
     public function existsAndIsNotReadable(string $message = ''): self
     {
-        Assert::assertDirectoryIsNotReadable($this->actual, $message);
+        PHPUnit::assertDirectoryIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -68,7 +68,7 @@ class VerifyDirectory extends Verify
      */
     public function existsAndIsNotWritable(string $message = ''): self
     {
-        Assert::assertDirectoryIsNotWritable($this->actual, $message);
+        PHPUnit::assertDirectoryIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -82,7 +82,7 @@ class VerifyDirectory extends Verify
      */
     public function existsAndIsReadable(string $message = ''): self
     {
-        Assert::assertDirectoryIsReadable($this->actual, $message);
+        PHPUnit::assertDirectoryIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -96,7 +96,7 @@ class VerifyDirectory extends Verify
      */
     public function existsAndIsWritable(string $message = ''): self
     {
-        Assert::assertDirectoryIsWritable($this->actual, $message);
+        PHPUnit::assertDirectoryIsWritable($this->actual, $message);
 
         return $this;
     }

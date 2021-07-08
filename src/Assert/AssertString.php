@@ -2,11 +2,11 @@
 
 namespace Realodix\NextProject\Assert;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Verify;
+use Realodix\NextProject\Assert;
 
-class VerifyString extends Verify
+class AssertString extends Assert
 {
     public function __construct(string $string)
     {
@@ -15,14 +15,14 @@ class VerifyString extends Verify
 
     public function containsString(string $needle, string $message = ''): self
     {
-        Assert::assertStringContainsString($needle, $this->actual, $message);
+        PHPUnit::assertStringContainsString($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function containsStringIgnoringCase($needle, string $message = ''): self
     {
-        Assert::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
+        PHPUnit::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
     }
@@ -37,7 +37,7 @@ class VerifyString extends Verify
      */
     public function doesNotMatchRegExp(string $pattern, string $message = ''): self
     {
-        Assert::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
+        PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
 
         return $this;
     }
@@ -52,7 +52,7 @@ class VerifyString extends Verify
      */
     public function endsWith(string $suffix, string $message = ''): self
     {
-        Assert::assertStringEndsWith($suffix, $this->actual, $message);
+        PHPUnit::assertStringEndsWith($suffix, $this->actual, $message);
 
         return $this;
     }
@@ -67,7 +67,7 @@ class VerifyString extends Verify
      */
     public function equalsFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertStringEqualsFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -82,7 +82,7 @@ class VerifyString extends Verify
      */
     public function equalsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
-        Assert::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+        PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -97,7 +97,7 @@ class VerifyString extends Verify
      */
     public function equalsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
-        Assert::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+        PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -111,7 +111,7 @@ class VerifyString extends Verify
      */
     public function json(string $message = ''): self
     {
-        Assert::assertJson($this->actual, $message);
+        PHPUnit::assertJson($this->actual, $message);
 
         return $this;
     }
@@ -126,7 +126,7 @@ class VerifyString extends Verify
      */
     public function matchesFormat(string $format, string $message = ''): self
     {
-        Assert::assertStringMatchesFormat($format, $this->actual, $message);
+        PHPUnit::assertStringMatchesFormat($format, $this->actual, $message);
 
         return $this;
     }
@@ -141,7 +141,7 @@ class VerifyString extends Verify
      */
     public function matchesFormatFile(string $formatFile, string $message = ''): self
     {
-        Assert::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
+        PHPUnit::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
     }
@@ -157,26 +157,26 @@ class VerifyString extends Verify
     public function matchesRegExp(string $pattern, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            Assert::assertRegExp($pattern, $this->actual, $message);
+            PHPUnit::assertRegExp($pattern, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
+        PHPUnit::assertMatchesRegularExpression($pattern, $this->actual, $message);
 
         return $this;
     }
 
     public function notContainsString(string $needle, string $message = ''): self
     {
-        Assert::assertStringNotContainsString($needle, $this->actual, $message);
+        PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function notContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        Assert::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
+        PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
     }
@@ -191,7 +191,7 @@ class VerifyString extends Verify
      */
     public function notEndsWith(string $suffix, string $message = ''): self
     {
-        Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
+        PHPUnit::assertStringEndsNotWith($suffix, $this->actual, $message);
 
         return $this;
     }
@@ -206,7 +206,7 @@ class VerifyString extends Verify
      */
     public function notEqualsFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -221,7 +221,7 @@ class VerifyString extends Verify
      */
     public function notEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
-        Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+        PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -236,7 +236,7 @@ class VerifyString extends Verify
      */
     public function notEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
-        Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+        PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -251,7 +251,7 @@ class VerifyString extends Verify
      */
     public function notMatchesFormat($format, string $message = ''): self
     {
-        Assert::assertStringNotMatchesFormat($format, $this->actual, $message);
+        PHPUnit::assertStringNotMatchesFormat($format, $this->actual, $message);
 
         return $this;
     }
@@ -266,7 +266,7 @@ class VerifyString extends Verify
      */
     public function notMatchesFormatFile(string $formatFile, string $message = ''): self
     {
-        Assert::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
+        PHPUnit::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
     }
@@ -281,7 +281,7 @@ class VerifyString extends Verify
      */
     public function startsNotWith(string $prefix, string $message = ''): self
     {
-        Assert::assertStringStartsNotWith($prefix, $this->actual, $message);
+        PHPUnit::assertStringStartsNotWith($prefix, $this->actual, $message);
 
         return $this;
     }
@@ -296,7 +296,7 @@ class VerifyString extends Verify
      */
     public function startsWith(string $prefix, string $message = ''): self
     {
-        Assert::assertStringStartsWith($prefix, $this->actual, $message);
+        PHPUnit::assertStringStartsWith($prefix, $this->actual, $message);
 
         return $this;
     }

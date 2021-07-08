@@ -2,10 +2,10 @@
 
 namespace Realodix\NextProject\Assert;
 
-use PHPUnit\Framework\Assert;
-use Realodix\NextProject\Verify;
+use PHPUnit\Framework\Assert as PHPUnit;
+use Realodix\NextProject\Assert;
 
-class VerifyXmlFile extends Verify
+class AssertXmlFile extends Assert
 {
     public function __construct(string $actualFile)
     {
@@ -22,7 +22,7 @@ class VerifyXmlFile extends Verify
      */
     public function equalsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -37,7 +37,7 @@ class VerifyXmlFile extends Verify
      */
     public function notEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Assert::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }

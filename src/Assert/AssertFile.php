@@ -2,13 +2,13 @@
 
 namespace Realodix\NextProject\Assert;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Verify;
+use Realodix\NextProject\Assert;
 
-class VerifyFile extends Verify
+class AssertFile extends Assert
 {
-    use VerifyDataTrait;
+    use AssertDataTrait;
 
     public function __construct(string $actual)
     {
@@ -25,12 +25,12 @@ class VerifyFile extends Verify
     public function doesNotExists(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            Assert::assertFileNotExists($this->actual, $message);
+            PHPUnit::assertFileNotExists($this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertFileDoesNotExist($this->actual, $message);
+        PHPUnit::assertFileDoesNotExist($this->actual, $message);
 
         return $this;
     }
@@ -45,7 +45,7 @@ class VerifyFile extends Verify
      */
     public function equals(string $expected, string $message = ''): self
     {
-        Assert::assertFileEquals($expected, $this->actual, $message);
+        PHPUnit::assertFileEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -60,7 +60,7 @@ class VerifyFile extends Verify
      */
     public function equalsCanonicalizing(string $expected, string $message = ''): self
     {
-        Assert::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -75,7 +75,7 @@ class VerifyFile extends Verify
      */
     public function equalsIgnoringCase(string $expected, string $message = ''): self
     {
-        Assert::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -89,7 +89,7 @@ class VerifyFile extends Verify
      */
     public function exists(string $message = ''): self
     {
-        Assert::assertFileExists($this->actual, $message);
+        PHPUnit::assertFileExists($this->actual, $message);
 
         return $this;
     }
@@ -103,7 +103,7 @@ class VerifyFile extends Verify
      */
     public function existsAndIsNotReadable(string $message = ''): self
     {
-        Assert::assertFileIsNotReadable($this->actual, $message);
+        PHPUnit::assertFileIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -117,7 +117,7 @@ class VerifyFile extends Verify
      */
     public function existsAndIsNotWritable(string $message = ''): self
     {
-        Assert::assertFileIsNotWritable($this->actual, $message);
+        PHPUnit::assertFileIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -131,7 +131,7 @@ class VerifyFile extends Verify
      */
     public function existsAndIsReadable(string $message = ''): self
     {
-        Assert::assertFileIsReadable($this->actual, $message);
+        PHPUnit::assertFileIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -145,7 +145,7 @@ class VerifyFile extends Verify
      */
     public function existsAndIsWritable(string $message = ''): self
     {
-        Assert::assertFileIsWritable($this->actual, $message);
+        PHPUnit::assertFileIsWritable($this->actual, $message);
 
         return $this;
     }
@@ -160,7 +160,7 @@ class VerifyFile extends Verify
      */
     public function notEquals(string $expected, string $message = ''): self
     {
-        Assert::assertFileNotEquals($expected, $this->actual, $message);
+        PHPUnit::assertFileNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
@@ -175,7 +175,7 @@ class VerifyFile extends Verify
      */
     public function notEqualsCanonicalizing(string $expected, string $message = ''): self
     {
-        Assert::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -190,7 +190,7 @@ class VerifyFile extends Verify
      */
     public function notEqualsIgnoringCase(string $expected, string $message = ''): self
     {
-        Assert::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }

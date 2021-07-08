@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Expectations;
 
-use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Expect;
 
 class ExpectDirectory extends Expect
@@ -26,7 +26,7 @@ class ExpectDirectory extends Expect
      */
     public function notToExist(string $message = ''): self
     {
-        Assert::assertDirectoryDoesNotExist($this->actual, $message);
+        PHPUnit::assertDirectoryDoesNotExist($this->actual, $message);
 
         return $this;
     }
@@ -40,7 +40,7 @@ class ExpectDirectory extends Expect
      */
     public function toExist(string $message = ''): self
     {
-        Assert::assertDirectoryExists($this->actual, $message);
+        PHPUnit::assertDirectoryExists($this->actual, $message);
 
         return $this;
     }
@@ -54,7 +54,7 @@ class ExpectDirectory extends Expect
      */
     public function toExistAndNotToBeReadable(string $message = ''): self
     {
-        Assert::assertDirectoryIsNotReadable($this->actual, $message);
+        PHPUnit::assertDirectoryIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -68,7 +68,7 @@ class ExpectDirectory extends Expect
      */
     public function toExistAndNotToBeWritable(string $message = ''): self
     {
-        Assert::assertDirectoryIsNotWritable($this->actual, $message);
+        PHPUnit::assertDirectoryIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -82,7 +82,7 @@ class ExpectDirectory extends Expect
      */
     public function toExistAndToBeReadable(string $message = ''): self
     {
-        Assert::assertDirectoryIsReadable($this->actual, $message);
+        PHPUnit::assertDirectoryIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -96,7 +96,7 @@ class ExpectDirectory extends Expect
      */
     public function toExistAndToBeWritable(string $message = ''): self
     {
-        Assert::assertDirectoryIsWritable($this->actual, $message);
+        PHPUnit::assertDirectoryIsWritable($this->actual, $message);
 
         return $this;
     }
