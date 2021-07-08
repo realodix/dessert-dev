@@ -3,6 +3,21 @@
 ![PHPVersion](https://img.shields.io/badge/PHP-^7.1|^8-777BB4.svg?style=flat-square)
 ![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^7|^8|^9-3C9CD7.svg?style=flat-square)
 
+## Installation
+
+### Requirements
+
+- PHP 7.1 or higher.
+- PHPUnit 7.x or higher.
+
+### Install the package
+
+You can install the package via composer:
+
+```sh
+composer require realodix/next-project
+```
+
 ## Usage
 
 Use in any test `verify` function instead of `$this->assert*` methods:
