@@ -23,14 +23,14 @@ final class AssertTest extends TestCase
 
     public function testArrayContains(): void
     {
-        ass([3, 2])->arrayContains(3);
-        ass([3, 2])->arrayNotContains(5, 'user have 5 posts');
+        ass([3, 2])->contains(3);
+        ass([3, 2])->notContains(5, 'user have 5 posts');
     }
 
     public function testArrayContainsOnly(): void
     {
-        ass(['1', '2', '3'])->arrayCO('string');
-        ass(['1', '2', 3])->arrayNotContainsOnly('string');
+        ass(['1', '2', '3'])->containsOnly('string');
+        ass(['1', '2', 3])->notContainsOnly('string');
     }
 
     public function testArrayContainsOnlyInstancesOf(): void
@@ -41,13 +41,13 @@ final class AssertTest extends TestCase
             new FakeClassForTesting(),
         ];
 
-        ass($array)->arrayCOIO(FakeClassForTesting::class);
+        ass($array)->containsOnlyInstancesOf(FakeClassForTesting::class);
     }
 
     public function testArrayCount(): void
     {
-        ass([1, 2, 3])->arrayCount(3);
-        ass([1, 2, 3])->arrayNotCount(2);
+        ass([1, 2, 3])->count(3);
+        ass([1, 2, 3])->notCount(2);
     }
 
     public function testArrayHasKey(): void

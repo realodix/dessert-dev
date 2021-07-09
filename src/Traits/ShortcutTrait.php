@@ -4,21 +4,6 @@ namespace Realodix\NextProject\Traits;
 
 trait ShortcutTrait
 {
-    public function arrayCE($needle, string $message = ''): self
-    {
-        return $this->arrayContainsEquals($needle, $message);
-    }
-
-    public function arrayCO($type, $isNativeType = null, string $message = ''): self
-    {
-        return $this->arrayContainsOnly($type, $isNativeType, $message);
-    }
-
-    public function arrayCOIO($className, string $message = ''): self
-    {
-        return $this->arrayContainsOnlyInstancesOf($className, $message);
-    }
-
     public function doesNotMatchRegExp(string $pattern, string $message = ''): self
     {
         return $this->doesNotMatchRegularExpression($pattern, $message);

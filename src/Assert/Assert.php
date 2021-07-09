@@ -2,9 +2,6 @@
 
 namespace Realodix\NextProject\Assert;
 
-use ArrayAccess;
-use Countable;
-
 class Assert
 {
     /** @var mixed */
@@ -36,15 +33,5 @@ class Assert
     public static function any($actual): AssertAny
     {
         return new AssertAny($actual);
-    }
-
-    /**
-     * @param array|ArrayAccess|Countable|iterable $array
-     *
-     * @return AssertArray
-     */
-    public static function array($array): AssertArray
-    {
-        return new AssertArray($array);
     }
 }

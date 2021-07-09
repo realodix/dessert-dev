@@ -8,6 +8,7 @@ use Realodix\NextProject\Traits\ShortcutTrait;
 
 class AssertAny extends Assert
 {
+    use AssertArrayTrait;
     use AssertClassTrait;
     use AssertDataTrait;
     use AssertFileAndDirectoryTrait;
@@ -22,97 +23,6 @@ class AssertAny extends Assert
     public function __construct($actual)
     {
         parent::__construct($actual);
-    }
-
-    public function arrayContains($needle, string $message = ''): self
-    {
-        Assert::array($this->actual)->contains($needle, $message);
-
-        return $this;
-    }
-
-    public function arrayContainsEquals($needle, string $message = ''): self
-    {
-        Assert::array($this->actual)->containsEquals($needle, $message);
-
-        return $this;
-    }
-
-    public function arrayContainsOnly($type, $isNativeType = null, string $message = ''): self
-    {
-        Assert::array($this->actual)->containsOnly($type, $isNativeType, $message);
-
-        return $this;
-    }
-
-    public function arrayContainsOnlyInstancesOf($className, string $message = ''): self
-    {
-        Assert::array($this->actual)->containsOnlyInstancesOf($className, $message);
-
-        return $this;
-    }
-
-    public function arrayCount($expectedCount, string $message = ''): self
-    {
-        Assert::array($this->actual)->count($expectedCount, $message);
-
-        return $this;
-    }
-
-    public function arrayHasKey($key, string $message = ''): self
-    {
-        Assert::array($this->actual)->hasKey($key, $message);
-
-        return $this;
-    }
-
-    public function arrayNotContains($needle, string $message = ''): self
-    {
-        Assert::array($this->actual)->notContains($needle, $message);
-
-        return $this;
-    }
-
-    public function arrayNotContainsEquals($needle, string $message = ''): self
-    {
-        Assert::array($this->actual)->notContainsEquals($needle, $message);
-
-        return $this;
-    }
-
-    public function arrayNotContainsOnly($type, $isNativeType = null, string $message = ''): self
-    {
-        Assert::array($this->actual)->notContainsOnly($type, $isNativeType, $message);
-
-        return $this;
-    }
-
-    public function arrayNotCount($expectedCount, string $message = ''): self
-    {
-        Assert::array($this->actual)->notCount($expectedCount, $message);
-
-        return $this;
-    }
-
-    public function arrayNotHasKey($key, string $message = ''): self
-    {
-        Assert::array($this->actual)->notHasKey($key, $message);
-
-        return $this;
-    }
-
-    public function arrayNotSameSize($expected, string $message = ''): self
-    {
-        Assert::array($this->actual)->notSameSize($expected, $message);
-
-        return $this;
-    }
-
-    public function arraySameSize($expected, string $message = ''): self
-    {
-        Assert::array($this->actual)->sameSize($expected, $message);
-
-        return $this;
     }
 
     public function doesNotThrow($throws = null, string $message = ''): self
