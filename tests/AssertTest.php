@@ -29,7 +29,7 @@ final class AssertTest extends TestCase
 
     public function testArrayContainsOnly(): void
     {
-        ass(['1', '2', '3'])->arrayContainsOnly('string');
+        ass(['1', '2', '3'])->arrayCO('string');
         ass(['1', '2', 3])->arrayNotContainsOnly('string');
     }
 
@@ -41,7 +41,7 @@ final class AssertTest extends TestCase
             new FakeClassForTesting(),
         ];
 
-        ass($array)->arrayContainsOnlyInstancesOf(FakeClassForTesting::class);
+        ass($array)->arrayCOIO(FakeClassForTesting::class);
     }
 
     public function testArrayCount(): void
