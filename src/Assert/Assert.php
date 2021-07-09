@@ -33,7 +33,7 @@ class Assert
      *
      * @return AssertAny
      */
-    public static function Any($actual): AssertAny
+    public static function any($actual): AssertAny
     {
         return new AssertAny($actual);
     }
@@ -43,17 +43,17 @@ class Assert
      *
      * @return AssertArray
      */
-    public static function Array($array): AssertArray
+    public static function array($array): AssertArray
     {
         return new AssertArray($array);
     }
 
-    public static function BaseObject(object $object)
+    public static function baseObject(object $object)
     {
         return new AssertBaseObject($object);
     }
 
-    public static function Callable(callable $callable): AssertCallable
+    public static function callable(callable $callable): AssertCallable
     {
         return new AssertCallable($callable);
     }
@@ -63,37 +63,37 @@ class Assert
         return new AssertClass($className);
     }
 
-    public static function Directory(string $directory): AssertDirectory
+    public static function dir(string $directory): AssertDirectory
     {
         return new AssertDirectory($directory);
     }
 
-    public static function File(string $filename): AssertFile
+    public static function file(string $filename): AssertFile
     {
         return new AssertFile($filename);
     }
 
-    public static function JsonFile(string $filename): AssertJsonFile
+    public static function jsonFile(string $filename): AssertJsonFile
     {
         return new AssertJsonFile($filename);
     }
 
-    public static function JsonString(string $json): AssertJsonString
+    public static function jsonString(string $json): AssertJsonString
     {
         return new AssertJsonString($json);
     }
 
-    public static function String(string $string): AssertString
+    public static function string(string $string): AssertString
     {
         return new AssertString($string);
     }
 
-    public static function XmlFile(string $filename): AssertXmlFile
+    public static function xmlFile(string $filename): AssertXmlFile
     {
         return new AssertXmlFile($filename);
     }
 
-    public static function XmlString(string $xml): AssertXmlString
+    public static function xmlString(string $xml): AssertXmlString
     {
         return new AssertXmlString($xml);
     }
