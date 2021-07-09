@@ -1091,14 +1091,14 @@ class AssertAny extends Assert
 
     public function objectHasAttribute($attributeName, string $message = ''): self
     {
-        Assert::baseObject($this->actual)->hasAttribute($attributeName, $message);
+        PHPUnit::assertObjectHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
     public function objectNotHasAttribute($attributeName, string $message = ''): self
     {
-        Assert::baseObject($this->actual)->notHasAttribute($attributeName, $message);
+        PHPUnit::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
