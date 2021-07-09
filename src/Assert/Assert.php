@@ -95,27 +95,6 @@ class Assert
     }
 
     /**
-     * Verifies that two variables are equal (ignoring case).
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
-    public function equalsIgnoringCase($expected, string $message = ''): self
-    {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, false, true);
-
-            return $this;
-        }
-
-        PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Verifies that two variables are equal (with delta).
      *
      * @param mixed  $expected
@@ -314,27 +293,6 @@ class Assert
         }
 
         PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Verifies that two variables are not equal (ignoring case).
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
-    public function notEqualsIgnoringCase($expected, string $message = ''): self
-    {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, false, true);
-
-            return $this;
-        }
-
-        PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }

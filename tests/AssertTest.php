@@ -32,12 +32,6 @@ final class AssertTest extends TestCase
         ass([])->empty();
     }
 
-    public function testEndsWith(): void
-    {
-        ass('A completely not funny string')->stringEndsWith('ny string');
-        ass('A completely not funny string')->stringEndsNotWith('A completely');
-    }
-
     public function testEquals(): void
     {
         ass(5)->equals(5);
@@ -58,11 +52,6 @@ final class AssertTest extends TestCase
     {
         ass('%i')->stringEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
         ass('Another string')->stringNotEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-    }
-
-    public function testEqualsIgnoringCase(): void
-    {
-        ass('foo')->equalsIgnoringCase('FOO');
     }
 
     public function testEqualsJsonFile(): void
@@ -137,12 +126,6 @@ final class AssertTest extends TestCase
         ass($testClass)->notInstanceOf('DateTimeZone');
     }
 
-    public function testMatchesFormat(): void
-    {
-        ass('somestring')->stringMatchesFormat('%s');
-        ass('somestring')->stringNotMatchesFormat('%i');
-    }
-
     public function testMatchesFormatFile(): void
     {
         ass('23')->stringMatchesFormatFile(
@@ -170,44 +153,15 @@ final class AssertTest extends TestCase
         ass([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
-    public function testNotEqualsIgnoringCase(): void
-    {
-        ass('foo')->notEqualsIgnoringCase('BAR');
-    }
-
     public function testNotEqualsWithDelta(): void
     {
         ass(1.2)->notEqualsWithDelta(1.0, 0.1);
-    }
-
-    public function testRegExp(): void
-    {
-        ass('foobar')->matchesRegExp('/foobar/');
-        ass('foobar')->doesNotMatchRegExp('/foobarbaz/');
     }
 
     public function testSame(): void
     {
         ass(1)->same(0 + 1);
         ass(1)->notSame(true);
-    }
-
-    public function testStartsWith(): void
-    {
-        ass('A completely not funny string')->stringStartsWith('A completely');
-        ass('A completely not funny string')->stringStartsNotWith('string');
-    }
-
-    public function testStringContainsString(): void
-    {
-        ass('foo bar')->stringContainsString('o b');
-        ass('foo bar')->stringNotContainsString('BAR');
-    }
-
-    public function testStringContainsStringIgnoringCase(): void
-    {
-        ass('foo bar')->stringContainsStringIgnoringCase('O b');
-        ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
     }
 
     public function testVariants(): void
