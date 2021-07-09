@@ -109,20 +109,6 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function baseObjectHasAttribute($attributeName, string $message = ''): self
-    {
-        Assert::BaseObject($this->actual)->hasAttribute($attributeName, $message);
-
-        return $this;
-    }
-
-    public function baseObjectNotHasAttribute($attributeName, string $message = ''): self
-    {
-        Assert::BaseObject($this->actual)->notHasAttribute($attributeName, $message);
-
-        return $this;
-    }
-
     public function callableDoesNotThrow($throws = null, string $message = ''): self
     {
         Assert::Callable($this->actual)->doesNotThrow($throws, $message);
@@ -1202,6 +1188,20 @@ class AssertAny extends Assert
     public function null(string $message = ''): self
     {
         PHPUnit::assertNull($this->actual, $message);
+
+        return $this;
+    }
+
+    public function objectHasAttribute($attributeName, string $message = ''): self
+    {
+        Assert::BaseObject($this->actual)->hasAttribute($attributeName, $message);
+
+        return $this;
+    }
+
+    public function objectNotHasAttribute($attributeName, string $message = ''): self
+    {
+        Assert::BaseObject($this->actual)->notHasAttribute($attributeName, $message);
 
         return $this;
     }
