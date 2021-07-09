@@ -115,7 +115,7 @@ class AssertFile extends Assert
      *
      * @return self
      */
-    public function existsAndIsNotWritable(string $message = ''): self
+    public function isNotWritable(string $message = ''): self
     {
         PHPUnit::assertFileIsNotWritable($this->actual, $message);
 
@@ -129,7 +129,7 @@ class AssertFile extends Assert
      *
      * @return self
      */
-    public function existsAndIsReadable(string $message = ''): self
+    public function isReadable(string $message = ''): self
     {
         PHPUnit::assertFileIsReadable($this->actual, $message);
 
@@ -143,7 +143,7 @@ class AssertFile extends Assert
      *
      * @return self
      */
-    public function existsAndIsWritable(string $message = ''): self
+    public function isWritable(string $message = ''): self
     {
         PHPUnit::assertFileIsWritable($this->actual, $message);
 
