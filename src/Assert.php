@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Assert;
+namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;

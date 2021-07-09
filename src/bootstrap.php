@@ -1,6 +1,6 @@
 <?php
 
-use Realodix\NextProject\Assert\Assert;
+use Realodix\NextProject\Assert;
 
 if (! function_exists('ass')) {
     /**
