@@ -4,24 +4,24 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Assert\AssertAbstract;
+use Realodix\NextProject\Assert\Assert;
 
 final class InheritanceTest extends TestCase
 {
     /** @test */
     public function canBeExtended(): void
     {
-        $myVerify = new MyVerify;
+        $myAssert = new MyAssert;
 
-        $myVerify->success();
+        $myAssert->success();
 
-        $myVerify::Any('this also')->notEquals('works');
+        (new MyAssert('this also'))->notEquals('works');
 
-        ass(new MyVerify())->instanceOf(AssertAbstract::class);
+        ass(new MyAssert())->instanceOf(Assert::class);
     }
 }
 
-final class MyVerify extends AssertAbstract
+final class MyAssert extends Assert
 {
     public function __construct($actual = null)
     {

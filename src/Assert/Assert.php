@@ -6,7 +6,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Traits\ShortcutTrait;
 
-class Assert extends AssertAbstract
+class Assert
 {
     use AssertArrayTrait;
     use AssertClassTrait;
@@ -18,12 +18,25 @@ class Assert extends AssertAbstract
     use AssertThrowsTrait;
     use ShortcutTrait;
 
+    /** @var mixed */
+    protected $actual = null;
+
     /**
      * @param mixed $actual
      */
     public function __construct($actual)
     {
-        parent::__construct($actual);
+        $this->actual = $actual;
+    }
+
+    /**
+     * @param mixed $actual
+     *
+     * @return self
+     */
+    public function __invoke($actual): self
+    {
+        return $this($actual);
     }
 
     public function doesNotThrow($throws = null, string $message = ''): self
