@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Assert;
 
-class Assert
+abstract class AssertAbstract
 {
     /** @var mixed */
     protected $actual = null;
