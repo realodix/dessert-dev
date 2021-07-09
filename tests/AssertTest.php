@@ -199,73 +199,11 @@ final class AssertTest extends TestCase
         ass(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
     }
 
-    public function testIsArray(): void
-    {
-        ass([1, 2, 3])->isArray();
-        ass(false)->isNotArray();
-    }
-
-    public function testIsBool(): void
-    {
-        ass(false)->isBool();
-        ass([1, 2, 3])->isNotBool();
-    }
-
-    public function testIsCallable(): void
-    {
-        ass(function (): void {
-        })->isCallable();
-
-        ass(false)->isNotCallable();
-    }
-
-    public function testIsFloat(): void
-    {
-        ass(1.5)->isFloat();
-        ass(1)->isNotFloat();
-    }
-
     public function testIsInstanceOf(): void
     {
         $testClass = new \DateTime();
         ass($testClass)->instanceOf('DateTime');
         ass($testClass)->notInstanceOf('DateTimeZone');
-    }
-
-    public function testIsInt(): void
-    {
-        ass(5)->isInt();
-        ass(1.5)->isNotInt();
-    }
-
-    public function testIsNumeric(): void
-    {
-        ass('1.5')->isNumeric();
-        ass('foo bar')->isNotNumeric();
-    }
-
-    public function testIsObject(): void
-    {
-        ass(new \stdClass)->isObject();
-        ass(false)->isNotObject();
-    }
-
-    public function testIsResource(): void
-    {
-        ass(fopen(__FILE__, 'r'))->isResource();
-        ass(false)->isNotResource();
-    }
-
-    public function testIsScalar(): void
-    {
-        ass('foo bar')->isScalar();
-        ass([1, 2, 3])->isNotScalar();
-    }
-
-    public function testIsString(): void
-    {
-        ass('foo bar')->isString();
-        ass(false)->isNotString();
     }
 
     public function testMatchesFormat(): void
