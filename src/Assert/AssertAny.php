@@ -9,6 +9,7 @@ use Realodix\NextProject\Traits\ShortcutTrait;
 class AssertAny extends Assert
 {
     use AssertDirectoryTrait;
+    use AssertStringTrait;
     use AssertThrowsTrait;
     use ShortcutTrait;
 
@@ -1172,135 +1173,9 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function stringContainsString($needle, string $message = ''): self
-    {
-        Assert::string($this->actual)->containsString($needle, $message);
-
-        return $this;
-    }
-
-    public function stringContainsStringIgnoringCase($needle, string $message = ''): self
-    {
-        Assert::string($this->actual)->containsStringIgnoringCase($needle, $message);
-
-        return $this;
-    }
-
-    public function stringEndsNotWith($suffix, string $message = ''): self
-    {
-        Assert::string($this->actual)->endsNotWith($suffix, $message);
-
-        return $this;
-    }
-
-    public function stringEndsWith($suffix, string $message = ''): self
-    {
-        Assert::string($this->actual)->endsWith($suffix, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFile($expectedFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->equalsFile($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->equalsFileCanonicalizing($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->equalsFileIgnoringCase($expectedFile, $message);
-
-        return $this;
-    }
-
     public function stringJson(string $message = ''): self
     {
         Assert::string($this->actual)->json($message);
-
-        return $this;
-    }
-
-    public function stringMatchesFormat($format, string $message = ''): self
-    {
-        Assert::string($this->actual)->matchesFormat($format, $message);
-
-        return $this;
-    }
-
-    public function stringMatchesFormatFile($formatFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->matchesFormatFile($formatFile, $message);
-
-        return $this;
-    }
-
-    public function stringNotContainsString($needle, string $message = ''): self
-    {
-        Assert::string($this->actual)->notContainsString($needle, $message);
-
-        return $this;
-    }
-
-    public function stringNotContainsStringIgnoringCase($needle, string $message = ''): self
-    {
-        Assert::string($this->actual)->notContainsStringIgnoringCase($needle, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFile($expectedFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->notEqualsFile($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->notEqualsFileCanonicalizing($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->notEqualsFileIgnoringCase($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function stringNotMatchesFormat($format, string $message = ''): self
-    {
-        Assert::string($this->actual)->notMatchesFormat($format, $message);
-
-        return $this;
-    }
-
-    public function stringNotMatchesFormatFile($formatFile, string $message = ''): self
-    {
-        Assert::string($this->actual)->notMatchesFormatFile($formatFile, $message);
-
-        return $this;
-    }
-
-    public function stringStartsNotWith($prefix, string $message = ''): self
-    {
-        Assert::string($this->actual)->startsNotWith($prefix, $message);
-
-        return $this;
-    }
-
-    public function stringStartsWith($prefix, string $message = ''): self
-    {
-        Assert::string($this->actual)->startsWith($prefix, $message);
 
         return $this;
     }
