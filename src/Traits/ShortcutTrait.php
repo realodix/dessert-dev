@@ -54,32 +54,32 @@ trait ShortcutTrait
         return $this->lessThan($expected, $message);
     }
 
-    public function jsonFileEqualsFile($expectedFile, string $message = ''): self
+    public function jsonFileEjf($expectedFile, string $message = ''): self
     {
         return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonFileNotEqualsFile($expectedFile, string $message = ''): self
+    public function jsonFileNejf($expectedFile, string $message = ''): self
     {
         return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringEqualsFile($expectedFile, string $message = ''): self
+    public function jsonStringEjf($expectedFile, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringEqualsString($expectedJson, string $message = ''): self
+    public function jsonStringEjs($expectedJson, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonString($expectedJson, $message);
     }
 
-    public function jsonStringNotEqualsFile($expectedFile, string $message = ''): self
+    public function jsonStringNejf($expectedFile, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringNotEqualsString($expectedJson, string $message = ''): self
+    public function jsonStringNejs($expectedJson, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
     }
