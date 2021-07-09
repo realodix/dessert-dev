@@ -21,42 +21,6 @@ final class AssertTest extends TestCase
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
-    public function testArrayContains(): void
-    {
-        ass([3, 2])->contains(3);
-        ass([3, 2])->notContains(5, 'user have 5 posts');
-    }
-
-    public function testArrayContainsOnly(): void
-    {
-        ass(['1', '2', '3'])->containsOnly('string');
-        ass(['1', '2', 3])->notContainsOnly('string');
-    }
-
-    public function testArrayContainsOnlyInstancesOf(): void
-    {
-        $array = [
-            new FakeClassForTesting(),
-            new FakeClassForTesting(),
-            new FakeClassForTesting(),
-        ];
-
-        ass($array)->containsOnlyInstancesOf(FakeClassForTesting::class);
-    }
-
-    public function testArrayCount(): void
-    {
-        ass([1, 2, 3])->count(3);
-        ass([1, 2, 3])->notCount(2);
-    }
-
-    public function testArrayHasKey(): void
-    {
-        $errors = ['title' => 'You should add title'];
-        ass($errors)->arrayHasKey('title');
-        ass($errors)->arrayNotHasKey('body');
-    }
-
     public function testDirectory(): void
     {
         ass(__DIR__)->directoryIsReadable();
