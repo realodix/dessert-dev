@@ -28,10 +28,10 @@ abstract class AssertAbstract
     /**
      * @param mixed $actual
      *
-     * @return AssertAny
+     * @return Assert
      */
-    public static function any($actual): AssertAny
+    public static function any($actual): Assert
     {
-        return new AssertAny($actual);
+        return new Assert($actual);
     }
 }
