@@ -4,6 +4,14 @@ namespace Realodix\NextProject\Assert;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
+use Realodix\NextProject\Traits\AssertArrayTrait;
+use Realodix\NextProject\Traits\AssertClassTrait;
+use Realodix\NextProject\Traits\AssertDataTrait;
+use Realodix\NextProject\Traits\AssertDataTypeTrait;
+use Realodix\NextProject\Traits\AssertFileAndDirectoryTrait;
+use Realodix\NextProject\Traits\AssertJsonTrait;
+use Realodix\NextProject\Traits\AssertStringTrait;
+use Realodix\NextProject\Traits\AssertThrowsTrait;
 use Realodix\NextProject\Traits\ShortcutTrait;
 
 class Assert
