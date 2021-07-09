@@ -301,8 +301,8 @@ final class AssertTest extends TestCase
 
     public function testRegExp(): void
     {
-        ass('foobar')->stringMatchesRegExp('/foobar/');
-        ass('foobar')->stringDoesNotMatchRegExp('/foobarbaz/');
+        ass('foobar')->matchesRegExp('/foobar/');
+        ass('foobar')->doesNotMatchRegExp('/foobarbaz/');
     }
 
     public function testSame(): void

@@ -4,9 +4,12 @@ namespace Realodix\NextProject\Assert;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
+use Realodix\NextProject\Traits\ShortcutTrait;
 
 class AssertAny extends Assert
 {
+    use ShortcutTrait;
+
     /**
      * @param mixed $actual
      */
@@ -200,6 +203,13 @@ class AssertAny extends Assert
     public function directoryIsWritable(string $message = ''): self
     {
         Assert::Directory($this->actual)->isWritable($message);
+
+        return $this;
+    }
+
+    public function doesNotMatchRegularExpression($pattern, string $message = ''): self
+    {
+        Assert::String($this->actual)->doesNotMatchRegularExpression($pattern, $message);
 
         return $this;
     }
@@ -996,6 +1006,13 @@ class AssertAny extends Assert
         return $this;
     }
 
+    public function matchesRegularExpression($pattern, string $message = ''): self
+    {
+        Assert::String($this->actual)->matchesRegularExpression($pattern, $message);
+
+        return $this;
+    }
+
     /**
      * Verifies that a variable is nan.
      *
@@ -1218,13 +1235,6 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function stringDoesNotMatchRegExp($pattern, string $message = ''): self
-    {
-        Assert::String($this->actual)->doesNotMatchRegExp($pattern, $message);
-
-        return $this;
-    }
-
     public function stringEndsWith($suffix, string $message = ''): self
     {
         Assert::String($this->actual)->endsWith($suffix, $message);
@@ -1270,13 +1280,6 @@ class AssertAny extends Assert
     public function stringMatchesFormatFile($formatFile, string $message = ''): self
     {
         Assert::String($this->actual)->matchesFormatFile($formatFile, $message);
-
-        return $this;
-    }
-
-    public function stringMatchesRegExp($pattern, string $message = ''): self
-    {
-        Assert::String($this->actual)->matchesRegExp($pattern, $message);
 
         return $this;
     }

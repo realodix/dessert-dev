@@ -58,7 +58,7 @@ class AssertString extends Assert
      *
      * @return self
      */
-    public function doesNotMatchRegExp(string $pattern, string $message = ''): self
+    public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
         PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
 
@@ -177,7 +177,7 @@ class AssertString extends Assert
      *
      * @return self
      */
-    public function matchesRegExp(string $pattern, string $message = ''): self
+    public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             PHPUnit::assertRegExp($pattern, $this->actual, $message);
