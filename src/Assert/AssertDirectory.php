@@ -66,7 +66,7 @@ class AssertDirectory extends Assert
      *
      * @return self
      */
-    public function existsAndIsNotWritable(string $message = ''): self
+    public function isNotWritable(string $message = ''): self
     {
         PHPUnit::assertDirectoryIsNotWritable($this->actual, $message);
 
@@ -80,7 +80,7 @@ class AssertDirectory extends Assert
      *
      * @return self
      */
-    public function existsAndIsReadable(string $message = ''): self
+    public function isReadable(string $message = ''): self
     {
         PHPUnit::assertDirectoryIsReadable($this->actual, $message);
 
@@ -94,7 +94,7 @@ class AssertDirectory extends Assert
      *
      * @return self
      */
-    public function existsAndIsWritable(string $message = ''): self
+    public function isWritable(string $message = ''): self
     {
         PHPUnit::assertDirectoryIsWritable($this->actual, $message);
 
