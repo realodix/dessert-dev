@@ -60,9 +60,9 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function arrayHasNotKey($key, string $message = ''): self
+    public function arrayNotHasKey($key, string $message = ''): self
     {
-        Assert::Array($this->actual)->hasNotKey($key, $message);
+        Assert::Array($this->actual)->notHasKey($key, $message);
 
         return $this;
     }

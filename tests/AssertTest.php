@@ -21,7 +21,7 @@ final class AssertTest extends TestCase
     {
         $errors = ['title' => 'You should add title'];
         ass($errors)->arrayHasKey('title');
-        ass($errors)->arrayHasNotKey('body');
+        ass($errors)->arrayNotHasKey('body');
     }
 
     public function testContains(): void

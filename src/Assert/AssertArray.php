@@ -121,7 +121,7 @@ class AssertArray extends Assert
      *
      * @return self
      */
-    public function hasNotKey($key, string $message = ''): self
+    public function notHasKey($key, string $message = ''): self
     {
         PHPUnit::assertArrayNotHasKey($key, $this->actual, $message);
 
