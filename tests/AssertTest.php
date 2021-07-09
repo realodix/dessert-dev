@@ -17,26 +17,19 @@ final class AssertTest extends TestCase
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
-    public function testArrayHasKey(): void
-    {
-        $errors = ['title' => 'You should add title'];
-        ass($errors)->arrayHasKey('title');
-        ass($errors)->arrayNotHasKey('body');
-    }
-
-    public function testContains(): void
+    public function testArrayContains(): void
     {
         ass([3, 2])->arrayContains(3);
         ass([3, 2])->arrayNotContains(5, 'user have 5 posts');
     }
 
-    public function testContainsOnly(): void
+    public function testArrayContainsOnly(): void
     {
         ass(['1', '2', '3'])->arrayContainsOnly('string');
         ass(['1', '2', 3])->arrayNotContainsOnly('string');
     }
 
-    public function testContainsOnlyInstancesOf(): void
+    public function testArrayContainsOnlyInstancesOf(): void
     {
         $array = [
             new FakeClassForTesting(),
@@ -47,10 +40,17 @@ final class AssertTest extends TestCase
         ass($array)->arrayContainsOnlyInstancesOf(FakeClassForTesting::class);
     }
 
-    public function testCount(): void
+    public function testArrayCount(): void
     {
         ass([1, 2, 3])->arrayCount(3);
         ass([1, 2, 3])->arrayNotCount(2);
+    }
+
+    public function testArrayHasKey(): void
+    {
+        $errors = ['title' => 'You should add title'];
+        ass($errors)->arrayHasKey('title');
+        ass($errors)->arrayNotHasKey('body');
     }
 
     public function testDoesNotThrow(): void
