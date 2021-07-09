@@ -20,6 +20,15 @@ composer require realodix/next-project
 
 ## Usage
 
+| PHPUnit                         | NextProject |
+| ------------------------------- | ----------- |
+| `greaterThan`                   | `isAbove` |
+| `greaterThanOrEqual`            | `isAtLeast` |
+| `lessThanOrEqual`               | `isAtMost` |
+| `lessThan`                      | `isBelow` |
+| `matchesRegularExpression`      | `matchesRegExp` |
+| `doesNotMatchRegularExpression` | `doesNotMatchRegExp` |
+
 Use in any test `verify` function instead of `$this->assert*` methods:
 
 ```php
