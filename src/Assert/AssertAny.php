@@ -9,6 +9,7 @@ use Realodix\NextProject\Traits\ShortcutTrait;
 class AssertAny extends Assert
 {
     use AssertDirectoryTrait;
+    use AssertJsonTrait;
     use AssertStringTrait;
     use AssertThrowsTrait;
     use ShortcutTrait;
@@ -861,48 +862,6 @@ class AssertAny extends Assert
         }
 
         PHPUnit::assertIsString($this->actual, $message);
-
-        return $this;
-    }
-
-    public function jsonFileEqualsJsonFile($expectedFile, string $message = ''): self
-    {
-        Assert::jsonFile($this->actual)->equalsJsonFile($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function jsonFileNotEqualsJsonFile($expectedFile, string $message = ''): self
-    {
-        Assert::jsonFile($this->actual)->notEqualsJsonFile($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function jsonStringEqualsJsonFile($expectedFile, string $message = ''): self
-    {
-        Assert::jsonString($this->actual)->equalsJsonFile($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function jsonStringEqualsJsonString($expectedJson, string $message = ''): self
-    {
-        Assert::jsonString($this->actual)->equalsJsonString($expectedJson, $message);
-
-        return $this;
-    }
-
-    public function jsonStringNotEqualsJsonFile($expectedFile, string $message = ''): self
-    {
-        Assert::jsonString($this->actual)->notEqualsJsonFile($expectedFile, $message);
-
-        return $this;
-    }
-
-    public function jsonStringNotEqualsJsonString($expectedJson, string $message = ''): self
-    {
-        Assert::jsonString($this->actual)->notEqualsJsonString($expectedJson, $message);
 
         return $this;
     }

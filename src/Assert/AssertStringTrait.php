@@ -20,13 +20,6 @@ trait AssertStringTrait
         return $this;
     }
 
-    public function json(string $message = ''): self
-    {
-        PHPUnit::assertJson($this->actual, $message);
-
-        return $this;
-    }
-
     public function matchesRegularExpression($pattern, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
