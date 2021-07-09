@@ -101,7 +101,7 @@ class AssertFile extends Assert
      *
      * @return self
      */
-    public function existsAndIsNotReadable(string $message = ''): self
+    public function isNotReadable(string $message = ''): self
     {
         PHPUnit::assertFileIsNotReadable($this->actual, $message);
 

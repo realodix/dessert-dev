@@ -114,6 +114,7 @@ final class AssertTest extends TestCase
         ass(5)->equals(5, 'user have 5 posts');
         ass(3.251)->equalsWithDelta(3.25, 0.01);
         ass(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
+
         ass(__FILE__)->fileEquals(__FILE__);
     }
 
