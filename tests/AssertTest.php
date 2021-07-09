@@ -64,6 +64,7 @@ final class AssertTest extends TestCase
         ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
 
         ass(__DIR__)->directoryDoesNotExist();
+        $this->assertDirectoryDoesNotExist('/path/to/directory');
     }
 
     public function testDoesNotThrow(): void
