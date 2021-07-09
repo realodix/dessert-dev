@@ -52,7 +52,7 @@ class AssertDirectory extends Assert
      *
      * @return self
      */
-    public function existsAndIsNotReadable(string $message = ''): self
+    public function isNotReadable(string $message = ''): self
     {
         PHPUnit::assertDirectoryIsNotReadable($this->actual, $message);
 
