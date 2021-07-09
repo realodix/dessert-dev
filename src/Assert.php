@@ -116,20 +116,6 @@ class Assert
     }
 
     /**
-     * Verifies that a condition is false.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function false(string $message = ''): self
-    {
-        PHPUnit::assertFalse($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Verifies that a variable is finite.
      *
      * @param string $message
@@ -319,20 +305,6 @@ class Assert
     }
 
     /**
-     * Verifies that a condition is not false.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function notFalse(string $message = ''): self
-    {
-        PHPUnit::assertNotFalse($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Verifies that a variable is not of a given type.
      *
      * @param string $expected
@@ -348,20 +320,6 @@ class Assert
     }
 
     /**
-     * Verifies that a variable is not null.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function notNull(string $message = ''): self
-    {
-        PHPUnit::assertNotNull($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Verifies that two variables do not have the same type and value.
      *
      * @param mixed  $expected
@@ -372,34 +330,6 @@ class Assert
     public function notSame($expected, string $message = ''): self
     {
         PHPUnit::assertNotSame($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Verifies that a condition is not true.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function notTrue(string $message = ''): self
-    {
-        PHPUnit::assertNotTrue($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Verifies that a variable is null.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function null(string $message = ''): self
-    {
-        PHPUnit::assertNull($this->actual, $message);
 
         return $this;
     }
@@ -436,20 +366,6 @@ class Assert
     public function throws($throws = null, string $message = ''): self
     {
         return $this->assertThrows($throws, $message);
-    }
-
-    /**
-     * Verifies that a condition is true.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function true(string $message = ''): self
-    {
-        PHPUnit::assertTrue($this->actual, $message);
-
-        return $this;
     }
 
     public function xmlFileEqualsXmlFile($expectedFile, string $message = ''): self

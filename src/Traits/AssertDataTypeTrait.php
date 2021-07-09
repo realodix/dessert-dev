@@ -8,6 +8,20 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 trait AssertDataTypeTrait
 {
     /**
+     * Verifies that a condition is false.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function false(string $message = ''): self
+    {
+        PHPUnit::assertFalse($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Verifies that a variable is of type array.
      *
      * @param string $message
@@ -459,6 +473,76 @@ trait AssertDataTypeTrait
         }
 
         PHPUnit::assertIsString($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Verifies that a condition is not false.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function notFalse(string $message = ''): self
+    {
+        PHPUnit::assertNotFalse($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Verifies that a variable is not null.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function notNull(string $message = ''): self
+    {
+        PHPUnit::assertNotNull($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Verifies that a condition is not true.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function notTrue(string $message = ''): self
+    {
+        PHPUnit::assertNotTrue($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Verifies that a variable is null.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function null(string $message = ''): self
+    {
+        PHPUnit::assertNull($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Verifies that a condition is true.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function true(string $message = ''): self
+    {
+        PHPUnit::assertTrue($this->actual, $message);
 
         return $this;
     }
