@@ -2,9 +2,7 @@
 
 namespace Realodix\NextProject\Test;
 
-use Exception;
 use PHPUnit\Framework\AssertionFailedError;
-use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
 // Coba dibuat, ditemukan pada test Dir
@@ -26,37 +24,6 @@ final class AssertTest extends TestCase
         ass(__DIR__)->directoryIsReadable();
         $this->expectException(AssertionFailedError::class);
         ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
-    }
-
-    public function testDoesNotThrow(): void
-    {
-        $func = function (): void {
-            throw new Exception('foo');
-        };
-
-        ass(function (): void {
-        })->doesNotThrow();
-
-        ass($func)->doesNotThrow(\RuntimeException::class);
-        ass($func)->doesNotThrow(\RuntimeException::class, 'bar');
-        ass($func)->doesNotThrow(\RuntimeException::class, 'foo');
-        ass($func)->doesNotThrow(new \RuntimeException());
-        ass($func)->doesNotThrow(new \RuntimeException('bar'));
-        ass($func)->doesNotThrow(new \RuntimeException('foo'));
-        ass($func)->doesNotThrow(Exception::class, 'bar');
-        ass($func)->doesNotThrow(new Exception('bar'));
-
-        ass(function () use ($func): void {
-            ass($func)->doesNotThrow();
-        })->throws(new ExpectationFailedException('exception was not expected to be thrown'));
-
-        ass(function () use ($func): void {
-            ass($func)->doesNotThrow(Exception::class);
-        })->throws(new ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
-
-        ass(function () use ($func): void {
-            ass($func)->doesNotThrow(Exception::class, 'foo');
-        })->throws(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
 
     public function testEmptyNotEmpty(): void
@@ -241,38 +208,6 @@ final class AssertTest extends TestCase
     {
         ass('foo bar')->stringContainsStringIgnoringCase('O b');
         ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
-    }
-
-    public function testThrows(): void
-    {
-        $func = function (): void {
-            throw new Exception('foo');
-        };
-
-        ass($func)->throws();
-        ass($func)->throws(Exception::class);
-        ass($func)->throws(Exception::class, 'foo');
-        ass($func)->throws(new Exception());
-        ass($func)->throws(new Exception('foo'));
-
-        ass(function () use ($func): void {
-            ass($func)->throws(\RuntimeException::class);
-        })->throws(ExpectationFailedException::class);
-
-        ass(function (): void {
-            ass(function (): void {
-            })->throws(Exception::class);
-        })->throws(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
-    }
-
-    public function testTrueFalseNull(): void
-    {
-        ass(true)->true();
-        ass(false)->false();
-        ass(null)->null();
-        ass(true)->notNull();
-        ass(false)->false('something should be false');
-        ass(true)->true('something should be true');
     }
 
     public function testVariants(): void

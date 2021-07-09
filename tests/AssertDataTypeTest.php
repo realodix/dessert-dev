@@ -77,4 +77,15 @@ final class AssertDataTypeTest extends TestCase
         ass('foo bar')->isString();
         ass(false)->isNotString();
     }
+
+    /** @test */
+    public function trueFalseNull(): void
+    {
+        ass(true)->true();
+        ass(false)->false();
+        ass(null)->null();
+        ass(true)->notNull();
+        ass(false)->false('something should be false');
+        ass(true)->true('something should be true');
+    }
 }
