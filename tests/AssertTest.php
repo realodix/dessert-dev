@@ -62,10 +62,6 @@ final class AssertTest extends TestCase
         ass(__DIR__)->directoryIsReadable();
         $this->expectException(AssertionFailedError::class);
         ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
-
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryDoesNotExist();
-        $this->expectException(AssertionFailedError::class);
-        ass(__DIR__)->directoryDoesNotExist();
     }
 
     public function testDoesNotThrow(): void
