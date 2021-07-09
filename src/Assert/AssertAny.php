@@ -4,11 +4,14 @@ namespace Realodix\NextProject\Assert;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
+use Realodix\NextProject\Traits\AssertDataTrait;
 use Realodix\NextProject\Traits\ShortcutTrait;
 
 class AssertAny extends Assert
 {
+    use AssertDataTrait;
     use AssertDirectoryTrait;
+    use AssertFileTrait;
     use AssertJsonTrait;
     use AssertStringTrait;
     use AssertThrowsTrait;
@@ -249,90 +252,6 @@ class AssertAny extends Assert
     public function false(string $message = ''): self
     {
         PHPUnit::assertFalse($this->actual, $message);
-
-        return $this;
-    }
-
-    public function fileDoesNotExists(string $message = ''): self
-    {
-        Assert::file($this->actual)->doesNotExists($message);
-
-        return $this;
-    }
-
-    public function fileEquals($expected, string $message = ''): self
-    {
-        Assert::file($this->actual)->equals($expected, $message);
-
-        return $this;
-    }
-
-    public function fileEqualsCanonicalizing($expected, string $message = ''): self
-    {
-        Assert::file($this->actual)->equalsCanonicalizing($expected, $message);
-
-        return $this;
-    }
-
-    public function fileEqualsIgnoringCase($expected, string $message = ''): self
-    {
-        Assert::file($this->actual)->equalsIgnoringCase($expected, $message);
-
-        return $this;
-    }
-
-    public function fileExists(string $message = ''): self
-    {
-        Assert::file($this->actual)->exists($message);
-
-        return $this;
-    }
-
-    public function fileIsNotReadable(string $message = ''): self
-    {
-        Assert::file($this->actual)->isNotReadable($message);
-
-        return $this;
-    }
-
-    public function fileIsNotWritable(string $message = ''): self
-    {
-        Assert::file($this->actual)->isNotWritable($message);
-
-        return $this;
-    }
-
-    public function fileIsReadable(string $message = ''): self
-    {
-        Assert::file($this->actual)->isReadable($message);
-
-        return $this;
-    }
-
-    public function fileIsWritable(string $message = ''): self
-    {
-        Assert::file($this->actual)->isWritable($message);
-
-        return $this;
-    }
-
-    public function fileNotEquals($expected, string $message = ''): self
-    {
-        Assert::file($this->actual)->notEquals($expected, $message);
-
-        return $this;
-    }
-
-    public function fileNotEqualsCanonicalizing($expected, string $message = ''): self
-    {
-        Assert::file($this->actual)->notEqualsCanonicalizing($expected, $message);
-
-        return $this;
-    }
-
-    public function fileNotEqualsIgnoringCase($expected, string $message = ''): self
-    {
-        Assert::file($this->actual)->notEqualsIgnoringCase($expected, $message);
 
         return $this;
     }

@@ -53,11 +53,6 @@ class Assert
         return new AssertClass($className);
     }
 
-    public static function file(string $filename): AssertFile
-    {
-        return new AssertFile($filename);
-    }
-
     public static function xmlFile(string $filename): AssertXmlFile
     {
         return new AssertXmlFile($filename);

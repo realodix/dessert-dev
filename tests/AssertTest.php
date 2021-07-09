@@ -168,7 +168,7 @@ final class AssertTest extends TestCase
     public function testFileExists(): void
     {
         ass(__FILE__)->fileExists();
-        ass('completelyrandomfilename.txt')->fileDoesNotExists();
+        ass('completelyrandomfilename.txt')->fileDoesNotExist();
     }
 
     public function testGreaterLowerThan(): void
