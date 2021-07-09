@@ -60,13 +60,6 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function arrayNotHasKey($key, string $message = ''): self
-    {
-        Assert::Array($this->actual)->notHasKey($key, $message);
-
-        return $this;
-    }
-
     public function arrayNotContains($needle, string $message = ''): self
     {
         Assert::Array($this->actual)->notContains($needle, $message);
@@ -91,6 +84,13 @@ class AssertAny extends Assert
     public function arrayNotCount($expectedCount, string $message = ''): self
     {
         Assert::Array($this->actual)->notCount($expectedCount, $message);
+
+        return $this;
+    }
+
+    public function arrayNotHasKey($key, string $message = ''): self
+    {
+        Assert::Array($this->actual)->notHasKey($key, $message);
 
         return $this;
     }
@@ -1235,6 +1235,13 @@ class AssertAny extends Assert
         return $this;
     }
 
+    public function stringEndsNotWith($suffix, string $message = ''): self
+    {
+        Assert::String($this->actual)->endsNotWith($suffix, $message);
+
+        return $this;
+    }
+
     public function stringEndsWith($suffix, string $message = ''): self
     {
         Assert::String($this->actual)->endsWith($suffix, $message);
@@ -1294,13 +1301,6 @@ class AssertAny extends Assert
     public function stringNotContainsStringIgnoringCase($needle, string $message = ''): self
     {
         Assert::String($this->actual)->notContainsStringIgnoringCase($needle, $message);
-
-        return $this;
-    }
-
-    public function stringEndsNotWith($suffix, string $message = ''): self
-    {
-        Assert::String($this->actual)->endsNotWith($suffix, $message);
 
         return $this;
     }

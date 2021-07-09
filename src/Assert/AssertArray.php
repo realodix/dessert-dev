@@ -114,21 +114,6 @@ class AssertArray extends Assert
     }
 
     /**
-     * Verifies that an array does not have a specified key.
-     *
-     * @param int|string $key
-     * @param string     $message
-     *
-     * @return self
-     */
-    public function notHasKey($key, string $message = ''): self
-    {
-        PHPUnit::assertArrayNotHasKey($key, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Verifies that a haystack does not contain a needle.
      *
      * @param mixed  $needle
@@ -177,6 +162,21 @@ class AssertArray extends Assert
     public function notCount(int $expectedCount, string $message = ''): self
     {
         PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Verifies that an array does not have a specified key.
+     *
+     * @param int|string $key
+     * @param string     $message
+     *
+     * @return self
+     */
+    public function notHasKey($key, string $message = ''): self
+    {
+        PHPUnit::assertArrayNotHasKey($key, $this->actual, $message);
 
         return $this;
     }

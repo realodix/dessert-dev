@@ -60,7 +60,28 @@ class AssertString extends Assert
      */
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Verifies that a string ends not with a given suffix.
+     *
+     * @param string $suffix
+     * @param string $message
+     *
+     * @return self
+     */
+    public function endsNotWith(string $suffix, string $message = ''): self
+    {
+        PHPUnit::assertStringEndsNotWith($suffix, $this->actual, $message);
 
         return $this;
     }
@@ -232,21 +253,6 @@ class AssertString extends Assert
         }
 
         PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Verifies that a string ends not with a given suffix.
-     *
-     * @param string $suffix
-     * @param string $message
-     *
-     * @return self
-     */
-    public function endsNotWith(string $suffix, string $message = ''): self
-    {
-        PHPUnit::assertStringEndsNotWith($suffix, $this->actual, $message);
 
         return $this;
     }
