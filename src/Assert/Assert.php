@@ -63,11 +63,6 @@ class Assert
         return new AssertClass($className);
     }
 
-    public static function dir(string $directory): AssertDirectory
-    {
-        return new AssertDirectory($directory);
-    }
-
     public static function file(string $filename): AssertFile
     {
         return new AssertFile($filename);

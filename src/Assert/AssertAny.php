@@ -153,21 +153,21 @@ class AssertAny extends Assert
 
     public function directoryDoesNotExist(string $message = ''): self
     {
-        Assert::dir($this->actual)->doesNotExist($message);
+        PHPUnit::assertDirectoryDoesNotExist($this->actual, $message);
 
         return $this;
     }
 
     public function directoryExists(string $message = ''): self
     {
-        Assert::dir($this->actual)->exists($message);
+        PHPUnit::assertDirectoryExists($this->actual, $message);
 
         return $this;
     }
 
     public function directoryIsNotReadable(string $message = ''): self
     {
-        Assert::dir($this->actual)->isNotReadable($message);
+        PHPUnit::assertDirectoryIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -181,14 +181,14 @@ class AssertAny extends Assert
 
     public function directoryIsReadable(string $message = ''): self
     {
-        Assert::dir($this->actual)->isReadable($message);
+        PHPUnit::assertDirectoryIsReadable($this->actual, $message);
 
         return $this;
     }
 
     public function directoryIsWritable(string $message = ''): self
     {
-        Assert::dir($this->actual)->isWritable($message);
+        PHPUnit::assertDirectoryIsWritable($this->actual, $message);
 
         return $this;
     }
