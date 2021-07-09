@@ -10,8 +10,7 @@ use Realodix\NextProject\Traits\ShortcutTrait;
 class AssertAny extends Assert
 {
     use AssertDataTrait;
-    use AssertDirectoryTrait;
-    use AssertFileTrait;
+    use AssertFileAndDirectoryTrait;
     use AssertJsonTrait;
     use AssertStringTrait;
     use AssertThrowsTrait;
