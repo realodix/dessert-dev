@@ -5,12 +5,12 @@
 
 ## Installation
 
-### Requirements
+#### Requirements
 
 - PHP 7.1 or higher.
 - PHPUnit 7.x or higher.
 
-### Install the package
+#### Install the package
 
 You can install the package via composer:
 
