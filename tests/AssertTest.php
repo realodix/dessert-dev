@@ -3,8 +3,12 @@
 namespace Realodix\NextProject\Test;
 
 use Exception;
+use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+
+// Coba dibuat, ditemukan pada test Dir
+// $this->expectException(AssertionFailedError::class);
 
 final class AssertTest extends TestCase
 {
@@ -51,6 +55,17 @@ final class AssertTest extends TestCase
         $errors = ['title' => 'You should add title'];
         ass($errors)->arrayHasKey('title');
         ass($errors)->arrayNotHasKey('body');
+    }
+
+    public function testDirectory(): void
+    {
+        ass(__DIR__)->directoryIsReadable();
+        $this->expectException(AssertionFailedError::class);
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
+
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryDoesNotExist();
+        $this->expectException(AssertionFailedError::class);
+        ass(__DIR__)->directoryDoesNotExist();
     }
 
     public function testDoesNotThrow(): void
