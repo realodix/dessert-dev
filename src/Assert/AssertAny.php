@@ -4,7 +4,6 @@ namespace Realodix\NextProject\Assert;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Traits\AssertDataTrait;
 use Realodix\NextProject\Traits\ShortcutTrait;
 
 class AssertAny extends Assert
