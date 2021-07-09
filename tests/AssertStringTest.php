@@ -30,8 +30,8 @@ final class AssertStringTest extends TestCase
 
     public function testRegExp(): void
     {
-        ass('foobar')->matchesRegExp('/foobar/');
-        ass('foobar')->doesNotMatchRegExp('/foobarbaz/');
+        ass('foobar')->match('/foobar/');
+        ass('foobar')->notMatch('/foobarbaz/');
     }
 
     public function testStartsWith(): void

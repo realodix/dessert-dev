@@ -4,11 +4,6 @@ namespace Realodix\NextProject\Traits;
 
 trait ShortcutTrait
 {
-    public function doesNotMatchRegExp(string $pattern, string $message = ''): self
-    {
-        return $this->doesNotMatchRegularExpression($pattern, $message);
-    }
-
     public function isAbove($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
@@ -29,8 +24,13 @@ trait ShortcutTrait
         return $this->lessThan($expected, $message);
     }
 
-    public function matchesRegExp(string $pattern, string $message = ''): self
+    public function match(string $pattern, string $message = ''): self
     {
         return $this->matchesRegularExpression($pattern, $message);
+    }
+
+    public function notMatch(string $pattern, string $message = ''): self
+    {
+        return $this->doesNotMatchRegularExpression($pattern, $message);
     }
 }

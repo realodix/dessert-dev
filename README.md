@@ -26,8 +26,8 @@ composer require realodix/next-project
 | `greaterThanOrEqual`            | `isAtLeast` |
 | `lessThanOrEqual`               | `isAtMost` |
 | `lessThan`                      | `isBelow` |
-| `matchesRegularExpression`      | `matchesRegExp` |
-| `doesNotMatchRegularExpression` | `doesNotMatchRegExp` |
+| `matchesRegularExpression`      | `match` |
+| `doesNotMatchRegularExpression` | `notMatch` |
 
 Use in any test `verify` function instead of `$this->assert*` methods:
 
