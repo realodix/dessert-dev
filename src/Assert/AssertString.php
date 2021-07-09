@@ -244,7 +244,7 @@ class AssertString extends Assert
      *
      * @return self
      */
-    public function notEndsWith(string $suffix, string $message = ''): self
+    public function endsNotWith(string $suffix, string $message = ''): self
     {
         PHPUnit::assertStringEndsNotWith($suffix, $this->actual, $message);
 

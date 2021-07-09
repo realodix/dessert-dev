@@ -1298,9 +1298,9 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function stringNotEndsWith($suffix, string $message = ''): self
+    public function stringEndsNotWith($suffix, string $message = ''): self
     {
-        Assert::String($this->actual)->notEndsWith($suffix, $message);
+        Assert::String($this->actual)->endsNotWith($suffix, $message);
 
         return $this;
     }

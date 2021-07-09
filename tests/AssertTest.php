@@ -93,7 +93,7 @@ final class AssertTest extends TestCase
     public function testEndsWith(): void
     {
         ass('A completely not funny string')->stringEndsWith('ny string');
-        ass('A completely not funny string')->stringNotEndsWith('A completely');
+        ass('A completely not funny string')->stringEndsNotWith('A completely');
     }
 
     public function testEquals(): void
