@@ -140,13 +140,6 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function doesNotMatchRegularExpression($pattern, string $message = ''): self
-    {
-        Assert::string($this->actual)->doesNotMatchRegularExpression($pattern, $message);
-
-        return $this;
-    }
-
     public function doesNotThrow($throws = null, string $message = ''): self
     {
         return $this->assertDoesNotThrow($throws, $message);
@@ -944,13 +937,6 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function matchesRegularExpression($pattern, string $message = ''): self
-    {
-        Assert::string($this->actual)->matchesRegularExpression($pattern, $message);
-
-        return $this;
-    }
-
     /**
      * Verifies that a variable is nan.
      *
@@ -1169,13 +1155,6 @@ class AssertAny extends Assert
     public function same($expected, string $message = ''): self
     {
         PHPUnit::assertSame($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringJson(string $message = ''): self
-    {
-        Assert::string($this->actual)->json($message);
 
         return $this;
     }

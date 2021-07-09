@@ -7,6 +7,39 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait AssertStringTrait
 {
+    public function doesNotMatchRegularExpression($pattern, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function json(string $message = ''): self
+    {
+        PHPUnit::assertJson($this->actual, $message);
+
+        return $this;
+    }
+
+    public function matchesRegularExpression($pattern, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            PHPUnit::assertRegExp($pattern, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertMatchesRegularExpression($pattern, $this->actual, $message);
+
+        return $this;
+    }
+
     public function stringContainsString($needle, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {

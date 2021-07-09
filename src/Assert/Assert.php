@@ -73,11 +73,6 @@ class Assert
         return new AssertJsonString($json);
     }
 
-    public static function string(string $string): AssertString
-    {
-        return new AssertString($string);
-    }
-
     public static function xmlFile(string $filename): AssertXmlFile
     {
         return new AssertXmlFile($filename);
