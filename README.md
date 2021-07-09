@@ -20,7 +20,7 @@ composer require realodix/next-project
 
 ## Usage
 
-| PHPUnit                           | NextProject |
+| PHPUnit                           | Shortcut |
 | --------------------------------- | ----------- |
 | `greaterThan()`                   | `isAbove()` |
 | `greaterThanOrEqual()`            | `isAtLeast()` |
