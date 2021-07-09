@@ -52,9 +52,4 @@ class Assert
     {
         return new AssertClass($className);
     }
-
-    public static function xmlString(string $xml): AssertXmlString
-    {
-        return new AssertXmlString($xml);
-    }
 }
