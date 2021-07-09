@@ -20,14 +20,20 @@ composer require realodix/next-project
 
 ## Usage
 
-| PHPUnit                         | NextProject |
-| ------------------------------- | ----------- |
-| `greaterThan`                   | `isAbove` |
-| `greaterThanOrEqual`            | `isAtLeast` |
-| `lessThanOrEqual`               | `isAtMost` |
-| `lessThan`                      | `isBelow` |
-| `matchesRegularExpression`      | `match` |
-| `doesNotMatchRegularExpression` | `notMatch` |
+| PHPUnit                           | NextProject |
+| --------------------------------- | ----------- |
+| `greaterThan()`                   | `isAbove()` |
+| `greaterThanOrEqual()`            | `isAtLeast()` |
+| `lessThanOrEqual()`               | `isAtMost()` |
+| `lessThan()`                      | `isBelow()` |
+| `matchesRegularExpression()`      | `match()` |
+| `doesNotMatchRegularExpression()` | `notMatch()` |
+| `directoryExists()`               | `dirExists()` |
+| `directoryDoesNotExist()`         | `dirDoesNotExist()` |
+| `directoryIsReadable()`           | `dirIsReadable()` |
+| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
+| `directoryIsWritable()`           | `dirIsWritable()` |
+| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
 
 Use in any test `verify` function instead of `$this->assert*` methods:
 

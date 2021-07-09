@@ -4,6 +4,36 @@ namespace Realodix\NextProject\Traits;
 
 trait ShortcutTrait
 {
+    public function dirDoesNotExist(string $message = ''): self
+    {
+        return $this->directoryDoesNotExist($message);
+    }
+
+    public function dirExists(string $message = ''): self
+    {
+        return $this->directoryExists($this->actual, $message);
+    }
+
+    public function dirIsNotReadable(string $message = ''): self
+    {
+        return $this->directoryIsNotReadable($message);
+    }
+
+    public function dirIsNotWritable(string $message = ''): self
+    {
+        return $this->directoryIsNotWritable($message);
+    }
+
+    public function dirIsReadable(string $message = ''): self
+    {
+        return $this->directoryIsReadable($message);
+    }
+
+    public function dirIsWritable(string $message = ''): self
+    {
+        return $this->directoryIsWritable($message);
+    }
+
     public function isAbove($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
