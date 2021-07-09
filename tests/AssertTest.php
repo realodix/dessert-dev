@@ -71,28 +71,28 @@ final class AssertTest extends TestCase
         };
 
         ass(function (): void {
-        })->callableDoesNotThrow();
+        })->doesNotThrow();
 
-        ass($func)->callableDoesNotThrow(\RuntimeException::class);
-        ass($func)->callableDoesNotThrow(\RuntimeException::class, 'bar');
-        ass($func)->callableDoesNotThrow(\RuntimeException::class, 'foo');
-        ass($func)->callableDoesNotThrow(new \RuntimeException());
-        ass($func)->callableDoesNotThrow(new \RuntimeException('bar'));
-        ass($func)->callableDoesNotThrow(new \RuntimeException('foo'));
-        ass($func)->callableDoesNotThrow(Exception::class, 'bar');
-        ass($func)->callableDoesNotThrow(new Exception('bar'));
-
-        ass(function () use ($func): void {
-            ass($func)->callableDoesNotThrow();
-        })->callableThrows(new ExpectationFailedException('exception was not expected to be thrown'));
+        ass($func)->doesNotThrow(\RuntimeException::class);
+        ass($func)->doesNotThrow(\RuntimeException::class, 'bar');
+        ass($func)->doesNotThrow(\RuntimeException::class, 'foo');
+        ass($func)->doesNotThrow(new \RuntimeException());
+        ass($func)->doesNotThrow(new \RuntimeException('bar'));
+        ass($func)->doesNotThrow(new \RuntimeException('foo'));
+        ass($func)->doesNotThrow(Exception::class, 'bar');
+        ass($func)->doesNotThrow(new Exception('bar'));
 
         ass(function () use ($func): void {
-            ass($func)->callableDoesNotThrow(Exception::class);
-        })->callableThrows(new ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
+            ass($func)->doesNotThrow();
+        })->throws(new ExpectationFailedException('exception was not expected to be thrown'));
 
         ass(function () use ($func): void {
-            ass($func)->callableDoesNotThrow(Exception::class, 'foo');
-        })->callableThrows(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
+            ass($func)->doesNotThrow(Exception::class);
+        })->throws(new ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
+
+        ass(function () use ($func): void {
+            ass($func)->doesNotThrow(Exception::class, 'foo');
+        })->throws(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
 
     public function testEmptyNotEmpty(): void
@@ -347,20 +347,20 @@ final class AssertTest extends TestCase
             throw new Exception('foo');
         };
 
-        ass($func)->callableThrows();
-        ass($func)->callableThrows(Exception::class);
-        ass($func)->callableThrows(Exception::class, 'foo');
-        ass($func)->callableThrows(new Exception());
-        ass($func)->callableThrows(new Exception('foo'));
+        ass($func)->throws();
+        ass($func)->throws(Exception::class);
+        ass($func)->throws(Exception::class, 'foo');
+        ass($func)->throws(new Exception());
+        ass($func)->throws(new Exception('foo'));
 
         ass(function () use ($func): void {
-            ass($func)->callableThrows(\RuntimeException::class);
-        })->callableThrows(ExpectationFailedException::class);
+            ass($func)->throws(\RuntimeException::class);
+        })->throws(ExpectationFailedException::class);
 
         ass(function (): void {
             ass(function (): void {
-            })->callableThrows(Exception::class);
-        })->callableThrows(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
+            })->throws(Exception::class);
+        })->throws(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
     }
 
     public function testTrueFalseNull(): void

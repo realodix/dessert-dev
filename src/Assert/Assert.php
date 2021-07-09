@@ -53,11 +53,6 @@ class Assert
         return new AssertBaseObject($object);
     }
 
-    public static function callable(callable $callable): AssertCallable
-    {
-        return new AssertCallable($callable);
-    }
-
     public static function Class(string $className): AssertClass
     {
         return new AssertClass($className);

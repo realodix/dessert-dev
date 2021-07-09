@@ -9,6 +9,7 @@ use Realodix\NextProject\Traits\ShortcutTrait;
 class AssertAny extends Assert
 {
     use AssertDirectoryTrait;
+    use AssertThrowsTrait;
     use ShortcutTrait;
 
     /**
@@ -110,20 +111,6 @@ class AssertAny extends Assert
         return $this;
     }
 
-    public function callableDoesNotThrow($throws = null, string $message = ''): self
-    {
-        Assert::Callable($this->actual)->doesNotThrow($throws, $message);
-
-        return $this;
-    }
-
-    public function callableThrows($throws = null, string $message = ''): self
-    {
-        Assert::Callable($this->actual)->throws($throws, $message);
-
-        return $this;
-    }
-
     public function classHasAttribute($attributeName, string $message = ''): self
     {
         Assert::class($this->actual)->hasAttribute($attributeName, $message);
@@ -157,6 +144,11 @@ class AssertAny extends Assert
         Assert::string($this->actual)->doesNotMatchRegularExpression($pattern, $message);
 
         return $this;
+    }
+
+    public function doesNotThrow($throws = null, string $message = ''): self
+    {
+        return $this->assertDoesNotThrow($throws, $message);
     }
 
     /**
@@ -1311,6 +1303,11 @@ class AssertAny extends Assert
         Assert::string($this->actual)->startsWith($prefix, $message);
 
         return $this;
+    }
+
+    public function throws($throws = null, string $message = ''): self
+    {
+        return $this->assertThrows($throws, $message);
     }
 
     /**
