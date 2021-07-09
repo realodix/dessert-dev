@@ -34,6 +34,12 @@ composer require realodix/next-project
 | `directoryIsNotReadable()`        | `dirIsNotReadable()` |
 | `directoryIsWritable()`           | `dirIsWritable()` |
 | `directoryIsNotWritable()`        | `dirIsNotWritable()` |
+| `jsonFileEqualsJsonFile()`        | `jsonFileEqualsFile()` |
+| `jsonFileNotEqualsJsonFile()`     | `jsonFileNotEqualsFile()` |
+| `jsonStringEqualsJsonFile()`      | `jsonStringEqualsFile()` |
+| `jsonStringEqualsJsonString()`    | `jsonStringEqualsString()` |
+| `jsonStringNotEqualsJsonFile()`   | `jsonStringNotEqualsFile()` |
+| `jsonStringNotEqualsJsonString()` | `jsonStringNotEqualsString()` |
 
 Use in any test `verify` function instead of `$this->assert*` methods:
 

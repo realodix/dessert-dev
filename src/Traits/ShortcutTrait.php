@@ -54,6 +54,36 @@ trait ShortcutTrait
         return $this->lessThan($expected, $message);
     }
 
+    public function jsonFileEqualsFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonFileNotEqualsFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonStringEqualsFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonStringEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonStringEqualsString($expectedJson, string $message = ''): self
+    {
+        return $this->jsonStringEqualsJsonString($expectedJson, $message);
+    }
+
+    public function jsonStringNotEqualsFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonStringNotEqualsString($expectedJson, string $message = ''): self
+    {
+        return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
+    }
+
     public function match(string $pattern, string $message = ''): self
     {
         return $this->matchesRegularExpression($pattern, $message);
