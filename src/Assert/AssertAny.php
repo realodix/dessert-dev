@@ -8,6 +8,7 @@ use Realodix\NextProject\Traits\ShortcutTrait;
 
 class AssertAny extends Assert
 {
+    use AssertClassTrait;
     use AssertDataTrait;
     use AssertFileAndDirectoryTrait;
     use AssertJsonTrait;
@@ -110,34 +111,6 @@ class AssertAny extends Assert
     public function arraySameSize($expected, string $message = ''): self
     {
         Assert::array($this->actual)->sameSize($expected, $message);
-
-        return $this;
-    }
-
-    public function classHasAttribute($attributeName, string $message = ''): self
-    {
-        Assert::class($this->actual)->hasAttribute($attributeName, $message);
-
-        return $this;
-    }
-
-    public function classHasStaticAttribute($attributeName, string $message = ''): self
-    {
-        Assert::class($this->actual)->hasStaticAttribute($attributeName, $message);
-
-        return $this;
-    }
-
-    public function classNotHasAttribute($attributeName, string $message = ''): self
-    {
-        Assert::class($this->actual)->notHasAttribute($attributeName, $message);
-
-        return $this;
-    }
-
-    public function classNotHasStaticAttribute($attributeName, string $message = ''): self
-    {
-        Assert::class($this->actual)->notHasStaticAttribute($attributeName, $message);
 
         return $this;
     }

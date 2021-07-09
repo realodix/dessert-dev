@@ -47,9 +47,4 @@ class Assert
     {
         return new AssertArray($array);
     }
-
-    public static function Class(string $className): AssertClass
-    {
-        return new AssertClass($className);
-    }
 }
