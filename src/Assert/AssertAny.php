@@ -1058,14 +1058,14 @@ class AssertAny extends Assert
 
     public function xmlFileEqualsXmlFile($expectedFile, string $message = ''): self
     {
-        Assert::xmlFile($this->actual)->equalsXmlFile($expectedFile, $message);
+        PHPUnit::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
     public function xmlFileNotEqualsXmlFile($expectedFile, string $message = ''): self
     {
-        Assert::xmlFile($this->actual)->notEqualsXmlFile($expectedFile, $message);
+        PHPUnit::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
