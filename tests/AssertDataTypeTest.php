@@ -30,6 +30,15 @@ final class AssertDataTypeTest extends TestCase
     }
 
     /** @test */
+    public function isClosedResource(): void
+    {
+        $resource = fopen(__FILE__, 'r');
+        fclose($resource);
+
+        ass($resource)->isClosedResource();
+    }
+
+    /** @test */
     public function isFloat(): void
     {
         ass(1.5)->isFloat();
@@ -41,6 +50,24 @@ final class AssertDataTypeTest extends TestCase
     {
         ass(5)->isInt();
         ass(1.5)->isNotInt();
+    }
+
+    /** @test */
+    public function isIterable(): void
+    {
+        ass([])->isIterable();
+    }
+
+    /** @test */
+    public function isNotClosedResource(): void
+    {
+        ass(null)->isNotClosedResource();
+    }
+
+    /** @test */
+    public function isNotIterable(): void
+    {
+        ass(null)->isNotIterable();
     }
 
     /** @test */
@@ -82,10 +109,14 @@ final class AssertDataTypeTest extends TestCase
     public function trueFalseNull(): void
     {
         ass(true)->true();
+        ass(true)->true('something should be true');
+        ass(false)->notTrue();
+
         ass(false)->false();
+        ass(false)->false('something should be false');
+        ass(true)->notFalse();
+
         ass(null)->null();
         ass(true)->notNull();
-        ass(false)->false('something should be false');
-        ass(true)->true('something should be true');
     }
 }
