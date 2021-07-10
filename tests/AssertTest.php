@@ -86,6 +86,11 @@ final class AssertTest extends TestCase
             ->xmlStringEqualsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
+    public function testFinite(): void
+    {
+        ass(1)->finite();
+    }
+
     public function testGreaterLowerThan(): void
     {
         ass(7)->greaterThan(5);
@@ -114,6 +119,11 @@ final class AssertTest extends TestCase
         ass(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
     }
 
+    public function testInfinite(): void
+    {
+        ass(INF)->infinite();
+    }
+
     public function testIsInstanceOf(): void
     {
         $testClass = new \DateTime();
@@ -132,6 +142,11 @@ final class AssertTest extends TestCase
 
         ass('testing 123')->stringMatchesFormatFile($formatFile);
         ass('asdfas')->stringNotMatchesFormatFile($formatFile);
+    }
+
+    public function testNan(): void
+    {
+        ass(NAN)->nan();
     }
 
     public function testNotEquals(): void
