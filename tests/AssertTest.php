@@ -131,7 +131,7 @@ final class AssertTest extends TestCase
 
     public function testMatchesFormatFile(): void
     {
-        $formatFile = __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt';
+        $formatFile = $this->assetsDir.'format-file.txt';
 
         ass('23')->stringMatchesFormatFile($formatFile);
         ass('asdfas')->stringNotMatchesFormatFile($formatFile);
