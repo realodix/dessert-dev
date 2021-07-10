@@ -186,6 +186,23 @@ final class AssertTest extends TestCase
         should([])->empty();
         verify([])->empty();
     }
+
+    public function testIsReadable(): void
+    {
+        ass($this->assetsDir.'StringEqualsFile.txt')->isReadable();
+
+        $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting.php';
+        ass($path)->isNotReadable();
+    }
+
+    public function testIsWritable(): void
+    {
+        $path = $this->assetsDir.'StringEqualsFile.txt';
+        ass($path)->isWritable();
+
+        $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting' . \DIRECTORY_SEPARATOR;
+        ass($path)->isNotWritable();
+    }
 }
 
 class FakeClassForTesting
