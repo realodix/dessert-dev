@@ -6,6 +6,18 @@ use PHPUnit\Framework\TestCase;
 
 final class AssertArrayTest extends TestCase
 {
+    public function testContainsEquals(): void
+    {
+        $a      = new \stdClass;
+        $a->foo = 'bar';
+
+        $b      = new \stdClass;
+        $b->foo = 'baz';
+
+        ass([$a])->containsEquals($a);
+        ass([$b])->notContainsEquals($a);
+    }
+
     public function testArrayHasKey(): void
     {
         $errors = ['title' => 'You should add title'];
