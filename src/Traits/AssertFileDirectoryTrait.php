@@ -9,6 +9,14 @@ trait AssertFileDirectoryTrait
 {
     public function directoryDoesNotExist(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertDirectoryNotExists($this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertDirectoryDoesNotExist($this->actual, $message);
 
         return $this;
