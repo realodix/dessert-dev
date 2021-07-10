@@ -57,8 +57,8 @@ final class AssertTest extends TestCase
     public function testEqualsJsonFile(): void
     {
         ass(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-test-file.json')
-            ->jsonFileEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
-        ass('{"some" : "data"}')->jsonStringEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'equal-json-test-file.json');
+            ->jsonFileEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-equal-test-file.json');
+        ass('{"some" : "data"}')->jsonStringEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-equal-test-file.json');
     }
 
     public function testEqualsJsonString(): void
