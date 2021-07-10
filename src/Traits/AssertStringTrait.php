@@ -22,14 +22,6 @@ trait AssertStringTrait
         return $this;
     }
 
-    /**
-     * Verifies that two variables are equal (ignoring case).
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
@@ -60,14 +52,6 @@ trait AssertStringTrait
         return $this;
     }
 
-    /**
-     * Verifies that two variables are not equal (ignoring case).
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {

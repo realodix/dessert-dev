@@ -42,13 +42,6 @@ class Assert
         return $this->assertDoesNotThrow($throws, $message);
     }
 
-    /**
-     * Verifies that a variable is empty.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function empty(string $message = ''): self
     {
         PHPUnit::assertEmpty($this->actual, $message);
@@ -56,14 +49,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables are equal.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function equals($expected, string $message = ''): self
     {
         PHPUnit::assertEquals($expected, $this->actual, $message);
@@ -71,14 +56,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables are equal (canonicalizing).
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
@@ -94,15 +71,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables are equal (with delta).
-     *
-     * @param mixed  $expected
-     * @param float  $delta
-     * @param string $message
-     *
-     * @return self
-     */
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
@@ -118,13 +86,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a variable is finite.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function finite(string $message = ''): self
     {
         PHPUnit::assertFinite($this->actual, $message);
@@ -132,14 +93,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a value is greater than another value.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function greaterThan($expected, string $message = ''): self
     {
         PHPUnit::assertGreaterThan($expected, $this->actual, $message);
@@ -147,14 +100,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a value is greater than or equal to another value.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function greaterThanOrEqual($expected, string $message = ''): self
     {
         PHPUnit::assertGreaterThanOrEqual($expected, $this->actual, $message);
@@ -162,13 +107,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a variable is infinite.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function infinite(string $message = ''): self
     {
         PHPUnit::assertInfinite($this->actual, $message);
@@ -176,14 +114,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a variable is of a given type.
-     *
-     * @param string $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function instanceOf(string $expected, string $message = ''): self
     {
         PHPUnit::assertInstanceOf($expected, $this->actual, $message);
@@ -191,14 +121,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a value is smaller than another value.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function lessThan($expected, string $message = ''): self
     {
         PHPUnit::assertLessThan($expected, $this->actual, $message);
@@ -206,14 +128,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a value is smaller than or equal to another value.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function lessThanOrEqual($expected, string $message = ''): self
     {
         PHPUnit::assertLessThanOrEqual($expected, $this->actual, $message);
@@ -221,13 +135,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a variable is nan.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function nan(string $message = ''): self
     {
         PHPUnit::assertNan($this->actual, $message);
@@ -235,13 +142,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a variable is not empty.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function notEmpty(string $message = ''): self
     {
         PHPUnit::assertNotEmpty($this->actual, $message);
@@ -249,14 +149,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables are not equal.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function notEquals($expected, string $message = ''): self
     {
         PHPUnit::assertNotEquals($expected, $this->actual, $message);
@@ -264,14 +156,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables are not equal (canonicalizing).
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
@@ -287,15 +171,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables are not equal (with delta).
-     *
-     * @param mixed  $expected
-     * @param float  $delta
-     * @param string $message
-     *
-     * @return self
-     */
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
@@ -311,14 +186,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that a variable is not of a given type.
-     *
-     * @param string $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function notInstanceOf(string $expected, string $message = ''): self
     {
         PHPUnit::assertNotInstanceOf($expected, $this->actual, $message);
@@ -326,14 +193,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables do not have the same type and value.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function notSame($expected, string $message = ''): self
     {
         PHPUnit::assertNotSame($expected, $this->actual, $message);
@@ -355,14 +214,6 @@ class Assert
         return $this;
     }
 
-    /**
-     * Verifies that two variables have the same type and value.
-     *
-     * @param mixed  $expected
-     * @param string $message
-     *
-     * @return self
-     */
     public function same($expected, string $message = ''): self
     {
         PHPUnit::assertSame($expected, $this->actual, $message);

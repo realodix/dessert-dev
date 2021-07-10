@@ -213,13 +213,6 @@ trait AssertFileDirectoryTrait
         return $this;
     }
 
-    /**
-     * Verifies that a file/dir is not readable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isNotReadable(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
@@ -235,13 +228,6 @@ trait AssertFileDirectoryTrait
         return $this;
     }
 
-    /**
-     * Verifies that a file/dir is not writable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isNotWritable(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
@@ -257,13 +243,6 @@ trait AssertFileDirectoryTrait
         return $this;
     }
 
-    /**
-     * Verifies that a file/dir is readable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isReadable(string $message = ''): self
     {
         PHPUnit::assertIsReadable($this->actual, $message);
@@ -271,13 +250,6 @@ trait AssertFileDirectoryTrait
         return $this;
     }
 
-    /**
-     * Verifies that a file/dir is writable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isWritable(string $message = ''): self
     {
         PHPUnit::assertIsWritable($this->actual, $message);
