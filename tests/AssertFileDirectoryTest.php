@@ -21,10 +21,17 @@ final class AssertFileDirectoryTest extends TestCase
             $this->markTestSkipped('Cannot test this behaviour on Windows');
         }
 
-        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
+        $dirName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . uniqid('not_writable_dir_', true);
         mkdir($dirName, octdec('444'));
 
         ass($dirName)->directoryIsNotWritable();
+
+        chmod($dirName, octdec('755'));
+
+        try {
+            ass($dirName)->directoryIsNotWritable();
+        } catch (AssertionFailedError $e) {
+        }
 
         rmdir($dirName);
     }
