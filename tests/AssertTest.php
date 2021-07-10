@@ -140,6 +140,23 @@ final class AssertTest extends TestCase
         ass($testClass)->notInstanceOf('DateTimeZone');
     }
 
+    public function testIsReadable(): void
+    {
+        ass($this->assetsDir.'StringEqualsFile.txt')->isReadable();
+
+        $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting.php';
+        ass($path)->isNotReadable();
+    }
+
+    public function testIsWritable(): void
+    {
+        $path = $this->assetsDir.'StringEqualsFile.txt';
+        ass($path)->isWritable();
+
+        $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting'.\DIRECTORY_SEPARATOR;
+        ass($path)->isNotWritable();
+    }
+
     public function testJson(): void
     {
         ass(json_encode(['foo' => 'bar']))->json();
@@ -185,23 +202,6 @@ final class AssertTest extends TestCase
         expect([])->empty();
         should([])->empty();
         verify([])->empty();
-    }
-
-    public function testIsReadable(): void
-    {
-        ass($this->assetsDir.'StringEqualsFile.txt')->isReadable();
-
-        $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting.php';
-        ass($path)->isNotReadable();
-    }
-
-    public function testIsWritable(): void
-    {
-        $path = $this->assetsDir.'StringEqualsFile.txt';
-        ass($path)->isWritable();
-
-        $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting' . \DIRECTORY_SEPARATOR;
-        ass($path)->isNotWritable();
     }
 }
 

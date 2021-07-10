@@ -11,7 +11,7 @@ class Assert
     use Traits\AssertClassTrait;
     use Traits\AssertDataTrait;
     use Traits\AssertDataTypeTrait;
-    use Traits\AssertFileAndDirectoryTrait;
+    use Traits\AssertFileDirectoryTrait;
     use Traits\AssertJsonTrait;
     use Traits\AssertStringTrait;
     use Traits\AssertThrowsTrait;
