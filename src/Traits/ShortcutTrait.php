@@ -4,32 +4,32 @@ namespace Realodix\NextProject\Traits;
 
 trait ShortcutTrait
 {
-    public function dirDoesNotExist(string $message = ''): self
+    public function dirDNE(string $message = ''): self
     {
         return $this->directoryDoesNotExist($message);
     }
 
-    public function dirExists(string $message = ''): self
+    public function dirEx(string $message = ''): self
     {
         return $this->directoryExists($this->actual, $message);
     }
 
-    public function dirIsNotReadable(string $message = ''): self
+    public function dirINR(string $message = ''): self
     {
         return $this->directoryIsNotReadable($message);
     }
 
-    public function dirIsNotWritable(string $message = ''): self
+    public function dirINW(string $message = ''): self
     {
         return $this->directoryIsNotWritable($message);
     }
 
-    public function dirIsReadable(string $message = ''): self
+    public function dirIR(string $message = ''): self
     {
         return $this->directoryIsReadable($message);
     }
 
-    public function dirIsWritable(string $message = ''): self
+    public function dirIW(string $message = ''): self
     {
         return $this->directoryIsWritable($message);
     }
@@ -54,32 +54,32 @@ trait ShortcutTrait
         return $this->lessThan($expected, $message);
     }
 
-    public function jsonFileEjf($expectedFile, string $message = ''): self
+    public function jsonFileEJF($expectedFile, string $message = ''): self
     {
         return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonFileNejf($expectedFile, string $message = ''): self
+    public function jsonFileNEJF($expectedFile, string $message = ''): self
     {
         return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringEjf($expectedFile, string $message = ''): self
+    public function jsonStringEJF($expectedFile, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringEjs($expectedJson, string $message = ''): self
+    public function jsonStringEJS($expectedJson, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonString($expectedJson, $message);
     }
 
-    public function jsonStringNejf($expectedFile, string $message = ''): self
+    public function jsonStringNEJF($expectedFile, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringNejs($expectedJson, string $message = ''): self
+    public function jsonStringNEJS($expectedJson, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
     }

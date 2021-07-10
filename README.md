@@ -28,18 +28,18 @@ composer require realodix/next-project
 | `lessThan()`                      | `isBelow()` |
 | `matchesRegularExpression()`      | `match()` |
 | `doesNotMatchRegularExpression()` | `notMatch()` |
-| `directoryExists()`               | `dirExists()` |
-| `directoryDoesNotExist()`         | `dirDoesNotExist()` |
-| `directoryIsReadable()`           | `dirIsReadable()` |
-| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
-| `directoryIsWritable()`           | `dirIsWritable()` |
-| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
-| `jsonFileEqualsJsonFile()`        | `jsonFileEjf()` |
-| `jsonFileNotEqualsJsonFile()`     | `jsonFileNejf()` |
-| `jsonStringEqualsJsonFile()`      | `jsonStringEjf()` |
-| `jsonStringNotEqualsJsonFile()`   | `jsonStringNejf()` |
-| `jsonStringEqualsJsonString()`    | `jsonStringEjs()` |
-| `jsonStringNotEqualsJsonString()` | `jsonStringNejs()` |
+| `directoryExists()`               | `dirEx()` |
+| `directoryDoesNotExist()`         | `dirDNE()` |
+| `directoryIsReadable()`           | `dirIR()` |
+| `directoryIsNotReadable()`        | `dirINR()` |
+| `directoryIsWritable()`           | `dirIW()` |
+| `directoryIsNotWritable()`        | `dirINW()` |
+| `jsonFileEqualsJsonFile()`        | `jsonFileEJF()` |
+| `jsonFileNotEqualsJsonFile()`     | `jsonFileNEJF()` |
+| `jsonStringEqualsJsonFile()`      | `jsonStringEJF()` |
+| `jsonStringNotEqualsJsonFile()`   | `jsonStringNEJF()` |
+| `jsonStringEqualsJsonString()`    | `jsonStringEJS()` |
+| `jsonStringNotEqualsJsonString()` | `jsonStringNEJS()` |
 
 Use in any test `verify` function instead of `$this->assert*` methods:
 
