@@ -53,6 +53,12 @@ final class AssertArrayTest extends TestCase
         ass([1, 2, 3])->count(3);
         ass([1, 2, 3])->notCount(2);
     }
+
+    public function testSameSize(): void
+    {
+        ass([1, 2])->sameSize([1, 2]);
+        ass([1, 2])->notSameSize([1, 2, 3]);
+    }
 }
 
 class FakeClassForTestingArray
