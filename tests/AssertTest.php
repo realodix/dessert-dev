@@ -164,17 +164,44 @@ final class AssertTest extends TestCase
 
     public function testXmlFileEqualsXmlFile(): void
     {
-        $xmlFile = $this->assetsDir.'xml-test-file.xml';
+        $xmlFile = $this->assetsDir.'xml-foo.xml';
 
         ass($xmlFile)->xmlFileEqualsXmlFile($xmlFile);
+    }
 
-        ass('<foo><bar>Baz</bar><bar>Baz</bar></foo>')->xmlStringEqualsXmlFile($xmlFile);
+    public function testXmlFileNotEqualsXmlFile(): void
+    {
+        $actual = $this->assetsDir.'xml-foo.xml';
+        $expected = $this->assetsDir.'xml-bar.xml';
+
+        ass($actual)->xmlFileNotEqualsXmlFile($expected);
+    }
+
+    public function testXmlStringEqualsXmlFile(): void
+    {
+        $xmlFile = $this->assetsDir.'xml-foo.xml';
+
+        ass('<foo/>')->xmlStringEqualsXmlFile($xmlFile);
     }
 
     public function testXmlStringEqualsXmlString(): void
     {
-        ass('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
-            ->xmlStringEqualsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
+        ass('<foo/>')
+            ->xmlStringEqualsXmlString('<foo/>');
+    }
+
+    public function testXmlStringNotEqualsXmlFile(): void
+    {
+        $actual = file_get_contents($this->assetsDir.'xml-foo.xml');
+        $expected = $this->assetsDir.'xml-bar.xml';
+
+        ass($actual)->xmlStringNotEqualsXmlFile($expected);
+    }
+
+    public function testXmlStringNotEqualsXmlString(): void
+    {
+        ass('<foo/>')
+            ->xmlStringNotEqualsXmlString('<bar/>');
     }
 }
 
