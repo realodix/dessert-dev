@@ -24,8 +24,8 @@ composer require realodix/next-project
 | --------------------------------- | ----------- |
 | `greaterThan()`                   | `isAbove()` \| `greater()` |
 | `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterEqual()` |
-| `lessThanOrEqual()`               | `isAtMost()` \| `lessEqual()` |
 | `lessThan()`                      | `isBelow()` \| `less()` |
+| `lessThanOrEqual()`               | `isAtMost()` \| `lessEqual()` |
 | `matchesRegularExpression()`      | `match()` |
 | `doesNotMatchRegularExpression()` | `notMatch()` |
 | `directoryExists()`               | `dirEx()` |

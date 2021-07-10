@@ -6,15 +6,34 @@ use PHPUnit\Framework\TestCase;
 
 final class AssertStringTest extends TestCase
 {
-    public function testEndsWith(): void
+    /** @test */
+    public function containsString(): void
+    {
+        ass('foo bar')->stringContainsString('o b');
+        ass('foo bar')->stringNotContainsString('BAR');
+
+        ass('foo bar')->stringContainsStringIgnoringCase('O b');
+        ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
+    }
+
+    /** @test */
+    public function endsWith(): void
     {
         ass('A completely not funny string')->stringEndsWith('ny string');
         ass('A completely not funny string')->stringEndsNotWith('A completely');
     }
 
+    /** @test */
+    public function startsWith(): void
+    {
+        ass('A completely not funny string')->stringStartsWith('A completely');
+        ass('A completely not funny string')->stringStartsNotWith('string');
+    }
+
     public function testEqualsIgnoringCase(): void
     {
         ass('foo')->equalsIgnoringCase('FOO');
+        ass('foo')->notEqualsIgnoringCase('BAR');
     }
 
     public function testMatchesFormat(): void
@@ -23,32 +42,9 @@ final class AssertStringTest extends TestCase
         ass('somestring')->stringNotMatchesFormat('%i');
     }
 
-    public function testNotEqualsIgnoringCase(): void
+    public function testMatchesRegularExpression(): void
     {
-        ass('foo')->notEqualsIgnoringCase('BAR');
-    }
-
-    public function testRegExp(): void
-    {
-        ass('foobar')->match('/foobar/');
-        ass('foobar')->notMatch('/foobarbaz/');
-    }
-
-    public function testStartsWith(): void
-    {
-        ass('A completely not funny string')->stringStartsWith('A completely');
-        ass('A completely not funny string')->stringStartsNotWith('string');
-    }
-
-    public function testStringContainsString(): void
-    {
-        ass('foo bar')->stringContainsString('o b');
-        ass('foo bar')->stringNotContainsString('BAR');
-    }
-
-    public function testStringContainsStringIgnoringCase(): void
-    {
-        ass('foo bar')->stringContainsStringIgnoringCase('O b');
-        ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
+        ass('foobar')->matchesRegularExpression('/foobar/');
+        ass('foobar')->doesNotMatchRegularExpression('/foobarbaz/');
     }
 }
