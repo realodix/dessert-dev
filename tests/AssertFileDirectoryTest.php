@@ -15,6 +15,20 @@ final class AssertFileDirectoryTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
+    public function testAssertDirectoryIsNotWritable(): void
+    {
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
+        mkdir($dirName, octdec('444'));
+
+        ass($dirName)->directoryIsNotWritable();
+
+        rmdir($dirName);
+    }
+
     public function testAssertFileEqualsIgnoringCase()
     {
         $expected = $this->assetsDir.'StringEqualsFile.txt';
@@ -26,6 +40,20 @@ final class AssertFileDirectoryTest extends TestCase
     public function testDirectoryExists(): void
     {
         ass(__DIR__)->directoryExists();
+    }
+
+    public function testDirectoryIsNotReadable(): void
+    {
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
+        mkdir($dirName, octdec('0'));
+
+        ass($dirName)->directoryIsNotReadable();
+
+        rmdir($dirName);
     }
 
     public function testDirectoryIsReadable(): void
@@ -80,13 +108,6 @@ final class AssertFileDirectoryTest extends TestCase
         chmod($tempFile, octdec('0'));
 
         ass($tempFile)->fileIsNotReadable();
-
-        chmod($tempFile, octdec('755'));
-
-        try {
-            ass($tempFile)->fileIsNotReadable();
-        } catch (AssertionFailedError $e) {
-        }
 
         unlink($tempFile);
     }
