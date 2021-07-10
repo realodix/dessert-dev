@@ -52,17 +52,17 @@ final class AssertTest extends TestCase
 
     public function testEqualsFile(): void
     {
-        ass('%i')->stringEqualsFile($this->assetsDir.'format-file.txt');
-        ass('Another string')->stringNotEqualsFile($this->assetsDir.'format-file.txt');
+        ass('testing 123')->stringEqualsFile($this->assetsDir.'StringEqualsFile.txt');
+        ass('Another string')->stringNotEqualsFile($this->assetsDir.'StringEqualsFile.txt');
 
         ass('testing 123')
-            ->stringEqualsFileCanonicalizing($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
+            ->stringEqualsFileCanonicalizing($this->assetsDir.'StringEqualsFile.txt');
         ass('notSame')
-            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
+            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'StringEqualsFile.txt');
         ass('TESTING 123')
-            ->stringEqualsFileIgnoringCase($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
+            ->stringEqualsFileIgnoringCase($this->assetsDir.'StringEqualsFile.txt');
         ass('Test 123')
-            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
+            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'StringEqualsFile.txt');
     }
 
     public function testEqualsJsonFile(): void
@@ -147,9 +147,9 @@ final class AssertTest extends TestCase
 
     public function testMatchesFormatFile(): void
     {
-        $formatFile = $this->assetsDir.'format-file.txt';
+        $formatFile = $this->assetsDir.'StringEqualsFile.txt';
 
-        ass('23')->stringMatchesFormatFile($formatFile);
+        ass('testing 123')->stringMatchesFormatFile($formatFile);
         ass('asdfas')->stringNotMatchesFormatFile($formatFile);
     }
 
