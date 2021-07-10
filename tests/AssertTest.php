@@ -28,6 +28,11 @@ final class AssertTest extends TestCase
         ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
     }
 
+    public function testJson(): void
+    {
+        ass(json_encode(['foo' => 'bar']))->json();
+    }
+
     public function testEmptyNotEmpty(): void
     {
         ass(['3', '5'])->notEmpty();

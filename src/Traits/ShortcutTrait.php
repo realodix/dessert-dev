@@ -66,7 +66,7 @@ trait ShortcutTrait
 
     public function jsonFileEJF($expectedFile, string $message = ''): self
     {
-        return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
+        return $this->jsonFileEqualsJsonFile($expectedFile, $message);
     }
 
     public function jsonFileNEJF($expectedFile, string $message = ''): self
