@@ -54,6 +54,15 @@ final class AssertTest extends TestCase
     {
         ass('%i')->stringEqualsFile($this->assetsDir.'format-file.txt');
         ass('Another string')->stringNotEqualsFile($this->assetsDir.'format-file.txt');
+
+        ass('testing 123')
+            ->stringEqualsFileCanonicalizing($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
+        ass('notSame')
+            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
+        ass('TESTING 123')
+            ->stringEqualsFileIgnoringCase($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
+        ass('Test 123')
+            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'FileEqualsSpecialization_Expected.txt');
     }
 
     public function testEqualsJsonFile(): void

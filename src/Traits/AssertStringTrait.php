@@ -148,6 +148,14 @@ trait AssertStringTrait
 
     public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
         return $this;
@@ -155,6 +163,14 @@ trait AssertStringTrait
 
     public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
@@ -233,6 +249,14 @@ trait AssertStringTrait
 
     public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
         return $this;
@@ -240,6 +264,14 @@ trait AssertStringTrait
 
     public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
