@@ -31,6 +31,14 @@ trait AssertFileDirectoryTrait
 
     public function directoryIsNotReadable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertDirectoryNotIsReadable($this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertDirectoryIsNotReadable($this->actual, $message);
 
         return $this;
@@ -38,6 +46,14 @@ trait AssertFileDirectoryTrait
 
     public function directoryIsNotWritable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertDirectoryNotIsWritable($this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertDirectoryIsNotWritable($this->actual, $message);
 
         return $this;
