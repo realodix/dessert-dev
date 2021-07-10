@@ -51,6 +51,63 @@ final class AssertFileDirectoryTest extends TestCase
         ass('completelyrandomfilename.txt')->fileDoesNotExist();
     }
 
+    public function testFileIsNotReadable()
+    {
+        if (\DIRECTORY_SEPARATOR === '\\') {
+            // The actual behaviour of the assertion cannot be tested on Windows.
+            ass([$this, 'assertFileIsNotReadable'])
+                ->isCallable('Assertion "assertFileIsNotReadable()" is not callable');
+
+            return;
+        }
+
+        $tempFile = \tempnam(\sys_get_temp_dir(), 'unreadable');
+        \chmod($tempFile, \octdec('0'));
+
+        ass($tempFile)->fileIsNotReadable();
+
+        \chmod($tempFile, \octdec('755'));
+        \unlink($tempFile);
+    }
+
+    public function testFileNotEqualsIgnoringCase() {
+		$expected = $this->assetsDir.'StringEqualsFile.txt';
+		$input    = $this->assetsDir.'StringNotEqualsFile-CI.txt';
+
+        ass($input)->fileNotEqualsIgnoringCase($expected);
+	}
+
+    public function testfileIsNotWritable()
+    {
+        $tempFile = \tempnam(\sys_get_temp_dir(), 'not_writable');
+        \chmod($tempFile, \octdec('0'));
+
+        ass($tempFile)->fileIsNotWritable($tempFile);
+
+        \chmod($tempFile, \octdec('755'));
+        \unlink($tempFile);
+    }
+
+    public function testfileIsReadable()
+    {
+        $file = $this->assetsDir.'StringEqualsFile.txt';
+        ass($file)->fileIsReadable();
+    }
+
+    public function testfileIsWritable()
+    {
+        $file = $this->assetsDir.'StringEqualsFile.txt';
+        ass($file)->fileIsWritable();
+    }
+
+    public function testFileNotEqualsCanonicalizing()
+    {
+        $expected = $this->assetsDir.'StringEqualsFile.txt';
+        $input = $this->assetsDir.'StringNotEqualsFile.txt';
+
+        ass($input)->fileNotEqualsCanonicalizing($expected);
+    }
+
     public function testIsReadable(): void
     {
         ass($this->assetsDir.'StringEqualsFile.txt')->isReadable();
