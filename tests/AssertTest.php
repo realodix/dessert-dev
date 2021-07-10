@@ -17,6 +17,8 @@ final class AssertTest extends TestCase
     {
         $this->xml = new \DOMDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
+
+        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR;
     }
 
     public function testDirectory(): void
@@ -50,15 +52,15 @@ final class AssertTest extends TestCase
 
     public function testEqualsFile(): void
     {
-        ass('%i')->stringEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
-        ass('Another string')->stringNotEqualsFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt');
+        ass('%i')->stringEqualsFile($this->assetsDir.'format-file.txt');
+        ass('Another string')->stringNotEqualsFile($this->assetsDir.'format-file.txt');
     }
 
     public function testEqualsJsonFile(): void
     {
-        ass(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-test-file.json')
-            ->jsonFileEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-equal-test-file.json');
-        ass('{"some" : "data"}')->jsonStringEqualsJsonFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'json-equal-test-file.json');
+        ass($this->assetsDir.'json-test-file.json')
+            ->jsonFileEqualsJsonFile($this->assetsDir.'json-equal-test-file.json');
+        ass('{"some" : "data"}')->jsonStringEqualsJsonFile($this->assetsDir.'json-equal-test-file.json');
     }
 
     public function testEqualsJsonString(): void
@@ -73,10 +75,11 @@ final class AssertTest extends TestCase
 
     public function testEqualsXmlFile(): void
     {
-        ass(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml')
-            ->xmlFileEqualsXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
-        ass('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
-            ->xmlStringEqualsXmlFile(__DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'xml-test-file.xml');
+        $xmlFile = $this->assetsDir.'xml-test-file.xml';
+
+        ass($xmlFile)->xmlFileEqualsXmlFile($xmlFile);
+
+        ass('<foo><bar>Baz</bar><bar>Baz</bar></foo>')->xmlStringEqualsXmlFile($xmlFile);
     }
 
     public function testEqualsXmlString(): void
@@ -128,13 +131,10 @@ final class AssertTest extends TestCase
 
     public function testMatchesFormatFile(): void
     {
-        ass('23')->stringMatchesFormatFile(
-            __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt'
-        );
+        $formatFile = __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt';
 
-        ass('asdfas')->stringNotMatchesFormatFile(
-            __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'format-file.txt'
-        );
+        ass('23')->stringMatchesFormatFile($formatFile);
+        ass('asdfas')->stringNotMatchesFormatFile($formatFile);
     }
 
     public function testNotEquals(): void
