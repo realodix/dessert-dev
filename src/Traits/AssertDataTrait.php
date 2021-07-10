@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait AssertDataTrait
 {
@@ -15,6 +16,14 @@ trait AssertDataTrait
      */
     public function isNotReadable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertNotIsReadable($this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertIsNotReadable($this->actual, $message);
 
         return $this;
@@ -29,6 +38,14 @@ trait AssertDataTrait
      */
     public function isNotWritable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertNotIsWritable($this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertIsNotWritable($this->actual, $message);
 
         return $this;
