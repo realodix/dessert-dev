@@ -84,7 +84,7 @@ class Assert
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
-            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, false);
+            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, true);
 
             return $this;
             // @codeCoverageIgnoreEnd
