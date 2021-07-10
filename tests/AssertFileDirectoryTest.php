@@ -15,35 +15,6 @@ final class AssertFileDirectoryTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
-    public function testAssertDirectoryIsNotWritable(): void
-    {
-        if (PHP_OS_FAMILY === 'Windows') {
-            $this->markTestSkipped('Cannot test this behaviour on Windows');
-        }
-
-        $dirName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . uniqid('not_writable_dir_', true);
-        mkdir($dirName, octdec('444'));
-
-        ass($dirName)->directoryIsNotWritable();
-
-        chmod($dirName, octdec('755'));
-
-        try {
-            ass($dirName)->directoryIsNotWritable();
-        } catch (AssertionFailedError $e) {
-        }
-
-        rmdir($dirName);
-    }
-
-    public function testAssertFileEqualsIgnoringCase()
-    {
-        $expected = $this->assetsDir.'StringEqualsFile.txt';
-        $input = $this->assetsDir.'StringEqualsFile-CI.txt';
-
-        ass($expected)->fileEqualsIgnoringCase($input);
-    }
-
     public function testDirectoryExists(): void
     {
         ass(__DIR__)->directoryExists();
@@ -59,6 +30,20 @@ final class AssertFileDirectoryTest extends TestCase
         mkdir($dirName, octdec('0'));
 
         ass($dirName)->directoryIsNotReadable();
+
+        rmdir($dirName);
+    }
+
+    public function testDirectoryIsNotWritable(): void
+    {
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
+        mkdir($dirName, octdec('444'));
+
+        ass($dirName)->directoryIsNotWritable();
 
         rmdir($dirName);
     }
@@ -93,6 +78,14 @@ final class AssertFileDirectoryTest extends TestCase
         $file = $this->assetsDir.'StringEqualsFile.txt';
 
         ass($file)->fileEqualsCanonicalizing($file);
+    }
+
+    public function testFileEqualsIgnoringCase()
+    {
+        $expected = $this->assetsDir.'StringEqualsFile.txt';
+        $input = $this->assetsDir.'StringEqualsFile-CI.txt';
+
+        ass($expected)->fileEqualsIgnoringCase($input);
     }
 
     public function testFileExists(): void

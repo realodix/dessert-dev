@@ -38,7 +38,7 @@ trait AssertFileDirectoryTrait
 
     public function directoryIsNotWritable(string $message = ''): self
     {
-        PHPUnit::assertDirectoryIsNotWritable($message);
+        PHPUnit::assertDirectoryIsNotWritable($this->actual, $message);
 
         return $this;
     }
