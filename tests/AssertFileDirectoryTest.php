@@ -68,21 +68,27 @@ final class AssertFileDirectoryTest extends TestCase
 
     public function testFileIsNotReadable()
     {
-        if (\DIRECTORY_SEPARATOR === '\\') {
-            // The actual behaviour of the assertion cannot be tested on Windows.
-            ass([$this, 'assertFileIsNotReadable'])
-                ->isCallable('Assertion "assertFileIsNotReadable()" is not callable');
-
-            return;
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
         }
 
-        $tempFile = \tempnam(\sys_get_temp_dir(), 'unreadable');
-        \chmod($tempFile, \octdec('0'));
+        $tempFile = tempnam(
+            sys_get_temp_dir(),
+            'unreadable'
+        );
+
+        chmod($tempFile, octdec('0'));
 
         ass($tempFile)->fileIsNotReadable();
 
-        \chmod($tempFile, \octdec('755'));
-        \unlink($tempFile);
+        chmod($tempFile, octdec('755'));
+
+        try {
+            ass($tempFile)->fileIsNotReadable();
+        } catch (AssertionFailedError $e) {
+        }
+
+        unlink($tempFile);
     }
 
     public function testfileIsNotWritable()
