@@ -73,6 +73,14 @@ trait AssertFileDirectoryTrait
 
     public function fileEqualsCanonicalizing($expected, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileEquals($expected, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
@@ -80,6 +88,14 @@ trait AssertFileDirectoryTrait
 
     public function fileEqualsIgnoringCase($expected, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileEquals($expected, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
