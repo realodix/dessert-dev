@@ -31,9 +31,11 @@ trait AssertDataTypeTrait
     public function isArray(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('array', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsArray($this->actual, $message);
@@ -51,9 +53,11 @@ trait AssertDataTypeTrait
     public function isBool(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('bool', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsBool($this->actual, $message);
@@ -71,9 +75,11 @@ trait AssertDataTypeTrait
     public function isCallable(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('callable', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsCallable($this->actual, $message);
@@ -105,9 +111,11 @@ trait AssertDataTypeTrait
     public function isFloat(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('float', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsFloat($this->actual, $message);
@@ -125,9 +133,11 @@ trait AssertDataTypeTrait
     public function isInt(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('int', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsInt($this->actual, $message);
@@ -159,9 +169,11 @@ trait AssertDataTypeTrait
     public function isNotArray(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('array', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotArray($this->actual, $message);
@@ -179,9 +191,11 @@ trait AssertDataTypeTrait
     public function isNotBool(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('bool', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotBool($this->actual, $message);
@@ -199,9 +213,11 @@ trait AssertDataTypeTrait
     public function isNotCallable(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('callable', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotCallable($this->actual, $message);
@@ -233,9 +249,11 @@ trait AssertDataTypeTrait
     public function isNotFloat(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('float', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotFloat($this->actual, $message);
@@ -253,9 +271,11 @@ trait AssertDataTypeTrait
     public function isNotInt(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('int', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotInt($this->actual, $message);
@@ -287,9 +307,11 @@ trait AssertDataTypeTrait
     public function isNotNumeric(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('numeric', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotNumeric($this->actual, $message);
@@ -307,9 +329,11 @@ trait AssertDataTypeTrait
     public function isNotObject(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('object', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotObject($this->actual, $message);
@@ -327,9 +351,11 @@ trait AssertDataTypeTrait
     public function isNotResource(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('resource', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotResource($this->actual, $message);
@@ -347,9 +373,11 @@ trait AssertDataTypeTrait
     public function isNotScalar(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('scalar', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotScalar($this->actual, $message);
@@ -367,9 +395,11 @@ trait AssertDataTypeTrait
     public function isNotString(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('string', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNotString($this->actual, $message);
@@ -387,9 +417,11 @@ trait AssertDataTypeTrait
     public function isNumeric(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('numeric', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsNumeric($this->actual, $message);
@@ -407,9 +439,11 @@ trait AssertDataTypeTrait
     public function isObject(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('object', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsObject($this->actual, $message);
@@ -427,9 +461,11 @@ trait AssertDataTypeTrait
     public function isResource(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('resource', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsResource($this->actual, $message);
@@ -447,9 +483,11 @@ trait AssertDataTypeTrait
     public function isScalar(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('scalar', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsScalar($this->actual, $message);
@@ -467,9 +505,11 @@ trait AssertDataTypeTrait
     public function isString(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('string', $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertIsString($this->actual, $message);

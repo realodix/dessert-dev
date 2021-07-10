@@ -33,11 +33,13 @@ trait AssertArrayTrait
         // Introduced in PHPUnit 8.1.0
         // https://github.com/sebastianbergmann/phpunit/issues/3511
         if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+            // @codeCoverageIgnoreStart
             $constraint = new \PHPUnit\Framework\Constraint\TraversableContains($needle);
 
             PHPUnit::assertThat($this->actual, $constraint, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertContainsEquals($needle, $this->actual, $message);
@@ -78,6 +80,7 @@ trait AssertArrayTrait
         // Introduced in PHPUnit 8.1.0
         // https://github.com/sebastianbergmann/phpunit/issues/3511
         if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+            // @codeCoverageIgnoreStart
             $constraint = new \PHPUnit\Framework\Constraint\LogicalNot(
                 new \PHPUnit\Framework\Constraint\TraversableContains(
                     $needle,
@@ -89,6 +92,7 @@ trait AssertArrayTrait
             PHPUnit::assertThat($this->actual, $constraint, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);

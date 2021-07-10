@@ -52,9 +52,11 @@ trait AssertFileAndDirectoryTrait
     public function fileDoesNotExist(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertFileNotExists($this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertFileDoesNotExist($this->actual, $message);

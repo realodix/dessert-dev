@@ -10,9 +10,11 @@ trait AssertStringTrait
     public function doesNotMatchRegularExpression($pattern, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
@@ -31,9 +33,11 @@ trait AssertStringTrait
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, false, true);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
@@ -44,9 +48,11 @@ trait AssertStringTrait
     public function matchesRegularExpression($pattern, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertRegExp($pattern, $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertMatchesRegularExpression($pattern, $this->actual, $message);
@@ -65,9 +71,11 @@ trait AssertStringTrait
     public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, false, true);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
@@ -78,6 +86,7 @@ trait AssertStringTrait
     public function stringContainsString($needle, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             if ($needle === '') {
                 PHPUnit::assertSame($needle, $needle, $message);
 
@@ -87,6 +96,7 @@ trait AssertStringTrait
             PHPUnit::assertContains($needle, $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertStringContainsString($needle, $this->actual, $message);
@@ -97,6 +107,7 @@ trait AssertStringTrait
     public function stringContainsStringIgnoringCase($needle, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             if ($needle === '') {
                 PHPUnit::assertSame($needle, $needle, $message);
 
@@ -106,6 +117,7 @@ trait AssertStringTrait
             PHPUnit::assertContains($needle, $this->actual, $message, true);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
@@ -165,6 +177,7 @@ trait AssertStringTrait
     public function stringNotContainsString($needle, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             if ($needle === '') {
                 if ($message === '') {
                     $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
@@ -178,6 +191,7 @@ trait AssertStringTrait
             PHPUnit::assertNotContains($needle, $this->actual, $message);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
@@ -188,6 +202,7 @@ trait AssertStringTrait
     public function stringNotContainsStringIgnoringCase($needle, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             if ($needle === '') {
                 if ($message === '') {
                     $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
@@ -201,6 +216,7 @@ trait AssertStringTrait
             PHPUnit::assertNotContains($needle, $this->actual, $message, true);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
