@@ -15,6 +15,14 @@ final class AssertFileDirectoryTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
+    public function testAssertFileEqualsIgnoringCase()
+    {
+        $expected = $this->assetsDir.'StringEqualsFile.txt';
+        $input = $this->assetsDir.'StringEqualsFile-CI.txt';
+
+        ass($expected)->fileEqualsIgnoringCase($input);
+    }
+
     public function testDirectory(): void
     {
         ass(__DIR__)->directoryIsReadable();
@@ -28,6 +36,13 @@ final class AssertFileDirectoryTest extends TestCase
         ass(__FILE__)->fileNotEquals(
             __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json'
         );
+    }
+
+    public function testFileEqualsCanonicalizing()
+    {
+        $file = $this->assetsDir.'StringEqualsFile.txt';
+
+        ass($file)->fileEqualsCanonicalizing($file);
     }
 
     public function testFileExists(): void
