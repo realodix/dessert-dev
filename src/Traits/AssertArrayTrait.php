@@ -30,6 +30,8 @@ trait AssertArrayTrait
 
     public function containsEquals($needle, string $message = ''): self
     {
+        // Introduced in PHPUnit 8.1.0
+        // https://github.com/sebastianbergmann/phpunit/issues/3511
         if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
             $constraint = new \PHPUnit\Framework\Constraint\TraversableContains($needle);
 
@@ -73,7 +75,9 @@ trait AssertArrayTrait
 
     public function notContainsEquals($needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '8.0', '<')) {
+        // Introduced in PHPUnit 8.1.0
+        // https://github.com/sebastianbergmann/phpunit/issues/3511
+        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
             $constraint = new \PHPUnit\Framework\Constraint\LogicalNot(
                 new \PHPUnit\Framework\Constraint\TraversableContains(
                     $needle,

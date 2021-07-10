@@ -83,9 +83,11 @@ class Assert
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, true);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
@@ -105,9 +107,11 @@ class Assert
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertEquals($expected, $this->actual, $message, $delta);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
@@ -272,9 +276,11 @@ class Assert
     public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, true);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
@@ -294,9 +300,11 @@ class Assert
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
             PHPUnit::assertNotEquals($expected, $this->actual, $message, $delta);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
