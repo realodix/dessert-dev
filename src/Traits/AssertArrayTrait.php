@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait AssertArrayTrait
 {
@@ -29,6 +30,14 @@ trait AssertArrayTrait
 
     public function containsEquals($needle, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+            $constraint = new \PHPUnit\Framework\Constraint\TraversableContains($needle);
+
+            PHPUnit::assertThat($this->actual, $constraint, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertContainsEquals($needle, $this->actual, $message);
 
         return $this;
