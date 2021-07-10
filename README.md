@@ -22,10 +22,10 @@ composer require realodix/next-project
 
 | PHPUnit                           | Shortcut |
 | --------------------------------- | ----------- |
-| `greaterThan()`                   | `isAbove()` |
-| `greaterThanOrEqual()`            | `isAtLeast()` |
-| `lessThanOrEqual()`               | `isAtMost()` |
-| `lessThan()`                      | `isBelow()` |
+| `greaterThan()`                   | `isAbove()` \| `greater()` |
+| `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterEqual()` |
+| `lessThanOrEqual()`               | `isAtMost()` \| `lessEqual()` |
+| `lessThan()`                      | `isBelow()` \| `less()` |
 | `matchesRegularExpression()`      | `match()` |
 | `doesNotMatchRegularExpression()` | `notMatch()` |
 | `directoryExists()`               | `dirEx()` |

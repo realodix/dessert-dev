@@ -34,6 +34,16 @@ trait ShortcutTrait
         return $this->directoryIsWritable($message);
     }
 
+    public function greater($expected, string $message = ''): self
+    {
+        return $this->greaterThan($expected, $message);
+    }
+
+    public function greaterEqual($expected, string $message = ''): self
+    {
+        return $this->greaterThanOrEqual($expected, $message);
+    }
+
     public function isAbove($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
@@ -82,6 +92,16 @@ trait ShortcutTrait
     public function jsonStringNEJS($expectedJson, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
+    }
+
+    public function less($expected, string $message = ''): self
+    {
+        return $this->lessThan($expected, $message);
+    }
+
+    public function lessEqual($expected, string $message = ''): self
+    {
+        return $this->lessThanOrEqual($expected, $message);
     }
 
     public function match(string $pattern, string $message = ''): self
