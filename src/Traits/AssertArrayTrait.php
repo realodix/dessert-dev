@@ -73,6 +73,16 @@ trait AssertArrayTrait
 
     public function notContainsEquals($needle, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+            $constraint = new \PHPUnit\Framework\Constraint\LogicalNot(
+                new \PHPUnit\Framework\Constraint\TraversableContains($needle, false, false)
+            );
+
+            PHPUnit::assertThat($this->actual, $constraint, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
 
         return $this;
