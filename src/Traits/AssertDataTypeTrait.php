@@ -146,14 +146,38 @@ trait AssertDataTypeTrait
     }
 
     /**
-     * Verifies that a variable is of type iterable.
+     * Asserts that a variable is of type iterable.
      *
-     * @param string $message
+     * {@internal Support for `iterable` was only added to the `Assert::assertInternalType()` method
+     * in PHPUnit 7.1.0, so this polyfill can't use a direct fall-through to that functionality
+     * until the minimum supported PHPUnit version of this library would be PHPUnit 7.1.0.}
+     *
+     * @link https://github.com/sebastianbergmann/phpunit/pull/3035 PR which added support for `is_iterable`
+     *                                                              to `Assert::assertInternalType()`.
+     *
+     * @param string $message Optional failure message to display
      *
      * @return self
      */
     public function isIterable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
+            if (\function_exists('is_iterable') === true) {
+                // PHP >= 7.1.
+                PHPUnit::assertTrue(\is_iterable($this->actual), $message);
+
+                return $this;
+            }
+
+            // PHP < 7.1.
+            $result = \is_array($this->actual) || $this->actual instanceof \Traversable;
+            PHPUnit::assertTrue($result, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertIsIterable($this->actual, $message);
 
         return $this;
@@ -284,14 +308,38 @@ trait AssertDataTypeTrait
     }
 
     /**
-     * Verifies that a variable is not of type iterable.
+     * Asserts that a variable is not of type iterable.
      *
-     * @param string $message
+     * {@internal Support for `iterable` was only added to the `Assert::assertNotInternalType()` method
+     * in PHPUnit 7.1.0, so this polyfill can't use a direct fall-through to that functionality
+     * until the minimum supported PHPUnit version of this library would be PHPUnit 7.1.0.}
+     *
+     * @link https://github.com/sebastianbergmann/phpunit/pull/3035 PR which added support for `is_iterable`
+     *                                                              to `Assert::assertNotInternalType()`.
+     *
+     * @param string $message Optional failure message to display
      *
      * @return self
      */
     public function isNotIterable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
+            if (\function_exists('is_iterable') === true) {
+                // PHP >= 7.1.
+                PHPUnit::assertFalse(\is_iterable($this->actual), $message);
+
+                return $this;
+            }
+
+            // PHP < 7.1.
+            $result = \is_array($this->actual) || $this->actual instanceof \Traversable;
+            PHPUnit::assertFalse($result, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertIsNotIterable($this->actual, $message);
 
         return $this;
