@@ -58,14 +58,16 @@ final class AssertTest extends TestCase
 
     public function testEqualsJsonFile(): void
     {
-        ass($this->assetsDir.'JsonData/file.json')
-            ->jsonFileEqualsJsonFile($this->assetsDir.'JsonData/file-equal.json');
-        ass('{"some" : "data"}')->jsonStringEqualsJsonFile($this->assetsDir.'JsonData/file.json');
+        $jsonFile = $this->assetsDir.'JsonData/simpleObject.json';
+
+        ass($jsonFile)->jsonFileEqualsJsonFile($jsonFile);
+        ass('{"Mascott":"Tux"}')->jsonStringEqualsJsonFile($jsonFile);
     }
 
     public function testEqualsJsonString(): void
     {
-        ass('{"some" : "data"}')->jsonStringEqualsJsonString('{"some" : "data"}');
+        $jsonString = '{"foo" : "bar"}';
+        ass($jsonString)->jsonStringEqualsJsonString($jsonString);
     }
 
     public function testEqualsWithDelta(): void
