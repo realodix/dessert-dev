@@ -110,6 +110,14 @@ trait AssertFileDirectoryTrait
 
     public function fileIsNotReadable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotIsReadable($this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertFileIsNotReadable($this->actual, $message);
 
         return $this;
@@ -117,6 +125,14 @@ trait AssertFileDirectoryTrait
 
     public function fileIsNotWritable(string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotIsWritable($this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertFileIsNotWritable($this->actual, $message);
 
         return $this;
@@ -145,6 +161,14 @@ trait AssertFileDirectoryTrait
 
     public function fileNotEqualsCanonicalizing($expected, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
@@ -152,6 +176,14 @@ trait AssertFileDirectoryTrait
 
     public function fileNotEqualsIgnoringCase($expected, string $message = ''): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;

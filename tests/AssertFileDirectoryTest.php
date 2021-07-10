@@ -70,13 +70,6 @@ final class AssertFileDirectoryTest extends TestCase
         \unlink($tempFile);
     }
 
-    public function testFileNotEqualsIgnoringCase() {
-		$expected = $this->assetsDir.'StringEqualsFile.txt';
-		$input    = $this->assetsDir.'StringNotEqualsFile-CI.txt';
-
-        ass($input)->fileNotEqualsIgnoringCase($expected);
-	}
-
     public function testfileIsNotWritable()
     {
         $tempFile = \tempnam(\sys_get_temp_dir(), 'not_writable');
@@ -106,6 +99,14 @@ final class AssertFileDirectoryTest extends TestCase
         $input = $this->assetsDir.'StringNotEqualsFile.txt';
 
         ass($input)->fileNotEqualsCanonicalizing($expected);
+    }
+
+    public function testFileNotEqualsIgnoringCase()
+    {
+        $expected = $this->assetsDir.'StringEqualsFile.txt';
+        $input = $this->assetsDir.'StringNotEqualsFile-CI.txt';
+
+        ass($input)->fileNotEqualsIgnoringCase($expected);
     }
 
     public function testIsReadable(): void
