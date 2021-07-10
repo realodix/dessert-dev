@@ -18,7 +18,7 @@ final class AssertTest extends TestCase
         $this->xml = new \DOMDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
 
-        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR;
+        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
     public function testDirectory(): void
