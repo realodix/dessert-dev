@@ -58,9 +58,9 @@ final class AssertTest extends TestCase
 
     public function testEqualsJsonFile(): void
     {
-        ass($this->assetsDir.'json-test-file.json')
-            ->jsonFileEqualsJsonFile($this->assetsDir.'json-equal-test-file.json');
-        ass('{"some" : "data"}')->jsonStringEqualsJsonFile($this->assetsDir.'json-equal-test-file.json');
+        ass($this->assetsDir.'JsonData/file.json')
+            ->jsonFileEqualsJsonFile($this->assetsDir.'JsonData/file-equal.json');
+        ass('{"some" : "data"}')->jsonStringEqualsJsonFile($this->assetsDir.'JsonData/file.json');
     }
 
     public function testEqualsJsonString(): void
