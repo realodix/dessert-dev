@@ -2,11 +2,7 @@
 
 namespace Realodix\NextProject\Test;
 
-use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
-
-// Coba dibuat, ditemukan pada test Dir
-// $this->expectException(AssertionFailedError::class);
 
 final class AssertTest extends TestCase
 {
@@ -19,13 +15,6 @@ final class AssertTest extends TestCase
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
 
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
-    }
-
-    public function testDirectory(): void
-    {
-        ass(__DIR__)->directoryIsReadable();
-        $this->expectException(AssertionFailedError::class);
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
     }
 
     public function testEmptyNotEmpty(): void
@@ -41,8 +30,6 @@ final class AssertTest extends TestCase
         ass(5)->equals(5, 'user have 5 posts');
         ass(3.251)->equalsWithDelta(3.25, 0.01);
         ass(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
-
-        ass(__FILE__)->fileEquals(__FILE__);
     }
 
     public function testEqualsCanonicalizing(): void
@@ -99,12 +86,6 @@ final class AssertTest extends TestCase
             ->xmlStringEqualsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
-    public function testFileExists(): void
-    {
-        ass(__FILE__)->fileExists();
-        ass('completelyrandomfilename.txt')->fileDoesNotExist();
-    }
-
     public function testGreaterLowerThan(): void
     {
         ass(7)->greaterThan(5);
@@ -140,23 +121,6 @@ final class AssertTest extends TestCase
         ass($testClass)->notInstanceOf('DateTimeZone');
     }
 
-    public function testIsReadable(): void
-    {
-        ass($this->assetsDir.'StringEqualsFile.txt')->isReadable();
-
-        $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting.php';
-        ass($path)->isNotReadable();
-    }
-
-    public function testIsWritable(): void
-    {
-        $path = $this->assetsDir.'StringEqualsFile.txt';
-        ass($path)->isWritable();
-
-        $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting'.\DIRECTORY_SEPARATOR;
-        ass($path)->isNotWritable();
-    }
-
     public function testJson(): void
     {
         ass(json_encode(['foo' => 'bar']))->json();
@@ -175,10 +139,6 @@ final class AssertTest extends TestCase
         ass(3)->notEquals(5);
         ass(3.252)->notEqualsWithDelta(3.25, 0.001);
         ass(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
-
-        ass(__FILE__)->fileNotEquals(
-            __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json'
-        );
     }
 
     public function testNotEqualsCanonicalizing(): void

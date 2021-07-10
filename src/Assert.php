@@ -9,7 +9,6 @@ class Assert
 {
     use Traits\AssertArrayTrait;
     use Traits\AssertClassTrait;
-    use Traits\AssertDataTrait;
     use Traits\AssertDataTypeTrait;
     use Traits\AssertFileDirectoryTrait;
     use Traits\AssertJsonTrait;
