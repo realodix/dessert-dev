@@ -9,6 +9,7 @@ use TypeError;
  * Helper functions for working with the resource type.
  *
  * @internal
+ * @codeCoverageIgnore
  */
 final class ResourceHelper
 {
