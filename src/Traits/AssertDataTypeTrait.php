@@ -220,7 +220,7 @@ trait AssertDataTypeTrait
                 );
             }
 
-            PHPUnit::assertTrue(ResourceHelper::isClosedResource($this->actual), $message);
+            PHPUnit::assertFalse(ResourceHelper::isClosedResource($this->actual), $message);
 
             return $this;
             // @codeCoverageIgnoreEnd
