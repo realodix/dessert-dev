@@ -23,11 +23,26 @@ final class AssertFileDirectoryTest extends TestCase
         ass($expected)->fileEqualsIgnoringCase($input);
     }
 
-    public function testDirectory(): void
+    public function testDirectoryExists(): void
+    {
+        ass(__DIR__)->directoryExists();
+    }
+
+    public function testDirectoryIsReadable(): void
     {
         ass(__DIR__)->directoryIsReadable();
         $this->expectException(AssertionFailedError::class);
         ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
+    }
+
+    public function testDirectoryIsWritable(): void
+    {
+        ass(__DIR__)->directoryIsWritable();
+    }
+
+    public function testDirectoryNotExists(): void
+    {
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryDoesNotExist();
     }
 
     public function testFileEquals(): void
