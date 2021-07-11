@@ -113,4 +113,34 @@ trait ShortcutTrait
     {
         return $this->doesNotMatchRegularExpression($pattern, $message);
     }
+
+    public function xmlFileEXF($expectedFile, string $message = ''): self
+    {
+        return $this->xmlFileEqualsXmlFile($expectedFile, $message);
+    }
+
+    public function xmlFileNEXF($expectedFile, string $message = ''): self
+    {
+        return $this->xmlFileNotEqualsXmlFile($expectedFile, $message);
+    }
+
+    public function xmlStringEXF($expectedFile, string $message = ''): self
+    {
+        return $this->xmlStringEqualsXmlFile($expectedFile, $message);
+    }
+
+    public function xmlStringEXS($expectedXml, string $message = ''): self
+    {
+        return $this->xmlStringEqualsXmlString($expectedXml, $message);
+    }
+
+    public function xmlStringNEXF($expectedFile, string $message = ''): self
+    {
+        return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
+    }
+
+    public function xmlStringNEXS($expectedXml, string $message = ''): self
+    {
+        return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
+    }
 }

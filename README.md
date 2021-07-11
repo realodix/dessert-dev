@@ -46,6 +46,12 @@ composer require realodix/next-project
 | `jsonStringNotEqualsJsonFile()`   | `jsonStringNEJF()` |
 | `jsonStringEqualsJsonString()`    | `jsonStringEJS()` |
 | `jsonStringNotEqualsJsonString()` | `jsonStringNEJS()` |
+| `xmlFileEqualsXmlFile()`          | `xmlFileEXF()` |
+| `xmlFileNotEqualsXmlFile()`       | `xmlFileNEXF()` |
+| `xmlStringEqualsXmlFile()`        | `xmlStringEXF()` |
+| `xmlStringEqualsXmlString()`      | `xmlStringEXS()` |
+| `xmlStringNotEqualsXmlFile()`     | `xmlStringNEXF()` |
+| `xmlStringNotEqualsXmlString()`   | `xmlStringNEXS()` |
 
 Use in any test `verify` function instead of `$this->assert*` methods:
 
