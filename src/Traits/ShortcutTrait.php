@@ -134,7 +134,7 @@ trait ShortcutTrait
         return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
     }
 
-    public function xmlStringTolFile($expectedFile, string $message = ''): self
+    public function xmlStringToFile($expectedFile, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlFile($expectedFile, $message);
     }

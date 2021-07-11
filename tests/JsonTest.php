@@ -11,6 +11,11 @@ final class JsonTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
+    public function testJson(): void
+    {
+        ass(json_encode(['foo' => 'bar']))->json();
+    }
+
     public function testJsonFile(): void
     {
         $fileExpected = $this->assetsDir.'JsonData/arrayObject.json';
@@ -30,10 +35,5 @@ final class JsonTest extends TestCase
 
         ass($jsonString)->jsonStringToString($jsonString);
         ass($jsonString)->jsonStringNotToString(json_encode(['foo' => 'bar']));
-    }
-
-    public function testJson(): void
-    {
-        ass(json_encode(['foo' => 'bar']))->json();
     }
 }

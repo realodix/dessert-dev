@@ -48,7 +48,7 @@ composer require realodix/next-project
 | `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
 | `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
 | `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
-| `xmlStringEqualsXmlFile()`        | `xmlStringTolFile()` |
+| `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |
 | `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
 | `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
 | `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |

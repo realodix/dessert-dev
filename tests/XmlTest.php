@@ -14,45 +14,45 @@ final class XmlTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
-    public function testXmlFileEqualsXmlFile(): void
-    {
-        $xmlFile = $this->assetsDir.'xml-foo.xml';
-
-        ass($xmlFile)->xmlFileEqualsXmlFile($xmlFile);
-    }
-
-    public function testXmlFileNotEqualsXmlFile(): void
+    public function testXmlFileNotToFile(): void
     {
         $actual = $this->assetsDir.'xml-foo.xml';
         $expected = $this->assetsDir.'xml-bar.xml';
 
-        ass($actual)->xmlFileNotEqualsXmlFile($expected);
+        ass($actual)->xmlFileNotToFile($expected);
     }
 
-    public function testXmlStringEqualsXmlFile(): void
+    public function testXmlFileToFile(): void
     {
         $xmlFile = $this->assetsDir.'xml-foo.xml';
 
-        ass('<foo/>')->xmlStringEqualsXmlFile($xmlFile);
+        ass($xmlFile)->xmlFileToFile($xmlFile);
     }
 
-    public function testXmlStringEqualsXmlString(): void
-    {
-        ass('<foo/>')
-            ->xmlStringEqualsXmlString('<foo/>');
-    }
-
-    public function testXmlStringNotEqualsXmlFile(): void
+    public function testXmlStringNotToFile(): void
     {
         $actual = file_get_contents($this->assetsDir.'xml-foo.xml');
         $expected = $this->assetsDir.'xml-bar.xml';
 
-        ass($actual)->xmlStringNotEqualsXmlFile($expected);
+        ass($actual)->xmlStringNotToFile($expected);
     }
 
-    public function testXmlStringNotEqualsXmlString(): void
+    public function testXmlStringNotToString(): void
     {
         ass('<foo/>')
-            ->xmlStringNotEqualsXmlString('<bar/>');
+            ->xmlStringNotToString('<bar/>');
+    }
+
+    public function testXmlStringToFile(): void
+    {
+        $xmlFile = $this->assetsDir.'xml-foo.xml';
+
+        ass('<foo/>')->xmlStringToFile($xmlFile);
+    }
+
+    public function testXmlStringToString(): void
+    {
+        ass('<foo/>')
+            ->xmlStringToString('<foo/>');
     }
 }
