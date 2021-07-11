@@ -70,13 +70,6 @@ final class AssertTest extends TestCase
         ass(INF)->infinite();
     }
 
-    public function testIsInstanceOf(): void
-    {
-        $testClass = new \DateTime();
-        ass($testClass)->instanceOf('DateTime');
-        ass($testClass)->notInstanceOf('DateTimeZone');
-    }
-
     public function testNan(): void
     {
         ass(NAN)->nan();

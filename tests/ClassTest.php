@@ -23,4 +23,11 @@ final class ClassTest extends TestCase
         ass(FakeClassForTesting::class)->classHasStaticAttribute('staticProperty');
         ass(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
     }
+
+    public function testIsInstanceOf(): void
+    {
+        $testClass = new \DateTime();
+        ass($testClass)->instanceOf('DateTime');
+        ass($testClass)->notInstanceOf('DateTimeZone');
+    }
 }

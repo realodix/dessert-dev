@@ -115,13 +115,6 @@ class Assert
         return $this;
     }
 
-    public function instanceOf(string $expected, string $message = ''): self
-    {
-        PHPUnit::assertInstanceOf($expected, $this->actual, $message);
-
-        return $this;
-    }
-
     public function lessThan($expected, string $message = ''): self
     {
         PHPUnit::assertLessThan($expected, $this->actual, $message);
@@ -183,13 +176,6 @@ class Assert
         }
 
         PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
-
-        return $this;
-    }
-
-    public function notInstanceOf(string $expected, string $message = ''): self
-    {
-        PHPUnit::assertNotInstanceOf($expected, $this->actual, $message);
 
         return $this;
     }

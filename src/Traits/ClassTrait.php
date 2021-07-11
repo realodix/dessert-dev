@@ -34,6 +34,20 @@ trait ClassTrait
         return $this;
     }
 
+    public function instanceOf(string $expected, string $message = ''): self
+    {
+        PHPUnit::assertInstanceOf($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notInstanceOf(string $expected, string $message = ''): self
+    {
+        PHPUnit::assertNotInstanceOf($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function objectHasAttribute($attributeName, string $message = ''): self
     {
         PHPUnit::assertObjectHasAttribute($attributeName, $this->actual, $message);
