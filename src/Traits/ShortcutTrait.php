@@ -4,32 +4,32 @@ namespace Realodix\NextProject\Traits;
 
 trait ShortcutTrait
 {
-    public function dirDNE(string $message = ''): self
+    public function dirNotExist(string $message = ''): self
     {
         return $this->directoryDoesNotExist($message);
     }
 
-    public function dirEx(string $message = ''): self
+    public function dirExists(string $message = ''): self
     {
         return $this->directoryExists($this->actual, $message);
     }
 
-    public function dirINR(string $message = ''): self
+    public function dirNotReadable(string $message = ''): self
     {
         return $this->directoryIsNotReadable($message);
     }
 
-    public function dirINW(string $message = ''): self
+    public function dirNotWritable(string $message = ''): self
     {
         return $this->directoryIsNotWritable($message);
     }
 
-    public function dirIR(string $message = ''): self
+    public function dirReadable(string $message = ''): self
     {
         return $this->directoryIsReadable($message);
     }
 
-    public function dirIW(string $message = ''): self
+    public function dirWritable(string $message = ''): self
     {
         return $this->directoryIsWritable($message);
     }
@@ -39,7 +39,7 @@ trait ShortcutTrait
         return $this->greaterThan($expected, $message);
     }
 
-    public function greaterEqual($expected, string $message = ''): self
+    public function greaterOrEqual($expected, string $message = ''): self
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
@@ -64,32 +64,32 @@ trait ShortcutTrait
         return $this->lessThan($expected, $message);
     }
 
-    public function jsonFileEJF($expectedFile, string $message = ''): self
+    public function jsonFileToFile($expectedFile, string $message = ''): self
     {
         return $this->jsonFileEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonFileNEJF($expectedFile, string $message = ''): self
+    public function jsonFileNotToFile($expectedFile, string $message = ''): self
     {
         return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringEJF($expectedFile, string $message = ''): self
+    public function jsonStringToFile($expectedFile, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringEJS($expectedJson, string $message = ''): self
+    public function jsonStringToString($expectedJson, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonString($expectedJson, $message);
     }
 
-    public function jsonStringNEJF($expectedFile, string $message = ''): self
+    public function jsonStringNotToFile($expectedFile, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringNEJS($expectedJson, string $message = ''): self
+    public function jsonStringNotToString($expectedJson, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
     }
@@ -99,7 +99,7 @@ trait ShortcutTrait
         return $this->lessThan($expected, $message);
     }
 
-    public function lessEqual($expected, string $message = ''): self
+    public function lessOrEqual($expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
@@ -114,32 +114,32 @@ trait ShortcutTrait
         return $this->doesNotMatchRegularExpression($pattern, $message);
     }
 
-    public function xmlFileEXF($expectedFile, string $message = ''): self
+    public function xmlFileToFile($expectedFile, string $message = ''): self
     {
         return $this->xmlFileEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlFileNEXF($expectedFile, string $message = ''): self
+    public function xmlFileNotToFile($expectedFile, string $message = ''): self
     {
         return $this->xmlFileNotEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringEXF($expectedFile, string $message = ''): self
+    public function xmlStringTolFile($expectedFile, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringEXS($expectedXml, string $message = ''): self
+    public function xmlStringToString($expectedXml, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlString($expectedXml, $message);
     }
 
-    public function xmlStringNEXF($expectedFile, string $message = ''): self
+    public function xmlStringNotToFile($expectedFile, string $message = ''): self
     {
         return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringNEXS($expectedXml, string $message = ''): self
+    public function xmlStringNotToString($expectedXml, string $message = ''): self
     {
         return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
     }

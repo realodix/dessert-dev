@@ -29,29 +29,29 @@ composer require realodix/next-project
 | PHPUnit                           | Shortcut |
 | --------------------------------- | ----------- |
 | `greaterThan()`                   | `isAbove()` \| `greater()` |
-| `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterEqual()` |
+| `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
 | `lessThan()`                      | `isBelow()` \| `less()` |
-| `lessThanOrEqual()`               | `isAtMost()` \| `lessEqual()` |
+| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
 | `matchesRegularExpression()`      | `match()` |
 | `doesNotMatchRegularExpression()` | `notMatch()` |
-| `directoryExists()`               | `dirEx()` |
-| `directoryDoesNotExist()`         | `dirDNE()` |
-| `directoryIsReadable()`           | `dirIR()` |
-| `directoryIsNotReadable()`        | `dirINR()` |
-| `directoryIsWritable()`           | `dirIW()` |
-| `directoryIsNotWritable()`        | `dirINW()` |
-| `jsonFileEqualsJsonFile()`        | `jsonFileEJF()` |
-| `jsonFileNotEqualsJsonFile()`     | `jsonFileNEJF()` |
-| `jsonStringEqualsJsonFile()`      | `jsonStringEJF()` |
-| `jsonStringNotEqualsJsonFile()`   | `jsonStringNEJF()` |
-| `jsonStringEqualsJsonString()`    | `jsonStringEJS()` |
-| `jsonStringNotEqualsJsonString()` | `jsonStringNEJS()` |
-| `xmlFileEqualsXmlFile()`          | `xmlFileEXF()` |
-| `xmlFileNotEqualsXmlFile()`       | `xmlFileNEXF()` |
-| `xmlStringEqualsXmlFile()`        | `xmlStringEXF()` |
-| `xmlStringEqualsXmlString()`      | `xmlStringEXS()` |
-| `xmlStringNotEqualsXmlFile()`     | `xmlStringNEXF()` |
-| `xmlStringNotEqualsXmlString()`   | `xmlStringNEXS()` |
+| `directoryExists()`               | `dirExists()` |
+| `directoryDoesNotExist()`         | `dirNotExist()` |
+| `directoryIsReadable()`           | `dirReadable()` |
+| `directoryIsNotReadable()`        | `dirNotReadable()` |
+| `directoryIsWritable()`           | `dirWritable()` |
+| `directoryIsNotWritable()`        | `dirNotWritable()` |
+| `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
+| `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
+| `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
+| `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
+| `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
+| `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
+| `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
+| `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
+| `xmlStringEqualsXmlFile()`        | `xmlStringTolFile()` |
+| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
+| `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
+| `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |
 
 Use in any test `verify` function instead of `$this->assert*` methods:
 

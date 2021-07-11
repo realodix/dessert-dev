@@ -23,8 +23,8 @@ final class ShortcutTest extends TestCase
         $fileExpected = $this->assetsDir.'JsonData/arrayObject.json';
         $fileActual = $this->assetsDir.'JsonData/simpleObject.json';
 
-        ass($fileActual)->jsonFileEJF($fileActual);
-        ass($fileExpected)->jsonFileNEJF($fileActual);
+        ass($fileActual)->jsonFileToFile($fileActual);
+        ass($fileExpected)->jsonFileNotToFile($fileActual);
     }
 
     public function testAssertJsonString(): void
@@ -33,16 +33,16 @@ final class ShortcutTest extends TestCase
         $fileSimpleObject = $this->assetsDir.'JsonData/simpleObject.json';
         $jsonString = json_encode(['Mascott' => 'Tux']);
 
-        ass($jsonString)->jsonStringEJF($fileSimpleObject);
-        ass(json_encode(['foo' => 'bar']))->jsonStringNEJF($fileSimpleObject);
-        ass($jsonString)->jsonStringEJS($jsonString);
-        ass($jsonString)->jsonStringNEJS(json_encode(['foo' => 'bar']));
+        ass($jsonString)->jsonStringToFile($fileSimpleObject);
+        ass(json_encode(['foo' => 'bar']))->jsonStringNotToFile($fileSimpleObject);
+        ass($jsonString)->jsonStringToString($jsonString);
+        ass($jsonString)->jsonStringNotToString(json_encode(['foo' => 'bar']));
     }
 
     public function testGreaterThan(): void
     {
         ass(2)->greater(1);
-        ass(1)->greaterEqual(1);
+        ass(1)->greaterOrEqual(1);
 
         ass(2)->isAbove(1);
         ass(1)->isAtLeast(1);
@@ -51,7 +51,7 @@ final class ShortcutTest extends TestCase
     public function testLessThan(): void
     {
         ass(1)->less(2);
-        ass(1)->lessEqual(1);
+        ass(1)->lessOrEqual(1);
 
         ass(1)->isBelow(2);
         ass(1)->isAtMost(1);
