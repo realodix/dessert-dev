@@ -88,7 +88,7 @@ final class DataTypeTest extends TestCase
     public function isResource(): void
     {
         ass(fopen(__FILE__, 'r'))->isResource();
-        ass(1)->isNotResource();
+        ass(false)->isNotResource();
     }
 
     /** @test */
