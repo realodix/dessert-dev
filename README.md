@@ -49,8 +49,8 @@ composer require realodix/next-project
 | `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
 | `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
 | `xmlStringEqualsXmlFile()`        | `xmlStringTolFile()` |
-| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
 | `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
+| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
 | `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |
 
 Use in any test `verify` function instead of `$this->assert*` methods:
