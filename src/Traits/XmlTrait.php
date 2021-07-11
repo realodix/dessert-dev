@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 
-trait AssertXmlTrait
+trait XmlTrait
 {
     public function xmlFileEqualsXmlFile($expectedFile, string $message = ''): self
     {

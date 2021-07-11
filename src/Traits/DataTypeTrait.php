@@ -6,7 +6,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Helpers\ResourceHelper;
 
-trait AssertDataTypeTrait
+trait DataTypeTrait
 {
     public function false(string $message = ''): self
     {

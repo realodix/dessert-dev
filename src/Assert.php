@@ -7,14 +7,14 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 
 class Assert
 {
-    use Traits\AssertArrayTrait;
-    use Traits\AssertClassTrait;
-    use Traits\AssertDataTypeTrait;
-    use Traits\AssertFileDirectoryTrait;
-    use Traits\AssertJsonTrait;
-    use Traits\AssertStringTrait;
-    use Traits\AssertThrowsTrait;
-    use Traits\AssertXmlTrait;
+    use Traits\ArrayTrait;
+    use Traits\ClassTrait;
+    use Traits\DataTypeTrait;
+    use Traits\FileDirectoryTrait;
+    use Traits\JsonTrait;
+    use Traits\StringTrait;
+    use Traits\ThrowsTrait;
+    use Traits\XmlTrait;
     use Traits\ShortcutTrait;
 
     /** @var mixed */

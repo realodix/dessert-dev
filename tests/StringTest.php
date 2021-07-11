@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
 
-final class AssertStringTest extends TestCase
+final class StringTest extends TestCase
 {
     /** @test */
     public function containsString(): void

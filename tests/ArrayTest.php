@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
 
-final class AssertArrayTest extends TestCase
+final class ArrayTest extends TestCase
 {
     public function testArrayHasKey(): void
     {

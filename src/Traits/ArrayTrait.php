@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Traits;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 
-trait AssertArrayTrait
+trait ArrayTrait
 {
     public function arrayHasKey($key, string $message = ''): self
     {

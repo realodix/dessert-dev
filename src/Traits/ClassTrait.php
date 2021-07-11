@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 
-trait AssertClassTrait
+trait ClassTrait
 {
     public function classHasAttribute($attributeName, string $message = ''): self
     {

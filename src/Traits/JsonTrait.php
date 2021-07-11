@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 
-trait AssertJsonTrait
+trait JsonTrait
 {
     public function json(string $message = ''): self
     {

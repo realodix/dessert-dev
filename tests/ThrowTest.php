@@ -6,7 +6,7 @@ use Exception;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
-final class AssertThrowTest extends TestCase
+final class ThrowTest extends TestCase
 {
     /** @test */
     public function doesNotThrow(): void

@@ -7,7 +7,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\ExpectationFailedException;
 use Throwable;
 
-trait AssertThrowsTrait
+trait ThrowsTrait
 {
     public function assertDoesNotThrow($throws = null, $message = false): self
     {
