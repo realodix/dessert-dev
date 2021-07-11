@@ -17,7 +17,7 @@ final class FileDirectoryTest extends TestCase
 
     public function testDirectoryExists(): void
     {
-        ass(__DIR__)->directoryExists();
+        ass(__DIR__)->dirExists();
     }
 
     public function testDirectoryIsNotReadable(): void
@@ -29,7 +29,7 @@ final class FileDirectoryTest extends TestCase
         $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
         mkdir($dirName, octdec('0'));
 
-        ass($dirName)->directoryIsNotReadable();
+        ass($dirName)->dirNotReadable();
 
         rmdir($dirName);
     }
@@ -43,26 +43,26 @@ final class FileDirectoryTest extends TestCase
         $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
         mkdir($dirName, octdec('444'));
 
-        ass($dirName)->directoryIsNotWritable();
+        ass($dirName)->dirNotWritable();
 
         rmdir($dirName);
     }
 
     public function testDirectoryIsReadable(): void
     {
-        ass(__DIR__)->directoryIsReadable();
+        ass(__DIR__)->dirReadable();
         $this->expectException(AssertionFailedError::class);
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryIsReadable();
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirReadable();
     }
 
     public function testDirectoryIsWritable(): void
     {
-        ass(__DIR__)->directoryIsWritable();
+        ass(__DIR__)->dirWritable();
     }
 
     public function testDirectoryNotExists(): void
     {
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->directoryDoesNotExist();
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirNotExist();
     }
 
     public function testFileEquals(): void
@@ -112,7 +112,7 @@ final class FileDirectoryTest extends TestCase
         unlink($tempFile);
     }
 
-    public function testfileIsNotWritable()
+    public function testFileIsNotWritable()
     {
         $tempFile = \tempnam(\sys_get_temp_dir(), 'not_writable');
         \chmod($tempFile, \octdec('0'));
@@ -123,13 +123,13 @@ final class FileDirectoryTest extends TestCase
         \unlink($tempFile);
     }
 
-    public function testfileIsReadable()
+    public function testFileIsReadable()
     {
         $file = $this->assetsDir.'StringEqualsFile.txt';
         ass($file)->fileIsReadable();
     }
 
-    public function testfileIsWritable()
+    public function testFileIsWritable()
     {
         $file = $this->assetsDir.'StringEqualsFile.txt';
         ass($file)->fileIsWritable();
