@@ -201,20 +201,6 @@ class Assert
         return $this;
     }
 
-    public function objectHasAttribute($attributeName, string $message = ''): self
-    {
-        PHPUnit::assertObjectHasAttribute($attributeName, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function objectNotHasAttribute($attributeName, string $message = ''): self
-    {
-        PHPUnit::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
-
-        return $this;
-    }
-
     public function same($expected, string $message = ''): self
     {
         PHPUnit::assertSame($expected, $this->actual, $message);

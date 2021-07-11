@@ -4,14 +4,14 @@ namespace Realodix\NextProject\Traits;
 
 trait ShortcutTrait
 {
-    public function dirNotExist(string $message = ''): self
-    {
-        return $this->directoryDoesNotExist($message);
-    }
-
     public function dirExists(string $message = ''): self
     {
         return $this->directoryExists($this->actual, $message);
+    }
+
+    public function dirNotExist(string $message = ''): self
+    {
+        return $this->directoryDoesNotExist($message);
     }
 
     public function dirNotReadable(string $message = ''): self
@@ -64,24 +64,14 @@ trait ShortcutTrait
         return $this->lessThan($expected, $message);
     }
 
-    public function jsonFileToFile($expectedFile, string $message = ''): self
-    {
-        return $this->jsonFileEqualsJsonFile($expectedFile, $message);
-    }
-
     public function jsonFileNotToFile($expectedFile, string $message = ''): self
     {
         return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringToFile($expectedFile, string $message = ''): self
+    public function jsonFileToFile($expectedFile, string $message = ''): self
     {
-        return $this->jsonStringEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonStringToString($expectedJson, string $message = ''): self
-    {
-        return $this->jsonStringEqualsJsonString($expectedJson, $message);
+        return $this->jsonFileEqualsJsonFile($expectedFile, $message);
     }
 
     public function jsonStringNotToFile($expectedFile, string $message = ''): self
@@ -92,6 +82,16 @@ trait ShortcutTrait
     public function jsonStringNotToString($expectedJson, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
+    }
+
+    public function jsonStringToFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonStringEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonStringToString($expectedJson, string $message = ''): self
+    {
+        return $this->jsonStringEqualsJsonString($expectedJson, $message);
     }
 
     public function less($expected, string $message = ''): self
@@ -114,24 +114,14 @@ trait ShortcutTrait
         return $this->doesNotMatchRegularExpression($pattern, $message);
     }
 
-    public function xmlFileToFile($expectedFile, string $message = ''): self
-    {
-        return $this->xmlFileEqualsXmlFile($expectedFile, $message);
-    }
-
     public function xmlFileNotToFile($expectedFile, string $message = ''): self
     {
         return $this->xmlFileNotEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringTolFile($expectedFile, string $message = ''): self
+    public function xmlFileToFile($expectedFile, string $message = ''): self
     {
-        return $this->xmlStringEqualsXmlFile($expectedFile, $message);
-    }
-
-    public function xmlStringToString($expectedXml, string $message = ''): self
-    {
-        return $this->xmlStringEqualsXmlString($expectedXml, $message);
+        return $this->xmlFileEqualsXmlFile($expectedFile, $message);
     }
 
     public function xmlStringNotToFile($expectedFile, string $message = ''): self
@@ -142,5 +132,15 @@ trait ShortcutTrait
     public function xmlStringNotToString($expectedXml, string $message = ''): self
     {
         return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
+    }
+
+    public function xmlStringTolFile($expectedFile, string $message = ''): self
+    {
+        return $this->xmlStringEqualsXmlFile($expectedFile, $message);
+    }
+
+    public function xmlStringToString($expectedXml, string $message = ''): self
+    {
+        return $this->xmlStringEqualsXmlString($expectedXml, $message);
     }
 }
