@@ -14,6 +14,7 @@ class Assert
     use Traits\AssertJsonTrait;
     use Traits\AssertStringTrait;
     use Traits\AssertThrowsTrait;
+    use Traits\AssertXmlTrait;
     use Traits\ShortcutTrait;
 
     /** @var mixed */
@@ -224,47 +225,5 @@ class Assert
     public function throws($throws = null, string $message = ''): self
     {
         return $this->assertThrows($throws, $message);
-    }
-
-    public function xmlFileEqualsXmlFile($expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function xmlFileNotEqualsXmlFile($expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function xmlStringEqualsXmlFile($expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function xmlStringEqualsXmlString($expectedXml, string $message = ''): self
-    {
-        PHPUnit::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function xmlStringNotEqualsXmlFile($expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function xmlStringNotEqualsXmlString($expectedXml, string $message = ''): self
-    {
-        PHPUnit::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
-
-        return $this;
     }
 }
