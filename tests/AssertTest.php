@@ -68,11 +68,6 @@ final class AssertTest extends TestCase
         ass(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
     }
 
-    public function testFinite(): void
-    {
-        ass(1)->finite();
-    }
-
     public function testGreaterLowerThan(): void
     {
         ass(7)->greaterThan(5);
@@ -81,11 +76,6 @@ final class AssertTest extends TestCase
         ass(7)->lessThanOrEqual(8);
         ass(7)->greaterThanOrEqual(7);
         ass(7)->greaterThanOrEqual(5);
-    }
-
-    public function testInfinite(): void
-    {
-        ass(INF)->infinite();
     }
 
     public function testIsInstanceOf(): void
@@ -112,11 +102,6 @@ final class AssertTest extends TestCase
     {
         $jsonString = '{"foo" : "bar"}';
         ass($jsonString)->jsonStringEqualsJsonString($jsonString);
-    }
-
-    public function testNan(): void
-    {
-        ass(NAN)->nan();
     }
 
     public function testSame(): void
@@ -203,6 +188,19 @@ final class AssertTest extends TestCase
         ass('<foo/>')
             ->xmlStringNotEqualsXmlString('<bar/>');
     }
+
+    // public function testFinite(): void
+    // {
+    //     ass(1)->finite();
+    // }
+// public function testInfinite(): void
+    // {
+    //     ass(INF)->infinite();
+    // }
+// public function testNan(): void
+    // {
+    //     ass(NAN)->nan();
+    // }
 }
 
 class FakeClassForTesting
