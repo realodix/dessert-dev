@@ -38,11 +38,6 @@ class Assert
         return $this($actual);
     }
 
-    public function doesNotThrow($throws = null, string $message = ''): self
-    {
-        return $this->assertDoesNotThrow($throws, $message);
-    }
-
     public function empty(string $message = ''): self
     {
         PHPUnit::assertEmpty($this->actual, $message);
@@ -192,10 +187,5 @@ class Assert
         PHPUnit::assertSame($expected, $this->actual, $message);
 
         return $this;
-    }
-
-    public function throws($throws = null, string $message = ''): self
-    {
-        return $this->assertThrows($throws, $message);
     }
 }

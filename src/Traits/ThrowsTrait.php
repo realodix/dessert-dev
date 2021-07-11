@@ -9,7 +9,7 @@ use Throwable;
 
 trait ThrowsTrait
 {
-    public function assertDoesNotThrow($throws = null, $message = false): self
+    public function doesNotThrow($throws = null, $message = false): self
     {
         if ($throws instanceof Exception) {
             $message = $throws->getMessage();
@@ -46,7 +46,7 @@ trait ThrowsTrait
         return $this;
     }
 
-    public function assertThrows($throws = null, $message = false): self
+    public function throws($throws = null, $message = false): self
     {
         if ($throws instanceof Exception) {
             $message = $throws->getMessage();
