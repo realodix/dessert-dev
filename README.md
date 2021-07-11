@@ -106,21 +106,6 @@ Assert::Callable($callback)
 // and many more !
 ```
 
-> 📄 **See Verifiers full list [here.](/docs/verifiers.md)**
-
-## Alternative Syntax
-
-If you follow TDD/BDD you'd rather use `expect` instead of `verify`:
-
-```php
-expect($user->getNumPosts())
-    ->notToBeNull()
-    ->toBeInt()
-    ->toEqual(5, 'user have 5 posts');
-```
-> 📄 **See Expectations full list [here.](/docs/expectations.md)**
-
-
 ## Extending
 
 In order to add more assertions you can extend the abstract class `Verify`:
@@ -159,7 +144,3 @@ $myAssert::Mixed('this also')->notEquals('works');
 ## License
 
 This package is licensed using the [MIT License](/LICENSE).
-
-## Credits
-
-This project is inspired by and also replaces [Codeception/Verify](https://github.com/Codeception/Verify).
