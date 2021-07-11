@@ -3,12 +3,18 @@
 ![PHPVersion](https://img.shields.io/badge/PHP-^7.1|^8-777BB4.svg?style=flat-square)
 ![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^7|^8|^9-3C9CD7.svg?style=flat-square)
 
+A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was carefully crafted to bring the joy of testing to PHP.
+
+### Features
+- Focus on simplicity.
+- Forward-compatibility polyfill: Write your tests for PHPUnit 9.x and run them on PHPUnit 7.x - 9.x.
+
 ## Installation
 
 #### Requirements
 
 - PHP 7.1 or higher.
-- PHPUnit 7.x or higher.
+- PHPUnit 7.x - 9.x (automatically required via Composer).
 
 #### Install the package
 
