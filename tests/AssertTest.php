@@ -77,25 +77,6 @@ final class AssertTest extends TestCase
         ass($testClass)->notInstanceOf('DateTimeZone');
     }
 
-    public function testJson(): void
-    {
-        ass(json_encode(['foo' => 'bar']))->json();
-    }
-
-    public function testJsonEqualsJsonFile(): void
-    {
-        $jsonFile = $this->assetsDir.'JsonData/simpleObject.json';
-
-        ass($jsonFile)->jsonFileEqualsJsonFile($jsonFile);
-        ass('{"Mascott":"Tux"}')->jsonStringEqualsJsonFile($jsonFile);
-    }
-
-    public function testJsonStringEqualsJsonString(): void
-    {
-        $jsonString = '{"foo" : "bar"}';
-        ass($jsonString)->jsonStringEqualsJsonString($jsonString);
-    }
-
     public function testNan(): void
     {
         ass(NAN)->nan();
