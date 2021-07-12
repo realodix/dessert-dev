@@ -6,7 +6,6 @@ use PHPUnit\Framework\Assert as PHPUnit;
 
 class Assert
 {
-    use Traits\ArrayTrait;
     use Traits\ClassTrait;
     use Traits\DataTypeTrait;
     use Traits\FileDirectoryTrait;
@@ -34,6 +33,48 @@ class Assert
     public function __invoke($actual): self
     {
         return $this($actual);
+    }
+
+    public function arrayHasKey($key, string $message = ''): self
+    {
+        PHPUnit::assertArrayHasKey($key, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function arrayNotHasKey($key, string $message = ''): self
+    {
+        PHPUnit::assertArrayNotHasKey($key, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function contains($needle, string $message = ''): self
+    {
+        PHPUnit::assertContains($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function containsOnly($type, $isNativeType = null, string $message = ''): self
+    {
+        PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);
+
+        return $this;
+    }
+
+    public function containsOnlyInstancesOf($className, string $message = ''): self
+    {
+        PHPUnit::assertContainsOnlyInstancesOf($className, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function count($expectedCount, string $message = ''): self
+    {
+        PHPUnit::assertCount($expectedCount, $this->actual, $message);
+
+        return $this;
     }
 
     public function empty(string $message = ''): self
@@ -74,6 +115,27 @@ class Assert
     public function nan(string $message = ''): self
     {
         PHPUnit::assertNan($this->actual, $message);
+
+        return $this;
+    }
+
+    public function notContains($needle, string $message = ''): self
+    {
+        PHPUnit::assertNotContains($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notContainsOnly($type, $isNativeType = null, string $message = ''): self
+    {
+        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
+
+        return $this;
+    }
+
+    public function notCount($expectedCount, string $message = ''): self
+    {
+        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
 
         return $this;
     }

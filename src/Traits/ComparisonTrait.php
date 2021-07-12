@@ -7,6 +7,24 @@ use PHPUnit\Runner\Version as PUVersion;
 
 trait ComparisonTrait
 {
+    public function containsEquals($needle, string $message = ''): self
+    {
+        // https://github.com/sebastianbergmann/phpunit/issues/3511
+        if (version_compare(PUVersion::series(), '8.1', '<')) {
+            // @codeCoverageIgnoreStart
+            $constraint = new \PHPUnit\Framework\Constraint\TraversableContains($needle);
+
+            PHPUnit::assertThat($this->actual, $constraint, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertContainsEquals($needle, $this->actual, $message);
+
+        return $this;
+    }
+
     public function equals($expected, string $message = ''): self
     {
         PHPUnit::assertEquals($expected, $this->actual, $message);
@@ -203,6 +221,30 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function notContainsEquals($needle, string $message = ''): self
+    {
+        // https://github.com/sebastianbergmann/phpunit/issues/3511
+        if (version_compare(PUVersion::series(), '8.1', '<')) {
+            // @codeCoverageIgnoreStart
+            $constraint = new \PHPUnit\Framework\Constraint\LogicalNot(
+                new \PHPUnit\Framework\Constraint\TraversableContains(
+                    $needle,
+                    false,
+                    false
+                )
+            );
+
+            PHPUnit::assertThat($this->actual, $constraint, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
+
+        return $this;
+    }
+
     public function notEquals($expected, string $message = ''): self
     {
         PHPUnit::assertNotEquals($expected, $this->actual, $message);
@@ -262,9 +304,23 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function notSameSize($expected, string $message = ''): self
+    {
+        PHPUnit::assertNotSameSize($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function same($expected, string $message = ''): self
     {
         PHPUnit::assertSame($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function sameSize($expected, string $message = ''): self
+    {
+        PHPUnit::assertSameSize($expected, $this->actual, $message);
 
         return $this;
     }

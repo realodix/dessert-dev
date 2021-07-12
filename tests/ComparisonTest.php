@@ -11,6 +11,18 @@ final class ComparisonTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
+    public function testContainsEquals(): void
+    {
+        $a = new \stdClass;
+        $a->foo = 'bar';
+
+        $b = new \stdClass;
+        $b->foo = 'baz';
+
+        ass([$a])->containsEquals($a);
+        ass([$b])->notContainsEquals($a);
+    }
+
     public function testEquals(): void
     {
         ass(5)->equals(5);
@@ -116,6 +128,12 @@ final class ComparisonTest extends TestCase
     {
         ass(1)->same(0 + 1);
         ass(1)->notSame(true);
+    }
+
+    public function testSameSize(): void
+    {
+        ass([1, 2])->sameSize([1, 2]);
+        ass([1, 2])->notSameSize([1, 2, 3]);
     }
 
     public function testStringEqualsFile(): void
