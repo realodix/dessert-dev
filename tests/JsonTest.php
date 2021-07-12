@@ -20,8 +20,8 @@ final class JsonTest extends TestCase
 
     public function testJsonFileEqualsJsonFile(): void
     {
-        $fileExpected = $this->assetsDir.'JsonData/arrayObject.json';
-        $fileActual = $this->assetsDir.'JsonData/simpleObject.json';
+        $fileExpected = $this->assetsDir.'Json/arrayObject.json';
+        $fileActual = $this->assetsDir.'Json/simpleObject.json';
 
         ass($fileActual)->jsonFileToFile($fileActual);
         ass($fileActual)->jsonFileNotToFile($fileExpected);
@@ -29,7 +29,7 @@ final class JsonTest extends TestCase
 
     public function testJsonStringEqualsJsonFile(): void
     {
-        $jsonFile = $this->assetsDir.'JsonData/simpleObject.json';
+        $jsonFile = $this->assetsDir.'Json/simpleObject.json';
         $jsonString = json_encode(['foo' => 'bar']);
 
         ass($jsonString)->jsonStringToFile($jsonFile);
