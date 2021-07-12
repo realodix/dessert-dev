@@ -145,6 +145,10 @@ $myVerify->success('it works!');
 $myAssert::Mixed('this also')->notEquals('works');
 ```
 
+## Improvements
+
+There is guaranteed to be room for improvements. This package was not designed to do everything you might ever need. But if you feel like you require a feature, please submit a Pull Request. It's pretty easy since there's not much code, and the Go!
+
 ## License
 
 This package is licensed using the [MIT License](/LICENSE).
