@@ -29,7 +29,7 @@ final class FileDirectoryTest extends TestCase
         $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
         mkdir($dirName, octdec('0'));
 
-        ass($dirName)->dirNotReadable();
+        ass($dirName)->dirIsNotReadable();
 
         rmdir($dirName);
     }
@@ -43,21 +43,21 @@ final class FileDirectoryTest extends TestCase
         $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
         mkdir($dirName, octdec('444'));
 
-        ass($dirName)->dirNotWritable();
+        ass($dirName)->dirIsNotWritable();
 
         rmdir($dirName);
     }
 
     public function testDirectoryIsReadable(): void
     {
-        ass(__DIR__)->dirReadable();
+        ass(__DIR__)->dirIsReadable();
         $this->expectException(AssertionFailedError::class);
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirReadable();
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirIsReadable();
     }
 
     public function testDirectoryIsWritable(): void
     {
-        ass(__DIR__)->dirWritable();
+        ass(__DIR__)->dirIsWritable();
     }
 
     public function testDirectoryNotExists(): void

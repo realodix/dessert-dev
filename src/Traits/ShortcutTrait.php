@@ -14,22 +14,22 @@ trait ShortcutTrait
         return $this->directoryDoesNotExist($message);
     }
 
-    public function dirNotReadable(string $message = ''): self
+    public function dirIsNotReadable(string $message = ''): self
     {
         return $this->directoryIsNotReadable($message);
     }
 
-    public function dirNotWritable(string $message = ''): self
+    public function dirIsNotWritable(string $message = ''): self
     {
         return $this->directoryIsNotWritable($message);
     }
 
-    public function dirReadable(string $message = ''): self
+    public function dirIsReadable(string $message = ''): self
     {
         return $this->directoryIsReadable($message);
     }
 
-    public function dirWritable(string $message = ''): self
+    public function dirIsWritable(string $message = ''): self
     {
         return $this->directoryIsWritable($message);
     }

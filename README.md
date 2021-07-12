@@ -36,10 +36,10 @@ composer require realodix/next-project
 | `doesNotMatchRegularExpression()` | `notMatch()` |
 | `directoryExists()`               | `dirExists()` |
 | `directoryDoesNotExist()`         | `dirNotExist()` |
-| `directoryIsReadable()`           | `dirReadable()` |
-| `directoryIsNotReadable()`        | `dirNotReadable()` |
-| `directoryIsWritable()`           | `dirWritable()` |
-| `directoryIsNotWritable()`        | `dirNotWritable()` |
+| `directoryIsReadable()`           | `dirIsReadable()` |
+| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
+| `directoryIsWritable()`           | `dirIsWritable()` |
+| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
 | `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
 | `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
 | `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
