@@ -98,15 +98,13 @@ verify($user->getRoles())->notEmpty();
 
 ## Extending
 
-In order to add more assertions you can extend the abstract class `Verify`:
+In order to add more assertions you can extend the class `Assert`:
 
 ```php
-use Realodix\NextProject\Assert\Assert;
+use Realodix\NextProject\Assert;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class MyVerify extends Assert {
-
-    //you can type $actual to only receive a specific data type
 
     public function __construct($actual = null)
     {
