@@ -14,6 +14,7 @@ class Assert
     use Traits\JsonTrait;
     use Traits\StringTrait;
     use Traits\ThrowsTrait;
+    use Traits\TrueFalseNullEmptyTrait;
     use Traits\XmlTrait;
     use Traits\ShortcutTrait;
 
@@ -36,13 +37,6 @@ class Assert
     public function __invoke($actual): self
     {
         return $this($actual);
-    }
-
-    public function empty(string $message = ''): self
-    {
-        PHPUnit::assertEmpty($this->actual, $message);
-
-        return $this;
     }
 
     public function equals($expected, string $message = ''): self
@@ -127,13 +121,6 @@ class Assert
     public function nan(string $message = ''): self
     {
         PHPUnit::assertNan($this->actual, $message);
-
-        return $this;
-    }
-
-    public function notEmpty(string $message = ''): self
-    {
-        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }

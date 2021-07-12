@@ -6,14 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 final class AssertTest extends TestCase
 {
-    /** @var DOMDocument */
-    protected $xml;
-
     protected function setUp(): void
     {
-        $this->xml = new \DOMDocument;
-        $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
-
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
@@ -116,6 +110,21 @@ final class AssertTest extends TestCase
         expect([])->empty();
         should([])->empty();
         verify([])->empty();
+    }
+
+    /** @test */
+    public function trueFalseNull(): void
+    {
+        ass(true)->true();
+        ass(true)->true('something should be true');
+        ass(false)->notTrue();
+
+        ass(false)->false();
+        ass(false)->false('something should be false');
+        ass(true)->notFalse();
+
+        ass(null)->null();
+        ass(true)->notNull();
     }
 }
 
