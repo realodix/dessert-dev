@@ -8,8 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ThrowTest extends TestCase
 {
-    /** @test */
-    public function doesNotThrow(): void
+    public function testDoesNotThrow(): void
     {
         $func = function (): void {
             throw new Exception('foo');
@@ -40,8 +39,7 @@ final class ThrowTest extends TestCase
         })->throws(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
 
-    /** @test */
-    public function throws(): void
+    public function testThrows(): void
     {
         $func = function (): void {
             throw new Exception('foo');

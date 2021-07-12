@@ -29,6 +29,21 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function equalsIgnoringCase($expected, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -94,6 +109,21 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function notEqualsIgnoringCase($expected, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -119,6 +149,80 @@ trait ComparisonTrait
     public function same($expected, string $message = ''): self
     {
         PHPUnit::assertSame($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFile($expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFile($expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
     }

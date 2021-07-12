@@ -6,11 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 final class ShortcutTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
-    }
-
     /** @test */
     public function regExp(): void
     {
