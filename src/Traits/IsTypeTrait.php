@@ -6,7 +6,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PUVersion;
 use Realodix\NextProject\Helpers\ResourceHelper;
 
-trait DataTypeTrait
+trait IsTypeTrait
 {
     /**
      * Asserts that a variable is of type array.

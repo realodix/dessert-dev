@@ -7,11 +7,11 @@ use PHPUnit\Framework\Assert as PHPUnit;
 class Assert
 {
     use Traits\ClassTrait;
-    use Traits\DataTypeTrait;
+    use Traits\ComparisonTrait;
     use Traits\FileDirectoryTrait;
+    use Traits\IsTypeTrait;
     use Traits\StringTrait;
     use Traits\ThrowsTrait;
-    use Traits\ComparisonTrait;
     use Traits\ShortcutTrait;
 
     /** @var mixed */

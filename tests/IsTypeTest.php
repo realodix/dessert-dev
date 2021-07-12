@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
 
-final class DataTypeTest extends TestCase
+final class IsTypeTest extends TestCase
 {
     /** @test */
     public function isArray(): void
