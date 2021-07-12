@@ -66,14 +66,22 @@ trait ThrowsTrait
             PHPUnit::assertSame(
                 $throws,
                 $actualThrows,
-                sprintf('exception \'%s\' was expected, but \'%s\' was thrown', $throws, $actualThrows)
+                sprintf(
+                    'exception \'%s\' was expected, but \'%s\' was thrown',
+                    $throws,
+                    $actualThrows
+                )
             );
 
             if ($message) {
                 PHPUnit::assertSame(
                     $message,
                     $actualMessage,
-                    sprintf('exception message \'%s\' was expected, but \'%s\' was received', $message, $actualMessage)
+                    sprintf(
+                        'exception message \'%s\' was expected, but \'%s\' was received',
+                        $message,
+                        $actualMessage
+                    )
                 );
             }
         }
