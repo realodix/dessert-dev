@@ -28,7 +28,7 @@ composer require realodix/next-project
 
 There are four flavors: `ass`, `expect`, `should`, and `verify`. All use the same chainable language to construct assertions.
 
-Use in any test `verify` function instead of `$this->assert*` methods:
+Use the flavor provided in any test instead of the `$this->assert*` method:
 
 ```php
 use Realodix\NextProject\Assert\Assert;
@@ -63,20 +63,6 @@ verify($user->getPosts())->notNull();
 // empty
 verify($user->getComments())->empty();
 verify($user->getRoles())->notEmpty();
-
-// throws
-verify($callback)
-    ->throws()
-    ->throws(Exception::class)
-    ->throws(Exception::class, 'exception message')
-    ->throws(new Exception())
-    ->throws(new Exception('message'));
-
-// does not throw
-verify($callback)
-    ->doesNotThrow()
-    ->throws(Exception::class)
-    ->doesNotThrow(new Exception());
 
 // and many more !
 ```
