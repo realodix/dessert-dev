@@ -16,7 +16,7 @@ final class JsonTest extends TestCase
         ass(json_encode(['foo' => 'bar']))->json();
     }
 
-    public function testJsonFile(): void
+    public function testJsonFileEqualsJsonFile(): void
     {
         $fileExpected = $this->assetsDir.'JsonData/arrayObject.json';
         $fileActual = $this->assetsDir.'JsonData/simpleObject.json';
@@ -25,13 +25,18 @@ final class JsonTest extends TestCase
         ass($fileActual)->jsonFileNotToFile($fileExpected);
     }
 
-    public function testJsonString(): void
+    public function testJsonStringEqualsJsonFile(): void
     {
         $jsonFile = $this->assetsDir.'JsonData/simpleObject.json';
         $jsonString = json_encode(['Mascott' => 'Tux']);
 
         ass($jsonString)->jsonStringToFile($jsonFile);
         ass(json_encode(['foo' => 'bar']))->jsonStringNotToFile($jsonFile);
+    }
+
+    public function testJsonStringEqualsJsonString(): void
+    {
+        $jsonString = json_encode(['Mascott' => 'Tux']);
 
         ass($jsonString)->jsonStringToString($jsonString);
         ass($jsonString)->jsonStringNotToString(json_encode(['foo' => 'bar']));
