@@ -128,9 +128,7 @@ trait StringTrait
                     $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
                 }
 
-                PHPUnit::fail($message);
-
-                return $this;
+                return PHPUnit::fail($message);
             }
 
             PHPUnit::assertNotContains($needle, $this->actual, $message);
@@ -153,9 +151,7 @@ trait StringTrait
                     $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
                 }
 
-                PHPUnit::fail($message);
-
-                return $this;
+                return PHPUnit::fail($message);
             }
 
             PHPUnit::assertNotContains($needle, $this->actual, $message, true);
