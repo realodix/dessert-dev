@@ -9,11 +9,6 @@ trait ShortcutTrait
         return $this->directoryExists($this->actual, $message);
     }
 
-    public function dirNotExist(string $message = ''): self
-    {
-        return $this->directoryDoesNotExist($message);
-    }
-
     public function dirIsNotReadable(string $message = ''): self
     {
         return $this->directoryIsNotReadable($message);
@@ -32,6 +27,11 @@ trait ShortcutTrait
     public function dirIsWritable(string $message = ''): self
     {
         return $this->directoryIsWritable($message);
+    }
+
+    public function dirNotExist(string $message = ''): self
+    {
+        return $this->directoryDoesNotExist($message);
     }
 
     public function greater($expected, string $message = ''): self
