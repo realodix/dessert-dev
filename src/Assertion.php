@@ -11,7 +11,6 @@ class Assertion
     use Traits\FileDirectoryTrait;
     use Traits\IsTypeTrait;
     use Traits\StringTrait;
-    use Traits\ThrowsTrait;
     use Traits\ShortcutTrait;
 
     /** @var mixed */
