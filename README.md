@@ -68,7 +68,7 @@ verify($user->getNumPosts())
     ->notEquals(3);
 
 // contains
-Assert::Array($user->getRoles())
+verify($user->getRoles())
     ->contains('admin', 'first user is admin')
     ->notContains('banned', 'first user is not banned');
 
@@ -90,7 +90,7 @@ verify($user->getComments())->empty();
 verify($user->getRoles())->notEmpty();
 
 // throws
-Assert::Callable($callback)
+verify($callback)
     ->throws()
     ->throws(Exception::class)
     ->throws(Exception::class, 'exception message')
@@ -98,7 +98,7 @@ Assert::Callable($callback)
     ->throws(new Exception('message'));
 
 // does not throw
-Assert::Callable($callback)
+verify($callback)
     ->doesNotThrow()
     ->throws(Exception::class)
     ->doesNotThrow(new Exception());
