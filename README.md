@@ -1,7 +1,7 @@
 # NextProject
 
 ![PHPVersion](https://img.shields.io/badge/PHP-^7.1|^8-777BB4.svg?style=flat-square)
-![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-6^|^7|^8|^9-3C9CD7.svg?style=flat-square)
+![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^5.6|6^|^7|^8|^9-3C9CD7.svg?style=flat-square)
 
 A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was carefully crafted to bring the joy of testing to PHP.
 
@@ -14,7 +14,7 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 #### Requirements
 
 - PHP 7.1 or higher.
-- PHPUnit 6.x - 9.x (automatically required via Composer).
+- PHPUnit 5.6 - 9.x (automatically required via Composer).
 
 #### Install the package
 
