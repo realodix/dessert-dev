@@ -13,7 +13,9 @@ final class JsonTest extends TestCase
 
     public function testJson(): void
     {
-        ass(json_encode(['foo' => 'bar']))->json();
+        $json = json_encode(['foo' => 'bar']);
+
+        ass($json)->json();
     }
 
     public function testJsonFileEqualsJsonFile(): void
