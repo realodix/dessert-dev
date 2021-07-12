@@ -3,13 +3,13 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PHPUnitVersion;
+use PHPUnit\Runner\Version as PUVersion;
 
 trait StringTrait
 {
     public function doesNotMatchRegularExpression($pattern, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+        if (version_compare(PUVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
 
@@ -24,7 +24,7 @@ trait StringTrait
 
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, false, true);
 
@@ -39,7 +39,7 @@ trait StringTrait
 
     public function matchesRegularExpression($pattern, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+        if (version_compare(PUVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertRegExp($pattern, $this->actual, $message);
 
@@ -54,7 +54,7 @@ trait StringTrait
 
     public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, false, true);
 
@@ -69,7 +69,7 @@ trait StringTrait
 
     public function stringContainsString($needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 PHPUnit::assertSame($needle, $needle, $message);
@@ -90,7 +90,7 @@ trait StringTrait
 
     public function stringContainsStringIgnoringCase($needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 PHPUnit::assertSame($needle, $needle, $message);
@@ -132,7 +132,7 @@ trait StringTrait
 
     public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
 
@@ -147,7 +147,7 @@ trait StringTrait
 
     public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
 
@@ -176,7 +176,7 @@ trait StringTrait
 
     public function stringNotContainsString($needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 if ($message === '') {
@@ -201,7 +201,7 @@ trait StringTrait
 
     public function stringNotContainsStringIgnoringCase($needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 if ($message === '') {
@@ -233,7 +233,7 @@ trait StringTrait
 
     public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
 
@@ -248,7 +248,7 @@ trait StringTrait
 
     public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);
 

@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PHPUnitVersion;
+use PHPUnit\Runner\Version as PUVersion;
 
 trait ArrayTrait
 {
@@ -32,7 +32,7 @@ trait ArrayTrait
     {
         // Introduced in PHPUnit 8.1.0
         // https://github.com/sebastianbergmann/phpunit/issues/3511
-        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+        if (version_compare(PUVersion::series(), '8.1', '<')) {
             // @codeCoverageIgnoreStart
             $constraint = new \PHPUnit\Framework\Constraint\TraversableContains($needle);
 
@@ -79,7 +79,7 @@ trait ArrayTrait
     {
         // Introduced in PHPUnit 8.1.0
         // https://github.com/sebastianbergmann/phpunit/issues/3511
-        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+        if (version_compare(PUVersion::series(), '8.1', '<')) {
             // @codeCoverageIgnoreStart
             $constraint = new \PHPUnit\Framework\Constraint\LogicalNot(
                 new \PHPUnit\Framework\Constraint\TraversableContains(

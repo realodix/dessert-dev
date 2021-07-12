@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PHPUnitVersion;
+use PHPUnit\Runner\Version as PUVersion;
 use Realodix\NextProject\Helpers\ResourceHelper;
 
 trait DataTypeTrait
@@ -17,7 +17,7 @@ trait DataTypeTrait
 
     public function isArray(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('array', $this->actual, $message);
 
@@ -32,7 +32,7 @@ trait DataTypeTrait
 
     public function isBool(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('bool', $this->actual, $message);
 
@@ -47,7 +47,7 @@ trait DataTypeTrait
 
     public function isCallable(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('callable', $this->actual, $message);
 
@@ -69,7 +69,7 @@ trait DataTypeTrait
      */
     public function isClosedResource(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
+        if (version_compare(PUVersion::series(), '9.3', '<')) {
             // @codeCoverageIgnoreStart
             if ($message === '') {
                 $message = \sprintf(
@@ -91,7 +91,7 @@ trait DataTypeTrait
 
     public function isFloat(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('float', $this->actual, $message);
 
@@ -106,7 +106,7 @@ trait DataTypeTrait
 
     public function isInt(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('int', $this->actual, $message);
 
@@ -135,7 +135,7 @@ trait DataTypeTrait
      */
     public function isIterable(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if (\function_exists('is_iterable') === true) {
                 // PHP >= 7.1.
@@ -159,7 +159,7 @@ trait DataTypeTrait
 
     public function isNotArray(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('array', $this->actual, $message);
 
@@ -174,7 +174,7 @@ trait DataTypeTrait
 
     public function isNotBool(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('bool', $this->actual, $message);
 
@@ -189,7 +189,7 @@ trait DataTypeTrait
 
     public function isNotCallable(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('callable', $this->actual, $message);
 
@@ -211,7 +211,7 @@ trait DataTypeTrait
      */
     public function isNotClosedResource(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
+        if (version_compare(PUVersion::series(), '9.3', '<')) {
             // @codeCoverageIgnoreStart
             if ($message === '') {
                 $message = \sprintf(
@@ -233,7 +233,7 @@ trait DataTypeTrait
 
     public function isNotFloat(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('float', $this->actual, $message);
 
@@ -248,7 +248,7 @@ trait DataTypeTrait
 
     public function isNotInt(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('int', $this->actual, $message);
 
@@ -277,7 +277,7 @@ trait DataTypeTrait
      */
     public function isNotIterable(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if (\function_exists('is_iterable') === true) {
                 // PHP >= 7.1.
@@ -301,7 +301,7 @@ trait DataTypeTrait
 
     public function isNotNumeric(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('numeric', $this->actual, $message);
 
@@ -316,7 +316,7 @@ trait DataTypeTrait
 
     public function isNotObject(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('object', $this->actual, $message);
 
@@ -331,7 +331,7 @@ trait DataTypeTrait
 
     public function isNotResource(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('resource', $this->actual, $message);
 
@@ -346,7 +346,7 @@ trait DataTypeTrait
 
     public function isNotScalar(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('scalar', $this->actual, $message);
 
@@ -361,7 +361,7 @@ trait DataTypeTrait
 
     public function isNotString(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotInternalType('string', $this->actual, $message);
 
@@ -376,7 +376,7 @@ trait DataTypeTrait
 
     public function isNumeric(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('numeric', $this->actual, $message);
 
@@ -391,7 +391,7 @@ trait DataTypeTrait
 
     public function isObject(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('object', $this->actual, $message);
 
@@ -406,7 +406,7 @@ trait DataTypeTrait
 
     public function isResource(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('resource', $this->actual, $message);
 
@@ -421,7 +421,7 @@ trait DataTypeTrait
 
     public function isScalar(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('scalar', $this->actual, $message);
 
@@ -436,7 +436,7 @@ trait DataTypeTrait
 
     public function isString(string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertInternalType('string', $this->actual, $message);
 

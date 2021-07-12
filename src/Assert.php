@@ -3,7 +3,7 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PHPUnitVersion;
+use PHPUnit\Runner\Version as PUVersion;
 
 class Assert
 {
@@ -54,7 +54,7 @@ class Assert
 
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, true);
 
@@ -69,7 +69,7 @@ class Assert
 
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertEquals($expected, $this->actual, $message, $delta);
 
@@ -147,7 +147,7 @@ class Assert
 
     public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, true);
 
@@ -162,7 +162,7 @@ class Assert
 
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
+        if (version_compare(PUVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotEquals($expected, $this->actual, $message, $delta);
 
