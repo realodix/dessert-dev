@@ -13,7 +13,6 @@ class Assert
     use Traits\StringTrait;
     use Traits\ThrowsTrait;
     use Traits\ComparisonTrait;
-    use Traits\XmlTrait;
     use Traits\ShortcutTrait;
 
     /** @var mixed */

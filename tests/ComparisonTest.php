@@ -139,4 +139,28 @@ final class ComparisonTest extends TestCase
         ass('Test 123')
             ->stringNotEqualsFileIgnoringCase($this->assetsDir.'string_equals_file.txt');
     }
+
+    public function testXmlFileEqualsXmlFile(): void
+    {
+        $actual = $this->assetsDir.'xml_foo.xml';
+        $expected = $this->assetsDir.'xml_bar.xml';
+
+        ass($actual)->xmlFileToFile($actual);
+        ass($actual)->xmlFileNotToFile($expected);
+    }
+
+    public function testXmlStringEqualsXmlFile(): void
+    {
+        $xmlFoo = $this->assetsDir.'xml_foo.xml';
+        $xmlBar = $this->assetsDir.'xml_bar.xml';
+
+        ass('<foo/>')->xmlStringToFile($xmlFoo);
+        ass('<foo/>')->xmlStringNotToFile($xmlBar);
+    }
+
+    public function testXmlStringEqualsXmlString(): void
+    {
+        ass('<foo/>')->xmlStringToString('<foo/>');
+        ass('<foo/>')->xmlStringNotToString('<bar/>');
+    }
 }
