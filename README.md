@@ -26,33 +26,6 @@ composer require realodix/next-project
 
 ## Usage
 
-| PHPUnit                           | Shortcut |
-| --------------------------------- | ----------- |
-| `greaterThan()`                   | `isAbove()` \| `greater()` |
-| `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
-| `lessThan()`                      | `isBelow()` \| `less()` |
-| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
-| `matchesRegularExpression()`      | `match()` |
-| `doesNotMatchRegularExpression()` | `notMatch()` |
-| `directoryExists()`               | `dirExists()` |
-| `directoryDoesNotExist()`         | `dirNotExist()` |
-| `directoryIsReadable()`           | `dirIsReadable()` |
-| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
-| `directoryIsWritable()`           | `dirIsWritable()` |
-| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
-| `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
-| `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
-| `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
-| `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
-| `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
-| `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
-| `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
-| `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
-| `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |
-| `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
-| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
-| `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |
-
 Use in any test `verify` function instead of `$this->assert*` methods:
 
 ```php
@@ -105,6 +78,35 @@ verify($callback)
 
 // and many more !
 ```
+
+### Shortcut
+
+| PHPUnit                           | Shortcut |
+| --------------------------------- | ----------- |
+| `greaterThan()`                   | `isAbove()` \| `greater()` |
+| `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
+| `lessThan()`                      | `isBelow()` \| `less()` |
+| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
+| `matchesRegularExpression()`      | `match()` |
+| `doesNotMatchRegularExpression()` | `notMatch()` |
+| `directoryExists()`               | `dirExists()` |
+| `directoryDoesNotExist()`         | `dirNotExist()` |
+| `directoryIsReadable()`           | `dirIsReadable()` |
+| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
+| `directoryIsWritable()`           | `dirIsWritable()` |
+| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
+| `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
+| `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
+| `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
+| `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
+| `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
+| `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
+| `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
+| `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
+| `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |
+| `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
+| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
+| `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |
 
 ## Extending
 
