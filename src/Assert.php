@@ -3,7 +3,6 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PUVersion;
 
 class Assert
 {
@@ -14,7 +13,7 @@ class Assert
     use Traits\JsonTrait;
     use Traits\StringTrait;
     use Traits\ThrowsTrait;
-    use Traits\TrueFalseNullEmptyTrait;
+    use Traits\ComparisonTrait;
     use Traits\XmlTrait;
     use Traits\ShortcutTrait;
 
@@ -39,39 +38,16 @@ class Assert
         return $this($actual);
     }
 
-    public function equals($expected, string $message = ''): self
+    public function empty(string $message = ''): self
     {
-        PHPUnit::assertEquals($expected, $this->actual, $message);
+        PHPUnit::assertEmpty($this->actual, $message);
 
         return $this;
     }
 
-    public function equalsCanonicalizing($expected, string $message = ''): self
+    public function false(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function equalsWithDelta($expected, float $delta, string $message = ''): self
-    {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertEquals($expected, $this->actual, $message, $delta);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
+        PHPUnit::assertFalse($this->actual, $message);
 
         return $this;
     }
@@ -83,37 +59,9 @@ class Assert
         return $this;
     }
 
-    public function greaterThan($expected, string $message = ''): self
-    {
-        PHPUnit::assertGreaterThan($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function greaterThanOrEqual($expected, string $message = ''): self
-    {
-        PHPUnit::assertGreaterThanOrEqual($expected, $this->actual, $message);
-
-        return $this;
-    }
-
     public function infinite(string $message = ''): self
     {
         PHPUnit::assertInfinite($this->actual, $message);
-
-        return $this;
-    }
-
-    public function lessThan($expected, string $message = ''): self
-    {
-        PHPUnit::assertLessThan($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function lessThanOrEqual($expected, string $message = ''): self
-    {
-        PHPUnit::assertLessThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
@@ -125,53 +73,44 @@ class Assert
         return $this;
     }
 
-    public function notEquals($expected, string $message = ''): self
+    public function notEmpty(string $message = ''): self
     {
-        PHPUnit::assertNotEquals($expected, $this->actual, $message);
+        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
 
-    public function notEqualsCanonicalizing($expected, string $message = ''): self
+    public function notFalse(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertNotFalse($this->actual, $message);
 
         return $this;
     }
 
-    public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
+    public function notNull(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertNotEquals($expected, $this->actual, $message, $delta);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
+        PHPUnit::assertNotNull($this->actual, $message);
 
         return $this;
     }
 
-    public function notSame($expected, string $message = ''): self
+    public function notTrue(string $message = ''): self
     {
-        PHPUnit::assertNotSame($expected, $this->actual, $message);
+        PHPUnit::assertNotTrue($this->actual, $message);
 
         return $this;
     }
 
-    public function same($expected, string $message = ''): self
+    public function null(string $message = ''): self
     {
-        PHPUnit::assertSame($expected, $this->actual, $message);
+        PHPUnit::assertNull($this->actual, $message);
+
+        return $this;
+    }
+
+    public function true(string $message = ''): self
+    {
+        PHPUnit::assertTrue($this->actual, $message);
 
         return $this;
     }

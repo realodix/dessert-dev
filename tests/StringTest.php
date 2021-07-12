@@ -6,6 +6,11 @@ use PHPUnit\Framework\TestCase;
 
 final class StringTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
+    }
+
     /** @test */
     public function containsString(): void
     {
@@ -46,5 +51,35 @@ final class StringTest extends TestCase
     {
         ass('foobar')->matchesRegularExpression('/foobar/');
         ass('foobar')->doesNotMatchRegularExpression('/foobarbaz/');
+    }
+
+    public function testStringEqualsFile(): void
+    {
+        ass('testing 123')->stringEqualsFile($this->assetsDir.'StringEqualsFile.txt');
+        ass('Another string')->stringNotEqualsFile($this->assetsDir.'StringEqualsFile.txt');
+    }
+
+    public function testStringEqualsFileCanonicalizing(): void
+    {
+        ass('testing 123')
+            ->stringEqualsFileCanonicalizing($this->assetsDir.'StringEqualsFile.txt');
+        ass('notSame')
+            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'StringEqualsFile.txt');
+    }
+
+    public function testStringEqualsFileIgnoringCase(): void
+    {
+        ass('TESTING 123')
+            ->stringEqualsFileIgnoringCase($this->assetsDir.'StringEqualsFile.txt');
+        ass('Test 123')
+            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'StringEqualsFile.txt');
+    }
+
+    public function testStringMatchesFormatFile(): void
+    {
+        $formatFile = $this->assetsDir.'StringEqualsFile.txt';
+
+        ass('testing 123')->stringMatchesFormatFile($formatFile);
+        ass('asdfas')->stringNotMatchesFormatFile($formatFile);
     }
 }
