@@ -9,6 +9,12 @@ use PHPUnit\Runner\Version as PUVersion;
 
 trait ComparisonTrait
 {
+    /**
+     * Asserts that a haystack contains a needle.
+     *
+     * @param mixed  $needle
+     * @param string $message
+     */
     public function containsEquals($needle, string $message = ''): self
     {
         // https://github.com/sebastianbergmann/phpunit/issues/3511
@@ -34,6 +40,12 @@ trait ComparisonTrait
         return $this;
     }
 
+    /**
+     * Asserts that a haystack contains a needle.
+     *
+     * @param mixed  $expected
+     * @param string $message
+     */
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -49,6 +61,12 @@ trait ComparisonTrait
         return $this;
     }
 
+    /**
+     * Asserts that two variables are equal (ignoring case).
+     *
+     * @param mixed  $expected
+     * @param string $message
+     */
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -64,6 +82,13 @@ trait ComparisonTrait
         return $this;
     }
 
+    /**
+     * Asserts that two variables are equal (with delta).
+     *
+     * @param mixed  $expected
+     * @param float  $delta
+     * @param string $message
+     */
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -86,7 +111,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function fileEqualsCanonicalizing($expected, string $message = ''): self
+    /**
+     * Asserts that the contents of one file is equal to the contents of another file
+     * (canonicalizing).
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
@@ -101,7 +133,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function fileEqualsIgnoringCase($expected, string $message = ''): self
+    /**
+     * Asserts that the contents of one file is equal to the contents of another file
+     * (ignoring case).
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
@@ -123,7 +162,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function fileNotEqualsCanonicalizing($expected, string $message = ''): self
+    /**
+     * Asserts that the contents of one file is not equal to the contents of another file
+     * (canonicalizing).
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
@@ -138,7 +184,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function fileNotEqualsIgnoringCase($expected, string $message = ''): self
+    /**
+     * Asserts that the contents of one file is not equal to the contents of another file
+     * (ignoring case).
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
@@ -223,6 +276,12 @@ trait ComparisonTrait
         return $this;
     }
 
+    /**
+     * Asserts that a haystack does not contain a needle.
+     *
+     * @param mixed  $needle
+     * @param string $message
+     */
     public function notContainsEquals($needle, string $message = ''): self
     {
         // https://github.com/sebastianbergmann/phpunit/issues/3511
@@ -248,6 +307,12 @@ trait ComparisonTrait
         return $this;
     }
 
+    /**
+     * Asserts that two variables are not equal (canonicalizing).
+     *
+     * @param mixed  $expected
+     * @param string $message
+     */
     public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -263,6 +328,12 @@ trait ComparisonTrait
         return $this;
     }
 
+    /**
+     * Asserts that two variables are not equal (ignoring case).
+     *
+     * @param mixed  $expected
+     * @param string $message
+     */
     public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -278,6 +349,13 @@ trait ComparisonTrait
         return $this;
     }
 
+    /**
+     * Asserts that two variables are not equal (with delta).
+     *
+     * @param mixed  $expected
+     * @param float  $delta
+     * @param string $message
+     */
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '7.5', '<')) {
@@ -328,7 +406,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    /**
+     * Asserts that the contents of a string is equal to the contents of a file
+     * (canonicalizing).
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
@@ -343,7 +428,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    /**
+     * Asserts that the contents of a string is equal to the contents of a file (ignoring
+     * case).
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
@@ -365,7 +457,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    /**
+     * Asserts that the contents of a string is not equal to the contents of a file
+     * (canonicalizing).
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart
@@ -380,7 +479,14 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    /**
+     * Asserts that the contents of a string is not equal to the contents of a file
+     * (ignoring case).
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '8.5', '<')) {
             // @codeCoverageIgnoreStart

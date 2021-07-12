@@ -7,6 +7,11 @@ use PHPUnit\Runner\Version as PUVersion;
 
 trait FileDirectoryTrait
 {
+    /**
+     * Asserts that a directory does not exist.
+     *
+     * @param string $message
+     */
     public function directoryDoesNotExist(string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '9.1', '<')) {
@@ -29,6 +34,11 @@ trait FileDirectoryTrait
         return $this;
     }
 
+    /**
+     * Asserts that a directory exists and is not readable.
+     *
+     * @param string $message
+     */
     public function directoryIsNotReadable(string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '9.1', '<')) {
@@ -73,6 +83,11 @@ trait FileDirectoryTrait
         return $this;
     }
 
+    /**
+     * Asserts that a file does not exist.
+     *
+     * @param string $message
+     */
     public function fileDoesNotExist(string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '9.1', '<')) {
@@ -95,6 +110,11 @@ trait FileDirectoryTrait
         return $this;
     }
 
+    /**
+     * Asserts that a file exists and is not readable.
+     *
+     * @param string $message
+     */
     public function fileIsNotReadable(string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '9.1', '<')) {
@@ -110,6 +130,11 @@ trait FileDirectoryTrait
         return $this;
     }
 
+    /**
+     * Asserts that a file exists and is not writable.
+     *
+     * @param string $message
+     */
     public function fileIsNotWritable(string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '9.1', '<')) {
@@ -139,6 +164,11 @@ trait FileDirectoryTrait
         return $this;
     }
 
+    /**
+     * Asserts that a file/dir exists and is not readable.
+     *
+     * @param string $message
+     */
     public function isNotReadable(string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '9.1', '<')) {
@@ -154,6 +184,11 @@ trait FileDirectoryTrait
         return $this;
     }
 
+    /**
+     * Asserts that a file/dir exists and is not writable.
+     *
+     * @param string $message
+     */
     public function isNotWritable(string $message = ''): self
     {
         if (version_compare(PUVersion::series(), '9.1', '<')) {
