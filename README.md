@@ -101,10 +101,10 @@ verify($user->getRoles())->notEmpty();
 In order to add more assertions you can extend the class `Assert`:
 
 ```php
-use Realodix\NextProject\Assert;
-use PHPUnit\Framework\Assert as PHPUnit;
+use Realodix\NextProject\Assertion;
+use PHPUnit\Framework\Assert;
 
-class MyVerify extends Assert {
+class MyVerify extends Assertion {
 
     public function __construct($actual = null)
     {
@@ -113,7 +113,7 @@ class MyVerify extends Assert {
 
     public function success(string $message = '')
     {
-        PHPUnit::assertTrue(true, $message);
+        Assert::assertTrue(true, $message);
     }
 
 }

@@ -4,7 +4,7 @@ namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 
-class Assert
+class Assertion
 {
     use Traits\ClassTrait;
     use Traits\ComparisonTrait;

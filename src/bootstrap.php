@@ -1,16 +1,16 @@
 <?php
 
-use Realodix\NextProject\Assert;
+use Realodix\NextProject\Assertion;
 
 if (! function_exists('ass')) {
     /**
      * @param mixed $actual
      *
-     * @return Assert
+     * @return Assertion
      */
-    function ass($actual): Assert
+    function ass($actual): Assertion
     {
-        return new Assert($actual);
+        return new Assertion($actual);
     }
 }
 
@@ -18,11 +18,11 @@ if (! function_exists('expect')) {
     /**
      * @param mixed $actual
      *
-     * @return Assert
+     * @return Assertion
      */
-    function expect($actual): Assert
+    function expect($actual): Assertion
     {
-        return new Assert($actual);
+        return new Assertion($actual);
     }
 }
 
@@ -30,11 +30,11 @@ if (! function_exists('should')) {
     /**
      * @param mixed $actual
      *
-     * @return Assert
+     * @return Assertion
      */
-    function should($actual): Assert
+    function should($actual): Assertion
     {
-        return new Assert($actual);
+        return new Assertion($actual);
     }
 }
 
@@ -42,10 +42,10 @@ if (! function_exists('verify')) {
     /**
      * @param mixed $actual
      *
-     * @return Assert
+     * @return Assertion
      */
-    function verify($actual): Assert
+    function verify($actual): Assertion
     {
-        return new Assert($actual);
+        return new Assertion($actual);
     }
 }
