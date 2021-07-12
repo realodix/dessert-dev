@@ -32,8 +32,8 @@ final class ResourceHelper
         }
 
         /*
-         * If gettype did not work, attempt to determine whether this is
-         * a closed resource in another way.
+         * If gettype did not work, attempt to determine whether this is a closed resource
+         * in another way.
          */
         $isResource = \is_resource($actual);
         $isNotNonResource = self::isResource($actual);
