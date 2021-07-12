@@ -30,17 +30,17 @@ final class JsonTest extends TestCase
     public function testJsonStringEqualsJsonFile(): void
     {
         $jsonFile = $this->assetsDir.'JsonData/simpleObject.json';
-        $jsonString = json_encode(['Mascott' => 'Tux']);
+        $jsonString = json_encode(['foo' => 'bar']);
 
         ass($jsonString)->jsonStringToFile($jsonFile);
-        ass(json_encode(['foo' => 'bar']))->jsonStringNotToFile($jsonFile);
+        ass(json_encode(['foo' => 'baz']))->jsonStringNotToFile($jsonFile);
     }
 
     public function testJsonStringEqualsJsonString(): void
     {
-        $jsonString = json_encode(['Mascott' => 'Tux']);
+        $jsonString = json_encode(['foo' => 'bar']);
 
         ass($jsonString)->jsonStringToString($jsonString);
-        ass($jsonString)->jsonStringNotToString(json_encode(['foo' => 'bar']));
+        ass($jsonString)->jsonStringNotToString(json_encode(['foo' => 'baz']));
     }
 }
