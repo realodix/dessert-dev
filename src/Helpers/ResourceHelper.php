@@ -2,9 +2,6 @@
 
 namespace Realodix\NextProject\Helpers;
 
-use Exception;
-use TypeError;
-
 /**
  * Helper functions for working with the resource type.
  *
@@ -48,9 +45,9 @@ final class ResourceHelper
                 if ($resourceType === 'Unknown') {
                     return true;
                 }
-            } catch (TypeError $e) {
+            } catch (\TypeError $e) {
                 // Ignore. Not a resource.
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 // Ignore. Not a resource.
             }
         }
