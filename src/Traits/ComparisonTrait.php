@@ -59,6 +59,80 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function fileEquals($expected, string $message = ''): self
+    {
+        PHPUnit::assertFileEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileEqualsCanonicalizing($expected, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileEquals($expected, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileEqualsIgnoringCase($expected, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileEquals($expected, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileNotEquals($expected, string $message = ''): self
+    {
+        PHPUnit::assertFileNotEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileNotEqualsCanonicalizing($expected, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileNotEqualsIgnoringCase($expected, string $message = ''): self
+    {
+        if (version_compare(PUVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function greaterThan($expected, string $message = ''): self
     {
         PHPUnit::assertGreaterThan($expected, $this->actual, $message);

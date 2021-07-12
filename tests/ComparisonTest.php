@@ -44,6 +44,33 @@ final class ComparisonTest extends TestCase
         ass(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
     }
 
+    public function testFileEquals(): void
+    {
+        ass(__FILE__)->fileEquals(__FILE__);
+        ass(__FILE__)->fileNotEquals(
+            __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json'
+        );
+    }
+
+    public function testFileEqualsCanonicalizing()
+    {
+        $actual = $this->assetsDir.'string_equals_file.txt';
+        $expected = $this->assetsDir.'string_not_equals_file.txt';
+
+        ass($actual)->fileEqualsCanonicalizing($actual);
+        ass($actual)->fileNotEqualsCanonicalizing($expected);
+    }
+
+    public function testFileEqualsIgnoringCase()
+    {
+        $file1 = $this->assetsDir.'string_equals_file.txt';
+        $file2 = $this->assetsDir.'string_equals_file_ci.txt';
+        $file3 = $this->assetsDir.'string_not_equals_file_ci.txt';
+
+        ass($file1)->fileEqualsIgnoringCase($file2);
+        ass($file3)->fileNotEqualsIgnoringCase($file1);
+    }
+
     public function testGreaterThan(): void
     {
         ass(7)->greaterThan(5);

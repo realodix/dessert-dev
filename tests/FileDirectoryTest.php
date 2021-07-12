@@ -65,29 +65,6 @@ final class FileDirectoryTest extends TestCase
         ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirNotExist();
     }
 
-    public function testFileEquals(): void
-    {
-        ass(__FILE__)->fileEquals(__FILE__);
-        ass(__FILE__)->fileNotEquals(
-            __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json'
-        );
-    }
-
-    public function testFileEqualsCanonicalizing()
-    {
-        $file = $this->assetsDir.'string_equals_file.txt';
-
-        ass($file)->fileEqualsCanonicalizing($file);
-    }
-
-    public function testFileEqualsIgnoringCase()
-    {
-        $expected = $this->assetsDir.'string_equals_file.txt';
-        $input = $this->assetsDir.'string_equals_file_ci.txt';
-
-        ass($expected)->fileEqualsIgnoringCase($input);
-    }
-
     public function testFileExists(): void
     {
         ass(__FILE__)->fileExists();
@@ -133,22 +110,6 @@ final class FileDirectoryTest extends TestCase
     {
         $file = $this->assetsDir.'string_equals_file.txt';
         ass($file)->fileIsWritable();
-    }
-
-    public function testFileNotEqualsCanonicalizing()
-    {
-        $expected = $this->assetsDir.'string_equals_file.txt';
-        $input = $this->assetsDir.'string_not_equals_file.txt';
-
-        ass($input)->fileNotEqualsCanonicalizing($expected);
-    }
-
-    public function testFileNotEqualsIgnoringCase()
-    {
-        $expected = $this->assetsDir.'string_equals_file.txt';
-        $input = $this->assetsDir.'string_not_equals_file_ci.txt';
-
-        ass($input)->fileNotEqualsIgnoringCase($expected);
     }
 
     public function testIsReadable(): void
