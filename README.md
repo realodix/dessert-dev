@@ -26,6 +26,8 @@ composer require realodix/next-project
 
 ## Usage
 
+There are four flavors: `ass`, `expect`, `should`, and `verify`. All use the same chainable language to construct assertions.
+
 Use in any test `verify` function instead of `$this->assert*` methods:
 
 ```php
