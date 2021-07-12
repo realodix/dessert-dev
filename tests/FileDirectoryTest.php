@@ -75,15 +75,15 @@ final class FileDirectoryTest extends TestCase
 
     public function testFileEqualsCanonicalizing()
     {
-        $file = $this->assetsDir.'StringEqualsFile.txt';
+        $file = $this->assetsDir.'string_equals_file.txt';
 
         ass($file)->fileEqualsCanonicalizing($file);
     }
 
     public function testFileEqualsIgnoringCase()
     {
-        $expected = $this->assetsDir.'StringEqualsFile.txt';
-        $input = $this->assetsDir.'StringEqualsFile-CI.txt';
+        $expected = $this->assetsDir.'string_equals_file.txt';
+        $input = $this->assetsDir.'string_equals_file_ci.txt';
 
         ass($expected)->fileEqualsIgnoringCase($input);
     }
@@ -125,35 +125,35 @@ final class FileDirectoryTest extends TestCase
 
     public function testFileIsReadable()
     {
-        $file = $this->assetsDir.'StringEqualsFile.txt';
+        $file = $this->assetsDir.'string_equals_file.txt';
         ass($file)->fileIsReadable();
     }
 
     public function testFileIsWritable()
     {
-        $file = $this->assetsDir.'StringEqualsFile.txt';
+        $file = $this->assetsDir.'string_equals_file.txt';
         ass($file)->fileIsWritable();
     }
 
     public function testFileNotEqualsCanonicalizing()
     {
-        $expected = $this->assetsDir.'StringEqualsFile.txt';
-        $input = $this->assetsDir.'StringNotEqualsFile.txt';
+        $expected = $this->assetsDir.'string_equals_file.txt';
+        $input = $this->assetsDir.'string_not_equals_file.txt';
 
         ass($input)->fileNotEqualsCanonicalizing($expected);
     }
 
     public function testFileNotEqualsIgnoringCase()
     {
-        $expected = $this->assetsDir.'StringEqualsFile.txt';
-        $input = $this->assetsDir.'StringNotEqualsFile-CI.txt';
+        $expected = $this->assetsDir.'string_equals_file.txt';
+        $input = $this->assetsDir.'string_not_equals_file_ci.txt';
 
         ass($input)->fileNotEqualsIgnoringCase($expected);
     }
 
     public function testIsReadable(): void
     {
-        ass($this->assetsDir.'StringEqualsFile.txt')->isReadable();
+        ass($this->assetsDir.'string_equals_file.txt')->isReadable();
 
         $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting.php';
         ass($path)->isNotReadable();
@@ -161,7 +161,7 @@ final class FileDirectoryTest extends TestCase
 
     public function testIsWritable(): void
     {
-        $path = $this->assetsDir.'StringEqualsFile.txt';
+        $path = $this->assetsDir.'string_equals_file.txt';
         ass($path)->isWritable();
 
         $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting'.\DIRECTORY_SEPARATOR;

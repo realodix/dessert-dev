@@ -67,23 +67,23 @@ final class ComparisonTest extends TestCase
 
     public function testStringEqualsFile(): void
     {
-        ass('testing 123')->stringEqualsFile($this->assetsDir.'StringEqualsFile.txt');
-        ass('Another string')->stringNotEqualsFile($this->assetsDir.'StringEqualsFile.txt');
+        ass('testing 123')->stringEqualsFile($this->assetsDir.'string_equals_file.txt');
+        ass('Another string')->stringNotEqualsFile($this->assetsDir.'string_equals_file.txt');
     }
 
     public function testStringEqualsFileCanonicalizing(): void
     {
         ass('testing 123')
-            ->stringEqualsFileCanonicalizing($this->assetsDir.'StringEqualsFile.txt');
+            ->stringEqualsFileCanonicalizing($this->assetsDir.'string_equals_file.txt');
         ass('notSame')
-            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'StringEqualsFile.txt');
+            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'string_equals_file.txt');
     }
 
     public function testStringEqualsFileIgnoringCase(): void
     {
         ass('TESTING 123')
-            ->stringEqualsFileIgnoringCase($this->assetsDir.'StringEqualsFile.txt');
+            ->stringEqualsFileIgnoringCase($this->assetsDir.'string_equals_file.txt');
         ass('Test 123')
-            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'StringEqualsFile.txt');
+            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'string_equals_file.txt');
     }
 }

@@ -16,23 +16,23 @@ final class XmlTest extends TestCase
 
     public function testXmlFileNotToFile(): void
     {
-        $actual = $this->assetsDir.'xml-foo.xml';
-        $expected = $this->assetsDir.'xml-bar.xml';
+        $actual = $this->assetsDir.'xml_foo.xml';
+        $expected = $this->assetsDir.'xml_bar.xml';
 
         ass($actual)->xmlFileNotToFile($expected);
     }
 
     public function testXmlFileToFile(): void
     {
-        $xmlFile = $this->assetsDir.'xml-foo.xml';
+        $xmlFile = $this->assetsDir.'xml_foo.xml';
 
         ass($xmlFile)->xmlFileToFile($xmlFile);
     }
 
     public function testXmlStringNotToFile(): void
     {
-        $actual = file_get_contents($this->assetsDir.'xml-foo.xml');
-        $expected = $this->assetsDir.'xml-bar.xml';
+        $actual = file_get_contents($this->assetsDir.'xml_foo.xml');
+        $expected = $this->assetsDir.'xml_bar.xml';
 
         ass($actual)->xmlStringNotToFile($expected);
     }
@@ -45,7 +45,7 @@ final class XmlTest extends TestCase
 
     public function testXmlStringToFile(): void
     {
-        $xmlFile = $this->assetsDir.'xml-foo.xml';
+        $xmlFile = $this->assetsDir.'xml_foo.xml';
 
         ass('<foo/>')->xmlStringToFile($xmlFile);
     }

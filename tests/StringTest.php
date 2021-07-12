@@ -46,7 +46,7 @@ final class StringTest extends TestCase
 
     public function testStringMatchesFormatFile(): void
     {
-        $formatFile = $this->assetsDir.'StringEqualsFile.txt';
+        $formatFile = $this->assetsDir.'string_equals_file.txt';
 
         ass('testing 123')->stringMatchesFormatFile($formatFile);
         ass('asdfas')->stringNotMatchesFormatFile($formatFile);
