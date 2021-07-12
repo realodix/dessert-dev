@@ -3,6 +3,8 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Constraint\LogicalNot;
+use PHPUnit\Framework\Constraint\TraversableContains;
 use PHPUnit\Runner\Version as PUVersion;
 
 trait ComparisonTrait
@@ -12,7 +14,7 @@ trait ComparisonTrait
         // https://github.com/sebastianbergmann/phpunit/issues/3511
         if (version_compare(PUVersion::series(), '8.1', '<')) {
             // @codeCoverageIgnoreStart
-            $constraint = new \PHPUnit\Framework\Constraint\TraversableContains($needle);
+            $constraint = new TraversableContains($needle);
 
             PHPUnit::assertThat($this->actual, $constraint, $message);
 
@@ -226,13 +228,7 @@ trait ComparisonTrait
         // https://github.com/sebastianbergmann/phpunit/issues/3511
         if (version_compare(PUVersion::series(), '8.1', '<')) {
             // @codeCoverageIgnoreStart
-            $constraint = new \PHPUnit\Framework\Constraint\LogicalNot(
-                new \PHPUnit\Framework\Constraint\TraversableContains(
-                    $needle,
-                    false,
-                    false
-                )
-            );
+            $constraint = new LogicalNot(new TraversableContains($needle, false, false));
 
             PHPUnit::assertThat($this->actual, $constraint, $message);
 
