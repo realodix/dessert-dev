@@ -30,7 +30,6 @@ trait ArrayTrait
 
     public function containsEquals($needle, string $message = ''): self
     {
-        // Introduced in PHPUnit 8.1.0
         // https://github.com/sebastianbergmann/phpunit/issues/3511
         if (version_compare(PUVersion::series(), '8.1', '<')) {
             // @codeCoverageIgnoreStart
@@ -77,7 +76,6 @@ trait ArrayTrait
 
     public function notContainsEquals($needle, string $message = ''): self
     {
-        // Introduced in PHPUnit 8.1.0
         // https://github.com/sebastianbergmann/phpunit/issues/3511
         if (version_compare(PUVersion::series(), '8.1', '<')) {
             // @codeCoverageIgnoreStart
