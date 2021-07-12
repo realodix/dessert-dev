@@ -147,6 +147,48 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function jsonFileEqualsJsonFile($expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function jsonFileNotEqualsJsonFile($expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function jsonStringEqualsJsonFile($expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function jsonStringEqualsJsonString($expectedJson, string $message = ''): self
+    {
+        PHPUnit::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function jsonStringNotEqualsJsonFile($expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function jsonStringNotEqualsJsonString($expectedJson, string $message = ''): self
+    {
+        PHPUnit::assertJsonStringNotEqualsJsonString($expectedJson, $this->actual, $message);
+
+        return $this;
+    }
+
     public function lessThan($expected, string $message = ''): self
     {
         PHPUnit::assertLessThan($expected, $this->actual, $message);

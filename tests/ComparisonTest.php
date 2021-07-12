@@ -79,6 +79,32 @@ final class ComparisonTest extends TestCase
         ass(7)->greaterThanOrEqual(5);
     }
 
+    public function testJsonFileEqualsJsonFile(): void
+    {
+        $fileExpected = $this->assetsDir.'json_array_object.json';
+        $fileActual = $this->assetsDir.'json_simple_object.json';
+
+        ass($fileActual)->jsonFileToFile($fileActual);
+        ass($fileActual)->jsonFileNotToFile($fileExpected);
+    }
+
+    public function testJsonStringEqualsJsonFile(): void
+    {
+        $jsonFile = $this->assetsDir.'json_simple_object.json';
+        $jsonString = json_encode(['foo' => 'bar']);
+
+        ass($jsonString)->jsonStringToFile($jsonFile);
+        ass(json_encode(['foo' => 'baz']))->jsonStringNotToFile($jsonFile);
+    }
+
+    public function testJsonStringEqualsJsonString(): void
+    {
+        $jsonString = json_encode(['foo' => 'bar']);
+
+        ass($jsonString)->jsonStringToString($jsonString);
+        ass($jsonString)->jsonStringNotToString(json_encode(['foo' => 'baz']));
+    }
+
     public function testLessThan(): void
     {
         ass(7)->lessThan(10);

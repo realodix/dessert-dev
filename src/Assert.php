@@ -10,7 +10,6 @@ class Assert
     use Traits\ClassTrait;
     use Traits\DataTypeTrait;
     use Traits\FileDirectoryTrait;
-    use Traits\JsonTrait;
     use Traits\StringTrait;
     use Traits\ThrowsTrait;
     use Traits\ComparisonTrait;
@@ -62,6 +61,13 @@ class Assert
     public function infinite(string $message = ''): self
     {
         PHPUnit::assertInfinite($this->actual, $message);
+
+        return $this;
+    }
+
+    public function json(string $message = ''): self
+    {
+        PHPUnit::assertJson($this->actual, $message);
 
         return $this;
     }
