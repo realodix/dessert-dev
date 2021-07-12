@@ -11,12 +11,6 @@ final class AssertTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
-    public function testEmptyNotEmpty(): void
-    {
-        ass(['3', '5'])->notEmpty();
-        ass([])->empty();
-    }
-
     public function testEquals(): void
     {
         ass(5)->equals(5);
@@ -111,24 +105,4 @@ final class AssertTest extends TestCase
         should([])->empty();
         verify([])->empty();
     }
-
-    /** @test */
-    public function trueFalseNull(): void
-    {
-        ass(true)->true();
-        ass(true)->true('something should be true');
-        ass(false)->notTrue();
-
-        ass(false)->false();
-        ass(false)->false('something should be false');
-        ass(true)->notFalse();
-
-        ass(null)->null();
-        ass(true)->notNull();
-    }
-}
-
-class FakeClassForTesting
-{
-    public static $staticProperty;
 }

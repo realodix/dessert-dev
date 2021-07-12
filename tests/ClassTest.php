@@ -31,3 +31,8 @@ final class ClassTest extends TestCase
         ass($testClass)->notInstanceOf('DateTimeZone');
     }
 }
+
+class FakeClassForTesting
+{
+    public static $staticProperty;
+}
