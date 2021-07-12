@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PUVersion;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait FileDirectoryTrait
 {
@@ -14,7 +14,7 @@ trait FileDirectoryTrait
      */
     public function directoryDoesNotExist(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertDirectoryNotExists($this->actual, $message);
 
@@ -41,7 +41,7 @@ trait FileDirectoryTrait
      */
     public function directoryIsNotReadable(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertDirectoryNotIsReadable($this->actual, $message);
 
@@ -56,7 +56,7 @@ trait FileDirectoryTrait
 
     public function directoryIsNotWritable(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertDirectoryNotIsWritable($this->actual, $message);
 
@@ -90,7 +90,7 @@ trait FileDirectoryTrait
      */
     public function fileDoesNotExist(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertFileNotExists($this->actual, $message);
 
@@ -117,7 +117,7 @@ trait FileDirectoryTrait
      */
     public function fileIsNotReadable(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertFileNotIsReadable($this->actual, $message);
 
@@ -137,7 +137,7 @@ trait FileDirectoryTrait
      */
     public function fileIsNotWritable(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertFileNotIsWritable($this->actual, $message);
 
@@ -171,7 +171,7 @@ trait FileDirectoryTrait
      */
     public function isNotReadable(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotIsReadable($this->actual, $message);
 
@@ -191,7 +191,7 @@ trait FileDirectoryTrait
      */
     public function isNotWritable(string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotIsWritable($this->actual, $message);
 

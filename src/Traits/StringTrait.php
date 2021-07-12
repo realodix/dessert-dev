@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PUVersion;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait StringTrait
 {
@@ -15,7 +15,7 @@ trait StringTrait
      */
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
 
@@ -36,7 +36,7 @@ trait StringTrait
      */
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '9.1', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertRegExp($pattern, $this->actual, $message);
 
@@ -51,7 +51,7 @@ trait StringTrait
 
     public function stringContainsString(string $needle, string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 PHPUnit::assertSame($needle, $needle, $message);
@@ -72,7 +72,7 @@ trait StringTrait
 
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 PHPUnit::assertSame($needle, $needle, $message);
@@ -121,7 +121,7 @@ trait StringTrait
 
     public function stringNotContainsString(string $needle, string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 if ($message === '') {
@@ -146,7 +146,7 @@ trait StringTrait
 
     public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        if (version_compare(PUVersion::series(), '7.5', '<')) {
+        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
             // @codeCoverageIgnoreStart
             if ($needle === '') {
                 if ($message === '') {
