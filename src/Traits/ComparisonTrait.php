@@ -48,14 +48,6 @@ trait ComparisonTrait
      */
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
@@ -69,14 +61,6 @@ trait ComparisonTrait
      */
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertEquals($expected, $this->actual, $message, 0.0, 10, false, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
@@ -91,14 +75,6 @@ trait ComparisonTrait
      */
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertEquals($expected, $this->actual, $message, $delta);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
@@ -322,14 +298,6 @@ trait ComparisonTrait
      */
     public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
@@ -343,14 +311,6 @@ trait ComparisonTrait
      */
     public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertNotEquals($expected, $this->actual, $message, 0.0, 10, false, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
@@ -365,14 +325,6 @@ trait ComparisonTrait
      */
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertNotEquals($expected, $this->actual, $message, $delta);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;

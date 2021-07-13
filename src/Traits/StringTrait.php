@@ -79,20 +79,6 @@ trait StringTrait
 
     public function stringContainsString(string $needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            if ($needle === '') {
-                PHPUnit::assertSame($needle, $needle, $message);
-
-                return $this;
-            }
-
-            PHPUnit::assertContains($needle, $this->actual, $message);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertStringContainsString($needle, $this->actual, $message);
 
         return $this;
@@ -100,20 +86,6 @@ trait StringTrait
 
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            if ($needle === '') {
-                PHPUnit::assertSame($needle, $needle, $message);
-
-                return $this;
-            }
-
-            PHPUnit::assertContains($needle, $this->actual, $message, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
@@ -149,24 +121,6 @@ trait StringTrait
 
     public function stringNotContainsString(string $needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            if ($needle === '') {
-                if ($message === '') {
-                    $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
-                }
-
-                PHPUnit::fail($message);
-
-                return $this;
-            }
-
-            PHPUnit::assertNotContains($needle, $this->actual, $message);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
 
         return $this;
@@ -174,24 +128,6 @@ trait StringTrait
 
     public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '7.5', '<')) {
-            // @codeCoverageIgnoreStart
-            if ($needle === '') {
-                if ($message === '') {
-                    $message = "Failed asserting that '{$this->actual}' does not contain \"{$needle}\".";
-                }
-
-                PHPUnit::fail($message);
-
-                return $this;
-            }
-
-            PHPUnit::assertNotContains($needle, $this->actual, $message, true);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
         PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
