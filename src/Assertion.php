@@ -24,16 +24,6 @@ class Assertion
         $this->actual = $actual;
     }
 
-    /**
-     * @param mixed $actual
-     *
-     * @return self
-     */
-    public function __invoke($actual): self
-    {
-        return $this($actual);
-    }
-
     public function arrayHasKey($key, string $message = ''): self
     {
         PHPUnit::assertArrayHasKey($key, $this->actual, $message);
