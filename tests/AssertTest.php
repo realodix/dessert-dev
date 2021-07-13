@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
+use Realodix\NextProject\Assert;
 
 final class AssertTest extends TestCase
 {
@@ -93,6 +94,10 @@ final class AssertTest extends TestCase
         expect([])->empty();
         should([])->empty();
         verify([])->empty();
+
+        Assert::that(true)
+            ->true()
+            ->notFalse();
     }
 }
 
