@@ -94,7 +94,10 @@ final class AssertTest extends TestCase
         expect([])->empty();
         should([])->empty();
         verify([])->empty();
+    }
 
+    public function testStaticClass(): void
+    {
         Assert::that(true)
             ->true()
             ->notFalse();
