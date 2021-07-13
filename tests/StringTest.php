@@ -27,9 +27,6 @@ final class StringTest extends TestCase
     {
         ass('foo bar')->stringContainsString('o b');
         ass('foo bar')->stringNotContainsString('BAR');
-
-        ass('foo bar')->stringContainsStringIgnoringCase('O b');
-        ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
     }
 
     public function testEndsWith(): void
@@ -54,6 +51,12 @@ final class StringTest extends TestCase
     {
         ass('A completely not funny string')->stringStartsWith('A completely');
         ass('A completely not funny string')->stringStartsNotWith('string');
+    }
+
+    public function testStringContainsStringIgnoringCase(): void
+    {
+        ass('foo bar')->stringContainsStringIgnoringCase('O b');
+        ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
     }
 
     public function testStringMatchesFormatFile(): void

@@ -2,7 +2,6 @@
 
 namespace Realodix\NextProject\Test;
 
-use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
 
 // Coba dibuat, ditemukan pada test Dir
@@ -51,8 +50,6 @@ final class FileDirectoryTest extends TestCase
     public function testDirectoryIsReadable(): void
     {
         ass(__DIR__)->dirIsReadable();
-        $this->expectException(AssertionFailedError::class);
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirIsReadable();
     }
 
     public function testDirectoryIsWritable(): void
@@ -103,12 +100,14 @@ final class FileDirectoryTest extends TestCase
     public function testFileIsReadable()
     {
         $file = $this->assetsDir.'string_equals_file.txt';
+
         ass($file)->fileIsReadable();
     }
 
     public function testFileIsWritable()
     {
         $file = $this->assetsDir.'string_equals_file.txt';
+
         ass($file)->fileIsWritable();
     }
 

@@ -92,7 +92,6 @@ final class ComparisonTest extends TestCase
     public function testGreaterThan(): void
     {
         ass(7)->greaterThan(5);
-
         ass(7)->greaterThanOrEqual(7);
         ass(7)->greaterThanOrEqual(5);
     }
