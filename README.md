@@ -7,6 +7,7 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 
 ### Features
 - Focus on simplicity.
+- Assertion chain.
 - Forward-compatibility polyfill: Write your tests for PHPUnit 9.x and run them on PHPUnit 6.x - 9.x.
 
 ## Installation
