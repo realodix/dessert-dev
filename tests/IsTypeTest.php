@@ -36,6 +36,16 @@ final class IsTypeTest extends TestCase
         fclose($resource);
 
         ass($resource)->isClosedResource();
+
+        ass(null)->isNotClosedResource();
+        ass(['array'])->isNotClosedResource();
+        ass(new \stdClass)->isNotClosedResource();
+
+        // ResourceHelper test for code coverage
+        (new \Realodix\NextProject\Helpers\ResourceHelper)
+            ->isClosedResource($resource);
+        (new \Realodix\NextProject\Helpers\ResourceHelper)
+            ->isClosedResource(null);
     }
 
     /** @test */
@@ -56,12 +66,6 @@ final class IsTypeTest extends TestCase
     public function isIterable(): void
     {
         ass([])->isIterable();
-    }
-
-    /** @test */
-    public function isNotClosedResource(): void
-    {
-        ass(null)->isNotClosedResource();
     }
 
     /** @test */
