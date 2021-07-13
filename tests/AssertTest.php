@@ -4,9 +4,6 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Assert;
-use Realodix\NextProject\Expect;
-use Realodix\NextProject\Should;
-use Realodix\NextProject\Verify;
 
 final class AssertTest extends TestCase
 {
@@ -61,18 +58,6 @@ final class AssertTest extends TestCase
     public function testVariantsStaticClass(): void
     {
         Assert::that(true)
-            ->true()
-            ->notFalse();
-
-        Expect::that(true)
-            ->true()
-            ->notFalse();
-
-        Should::that(true)
-            ->true()
-            ->notFalse();
-
-        Verify::that(true)
             ->true()
             ->notFalse();
     }
