@@ -56,6 +56,12 @@ final class ComparisonTest extends TestCase
         ass(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
     }
 
+    public function testFalse(): void
+    {
+        ass(false)->false();
+        ass(true)->notFalse();
+    }
+
     public function testFileEquals(): void
     {
         ass(__FILE__)->fileEquals(__FILE__);
@@ -124,6 +130,12 @@ final class ComparisonTest extends TestCase
         ass(7)->lessThanOrEqual(8);
     }
 
+    public function testNull(): void
+    {
+        ass(null)->null();
+        ass(true)->notNull();
+    }
+
     public function testSame(): void
     {
         ass(1)->same(0 + 1);
@@ -156,6 +168,12 @@ final class ComparisonTest extends TestCase
             ->stringEqualsFileIgnoringCase($this->assetsDir.'string_equals_file.txt');
         ass('Test 123')
             ->stringNotEqualsFileIgnoringCase($this->assetsDir.'string_equals_file.txt');
+    }
+
+    public function testTrue(): void
+    {
+        ass(true)->true();
+        ass(false)->notTrue();
     }
 
     public function testXmlFileEqualsXmlFile(): void

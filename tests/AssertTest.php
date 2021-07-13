@@ -17,29 +17,6 @@ final class AssertTest extends TestCase
         ass($errors)->arrayNotHasKey('body');
     }
 
-    public function testContains(): void
-    {
-        ass([3, 2])->contains(3);
-        ass([3, 2])->notContains(5, 'user have 5 posts');
-    }
-
-    public function testContainsOnly(): void
-    {
-        ass(['1', '2', '3'])->containsOnly('string');
-        ass(['1', '2', 3])->notContainsOnly('string');
-    }
-
-    public function testContainsOnlyInstancesOf(): void
-    {
-        $array = [
-            new FakeClassForTestingArray(),
-            new FakeClassForTestingArray(),
-            new FakeClassForTestingArray(),
-        ];
-
-        ass($array)->containsOnlyInstancesOf(FakeClassForTestingArray::class);
-    }
-
     public function testCount(): void
     {
         ass([1, 2, 3])->count(3);
@@ -50,12 +27,6 @@ final class AssertTest extends TestCase
     {
         ass([])->empty();
         ass(['3', '5'])->notEmpty();
-    }
-
-    public function testFalse(): void
-    {
-        ass(false)->false();
-        ass(true)->notFalse();
     }
 
     public function testFinite(): void
@@ -78,18 +49,6 @@ final class AssertTest extends TestCase
     public function testNan(): void
     {
         ass(NAN)->nan();
-    }
-
-    public function testNull(): void
-    {
-        ass(null)->null();
-        ass(true)->notNull();
-    }
-
-    public function testTrue(): void
-    {
-        ass(true)->true();
-        ass(false)->notTrue();
     }
 
     public function testVariants(): void
@@ -117,9 +76,4 @@ final class AssertTest extends TestCase
             ->true()
             ->notFalse();
     }
-}
-
-class FakeClassForTestingArray
-{
-    public static $staticProperty;
 }

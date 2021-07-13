@@ -24,6 +24,17 @@ final class ClassTest extends TestCase
         ass(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
     }
 
+    public function testContainsOnlyInstancesOf(): void
+    {
+        $array = [
+            new FakeClassForTesting(),
+            new FakeClassForTesting(),
+            new FakeClassForTesting(),
+        ];
+
+        ass($array)->containsOnlyInstancesOf(FakeClassForTesting::class);
+    }
+
     public function testIsInstanceOf(): void
     {
         $testClass = new \DateTime();

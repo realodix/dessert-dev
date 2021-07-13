@@ -34,6 +34,13 @@ trait ClassTrait
         return $this;
     }
 
+    public function containsOnlyInstancesOf($className, string $message = ''): self
+    {
+        PHPUnit::assertContainsOnlyInstancesOf($className, $this->actual, $message);
+
+        return $this;
+    }
+
     public function instanceOf(string $expected, string $message = ''): self
     {
         PHPUnit::assertInstanceOf($expected, $this->actual, $message);

@@ -7,6 +7,20 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait StringTrait
 {
+    public function contains($needle, string $message = ''): self
+    {
+        PHPUnit::assertContains($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function containsOnly($type, $isNativeType = null, string $message = ''): self
+    {
+        PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);
+
+        return $this;
+    }
+
     /**
      * Asserts that a string does not match a given regular expression.
      *
@@ -45,6 +59,20 @@ trait StringTrait
         }
 
         PHPUnit::assertMatchesRegularExpression($pattern, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notContains($needle, string $message = ''): self
+    {
+        PHPUnit::assertNotContains($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notContainsOnly($type, $isNativeType = null, string $message = ''): self
+    {
+        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }

@@ -11,6 +11,18 @@ final class StringTest extends TestCase
         $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
     }
 
+    public function testContains(): void
+    {
+        ass([3, 2])->contains(3);
+        ass([3, 2])->notContains(5, 'user have 5 posts');
+    }
+
+    public function testContainsOnly(): void
+    {
+        ass(['1', '2', '3'])->containsOnly('string');
+        ass(['1', '2', 3])->notContainsOnly('string');
+    }
+
     public function testContainsString(): void
     {
         ass('foo bar')->stringContainsString('o b');

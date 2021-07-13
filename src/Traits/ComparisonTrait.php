@@ -104,6 +104,13 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function false(string $message = ''): self
+    {
+        PHPUnit::assertFalse($this->actual, $message);
+
+        return $this;
+    }
+
     public function fileEquals($expected, string $message = ''): self
     {
         PHPUnit::assertFileEquals($expected, $this->actual, $message);
@@ -371,6 +378,20 @@ trait ComparisonTrait
         return $this;
     }
 
+    public function notFalse(string $message = ''): self
+    {
+        PHPUnit::assertNotFalse($this->actual, $message);
+
+        return $this;
+    }
+
+    public function notNull(string $message = ''): self
+    {
+        PHPUnit::assertNotNull($this->actual, $message);
+
+        return $this;
+    }
+
     public function notSame($expected, string $message = ''): self
     {
         PHPUnit::assertNotSame($expected, $this->actual, $message);
@@ -381,6 +402,20 @@ trait ComparisonTrait
     public function notSameSize($expected, string $message = ''): self
     {
         PHPUnit::assertNotSameSize($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notTrue(string $message = ''): self
+    {
+        PHPUnit::assertNotTrue($this->actual, $message);
+
+        return $this;
+    }
+
+    public function null(string $message = ''): self
+    {
+        PHPUnit::assertNull($this->actual, $message);
 
         return $this;
     }
@@ -497,6 +532,13 @@ trait ComparisonTrait
         }
 
         PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function true(string $message = ''): self
+    {
+        PHPUnit::assertTrue($this->actual, $message);
 
         return $this;
     }
