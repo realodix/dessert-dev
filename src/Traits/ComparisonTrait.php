@@ -162,7 +162,7 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function fileNotEquals($expected, string $message = ''): self
+    public function fileNotEquals(string $expected, string $message = ''): self
     {
         PHPUnit::assertFileNotEquals($expected, $this->actual, $message);
 
@@ -227,35 +227,35 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function jsonFileEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonFileEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonFileNotEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonFileNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonStringEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonStringEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonStringEqualsJsonString($expectedJson, string $message = ''): self
+    public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
     {
         PHPUnit::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonStringNotEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
@@ -434,7 +434,7 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function stringEqualsFile($expectedFile, string $message = ''): self
+    public function stringEqualsFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message);
 
@@ -485,7 +485,7 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function stringNotEqualsFile($expectedFile, string $message = ''): self
+    public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
 
@@ -543,21 +543,21 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function xmlFileEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlFileEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function xmlFileNotEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlFileNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function xmlStringEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlStringEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
 
@@ -571,7 +571,7 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function xmlStringNotEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
