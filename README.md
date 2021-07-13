@@ -6,9 +6,8 @@
 A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was carefully crafted to bring the joy of testing to PHP.
 
 ### Features
-- Focus on simplicity.
 - Assertion chain.
-- Forward-compatibility polyfill: Write your tests for PHPUnit 9.x and run them on PHPUnit 6.x - 9.x.
+- Forward-compatibility: Write your tests for PHPUnit 9.x and run them on PHPUnit 6.x - 9.x.
 
 ## Installation
 
@@ -27,43 +26,41 @@ composer require realodix/next-project
 
 ## Usage
 
-There are four flavors: `ass`, `expect`, `should`, and `verify`. All use the same chainable language to construct assertions.
+There are five flavors: 
+- `Assert::that($actual)`
+- `ass($actual)`
+- `expect($actual)`
+- `should($actual)`
+- `verify($actual)`
 
-Use the flavor provided in any test instead of the `$this->assert*` method:
+Use in any test instead of the `$this->assert*` method.
 
 ```php
-use Realodix\NextProject\Assert\Assert;
+use Realodix\NextProject\Assert;
+
+// Static method
+Assert::that(1)
+    ->isInt()       // $this->assertIsInt(1);
+    ->isNotFloat(); // $this->assertIsFloat(1);
+
+
+// Global function
+verify(1)
+    ->isInt()       // $this->assertIsInt(1);
+    ->isNotFloat(); // $this->assertIsFloat(1);
+
 
 $user = User::find(1);
 
-// equals
-verify($user->getName())->equals('davert');
-
-verify($user->getNumPosts())
-    ->equals(5, 'user have 5 posts')
-    ->notEquals(3);
-
-// contains
-verify($user->getRoles())
-    ->contains('admin', 'first user is admin')
-    ->notContains('banned', 'first user is not banned');
-
-
-// greater / less
 verify($user->getRate())
     ->greaterThan(5)
     ->lessThan(10)
     ->equals(7, 'first user rate is 7');
 
-// true / false / null
-verify($user->isAdmin())->true();
-verify($user->isBanned())->false();
-verify($user->invitedBy)->null();
-verify($user->getPosts())->notNull();
+// $this->assertGreaterThan(5, $user->getRate());
+// $this->assertLessThan(10, $user->getRate());
+// $this->assertEquals(7, $user->getRate(), 'first user rate is 7');
 
-// empty
-verify($user->getComments())->empty();
-verify($user->getRoles())->notEmpty();
 
 // and many more !
 ```
@@ -99,7 +96,7 @@ verify($user->getRoles())->notEmpty();
 
 ## Extending
 
-In order to add more assertions you can extend the class `Assert`:
+In order to add more assertions you can extend the [`Assertion`](/src/Assertion.php) class:
 
 ```php
 use Realodix\NextProject\Assertion;
@@ -132,8 +129,10 @@ $myAssert::Mixed('this also')->notEquals('works');
 
 ## Improvements
 
-There is guaranteed to be room for improvements. This package was not designed to do everything you might ever need. But if you feel like you require a feature, please submit a Pull Request. It's pretty easy since there's not much code, and the Go!
+There is guaranteed to be room for improvements. This package was not designed to do
+everything you might ever need. But if you feel like you require a feature, please submit
+a Pull Request. It's pretty easy since there's not much code, and the Go!
 
 ## License
 
-This package is licensed using the [MIT License](/LICENSE).
+[MIT License](/LICENSE)
