@@ -72,8 +72,8 @@ final class ComparisonTest extends TestCase
 
     public function testFileEqualsCanonicalizing()
     {
-        $actual = $this->assetsDir.'string_equals_file.txt';
-        $expected = $this->assetsDir.'string_not_equals_file.txt';
+        $actual = $this->assetsDir.'string_foobar.txt';
+        $expected = $this->assetsDir.'string_foobar_upper.txt';
 
         ass($actual)->fileEqualsCanonicalizing($actual);
         ass($actual)->fileNotEqualsCanonicalizing($expected);
@@ -81,9 +81,9 @@ final class ComparisonTest extends TestCase
 
     public function testFileEqualsIgnoringCase()
     {
-        $file1 = $this->assetsDir.'string_equals_file.txt';
-        $file2 = $this->assetsDir.'string_equals_file_ci.txt';
-        $file3 = $this->assetsDir.'string_not_equals_file_ci.txt';
+        $file1 = $this->assetsDir.'string_foobar.txt';
+        $file2 = $this->assetsDir.'string_foobar_upper.txt';
+        $file3 = $this->assetsDir.'string_foobaz.txt';
 
         ass($file1)->fileEqualsIgnoringCase($file2);
         ass($file3)->fileNotEqualsIgnoringCase($file1);
@@ -149,24 +149,24 @@ final class ComparisonTest extends TestCase
 
     public function testStringEqualsFile(): void
     {
-        ass('testing 123')->stringEqualsFile($this->assetsDir.'string_equals_file.txt');
-        ass('Another string')->stringNotEqualsFile($this->assetsDir.'string_equals_file.txt');
+        ass('foo_bar')->stringEqualsFile($this->assetsDir.'string_foobar.txt');
+        ass('Another string')->stringNotEqualsFile($this->assetsDir.'string_foobar.txt');
     }
 
     public function testStringEqualsFileCanonicalizing(): void
     {
-        ass('testing 123')
-            ->stringEqualsFileCanonicalizing($this->assetsDir.'string_equals_file.txt');
+        ass('foo_bar')
+            ->stringEqualsFileCanonicalizing($this->assetsDir.'string_foobar.txt');
         ass('notSame')
-            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'string_equals_file.txt');
+            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'string_foobar.txt');
     }
 
     public function testStringEqualsFileIgnoringCase(): void
     {
-        ass('TESTING 123')
-            ->stringEqualsFileIgnoringCase($this->assetsDir.'string_equals_file.txt');
+        ass('FOO_BAR')
+            ->stringEqualsFileIgnoringCase($this->assetsDir.'string_foobar.txt');
         ass('Test 123')
-            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'string_equals_file.txt');
+            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'string_foobar.txt');
     }
 
     public function testTrue(): void
