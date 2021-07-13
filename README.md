@@ -124,7 +124,7 @@ $myVerify = new MyVerify;
 
 $myVerify->success('it works!');
 
-$myAssert::Mixed('this also')->notEquals('works');
+Assert::that('this also')->notEquals('works');
 ```
 
 ## Improvements
