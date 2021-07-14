@@ -6,7 +6,7 @@
 A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was carefully crafted to bring the joy of testing to PHP.
 
 ### Features
-- Assertion chain
+- Chain your check(s)
 - Write your tests for PHPUnit 9.x and run them on PHPUnit 8.5 - 9.x
 
 ## Installation
