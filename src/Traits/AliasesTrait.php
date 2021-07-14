@@ -34,12 +34,12 @@ trait AliasesTrait
         return $this->directoryDoesNotExist($message);
     }
 
-    public function endsNotWith($suffix, string $message = ''): self
+    public function endNotWith($suffix, string $message = ''): self
     {
         return $this->stringEndsNotWith($suffix, $message);
     }
 
-    public function endsWith($suffix, string $message = ''): self
+    public function endWith($suffix, string $message = ''): self
     {
         return $this->stringEndsWith($suffix, $message);
     }
@@ -134,12 +134,12 @@ trait AliasesTrait
         return $this->doesNotMatchRegularExpression($pattern, $message);
     }
 
-    public function startsNotWith($prefix, string $message = ''): self
+    public function startNotWith($prefix, string $message = ''): self
     {
         return $this->stringStartsNotWith($prefix, $message);
     }
 
-    public function startsWith($prefix, string $message = ''): self
+    public function startWith($prefix, string $message = ''): self
     {
         return $this->stringStartsWith($prefix, $message);
     }
