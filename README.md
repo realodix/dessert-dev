@@ -31,7 +31,7 @@ There are five flavors:
 - `should($actual)`
 - `verify($actual)`
 
-Use in any test instead of the `$this->assert*` method. For the full list of **assertions**, please refer to [PHPUnit Assertions](https://phpunit.readthedocs.io/en/9.5/assertions.html) documentation.
+For the full list of **assertions**, please refer to [PHPUnit Assertions](https://phpunit.readthedocs.io/en/9.5/assertions.html) documentation.
 
 ```php
 use Realodix\NextProject\Assert;
