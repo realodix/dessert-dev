@@ -33,7 +33,7 @@ There are five flavors:
 - `should($actual)`
 - `verify($actual)`
 
-Use in any test instead of the `$this->assert*` method.
+Use in any test instead of the `$this->assert*` method. For the full list of **assertions**, please refer to [PHPUnit Assertions](https://phpunit.readthedocs.io/en/9.5/assertions.html) documentation.
 
 ```php
 use Realodix\NextProject\Assert;
@@ -65,34 +65,9 @@ verify($user->getRate())
 // and many more !
 ```
 
-### Shortcut
+### Assertion Aliases
 
-| PHPUnit                           | Shortcut |
-| --------------------------------- | ----------- |
-| `greaterThan()`                   | `isAbove()` \| `greater()` |
-| `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
-| `lessThan()`                      | `isBelow()` \| `less()` |
-| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
-| `matchesRegularExpression()`      | `match()` |
-| `doesNotMatchRegularExpression()` | `notMatch()` |
-| `directoryExists()`               | `dirExists()` |
-| `directoryDoesNotExist()`         | `dirNotExist()` |
-| `directoryIsReadable()`           | `dirIsReadable()` |
-| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
-| `directoryIsWritable()`           | `dirIsWritable()` |
-| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
-| `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
-| `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
-| `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
-| `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
-| `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
-| `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
-| `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
-| `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
-| `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |
-| `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
-| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
-| `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |
+For the full list of **assertion aliases**, please refer to [docs/AssertionAliases.md](/docs/AssertionAliases.md) documentation.
 
 ## Extending
 
