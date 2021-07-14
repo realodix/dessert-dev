@@ -38,8 +38,8 @@ final class StringTest extends TestCase
 
     public function testStringEndsWith(): void
     {
-        ass('A completely not funny string')->stringEndsWith('ny string');
-        ass('A completely not funny string')->stringEndsNotWith('A completely');
+        ass('A completely not funny string')->endsWith('ny string');
+        ass('A completely not funny string')->endsNotWith('A completely');
     }
 
     public function testStringMatchesFormat(): void
@@ -58,7 +58,7 @@ final class StringTest extends TestCase
 
     public function testStringStartsWith(): void
     {
-        ass('A completely not funny string')->stringStartsWith('A completely');
-        ass('A completely not funny string')->stringStartsNotWith('string');
+        ass('A completely not funny string')->startsWith('A completely');
+        ass('A completely not funny string')->startsNotWith('string');
     }
 }

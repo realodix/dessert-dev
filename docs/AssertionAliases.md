@@ -20,6 +20,10 @@
 | `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
 | `matchesRegularExpression()`      | `match()` |
 | `doesNotMatchRegularExpression()` | `notMatch()` |
+| `stringStartsWith()`              | `startsWith()` |
+| `stringStartsNotWith()`           | `startsNotWith()` |
+| `stringEndsWith()`                | `endsWith()` |
+| `stringEndsNotWith()`             | `endsNotWith()` |
 | `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
 | `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
 | `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |

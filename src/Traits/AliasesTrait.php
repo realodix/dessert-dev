@@ -34,6 +34,16 @@ trait AliasesTrait
         return $this->directoryDoesNotExist($message);
     }
 
+    public function endsNotWith($suffix, string $message = ''): self
+    {
+        return $this->stringEndsNotWith($suffix, $message);
+    }
+
+    public function endsWith($suffix, string $message = ''): self
+    {
+        return $this->stringEndsWith($suffix, $message);
+    }
+
     public function greater($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
@@ -122,6 +132,16 @@ trait AliasesTrait
     public function notMatch(string $pattern, string $message = ''): self
     {
         return $this->doesNotMatchRegularExpression($pattern, $message);
+    }
+
+    public function startsNotWith($prefix, string $message = ''): self
+    {
+        return $this->stringStartsNotWith($prefix, $message);
+    }
+
+    public function startsWith($prefix, string $message = ''): self
+    {
+        return $this->stringStartsWith($prefix, $message);
     }
 
     public function xmlFileNotToFile($expectedFile, string $message = ''): self
