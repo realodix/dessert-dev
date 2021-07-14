@@ -68,6 +68,8 @@ verify($user->getRate())
 
 ### Assertion Aliases
 
+In addition to assertions, NextProject offers you a set of assertion aliases. Some APIs are inspired by [Jest](https://jestjs.io) & [Chai](https://www.chaijs.com) that allow you to write your tests like you would write natural sentences and some are simply shortened to speed you up writing tests.
+
 For the full list of **assertion aliases**, please refer to [docs/AssertionAliases.md](/docs/AssertionAliases.md) documentation.
 
 ## Extending
