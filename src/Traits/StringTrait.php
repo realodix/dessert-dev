@@ -9,7 +9,11 @@ trait StringTrait
 {
     public function contains($needle, string $message = ''): self
     {
-        PHPUnit::assertContains($needle, $this->actual, $message);
+        if (is_string($this->actual)) {
+            PHPUnit::assertStringContainsString($needle, $this->actual, $message);
+        } else {
+            PHPUnit::assertContains($needle, $this->actual, $message);
+        }
 
         return $this;
     }
@@ -65,7 +69,11 @@ trait StringTrait
 
     public function notContains($needle, string $message = ''): self
     {
-        PHPUnit::assertNotContains($needle, $this->actual, $message);
+        if (is_string($this->actual)) {
+            PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
+        } else {
+            PHPUnit::assertNotContains($needle, $this->actual, $message);
+        }
 
         return $this;
     }
