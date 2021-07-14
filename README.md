@@ -1,20 +1,20 @@
 # NextProject
 
 ![PHPVersion](https://img.shields.io/badge/PHP-^7.2|^8-777BB4.svg?style=flat-square)
-![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^7.5|^8|^9-3C9CD7.svg?style=flat-square)
+![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^8.5|^9-3C9CD7.svg?style=flat-square)
 
 A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was carefully crafted to bring the joy of testing to PHP.
 
 ### Features
 - Assertion chain.
-- Write your tests for PHPUnit 9.x and run them on PHPUnit 7.5 - 9.x.
+- Write your tests for PHPUnit 9.x and run them on PHPUnit 8.5 - 9.x.
 
 ## Installation
 
 #### Requirements
 
 - PHP 7.2 or higher.
-- PHPUnit 7.5 - 9.x (automatically required via Composer).
+- PHPUnit 8.5 - 9.x.
 
 #### Install the package
 
