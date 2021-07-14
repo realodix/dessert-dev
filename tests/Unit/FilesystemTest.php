@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 // Coba dibuat, ditemukan pada test Dir
 // $this->expectException(AssertionFailedError::class);
 
-final class FileDirectoryTest extends TestCase
+final class FilesystemTest extends TestCase
 {
     public function testDirectoryExists(): void
     {

@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Traits;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 
-trait FileDirectoryTrait
+trait FilesystemTrait
 {
     /**
      * Asserts that a directory does not exist.

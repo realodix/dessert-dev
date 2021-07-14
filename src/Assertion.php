@@ -8,7 +8,7 @@ class Assertion
 {
     use Traits\ClassTrait;
     use Traits\ComparisonTrait;
-    use Traits\FileDirectoryTrait;
+    use Traits\FilesystemTrait;
     use Traits\IsTypeTrait;
     use Traits\StringTrait;
     use Traits\AliasesTrait;
