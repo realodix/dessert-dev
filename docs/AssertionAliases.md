@@ -1,5 +1,7 @@
 | PHPUnit                           | Alias |
 | --------------------------------- | ----------- |
+| `arrayHasKey()`                   | `hasKey()` |
+| `arrayNotHasKey()`                | `notHasKey()` |
 | `directoryDoesNotExist()`         | `dirNotExist()` |
 | `directoryExists()`               | `dirExists()` |
 | `directoryIsNotReadable()`        | `dirIsNotReadable()` |

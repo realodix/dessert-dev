@@ -10,8 +10,8 @@ final class AssertTest extends TestCase
     public function testArrayHasKey(): void
     {
         $errors = ['title' => 'You should add title'];
-        ass($errors)->arrayHasKey('title');
-        ass($errors)->arrayNotHasKey('body');
+        ass($errors)->hasKey('title');
+        ass($errors)->notHasKey('body');
     }
 
     public function testCount(): void

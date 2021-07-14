@@ -44,6 +44,11 @@ trait AliasesTrait
         return $this->greaterThanOrEqual($expected, $message);
     }
 
+    public function hasKey($key, string $message = ''): self
+    {
+        return $this->arrayHasKey($key, $message);
+    }
+
     public function isAbove($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
@@ -107,6 +112,11 @@ trait AliasesTrait
     public function match(string $pattern, string $message = ''): self
     {
         return $this->matchesRegularExpression($pattern, $message);
+    }
+
+    public function notHasKey($key, string $message = ''): self
+    {
+        return $this->arrayNotHasKey($key, $message);
     }
 
     public function notMatch(string $pattern, string $message = ''): self
