@@ -15,19 +15,19 @@ final class AliasesTest extends TestCase
 
     public function testGreaterThan(): void
     {
-        ass(2)->greater(1);
-        ass(1)->greaterOrEqual(1);
+        ass(2)->greater(1)
+              ->greaterOrEqual(2);
 
-        ass(2)->isAbove(1);
-        ass(1)->isAtLeast(1);
+        ass(2)->isAbove(1)
+              ->isAtLeast(2);
     }
 
     public function testLessThan(): void
     {
-        ass(1)->less(2);
-        ass(1)->lessOrEqual(1);
+        ass(1)->less(2)
+              ->lessOrEqual(1);
 
-        ass(1)->isBelow(2);
-        ass(1)->isAtMost(1);
+        ass(1)->isBelow(2)
+              ->isAtMost(1);
     }
 }
