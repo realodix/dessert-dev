@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
 
-final class ShortcutTest extends TestCase
+final class AliasesTest extends TestCase
 {
     /** @test */
     public function regExp(): void

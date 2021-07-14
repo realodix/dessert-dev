@@ -11,7 +11,7 @@ class Assertion
     use Traits\FileDirectoryTrait;
     use Traits\IsTypeTrait;
     use Traits\StringTrait;
-    use Traits\ShortcutTrait;
+    use Traits\AliasesTrait;
 
     /** @var mixed */
     protected $actual = null;

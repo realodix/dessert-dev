@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Traits;
 
-trait ShortcutTrait
+trait AliasesTrait
 {
     public function dirExists(string $message = ''): self
     {
