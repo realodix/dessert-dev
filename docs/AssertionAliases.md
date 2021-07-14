@@ -1,30 +1,26 @@
 | PHPUnit                           | Alias |
 | --------------------------------- | ----------- |
-| `matchesRegularExpression()`      | `match()` |
-| `doesNotMatchRegularExpression()` | `notMatch()` |
-| `directoryExists()`               | `dirExists()` |
 | `directoryDoesNotExist()`         | `dirNotExist()` |
-| `directoryIsReadable()`           | `dirIsReadable()` |
+| `directoryExists()`               | `dirExists()` |
 | `directoryIsNotReadable()`        | `dirIsNotReadable()` |
+| `directoryIsNotWritable()`        | `dirIsNotWritable()` 
+| `directoryIsReadable()`           | `dirIsReadable()` |
 | `directoryIsWritable()`           | `dirIsWritable()` |
-| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
-
-## Comparison
-| PHPUnit                           | Alias |
-| --------------------------------- | ----------- |
+| `doesNotMatchRegularExpression()` | `notMatch()` |
 | `greaterThan()`                   | `isAbove()` \| `greater()` |
 | `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
-| `lessThan()`                      | `isBelow()` \| `less()` |
-| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
 | `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
 | `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
 | `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
-| `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
 | `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
+| `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
 | `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
+| `lessThan()`                      | `isBelow()` \| `less()` |
+| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
+| `matchesRegularExpression()`      | `match()` |
 | `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
 | `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
 | `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |
-| `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
 | `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
+| `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
 | `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |
