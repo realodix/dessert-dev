@@ -18,34 +18,16 @@ final class StringTest extends TestCase
         ass(['1', '2', 3])->notContainsOnly('string');
     }
 
-    public function testContainsString(): void
-    {
-        ass('foo bar')->stringContainsString('o b');
-        ass('foo bar')->stringNotContainsString('BAR');
-    }
-
-    public function testEndsWith(): void
-    {
-        ass('A completely not funny string')->stringEndsWith('ny string');
-        ass('A completely not funny string')->stringEndsNotWith('A completely');
-    }
-
-    public function testMatchesFormat(): void
-    {
-        ass('somestring')->stringMatchesFormat('%s');
-        ass('somestring')->stringNotMatchesFormat('%i');
-    }
-
     public function testMatchesRegularExpression(): void
     {
         ass('foobar')->matchesRegularExpression('/foobar/');
         ass('foobar')->doesNotMatchRegularExpression('/foobarbaz/');
     }
 
-    public function testStartsWith(): void
+    public function testStringContainsString(): void
     {
-        ass('A completely not funny string')->stringStartsWith('A completely');
-        ass('A completely not funny string')->stringStartsNotWith('string');
+        ass('foo bar')->stringContainsString('o b');
+        ass('foo bar')->stringNotContainsString('BAR');
     }
 
     public function testStringContainsStringIgnoringCase(): void
@@ -54,11 +36,29 @@ final class StringTest extends TestCase
         ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
     }
 
+    public function testStringEndsWith(): void
+    {
+        ass('A completely not funny string')->stringEndsWith('ny string');
+        ass('A completely not funny string')->stringEndsNotWith('A completely');
+    }
+
+    public function testStringMatchesFormat(): void
+    {
+        ass('somestring')->stringMatchesFormat('%s');
+        ass('somestring')->stringNotMatchesFormat('%i');
+    }
+
     public function testStringMatchesFormatFile(): void
     {
         $formatFile = TEST_FILES_PATH.'string_foobar.txt';
 
         ass('foo_bar')->stringMatchesFormatFile($formatFile);
         ass('string_not_matches')->stringNotMatchesFormatFile($formatFile);
+    }
+
+    public function testStringStartsWith(): void
+    {
+        ass('A completely not funny string')->stringStartsWith('A completely');
+        ass('A completely not funny string')->stringStartsNotWith('string');
     }
 }
