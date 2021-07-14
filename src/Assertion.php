@@ -100,18 +100,6 @@ class Assertion
     }
 
     /**
-     * Asserts that a string is a valid JSON string.
-     *
-     * @param string $message
-     */
-    public function json(string $message = ''): self
-    {
-        PHPUnit::assertJson($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Asserts that a variable is nan.
      *
      * @param string $message

@@ -18,6 +18,13 @@ final class StringTest extends TestCase
         ass(['1', '2', 3])->notContainsOnly('string');
     }
 
+    public function testJson(): void
+    {
+        $json = json_encode(['foo' => 'bar']);
+
+        ass($json)->json();
+    }
+
     public function testMatchesRegularExpression(): void
     {
         ass('foobar')->matchesRegularExpression('/foobar/');
