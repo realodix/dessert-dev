@@ -24,7 +24,7 @@ composer require realodix/next-project
 
 ## Usage
 
-Realodix\NextProject offers you five functions to write your tests: 
+NextProject offers you five functions to write your tests: 
 
 - `Assert::that($actual)`
 - `ass($actual)`
