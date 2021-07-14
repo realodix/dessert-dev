@@ -27,14 +27,17 @@
             "Realodix\\NextProject\\": "src/"
         }
     },
+    "autoload-dev": {
+        "files": [
+            "tests/bootstrap.php"
+        ],
+        "psr-4": {
+            "Realodix\\NextProject\\Test\\": "tests/"
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-main": "1.x-dev"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Realodix\\NextProject\\Test\\": "tests/"
         }
     },
     "scripts": {

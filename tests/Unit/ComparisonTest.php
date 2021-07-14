@@ -6,11 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 final class ComparisonTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
-    }
-
     public function testContainsEquals(): void
     {
         $a = new \stdClass;
@@ -66,14 +61,14 @@ final class ComparisonTest extends TestCase
     {
         ass(__FILE__)->fileEquals(__FILE__);
         ass(__FILE__)->fileNotEquals(
-            __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'composer.json'
+            __DIR__.DIRECTORY_SEPARATOR.'../..'.DIRECTORY_SEPARATOR.'composer.json'
         );
     }
 
     public function testFileEqualsCanonicalizing()
     {
-        $actual = $this->assetsDir.'string_foobar.txt';
-        $expected = $this->assetsDir.'string_foobar_upper.txt';
+        $actual = TEST_FILES_PATH.'string_foobar.txt';
+        $expected = TEST_FILES_PATH.'string_foobar_upper.txt';
 
         ass($actual)->fileEqualsCanonicalizing($actual);
         ass($actual)->fileNotEqualsCanonicalizing($expected);
@@ -81,9 +76,9 @@ final class ComparisonTest extends TestCase
 
     public function testFileEqualsIgnoringCase()
     {
-        $file1 = $this->assetsDir.'string_foobar.txt';
-        $file2 = $this->assetsDir.'string_foobar_upper.txt';
-        $file3 = $this->assetsDir.'string_foobaz.txt';
+        $file1 = TEST_FILES_PATH.'string_foobar.txt';
+        $file2 = TEST_FILES_PATH.'string_foobar_upper.txt';
+        $file3 = TEST_FILES_PATH.'string_foobaz.txt';
 
         ass($file1)->fileEqualsIgnoringCase($file2);
         ass($file3)->fileNotEqualsIgnoringCase($file1);
@@ -98,8 +93,8 @@ final class ComparisonTest extends TestCase
 
     public function testJsonFileEqualsJsonFile(): void
     {
-        $fileExpected = $this->assetsDir.'json_array_object.json';
-        $fileActual = $this->assetsDir.'json_simple_object.json';
+        $fileExpected = TEST_FILES_PATH.'json_array_object.json';
+        $fileActual = TEST_FILES_PATH.'json_simple_object.json';
 
         ass($fileActual)->jsonFileToFile($fileActual);
         ass($fileActual)->jsonFileNotToFile($fileExpected);
@@ -107,7 +102,7 @@ final class ComparisonTest extends TestCase
 
     public function testJsonStringEqualsJsonFile(): void
     {
-        $jsonFile = $this->assetsDir.'json_simple_object.json';
+        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
         $jsonString = json_encode(['foo' => 'bar']);
 
         ass($jsonString)->jsonStringToFile($jsonFile);
@@ -149,24 +144,24 @@ final class ComparisonTest extends TestCase
 
     public function testStringEqualsFile(): void
     {
-        ass('foo_bar')->stringEqualsFile($this->assetsDir.'string_foobar.txt');
-        ass('Another string')->stringNotEqualsFile($this->assetsDir.'string_foobar.txt');
+        ass('foo_bar')->stringEqualsFile(TEST_FILES_PATH.'string_foobar.txt');
+        ass('Another string')->stringNotEqualsFile(TEST_FILES_PATH.'string_foobar.txt');
     }
 
     public function testStringEqualsFileCanonicalizing(): void
     {
         ass('foo_bar')
-            ->stringEqualsFileCanonicalizing($this->assetsDir.'string_foobar.txt');
+            ->stringEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
         ass('notSame')
-            ->stringNotEqualsFileCanonicalizing($this->assetsDir.'string_foobar.txt');
+            ->stringNotEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
     }
 
     public function testStringEqualsFileIgnoringCase(): void
     {
         ass('FOO_BAR')
-            ->stringEqualsFileIgnoringCase($this->assetsDir.'string_foobar.txt');
+            ->stringEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
         ass('Test 123')
-            ->stringNotEqualsFileIgnoringCase($this->assetsDir.'string_foobar.txt');
+            ->stringNotEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
     }
 
     public function testTrue(): void
@@ -177,8 +172,8 @@ final class ComparisonTest extends TestCase
 
     public function testXmlFileEqualsXmlFile(): void
     {
-        $actual = $this->assetsDir.'xml_foo.xml';
-        $expected = $this->assetsDir.'xml_bar.xml';
+        $actual = TEST_FILES_PATH.'xml_foo.xml';
+        $expected = TEST_FILES_PATH.'xml_bar.xml';
 
         ass($actual)->xmlFileToFile($actual);
         ass($actual)->xmlFileNotToFile($expected);
@@ -186,8 +181,8 @@ final class ComparisonTest extends TestCase
 
     public function testXmlStringEqualsXmlFile(): void
     {
-        $xmlFoo = $this->assetsDir.'xml_foo.xml';
-        $xmlBar = $this->assetsDir.'xml_bar.xml';
+        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
+        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
 
         ass('<foo/>')->xmlStringToFile($xmlFoo);
         ass('<foo/>')->xmlStringNotToFile($xmlBar);

@@ -6,11 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 final class StringTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
-    }
-
     public function testContains(): void
     {
         ass([3, 2])->contains(3);
@@ -61,7 +56,7 @@ final class StringTest extends TestCase
 
     public function testStringMatchesFormatFile(): void
     {
-        $formatFile = $this->assetsDir.'string_foobar.txt';
+        $formatFile = TEST_FILES_PATH.'string_foobar.txt';
 
         ass('foo_bar')->stringMatchesFormatFile($formatFile);
         ass('string_not_matches')->stringNotMatchesFormatFile($formatFile);

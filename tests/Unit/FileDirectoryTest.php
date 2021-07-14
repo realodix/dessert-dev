@@ -9,11 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 final class FileDirectoryTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        $this->assetsDir = __DIR__.DIRECTORY_SEPARATOR.'_files'.DIRECTORY_SEPARATOR;
-    }
-
     public function testDirectoryExists(): void
     {
         ass(__DIR__)->dirExists();
@@ -99,21 +94,21 @@ final class FileDirectoryTest extends TestCase
 
     public function testFileIsReadable()
     {
-        $file = $this->assetsDir.'string_foobar.txt';
+        $file = TEST_FILES_PATH.'string_foobar.txt';
 
         ass($file)->fileIsReadable();
     }
 
     public function testFileIsWritable()
     {
-        $file = $this->assetsDir.'string_foobar.txt';
+        $file = TEST_FILES_PATH.'string_foobar.txt';
 
         ass($file)->fileIsWritable();
     }
 
     public function testIsReadable(): void
     {
-        ass($this->assetsDir.'string_foobar.txt')->isReadable();
+        ass(TEST_FILES_PATH.'string_foobar.txt')->isReadable();
 
         $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting.php';
         ass($path)->isNotReadable();
@@ -121,7 +116,7 @@ final class FileDirectoryTest extends TestCase
 
     public function testIsWritable(): void
     {
-        $path = $this->assetsDir.'string_foobar.txt';
+        $path = TEST_FILES_PATH.'string_foobar.txt';
         ass($path)->isWritable();
 
         $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting'.\DIRECTORY_SEPARATOR;
