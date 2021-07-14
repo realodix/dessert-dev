@@ -2,27 +2,27 @@
 | --------------------------------- | ----------- |
 | `arrayHasKey()`                   | `hasKey()` |
 | `arrayNotHasKey()`                | `notHasKey()` |
-| `directoryDoesNotExist()`         | `dirNotExist()` |
 | `directoryExists()`               | `dirExists()` |
-| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
-| `directoryIsNotWritable()`        | `dirIsNotWritable()` 
+| `directoryDoesNotExist()`         | `dirNotExist()` |
 | `directoryIsReadable()`           | `dirIsReadable()` |
+| `directoryIsNotReadable()`        | `dirIsNotReadable()` |
 | `directoryIsWritable()`           | `dirIsWritable()` |
-| `doesNotMatchRegularExpression()` | `notMatch()` |
+| `directoryIsNotWritable()`        | `dirIsNotWritable()` |
 | `greaterThan()`                   | `isAbove()` \| `greater()` |
 | `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
+| `lessThan()`                      | `isBelow()` \| `less()` |
+| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
 | `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
 | `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
 | `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
-| `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
 | `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
+| `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
 | `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
-| `lessThan()`                      | `isBelow()` \| `less()` |
-| `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
 | `matchesRegularExpression()`      | `match()` |
+| `doesNotMatchRegularExpression()` | `notMatch()` |
 | `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
 | `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
 | `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |
-| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
 | `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
+| `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
 | `xmlStringNotEqualsXmlString()`   | `xmlStringNotToString()` |
