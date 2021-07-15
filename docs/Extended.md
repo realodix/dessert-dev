@@ -7,7 +7,16 @@
 | `stringNotEqualsFile()` | [`stringNotEqualsFile`](https://phpunit.readthedocs.io/en/stable/assertions.html#assertstringequalsfile) or [`jsonStringNotEqualsJsonFile`](https://phpunit.readthedocs.io/en/stable/assertions.html#assertjsonstringequalsjsonfile) or [`xmlStringNotEqualsXmlFile`](https://phpunit.readthedocs.io/en/stable/assertions.html#assertxmlstringequalsxmlfile) |
 
 ## Extended Assertions 
-| Assertions              |
-| ----------------------- | 
-| `stringEquals()`        | 
-| `stringNotEquals()`     | 
+| Assertions                            |
+| ------------------------------------- | 
+| `stringEquals()`                      | 
+| `stringNotEquals()`                   | 
+| `markupContainsSelector()`            | 
+| `markupNotContainsSelector()`         | 
+| `markupElementContains()`             | 
+| `markupElementNotContains()`          | 
+| `markupElementRegExp()`               | 
+| `markupElementNotRegExp()`            | 
+| `markupHasElementWithAttributes()`    | 
+| `markupNotHasElementWithAttributes()` | 
+| `markupSelectorCount()`               | 

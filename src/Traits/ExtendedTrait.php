@@ -111,7 +111,7 @@ trait ExtendedTrait
     /**
      * Assert that the given string contains an element matching the given selector
      *
-     * @param string $selector The output that should contain the $this->actual.
+     * @param mixed $selector The output that should contain the $this->actual.
      * @param string $message  A message to display if the assertion fails.
      */
     public function markupContainsSelector($selector, string $message = ''): self
@@ -131,7 +131,7 @@ trait ExtendedTrait
      * Assert that the given string does not contain an element matching the given
      * selector
      *
-     * @param string $selector The output that should not contain the $this->actual.
+     * @param mixed $selector The output that should not contain the $this->actual.
      * @param string $message  A message to display if the assertion fails.
      */
     public function markupNotContainsSelector($selector, string $message = ''): self
@@ -163,12 +163,27 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Assert that an element with the given attributes exists in the given markup.
+     *
+     * @param string $output     The output that should contain an element with the
+     *                           provided $attributes.
+     * @param string $message    A message to display if the assertion fails.
+     */
     public function markupHasElementWithAttributes($output = '', string $message = ''): self
     {
         $this->markupContainsSelector($output,$message);
 
         return $this;
     }
+
+    /**
+     * Assert that an element with the given attributes does not exist in the given markup.
+     *
+     * @param string $output     The output that should not contain an element with the
+     *                           provided $attributes.
+     * @param string $message    A message to display if the assertion fails.
+     */
     public function markupNotHasElementWithAttributes($output = '', string $message = ''): self
     {
         $this->markupNotContainsSelector($output, $message);
@@ -176,6 +191,14 @@ trait ExtendedTrait
         return $this;
     }
 
+     /**
+     * Assert an element's contents contain the given string.
+     *
+     * @param mixed  $this->actual The string to look for within the DOM node's contents.
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementContains($selector = '', $output = '', $message = ''): self
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
@@ -184,6 +207,15 @@ trait ExtendedTrait
 
         return $this;
     }
+
+    /**
+     * Assert an element's contents do not contain the given string.
+     *
+     * @param mixed  $this->actual The string to look for within the DOM node's contents.
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should not contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementNotContains($selector = '', $output = '', $message = ''): self
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
@@ -193,6 +225,14 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Assert an element's contents contain the given regular expression pattern.
+     *
+     * @param mixed  $this->actual   The regular expression pattern to look for within the DOM node.
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementRegExp($selector = '', $output = '', $message = ''): self
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements( $output, $selector);
@@ -201,6 +241,15 @@ trait ExtendedTrait
 
         return $this;
     }
+
+    /**
+     * Assert an element's contents do not contain the given regular expression pattern.
+     *
+     * @param mixed  $this->actual   The regular expression pattern to look for within the DOM node.
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should not contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementNotRegExp($selector = '', $output = '', $message = ''): self
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements( $output, $selector);
