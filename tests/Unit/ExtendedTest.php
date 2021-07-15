@@ -73,16 +73,34 @@ final class ExtendedTest extends TestCase
         ass(3)->markupSelectorCount('li', '<ul><li>1</li><li>2</li><li>3</li></ul>');
     }
 
-    // public function testMarkupHasElementWithAttributes()
-    // {
-    //     $actual = [
-    //         'type' => 'email',
-    //         'value' => 'test@example.com',
-    //     ];
-    //     $expected = '<label>Email</label><br><input type="email" value="test@example.com" />';
+    public function testMarkupHasElementWithAttributes()
+    {
+        // Should find an element with the given attributes
+        $expected = [
+            'type' => 'email',
+            'value' => 'test@example.com',
+        ];
+        $actual = '<label>Email</label><br><input type="email" value="test@example.com" />';
 
-    //     ass($actual)->markupHasElementWithAttributes($expected);
-    // }
+        ass($actual)->markupHasElementWithAttributes($expected);
+
+        // Should be able to parse spaces in attribute values
+        $expected = [
+            'data-attr' => 'foo bar baz',
+        ];
+        $actual = '<div data-attr="foo bar baz">Contents</div>';
+
+        ass($actual)->markupHasElementWithAttributes($expected);
+
+        // Should ensure no element has the provided attributes
+        $expected = [
+            'type' => 'email',
+            'value' => 'test@example.com',
+        ];
+        $actual = '<label>City</label><br><input type="text" value="New York" data-foo="bar" />';
+
+        ass($actual)->markupNotHasElementWithAttributes($expected);
+    }
 
     /**
      * Data provider for test markupContainsSelector().

@@ -111,14 +111,16 @@ trait ExtendedTrait
     /**
      * Assert that the given string contains an element matching the given selector
      *
-     * @param string $output The output that should contain the $this->actual.
+     * @param string $selector The output that should contain the $this->actual.
      * @param string $message  A message to display if the assertion fails.
      */
     public function markupContainsSelector($selector, string $message = ''): self
     {
-        $output = $this->actual;
+        if (is_array($selector)) {
+            $selector = '*' . (new MarkupHelper)->flattenAttributeArray($selector);
+        }
 
-        $results = (new Query($output))->execute($selector);
+        $results = (new Query($this->actual))->execute($selector);
 
         PHPUnit::assertGreaterThan(0, count($results), $message);
 
@@ -129,12 +131,16 @@ trait ExtendedTrait
      * Assert that the given string does not contain an element matching the given
      * selector
      *
-     * @param string $expected The output that should not contain the $this->actual.
+     * @param string $selector The output that should not contain the $this->actual.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupNotContainsSelector(string $expected, string $message = ''): self
+    public function markupNotContainsSelector($selector, string $message = ''): self
     {
-        $results = (new Query($this->actual))->execute($expected);
+        if (is_array($selector)) {
+            $selector = '*' . (new MarkupHelper)->flattenAttributeArray($selector);
+        }
+
+        $results = (new Query($this->actual))->execute($selector);
 
         PHPUnit::assertEquals(0, count($results), $message);
 
@@ -157,24 +163,18 @@ trait ExtendedTrait
         return $this;
     }
 
-    // public function markupHasElementWithAttributes($output = '', string $message = ''): self
-    // {
-    //     $this->markupContainsSelector(
-    //         '*' . (new MarkupHelper)->flattenAttributeArray($this->actual),
-    //         $output,
-    //         $message
-    //     );
+    public function markupHasElementWithAttributes($output = '', string $message = ''): self
+    {
+        $this->markupContainsSelector($output,$message);
 
-    //     return $this;
-    // }
-    // public function markupNotHasElementWithAttributes($output = '', string $message = ''): self
-    // {
-    //     $this->actual = '*' . (new MarkupHelper)->flattenAttributeArray($this->actual);
+        return $this;
+    }
+    public function markupNotHasElementWithAttributes($output = '', string $message = ''): self
+    {
+        $this->markupNotContainsSelector($output, $message);
 
-    //     $this->markupNotContainsSelector($output, $message);
-
-    //     return $this;
-    // }
+        return $this;
+    }
 
     // public function markupElementContains($contents, $selector = '', string $message = ''): self
     // {
