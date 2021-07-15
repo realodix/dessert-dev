@@ -3,7 +3,6 @@
 namespace Realodix\NextProject\Helpers;
 
 use Laminas\Dom\Query;
-use PHPUnit\Framework\RiskyTestError;
 
 /**
  * @internal
@@ -15,16 +14,10 @@ final class MarkupHelper
      *
      * @param array $attributes HTML attributes and their values.
      *
-     * @throws RiskyTestError When the $attributes array is empty.
-     *
      * @return string A XPath attribute query selector.
      */
     public function flattenAttributeArray(array $attributes): string
     {
-        if (empty($attributes)) {
-            throw new RiskyTestError('Attributes array is empty.');
-        }
-
         array_walk($attributes, function (&$value, $key) {
             // Boolean attributes.
             if (null === $value) {
@@ -45,7 +38,7 @@ final class MarkupHelper
      *
      * @return string The concatenated innerHTML of any matched selectors.
      */
-    public function getInnerHtmlOfMatchedElements($markup, $query)
+    public function getInnerHtmlOfMatchedElements(string $markup, string $query)
     {
         $results = (new Query($markup))->execute($query);
         $contents = [];
