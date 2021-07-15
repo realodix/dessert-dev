@@ -91,7 +91,6 @@ class MyVerify extends Assertion {
     {
         Assert::assertTrue(true, $message);
     }
-
 }
 ```
 
