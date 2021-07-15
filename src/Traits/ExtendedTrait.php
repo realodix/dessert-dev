@@ -2,10 +2,10 @@
 
 namespace Realodix\NextProject\Traits;
 
-use PHPUnit\Framework\Assert as PHPUnit;
-use Realodix\NextProject\Helpers\ValidatorHelper as Validator;
-use Realodix\NextProject\Helpers\MarkupHelper;
 use Laminas\Dom\Query;
+use PHPUnit\Framework\Assert as PHPUnit;
+use Realodix\NextProject\Helpers\MarkupHelper;
+use Realodix\NextProject\Helpers\ValidatorHelper as Validator;
 
 trait ExtendedTrait
 {
@@ -16,6 +16,153 @@ trait ExtendedTrait
         } else {
             PHPUnit::assertContains($needle, $this->actual, $message);
         }
+
+        return $this;
+    }
+
+    /**
+     * Assert that the given string contains an element matching the given selector
+     *
+     * @param mixed  $selector The output that should contain the $this->actual.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupContainsSelector($selector, string $message = ''): self
+    {
+        if (is_array($selector)) {
+            $selector = '*'.(new MarkupHelper)->flattenAttributeArray($selector);
+        }
+
+        $results = (new Query($this->actual))->execute($selector);
+
+        PHPUnit::assertGreaterThan(0, count($results), $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert an element's contents contain the given string.
+     *
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupElementContains($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+
+        PHPUnit::assertStringContainsString($this->actual, $matchedElements, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert an element's contents do not contain the given string.
+     *
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should not contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupElementNotContains($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+
+        PHPUnit::assertStringNotContainsString($this->actual, $matchedElements, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert an element's contents do not contain the given regular expression pattern.
+     *
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should not contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupElementNotRegExp($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+
+        PHPUnit::assertDoesNotMatchRegularExpression($this->actual, $matchedElements, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert an element's contents contain the given regular expression pattern.
+     *
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The output that should contain the $selector.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupElementRegExp($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+
+        PHPUnit::assertMatchesRegularExpression($this->actual, $matchedElements, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert that an element with the given attributes exists in the given markup.
+     *
+     * @param string $output  The output that should contain an element with the
+     *                        provided $attributes.
+     * @param string $message A message to display if the assertion fails.
+     */
+    public function markupHasElementWithAttributes($output = '', string $message = ''): self
+    {
+        $this->markupContainsSelector($output, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert that the given string does not contain an element matching the given
+     * selector
+     *
+     * @param mixed  $selector The output that should not contain the $this->actual.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupNotContainsSelector($selector, string $message = ''): self
+    {
+        if (is_array($selector)) {
+            $selector = '*'.(new MarkupHelper)->flattenAttributeArray($selector);
+        }
+
+        $results = (new Query($this->actual))->execute($selector);
+
+        PHPUnit::assertEquals(0, count($results), $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert that an element with the given attributes does not exist in the given markup.
+     *
+     * @param string $output  The output that should not contain an element with the
+     *                        provided $attributes.
+     * @param string $message A message to display if the assertion fails.
+     */
+    public function markupNotHasElementWithAttributes($output = '', string $message = ''): self
+    {
+        $this->markupNotContainsSelector($output, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert the number of times an element matching the given selector is found.
+     *
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The markup to run the assertion against.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupSelectorCount(string $selector, string $output = '', string $message = ''): self
+    {
+        $results = (new Query($output))->execute($selector);
+
+        PHPUnit::assertCount($this->actual, $results, $message);
 
         return $this;
     }
@@ -103,158 +250,6 @@ trait ExtendedTrait
         }
 
         PHPUnit::assertStringNotEqualsFile($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-
-    /**
-     * Assert that the given string contains an element matching the given selector
-     *
-     * @param mixed $selector The output that should contain the $this->actual.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupContainsSelector($selector, string $message = ''): self
-    {
-        if (is_array($selector)) {
-            $selector = '*' . (new MarkupHelper)->flattenAttributeArray($selector);
-        }
-
-        $results = (new Query($this->actual))->execute($selector);
-
-        PHPUnit::assertGreaterThan(0, count($results), $message);
-
-        return $this;
-    }
-
-    /**
-     * Assert that the given string does not contain an element matching the given
-     * selector
-     *
-     * @param mixed $selector The output that should not contain the $this->actual.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupNotContainsSelector($selector, string $message = ''): self
-    {
-        if (is_array($selector)) {
-            $selector = '*' . (new MarkupHelper)->flattenAttributeArray($selector);
-        }
-
-        $results = (new Query($this->actual))->execute($selector);
-
-        PHPUnit::assertEquals(0, count($results), $message);
-
-        return $this;
-    }
-
-    /**
-     * Assert the number of times an element matching the given selector is found.
-     *
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The markup to run the assertion against.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupSelectorCount(string $selector, string $output = '', string $message = ''): self
-    {
-        $results = (new Query($output))->execute($selector);
-
-        PHPUnit::assertCount($this->actual, $results, $message);
-
-        return $this;
-    }
-
-    /**
-     * Assert that an element with the given attributes exists in the given markup.
-     *
-     * @param string $output     The output that should contain an element with the
-     *                           provided $attributes.
-     * @param string $message    A message to display if the assertion fails.
-     */
-    public function markupHasElementWithAttributes($output = '', string $message = ''): self
-    {
-        $this->markupContainsSelector($output,$message);
-
-        return $this;
-    }
-
-    /**
-     * Assert that an element with the given attributes does not exist in the given markup.
-     *
-     * @param string $output     The output that should not contain an element with the
-     *                           provided $attributes.
-     * @param string $message    A message to display if the assertion fails.
-     */
-    public function markupNotHasElementWithAttributes($output = '', string $message = ''): self
-    {
-        $this->markupNotContainsSelector($output, $message);
-
-        return $this;
-    }
-
-     /**
-     * Assert an element's contents contain the given string.
-     *
-     * @param mixed  $this->actual The string to look for within the DOM node's contents.
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupElementContains($selector = '', $output = '', $message = ''): self
-    {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
-
-        PHPUnit::assertStringContainsString($this->actual,$matchedElements,$message);
-
-        return $this;
-    }
-
-    /**
-     * Assert an element's contents do not contain the given string.
-     *
-     * @param mixed  $this->actual The string to look for within the DOM node's contents.
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should not contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupElementNotContains($selector = '', $output = '', $message = ''): self
-    {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
-
-        PHPUnit::assertStringNotContainsString($this->actual,$matchedElements,$message);
-
-        return $this;
-    }
-
-    /**
-     * Assert an element's contents contain the given regular expression pattern.
-     *
-     * @param mixed  $this->actual   The regular expression pattern to look for within the DOM node.
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupElementRegExp($selector = '', $output = '', $message = ''): self
-    {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements( $output, $selector);
-
-        PHPUnit::assertMatchesRegularExpression($this->actual,$matchedElements,$message);
-
-        return $this;
-    }
-
-    /**
-     * Assert an element's contents do not contain the given regular expression pattern.
-     *
-     * @param mixed  $this->actual   The regular expression pattern to look for within the DOM node.
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should not contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupElementNotRegExp($selector = '', $output = '', $message = ''): self
-    {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements( $output, $selector);
-
-        PHPUnit::assertDoesNotMatchRegularExpression($this->actual,$matchedElements,$message);
 
         return $this;
     }

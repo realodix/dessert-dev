@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Helpers;
 
-use PHPUnit\Framework\RiskyTestError;
 use Laminas\Dom\Query;
+use PHPUnit\Framework\RiskyTestError;
 
 /**
  * @internal
@@ -13,9 +13,10 @@ final class MarkupHelper
     /**
      * Given an array of HTML attributes, flatten them into a XPath attribute selector.
      *
-     * @throws RiskyTestError When the $attributes array is empty.
      *
      * @param array $attributes HTML attributes and their values.
+     *
+     * @throws RiskyTestError When the $attributes array is empty.
      *
      * @return string A XPath attribute query selector.
      */
@@ -40,7 +41,6 @@ final class MarkupHelper
     /**
      * Given HTML markup and a DOM selector query, collect the innerHTML of the matched selectors.
      *
-     * @since 1.1.0
      *
      * @param string $markup The HTML for the DOMDocument.
      * @param string $query  The DOM selector query.
@@ -49,7 +49,7 @@ final class MarkupHelper
      */
     public function getInnerHtmlOfMatchedElements($markup, $query)
     {
-        $results  = (new Query($markup))->execute($query);
+        $results = (new Query($markup))->execute($query);
         $contents = [];
 
         // Loop through results and collect their innerHTML values.
