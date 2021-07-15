@@ -23,8 +23,9 @@ trait ExtendedTrait
     /**
      * Assert that the given string contains an element matching the given selector
      *
-     * @param mixed  $selector The output that should contain the $this->actual.
-     * @param string $message  A message to display if the assertion fails.
+     * @param mixed  $selector     The output that should contain the $this->actual.
+     * @param string $message      A message to display if the assertion fails.
+     * @param mixed  $this->actual The output that should contain the $selector.
      */
     public function markupContainsSelector($selector, string $message = ''): self
     {
@@ -42,9 +43,10 @@ trait ExtendedTrait
     /**
      * Assert an element's contents contain the given string.
      *
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
+     * @param string $selector     A query selector for the element to find.
+     * @param string $output       The output that should contain the $selector.
+     * @param string $message      A message to display if the assertion fails.
+     * @param mixed  $this->actual The string to look for within the DOM node's contents.
      */
     public function markupElementContains($selector = '', $output = '', $message = ''): self
     {
@@ -58,9 +60,10 @@ trait ExtendedTrait
     /**
      * Assert an element's contents do not contain the given string.
      *
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should not contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
+     * @param string $selector     A query selector for the element to find.
+     * @param string $output       The output that should not contain the $selector.
+     * @param string $message      A message to display if the assertion fails.
+     * @param mixed  $this->actual The string to look for within the DOM node's contents.
      */
     public function markupElementNotContains($selector = '', $output = '', $message = ''): self
     {
@@ -74,9 +77,10 @@ trait ExtendedTrait
     /**
      * Assert an element's contents do not contain the given regular expression pattern.
      *
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should not contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
+     * @param string $selector     A query selector for the element to find.
+     * @param string $output       The output that should not contain the $selector.
+     * @param string $message      A message to display if the assertion fails.
+     * @param string $this->actual The regular expression pattern to look for within the DOM node.
      */
     public function markupElementNotRegExp($selector = '', $output = '', $message = ''): self
     {
@@ -90,9 +94,10 @@ trait ExtendedTrait
     /**
      * Assert an element's contents contain the given regular expression pattern.
      *
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The output that should contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
+     * @param string $selector     A query selector for the element to find.
+     * @param string $output       The output that should contain the $selector.
+     * @param string $message      A message to display if the assertion fails.
+     * @param string $this->actual The regular expression pattern to look for within the DOM node.
      */
     public function markupElementRegExp($selector = '', $output = '', $message = ''): self
     {
@@ -106,9 +111,10 @@ trait ExtendedTrait
     /**
      * Assert that an element with the given attributes exists in the given markup.
      *
-     * @param string $output  The output that should contain an element with the
-     *                        provided $attributes.
-     * @param string $message A message to display if the assertion fails.
+     * @param string $output       The output that should contain an element with the
+     *                             provided $this->actual.
+     * @param string $message      A message to display if the assertion fails.
+     * @param array  $this->actual An array of HTML attributes that should be found on the element.
      */
     public function markupHasElementWithAttributes($output = '', string $message = ''): self
     {
@@ -121,8 +127,9 @@ trait ExtendedTrait
      * Assert that the given string does not contain an element matching the given
      * selector
      *
-     * @param mixed  $selector The output that should not contain the $this->actual.
-     * @param string $message  A message to display if the assertion fails.
+     * @param mixed  $selector     The output that should not contain the $this->actual.
+     * @param string $message      A message to display if the assertion fails.
+     * @param array  $this->actual An array of HTML attributes that should be found on the element.
      */
     public function markupNotContainsSelector($selector, string $message = ''): self
     {
@@ -140,9 +147,10 @@ trait ExtendedTrait
     /**
      * Assert that an element with the given attributes does not exist in the given markup.
      *
-     * @param string $output  The output that should not contain an element with the
-     *                        provided $attributes.
-     * @param string $message A message to display if the assertion fails.
+     * @param string $output       The output that should not contain an element with the
+     *                             provided $this->actual.
+     * @param string $message      A message to display if the assertion fails.
+     * @param array  $this->actual An array of HTML attributes that should be found on the element.
      */
     public function markupNotHasElementWithAttributes($output = '', string $message = ''): self
     {
@@ -154,9 +162,10 @@ trait ExtendedTrait
     /**
      * Assert the number of times an element matching the given selector is found.
      *
-     * @param string $selector A query selector for the element to find.
-     * @param string $output   The markup to run the assertion against.
-     * @param string $message  A message to display if the assertion fails.
+     * @param string $selector     A query selector for the element to find.
+     * @param string $output       The markup to run the assertion against.
+     * @param string $message      A message to display if the assertion fails.
+     * @param int    $this->actual The number of matching elements expected.
      */
     public function markupSelectorCount(string $selector, string $output = '', string $message = ''): self
     {
