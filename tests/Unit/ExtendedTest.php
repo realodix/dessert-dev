@@ -84,24 +84,24 @@ final class ExtendedTest extends TestCase
     public function testMarkupElementRegExp()
     {
         // Should use regular expression matching
-        ass('/[A-Z0-9-]+/')
+        ass('<header>Lorem ipsum</header><div id="main">ABC123</div>')
             ->markupElementRegExp(
+                '/[A-Z0-9-]+/',
                 '#main',
-                '<header>Lorem ipsum</header><div id="main">ABC123</div>'
             );
 
         // Should be able to search for nested contents
-        ass('/[A-Z]+/')
+        ass('<header>Lorem ipsum</header><div id="main"><span>ABC</span></div>')
             ->markupElementRegExp(
+                '/[A-Z]+/',
                 '#main',
-                '<header>Lorem ipsum</header><div id="main"><span>ABC</span></div>'
             );
 
         // Should use regular expression matching
-        ass('/[0-9-]+/')
+        ass('<header>Foo bar baz</header><div id="main">ABC</div>')
             ->markupElementNotRegExp(
+                '/[0-9-]+/',
                 '#main',
-                '<header>Foo bar baz</header><div id="main">ABC</div>'
             );
     }
 

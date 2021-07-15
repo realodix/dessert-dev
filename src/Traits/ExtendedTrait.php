@@ -80,13 +80,14 @@ trait ExtendedTrait
      * @param string $selector     A query selector for the element to find.
      * @param string $output       The output that should not contain the $selector.
      * @param string $message      A message to display if the assertion fails.
-     * @param string $this->actual The regular expression pattern to look for within the DOM node.
+     * @param string $output The regular expression pattern to look for within the DOM node.
      */
-    public function markupElementNotRegExp($selector = '', $output = '', $message = ''): self
+    public function markupElementNotRegExp($regexp, $selector = '', $message = ''): self
     {
+        $output = $this->actual;
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
 
-        PHPUnit::assertDoesNotMatchRegularExpression($this->actual, $matchedElements, $message);
+        PHPUnit::assertDoesNotMatchRegularExpression($regexp, $matchedElements, $message);
 
         return $this;
     }
@@ -99,11 +100,12 @@ trait ExtendedTrait
      * @param string $message      A message to display if the assertion fails.
      * @param string $this->actual The regular expression pattern to look for within the DOM node.
      */
-    public function markupElementRegExp($selector = '', $output = '', $message = ''): self
+    public function markupElementRegExp($regexp, $selector = '', $message = ''): self
     {
+        $output = $this->actual;
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
 
-        PHPUnit::assertMatchesRegularExpression($this->actual, $matchedElements, $message);
+        PHPUnit::assertMatchesRegularExpression($regexp, $matchedElements, $message);
 
         return $this;
     }
