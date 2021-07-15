@@ -86,7 +86,7 @@ trait ExtendedTrait
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
 
-        $this->doesNotMatchRegularExpression($this->actual, $matchedElements, $message);
+        PHPUnit::assertDoesNotMatchRegularExpression($this->actual, $matchedElements, $message);
 
         return $this;
     }
