@@ -7,6 +7,28 @@ use Realodix\NextProject\Helpers\ValidatorHelper as Validator;
 
 trait ExtendedTrait
 {
+    public function contains($needle, string $message = ''): self
+    {
+        if (is_string($this->actual)) {
+            PHPUnit::assertStringContainsString($needle, $this->actual, $message);
+        } else {
+            PHPUnit::assertContains($needle, $this->actual, $message);
+        }
+
+        return $this;
+    }
+
+    public function notContains($needle, string $message = ''): self
+    {
+        if (is_string($this->actual)) {
+            PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
+        } else {
+            PHPUnit::assertNotContains($needle, $this->actual, $message);
+        }
+
+        return $this;
+    }
+
     public function stringEquals(string $expected, string $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
@@ -26,25 +48,6 @@ trait ExtendedTrait
         return $this;
     }
 
-    public function stringNotEquals(string $expected, string $message = ''): self
-    {
-        if (Validator::isJson($this->actual)) {
-            PHPUnit::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($this->actual)) {
-            PHPUnit::assertXmlStringNotEqualsXmlString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        PHPUnit::assertNotEquals($expected, $this->actual, $message);
-
-        return $this;
-    }
-
     public function stringEqualsFile(string $expected, string $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
@@ -60,6 +63,25 @@ trait ExtendedTrait
         }
 
         PHPUnit::assertStringEqualsFile($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEquals(string $expected, string $message = ''): self
+    {
+        if (Validator::isJson($this->actual)) {
+            PHPUnit::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($this->actual)) {
+            PHPUnit::assertXmlStringNotEqualsXmlString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertNotEquals($expected, $this->actual, $message);
 
         return $this;
     }

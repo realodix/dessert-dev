@@ -6,12 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 final class StringTest extends TestCase
 {
-    public function testContains(): void
-    {
-        ass([3, 2])->contains(3);
-        ass([3, 2])->notContains(5, 'user have 5 posts');
-    }
-
     public function testContainsOnly(): void
     {
         ass(['1', '2', '3'])->containsOnly('string');

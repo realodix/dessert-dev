@@ -7,17 +7,6 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait StringTrait
 {
-    public function contains($needle, string $message = ''): self
-    {
-        if (is_string($this->actual)) {
-            PHPUnit::assertStringContainsString($needle, $this->actual, $message);
-        } else {
-            PHPUnit::assertContains($needle, $this->actual, $message);
-        }
-
-        return $this;
-    }
-
     public function containsOnly($type, $isNativeType = null, string $message = ''): self
     {
         PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);
@@ -75,17 +64,6 @@ trait StringTrait
         }
 
         PHPUnit::assertMatchesRegularExpression($pattern, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notContains($needle, string $message = ''): self
-    {
-        if (is_string($this->actual)) {
-            PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
-        } else {
-            PHPUnit::assertNotContains($needle, $this->actual, $message);
-        }
 
         return $this;
     }
