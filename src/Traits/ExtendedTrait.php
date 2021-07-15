@@ -114,9 +114,11 @@ trait ExtendedTrait
      * @param string $output The output that should contain the $this->actual.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupContainsSelector(string $output = '', string $message = ''): self
+    public function markupContainsSelector($selector, string $message = ''): self
     {
-        $results = (new Query($this->actual))->execute($output);
+        $output = $this->actual;
+
+        $results = (new Query($output))->execute($selector);
 
         PHPUnit::assertGreaterThan(0, count($results), $message);
 
