@@ -187,7 +187,7 @@ trait ExtendedTrait
      * @param array  $attributes An array of HTML attributes that should be found on the element.
      * @param string $message    A message to display if the assertion fails.
      */
-    public function markupHasElementWithAttributes(array $attributes = [], $message = ''): self
+    public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
         $attributes = '*'.(new MarkupHelper)->flattenAttributeArray($attributes);
 
@@ -206,7 +206,7 @@ trait ExtendedTrait
      * @param array  $attributes An array of HTML attributes that should be found on the element.
      * @param string $message    A message to display if the assertion fails.
      */
-    public function markupNotHasElementWithAttributes(array $attributes = [], $message = ''): self
+    public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
         $attributes = '*'.(new MarkupHelper)->flattenAttributeArray($attributes);
 
@@ -224,7 +224,7 @@ trait ExtendedTrait
      * @param string $selector A query selector for the element to find.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupSelectorCount(int $count, string $selector, $message = ''): self
+    public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         $results = (new Query($this->actual))->execute($selector);
 
