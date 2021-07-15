@@ -9,13 +9,13 @@ trait ExtendedTrait
 {
     public function stringEqualsString(string $expected, string $message = ''): self
     {
-        if (Validator::isJson($expected)) {
+        if (Validator::isJson($this->actual)) {
             PHPUnit::assertJsonStringEqualsJsonString($expected, $this->actual, $message);
 
             return $this;
         }
 
-        if (Validator::isXml($expected)) {
+        if (Validator::isXml($this->actual)) {
             PHPUnit::assertXmlStringEqualsXmlString($expected, $this->actual, $message);
 
             return $this;
@@ -28,13 +28,13 @@ trait ExtendedTrait
 
     public function stringNotEqualsString(string $expected, string $message = ''): self
     {
-        if (Validator::isJson($expected)) {
+        if (Validator::isJson($this->actual)) {
             PHPUnit::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
 
             return $this;
         }
 
-        if (Validator::isXml($expected)) {
+        if (Validator::isXml($this->actual)) {
             PHPUnit::assertXmlStringNotEqualsXmlString($expected, $this->actual, $message);
 
             return $this;
