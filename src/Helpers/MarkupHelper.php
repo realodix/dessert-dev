@@ -13,7 +13,6 @@ final class MarkupHelper
     /**
      * Given an array of HTML attributes, flatten them into a XPath attribute selector.
      *
-     *
      * @param array $attributes HTML attributes and their values.
      *
      * @throws RiskyTestError When the $attributes array is empty.
@@ -40,7 +39,6 @@ final class MarkupHelper
 
     /**
      * Given HTML markup and a DOM selector query, collect the innerHTML of the matched selectors.
-     *
      *
      * @param string $markup The HTML for the DOMDocument.
      * @param string $query  The DOM selector query.
