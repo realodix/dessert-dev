@@ -59,6 +59,10 @@ final class ExtendedTest extends TestCase
         ass('<div id="main"><span class="foo">Lorem ipsum</span></div>')
             ->markupElementContains('ipsum', '#main .foo');
 
+        // Should be able to search for a selector
+        ass('<header>Foo bar baz</header><div id="main">Some string</div>')
+            ->markupElementNotContains('ipsum', '#main');
+
         // Should scope text to the selected element
         $exceptionMsg = 'The #main div does not contain the string "ipsum".';
         $this->expectException(AssertionFailedError::class);
@@ -66,10 +70,6 @@ final class ExtendedTest extends TestCase
 
         ass('<header>Lorem ipsum</header><div id="main">Foo bar baz</div>')
             ->markupElementContains('ipsum', '#main', $exceptionMsg);
-
-        // Should be able to search for a selector
-        ass('<header>Foo bar baz</header><div id="main">Some string</div>')
-            ->markupElementNotContains('ipsum', '#main');
     }
 
     public function testMarkupElementRegExp()
