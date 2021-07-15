@@ -94,13 +94,13 @@ trait ExtendedTrait
     /**
      * Assert an element's contents contain the given regular expression pattern.
      *
-     * @uses $this->actual The output that should contain the $selector.
+     * @uses $this->actual (string) The output that should contain the $selector.
      *
      * @param string $regexp   The regular expression pattern to look for within the DOM node.
      * @param string $selector A query selector for the element to find.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupElementRegExp($regexp, $selector = '', $message = ''): self
+    public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $output = $this->actual;
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
@@ -113,13 +113,13 @@ trait ExtendedTrait
     /**
      * Assert an element's contents do not contain the given regular expression pattern.
      *
-     * @uses $this->actual The output that should not contain the $selector.
+     * @uses $this->actual (string) The output that should not contain the $selector.
      *
      * @param string $regexp   The regular expression pattern to look for within the DOM node.
      * @param string $selector A query selector for the element to find.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupElementNotRegExp($regexp, $selector = '', $message = ''): self
+    public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $output = $this->actual;
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
