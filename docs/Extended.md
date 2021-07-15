@@ -1,10 +1,10 @@
 ## Extended Behaviour
 | Assertions              | Description |
 | ----------------------- | ----------- |
-| `contains()`            | `assertContains`\|`assertStringContainsString` |
-| `notContains()`         | `assertNotContains` \| `assertStringNotContainsString` |
-| `stringEqualsFile()`    | `assertStringEqualsFile` \| `assertJsonStringEqualsJsonFile` \| `assertXmlStringEqualsXmlFile` |
-| `stringNotEqualsFile()` | `assertStringNotEqualsFile` \| `assertJsonStringNotEqualsJsonFile` \| `assertXmlStringNotEqualsXmlFile` |
+| `contains()`            | `assertContains` or `assertStringContainsString` |
+| `notContains()`         | `assertNotContains` or `assertStringNotContainsString` |
+| `stringEqualsFile()`    | `assertStringEqualsFile` or `assertJsonStringEqualsJsonFile` or `assertXmlStringEqualsXmlFile` |
+| `stringNotEqualsFile()` | `assertStringNotEqualsFile` or `assertJsonStringNotEqualsJsonFile` or `assertXmlStringNotEqualsXmlFile` |
 
 ## Extended Assertions 
 | Assertions              |
