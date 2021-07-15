@@ -11,6 +11,7 @@ class Assertion
     use Traits\FilesystemTrait;
     use Traits\IsTypeTrait;
     use Traits\StringTrait;
+    use Traits\ExtendedTrait;
     use Traits\AliasesTrait;
 
     /** @var mixed */
