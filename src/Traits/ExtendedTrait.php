@@ -66,16 +66,17 @@ trait ExtendedTrait
     /**
      * Assert an element's contents contain the given string.
      *
-     * @param string $selector     A query selector for the element to find.
-     * @param string $output       The output that should contain the $selector.
-     * @param string $message      A message to display if the assertion fails.
-     * @param mixed  $this->actual The string to look for within the DOM node's contents.
+     * @uses $this->actual (string) The output that should contain the $selector.
+     *
+     * @param string $contents The string to look for within the DOM node's contents.
+     * @param string $selector A query selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
      */
-    public function markupElementContains($selector = '', $output = '', $message = ''): self
+    public function markupElementContains($contents, $selector = '', $message = ''): self
     {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
 
-        PHPUnit::assertStringContainsString($this->actual, $matchedElements, $message);
+        PHPUnit::assertStringContainsString($contents, $matchedElements, $message);
 
         return $this;
     }
@@ -83,16 +84,17 @@ trait ExtendedTrait
     /**
      * Assert an element's contents do not contain the given string.
      *
-     * @param string $selector     A query selector for the element to find.
-     * @param string $output       The output that should not contain the $selector.
-     * @param string $message      A message to display if the assertion fails.
-     * @param mixed  $this->actual The string to look for within the DOM node's contents.
+     * @uses $this->actual (string) The output that should not contain the $selector.
+     *
+     * @param string $contents The string to look for within the DOM node's contents.
+     * @param string $selector A query selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
      */
-    public function markupElementNotContains($selector = '', $output = '', $message = ''): self
+    public function markupElementNotContains($contents, $selector = '', $message = ''): self
     {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
 
-        PHPUnit::assertStringNotContainsString($this->actual, $matchedElements, $message);
+        PHPUnit::assertStringNotContainsString($contents, $matchedElements, $message);
 
         return $this;
     }

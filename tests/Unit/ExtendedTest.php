@@ -52,33 +52,24 @@ final class ExtendedTest extends TestCase
     public function testMarkupElementContains()
     {
         // Should be able to search for a selector
-        ass('ipsum')->markupElementContains(
-            '#main',
-            '<header>Lorem ipsum</header><div id="main">Lorem ipsum</div>'
-        );
+        ass('<header>Lorem ipsum</header><div id="main">Lorem ipsum</div>')
+            ->markupElementContains('ipsum', '#main');
 
         // Should be able to chain multiple selectors
-        ass('ipsum')->markupElementContains(
-            '#main .foo',
-            '<div id="main"><span class="foo">Lorem ipsum</span></div>'
-        );
+        ass('<div id="main"><span class="foo">Lorem ipsum</span></div>')
+            ->markupElementContains('ipsum', '#main .foo');
 
         // Should scope text to the selected element
         $exceptionMsg = 'The #main div does not contain the string "ipsum".';
         $this->expectException(AssertionFailedError::class);
         $this->expectExceptionMessage($exceptionMsg);
 
-        ass('ipsum')->markupElementContains(
-            '#main',
-            '<header>Lorem ipsum</header><div id="main">Foo bar baz</div>',
-            $exceptionMsg
-        );
+        ass('<header>Lorem ipsum</header><div id="main">Foo bar baz</div>')
+            ->markupElementContains('ipsum', '#main', $exceptionMsg);
 
         // Should be able to search for a selector
-        ass('ipsum')->markupElementNotContains(
-            '#main',
-            '<header>Foo bar baz</header><div id="main">Some string</div>'
-        );
+        ass('<header>Foo bar baz</header><div id="main">Some string</div>')
+            ->markupElementNotContains('ipsum', '#main');
     }
 
     public function testMarkupElementRegExp()
