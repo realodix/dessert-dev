@@ -4,6 +4,8 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use Realodix\NextProject\Helpers\ValidatorHelper as Validator;
+// use Realodix\NextProject\Helpers\MarkupHelper as Markup;
+use Laminas\Dom\Query;
 
 trait ExtendedTrait
 {
@@ -103,5 +105,53 @@ trait ExtendedTrait
         PHPUnit::assertStringNotEqualsFile($expected, $this->actual, $message);
 
         return $this;
+    }
+
+
+    public function markupContainsSelector($expected, string $message = ''): self
+    {
+        $results = (new Query($this->actual))->execute($expected);
+
+        PHPUnit::assertGreaterThan(0, count($results), $message);
+
+        return $this;
+    }
+    public function markupNotContainsSelector($expected, string $message = ''): self
+    {
+        PHPUnit::assertEquals(
+            0,
+            count((new Query($this->actual))->execute($expected)),
+            $message
+        );
+
+        return $this;
+    }
+    public function markupSelectorCount($expected, string $message = ''): self
+    {
+         return (new Markup)->assertSelectorCount($expected, $this->actual, $message);
+    }
+    public function markupHasElementWithAttributes($expected, string $message = ''): self
+    {
+         return (new Markup)->assertHasElementWithAttributes($expected, $this->actual, $message);
+    }
+    public function markupNotHasElementWithAttributes($expected, string $message = ''): self
+    {
+         return (new Markup)->assertNotHasElementWithAttributes($expected, $this->actual, $message);
+    }
+    public function markupElementContains($expected, string $message = ''): self
+    {
+         return (new Markup)->assertElementContains($expected, $this->actual, $message);
+    }
+    public function markupElementNotContains($expected, string $message = ''): self
+    {
+         return (new Markup)->assertElementNotContains($expected, $this->actual, $message);
+    }
+    public function markupElementRegExp($expected, string $message = ''): self
+    {
+         return (new Markup)->assertElementRegExp($expected, $this->actual, $message);
+    }
+    public function markupElementNotRegExp($expected, string $message = ''): self
+    {
+         return (new Markup)->assertElementNotRegExp($expected, $this->actual, $message);
     }
 }

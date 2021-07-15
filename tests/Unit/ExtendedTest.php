@@ -49,4 +49,38 @@ final class ExtendedTest extends TestCase
             ->stringEquals($xmlString)
             ->stringNotEquals('<bar/>');
     }
+
+    /**
+     * @dataProvider markupContainsSelectorProvider
+     */
+    public function testMarkupContainsSelector($selector)
+    {
+        // Should find matching selectors
+        ass('<a href="https://example.com" id="my-link" class="link another-class">Example</a>')
+            ->markupContainsSelector($selector);
+
+        // Should pick up multiple instances of a selector
+        ass('<a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contact">Contact</a>')
+            ->markupContainsSelector('a');
+
+        // Should verify that the given selector does not exist
+        ass('<h1 id="page-title" class="foo bar">This element has little to do with the link.</h1>')
+            ->markupNotContainsSelector($selector);
+    }
+
+    /**
+     * Data provider for test markupContainsSelector().
+     */
+    public function markupContainsSelectorProvider ()
+    {
+        return [
+            'Simple tag name' => ['a'],
+            'Class name' => ['.link'],
+            'Multiple class names' => ['.link.another-class'],
+            'Element ID' => ['#my-link'],
+            'Tag name with class' => ['a.link'],
+            'Tag name with ID' => ['a#my-link'],
+            'Tag with href attribute' => ['a[href="https://example.com"]'],
+        ];
+    }
 }
