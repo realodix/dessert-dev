@@ -103,7 +103,7 @@ trait ExtendedTrait
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
 
-        PHPUnit::assertMatchesRegularExpression($this->actual, $matchedElements, $message);
+        $this->matchesRegularExpression($this->actual, $matchedElements, $message);
 
         return $this;
     }
