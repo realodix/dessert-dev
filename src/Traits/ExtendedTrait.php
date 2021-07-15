@@ -108,7 +108,13 @@ trait ExtendedTrait
     }
 
 
-    public function markupContainsSelector($expected, string $message = ''): self
+    /**
+     * Assert that the given string contains an element matching the given selector
+     *
+     * @param string $expected The output that should contain the $this->actual.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupContainsSelector(string $expected, string $message = ''): self
     {
         $results = (new Query($this->actual))->execute($expected);
 
@@ -116,19 +122,36 @@ trait ExtendedTrait
 
         return $this;
     }
-    public function markupNotContainsSelector($expected, string $message = ''): self
+
+    /**
+     * Assert that the given string does not contain an element matching the given
+     * selector
+     *
+     * @param string $expected The output that should not contain the $this->actual.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupNotContainsSelector(string $expected, string $message = ''): self
     {
-        PHPUnit::assertEquals(
-            0,
-            count((new Query($this->actual))->execute($expected)),
-            $message
-        );
+        $results = (new Query($this->actual))->execute($expected);
+
+        PHPUnit::assertEquals(0, count($results), $message);
 
         return $this;
     }
-    public function markupSelectorCount($expected, string $message = ''): self
+    /**
+     * Assert the number of times an element matching the given selector is found.
+     *
+     * @param string $selector A query selector for the element to find.
+     * @param string $output   The markup to run the assertion against.
+     * @param string $message  A message to display if the assertion fails.
+     */
+    public function markupSelectorCount(string $selector, string $output = '', string $message = ''): self
     {
-         return (new Markup)->assertSelectorCount($expected, $this->actual, $message);
+        $results = (new Query($output))->execute($selector);
+
+        PHPUnit::assertCount($this->actual, $results, $message);
+
+        return $this;
     }
     public function markupHasElementWithAttributes($expected, string $message = ''): self
     {

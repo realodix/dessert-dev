@@ -68,6 +68,11 @@ final class ExtendedTest extends TestCase
             ->markupNotContainsSelector($selector);
     }
 
+    public function testMarkupSelectorCount()
+    {
+        ass(3)->markupSelectorCount('li', '<ul><li>1</li><li>2</li><li>3</li></ul>');
+    }
+
     /**
      * Data provider for test markupContainsSelector().
      */
