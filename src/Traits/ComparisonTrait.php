@@ -251,13 +251,6 @@ trait ComparisonTrait
         return $this;
     }
 
-    public function stringEqualsFile(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
@@ -268,13 +261,6 @@ trait ComparisonTrait
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }

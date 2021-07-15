@@ -44,4 +44,42 @@ trait ExtendedTrait
 
         return $this;
     }
+
+    public function stringEqualsFile(string $expected, string $message = ''): self
+    {
+        if (Validator::isJson($this->actual)) {
+            PHPUnit::assertJsonStringEqualsJsonFile($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($this->actual)) {
+            PHPUnit::assertXmlStringEqualsXmlFile($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertStringEqualsFile($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFile(string $expected, string $message = ''): self
+    {
+        if (Validator::isJson($this->actual)) {
+            PHPUnit::assertJsonStringNotEqualsJsonFile($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($this->actual)) {
+            PHPUnit::assertXmlStringNotEqualsXmlFile($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertStringNotEqualsFile($expected, $this->actual, $message);
+
+        return $this;
+    }
 }
