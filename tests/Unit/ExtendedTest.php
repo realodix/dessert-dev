@@ -85,24 +85,15 @@ final class ExtendedTest extends TestCase
     {
         // Should use regular expression matching
         ass('<header>Lorem ipsum</header><div id="main">ABC123</div>')
-            ->markupElementRegExp(
-                '/[A-Z0-9-]+/',
-                '#main',
-            );
+            ->markupElementRegExp('/[A-Z0-9-]+/', '#main');
 
         // Should be able to search for nested contents
         ass('<header>Lorem ipsum</header><div id="main"><span>ABC</span></div>')
-            ->markupElementRegExp(
-                '/[A-Z]+/',
-                '#main',
-            );
+            ->markupElementRegExp('/[A-Z]+/', '#main');
 
         // Should use regular expression matching
         ass('<header>Foo bar baz</header><div id="main">ABC</div>')
-            ->markupElementNotRegExp(
-                '/[0-9-]+/',
-                '#main',
-            );
+            ->markupElementNotRegExp('/[0-9-]+/', '#main');
     }
 
     public function testMarkupHasElementWithAttributes()
