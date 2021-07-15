@@ -15,7 +15,32 @@ trait ExtendedTrait
             return $this;
         }
 
+        if (Validator::isXml($expected)) {
+            PHPUnit::assertXmlStringEqualsXmlString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
         PHPUnit::assertEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsString(string $expected, string $message = ''): self
+    {
+        if (Validator::isJson($expected)) {
+            PHPUnit::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($expected)) {
+            PHPUnit::assertXmlStringNotEqualsXmlString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
