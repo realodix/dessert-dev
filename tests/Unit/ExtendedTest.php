@@ -135,6 +135,30 @@ final class ExtendedTest extends TestCase
         );
     }
 
+    public function testMarkupElementRegExp()
+    {
+        // Should use regular expression matching
+        ass('/[A-Z0-9-]+/')
+            ->markupElementRegExp(
+                '#main',
+                '<header>Lorem ipsum</header><div id="main">ABC123</div>'
+            );
+
+        // Should be able to search for nested contents
+        ass('/[A-Z]+/')
+            ->markupElementRegExp(
+                '#main',
+                '<header>Lorem ipsum</header><div id="main"><span>ABC</span></div>'
+            );
+
+        // Should use regular expression matching
+        ass('/[0-9-]+/')
+            ->markupElementNotRegExp(
+                '#main',
+                '<header>Foo bar baz</header><div id="main">ABC</div>'
+            );
+    }
+
     /**
      * Data provider for test markupContainsSelector().
      */

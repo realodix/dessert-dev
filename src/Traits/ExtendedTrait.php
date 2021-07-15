@@ -193,20 +193,20 @@ trait ExtendedTrait
         return $this;
     }
 
-    // public function markupElementRegExp($regexp, $selector = '', string $message = ''): self
-    // {
-    //     $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
+    public function markupElementRegExp($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements( $output, $selector);
 
-    //     PHPUnit::assertMatchesRegularExpression($regexp,$matchedElements,$message);
+        PHPUnit::assertMatchesRegularExpression($this->actual,$matchedElements,$message);
 
-    //     return $this;
-    // }
-    // public function markupElementNotRegExp($regexp, $selector = '', string $message = ''): self
-    // {
-    //     $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
+        return $this;
+    }
+    public function markupElementNotRegExp($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements( $output, $selector);
 
-    //     PHPUnit::assertDoesNotMatchRegularExpression($regexp,$matchedElements,$message);
+        PHPUnit::assertDoesNotMatchRegularExpression($this->actual,$matchedElements,$message);
 
-    //     return $this;
-    // }
+        return $this;
+    }
 }
