@@ -73,6 +73,17 @@ final class ExtendedTest extends TestCase
         ass(3)->markupSelectorCount('li', '<ul><li>1</li><li>2</li><li>3</li></ul>');
     }
 
+    // public function testMarkupHasElementWithAttributes()
+    // {
+    //     $actual = [
+    //         'type' => 'email',
+    //         'value' => 'test@example.com',
+    //     ];
+    //     $expected = '<label>Email</label><br><input type="email" value="test@example.com" />';
+
+    //     ass($actual)->markupHasElementWithAttributes($expected);
+    // }
+
     /**
      * Data provider for test markupContainsSelector().
      */
