@@ -77,6 +77,19 @@ class Assertion
     }
 
     /**
+     * Asserts the number of elements of an array, Countable or Traversable.
+     *
+     * @param int    $expectedCount
+     * @param string $message
+     */
+    public function notCount(int $expectedCount, string $message = ''): self
+    {
+        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is empty.
      *
      * @param string $message
@@ -84,6 +97,18 @@ class Assertion
     public function empty(string $message = ''): self
     {
         PHPUnit::assertEmpty($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is not empty.
+     *
+     * @param string $message
+     */
+    public function notEmpty(string $message = ''): self
+    {
+        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
@@ -120,31 +145,6 @@ class Assertion
     public function nan(string $message = ''): self
     {
         PHPUnit::assertNan($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @param int    $expectedCount
-     * @param string $message
-     */
-    public function notCount(int $expectedCount, string $message = ''): self
-    {
-        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not empty.
-     *
-     * @param string $message
-     */
-    public function notEmpty(string $message = ''): self
-    {
-        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }

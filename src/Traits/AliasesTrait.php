@@ -9,14 +9,9 @@ trait AliasesTrait
         return $this->directoryExists($this->actual, $message);
     }
 
-    public function dirIsNotReadable(string $message = ''): self
+    public function dirNotExist(string $message = ''): self
     {
-        return $this->directoryIsNotReadable($message);
-    }
-
-    public function dirIsNotWritable(string $message = ''): self
-    {
-        return $this->directoryIsNotWritable($message);
+        return $this->directoryDoesNotExist($message);
     }
 
     public function dirIsReadable(string $message = ''): self
@@ -24,24 +19,19 @@ trait AliasesTrait
         return $this->directoryIsReadable($message);
     }
 
+    public function dirIsNotReadable(string $message = ''): self
+    {
+        return $this->directoryIsNotReadable($message);
+    }
+
     public function dirIsWritable(string $message = ''): self
     {
         return $this->directoryIsWritable($message);
     }
 
-    public function dirNotExist(string $message = ''): self
+    public function dirIsNotWritable(string $message = ''): self
     {
-        return $this->directoryDoesNotExist($message);
-    }
-
-    public function endNotWith($suffix, string $message = ''): self
-    {
-        return $this->stringEndsNotWith($suffix, $message);
-    }
-
-    public function endWith($suffix, string $message = ''): self
-    {
-        return $this->stringEndsWith($suffix, $message);
+        return $this->directoryIsNotWritable($message);
     }
 
     public function greater($expected, string $message = ''): self
@@ -49,64 +39,9 @@ trait AliasesTrait
         return $this->greaterThan($expected, $message);
     }
 
-    public function greaterOrEqual($expected, string $message = ''): self
-    {
-        return $this->greaterThanOrEqual($expected, $message);
-    }
-
-    public function hasKey($key, string $message = ''): self
-    {
-        return $this->arrayHasKey($key, $message);
-    }
-
     public function isAbove($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
-    }
-
-    public function isAtLeast($expected, string $message = ''): self
-    {
-        return $this->greaterThanOrEqual($expected, $message);
-    }
-
-    public function isAtMost($expected, string $message = ''): self
-    {
-        return $this->lessThanOrEqual($expected, $message);
-    }
-
-    public function isBelow($expected, string $message = ''): self
-    {
-        return $this->lessThan($expected, $message);
-    }
-
-    public function jsonFileNotToFile($expectedFile, string $message = ''): self
-    {
-        return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonFileToFile($expectedFile, string $message = ''): self
-    {
-        return $this->jsonFileEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonStringNotToFile($expectedFile, string $message = ''): self
-    {
-        return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonStringNotToString($expectedJson, string $message = ''): self
-    {
-        return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
-    }
-
-    public function jsonStringToFile($expectedFile, string $message = ''): self
-    {
-        return $this->jsonStringEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonStringToString($expectedJson, string $message = ''): self
-    {
-        return $this->jsonStringEqualsJsonString($expectedJson, $message);
     }
 
     public function less($expected, string $message = ''): self
@@ -114,14 +49,34 @@ trait AliasesTrait
         return $this->lessThan($expected, $message);
     }
 
+    public function isBelow($expected, string $message = ''): self
+    {
+        return $this->lessThan($expected, $message);
+    }
+
+    public function greaterOrEqual($expected, string $message = ''): self
+    {
+        return $this->greaterThanOrEqual($expected, $message);
+    }
+
+    public function isAtLeast($expected, string $message = ''): self
+    {
+        return $this->greaterThanOrEqual($expected, $message);
+    }
+
     public function lessOrEqual($expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
 
-    public function match(string $pattern, string $message = ''): self
+    public function isAtMost($expected, string $message = ''): self
     {
-        return $this->matchesRegularExpression($pattern, $message);
+        return $this->lessThanOrEqual($expected, $message);
+    }
+
+    public function hasKey($key, string $message = ''): self
+    {
+        return $this->arrayHasKey($key, $message);
     }
 
     public function notHasKey($key, string $message = ''): self
@@ -129,14 +84,44 @@ trait AliasesTrait
         return $this->arrayNotHasKey($key, $message);
     }
 
+    public function jsonFileToFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonFileEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonFileNotToFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonStringToFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonStringEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonStringNotToFile($expectedFile, string $message = ''): self
+    {
+        return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
+    }
+
+    public function jsonStringToString($expectedJson, string $message = ''): self
+    {
+        return $this->jsonStringEqualsJsonString($expectedJson, $message);
+    }
+
+    public function jsonStringNotToString($expectedJson, string $message = ''): self
+    {
+        return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
+    }
+
+    public function match(string $pattern, string $message = ''): self
+    {
+        return $this->matchesRegularExpression($pattern, $message);
+    }
+
     public function notMatch(string $pattern, string $message = ''): self
     {
         return $this->doesNotMatchRegularExpression($pattern, $message);
-    }
-
-    public function startNotWith($prefix, string $message = ''): self
-    {
-        return $this->stringStartsNotWith($prefix, $message);
     }
 
     public function startWith($prefix, string $message = ''): self
@@ -144,9 +129,19 @@ trait AliasesTrait
         return $this->stringStartsWith($prefix, $message);
     }
 
-    public function xmlFileNotToFile($expectedFile, string $message = ''): self
+    public function startNotWith($prefix, string $message = ''): self
     {
-        return $this->xmlFileNotEqualsXmlFile($expectedFile, $message);
+        return $this->stringStartsNotWith($prefix, $message);
+    }
+
+    public function endWith($suffix, string $message = ''): self
+    {
+        return $this->stringEndsWith($suffix, $message);
+    }
+
+    public function endNotWith($suffix, string $message = ''): self
+    {
+        return $this->stringEndsNotWith($suffix, $message);
     }
 
     public function xmlFileToFile($expectedFile, string $message = ''): self
@@ -154,14 +149,9 @@ trait AliasesTrait
         return $this->xmlFileEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringNotToFile($expectedFile, string $message = ''): self
+    public function xmlFileNotToFile($expectedFile, string $message = ''): self
     {
-        return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
-    }
-
-    public function xmlStringNotToString($expectedXml, string $message = ''): self
-    {
-        return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
+        return $this->xmlFileNotEqualsXmlFile($expectedFile, $message);
     }
 
     public function xmlStringToFile($expectedFile, string $message = ''): self
@@ -169,8 +159,18 @@ trait AliasesTrait
         return $this->xmlStringEqualsXmlFile($expectedFile, $message);
     }
 
+    public function xmlStringNotToFile($expectedFile, string $message = ''): self
+    {
+        return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
+    }
+
     public function xmlStringToString($expectedXml, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlString($expectedXml, $message);
+    }
+
+    public function xmlStringNotToString($expectedXml, string $message = ''): self
+    {
+        return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
     }
 }
