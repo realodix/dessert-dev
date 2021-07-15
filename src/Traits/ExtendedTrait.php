@@ -20,6 +20,17 @@ trait ExtendedTrait
         return $this;
     }
 
+    public function notContains($needle, string $message = ''): self
+    {
+        if (is_string($this->actual)) {
+            PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
+        } else {
+            PHPUnit::assertNotContains($needle, $this->actual, $message);
+        }
+
+        return $this;
+    }
+
     /**
      * Assert that the given string contains an element matching the given selector
      *
@@ -28,7 +39,7 @@ trait ExtendedTrait
      * @param mixed  $selector The output that should contain the $this->actual.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupContainsSelector($selector, string $message = ''): self
+    public function markupContainsSelector(string $selector, string $message = ''): self
     {
         $results = (new Query($this->actual))->execute($selector);
 
@@ -46,7 +57,7 @@ trait ExtendedTrait
      * @param mixed  $selector The output that should not contain the $this->actual.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupNotContainsSelector($selector, string $message = ''): self
+    public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
         $results = (new Query($this->actual))->execute($selector);
 
@@ -64,7 +75,7 @@ trait ExtendedTrait
      * @param string $selector A query selector for the element to find.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupElementContains($contents, $selector = '', $message = ''): self
+    public function markupElementContains(string $contents, string $selector = '', string $message = ''): self
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
 
@@ -82,7 +93,7 @@ trait ExtendedTrait
      * @param string $selector A query selector for the element to find.
      * @param string $message  A message to display if the assertion fails.
      */
-    public function markupElementNotContains($contents, $selector = '', $message = ''): self
+    public function markupElementNotContains(string $contents, string $selector = '', string $message = ''): self
     {
         $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
 
@@ -184,17 +195,6 @@ trait ExtendedTrait
         return $this;
     }
 
-    public function notContains($needle, string $message = ''): self
-    {
-        if (is_string($this->actual)) {
-            PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
-        } else {
-            PHPUnit::assertNotContains($needle, $this->actual, $message);
-        }
-
-        return $this;
-    }
-
     public function stringEquals(string $expected, string $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
@@ -214,25 +214,6 @@ trait ExtendedTrait
         return $this;
     }
 
-    public function stringEqualsFile(string $expected, string $message = ''): self
-    {
-        if (Validator::isJson($this->actual)) {
-            PHPUnit::assertJsonStringEqualsJsonFile($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($this->actual)) {
-            PHPUnit::assertXmlStringEqualsXmlFile($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        PHPUnit::assertStringEqualsFile($expected, $this->actual, $message);
-
-        return $this;
-    }
-
     public function stringNotEquals(string $expected, string $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
@@ -248,6 +229,25 @@ trait ExtendedTrait
         }
 
         PHPUnit::assertNotEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFile(string $expected, string $message = ''): self
+    {
+        if (Validator::isJson($this->actual)) {
+            PHPUnit::assertJsonStringEqualsJsonFile($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($this->actual)) {
+            PHPUnit::assertXmlStringEqualsXmlFile($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertStringEqualsFile($expected, $this->actual, $message);
 
         return $this;
     }
