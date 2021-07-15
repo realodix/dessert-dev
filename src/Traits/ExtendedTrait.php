@@ -176,22 +176,22 @@ trait ExtendedTrait
         return $this;
     }
 
-    // public function markupElementContains($contents, $selector = '', string $message = ''): self
-    // {
-    //     $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
+    public function markupElementContains($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
 
-    //     PHPUnit::assertStringNotContainsString($contents,$matchedElements,$message);
+        PHPUnit::assertStringContainsString($this->actual,$matchedElements,$message);
 
-    //     return $this;
-    // }
-    // public function markupElementNotContains($contents, $selector = '', string $message = ''): self
-    // {
-    //     $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
+        return $this;
+    }
+    public function markupElementNotContains($selector = '', $output = '', $message = ''): self
+    {
+        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
 
-    //     PHPUnit::assertStringNotContainsString($contents,$matchedElements,$message);
+        PHPUnit::assertStringNotContainsString($this->actual,$matchedElements,$message);
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     // public function markupElementRegExp($regexp, $selector = '', string $message = ''): self
     // {

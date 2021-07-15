@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\AssertionFailedError;
 
 final class ExtendedTest extends TestCase
 {
@@ -100,6 +101,38 @@ final class ExtendedTest extends TestCase
         $actual = '<label>City</label><br><input type="text" value="New York" data-foo="bar" />';
 
         ass($actual)->markupNotHasElementWithAttributes($expected);
+    }
+
+    public function testMarkupElementContains()
+    {
+        // Should be able to search for a selector
+        ass('ipsum')->markupElementContains(
+            '#main',
+            '<header>Lorem ipsum</header><div id="main">Lorem ipsum</div>'
+        );
+
+        // Should be able to chain multiple selectors
+        ass('ipsum')->markupElementContains(
+            '#main .foo',
+            '<div id="main"><span class="foo">Lorem ipsum</span></div>'
+        );
+
+        // Should scope text to the selected element
+        $exceptionMsg = 'The #main div does not contain the string "ipsum".';
+        $this->expectException(AssertionFailedError::class);
+        $this->expectExceptionMessage($exceptionMsg);
+
+        ass('ipsum')->markupElementContains(
+            '#main',
+            '<header>Lorem ipsum</header><div id="main">Foo bar baz</div>',
+            $exceptionMsg
+        );
+
+        // Should be able to search for a selector
+        ass('ipsum')->markupElementNotContains(
+            '#main',
+            '<header>Foo bar baz</header><div id="main">Some string</div>'
+        );
     }
 
     /**
