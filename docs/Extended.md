@@ -1,4 +1,4 @@
-| Assertions                |
-| ------------------------- | 
-| `stringEqualsString()`    | 
-| `stringNotEqualsString()` | 
+| Assertions          |
+| ------------------- | 
+| `stringEquals()`    | 
+| `stringNotEquals()` | 
