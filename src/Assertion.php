@@ -26,6 +26,18 @@ class Assertion
     }
 
     /**
+     * Creates a new expectation.
+     *
+     * @param TValue $value
+     *
+     * @return self<TValue>
+     */
+    public function and($value): Assertion
+    {
+        return new self($value);
+    }
+
+    /**
      * Asserts that an array has a specified key.
      *
      * @param int|string $key
