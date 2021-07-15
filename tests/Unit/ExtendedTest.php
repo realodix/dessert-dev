@@ -89,7 +89,7 @@ final class ExtendedTest extends TestCase
 
     public function testMarkupHasElementWithAttributes()
     {
-        // Should find an element with the given attributes
+        // Should find an element with the given attributesSelectorCount
         $expected = [
             'type'  => 'email',
             'value' => 'test@example.com',
@@ -118,7 +118,8 @@ final class ExtendedTest extends TestCase
 
     public function testMarkupSelectorCount()
     {
-        ass(3)->markupSelectorCount('li', '<ul><li>1</li><li>2</li><li>3</li></ul>');
+        ass('<ul><li>1</li><li>2</li><li>3</li></ul>')
+            ->markupSelectorCount(3, 'li');
     }
 
     public function testStringEqualsFile(): void

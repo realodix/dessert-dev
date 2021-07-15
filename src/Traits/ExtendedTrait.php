@@ -30,10 +30,6 @@ trait ExtendedTrait
      */
     public function markupContainsSelector($selector, string $message = ''): self
     {
-        if (is_array($selector)) {
-            $selector = '*'.(new MarkupHelper)->flattenAttributeArray($selector);
-        }
-
         $results = (new Query($this->actual))->execute($selector);
 
         PHPUnit::assertGreaterThan(0, count($results), $message);
@@ -52,10 +48,6 @@ trait ExtendedTrait
      */
     public function markupNotContainsSelector($selector, string $message = ''): self
     {
-        if (is_array($selector)) {
-            $selector = '*'.(new MarkupHelper)->flattenAttributeArray($selector);
-        }
-
         $results = (new Query($this->actual))->execute($selector);
 
         PHPUnit::assertEquals(0, count($results), $message);
@@ -140,16 +132,17 @@ trait ExtendedTrait
     /**
      * Assert that an element with the given attributes exists in the given markup.
      *
-     * @uses $this->actual (array) An array of HTML attributes that should be found on the
-     *                     element.
+     * @uses $this->actual (string) The output that should contain an element with the
+     *                     provided $attributes.
      *
-     * @param string $output  The output that should contain an element with the provided
-     *                        $this->actual.
-     * @param string $message A message to display if the assertion fails.
+     * @param array  $attributes An array of HTML attributes that should be found on the element.
+     * @param string $message    A message to display if the assertion fails.
      */
-    public function markupHasElementWithAttributes($output = '', string $message = ''): self
+    public function markupHasElementWithAttributes($attributes = [], $message = ''): self
     {
-        $this->markupContainsSelector($output, $message);
+        $attributes = '*'.(new MarkupHelper)->flattenAttributeArray($attributes);
+
+        $this->markupContainsSelector($attributes, $message);
 
         return $this;
     }
@@ -158,16 +151,17 @@ trait ExtendedTrait
      * Assert that an element with the given attributes does not exist in the given
      * markup.
      *
-     * @uses $this->actual (array) An array of HTML attributes that should be found on the
-     *                     element.
+     * @uses $this->actual (string) The output that should not contain an element with the
+     *                     provided $attributes.
      *
-     * @param string $output  The output that should not contain an element with the
-     *                        provided $this->actual.
-     * @param string $message A message to display if the assertion fails.
+     * @param array  $attributes An array of HTML attributes that should be found on the element.
+     * @param string $message    A message to display if the assertion fails.
      */
-    public function markupNotHasElementWithAttributes($output = '', string $message = ''): self
+    public function markupNotHasElementWithAttributes($attributes = [], $message = ''): self
     {
-        $this->markupNotContainsSelector($output, $message);
+        $attributes = '*'.(new MarkupHelper)->flattenAttributeArray($attributes);
+
+        $this->markupNotContainsSelector($attributes, $message);
 
         return $this;
     }
@@ -175,16 +169,17 @@ trait ExtendedTrait
     /**
      * Assert the number of times an element matching the given selector is found.
      *
-     * @param string $selector     A query selector for the element to find.
-     * @param string $output       The markup to run the assertion against.
-     * @param string $message      A message to display if the assertion fails.
-     * @param int    $this->actual The number of matching elements expected.
+     * @uses $this->actual (string) The markup to run the assertion against.
+     *
+     * @param int    $count    The number of matching elements expected.
+     * @param string $selector A query selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
      */
-    public function markupSelectorCount(string $selector, string $output = '', string $message = ''): self
+    public function markupSelectorCount(int $count, string $selector, $message = ''): self
     {
-        $results = (new Query($output))->execute($selector);
+        $results = (new Query($this->actual))->execute($selector);
 
-        PHPUnit::assertCount($this->actual, $results, $message);
+        PHPUnit::assertCount($count, $results, $message);
 
         return $this;
     }
