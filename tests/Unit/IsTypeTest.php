@@ -41,10 +41,10 @@ final class IsTypeTest extends TestCase
         ass(['array'])->isNotClosedResource();
         ass(new \stdClass)->isNotClosedResource();
 
-        // ResourceHelper test for code coverage
-        (new \Realodix\NextProject\Support\ResourceHelper)
+        // isClosedResource() test for code coverage
+        (new \Realodix\NextProject\Support\IsType)
             ->isClosedResource($resource);
-        (new \Realodix\NextProject\Support\ResourceHelper)
+        (new \Realodix\NextProject\Support\IsType)
             ->isClosedResource(null);
     }
 

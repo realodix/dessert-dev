@@ -7,7 +7,7 @@ namespace Realodix\NextProject\Support;
  *
  * @internal
  */
-final class ResourceHelper
+final class IsType
 {
     /**
      * Determines whether a variable represents a closed resource.

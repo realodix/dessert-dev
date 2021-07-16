@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Support\ResourceHelper;
+use Realodix\NextProject\Support\IsType;
 
 trait IsTypeTrait
 {
@@ -110,7 +110,7 @@ trait IsTypeTrait
                 );
             }
 
-            PHPUnit::assertTrue(ResourceHelper::isClosedResource($this->actual), $message);
+            PHPUnit::assertTrue(IsType::isClosedResource($this->actual), $message);
 
             return $this;
             // @codeCoverageIgnoreEnd
@@ -139,7 +139,7 @@ trait IsTypeTrait
                 );
             }
 
-            PHPUnit::assertFalse(ResourceHelper::isClosedResource($this->actual), $message);
+            PHPUnit::assertFalse(IsType::isClosedResource($this->actual), $message);
 
             return $this;
             // @codeCoverageIgnoreEnd
