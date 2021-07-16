@@ -7,7 +7,7 @@ use Laminas\Dom\Query;
 /**
  * @internal
  */
-final class MarkupHelper
+final class Markup
 {
     /**
      * Given an array of HTML attributes, flatten them into a XPath attribute selector.

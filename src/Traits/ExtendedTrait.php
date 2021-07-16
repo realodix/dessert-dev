@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use Laminas\Dom\Query;
 use PHPUnit\Framework\Assert as PHPUnit;
-use Realodix\NextProject\Support\MarkupHelper;
+use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\ValidatorHelper as Validator;
 
 trait ExtendedTrait
@@ -115,7 +115,7 @@ trait ExtendedTrait
      */
     public function markupElementContains(string $contents, string $selector = '', string $message = ''): self
     {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
+        $matchedElements = (new Markup)->getInnerHtmlOfMatchedElements($this->actual, $selector);
 
         PHPUnit::assertStringContainsString($contents, $matchedElements, $message);
 
@@ -133,7 +133,7 @@ trait ExtendedTrait
      */
     public function markupElementNotContains(string $contents, string $selector = '', string $message = ''): self
     {
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($this->actual, $selector);
+        $matchedElements = (new Markup)->getInnerHtmlOfMatchedElements($this->actual, $selector);
 
         PHPUnit::assertStringNotContainsString($contents, $matchedElements, $message);
 
@@ -152,7 +152,7 @@ trait ExtendedTrait
     public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $output = $this->actual;
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+        $matchedElements = (new Markup)->getInnerHtmlOfMatchedElements($output, $selector);
 
         $this->and($matchedElements)->matchesRegularExpression($regexp, $message);
 
@@ -171,7 +171,7 @@ trait ExtendedTrait
     public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $output = $this->actual;
-        $matchedElements = (new MarkupHelper)->getInnerHtmlOfMatchedElements($output, $selector);
+        $matchedElements = (new Markup)->getInnerHtmlOfMatchedElements($output, $selector);
 
         $this->and($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
 
@@ -189,7 +189,7 @@ trait ExtendedTrait
      */
     public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
-        $attributes = '*'.(new MarkupHelper)->flattenAttributeArray($attributes);
+        $attributes = '*'.(new Markup)->flattenAttributeArray($attributes);
 
         $this->markupContainsSelector($attributes, $message);
 
@@ -208,7 +208,7 @@ trait ExtendedTrait
      */
     public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
-        $attributes = '*'.(new MarkupHelper)->flattenAttributeArray($attributes);
+        $attributes = '*'.(new Markup)->flattenAttributeArray($attributes);
 
         $this->markupNotContainsSelector($attributes, $message);
 
