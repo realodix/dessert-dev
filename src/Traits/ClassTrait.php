@@ -13,16 +13,16 @@ trait ClassTrait
         return $this;
     }
 
-    public function classHasStaticAttribute($attributeName, string $message = ''): self
+    public function classNotHasAttribute($attributeName, string $message = ''): self
     {
-        PHPUnit::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
+        PHPUnit::assertClassNotHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
-    public function classNotHasAttribute($attributeName, string $message = ''): self
+    public function classHasStaticAttribute($attributeName, string $message = ''): self
     {
-        PHPUnit::assertClassNotHasAttribute($attributeName, $this->actual, $message);
+        PHPUnit::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }

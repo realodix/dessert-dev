@@ -23,6 +23,20 @@ trait IsTypeTrait
     }
 
     /**
+     * Asserts that a variable is not of type array.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotArray(string $message = ''): self
+    {
+        PHPUnit::assertIsNotArray($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is of type bool.
      *
      * @param string $message
@@ -37,6 +51,20 @@ trait IsTypeTrait
     }
 
     /**
+     * Asserts that a variable is not of type bool.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotBool(string $message = ''): self
+    {
+        PHPUnit::assertIsNotBool($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is of type callable.
      *
      * @param string $message
@@ -46,6 +74,20 @@ trait IsTypeTrait
     public function isCallable(string $message = ''): self
     {
         PHPUnit::assertIsCallable($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is not of type callable.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotCallable(string $message = ''): self
+    {
+        PHPUnit::assertIsNotCallable($this->actual, $message);
 
         return $this;
     }
@@ -80,90 +122,6 @@ trait IsTypeTrait
     }
 
     /**
-     * Asserts that a variable is of type float.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isFloat(string $message = ''): self
-    {
-        PHPUnit::assertIsFloat($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is of type int.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isInt(string $message = ''): self
-    {
-        PHPUnit::assertIsInt($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is of type iterable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isIterable(string $message = ''): self
-    {
-        PHPUnit::assertIsIterable($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type array.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotArray(string $message = ''): self
-    {
-        PHPUnit::assertIsNotArray($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type bool.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotBool(string $message = ''): self
-    {
-        PHPUnit::assertIsNotBool($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type callable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotCallable(string $message = ''): self
-    {
-        PHPUnit::assertIsNotCallable($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Asserts that a variable is not of type resource or is an open resource.
      *
      * @param string $message
@@ -193,6 +151,20 @@ trait IsTypeTrait
     }
 
     /**
+     * Asserts that a variable is of type float.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isFloat(string $message = ''): self
+    {
+        PHPUnit::assertIsFloat($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is not of type float.
      *
      * @param string $message
@@ -202,6 +174,20 @@ trait IsTypeTrait
     public function isNotFloat(string $message = ''): self
     {
         PHPUnit::assertIsNotFloat($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is of type int.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isInt(string $message = ''): self
+    {
+        PHPUnit::assertIsInt($this->actual, $message);
 
         return $this;
     }
@@ -221,6 +207,20 @@ trait IsTypeTrait
     }
 
     /**
+     * Asserts that a variable is of type iterable.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isIterable(string $message = ''): self
+    {
+        PHPUnit::assertIsIterable($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is not of type iterable.
      *
      * @param string $message
@@ -230,76 +230,6 @@ trait IsTypeTrait
     public function isNotIterable(string $message = ''): self
     {
         PHPUnit::assertIsNotIterable($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type numeric.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotNumeric(string $message = ''): self
-    {
-        PHPUnit::assertIsNotNumeric($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type object.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotObject(string $message = ''): self
-    {
-        PHPUnit::assertIsNotObject($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type resource.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotResource(string $message = ''): self
-    {
-        PHPUnit::assertIsNotResource($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type scalar.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotScalar(string $message = ''): self
-    {
-        PHPUnit::assertIsNotScalar($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type string.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotString(string $message = ''): self
-    {
-        PHPUnit::assertIsNotString($this->actual, $message);
 
         return $this;
     }
@@ -319,6 +249,20 @@ trait IsTypeTrait
     }
 
     /**
+     * Asserts that a variable is not of type numeric.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotNumeric(string $message = ''): self
+    {
+        PHPUnit::assertIsNotNumeric($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is of type object.
      *
      * @param string $message
@@ -328,6 +272,20 @@ trait IsTypeTrait
     public function isObject(string $message = ''): self
     {
         PHPUnit::assertIsObject($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is not of type object.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotObject(string $message = ''): self
+    {
+        PHPUnit::assertIsNotObject($this->actual, $message);
 
         return $this;
     }
@@ -347,6 +305,20 @@ trait IsTypeTrait
     }
 
     /**
+     * Asserts that a variable is not of type resource.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotResource(string $message = ''): self
+    {
+        PHPUnit::assertIsNotResource($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is of type scalar.
      *
      * @param string $message
@@ -361,6 +333,20 @@ trait IsTypeTrait
     }
 
     /**
+     * Asserts that a variable is not of type scalar.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotScalar(string $message = ''): self
+    {
+        PHPUnit::assertIsNotScalar($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is of type string.
      *
      * @param string $message
@@ -370,6 +356,20 @@ trait IsTypeTrait
     public function isString(string $message = ''): self
     {
         PHPUnit::assertIsString($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is not of type string.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotString(string $message = ''): self
+    {
+        PHPUnit::assertIsNotString($this->actual, $message);
 
         return $this;
     }

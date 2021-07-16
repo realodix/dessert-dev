@@ -7,6 +7,13 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait FilesystemTrait
 {
+    public function directoryExists(string $message = ''): self
+    {
+        PHPUnit::assertDirectoryExists($this->actual, $message);
+
+        return $this;
+    }
+
     /**
      * Asserts that a directory does not exist.
      *
@@ -27,9 +34,9 @@ trait FilesystemTrait
         return $this;
     }
 
-    public function directoryExists(string $message = ''): self
+    public function directoryIsReadable(string $message = ''): self
     {
-        PHPUnit::assertDirectoryExists($this->actual, $message);
+        PHPUnit::assertDirectoryIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -54,6 +61,13 @@ trait FilesystemTrait
         return $this;
     }
 
+    public function directoryIsWritable(string $message = ''): self
+    {
+        PHPUnit::assertDirectoryIsWritable($this->actual, $message);
+
+        return $this;
+    }
+
     public function directoryIsNotWritable(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
@@ -69,16 +83,9 @@ trait FilesystemTrait
         return $this;
     }
 
-    public function directoryIsReadable(string $message = ''): self
+    public function fileExists(string $message = ''): self
     {
-        PHPUnit::assertDirectoryIsReadable($this->actual, $message);
-
-        return $this;
-    }
-
-    public function directoryIsWritable(string $message = ''): self
-    {
-        PHPUnit::assertDirectoryIsWritable($this->actual, $message);
+        PHPUnit::assertFileExists($this->actual, $message);
 
         return $this;
     }
@@ -103,9 +110,9 @@ trait FilesystemTrait
         return $this;
     }
 
-    public function fileExists(string $message = ''): self
+    public function fileIsReadable(string $message = ''): self
     {
-        PHPUnit::assertFileExists($this->actual, $message);
+        PHPUnit::assertFileIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -130,6 +137,13 @@ trait FilesystemTrait
         return $this;
     }
 
+    public function fileIsWritable(string $message = ''): self
+    {
+        PHPUnit::assertFileIsWritable($this->actual, $message);
+
+        return $this;
+    }
+
     /**
      * Asserts that a file exists and is not writable.
      *
@@ -150,16 +164,9 @@ trait FilesystemTrait
         return $this;
     }
 
-    public function fileIsReadable(string $message = ''): self
+    public function isReadable(string $message = ''): self
     {
-        PHPUnit::assertFileIsReadable($this->actual, $message);
-
-        return $this;
-    }
-
-    public function fileIsWritable(string $message = ''): self
-    {
-        PHPUnit::assertFileIsWritable($this->actual, $message);
+        PHPUnit::assertIsReadable($this->actual, $message);
 
         return $this;
     }
@@ -184,6 +191,13 @@ trait FilesystemTrait
         return $this;
     }
 
+    public function isWritable(string $message = ''): self
+    {
+        PHPUnit::assertIsWritable($this->actual, $message);
+
+        return $this;
+    }
+
     /**
      * Asserts that a file/dir exists and is not writable.
      *
@@ -200,20 +214,6 @@ trait FilesystemTrait
         }
 
         PHPUnit::assertIsNotWritable($this->actual, $message);
-
-        return $this;
-    }
-
-    public function isReadable(string $message = ''): self
-    {
-        PHPUnit::assertIsReadable($this->actual, $message);
-
-        return $this;
-    }
-
-    public function isWritable(string $message = ''): self
-    {
-        PHPUnit::assertIsWritable($this->actual, $message);
 
         return $this;
     }

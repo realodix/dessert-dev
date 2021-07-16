@@ -7,17 +7,6 @@ use PHPUnit\Runner\Version as PHPUnitVersion;
 
 trait StringTrait
 {
-    public function contains($needle, string $message = ''): self
-    {
-        if (is_string($this->actual)) {
-            PHPUnit::assertStringContainsString($needle, $this->actual, $message);
-        } else {
-            PHPUnit::assertContains($needle, $this->actual, $message);
-        }
-
-        return $this;
-    }
-
     public function containsOnly($type, $isNativeType = null, string $message = ''): self
     {
         PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);
@@ -25,23 +14,9 @@ trait StringTrait
         return $this;
     }
 
-    /**
-     * Asserts that a string does not match a given regular expression.
-     *
-     * @param string $pattern
-     * @param string $message
-     */
-    public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
+    public function notContainsOnly($type, $isNativeType = null, string $message = ''): self
     {
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            // @codeCoverageIgnoreStart
-            PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
+        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
@@ -79,20 +54,23 @@ trait StringTrait
         return $this;
     }
 
-    public function notContains($needle, string $message = ''): self
+    /**
+     * Asserts that a string does not match a given regular expression.
+     *
+     * @param string $pattern
+     * @param string $message
+     */
+    public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
-        if (is_string($this->actual)) {
-            PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
-        } else {
-            PHPUnit::assertNotContains($needle, $this->actual, $message);
+        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
         }
 
-        return $this;
-    }
-
-    public function notContainsOnly($type, $isNativeType = null, string $message = ''): self
-    {
-        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
+        PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
 
         return $this;
     }
@@ -104,44 +82,16 @@ trait StringTrait
         return $this;
     }
 
-    public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
-    {
-        PHPUnit::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEndsNotWith($suffix, string $message = ''): self
-    {
-        PHPUnit::assertStringEndsNotWith($suffix, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEndsWith($suffix, string $message = ''): self
-    {
-        PHPUnit::assertStringEndsWith($suffix, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringMatchesFormat($format, string $message = ''): self
-    {
-        PHPUnit::assertStringMatchesFormat($format, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringMatchesFormatFile($formatFile, string $message = ''): self
-    {
-        PHPUnit::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
-
-        return $this;
-    }
-
     public function stringNotContainsString(string $needle, string $message = ''): self
     {
         PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
+    {
+        PHPUnit::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
     }
@@ -153,9 +103,23 @@ trait StringTrait
         return $this;
     }
 
+    public function stringMatchesFormat($format, string $message = ''): self
+    {
+        PHPUnit::assertStringMatchesFormat($format, $this->actual, $message);
+
+        return $this;
+    }
+
     public function stringNotMatchesFormat($format, string $message = ''): self
     {
         PHPUnit::assertStringNotMatchesFormat($format, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringMatchesFormatFile($formatFile, string $message = ''): self
+    {
+        PHPUnit::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
     }
@@ -177,6 +141,20 @@ trait StringTrait
     public function stringStartsWith($prefix, string $message = ''): self
     {
         PHPUnit::assertStringStartsWith($prefix, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEndsWith($suffix, string $message = ''): self
+    {
+        PHPUnit::assertStringEndsWith($suffix, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEndsNotWith($suffix, string $message = ''): self
+    {
+        PHPUnit::assertStringEndsNotWith($suffix, $this->actual, $message);
 
         return $this;
     }

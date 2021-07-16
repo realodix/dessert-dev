@@ -142,12 +142,6 @@ final class ComparisonTest extends TestCase
         ass([1, 2])->notSameSize([1, 2, 3]);
     }
 
-    public function testStringEqualsFile(): void
-    {
-        ass('foo_bar')->stringEqualsFile(TEST_FILES_PATH.'string_foobar.txt');
-        ass('Another string')->stringNotEqualsFile(TEST_FILES_PATH.'string_foobar.txt');
-    }
-
     public function testStringEqualsFileCanonicalizing(): void
     {
         ass('foo_bar')

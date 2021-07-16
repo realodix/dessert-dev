@@ -11,10 +11,11 @@ class Assertion
     use Traits\FilesystemTrait;
     use Traits\IsTypeTrait;
     use Traits\StringTrait;
+    use Traits\ExtendedTrait;
     use Traits\AliasesTrait;
 
     /** @var mixed */
-    protected $actual = null;
+    public $actual = null;
 
     /**
      * @param mixed $actual
@@ -22,6 +23,38 @@ class Assertion
     public function __construct($actual)
     {
         $this->actual = $actual;
+    }
+
+    /**
+     * Creates a new expectation.
+     *
+     * @param TValue $value
+     *
+     * @return self<TValue>
+     */
+    public function and($value): Assertion
+    {
+        return new self($value);
+    }
+
+    /**
+     * Creates an expectation on each item of the iterable "value".
+     *
+     * @param null|callable $callback
+     */
+    public function each(callable $callback = null): Each
+    {
+        if (! is_iterable($this->actual)) {
+            throw new \BadMethodCallException('Expectation value is not iterable.');
+        }
+
+        if (is_callable($callback)) {
+            foreach ($this->actual as $item) {
+                $callback(new self($item));
+            }
+        }
+
+        return new Each($this);
     }
 
     /**
@@ -64,6 +97,19 @@ class Assertion
     }
 
     /**
+     * Asserts the number of elements of an array, Countable or Traversable.
+     *
+     * @param int    $expectedCount
+     * @param string $message
+     */
+    public function notCount(int $expectedCount, string $message = ''): self
+    {
+        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a variable is empty.
      *
      * @param string $message
@@ -71,6 +117,18 @@ class Assertion
     public function empty(string $message = ''): self
     {
         PHPUnit::assertEmpty($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is not empty.
+     *
+     * @param string $message
+     */
+    public function notEmpty(string $message = ''): self
+    {
+        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
@@ -107,31 +165,6 @@ class Assertion
     public function nan(string $message = ''): self
     {
         PHPUnit::assertNan($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @param int    $expectedCount
-     * @param string $message
-     */
-    public function notCount(int $expectedCount, string $message = ''): self
-    {
-        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not empty.
-     *
-     * @param string $message
-     */
-    public function notEmpty(string $message = ''): self
-    {
-        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
