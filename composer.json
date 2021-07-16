@@ -25,7 +25,7 @@
             "src/bootstrap.php"
         ],
         "psr-4": {
-            "Realodix\\NextProject\\": "src/"
+            "Realodix\\NextProject\\": ["src/", "src/Dessert"]
         }
     },
     "autoload-dev": {
@@ -50,7 +50,6 @@
         "test": "phpunit"
     },
     "config": {
-        "optimize-autoloader": true,
         "sort-packages": true
     },
     "minimum-stability": "dev",
