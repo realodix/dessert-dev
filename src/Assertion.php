@@ -15,7 +15,7 @@ class Assertion
     use Traits\AliasesTrait;
 
     /** @var mixed */
-    protected $actual = null;
+    public $actual = null;
 
     /**
      * @param mixed $actual
@@ -35,6 +35,26 @@ class Assertion
     public function and($value): Assertion
     {
         return new self($value);
+    }
+
+    /**
+     * Creates an expectation on each item of the iterable "value".
+     *
+     * @param null|callable $callback
+     */
+    public function each(callable $callback = null): Each
+    {
+        if (! is_iterable($this->actual)) {
+            throw new \BadMethodCallException('Expectation value is not iterable.');
+        }
+
+        if (is_callable($callback)) {
+            foreach ($this->actual as $item) {
+                $callback(new self($item));
+            }
+        }
+
+        return new Each($this);
     }
 
     /**

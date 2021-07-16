@@ -12,6 +12,10 @@ final class ExtendedTest extends TestCase
         // and()
         ass(1)->isInt(3)
             ->and(true)->true();
+
+        // each()
+        expect([1, 2, 3, 4, 5])
+            ->each()->isInt();
     }
 
     public function testContains(): void
