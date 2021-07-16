@@ -9,6 +9,7 @@ final class ExtendedTest extends TestCase
 {
     public function testHelperMethods(): void
     {
+        // and()
         ass(1)->isInt(3)
             ->and(true)->true();
     }
