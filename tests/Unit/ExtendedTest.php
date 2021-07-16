@@ -62,7 +62,10 @@ final class ExtendedTest extends TestCase
         // Should be able to search for a selector
         ass('<header>Foo bar baz</header><div id="main">Some string</div>')
             ->markupElementNotContains('ipsum', '#main');
+    }
 
+    public function testMarkupElementContainsWithException()
+    {
         // Should scope text to the selected element
         $exceptionMsg = 'The #main div does not contain the string "ipsum".';
         $this->expectException(AssertionFailedError::class);
