@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Support;
 /**
  * @internal
  */
-final class ValidatorHelper
+final class Validator
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the constraint is
