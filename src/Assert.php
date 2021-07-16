@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject;
 
-abstract class Assert
+class Assert
 {
     /**
      * Start validation on a value, returns Assertion class.
