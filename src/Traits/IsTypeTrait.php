@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Helpers\ResourceHelper;
+use Realodix\NextProject\Support\ResourceHelper;
 
 trait IsTypeTrait
 {

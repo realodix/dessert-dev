@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Helpers;
+namespace Realodix\NextProject\Support;
 
 use Laminas\Dom\Query;
 

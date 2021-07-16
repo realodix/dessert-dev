@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Helpers;
+namespace Realodix\NextProject\Support;
 
 /**
  * Helper functions for working with the resource type.

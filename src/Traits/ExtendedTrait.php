@@ -4,8 +4,8 @@ namespace Realodix\NextProject\Traits;
 
 use Laminas\Dom\Query;
 use PHPUnit\Framework\Assert as PHPUnit;
-use Realodix\NextProject\Helpers\MarkupHelper;
-use Realodix\NextProject\Helpers\ValidatorHelper as Validator;
+use Realodix\NextProject\Support\MarkupHelper;
+use Realodix\NextProject\Support\ValidatorHelper as Validator;
 
 trait ExtendedTrait
 {
