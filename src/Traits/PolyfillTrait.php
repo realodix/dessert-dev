@@ -332,7 +332,6 @@ trait PolyfillTrait
      *   implementation)
      * - `$actual->$method($expected)` returns boolean true.
      *
-     * @param object $expected Expected value.
      * @param string $method   The name of the comparator method within the object.
      * @param string $message  Optional failure message to display.
      * @param object $actual   The value to test.
@@ -350,12 +349,11 @@ trait PolyfillTrait
 
         /*
          * Parameter input validation.
-         * In PHPUnit this is done via PHP native type declarations. Emulating this for the polyfill.
          */
         if (! \is_object($expected)) {
             throw new TypeError(
                 \sprintf(
-                    'Argument 1 passed to assertObjectEquals() must be an object, %s given',
+                    'An expected value must be an object, %s given',
                     \gettype($expected)
                 )
             );
@@ -364,7 +362,7 @@ trait PolyfillTrait
         if (! \is_object($actual)) {
             throw new TypeError(
                 \sprintf(
-                    'Argument 2 passed to assertObjectEquals() must be an object, %s given',
+                    'An actual value must be an object, %s given',
                     \gettype($actual)
                 )
             );
@@ -373,7 +371,7 @@ trait PolyfillTrait
         if (! \is_scalar($method)) {
             throw new TypeError(
                 \sprintf(
-                    'Argument 3 passed to assertObjectEquals() must be of the type string, %s given',
+                    'Argument 2 value must be of the type string, %s given',
                     \gettype($method)
                 )
             );
