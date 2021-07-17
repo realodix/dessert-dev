@@ -30,6 +30,44 @@ trait ExtendedTrait
         return $this;
     }
 
+    public function stringEquals(string $expected, string $message = ''): self
+    {
+        if (Validator::isJson($this->actual)) {
+            PHPUnit::assertJsonStringEqualsJsonString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($this->actual)) {
+            PHPUnit::assertXmlStringEqualsXmlString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEquals(string $expected, string $message = ''): self
+    {
+        if (Validator::isJson($this->actual)) {
+            PHPUnit::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($this->actual)) {
+            PHPUnit::assertXmlStringNotEqualsXmlString($expected, $this->actual, $message);
+
+            return $this;
+        }
+
+        PHPUnit::assertNotEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function stringEqualsFile(string $expected, string $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
@@ -127,44 +165,6 @@ trait ExtendedTrait
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         Markup::assertSelectorCount($count, $selector, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEquals(string $expected, string $message = ''): self
-    {
-        if (Validator::isJson($this->actual)) {
-            PHPUnit::assertJsonStringEqualsJsonString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($this->actual)) {
-            PHPUnit::assertXmlStringEqualsXmlString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        PHPUnit::assertEquals($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEquals(string $expected, string $message = ''): self
-    {
-        if (Validator::isJson($this->actual)) {
-            PHPUnit::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($this->actual)) {
-            PHPUnit::assertXmlStringNotEqualsXmlString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        PHPUnit::assertNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
