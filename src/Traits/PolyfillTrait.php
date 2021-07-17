@@ -170,7 +170,7 @@ trait PolyfillTrait
         if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
             // @codeCoverageIgnoreStart
             if ($message === '') {
-                $message = \sprintf(
+                $message = sprintf(
                     'Failed asserting that %s is of type "resource (closed)"',
                     \var_export($this->actual, true)
                 );
@@ -201,7 +201,7 @@ trait PolyfillTrait
         if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
             // @codeCoverageIgnoreStart
             if ($message === '') {
-                $message = \sprintf(
+                $message = sprintf(
                     'Failed asserting that %s is not of type "resource (closed)"',
                     \var_export($this->actual, true)
                 );
@@ -332,9 +332,10 @@ trait PolyfillTrait
      *   implementation)
      * - `$actual->$method($expected)` returns boolean true.
      *
-     * @param string $method   The name of the comparator method within the object.
-     * @param string $message  Optional failure message to display.
-     * @param object $actual   The value to test.
+     * @param object $expected     Expected value.
+     * @param string $method       The name of the comparator method within the object.
+     * @param string $message      Optional failure message to display.
+     * @param object $this->actual The value to test.
      *
      * @throws TypeError                        When any of the passed arguments do not
      *                                          meet the required type.
@@ -343,36 +344,18 @@ trait PolyfillTrait
      *
      * @return void
      */
-    public function objectEquals($expected, $method = 'equals', $message = '')
+    public function objectEquals(object $expected, string $method = 'equals', string $message = '')
     {
         $actual = $this->actual;
 
         /*
          * Parameter input validation.
          */
-        if (! \is_object($expected)) {
+        if (! is_object($actual)) {
             throw new TypeError(
-                \sprintf(
-                    'An expected value must be an object, %s given',
-                    \gettype($expected)
-                )
-            );
-        }
-
-        if (! \is_object($actual)) {
-            throw new TypeError(
-                \sprintf(
+                sprintf(
                     'An actual value must be an object, %s given',
-                    \gettype($actual)
-                )
-            );
-        }
-
-        if (! \is_scalar($method)) {
-            throw new TypeError(
-                \sprintf(
-                    'Argument 2 value must be of the type string, %s given',
-                    \gettype($method)
+                    gettype($actual)
                 )
             );
         }
@@ -384,9 +367,9 @@ trait PolyfillTrait
 
         if (! $object->hasMethod($method)) {
             throw new InvalidComparisonMethodException(
-                \sprintf(
+                sprintf(
                     'Comparison method %s::%s() does not exist.',
-                    \get_class($actual),
+                    get_class($actual),
                     $method
                 )
             );
@@ -401,24 +384,24 @@ trait PolyfillTrait
             || $reflMethod->getNumberOfRequiredParameters() !== 1
         ) {
             throw new InvalidComparisonMethodException(
-                \sprintf(
+                sprintf(
                     'Comparison method %s::%s() does not declare exactly one parameter.',
-                    \get_class($actual),
+                    get_class($actual),
                     $method
                 )
             );
         }
 
-        $noDeclaredTypeError = \sprintf(
+        $noDeclaredTypeError = sprintf(
             'Parameter of comparison method %s::%s() does not have a declared type.',
-            \get_class($actual),
+            get_class($actual),
             $method
         );
 
-        $notAcceptableTypeError = \sprintf(
+        $notAcceptableTypeError = sprintf(
             '%s is not an accepted argument type for comparison method %s::%s().',
-            \get_class($expected),
-            \get_class($actual),
+            get_class($expected),
+            get_class($actual),
             $method
         );
 
@@ -440,7 +423,7 @@ trait PolyfillTrait
          * Validate that the $expected object complies with the declared parameter type.
          */
         if ($typeName === 'self') {
-            $typeName = \get_class($actual);
+            $typeName = get_class($actual);
         }
 
         if (! $expected instanceof $typeName) {
@@ -452,19 +435,19 @@ trait PolyfillTrait
          */
         $result = $actual->{$method}($expected);
 
-        if (! \is_bool($result)) {
+        if (! is_bool($result)) {
             throw new InvalidComparisonMethodException(
-                \sprintf(
+                sprintf(
                     'Comparison method %s::%s() does not return a boolean value.',
-                    \get_class($actual),
+                    get_class($actual),
                     $method
                 )
             );
         }
 
-        $msg = \sprintf(
+        $msg = sprintf(
             'Failed asserting that two objects are equal. The objects are not equal according to %s::%s()',
-            \get_class($actual),
+            get_class($actual),
             $method
         );
 
