@@ -217,6 +217,10 @@ trait PolyfillTrait
     /**
      * Asserts that a file/dir exists and is not readable.
      *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotIsReadable(). The
+     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
+     * and (will be) removed in PHPUnit 10.0.0.
+     *
      * @param string $message
      */
     public function isNotReadable(string $message = ''): self
@@ -236,6 +240,10 @@ trait PolyfillTrait
 
     /**
      * Asserts that a file/dir exists and is not writable.
+     *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotIsWritable(). The
+     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
+     * and (will be) removed in PHPUnit 10.0.0.
      *
      * @param string $message
      */
@@ -257,6 +265,10 @@ trait PolyfillTrait
     /**
      * Asserts that a string matches a given regular expression.
      *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertRegExp(). The original
+     * methods these new methods replace were hard deprecated in PHPUnit 9.1.0 and (will
+     * be) removed in PHPUnit 10.0.0.
+     *
      * @param string $pattern
      * @param string $message
      */
@@ -277,6 +289,10 @@ trait PolyfillTrait
 
     /**
      * Asserts that a string does not match a given regular expression.
+     *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotRegExp(). The
+     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
+     * and (will be) removed in PHPUnit 10.0.0.
      *
      * @param string $pattern
      * @param string $message
