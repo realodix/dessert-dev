@@ -69,7 +69,7 @@ final class Markup
      */
     public static function assertElementNotContains(string $contents, string $selector = '', $output = '', $message = '')
     {
-        $matchedElements = Markup::getInnerHtmlOfMatchedElements($output, $selector);
+        $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         PHPUnit::assertStringNotContainsString($contents, $matchedElements, $message);
 
@@ -86,7 +86,7 @@ final class Markup
      */
     public static function assertElementRegExp(string $regexp, string $selector = '', $output = '', $message = '')
     {
-        $matchedElements = Markup::getInnerHtmlOfMatchedElements($output, $selector);
+        $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         $this->and($matchedElements)->matchesRegularExpression($regexp, $message);
 
@@ -103,7 +103,7 @@ final class Markup
      */
     public static function assertElementNotRegExp(string $regexp, string $selector = '', $output = '', $message = '')
     {
-        $matchedElements = Markup::getInnerHtmlOfMatchedElements($output, $selector);
+        $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         $this->and($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
 
@@ -120,7 +120,7 @@ final class Markup
      */
     public static function assertHasElementWithAttributes(array $attributes = [], $output = '', $message = '')
     {
-        $attributes = '*'.Markup::flattenAttributeArray($attributes);
+        $attributes = '*'.self::flattenAttributeArray($attributes);
 
         $this->assertContainsSelector($attributes, $output, $message);
 
@@ -138,7 +138,7 @@ final class Markup
      */
     public static function assertNotHasElementWithAttributes(array $attributes = [], $output = '', $message = '')
     {
-        $attributes = '*'.Markup::flattenAttributeArray($attributes);
+        $attributes = '*'.self::flattenAttributeArray($attributes);
 
         $this->assertNotContainsSelector($attributes, $output, $message);
 
