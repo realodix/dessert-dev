@@ -360,7 +360,7 @@ trait PolyfillTrait
             throw new \Exception(
                 sprintf(
                     'Comparison method %s::%s() does not exist.',
-                    $actual::class,
+                    get_class($actual),
                     $method
                 )
             );
@@ -371,7 +371,7 @@ trait PolyfillTrait
         // PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException
         $boolReturnTypeError = sprintf(
             'Comparison method %s::%s() does not declare bool return type.',
-            $actual::class,
+            get_class($actual),
             $method
         );
 
@@ -404,7 +404,7 @@ trait PolyfillTrait
             throw new \Exception(
                 sprintf(
                     'Comparison method %s::%s() does not declare exactly one parameter.',
-                    $actual::class,
+                    get_class($actual),
                     $method
                 )
             );
@@ -413,7 +413,7 @@ trait PolyfillTrait
         // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
         $parameterTypeError = sprintf(
             'Parameter of comparison method %s::%s() does not have a declared type.',
-            $actual::class,
+            get_class($actual),
             $method
         );
 
@@ -435,7 +435,7 @@ trait PolyfillTrait
          * Validate that the $expected object complies with the declared parameter type.
          */
         if ($typeName === 'self') {
-            $typeName = $actual::class;
+            $typeName = get_class($actual);
         }
 
         if (! $expected instanceof $typeName) {
@@ -443,8 +443,8 @@ trait PolyfillTrait
             throw new \Exception(
                 sprintf(
                     '%s is not an accepted argument type for comparison method %s::%s().',
-                    $actual::class,
-                    $actual::class,
+                    get_class($actual),
+                    get_class($actual),
                     $method
                 )
             );
@@ -457,7 +457,7 @@ trait PolyfillTrait
 
         $msg = sprintf(
             'Failed asserting that two objects are equal. The objects are not equal according to %s::%s()',
-            $actual::class,
+            get_class($actual),
             $method
         );
 
