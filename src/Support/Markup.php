@@ -10,7 +10,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
  */
 final class Markup
 {
-     /**
+    /**
      * Assert that the given string contains an element matching the given selector
      *
      * @param string $selector A query selector for the element to find.
@@ -21,9 +21,7 @@ final class Markup
     {
         $results = (new Query($output))->execute($selector);
 
-        PHPUnit::assertGreaterThan(0, count($results), $message);
-
-        return $this;
+        return PHPUnit::assertGreaterThan(0, count($results), $message);
     }
 
     /**
@@ -38,9 +36,7 @@ final class Markup
     {
         $results = (new Query($output))->execute($selector);
 
-        PHPUnit::assertEquals(0, count($results), $message);
-
-        return $this;
+        return PHPUnit::assertEquals(0, count($results), $message);
     }
 
     /**
@@ -48,15 +44,14 @@ final class Markup
      *
      * @param string $contents The string to look for within the DOM node's contents.
      * @param string $selector A query selector for the element to find.
+     * @param mixed  $output
      * @param string $message  A message to display if the assertion fails.
      */
     public static function assertElementContains(string $contents, string $selector = '', $output = '', $message = '')
     {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
-        PHPUnit::assertStringContainsString($contents, $matchedElements, $message);
-
-        return $this;
+        return PHPUnit::assertStringContainsString($contents, $matchedElements, $message);
     }
 
     /**
@@ -71,9 +66,7 @@ final class Markup
     {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
-        PHPUnit::assertStringNotContainsString($contents, $matchedElements, $message);
-
-        return $this;
+        return PHPUnit::assertStringNotContainsString($contents, $matchedElements, $message);
     }
 
     /**
@@ -88,9 +81,7 @@ final class Markup
     {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
-        $this->and($matchedElements)->matchesRegularExpression($regexp, $message);
-
-        return $this;
+        return ass($matchedElements)->matchesRegularExpression($regexp, $message);
     }
 
     /**
@@ -105,9 +96,7 @@ final class Markup
     {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
-        $this->and($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
-
-        return $this;
+        return ass($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
     }
 
     /**
@@ -122,9 +111,7 @@ final class Markup
     {
         $attributes = '*'.self::flattenAttributeArray($attributes);
 
-        $this->assertContainsSelector($attributes, $output, $message);
-
-        return $this;
+        return self::assertContainsSelector($attributes, $output, $message);
     }
 
     /**
@@ -140,9 +127,7 @@ final class Markup
     {
         $attributes = '*'.self::flattenAttributeArray($attributes);
 
-        $this->assertNotContainsSelector($attributes, $output, $message);
-
-        return $this;
+        return self::assertNotContainsSelector($attributes, $output, $message);
     }
 
     /**
@@ -157,9 +142,7 @@ final class Markup
     {
         $results = (new Query($output))->execute($selector);
 
-        PHPUnit::assertCount($count, $results, $message);
-
-        return $this;
+        return PHPUnit::assertCount($count, $results, $message);
     }
 
     /**
