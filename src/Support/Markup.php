@@ -152,7 +152,7 @@ final class Markup
      *
      * @return string A XPath attribute query selector.
      */
-    public static function flattenAttributeArray(array $attributes): string
+    protected static function flattenAttributeArray(array $attributes): string
     {
         array_walk($attributes, function (&$value, $key) {
             // Boolean attributes.
@@ -174,7 +174,7 @@ final class Markup
      *
      * @return string The concatenated innerHTML of any matched selectors.
      */
-    public static function getInnerHtmlOfMatchedElements(string $markup, string $query)
+    protected static function getInnerHtmlOfMatchedElements(string $markup, string $query)
     {
         $results = (new Query($markup))->execute($query);
         $contents = [];
