@@ -11,6 +11,10 @@ trait PolyfillTrait
     /**
      * Asserts that a directory does not exist.
      *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotExists().
+     * The original methods these new methods replace were hard deprecated in PHPUnit
+     * 9.1.0 and (will be) removed in PHPUnit 10.0.0.
+     *
      * @param string $message
      */
     public function directoryDoesNotExist(string $message = ''): self
@@ -31,6 +35,10 @@ trait PolyfillTrait
     /**
      * Asserts that a directory exists and is not readable.
      *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotIsReadable().
+     * The original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
+     * and (will be) removed in PHPUnit 10.0.0.
+     *
      * @param string $message
      */
     public function directoryIsNotReadable(string $message = ''): self
@@ -48,6 +56,15 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * Asserts that a directory exists and is not writable.
+     *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotIsWritable()
+     * The original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
+     * and (will be) removed in PHPUnit 10.0.0.
+     *
+     * @param string $message
+     */
     public function directoryIsNotWritable(string $message = ''): self
     {
         if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
@@ -65,6 +82,10 @@ trait PolyfillTrait
 
     /**
      * Asserts that a file does not exist.
+     *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotExists(). The
+     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
+     * and (will be) removed in PHPUnit 10.0.0.
      *
      * @param string $message
      */
@@ -86,6 +107,10 @@ trait PolyfillTrait
     /**
      * Asserts that a file exists and is not readable.
      *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotIsReadable().
+     * The original methods these new methods replace were hard deprecated in PHPUnit
+     * 9.1.0 and (will be) removed in PHPUnit 10.0.0.
+     *
      * @param string $message
      */
     public function fileIsNotReadable(string $message = ''): self
@@ -106,6 +131,10 @@ trait PolyfillTrait
     /**
      * Asserts that a file exists and is not writable.
      *
+     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotIsWritable().
+     * The original methods these new methods replace were hard deprecated in PHPUnit
+     * 9.1.0 and (will be) removed in PHPUnit 10.0.0.
+     *
      * @param string $message
      */
     public function fileIsNotWritable(string $message = ''): self
@@ -125,6 +154,8 @@ trait PolyfillTrait
 
     /**
      * Asserts that a variable is of type resource and is closed.
+     *
+     * These methods were introduced in PHPUnit 9.3.0.
      *
      * @param string $message
      *
@@ -154,6 +185,8 @@ trait PolyfillTrait
 
     /**
      * Asserts that a variable is not of type resource or is an open resource.
+     *
+     * These methods were introduced in PHPUnit 9.3.0.
      *
      * @param string $message
      *
