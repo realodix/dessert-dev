@@ -394,13 +394,6 @@ trait PolyfillTrait
             $method
         );
 
-        $notAcceptableTypeError = sprintf(
-            '%s is not an accepted argument type for comparison method %s::%s().',
-            get_class($expected),
-            get_class($actual),
-            $method
-        );
-
         $parameter = $reflMethod->getParameters()[0];
 
         if (! $parameter->hasType()) {
@@ -423,7 +416,14 @@ trait PolyfillTrait
         }
 
         if (! $expected instanceof $typeName) {
-            throw new \Exception($notAcceptableTypeError);
+            throw new \Exception(
+                sprintf(
+                    '%s is not an accepted argument type for comparison method %s::%s().',
+                    get_class($expected),
+                    get_class($actual),
+                    $method
+                )
+            );
         }
 
         /*
