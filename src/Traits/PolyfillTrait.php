@@ -6,11 +6,8 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Exceptions\InvalidComparisonMethodException;
 use Realodix\NextProject\Support\Validator;
-use ReflectionClass;
-use ReflectionException;
 use ReflectionNamedType;
 use ReflectionObject;
-use ReflectionType;
 use TypeError;
 
 trait PolyfillTrait
@@ -355,7 +352,7 @@ trait PolyfillTrait
          * Parameter input validation.
          * In PHPUnit this is done via PHP native type declarations. Emulating this for the polyfill.
          */
-        if (\is_object($expected) === false) {
+        if (! \is_object($expected)) {
             throw new TypeError(
                 \sprintf(
                     'Argument 1 passed to assertObjectEquals() must be an object, %s given',
@@ -364,7 +361,7 @@ trait PolyfillTrait
             );
         }
 
-        if (\is_object($actual) === false) {
+        if (! \is_object($actual)) {
             throw new TypeError(
                 \sprintf(
                     'Argument 2 passed to assertObjectEquals() must be an object, %s given',
@@ -373,7 +370,7 @@ trait PolyfillTrait
             );
         }
 
-        if (\is_scalar($method) === false) {
+        if (! \is_scalar($method)) {
             throw new TypeError(
                 \sprintf(
                     'Argument 3 passed to assertObjectEquals() must be of the type string, %s given',
@@ -382,14 +379,12 @@ trait PolyfillTrait
             );
         }
 
-        $method = (string) $method;
-
         /*
          * Comparator method validation.
          */
-        $reflObject = new ReflectionObject($actual);
+        $object = new ReflectionObject($actual);
 
-        if ($reflObject->hasMethod($method) === false) {
+        if (! $object->hasMethod($method)) {
             throw new InvalidComparisonMethodException(
                 \sprintf(
                     'Comparison method %s::%s() does not exist.',
@@ -399,17 +394,7 @@ trait PolyfillTrait
             );
         }
 
-        $reflMethod = $reflObject->getMethod($method);
-
-        /*
-         * As the next step, PHPUnit natively would validate the return type,
-         * but as return type declarations is a PHP 7.0+ feature, the polyfill
-         * skips this check in favour of checking the type of the actual
-         * returned value.
-         *
-         * Also see the upstream discussion about this:
-         * {@link https://github.com/sebastianbergmann/phpunit/issues/4707}
-         */
+        $reflMethod = $object->getMethod($method);
 
         /*
          * Comparator method parameter requirements validation.
@@ -439,56 +424,19 @@ trait PolyfillTrait
             $method
         );
 
-        $reflParameter = $reflMethod->getParameters()[0];
+        $parameter = $reflMethod->getParameters()[0];
 
-        if (\method_exists($reflParameter, 'hasType')) {
-            // PHP >= 7.0.
-            $hasType = $reflParameter->hasType();
-            if ($hasType === false) {
-                throw new InvalidComparisonMethodException($noDeclaredTypeError);
-            }
-
-            $type = $reflParameter->getType();
-            if (\class_exists('ReflectionNamedType')) {
-                // PHP >= 7.1.
-                if (($type instanceof ReflectionNamedType) === false) {
-                    throw new InvalidComparisonMethodException($noDeclaredTypeError);
-                }
-
-                $typeName = $type->getName();
-            } else {
-                /*
-                 * PHP 7.0.
-                 * Checking for `ReflectionType` will not throw an error on union types,
-                 * but then again union types are not supported on PHP 7.0.
-                 */
-                if (($type instanceof ReflectionType) === false) {
-                    throw new InvalidComparisonMethodException($noDeclaredTypeError);
-                }
-
-                $typeName = (string) $type;
-            }
-        } else {
-            // PHP < 7.0.
-            try {
-                /*
-                 * Using `ReflectionParameter::getClass()` will trigger an autoload of the class,
-                 * but that's okay as for a valid class type that would be triggered on the
-                 * function call to the $method (at the end of this assertion) anyway.
-                 */
-                $hasType = $reflParameter->getClass();
-            } catch (ReflectionException $e) {
-                // Class with a type declaration for a non-existent class.
-                throw new InvalidComparisonMethodException($notAcceptableTypeError);
-            }
-
-            if (($hasType instanceof ReflectionClass) === false) {
-                // Array or callable type.
-                throw new InvalidComparisonMethodException($noDeclaredTypeError);
-            }
-
-            $typeName = $hasType->name;
+        if (! $parameter->hasType()) {
+            throw new InvalidComparisonMethodException($noDeclaredTypeError);
         }
+
+        $type = $parameter->getType();
+
+        if (! $type instanceof ReflectionNamedType) {
+            throw new InvalidComparisonMethodException($noDeclaredTypeError);
+        }
+
+        $typeName = $type->getName();
 
         /*
          * Validate that the $expected object complies with the declared parameter type.
@@ -497,7 +445,7 @@ trait PolyfillTrait
             $typeName = \get_class($actual);
         }
 
-        if (($expected instanceof $typeName) === false) {
+        if (! $expected instanceof $typeName) {
             throw new InvalidComparisonMethodException($notAcceptableTypeError);
         }
 
@@ -506,7 +454,7 @@ trait PolyfillTrait
          */
         $result = $actual->{$method}($expected);
 
-        if (\is_bool($result) === false) {
+        if (! \is_bool($result)) {
             throw new InvalidComparisonMethodException(
                 \sprintf(
                     'Comparison method %s::%s() does not return a boolean value.',
