@@ -19,7 +19,7 @@ final class Markup
      */
     public static function assertContainsSelector(string $selector, $output = '', string $message = '')
     {
-        $results = (new Query($output))->execute($selector);
+        $results = self::executeDomQuery($output, $selector);
 
         return PHPUnit::assertGreaterThan(0, count($results), $message);
     }
@@ -34,7 +34,7 @@ final class Markup
      */
     public static function assertNotContainsSelector(string $selector, $output = '', string $message = '')
     {
-        $results = (new Query($output))->execute($selector);
+        $results = self::executeDomQuery($output, $selector);
 
         return PHPUnit::assertEquals(0, count($results), $message);
     }
@@ -140,9 +140,24 @@ final class Markup
      */
     public static function assertSelectorCount(int $count, string $selector, $output = '', $message = '')
     {
-        $results = (new Query($output))->execute($selector);
+        $results = self::executeDomQuery($output, $selector);
 
         return PHPUnit::assertCount($count, $results, $message);
+    }
+
+    /**
+     * Build a new DOMDocument from the given markup, then execute a query against it.
+     *
+     * @param string $markup The HTML for the DOMDocument.
+     * @param string $query  The DOM selector query.
+     *
+     * @return array \Laminas\Dom\NodeList
+     */
+    protected static function executeDomQuery($markup, $query)
+    {
+        $dom = new Query($markup);
+
+        return $dom->execute($query);
     }
 
     /**
