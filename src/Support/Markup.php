@@ -17,7 +17,7 @@ final class Markup
      * @param string $output   The output that should contain the $selector.
      * @param string $message  A message to display if the assertion fails.
      */
-    public static function assertContainsSelector(string $selector, $output = '', string $message = '')
+    public static function assertContainsSelector(string $selector, string $output = '', string $message = '')
     {
         $results = (new Query($output))->execute($selector);
 
@@ -32,7 +32,7 @@ final class Markup
      * @param string $output   The output that should not contain the $selector.
      * @param string $message  A message to display if the assertion fails.
      */
-    public static function assertNotContainsSelector(string $selector, $output = '', string $message = '')
+    public static function assertNotContainsSelector(string $selector, string $output = '', string $message = '')
     {
         $results = (new Query($output))->execute($selector);
 
