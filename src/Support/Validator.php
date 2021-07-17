@@ -10,13 +10,13 @@ final class Validator
     /**
      * Determines whether a variable represents a closed resource.
      *
-     * @param mixed $actual The variable to test.
+     * @param mixed $value The variable being type checked
      *
      * @return bool
      */
-    public static function isClosedResource($actual)
+    public static function isClosedResource($value): bool
     {
-        if (gettype($actual) === 'resource (closed)') {
+        if (gettype($value) === 'resource (closed)') {
             return true;
         }
 
@@ -24,12 +24,13 @@ final class Validator
     }
 
     /**
-     * Evaluates the constraint for parameter $other. Returns true if the constraint is
-     * met, false otherwise.
+     * Check if a string is valid JSON
      *
-     * @param mixed $value
+     * @param string $value
+     *
+     * @return bool
      */
-    public static function isJson($value): bool
+    public static function isJson(string $value): bool
     {
         if ($value === '') {
             return false;
@@ -45,13 +46,15 @@ final class Validator
     }
 
     /**
-     * Check if a string is valid XML.
+     * Check if a string is valid XML
      * - https://stackoverflow.com/a/31240779/2732184
      * - https://github.com/mtvbrianking/laravel-xml/blob/master/src/Support/XmlValidator.php
      *
-     * @param mixed $xml
+     * @param string $xml
+     *
+     * @return bool
      */
-    public static function isXml($xml): bool
+    public static function isXml(string $xml): bool
     {
         $content = trim($xml);
         if (empty($content)) {
