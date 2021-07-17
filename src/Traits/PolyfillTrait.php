@@ -341,7 +341,8 @@ trait PolyfillTrait
          * Parameter input validation.
          */
         if (! is_object($actual)) {
-            throw new TypeError(
+            // PHPUnit\Framework\ActualValueIsNotAnObjectException
+            throw new \TypeError(
                 sprintf(
                     'An actual value must be an object, %s given',
                     gettype($actual)
@@ -355,10 +356,11 @@ trait PolyfillTrait
         $object = new \ReflectionObject($actual);
 
         if (! $object->hasMethod($method)) {
+            // PHPUnit\Framework\ComparisonMethodDoesNotExistException
             throw new \Exception(
                 sprintf(
                     'Comparison method %s::%s() does not exist.',
-                    get_class($actual),
+                    $actual::class,
                     $method
                 )
             );
@@ -366,28 +368,29 @@ trait PolyfillTrait
 
         $thisMethod = $object->getMethod($method);
 
-        $noDeclareBoolTypeError = sprintf(
+        // PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException
+        $boolReturnTypeError = sprintf(
             'Comparison method %s::%s() does not declare bool return type.',
-            get_class($actual),
+            $actual::class,
             $method
         );
 
         if (! $thisMethod->hasReturnType()) {
-            throw new \Exception($noDeclareBoolTypeError);
+            throw new \Exception($boolReturnTypeError);
         }
 
         $returnType = $thisMethod->getReturnType();
 
         if (! $returnType instanceof \ReflectionNamedType) {
-            throw new \Exception($noDeclareBoolTypeError);
+            throw new \Exception($boolReturnTypeError);
         }
 
         if ($returnType->allowsNull()) {
-            throw new \Exception($noDeclareBoolTypeError);
+            throw new \Exception($boolReturnTypeError);
         }
 
         if ($returnType->getName() !== 'bool') {
-            throw new \Exception($noDeclareBoolTypeError);
+            throw new \Exception($boolReturnTypeError);
         }
 
         /*
@@ -397,31 +400,33 @@ trait PolyfillTrait
             $thisMethod->getNumberOfParameters() !== 1
             || $thisMethod->getNumberOfRequiredParameters() !== 1
         ) {
+            // PHPUnit\Framework\ComparisonMethodDoesNotDeclareExactlyOneParameterException
             throw new \Exception(
                 sprintf(
                     'Comparison method %s::%s() does not declare exactly one parameter.',
-                    get_class($actual),
+                    $actual::class,
                     $method
                 )
             );
         }
 
-        $notDeclareParameterType = sprintf(
+        // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
+        $parameterTypeError = sprintf(
             'Parameter of comparison method %s::%s() does not have a declared type.',
-            get_class($actual),
+            $actual::class,
             $method
         );
 
         $parameter = $thisMethod->getParameters()[0];
 
         if (! $parameter->hasType()) {
-            throw new \Exception($notDeclareParameterType);
+            throw new \Exception($parameterTypeError);
         }
 
         $type = $parameter->getType();
 
         if (! $type instanceof \ReflectionNamedType) {
-            throw new \Exception($notDeclareParameterType);
+            throw new \Exception($parameterTypeError);
         }
 
         $typeName = $type->getName();
@@ -430,15 +435,16 @@ trait PolyfillTrait
          * Validate that the $expected object complies with the declared parameter type.
          */
         if ($typeName === 'self') {
-            $typeName = get_class($actual);
+            $typeName = $actual::class;
         }
 
         if (! $expected instanceof $typeName) {
+            // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
             throw new \Exception(
                 sprintf(
                     '%s is not an accepted argument type for comparison method %s::%s().',
-                    get_class($expected),
-                    get_class($actual),
+                    $actual::class,
+                    $actual::class,
                     $method
                 )
             );
@@ -449,19 +455,9 @@ trait PolyfillTrait
          */
         $result = $actual->{$method}($expected);
 
-        if (! is_bool($result)) {
-            throw new \Exception(
-                sprintf(
-                    'Comparison method %s::%s() does not return a boolean value.',
-                    get_class($actual),
-                    $method
-                )
-            );
-        }
-
         $msg = sprintf(
             'Failed asserting that two objects are equal. The objects are not equal according to %s::%s()',
-            get_class($actual),
+            $actual::class,
             $method
         );
 
