@@ -79,34 +79,6 @@ class Assertion
         return $this;
     }
 
-    public function classHasAttribute($attributeName, string $message = ''): self
-    {
-        PHPUnit::assertClassHasAttribute($attributeName, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function classHasStaticAttribute($attributeName, string $message = ''): self
-    {
-        PHPUnit::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function classNotHasAttribute($attributeName, string $message = ''): self
-    {
-        PHPUnit::assertClassNotHasAttribute($attributeName, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function classNotHasStaticAttribute($attributeName, string $message = ''): self
-    {
-        PHPUnit::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
-
-        return $this;
-    }
-
     public function containsEquals($needle, string $message = ''): self
     {
         PHPUnit::assertContainsEquals($needle, $this->actual, $message);
@@ -114,9 +86,23 @@ class Assertion
         return $this;
     }
 
+    public function notContainsEquals($needle, string $message = ''): self
+    {
+        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
+
+        return $this;
+    }
+
     public function containsOnly($type, $isNativeType = null, string $message = ''): self
     {
         PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);
+
+        return $this;
+    }
+
+    public function notContainsOnly($type, $isNativeType = null, string $message = ''): self
+    {
+        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
@@ -137,6 +123,103 @@ class Assertion
     public function count(int $expectedCount, string $message = ''): self
     {
         PHPUnit::assertCount($expectedCount, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts the number of elements of an array, Countable or Traversable.
+     *
+     * @param int    $expectedCount
+     * @param string $message
+     */
+    public function notCount(int $expectedCount, string $message = ''): self
+    {
+        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function equals($expected, string $message = ''): self
+    {
+        PHPUnit::assertEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notEquals($expected, string $message = ''): self
+    {
+        PHPUnit::assertNotEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function equalsCanonicalizing($expected, string $message = ''): self
+    {
+        PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notEqualsCanonicalizing($expected, string $message = ''): self
+    {
+        PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function equalsIgnoringCase($expected, string $message = ''): self
+    {
+        PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notEqualsIgnoringCase($expected, string $message = ''): self
+    {
+        PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function equalsWithDelta($expected, float $delta, string $message = ''): self
+    {
+        PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
+
+        return $this;
+    }
+
+    public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
+    {
+        PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
+
+        return $this;
+    }
+
+    public function classHasAttribute($attributeName, string $message = ''): self
+    {
+        PHPUnit::assertClassHasAttribute($attributeName, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function classNotHasAttribute($attributeName, string $message = ''): self
+    {
+        PHPUnit::assertClassNotHasAttribute($attributeName, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function classHasStaticAttribute($attributeName, string $message = ''): self
+    {
+        PHPUnit::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function classNotHasStaticAttribute($attributeName, string $message = ''): self
+    {
+        PHPUnit::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
@@ -162,11 +245,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is empty.
-     *
-     * @param string $message
-     */
     public function empty(string $message = ''): self
     {
         PHPUnit::assertEmpty($this->actual, $message);
@@ -174,37 +252,9 @@ class Assertion
         return $this;
     }
 
-    public function equals($expected, string $message = ''): self
+    public function notEmpty(string $message = ''): self
     {
-        PHPUnit::assertEquals($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function equalsCanonicalizing($expected, string $message = ''): self
-    {
-        PHPUnit::assertEqualsCanonicalizing($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function equalsIgnoringCase($expected, string $message = ''): self
-    {
-        PHPUnit::assertEqualsIgnoringCase($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function equalsWithDelta($expected, float $delta, string $message = ''): self
-    {
-        PHPUnit::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
-
-        return $this;
-    }
-
-    public function false(string $message = ''): self
-    {
-        PHPUnit::assertFalse($this->actual, $message);
+        PHPUnit::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
@@ -216,6 +266,13 @@ class Assertion
         return $this;
     }
 
+    public function fileNotEquals(string $expected, string $message = ''): self
+    {
+        PHPUnit::assertFileNotEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
@@ -223,9 +280,23 @@ class Assertion
         return $this;
     }
 
+    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
+    {
+        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
+    {
+        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -251,35 +322,65 @@ class Assertion
         return $this;
     }
 
-    public function fileNotEquals(string $expected, string $message = ''): self
+    public function true(string $message = ''): self
     {
-        PHPUnit::assertFileNotEquals($expected, $this->actual, $message);
+        PHPUnit::assertTrue($this->actual, $message);
 
         return $this;
     }
 
-    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
+    public function notTrue(string $message = ''): self
     {
-        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+        PHPUnit::assertNotTrue($this->actual, $message);
 
         return $this;
     }
 
-    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
+    public function false(string $message = ''): self
     {
-        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
+        PHPUnit::assertFalse($this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts that a variable is finite.
-     *
-     * @param string $message
-     */
+    public function notFalse(string $message = ''): self
+    {
+        PHPUnit::assertNotFalse($this->actual, $message);
+
+        return $this;
+    }
+
+    public function null(string $message = ''): self
+    {
+        PHPUnit::assertNull($this->actual, $message);
+
+        return $this;
+    }
+
+    public function notNull(string $message = ''): self
+    {
+        PHPUnit::assertNotNull($this->actual, $message);
+
+        return $this;
+    }
+
     public function finite(string $message = ''): self
     {
         PHPUnit::assertFinite($this->actual, $message);
+
+        return $this;
+    }
+
+    public function infinite(string $message = ''): self
+    {
+        PHPUnit::assertInfinite($this->actual, $message);
+
+        return $this;
+    }
+
+    public function nan(string $message = ''): self
+    {
+        PHPUnit::assertNan($this->actual, $message);
 
         return $this;
     }
@@ -291,6 +392,13 @@ class Assertion
         return $this;
     }
 
+    public function lessThan($expected, string $message = ''): self
+    {
+        PHPUnit::assertLessThan($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function greaterThanOrEqual($expected, string $message = ''): self
     {
         PHPUnit::assertGreaterThanOrEqual($expected, $this->actual, $message);
@@ -298,14 +406,9 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is infinite.
-     *
-     * @param string $message
-     */
-    public function infinite(string $message = ''): self
+    public function lessThanOrEqual($expected, string $message = ''): self
     {
-        PHPUnit::assertInfinite($this->actual, $message);
+        PHPUnit::assertLessThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
@@ -317,13 +420,13 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type array.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
+    public function notInstanceOf(string $expected, string $message = ''): self
+    {
+        PHPUnit::assertNotInstanceOf($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function isArray(string $message = ''): self
     {
         PHPUnit::assertIsArray($this->actual, $message);
@@ -331,13 +434,13 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type bool.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
+    public function isNotArray(string $message = ''): self
+    {
+        PHPUnit::assertIsNotArray($this->actual, $message);
+
+        return $this;
+    }
+
     public function isBool(string $message = ''): self
     {
         PHPUnit::assertIsBool($this->actual, $message);
@@ -345,13 +448,13 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type callable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
+    public function isNotBool(string $message = ''): self
+    {
+        PHPUnit::assertIsNotBool($this->actual, $message);
+
+        return $this;
+    }
+
     public function isCallable(string $message = ''): self
     {
         PHPUnit::assertIsCallable($this->actual, $message);
@@ -359,13 +462,13 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type float.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
+    public function isNotCallable(string $message = ''): self
+    {
+        PHPUnit::assertIsNotCallable($this->actual, $message);
+
+        return $this;
+    }
+
     public function isFloat(string $message = ''): self
     {
         PHPUnit::assertIsFloat($this->actual, $message);
@@ -373,16 +476,23 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type int.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
+    public function isNotFloat(string $message = ''): self
+    {
+        PHPUnit::assertIsNotFloat($this->actual, $message);
+
+        return $this;
+    }
+
     public function isInt(string $message = ''): self
     {
         PHPUnit::assertIsInt($this->actual, $message);
+
+        return $this;
+    }
+
+    public function isNotInt(string $message = ''): self
+    {
+        PHPUnit::assertIsNotInt($this->actual, $message);
 
         return $this;
     }
@@ -402,76 +512,6 @@ class Assertion
     }
 
     /**
-     * Asserts that a variable is not of type array.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotArray(string $message = ''): self
-    {
-        PHPUnit::assertIsNotArray($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type bool.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotBool(string $message = ''): self
-    {
-        PHPUnit::assertIsNotBool($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type callable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotCallable(string $message = ''): self
-    {
-        PHPUnit::assertIsNotCallable($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type float.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotFloat(string $message = ''): self
-    {
-        PHPUnit::assertIsNotFloat($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type int.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotInt(string $message = ''): self
-    {
-        PHPUnit::assertIsNotInt($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Asserts that a variable is not of type iterable.
      *
      * @param string $message
@@ -485,86 +525,16 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is not of type numeric.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotNumeric(string $message = ''): self
-    {
-        PHPUnit::assertIsNotNumeric($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type object.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotObject(string $message = ''): self
-    {
-        PHPUnit::assertIsNotObject($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type resource.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotResource(string $message = ''): self
-    {
-        PHPUnit::assertIsNotResource($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type scalar.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotScalar(string $message = ''): self
-    {
-        PHPUnit::assertIsNotScalar($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type string.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotString(string $message = ''): self
-    {
-        PHPUnit::assertIsNotString($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is of type numeric.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isNumeric(string $message = ''): self
     {
         PHPUnit::assertIsNumeric($this->actual, $message);
+
+        return $this;
+    }
+
+    public function isNotNumeric(string $message = ''): self
+    {
+        PHPUnit::assertIsNotNumeric($this->actual, $message);
 
         return $this;
     }
@@ -583,6 +553,20 @@ class Assertion
         return $this;
     }
 
+    /**
+     * Asserts that a variable is not of type object.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotObject(string $message = ''): self
+    {
+        PHPUnit::assertIsNotObject($this->actual, $message);
+
+        return $this;
+    }
+
     public function isReadable(string $message = ''): self
     {
         PHPUnit::assertIsReadable($this->actual, $message);
@@ -590,13 +574,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type resource.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isResource(string $message = ''): self
     {
         PHPUnit::assertIsResource($this->actual, $message);
@@ -604,13 +581,13 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type scalar.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
+    public function isNotResource(string $message = ''): self
+    {
+        PHPUnit::assertIsNotResource($this->actual, $message);
+
+        return $this;
+    }
+
     public function isScalar(string $message = ''): self
     {
         PHPUnit::assertIsScalar($this->actual, $message);
@@ -618,16 +595,23 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type string.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
+    public function isNotScalar(string $message = ''): self
+    {
+        PHPUnit::assertIsNotScalar($this->actual, $message);
+
+        return $this;
+    }
+
     public function isString(string $message = ''): self
     {
         PHPUnit::assertIsString($this->actual, $message);
+
+        return $this;
+    }
+
+    public function isNotString(string $message = ''): self
+    {
+        PHPUnit::assertIsNotString($this->actual, $message);
 
         return $this;
     }
@@ -639,11 +623,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * Asserts that a string is a valid JSON string.
-     *
-     * @param string $message
-     */
     public function json(string $message = ''): self
     {
         PHPUnit::assertJson($this->actual, $message);
@@ -672,13 +651,6 @@ class Assertion
         return $this;
     }
 
-    public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
-    {
-        PHPUnit::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
-
-        return $this;
-    }
-
     public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         PHPUnit::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
@@ -686,151 +658,16 @@ class Assertion
         return $this;
     }
 
+    public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
+    {
+        PHPUnit::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
+
+        return $this;
+    }
+
     public function jsonStringNotEqualsJsonString($expectedJson, string $message = ''): self
     {
         PHPUnit::assertJsonStringNotEqualsJsonString($expectedJson, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function lessThan($expected, string $message = ''): self
-    {
-        PHPUnit::assertLessThan($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function lessThanOrEqual($expected, string $message = ''): self
-    {
-        PHPUnit::assertLessThanOrEqual($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is nan.
-     *
-     * @param string $message
-     */
-    public function nan(string $message = ''): self
-    {
-        PHPUnit::assertNan($this->actual, $message);
-
-        return $this;
-    }
-
-    public function notContainsEquals($needle, string $message = ''): self
-    {
-        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notContainsOnly($type, $isNativeType = null, string $message = ''): self
-    {
-        PHPUnit::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @param int    $expectedCount
-     * @param string $message
-     */
-    public function notCount(int $expectedCount, string $message = ''): self
-    {
-        PHPUnit::assertNotCount($expectedCount, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not empty.
-     *
-     * @param string $message
-     */
-    public function notEmpty(string $message = ''): self
-    {
-        PHPUnit::assertNotEmpty($this->actual, $message);
-
-        return $this;
-    }
-
-    public function notEquals($expected, string $message = ''): self
-    {
-        PHPUnit::assertNotEquals($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notEqualsCanonicalizing($expected, string $message = ''): self
-    {
-        PHPUnit::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notEqualsIgnoringCase($expected, string $message = ''): self
-    {
-        PHPUnit::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
-    {
-        PHPUnit::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
-
-        return $this;
-    }
-
-    public function notFalse(string $message = ''): self
-    {
-        PHPUnit::assertNotFalse($this->actual, $message);
-
-        return $this;
-    }
-
-    public function notInstanceOf(string $expected, string $message = ''): self
-    {
-        PHPUnit::assertNotInstanceOf($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notNull(string $message = ''): self
-    {
-        PHPUnit::assertNotNull($this->actual, $message);
-
-        return $this;
-    }
-
-    public function notSame($expected, string $message = ''): self
-    {
-        PHPUnit::assertNotSame($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notSameSize($expected, string $message = ''): self
-    {
-        PHPUnit::assertNotSameSize($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notTrue(string $message = ''): self
-    {
-        PHPUnit::assertNotTrue($this->actual, $message);
-
-        return $this;
-    }
-
-    public function null(string $message = ''): self
-    {
-        PHPUnit::assertNull($this->actual, $message);
 
         return $this;
     }
@@ -856,9 +693,23 @@ class Assertion
         return $this;
     }
 
+    public function notSame($expected, string $message = ''): self
+    {
+        PHPUnit::assertNotSame($expected, $this->actual, $message);
+
+        return $this;
+    }
+
     public function sameSize($expected, string $message = ''): self
     {
         PHPUnit::assertSameSize($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notSameSize($expected, string $message = ''): self
+    {
+        PHPUnit::assertNotSameSize($expected, $this->actual, $message);
 
         return $this;
     }
@@ -870,9 +721,93 @@ class Assertion
         return $this;
     }
 
+    public function stringNotContainsString(string $needle, string $message = ''): self
+    {
+        PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
+
+        return $this;
+    }
+
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
         PHPUnit::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
+    {
+        PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
+    {
+        PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringMatchesFormat($format, string $message = ''): self
+    {
+        PHPUnit::assertStringMatchesFormat($format, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotMatchesFormat($format, string $message = ''): self
+    {
+        PHPUnit::assertStringNotMatchesFormat($format, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringMatchesFormatFile($formatFile, string $message = ''): self
+    {
+        PHPUnit::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotMatchesFormatFile($formatFile, string $message = ''): self
+    {
+        PHPUnit::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringStartsWith($prefix, string $message = ''): self
+    {
+        PHPUnit::assertStringStartsWith($prefix, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringStartsNotWith($prefix, string $message = ''): self
+    {
+        PHPUnit::assertStringStartsNotWith($prefix, $this->actual, $message);
 
         return $this;
     }
@@ -887,97 +822,6 @@ class Assertion
     public function stringEndsWith($suffix, string $message = ''): self
     {
         PHPUnit::assertStringEndsWith($suffix, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringMatchesFormat($format, string $message = ''): self
-    {
-        PHPUnit::assertStringMatchesFormat($format, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringMatchesFormatFile($formatFile, string $message = ''): self
-    {
-        PHPUnit::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotContainsString(string $needle, string $message = ''): self
-    {
-        PHPUnit::assertStringNotContainsString($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
-    {
-        PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotMatchesFormat($format, string $message = ''): self
-    {
-        PHPUnit::assertStringNotMatchesFormat($format, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotMatchesFormatFile($formatFile, string $message = ''): self
-    {
-        PHPUnit::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringStartsNotWith($prefix, string $message = ''): self
-    {
-        PHPUnit::assertStringStartsNotWith($prefix, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringStartsWith($prefix, string $message = ''): self
-    {
-        PHPUnit::assertStringStartsWith($prefix, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function true(string $message = ''): self
-    {
-        PHPUnit::assertTrue($this->actual, $message);
 
         return $this;
     }
@@ -1003,16 +847,14 @@ class Assertion
         return $this;
     }
 
-    public function xmlStringEqualsXmlString($expectedXml, string $message = ''): self
+    public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        PHPUnit::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
-
         return $this;
     }
 
-    public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
+    public function xmlStringEqualsXmlString($expectedXml, string $message = ''): self
     {
-        PHPUnit::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
+        PHPUnit::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
     }
