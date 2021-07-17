@@ -371,13 +371,14 @@ trait PolyfillTrait
             );
         }
 
-        $reflMethod = $object->getMethod($method);
+        $thisMethod = $object->getMethod($method);
 
         /*
          * Comparator method parameter requirements validation.
          */
-        if ($reflMethod->getNumberOfParameters() !== 1
-            || $reflMethod->getNumberOfRequiredParameters() !== 1
+        if (
+            $thisMethod->getNumberOfParameters() !== 1
+            || $thisMethod->getNumberOfRequiredParameters() !== 1
         ) {
             throw new \Exception(
                 sprintf(
@@ -394,7 +395,7 @@ trait PolyfillTrait
             $method
         );
 
-        $parameter = $reflMethod->getParameters()[0];
+        $parameter = $thisMethod->getParameters()[0];
 
         if (! $parameter->hasType()) {
             throw new \Exception($noDeclaredTypeError);
