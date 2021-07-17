@@ -406,7 +406,7 @@ trait PolyfillTrait
             );
         }
 
-        $noDeclaredTypeError = sprintf(
+        $notDeclareParameterType = sprintf(
             'Parameter of comparison method %s::%s() does not have a declared type.',
             get_class($actual),
             $method
@@ -415,13 +415,13 @@ trait PolyfillTrait
         $parameter = $thisMethod->getParameters()[0];
 
         if (! $parameter->hasType()) {
-            throw new \Exception($noDeclaredTypeError);
+            throw new \Exception($notDeclareParameterType);
         }
 
         $type = $parameter->getType();
 
         if (! $type instanceof \ReflectionNamedType) {
-            throw new \Exception($noDeclaredTypeError);
+            throw new \Exception($notDeclareParameterType);
         }
 
         $typeName = $type->getName();
