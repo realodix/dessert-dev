@@ -4,11 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Exceptions\InvalidComparisonMethodException;
 use Realodix\NextProject\Support\Validator;
-use ReflectionNamedType;
-use ReflectionObject;
-use TypeError;
 
 trait PolyfillTrait
 {
@@ -337,10 +333,10 @@ trait PolyfillTrait
      * @param string $message      Optional failure message to display.
      * @param object $this->actual The value to test.
      *
-     * @throws TypeError                        When any of the passed arguments do not
-     *                                          meet the required type.
-     * @throws InvalidComparisonMethodException When the comparator method does not comply
-     *                                          with the requirements.
+     * @throws \TypeError When any of the passed arguments do not meet the required type.
+     * @throws \Exception When the comparator method does not comply with therequirements.
+     *                    PHPUnit natively throws a range of different exceptions. The
+     *                    polyfill throws just one exception type with different messages.
      *
      * @return void
      */
@@ -363,10 +359,10 @@ trait PolyfillTrait
         /*
          * Comparator method validation.
          */
-        $object = new ReflectionObject($actual);
+        $object = new \ReflectionObject($actual);
 
         if (! $object->hasMethod($method)) {
-            throw new InvalidComparisonMethodException(
+            throw new \Exception(
                 sprintf(
                     'Comparison method %s::%s() does not exist.',
                     get_class($actual),
@@ -383,7 +379,7 @@ trait PolyfillTrait
         if ($reflMethod->getNumberOfParameters() !== 1
             || $reflMethod->getNumberOfRequiredParameters() !== 1
         ) {
-            throw new InvalidComparisonMethodException(
+            throw new \Exception(
                 sprintf(
                     'Comparison method %s::%s() does not declare exactly one parameter.',
                     get_class($actual),
@@ -408,13 +404,13 @@ trait PolyfillTrait
         $parameter = $reflMethod->getParameters()[0];
 
         if (! $parameter->hasType()) {
-            throw new InvalidComparisonMethodException($noDeclaredTypeError);
+            throw new \Exception($noDeclaredTypeError);
         }
 
         $type = $parameter->getType();
 
-        if (! $type instanceof ReflectionNamedType) {
-            throw new InvalidComparisonMethodException($noDeclaredTypeError);
+        if (! $type instanceof \ReflectionNamedType) {
+            throw new \Exception($noDeclaredTypeError);
         }
 
         $typeName = $type->getName();
@@ -427,7 +423,7 @@ trait PolyfillTrait
         }
 
         if (! $expected instanceof $typeName) {
-            throw new InvalidComparisonMethodException($notAcceptableTypeError);
+            throw new \Exception($notAcceptableTypeError);
         }
 
         /*
@@ -436,7 +432,7 @@ trait PolyfillTrait
         $result = $actual->{$method}($expected);
 
         if (! is_bool($result)) {
-            throw new InvalidComparisonMethodException(
+            throw new \Exception(
                 sprintf(
                     'Comparison method %s::%s() does not return a boolean value.',
                     get_class($actual),
@@ -456,5 +452,7 @@ trait PolyfillTrait
         }
 
         PHPUnit::assertTrue($result, $msg);
+
+        return $this;
     }
 }
