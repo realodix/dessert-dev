@@ -11,7 +11,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 final class Markup
 {
     /**
-     * Assert that the given string contains an element matching the given selector
+     * Assert that the given string contains an element matching the given selector.
      *
      * @param string $selector A query selector for the element to find.
      * @param string $output   The output that should contain the $selector.
@@ -26,7 +26,7 @@ final class Markup
 
     /**
      * Assert that the given string does not contain an element matching the given
-     * selector
+     * selector.
      *
      * @param string $selector A query selector for the element to find.
      * @param string $output   The output that should not contain the $selector.
@@ -44,11 +44,15 @@ final class Markup
      *
      * @param string $contents The string to look for within the DOM node's contents.
      * @param string $selector A query selector for the element to find.
-     * @param mixed  $output
+     * @param string $output   The output that should contain the $selector.
      * @param string $message  A message to display if the assertion fails.
      */
-    public static function assertElementContains(string $contents, string $selector = '', $output = '', $message = '')
-    {
+    public static function assertElementContains(
+        string $contents,
+        string $selector = '',
+        string $output = '',
+        string $message = ''
+    ) {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         return PHPUnit::assertStringContainsString($contents, $matchedElements, $message);
@@ -62,8 +66,12 @@ final class Markup
      * @param string $output   The output that should not contain the $selector.
      * @param string $message  A message to display if the assertion fails.
      */
-    public static function assertElementNotContains(string $contents, string $selector = '', $output = '', $message = '')
-    {
+    public static function assertElementNotContains(
+        string $contents,
+        string $selector = '',
+        string $output = '',
+        string $message = ''
+    ) {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         return PHPUnit::assertStringNotContainsString($contents, $matchedElements, $message);
@@ -77,8 +85,12 @@ final class Markup
      * @param string $output   The output that should contain the $selector.
      * @param string $message  A message to display if the assertion fails.
      */
-    public static function assertElementRegExp(string $regexp, string $selector = '', $output = '', $message = '')
-    {
+    public static function assertElementRegExp(
+        string $regexp,
+        string $selector = '',
+        string $output = '',
+        string $message = ''
+    ) {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         return ass($matchedElements)->matchesRegularExpression($regexp, $message);
@@ -92,8 +104,12 @@ final class Markup
      * @param string $output   The output that should not contain the $selector.
      * @param string $message  A message to display if the assertion fails.
      */
-    public static function assertElementNotRegExp(string $regexp, string $selector = '', $output = '', $message = '')
-    {
+    public static function assertElementNotRegExp(
+        string $regexp,
+        string $selector = '',
+        string $output = '',
+        string $message = ''
+    ) {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         return ass($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
@@ -107,8 +123,11 @@ final class Markup
      *                           provided $attributes.
      * @param string $message    A message to display if the assertion fails.
      */
-    public static function assertHasElementWithAttributes(array $attributes = [], $output = '', $message = '')
-    {
+    public static function assertHasElementWithAttributes(
+        array $attributes = [],
+        string $output = '',
+        string $message = ''
+    ) {
         $attributes = '*'.self::flattenAttributeArray($attributes);
 
         return self::assertContainsSelector($attributes, $output, $message);
@@ -123,8 +142,11 @@ final class Markup
      *                           provided $attributes.
      * @param string $message    A message to display if the assertion fails.
      */
-    public static function assertNotHasElementWithAttributes(array $attributes = [], $output = '', $message = '')
-    {
+    public static function assertNotHasElementWithAttributes(
+        array $attributes = [],
+        string $output = '',
+        string $message = ''
+    ) {
         $attributes = '*'.self::flattenAttributeArray($attributes);
 
         return self::assertNotContainsSelector($attributes, $output, $message);
@@ -138,8 +160,12 @@ final class Markup
      * @param string $output   The markup to run the assertion against.
      * @param string $message  A message to display if the assertion fails.
      */
-    public static function assertSelectorCount(int $count, string $selector, $output = '', $message = '')
-    {
+    public static function assertSelectorCount(
+        int $count,
+        string $selector,
+        string $output = '',
+        string $message = ''
+    ) {
         $results = (new Query($output))->execute($selector);
 
         return PHPUnit::assertCount($count, $results, $message);
@@ -167,14 +193,15 @@ final class Markup
     }
 
     /**
-     * Given HTML markup and a DOM selector query, collect the innerHTML of the matched selectors.
+     * Given HTML markup and a DOM selector query, collect the innerHTML of the matched
+     * selectors.
      *
      * @param string $markup The HTML for the DOMDocument.
      * @param string $query  The DOM selector query.
      *
      * @return string The concatenated innerHTML of any matched selectors.
      */
-    protected static function getInnerHtmlOfMatchedElements(string $markup, string $query)
+    protected static function getInnerHtmlOfMatchedElements(string $markup, string $query): string
     {
         $results = (new Query($markup))->execute($query);
         $contents = [];
