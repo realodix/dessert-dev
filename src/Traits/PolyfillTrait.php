@@ -373,6 +373,30 @@ trait PolyfillTrait
 
         $thisMethod = $object->getMethod($method);
 
+        $notDeclareBoolReturnType = sprintf(
+            'Comparison method %s::%s() does not declare bool return type.',
+            get_class($actual),
+            $method
+        );
+
+        if (! $thisMethod->hasReturnType()) {
+            throw new \Exception($notDeclareBoolReturnType);
+        }
+
+        $returnType = $thisMethod->getReturnType();
+
+        if (! $returnType instanceof \ReflectionNamedType) {
+            throw new \Exception($notDeclareBoolReturnType);
+        }
+
+        if ($returnType->allowsNull()) {
+            throw new \Exception($notDeclareBoolReturnType);
+        }
+
+        if ($returnType->getName() !== 'bool') {
+            throw new \Exception($notDeclareBoolReturnType);
+        }
+
         /*
          * Comparator method parameter requirements validation.
          */
