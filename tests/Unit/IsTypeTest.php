@@ -44,10 +44,10 @@ final class IsTypeTest extends TestCase
         ass(new \stdClass)->isNotClosedResource();
 
         // isClosedResource() test for code coverage
-        (new \Realodix\NextProject\Support\IsType)
-            ->isClosedResource($resource);
-        (new \Realodix\NextProject\Support\IsType)
-            ->isClosedResource(null);
+        ass(\Realodix\NextProject\Support\Validator::isClosedResource($resource))
+            ->true();
+        ass(\Realodix\NextProject\Support\Validator::isClosedResource(null))
+            ->false();
     }
 
     /** @test */

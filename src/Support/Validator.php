@@ -8,6 +8,22 @@ namespace Realodix\NextProject\Support;
 final class Validator
 {
     /**
+     * Determines whether a variable represents a closed resource.
+     *
+     * @param mixed $actual The variable to test.
+     *
+     * @return bool
+     */
+    public static function isClosedResource($actual)
+    {
+        if (gettype($actual) === 'resource (closed)') {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Evaluates the constraint for parameter $other. Returns true if the constraint is
      * met, false otherwise.
      *
