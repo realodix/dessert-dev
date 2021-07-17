@@ -316,17 +316,10 @@ trait PolyfillTrait
      * Asserts that two objects are considered equal based on a custom object comparison
      * using a comparator method in the target object.
      *
-     * The custom comparator method is expected to have the following method signature:
-     * `equals(self $other): bool` (or similar with a different method name).
-     *
-     * Basically, the assertion checks the following:
-     * - A method with name $method must exist on the $actual object.
-     * - The method must accept exactly one argument and this argument must be required.
-     * - This parameter must have a classname-based declared type.
-     * - The $expected object must be compatible with this declared type.
-     * - The method must have a declared bool return type. (JRF: not verified in this
-     *   implementation)
-     * - `$actual->$method($expected)` returns boolean true.
+     * Reference:
+     * - https://phpunit.readthedocs.io/en/9.5/assertions.html#assertobjectequals
+     * - https://github.com/sebastianbergmann/phpunit/blob/9.5/src/Framework/Constraint/Object/ObjectEquals.php
+     * - https://github.com/sebastianbergmann/phpunit/issues/4467
      *
      * @param object $expected     Expected value.
      * @param string $method       The name of the comparator method within the object.
@@ -334,7 +327,7 @@ trait PolyfillTrait
      * @param object $this->actual The value to test.
      *
      * @throws \TypeError When any of the passed arguments do not meet the required type.
-     * @throws \Exception When the comparator method does not comply with therequirements.
+     * @throws \Exception When the comparator method does not comply with the requirements.
      *                    PHPUnit natively throws a range of different exceptions. The
      *                    polyfill throws just one exception type with different messages.
      *
@@ -373,28 +366,28 @@ trait PolyfillTrait
 
         $thisMethod = $object->getMethod($method);
 
-        $notDeclareBoolReturnType = sprintf(
+        $noDeclareBoolTypeError = sprintf(
             'Comparison method %s::%s() does not declare bool return type.',
             get_class($actual),
             $method
         );
 
         if (! $thisMethod->hasReturnType()) {
-            throw new \Exception($notDeclareBoolReturnType);
+            throw new \Exception($noDeclareBoolTypeError);
         }
 
         $returnType = $thisMethod->getReturnType();
 
         if (! $returnType instanceof \ReflectionNamedType) {
-            throw new \Exception($notDeclareBoolReturnType);
+            throw new \Exception($noDeclareBoolTypeError);
         }
 
         if ($returnType->allowsNull()) {
-            throw new \Exception($notDeclareBoolReturnType);
+            throw new \Exception($noDeclareBoolTypeError);
         }
 
         if ($returnType->getName() !== 'bool') {
-            throw new \Exception($notDeclareBoolReturnType);
+            throw new \Exception($noDeclareBoolTypeError);
         }
 
         /*
