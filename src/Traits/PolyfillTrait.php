@@ -472,6 +472,7 @@ trait PolyfillTrait
             PHPUnit::assertTrue($result, $msg);
 
             return $this;
+            // @codeCoverageIgnoreEnd
         }
 
         PHPUnit::assertObjectEquals($expected, $this->actual, $method, $message);
