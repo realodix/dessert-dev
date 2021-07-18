@@ -178,70 +178,6 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that a variable is of type resource and is closed.
-     *
-     * These methods were introduced in PHPUnit 9.3.0.
-     * - https://github.com/sebastianbergmann/phpunit/pull/4365
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isClosedResource(string $message = ''): self
-    {
-        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
-            // @codeCoverageIgnoreStart
-            if ($message === '') {
-                $message = sprintf(
-                    'Failed asserting that %s is of type "resource (closed)"',
-                    \var_export($this->actual, true)
-                );
-            }
-
-            PHPUnit::assertTrue(Validator::isClosedResource($this->actual), $message);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        PHPUnit::assertIsClosedResource($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that a variable is not of type resource or is an open resource.
-     *
-     * These methods were introduced in PHPUnit 9.3.0.
-     * - https://github.com/sebastianbergmann/phpunit/pull/4365
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotClosedResource(string $message = ''): self
-    {
-        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
-            // @codeCoverageIgnoreStart
-            if ($message === '') {
-                $message = sprintf(
-                    'Failed asserting that %s is not of type "resource (closed)"',
-                    \var_export($this->actual, true)
-                );
-            }
-
-            PHPUnit::assertFalse(Validator::isClosedResource($this->actual), $message);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        PHPUnit::assertIsNotClosedResource($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * Asserts that a file/dir exists and is not readable.
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotIsReadable(). The
@@ -351,6 +287,70 @@ trait PolyfillTrait
         }
 
         PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is of type resource and is closed.
+     *
+     * These methods were introduced in PHPUnit 9.3.0.
+     * - https://github.com/sebastianbergmann/phpunit/pull/4365
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isClosedResource(string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
+            // @codeCoverageIgnoreStart
+            if ($message === '') {
+                $message = sprintf(
+                    'Failed asserting that %s is of type "resource (closed)"',
+                    \var_export($this->actual, true)
+                );
+            }
+
+            PHPUnit::assertTrue(Validator::isClosedResource($this->actual), $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertIsClosedResource($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that a variable is not of type resource or is an open resource.
+     *
+     * These methods were introduced in PHPUnit 9.3.0.
+     * - https://github.com/sebastianbergmann/phpunit/pull/4365
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function isNotClosedResource(string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
+            // @codeCoverageIgnoreStart
+            if ($message === '') {
+                $message = sprintf(
+                    'Failed asserting that %s is not of type "resource (closed)"',
+                    \var_export($this->actual, true)
+                );
+            }
+
+            PHPUnit::assertFalse(Validator::isClosedResource($this->actual), $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertIsNotClosedResource($this->actual, $message);
 
         return $this;
     }
