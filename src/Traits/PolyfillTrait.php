@@ -157,6 +157,7 @@ trait PolyfillTrait
      * Asserts that a variable is of type resource and is closed.
      *
      * These methods were introduced in PHPUnit 9.3.0.
+     * - https://github.com/sebastianbergmann/phpunit/pull/4365
      *
      * @param string $message
      *
@@ -188,6 +189,7 @@ trait PolyfillTrait
      * Asserts that a variable is not of type resource or is an open resource.
      *
      * These methods were introduced in PHPUnit 9.3.0.
+     * - https://github.com/sebastianbergmann/phpunit/pull/4365
      *
      * @param string $message
      *
@@ -316,6 +318,9 @@ trait PolyfillTrait
     /**
      * Asserts that two objects are considered equal based on a custom object comparison
      * using a comparator method in the target object.
+     *
+     * These methods were introduced in PHPUnit 9.4.0.
+     * - https://github.com/sebastianbergmann/phpunit/issues/4467
      *
      * @param object $expected     Expected value.
      * @param string $method       The name of the comparator method within the object.
