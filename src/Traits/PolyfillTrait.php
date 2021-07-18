@@ -326,12 +326,13 @@ trait PolyfillTrait
      * @param string $message      Optional failure message to display.
      * @param object $this->actual The value to test.
      *
-     * @throws \TypeError When any of the passed arguments do not meet the required type.
-     * @throws \Exception When the comparator method does not comply with the requirements.
-     *                    PHPUnit natively throws a range of different exceptions. The
-     *                    polyfill throws just one exception type with different messages.
+     * @throws ExpectationFailedException
      *
-     * @return void
+     * PHPUnit natively throws a range of different exceptions. The polyfill throws just
+     * two exception type with different messages.
+     * @throws \ArgumentCountError
+     * @throws \ErrorException
+     * @throws \TypeError
      */
     public function objectEquals(object $expected, string $method = 'equals', string $message = '')
     {
@@ -357,7 +358,7 @@ trait PolyfillTrait
 
         if (! $object->hasMethod($method)) {
             // PHPUnit\Framework\ComparisonMethodDoesNotExistException
-            throw new \Exception(
+            throw new \ErrorException(
                 sprintf(
                     'Comparison method %s::%s() does not exist.',
                     get_class($actual),
@@ -376,21 +377,21 @@ trait PolyfillTrait
         );
 
         if (! $thisMethod->hasReturnType()) {
-            throw new \Exception($boolReturnTypeError);
+            throw new \TypeError($boolReturnTypeError);
         }
 
         $returnType = $thisMethod->getReturnType();
 
         if (! $returnType instanceof \ReflectionNamedType) {
-            throw new \Exception($boolReturnTypeError);
+            throw new \TypeError($boolReturnTypeError);
         }
 
         if ($returnType->allowsNull()) {
-            throw new \Exception($boolReturnTypeError);
+            throw new \TypeError($boolReturnTypeError);
         }
 
         if ($returnType->getName() !== 'bool') {
-            throw new \Exception($boolReturnTypeError);
+            throw new \TypeError($boolReturnTypeError);
         }
 
         /*
@@ -401,7 +402,7 @@ trait PolyfillTrait
             || $thisMethod->getNumberOfRequiredParameters() !== 1
         ) {
             // PHPUnit\Framework\ComparisonMethodDoesNotDeclareExactlyOneParameterException
-            throw new \Exception(
+            throw new \ArgumentCountError(
                 sprintf(
                     'Comparison method %s::%s() does not declare exactly one parameter.',
                     get_class($actual),
@@ -420,13 +421,13 @@ trait PolyfillTrait
         $parameter = $thisMethod->getParameters()[0];
 
         if (! $parameter->hasType()) {
-            throw new \Exception($parameterTypeError);
+            throw new \TypeError($parameterTypeError);
         }
 
         $type = $parameter->getType();
 
         if (! $type instanceof \ReflectionNamedType) {
-            throw new \Exception($parameterTypeError);
+            throw new \TypeError($parameterTypeError);
         }
 
         $typeName = $type->getName();
@@ -440,7 +441,7 @@ trait PolyfillTrait
 
         if (! $expected instanceof $typeName) {
             // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
-            throw new \Exception(
+            throw new \TypeError(
                 sprintf(
                     '%s is not an accepted argument type for comparison method %s::%s().',
                     get_class($actual),
