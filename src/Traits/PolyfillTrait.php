@@ -371,11 +371,9 @@ trait PolyfillTrait
     {
         if (version_compare(PHPUnitVersion::series(), '9.4', '<')) {
             // @codeCoverageIgnoreStart
-            PHPUnit::assertThat(
-                $this->actual,
-                new ObjectEquals($expected, $method),
-                $message
-            );
+            $constraint = new ObjectEquals($expected, $method);
+
+            PHPUnit::assertThat($this->actual, $constraint, $message);
 
             return $this;
             // @codeCoverageIgnoreEnd
