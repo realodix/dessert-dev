@@ -45,7 +45,7 @@ final class ConstraintObjectEquals extends Constraint
             throw new \TypeError(
                 sprintf(
                     'An actual value must be an object, %s given',
-                    gettype($actual)
+                    gettype($other)
                 )
             );
         }
@@ -53,68 +53,75 @@ final class ConstraintObjectEquals extends Constraint
         $object = new ReflectionObject($other);
 
         if (!$object->hasMethod($this->method)) {
-            throw new ComparisonMethodDoesNotExistException(
-                get_class($other),
-                $this->method
+            // PHPUnit\Framework\ComparisonMethodDoesNotExistException
+            throw new \ErrorException(
+                sprintf(
+                    'Comparison method %s::%s() does not exist.',
+                    get_class($other),
+                    $this->method
+                )
             );
         }
 
         /** @noinspection PhpUnhandledExceptionInspection */
         $method = $object->getMethod($this->method);
 
+        // PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException
+        $boolReturnTypeError = sprintf(
+            'Comparison method %s::%s() does not declare bool return type.',
+            get_class($other),
+            $this->method
+        );
+
         if (!$method->hasReturnType()) {
-            throw new ComparisonMethodDoesNotDeclareBoolReturnTypeException(
-                get_class($other),
-                $this->method
-            );
+            throw new \TypeError($boolReturnTypeError);
         }
 
         $returnType = $method->getReturnType();
 
         if (!$returnType instanceof ReflectionNamedType) {
-            throw new ComparisonMethodDoesNotDeclareBoolReturnTypeException(
-                get_class($other),
-                $this->method
-            );
+            throw new \TypeError($boolReturnTypeError);
         }
 
         if ($returnType->allowsNull()) {
-            throw new ComparisonMethodDoesNotDeclareBoolReturnTypeException(
-                get_class($other),
-                $this->method
-            );
+            throw new \TypeError($boolReturnTypeError);
         }
 
         if ($returnType->getName() !== 'bool') {
-            throw new ComparisonMethodDoesNotDeclareBoolReturnTypeException(
-                get_class($other),
-                $this->method
-            );
+            throw new \TypeError($boolReturnTypeError);
         }
 
-        if ($method->getNumberOfParameters() !== 1 || $method->getNumberOfRequiredParameters() !== 1) {
-            throw new ComparisonMethodDoesNotDeclareExactlyOneParameterException(
-                get_class($other),
-                $this->method
+        if (
+            $method->getNumberOfParameters() !== 1
+            || $method->getNumberOfRequiredParameters() !== 1
+        ) {
+            // PHPUnit\Framework\ComparisonMethodDoesNotDeclareExactlyOneParameterException
+            throw new \ArgumentCountError(
+                sprintf(
+                    'Comparison method %s::%s() does not declare exactly one parameter.',
+                    get_class($other),
+                    $this->method
+                )
             );
         }
 
         $parameter = $method->getParameters()[0];
 
+        // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
+        $parameterTypeError = sprintf(
+            'Parameter of comparison method %s::%s() does not have a declared type.',
+            get_class($other),
+            $this->method
+        );
+
         if (!$parameter->hasType()) {
-            throw new ComparisonMethodDoesNotDeclareParameterTypeException(
-                get_class($other),
-                $this->method
-            );
+            throw new \TypeError($parameterTypeError);
         }
 
         $type = $parameter->getType();
 
         if (!$type instanceof ReflectionNamedType) {
-            throw new ComparisonMethodDoesNotDeclareParameterTypeException(
-                get_class($other),
-                $this->method
-            );
+            throw new \TypeError($parameterTypeError);
         }
 
         $typeName = $type->getName();
