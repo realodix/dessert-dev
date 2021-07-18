@@ -2,10 +2,7 @@
 
 namespace Realodix\NextProject\Support\Constraint;
 
-use function is_object;
 use PHPUnit\Framework\Constraint\Constraint;
-use ReflectionNamedType;
-use ReflectionObject;
 
 /**
  * Reference:
@@ -60,7 +57,7 @@ final class ObjectEquals extends Constraint
             );
         }
 
-        $object = new ReflectionObject($other);
+        $object = new \ReflectionObject($other);
 
         if (! $object->hasMethod($this->method)) {
             // PHPUnit\Framework\ComparisonMethodDoesNotExistException
@@ -89,7 +86,7 @@ final class ObjectEquals extends Constraint
 
         $returnType = $method->getReturnType();
 
-        if (! $returnType instanceof ReflectionNamedType) {
+        if (! $returnType instanceof \ReflectionNamedType) {
             throw new \TypeError($boolReturnTypeError);
         }
 
@@ -130,7 +127,7 @@ final class ObjectEquals extends Constraint
 
         $type = $parameter->getType();
 
-        if (! $type instanceof ReflectionNamedType) {
+        if (! $type instanceof \ReflectionNamedType) {
             throw new \TypeError($parameterTypeError);
         }
 
