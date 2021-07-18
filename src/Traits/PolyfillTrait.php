@@ -14,7 +14,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotExists().
      * The original methods these new methods replace were hard deprecated in PHPUnit
-     * 9.1.0 and (will be) removed in PHPUnit 10.0.0.
+     * 9.1.0 and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4067
+     * - https://github.com/sebastianbergmann/phpunit/issues/4069
      *
      * @param string $message
      */
@@ -38,7 +42,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotIsReadable().
      * The original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and (will be) removed in PHPUnit 10.0.0.
+     * and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4070
+     * - https://github.com/sebastianbergmann/phpunit/issues/4072
      *
      * @param string $message
      */
@@ -62,7 +70,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotIsWritable()
      * The original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and (will be) removed in PHPUnit 10.0.0.
+     * and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4073
+     * - https://github.com/sebastianbergmann/phpunit/issues/4075
      *
      * @param string $message
      */
@@ -86,7 +98,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotExists(). The
      * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and (will be) removed in PHPUnit 10.0.0.
+     * and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4076
+     * - https://github.com/sebastianbergmann/phpunit/issues/4078
      *
      * @param string $message
      */
@@ -110,7 +126,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotIsReadable().
      * The original methods these new methods replace were hard deprecated in PHPUnit
-     * 9.1.0 and (will be) removed in PHPUnit 10.0.0.
+     * 9.1.0 and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4079
+     * - https://github.com/sebastianbergmann/phpunit/issues/4081
      *
      * @param string $message
      */
@@ -134,7 +154,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotIsWritable().
      * The original methods these new methods replace were hard deprecated in PHPUnit
-     * 9.1.0 and (will be) removed in PHPUnit 10.0.0.
+     * 9.1.0 and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4082
+     * - https://github.com/sebastianbergmann/phpunit/issues/4536
      *
      * @param string $message
      */
@@ -222,7 +246,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotIsReadable(). The
      * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and (will be) removed in PHPUnit 10.0.0.
+     * and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4061
+     * - https://github.com/sebastianbergmann/phpunit/issues/4063
      *
      * @param string $message
      */
@@ -246,7 +274,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotIsWritable(). The
      * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and (will be) removed in PHPUnit 10.0.0.
+     * and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4064
+     * - https://github.com/sebastianbergmann/phpunit/issues/4066
      *
      * @param string $message
      */
@@ -269,8 +301,12 @@ trait PolyfillTrait
      * Asserts that a string matches a given regular expression.
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertRegExp(). The original
-     * methods these new methods replace were hard deprecated in PHPUnit 9.1.0 and (will
-     * be) removed in PHPUnit 10.0.0.
+     * methods these new methods replace were hard deprecated in PHPUnit 9.1.0 and removed
+     * in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4085
+     * - https://github.com/sebastianbergmann/phpunit/issues/4087
      *
      * @param string $pattern
      * @param string $message
@@ -295,7 +331,11 @@ trait PolyfillTrait
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotRegExp(). The
      * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and (will be) removed in PHPUnit 10.0.0.
+     * and removed in PHPUnit 10.0.0.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4088
+     * - https://github.com/sebastianbergmann/phpunit/issues/4090
      *
      * @param string $pattern
      * @param string $message
