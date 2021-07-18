@@ -37,7 +37,7 @@ final class ObjectEquals extends Constraint
 
     /**
      * PHPUnit natively throws a range of different exceptions. The polyfill throws just
-     * two exception type with different messages.
+     * three exception type with different messages.
      *
      * @param mixed $other
      *
