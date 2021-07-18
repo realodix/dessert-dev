@@ -338,135 +338,143 @@ trait PolyfillTrait
     {
         $actual = $this->actual;
 
-        /*
-         * Parameter input validation.
-         */
-        if (! is_object($actual)) {
-            // PHPUnit\Framework\ActualValueIsNotAnObjectException
-            throw new \TypeError(
-                sprintf(
-                    'An actual value must be an object, %s given',
-                    gettype($actual)
-                )
+        if (version_compare(PHPUnitVersion::series(), '9.4', '<')) {
+            // @codeCoverageIgnoreStart
+
+            /*
+            * Parameter input validation.
+            */
+            if (! is_object($actual)) {
+                // PHPUnit\Framework\ActualValueIsNotAnObjectException
+                throw new \TypeError(
+                    sprintf(
+                        'An actual value must be an object, %s given',
+                        gettype($actual)
+                    )
+                );
+            }
+
+            /*
+            * Comparator method validation.
+            */
+            $object = new \ReflectionObject($actual);
+
+            if (! $object->hasMethod($method)) {
+                // PHPUnit\Framework\ComparisonMethodDoesNotExistException
+                throw new \ErrorException(
+                    sprintf(
+                        'Comparison method %s::%s() does not exist.',
+                        get_class($actual),
+                        $method
+                    )
+                );
+            }
+
+            $thisMethod = $object->getMethod($method);
+
+            // PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException
+            $boolReturnTypeError = sprintf(
+                'Comparison method %s::%s() does not declare bool return type.',
+                get_class($actual),
+                $method
             );
-        }
 
-        /*
-         * Comparator method validation.
-         */
-        $object = new \ReflectionObject($actual);
+            if (! $thisMethod->hasReturnType()) {
+                throw new \TypeError($boolReturnTypeError);
+            }
 
-        if (! $object->hasMethod($method)) {
-            // PHPUnit\Framework\ComparisonMethodDoesNotExistException
-            throw new \ErrorException(
-                sprintf(
-                    'Comparison method %s::%s() does not exist.',
-                    get_class($actual),
-                    $method
-                )
-            );
-        }
+            $returnType = $thisMethod->getReturnType();
 
-        $thisMethod = $object->getMethod($method);
+            if (! $returnType instanceof \ReflectionNamedType) {
+                throw new \TypeError($boolReturnTypeError);
+            }
 
-        // PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException
-        $boolReturnTypeError = sprintf(
-            'Comparison method %s::%s() does not declare bool return type.',
-            get_class($actual),
-            $method
-        );
+            if ($returnType->allowsNull()) {
+                throw new \TypeError($boolReturnTypeError);
+            }
 
-        if (! $thisMethod->hasReturnType()) {
-            throw new \TypeError($boolReturnTypeError);
-        }
+            if ($returnType->getName() !== 'bool') {
+                throw new \TypeError($boolReturnTypeError);
+            }
 
-        $returnType = $thisMethod->getReturnType();
+            /*
+            * Comparator method parameter requirements validation.
+            */
+            if (
+                $thisMethod->getNumberOfParameters() !== 1
+                || $thisMethod->getNumberOfRequiredParameters() !== 1
+            ) {
+                // PHPUnit\Framework\ComparisonMethodDoesNotDeclareExactlyOneParameterException
+                throw new \ArgumentCountError(
+                    sprintf(
+                        'Comparison method %s::%s() does not declare exactly one parameter.',
+                        get_class($actual),
+                        $method
+                    )
+                );
+            }
 
-        if (! $returnType instanceof \ReflectionNamedType) {
-            throw new \TypeError($boolReturnTypeError);
-        }
-
-        if ($returnType->allowsNull()) {
-            throw new \TypeError($boolReturnTypeError);
-        }
-
-        if ($returnType->getName() !== 'bool') {
-            throw new \TypeError($boolReturnTypeError);
-        }
-
-        /*
-         * Comparator method parameter requirements validation.
-         */
-        if (
-            $thisMethod->getNumberOfParameters() !== 1
-            || $thisMethod->getNumberOfRequiredParameters() !== 1
-        ) {
-            // PHPUnit\Framework\ComparisonMethodDoesNotDeclareExactlyOneParameterException
-            throw new \ArgumentCountError(
-                sprintf(
-                    'Comparison method %s::%s() does not declare exactly one parameter.',
-                    get_class($actual),
-                    $method
-                )
-            );
-        }
-
-        // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
-        $parameterTypeError = sprintf(
-            'Parameter of comparison method %s::%s() does not have a declared type.',
-            get_class($actual),
-            $method
-        );
-
-        $parameter = $thisMethod->getParameters()[0];
-
-        if (! $parameter->hasType()) {
-            throw new \TypeError($parameterTypeError);
-        }
-
-        $type = $parameter->getType();
-
-        if (! $type instanceof \ReflectionNamedType) {
-            throw new \TypeError($parameterTypeError);
-        }
-
-        $typeName = $type->getName();
-
-        /*
-         * Validate that the $expected object complies with the declared parameter type.
-         */
-        if ($typeName === 'self') {
-            $typeName = get_class($actual);
-        }
-
-        if (! $expected instanceof $typeName) {
             // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
-            throw new \TypeError(
-                sprintf(
-                    '%s is not an accepted argument type for comparison method %s::%s().',
-                    get_class($actual),
-                    get_class($actual),
-                    $method
-                )
+            $parameterTypeError = sprintf(
+                'Parameter of comparison method %s::%s() does not have a declared type.',
+                get_class($actual),
+                $method
             );
+
+            $parameter = $thisMethod->getParameters()[0];
+
+            if (! $parameter->hasType()) {
+                throw new \TypeError($parameterTypeError);
+            }
+
+            $type = $parameter->getType();
+
+            if (! $type instanceof \ReflectionNamedType) {
+                throw new \TypeError($parameterTypeError);
+            }
+
+            $typeName = $type->getName();
+
+            /*
+            * Validate that the $expected object complies with the declared parameter type.
+            */
+            if ($typeName === 'self') {
+                $typeName = get_class($actual);
+            }
+
+            if (! $expected instanceof $typeName) {
+                // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
+                throw new \TypeError(
+                    sprintf(
+                        '%s is not an accepted argument type for comparison method %s::%s().',
+                        get_class($actual),
+                        get_class($actual),
+                        $method
+                    )
+                );
+            }
+
+            /*
+            * Execute the comparator method.
+            */
+            $result = $actual->{$method}($expected);
+
+            $msg = sprintf(
+                'Failed asserting that two objects are equal. The objects are not equal according to %s::%s()',
+                get_class($actual),
+                $method
+            );
+
+            if ($message !== '') {
+                $msg = $message.\PHP_EOL.$msg;
+            }
+
+            PHPUnit::assertTrue($result, $msg);
+
+            return $this;
         }
 
-        /*
-         * Execute the comparator method.
-         */
-        $result = $actual->{$method}($expected);
-
-        $msg = sprintf(
-            'Failed asserting that two objects are equal. The objects are not equal according to %s::%s()',
-            get_class($actual),
-            $method
-        );
-
-        if ($message !== '') {
-            $msg = $message.\PHP_EOL.$msg;
-        }
-
-        PHPUnit::assertTrue($result, $msg);
+        PHPUnit::assertObjectEquals($expected, $this->actual, $method, $message);
 
         return $this;
     }
