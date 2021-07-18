@@ -3,11 +3,16 @@
 namespace Realodix\NextProject\Support;
 
 use function is_object;
+use PHPUnit\Framework\Constraint\Constraint;
 use ReflectionNamedType;
 use ReflectionObject;
-use PHPUnit\Framework\Constraint\Constraint;
 
 /**
+ * Reference:
+ * - https://phpunit.readthedocs.io/en/9.5/assertions.html#assertobjectequals
+ * - https://github.com/sebastianbergmann/phpunit/blob/9.5/src/Framework/Constraint/Object/ObjectEquals.php
+ * - https://github.com/sebastianbergmann/phpunit/issues/4467
+ *
  * @internal
  */
 final class ConstraintObjectEquals extends Constraint
@@ -25,7 +30,7 @@ final class ConstraintObjectEquals extends Constraint
     public function __construct(object $object, string $method = 'equals')
     {
         $this->expected = $object;
-        $this->method   = $method;
+        $this->method = $method;
     }
 
     public function toString(): string
@@ -34,13 +39,18 @@ final class ConstraintObjectEquals extends Constraint
     }
 
     /**
+     * PHPUnit natively throws a range of different exceptions. The polyfill throws just
+     * two exception type with different messages.
+     *
+     * @param mixed $other
+     *
      * @throws \ArgumentCountError
      * @throws \ErrorException
      * @throws \TypeError
      */
     protected function matches($other): bool
     {
-        if (!is_object($other)) {
+        if (! is_object($other)) {
             // PHPUnit\Framework\ActualValueIsNotAnObjectException
             throw new \TypeError(
                 sprintf(
@@ -52,7 +62,7 @@ final class ConstraintObjectEquals extends Constraint
 
         $object = new ReflectionObject($other);
 
-        if (!$object->hasMethod($this->method)) {
+        if (! $object->hasMethod($this->method)) {
             // PHPUnit\Framework\ComparisonMethodDoesNotExistException
             throw new \ErrorException(
                 sprintf(
@@ -73,13 +83,13 @@ final class ConstraintObjectEquals extends Constraint
             $this->method
         );
 
-        if (!$method->hasReturnType()) {
+        if (! $method->hasReturnType()) {
             throw new \TypeError($boolReturnTypeError);
         }
 
         $returnType = $method->getReturnType();
 
-        if (!$returnType instanceof ReflectionNamedType) {
+        if (! $returnType instanceof ReflectionNamedType) {
             throw new \TypeError($boolReturnTypeError);
         }
 
@@ -114,13 +124,13 @@ final class ConstraintObjectEquals extends Constraint
             $this->method
         );
 
-        if (!$parameter->hasType()) {
+        if (! $parameter->hasType()) {
             throw new \TypeError($parameterTypeError);
         }
 
         $type = $parameter->getType();
 
-        if (!$type instanceof ReflectionNamedType) {
+        if (! $type instanceof ReflectionNamedType) {
             throw new \TypeError($parameterTypeError);
         }
 
@@ -130,7 +140,7 @@ final class ConstraintObjectEquals extends Constraint
             $typeName = get_class($other);
         }
 
-        if (!$this->expected instanceof $typeName) {
+        if (! $this->expected instanceof $typeName) {
             throw new ComparisonMethodDoesNotAcceptParameterTypeException(
                 get_class($other),
                 $this->method,

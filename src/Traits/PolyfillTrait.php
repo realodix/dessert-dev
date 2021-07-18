@@ -4,8 +4,8 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Support\Validator;
 use Realodix\NextProject\Support\ConstraintObjectEquals;
+use Realodix\NextProject\Support\Validator;
 
 trait PolyfillTrait
 {
@@ -326,23 +326,13 @@ trait PolyfillTrait
      * @param string $method       The name of the comparator method within the object.
      * @param string $message      Optional failure message to display.
      * @param object $this->actual The value to test.
-     *
-     * @throws ExpectationFailedException
-     *
-     * PHPUnit natively throws a range of different exceptions. The polyfill throws just
-     * two exception type with different messages.
-     * @throws \ArgumentCountError
-     * @throws \ErrorException
-     * @throws \TypeError
      */
     public function objectEquals(object $expected, string $method = 'equals', string $message = '')
     {
-        $actual = $this->actual;
-
         if (version_compare(PHPUnitVersion::series(), '9.4', '<')) {
             // @codeCoverageIgnoreStart
             PHPUnit::assertThat(
-                $actual,
+                $this->actual,
                 new ConstraintObjectEquals($expected, $method),
                 $message
             );
