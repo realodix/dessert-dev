@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Support;
+namespace Realodix\NextProject\Support\Constraint;
 
 use function is_object;
 use PHPUnit\Framework\Constraint\Constraint;
@@ -15,7 +15,7 @@ use ReflectionObject;
  *
  * @internal
  */
-final class ConstraintObjectEquals extends Constraint
+final class ObjectEquals extends Constraint
 {
     /**
      * @var object

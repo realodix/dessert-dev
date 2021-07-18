@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Support\ConstraintObjectEquals;
+use Realodix\NextProject\Support\Constraint\ObjectEquals;
 use Realodix\NextProject\Support\Validator;
 
 trait PolyfillTrait
@@ -317,11 +317,6 @@ trait PolyfillTrait
      * Asserts that two objects are considered equal based on a custom object comparison
      * using a comparator method in the target object.
      *
-     * Reference:
-     * - https://phpunit.readthedocs.io/en/9.5/assertions.html#assertobjectequals
-     * - https://github.com/sebastianbergmann/phpunit/blob/9.5/src/Framework/Constraint/Object/ObjectEquals.php
-     * - https://github.com/sebastianbergmann/phpunit/issues/4467
-     *
      * @param object $expected     Expected value.
      * @param string $method       The name of the comparator method within the object.
      * @param string $message      Optional failure message to display.
@@ -333,7 +328,7 @@ trait PolyfillTrait
             // @codeCoverageIgnoreStart
             PHPUnit::assertThat(
                 $this->actual,
-                new ConstraintObjectEquals($expected, $method),
+                new ObjectEquals($expected, $method),
                 $message
             );
 
