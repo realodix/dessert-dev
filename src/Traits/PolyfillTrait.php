@@ -340,7 +340,7 @@ trait PolyfillTrait
         $actual = $this->actual;
 
         if (version_compare(PHPUnitVersion::series(), '9.4', '<')) {
-
+            // @codeCoverageIgnoreStart
             PHPUnit::assertThat(
                 $actual,
                 new ConstraintObjectEquals($expected, $method),
