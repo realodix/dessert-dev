@@ -7,6 +7,7 @@ use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Modified;
 use Realodix\NextProject\Support\Str;
