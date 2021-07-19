@@ -33,7 +33,7 @@
             "tests/bootstrap.php"
         ],
         "psr-4": {
-            "Realodix\\NextProject\\Test\\": ["tests", "tests/unit"]
+            "Realodix\\NextProject\\Test\\": ["tests", "tests/Unit"]
         }
     },
     "extra": {
