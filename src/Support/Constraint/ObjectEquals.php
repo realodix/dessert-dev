@@ -36,7 +36,7 @@ final class ObjectEquals extends Constraint
     }
 
     /**
-     * @param mixed $other
+     * @param mixed $actual
      *
      * PHPUnit natively throws a range of different exceptions. The polyfill throws just
      * three exception type with different messages.
@@ -45,26 +45,26 @@ final class ObjectEquals extends Constraint
      * @throws \ErrorException
      * @throws \TypeError
      */
-    protected function matches($other): bool
+    protected function matches($actual): bool
     {
-        if (! is_object($other)) {
+        if (! is_object($actual)) {
             // PHPUnit\Framework\ActualValueIsNotAnObjectException
             throw new \TypeError(
                 sprintf(
                     'An actual value must be an object, %s given',
-                    gettype($other)
+                    gettype($actual)
                 )
             );
         }
 
-        $object = new \ReflectionObject($other);
+        $object = new \ReflectionObject($actual);
 
         if (! $object->hasMethod($this->method)) {
             // PHPUnit\Framework\ComparisonMethodDoesNotExistException
             throw new \ErrorException(
                 sprintf(
                     'Comparison method %s::%s() does not exist.',
-                    get_class($other),
+                    get_class($actual),
                     $this->method
                 )
             );
@@ -76,7 +76,7 @@ final class ObjectEquals extends Constraint
         // PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException
         $boolReturnTypeError = sprintf(
             'Comparison method %s::%s() does not declare bool return type.',
-            get_class($other),
+            get_class($actual),
             $this->method
         );
 
@@ -106,7 +106,7 @@ final class ObjectEquals extends Constraint
             throw new \ArgumentCountError(
                 sprintf(
                     'Comparison method %s::%s() does not declare exactly one parameter.',
-                    get_class($other),
+                    get_class($actual),
                     $this->method
                 )
             );
@@ -117,7 +117,7 @@ final class ObjectEquals extends Constraint
         // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
         $parameterTypeError = sprintf(
             'Parameter of comparison method %s::%s() does not have a declared type.',
-            get_class($other),
+            get_class($actual),
             $this->method
         );
 
@@ -134,21 +134,24 @@ final class ObjectEquals extends Constraint
         $typeName = $type->getName();
 
         if ($typeName === 'self') {
-            $typeName = get_class($other);
+            $typeName = get_class($actual);
         }
 
         if (! $this->expected instanceof $typeName) {
             throw new \TypeError(
-                get_class($other),
-                $this->method,
-                get_class($this->expected)
+                sprintf(
+                    '%s is not an accepted argument type for comparison method %s::%s().',
+                    get_class($this->expected),
+                    get_class($actual),
+                    $this->method
+                )
             );
         }
 
-        return $other->{$this->method}($this->expected);
+        return $actual->{$this->method}($this->expected);
     }
 
-    protected function failureDescription($other): string
+    protected function failureDescription($actual): string
     {
         return $this->toString();
     }
