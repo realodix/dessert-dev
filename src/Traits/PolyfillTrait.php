@@ -3,10 +3,9 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Runner\Version as PHPUnitVersion;
-use Realodix\NextProject\Support\Constraint\IsType;
 use Realodix\NextProject\Support\Constraint\ObjectEquals;
+use Realodix\NextProject\Support\Validator;
 
 trait PolyfillTrait
 {
@@ -306,9 +305,14 @@ trait PolyfillTrait
     {
         if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
             // @codeCoverageIgnoreStart
-            $constraint = new IsType(IsType::TYPE_CLOSED_RESOURCE);
+            if ($message === '') {
+                $message = sprintf(
+                    'Failed asserting that %s is of type "resource (closed)"',
+                    \var_export($this->actual, true)
+                );
+            }
 
-            PHPUnit::assertThat($this->actual, $constraint, $message);
+            PHPUnit::assertTrue(Validator::isClosedResource($this->actual), $message);
 
             return $this;
             // @codeCoverageIgnoreEnd
@@ -333,9 +337,14 @@ trait PolyfillTrait
     {
         if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
             // @codeCoverageIgnoreStart
-            $constraint = new LogicalNot(new IsType(IsType::TYPE_CLOSED_RESOURCE));
+            if ($message === '') {
+                $message = sprintf(
+                    'Failed asserting that %s is not of type "resource (closed)"',
+                    \var_export($this->actual, true)
+                );
+            }
 
-            PHPUnit::assertThat($this->actual, $constraint, $message);
+            PHPUnit::assertFalse(Validator::isClosedResource($this->actual), $message);
 
             return $this;
             // @codeCoverageIgnoreEnd

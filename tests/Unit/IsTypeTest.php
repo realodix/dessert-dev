@@ -42,6 +42,12 @@ final class IsTypeTest extends TestCase
         ass(null)->isNotClosedResource();
         ass(['array'])->isNotClosedResource();
         ass(new \stdClass)->isNotClosedResource();
+
+        // isClosedResource() test for code coverage
+        ass(\Realodix\NextProject\Support\Validator::isClosedResource($resource))
+            ->true();
+        ass(\Realodix\NextProject\Support\Validator::isClosedResource(null))
+            ->false();
     }
 
     /** @test */
