@@ -4,13 +4,11 @@ namespace Realodix\NextProject;
 
 /**
  * @internal
- *
- * @mixin Expectation
  */
 final class Each
 {
     /**
-     * @var Expectation
+     * @var Assertion
      */
     private $original;
 

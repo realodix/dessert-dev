@@ -54,6 +54,14 @@ class Assertion
     }
 
     /**
+     * Creates the opposite expectation for the value.
+     */
+    public function not(): Opposite
+    {
+        return new Opposite($this);
+    }
+
+    /**
      * Asserts that an array has a specified key.
      *
      * @param int|string $key
