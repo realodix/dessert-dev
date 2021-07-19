@@ -8,22 +8,6 @@ namespace Realodix\NextProject\Support;
 final class Validator
 {
     /**
-     * Determines whether a variable represents a closed resource.
-     *
-     * @param mixed $value The variable being type checked
-     *
-     * @return bool
-     */
-    public static function isClosedResource($value): bool
-    {
-        if (gettype($value) === 'resource (closed)') {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Check if a string is valid JSON
      *
      * @param string $value
