@@ -4,9 +4,6 @@ namespace Realodix\NextProject\Test;
 
 trait ExtendedTestProvider
 {
-    /**
-     * Data provider for test markupContainsSelector().
-     */
     public function markupContainsSelectorProvider()
     {
         return [
@@ -20,7 +17,7 @@ trait ExtendedTestProvider
         ];
     }
 
-    public function dataAssertStringContainsStringIgnoringLineEndings(): array
+    public function stringContainsStringIgnoringLineEndingsProvider(): array
     {
         return [
             ["b\nc", "b\r\nc"],
@@ -28,7 +25,7 @@ trait ExtendedTestProvider
         ];
     }
 
-    public function dataAssertStringEqualIgnoringLineEndings(): array
+    public function stringEqualIgnoringLineEndingsProvider(): array
     {
         return [
             'lf-crlf'   => ["a\nb", "a\r\nb"],
@@ -43,7 +40,7 @@ trait ExtendedTestProvider
         ];
     }
 
-    public function dataNotAssertStringEqualIgnoringLineEndings(): array
+    public function stringEqualIgnoringLineEndingsFailProvider(): array
     {
         return [
             ["a\nb", 'ab'],

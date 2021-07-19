@@ -13,16 +13,18 @@
 [xmlSEXF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertxmlstringequalsxmlfile
 
 ## Extended Assertions 
-| Assertions                            |
-| ------------------------------------- | 
-| `stringEquals()`                      | 
-| `stringNotEquals()`                   | 
-| `markupContainsSelector()`            | 
-| `markupNotContainsSelector()`         | 
-| `markupElementContains()`             | 
-| `markupElementNotContains()`          | 
-| `markupElementRegExp()`               | 
-| `markupElementNotRegExp()`            | 
-| `markupHasElementWithAttributes()`    | 
-| `markupNotHasElementWithAttributes()` | 
-| `markupSelectorCount()`               | 
+| Assertions                                  |
+| ------------------------------------------- |
+| `stringEquals()`                            |
+| `stringNotEquals()`                         |
+| `stringContainsStringIgnoringLineEndings()` |
+| `stringEqualIgnoringLineEndings()`          |
+| `markupContainsSelector()`                  |
+| `markupNotContainsSelector()`               |
+| `markupElementContains()`                   |
+| `markupElementNotContains()`                |
+| `markupElementRegExp()`                     |
+| `markupElementNotRegExp()`                  |
+| `markupHasElementWithAttributes()`          |
+| `markupNotHasElementWithAttributes()`       |
+| `markupSelectorCount()`                     |

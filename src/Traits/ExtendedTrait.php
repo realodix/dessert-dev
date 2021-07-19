@@ -78,6 +78,44 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Asserts string contains string ignoring line endings
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/pull/4670
+     *
+     * @param string $needle
+     * @param string $message
+     */
+    public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
+    {
+        $needle = Str::normalizeLineEndings($needle);
+        $haystack = Str::normalizeLineEndings($this->actual);
+
+        PHPUnit::assertThat($haystack, new StringContains($needle, false), $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that two strings equality ignoring line endings
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/pull/4670
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
+    {
+        $expected = Str::normalizeLineEndings($expected);
+        $actual = Str::normalizeLineEndings($this->actual);
+
+        PHPUnit::assertThat($actual, new IsEqual($expected), $message);
+
+        return $this;
+    }
+
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
         Markup::assertContainsSelector($selector, $this->actual, $message);
@@ -137,42 +175,6 @@ trait ExtendedTrait
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         Markup::assertSelectorCount($count, $selector, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $needle
-     * @param string $message
-     *
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws ExpectationFailedException
-     */
-    public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
-    {
-        $needle = Str::normalizeLineEndings($needle);
-        $haystack = Str::normalizeLineEndings($this->actual);
-
-        PHPUnit::assertThat($haystack, new StringContains($needle, false), $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that two strings equality ignoring line endings.
-     *
-     * @param string $expected
-     * @param string $message
-     *
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws ExpectationFailedException
-     */
-    public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
-    {
-        $expected = Str::normalizeLineEndings($expected);
-        $actual = Str::normalizeLineEndings($this->actual);
-
-        PHPUnit::assertThat($actual, new IsEqual($expected), $message);
 
         return $this;
     }
