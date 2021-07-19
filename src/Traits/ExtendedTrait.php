@@ -116,6 +116,26 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Asserts that the contents of one file is equal to the string.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/pull/4649
+     *
+     * @param string $expectedString
+     * @param string $message
+     */
+    public function fileEqualsString(string $expectedString, string $message = ''): self
+    {
+        PHPUnit::assertFileExists($this->actual, $message);
+
+        $constraint = new IsEqual($expectedString);
+
+        PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
+
+        return $this;
+    }
+
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
         Markup::assertContainsSelector($selector, $this->actual, $message);
