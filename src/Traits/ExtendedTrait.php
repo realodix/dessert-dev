@@ -4,6 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Modified;
@@ -130,6 +131,17 @@ trait ExtendedTrait
         PHPUnit::assertFileExists($this->actual, $message);
 
         $constraint = new IsEqual($expectedString);
+
+        PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
+
+        return $this;
+    }
+
+    public function fileNotEqualsString(string $expectedString, string $message = ''): self
+    {
+        PHPUnit::assertFileExists($this->actual, $message);
+
+        $constraint = new LogicalNot(new IsEqual($expectedString));
 
         PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
 

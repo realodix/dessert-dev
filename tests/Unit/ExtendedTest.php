@@ -217,16 +217,9 @@ final class ExtendedTest extends TestCase
 
     public function testFileEqualsString(): void
     {
-        ass(TEST_FILES_PATH.'xml_foo.xml')
-            ->fileEqualsString(
-                file_get_contents(TEST_FILES_PATH.'xml_foo.xml'),
-            );
+        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
 
-        $this->expectException(AssertionFailedError::class);
-
-        ass(TEST_FILES_PATH.'xml_foo.xml')
-            ->fileEqualsString(
-                file_get_contents(TEST_FILES_PATH.'xml_bar.xml'),
-            );
+        ass($xmlFile)->fileEqualsString('<foo/>');
+        ass($xmlFile)->fileNotEqualsString('<bar/>');
     }
 }
