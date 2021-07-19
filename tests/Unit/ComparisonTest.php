@@ -29,15 +29,16 @@ final class ComparisonTest extends TestCase
 
     public function testEqualsCanonicalizing(): void
     {
-        ass([3, 2, 1])->equalsCanonicalizing([1, 2, 3]);
-
-        ass([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
+        ass([3, 2, 1])
+            ->equalsCanonicalizing([1, 2, 3])
+            ->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
     public function testEqualsIgnoringCase(): void
     {
-        ass('foo')->equalsIgnoringCase('FOO');
-        ass('foo')->notEqualsIgnoringCase('BAR');
+        ass('foo')
+            ->equalsIgnoringCase('FOO')
+            ->notEqualsIgnoringCase('BAR');
     }
 
     public function testEqualsWithDelta(): void
@@ -59,10 +60,11 @@ final class ComparisonTest extends TestCase
 
     public function testFileEquals(): void
     {
-        ass(__FILE__)->fileEquals(__FILE__);
-        ass(__FILE__)->fileNotEquals(
-            __DIR__.DIRECTORY_SEPARATOR.'../..'.DIRECTORY_SEPARATOR.'composer.json'
-        );
+        ass(__FILE__)
+            ->fileEquals(__FILE__)
+            ->fileNotEquals(
+                TEST_FILES_PATH.'string_foobar.txt'
+            );
     }
 
     public function testFileEqualsCanonicalizing()
@@ -70,8 +72,9 @@ final class ComparisonTest extends TestCase
         $actual = TEST_FILES_PATH.'string_foobar.txt';
         $expected = TEST_FILES_PATH.'string_foobar_upper.txt';
 
-        ass($actual)->fileEqualsCanonicalizing($actual);
-        ass($actual)->fileNotEqualsCanonicalizing($expected);
+        ass($actual)
+            ->fileEqualsCanonicalizing($actual)
+            ->fileNotEqualsCanonicalizing($expected);
     }
 
     public function testFileEqualsIgnoringCase()
@@ -86,9 +89,10 @@ final class ComparisonTest extends TestCase
 
     public function testGreaterThan(): void
     {
-        ass(7)->greaterThan(5);
-        ass(7)->greaterThanOrEqual(7);
-        ass(7)->greaterThanOrEqual(5);
+        ass(7)
+            ->greaterThan(5)
+            ->greaterThanOrEqual(7)
+            ->greaterThanOrEqual(5);
     }
 
     public function testJsonFileEqualsJsonFile(): void
@@ -96,8 +100,9 @@ final class ComparisonTest extends TestCase
         $fileExpected = TEST_FILES_PATH.'json_array_object.json';
         $fileActual = TEST_FILES_PATH.'json_simple_object.json';
 
-        ass($fileActual)->jsonFileToFile($fileActual);
-        ass($fileActual)->jsonFileNotToFile($fileExpected);
+        ass($fileActual)
+            ->jsonFileToFile($fileActual)
+            ->jsonFileNotToFile($fileExpected);
     }
 
     public function testJsonStringEqualsJsonFile(): void
@@ -113,15 +118,16 @@ final class ComparisonTest extends TestCase
     {
         $jsonString = json_encode(['foo' => 'bar']);
 
-        ass($jsonString)->jsonStringToString($jsonString);
-        ass($jsonString)->jsonStringNotToString(json_encode(['foo' => 'baz']));
+        ass($jsonString)
+            ->jsonStringToString($jsonString)
+            ->jsonStringNotToString(json_encode(['foo' => 'baz']));
     }
 
     public function testLessThan(): void
     {
-        ass(7)->lessThan(10);
-        ass(7)->lessThanOrEqual(7);
-        ass(7)->lessThanOrEqual(8);
+        ass(7)->lessThan(10)
+              ->lessThanOrEqual(7)
+              ->lessThanOrEqual(8);
     }
 
     public function testNull(): void
@@ -132,14 +138,15 @@ final class ComparisonTest extends TestCase
 
     public function testSame(): void
     {
-        ass(1)->same(0 + 1);
-        ass(1)->notSame(true);
+        ass(1)->same(0 + 1)
+              ->notSame(true);
     }
 
     public function testSameSize(): void
     {
-        ass([1, 2])->sameSize([1, 2]);
-        ass([1, 2])->notSameSize([1, 2, 3]);
+        ass([1, 2])
+            ->sameSize([1, 2])
+            ->notSameSize([1, 2, 3]);
     }
 
     public function testStringEqualsFileCanonicalizing(): void
@@ -169,8 +176,9 @@ final class ComparisonTest extends TestCase
         $actual = TEST_FILES_PATH.'xml_foo.xml';
         $expected = TEST_FILES_PATH.'xml_bar.xml';
 
-        ass($actual)->xmlFileToFile($actual);
-        ass($actual)->xmlFileNotToFile($expected);
+        ass($actual)
+            ->xmlFileToFile($actual)
+            ->xmlFileNotToFile($expected);
     }
 
     public function testXmlStringEqualsXmlFile(): void
@@ -178,13 +186,15 @@ final class ComparisonTest extends TestCase
         $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
         $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
 
-        ass('<foo/>')->xmlStringToFile($xmlFoo);
-        ass('<foo/>')->xmlStringNotToFile($xmlBar);
+        ass('<foo/>')
+            ->xmlStringToFile($xmlFoo)
+            ->xmlStringNotToFile($xmlBar);
     }
 
     public function testXmlStringEqualsXmlString(): void
     {
-        ass('<foo/>')->xmlStringToString('<foo/>');
-        ass('<foo/>')->xmlStringNotToString('<bar/>');
+        ass('<foo/>')
+            ->xmlStringToString('<foo/>')
+            ->xmlStringNotToString('<bar/>');
     }
 }

@@ -21,32 +21,37 @@ final class StringTest extends TestCase
 
     public function testMatchesRegularExpression(): void
     {
-        ass('foobar')->matchesRegularExpression('/foobar/');
-        ass('foobar')->doesNotMatchRegularExpression('/foobarbaz/');
+        ass('foobar')
+            ->matchesRegularExpression('/foobar/')
+            ->doesNotMatchRegularExpression('/foobarbaz/');
     }
 
     public function testStringContainsString(): void
     {
-        ass('foo bar')->stringContainsString('o b');
-        ass('foo bar')->stringNotContainsString('BAR');
+        ass('foo bar')
+            ->stringContainsString('o b')
+            ->stringNotContainsString('BAR');
     }
 
     public function testStringContainsStringIgnoringCase(): void
     {
-        ass('foo bar')->stringContainsStringIgnoringCase('O b');
-        ass('foo bar')->stringNotContainsStringIgnoringCase('baz');
+        ass('foo bar')
+            ->stringContainsStringIgnoringCase('O b')
+            ->stringNotContainsStringIgnoringCase('baz');
     }
 
     public function testStringEndsWith(): void
     {
-        ass('A completely not funny string')->endWith('ny string');
-        ass('A completely not funny string')->endNotWith('A completely');
+        ass('foobar')
+            ->endWith('ar')
+            ->endNotWith('foo');
     }
 
     public function testStringMatchesFormat(): void
     {
-        ass('somestring')->stringMatchesFormat('%s');
-        ass('somestring')->stringNotMatchesFormat('%i');
+        ass('somestring')
+            ->stringMatchesFormat('%s')
+            ->stringNotMatchesFormat('%i');
     }
 
     public function testStringMatchesFormatFile(): void
@@ -59,7 +64,8 @@ final class StringTest extends TestCase
 
     public function testStringStartsWith(): void
     {
-        ass('A completely not funny string')->startWith('A completely');
-        ass('A completely not funny string')->startNotWith('string');
+        ass('foobar')
+            ->startWith('fo')
+            ->startNotWith('ar');
     }
 }

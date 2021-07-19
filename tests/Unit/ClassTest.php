@@ -10,8 +10,9 @@ final class ClassTest extends TestCase
 {
     public function testClassHasAttribute(): void
     {
-        ass('Exception')->classHasAttribute('message');
-        ass('Exception')->classNotHasAttribute('fakeproperty');
+        ass('Exception')
+            ->classHasAttribute('message')
+            ->classNotHasAttribute('fakeproperty');
 
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
             $testObject = (object) ['existingAttribute' => true];
@@ -22,8 +23,9 @@ final class ClassTest extends TestCase
 
     public function testClassHasStaticAttribute(): void
     {
-        ass(FakeClassForTesting::class)->classHasStaticAttribute('staticProperty');
-        ass(FakeClassForTesting::class)->classNotHasStaticAttribute('fakeProperty');
+        ass(FakeClassForTesting::class)
+            ->classHasStaticAttribute('staticProperty')
+            ->classNotHasStaticAttribute('fakeProperty');
     }
 
     public function testContainsOnlyInstancesOf(): void
@@ -40,8 +42,10 @@ final class ClassTest extends TestCase
     public function testIsInstanceOf(): void
     {
         $testClass = new \DateTime();
-        ass($testClass)->instanceOf('DateTime');
-        ass($testClass)->notInstanceOf('DateTimeZone');
+
+        ass($testClass)
+            ->instanceOf('DateTime')
+            ->notInstanceOf('DateTimeZone');
     }
 
     /**
