@@ -5,6 +5,8 @@ namespace Realodix\NextProject\Support\Constraint;
 use PHPUnit\Framework\Constraint\Constraint;
 
 /**
+ * For internal use only to support older PHPUnit
+ *
  * Reference:
  * - https://github.com/sebastianbergmann/phpunit/blob/master/src/Framework/Constraint/Type/IsType.php
  *
