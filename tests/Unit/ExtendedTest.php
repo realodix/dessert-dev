@@ -8,6 +8,8 @@ use PHPUnit\Framework\ExpectationFailedException;
 
 final class ExtendedTest extends TestCase
 {
+    use ExtendedTestProvider;
+
     public function testHelperMethods(): void
     {
         // and()

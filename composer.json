@@ -25,7 +25,7 @@
             "src/bootstrap.php"
         ],
         "psr-4": {
-            "Realodix\\NextProject\\": ["src/", "src/Dessert"]
+            "Realodix\\NextProject\\": ["src", "src/Dessert"]
         }
     },
     "autoload-dev": {
@@ -33,7 +33,7 @@
             "tests/bootstrap.php"
         ],
         "psr-4": {
-            "Realodix\\NextProject\\Test\\": "tests/"
+            "Realodix\\NextProject\\Test\\": ["tests", "tests/unit"]
         }
     },
     "extra": {
