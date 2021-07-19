@@ -220,6 +220,14 @@ final class ExtendedTest extends TestCase
         $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
 
         ass($xmlFile)->fileEqualsString('<foo/>');
-        ass($xmlFile)->fileNotEqualsString('<bar/>');
+        ass($xmlFile)->fileNotEqualsString('<FOO/>');
+    }
+
+    public function testFileEqualsStringIgnoringCase(): void
+    {
+        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
+
+        ass($xmlFile)->fileEqualsStringIgnoringCase('<FOO/>');
+        ass($xmlFile)->fileNotEqualsStringIgnoringCase('<bar/>');
     }
 }

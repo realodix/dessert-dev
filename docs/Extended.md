@@ -15,6 +15,10 @@
 ## Extended Assertions 
 | Assertions                                  |
 | ------------------------------------------- |
+| `fileEqualsString()`                        |
+| `fileNotEqualsString()`                     |
+| `fileEqualsStringIgnoringCase()`            |
+| `fileNotEqualsStringIgnoringCase()`         |
 | `stringEquals()`                            |
 | `stringNotEquals()`                         |
 | `stringContainsStringIgnoringLineEndings()` |

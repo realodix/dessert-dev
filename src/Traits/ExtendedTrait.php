@@ -4,6 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use Realodix\NextProject\Support\Markup;
@@ -142,6 +143,28 @@ trait ExtendedTrait
         PHPUnit::assertFileExists($this->actual, $message);
 
         $constraint = new LogicalNot(new IsEqual($expectedString));
+
+        PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
+
+        return $this;
+    }
+
+    public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
+    {
+        PHPUnit::assertFileExists($this->actual, $message);
+
+        $constraint = new IsEqualIgnoringCase($expectedString);
+
+        PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
+
+        return $this;
+    }
+
+    public function fileNotEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
+    {
+        PHPUnit::assertFileExists($this->actual, $message);
+
+        $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
 
         PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
 
