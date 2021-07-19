@@ -18,7 +18,7 @@ final class ExtendedTest extends TestCase
 
         // each()
         expect([1, 2, 3, 4, 5])
-            ->each()->isInt();
+            ->each->isInt;
 
         expect([
             function () {
@@ -28,12 +28,21 @@ final class ExtendedTest extends TestCase
         ])
         ->each()->isCallable()
         ->and(1)->isInt();
+
+        // not()
+        expect(true)
+            ->true()
+            ->not()->false()
+            ->not->false
+            ->and(false)
+                ->false();
     }
 
     public function testContains(): void
     {
-        ass([3, 2])->contains(3);
-        ass([3, 2])->notContains(5, 'user have 5 posts');
+        ass([3, 2])
+            ->contains(3)
+            ->notContains(5, 'user have 5 posts');
     }
 
     /**
@@ -135,20 +144,25 @@ final class ExtendedTest extends TestCase
     public function testStringEqualsFile(): void
     {
         $stringFile = TEST_FILES_PATH.'string_foobar.txt';
-        ass('foo_bar')->stringEqualsFile($stringFile);
-        ass('another_string')->stringNotEqualsFile($stringFile);
+        ass('foo_bar')
+            ->stringEqualsFile($stringFile)
+            ->and('another_string')
+                ->stringNotEqualsFile($stringFile);
 
         // JSon
         $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
         $jsonString = json_encode(['foo' => 'bar']);
-        ass($jsonString)->stringEqualsFile($jsonFile);
-        ass(json_encode(['foo' => 'baz']))->stringNotEqualsFile($jsonFile);
+        ass($jsonString)
+            ->stringEqualsFile($jsonFile)
+            ->and(json_encode(['foo' => 'baz']))
+                ->stringNotEqualsFile($jsonFile);
 
         // XML
         $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
         $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
-        ass('<foo/>')->stringEqualsFile($xmlFoo);
-        ass('<foo/>')->stringNotEqualsFile($xmlBar);
+        ass('<foo/>')
+            ->stringEqualsFile($xmlFoo)
+            ->stringNotEqualsFile($xmlBar);
     }
 
     public function testStringEqualsString(): void
@@ -219,15 +233,17 @@ final class ExtendedTest extends TestCase
     {
         $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
 
-        ass($xmlFile)->fileEqualsString('<foo/>');
-        ass($xmlFile)->fileNotEqualsString('<FOO/>');
+        ass($xmlFile)
+            ->fileEqualsString('<foo/>')
+            ->fileNotEqualsString('<FOO/>');
     }
 
     public function testFileEqualsStringIgnoringCase(): void
     {
         $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
 
-        ass($xmlFile)->fileEqualsStringIgnoringCase('<FOO/>');
-        ass($xmlFile)->fileNotEqualsStringIgnoringCase('<bar/>');
+        ass($xmlFile)
+            ->fileEqualsStringIgnoringCase('<FOO/>')
+            ->fileNotEqualsStringIgnoringCase('<bar/>');
     }
 }

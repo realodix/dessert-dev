@@ -22,6 +22,16 @@ class Assertion
     }
 
     /**
+     * Dynamically calls methods on the class without any arguments
+     *
+     * @param string $name
+     */
+    public function __get(string $name)
+    {
+        return $this->{$name}();
+    }
+
+    /**
      * Creates a new expectation.
      *
      * @param TValue $value

@@ -46,4 +46,14 @@ final class Each
 
         return $this;
     }
+
+    /**
+     * Dynamically calls methods on the class without any arguments on each item.
+     *
+     * @param string $name
+     */
+    public function __get(string $name): Each
+    {
+        return $this->$name();
+    }
 }
