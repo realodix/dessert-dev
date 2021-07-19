@@ -155,6 +155,12 @@ trait ExtendedTrait
 
         $constraint = new IsEqualIgnoringCase($expectedString);
 
+        if (version_compare(PHPUnitVersion::series(), '9.0', '<')) {
+            // @codeCoverageIgnoreStart
+            $constraint = new IsEqual($expectedString, 0.0, 10, false, true);
+            // @codeCoverageIgnoreEnd
+        }
+
         PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
 
         return $this;
@@ -165,6 +171,12 @@ trait ExtendedTrait
         PHPUnit::assertFileExists($this->actual, $message);
 
         $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
+
+        if (version_compare(PHPUnitVersion::series(), '9.0', '<')) {
+            // @codeCoverageIgnoreStart
+            $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
+            // @codeCoverageIgnoreEnd
+        }
 
         PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
 
