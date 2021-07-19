@@ -4,6 +4,7 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\ExpectationFailedException;
 
 final class ExtendedTest extends TestCase
 {
@@ -181,5 +182,82 @@ final class ExtendedTest extends TestCase
             'Tag name with ID'        => ['a#my-link'],
             'Tag with href attribute' => ['a[href="https://example.com"]'],
         ];
+    }
+
+    public function dataAssertStringContainsStringIgnoringLineEndings(): array
+    {
+        return [
+            ["b\nc", "b\r\nc"],
+            ["b\nc", "a\r\nb\r\nc\r\nd"],
+        ];
+    }
+
+    /**
+     * @dataProvider dataAssertStringContainsStringIgnoringLineEndings
+     *
+     * @param string $needle
+     * @param string $haystack
+     */
+    public function testAssertStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
+    {
+        ass($haystack)
+            ->stringContainsStringIgnoringLineEndings($needle);
+    }
+
+    public function testNotAssertStringContainsStringIgnoringLineEndings(): void
+    {
+        $this->expectException(ExpectationFailedException::class);
+
+        ass("\r\nc\r\n")
+            ->stringContainsStringIgnoringLineEndings("b\nc");
+    }
+
+    public function dataAssertStringEqualIgnoringLineEndings(): array
+    {
+        return [
+            'lf-crlf'   => ["a\nb", "a\r\nb"],
+            'cr-crlf'   => ["a\rb", "a\r\nb"],
+            'crlf-crlf' => ["a\r\nb", "a\r\nb"],
+            'lf-cr'     => ["a\nb", "a\rb"],
+            'cr-cr'     => ["a\rb", "a\rb"],
+            'crlf-cr'   => ["a\r\nb", "a\rb"],
+            'lf-lf'     => ["a\nb", "a\nb"],
+            'cr-lf'     => ["a\rb", "a\nb"],
+            'crlf-lf'   => ["a\r\nb", "a\nb"],
+        ];
+    }
+
+    /**
+     * @dataProvider dataAssertStringEqualIgnoringLineEndings
+     *
+     * @param string $expected
+     * @param string $actual
+     */
+    public function testAssertStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    {
+        ass($actual)
+            ->stringEqualIgnoringLineEndings($expected);
+    }
+
+    public function dataNotAssertStringEqualIgnoringLineEndings(): array
+    {
+        return [
+            ["a\nb", 'ab'],
+            ["a\rb", 'ab'],
+            ["a\r\nb", 'ab'],
+        ];
+    }
+
+    /**
+     * @dataProvider dataNotAssertStringEqualIgnoringLineEndings
+     *
+     * @param string $expected
+     * @param string $actual
+     */
+    public function testNotAssertStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    {
+        $this->expectException(ExpectationFailedException::class);
+        ass($actual)
+            ->stringEqualIgnoringLineEndings($expected);
     }
 }
