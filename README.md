@@ -24,15 +24,16 @@ composer require realodix/next-project
 
 ## Usage
 
-NextProject offers you five functions to write your tests: 
+NextProject offers you six functions to write your tests: 
 
 - `Assert::that($actual)`
+- `Check::that($actual)`
 - `ass($actual)`
 - `expect($actual)`
 - `should($actual)`
 - `verify($actual)`
 
-Use the one that best fits your test naming convention, or all five. They share the same behavior & syntax:
+Use the one that best fits your test naming convention, or all. They share the same behavior & syntax:
 
 For the full list of **assertions**, please refer to [PHPUnit Assertions](https://phpunit.readthedocs.io/en/9.5/assertions.html) documentation.
 

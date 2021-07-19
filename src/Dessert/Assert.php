@@ -7,9 +7,6 @@ class Assert
     /**
      * Start validation on a value, returns Assertion class.
      *
-     * The invocation of this method starts an assertion chain that is happening on the
-     * passed value.
-     *
      * EXAMPLE
      * Assert::that($value)->notEmpty()->integer();
      * Assert::that($value)->nullOr()->string()->startWith("Foo");
