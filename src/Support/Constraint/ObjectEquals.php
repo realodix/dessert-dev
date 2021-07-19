@@ -138,7 +138,7 @@ final class ObjectEquals extends Constraint
         }
 
         if (! $this->expected instanceof $typeName) {
-            throw new ComparisonMethodDoesNotAcceptParameterTypeException(
+            throw new \TypeError(
                 get_class($other),
                 $this->method,
                 get_class($this->expected)
