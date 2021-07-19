@@ -156,7 +156,7 @@ trait ExtendedTrait
 
         PHPUnit::assertThat(
             file_get_contents($this->actual),
-            new IsEqual($expectedString, 0.0, 10, false, true),
+            new IsEqual($expectedString, 0.0, 10, true, true),
             $message
         );
 
@@ -167,7 +167,7 @@ trait ExtendedTrait
     {
         PHPUnit::assertFileExists($this->actual, $message);
 
-        $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
+        $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, true, true));
 
         PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
 
