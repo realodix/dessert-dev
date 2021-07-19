@@ -312,7 +312,10 @@ trait PolyfillTrait
                 );
             }
 
-            PHPUnit::assertTrue(Validator::isClosedResource($this->actual), $message);
+            PHPUnit::assertTrue(
+                Validator::isClosedResource($this->actual),
+                $message
+            );
 
             return $this;
             // @codeCoverageIgnoreEnd
@@ -344,7 +347,10 @@ trait PolyfillTrait
                 );
             }
 
-            PHPUnit::assertFalse(Validator::isClosedResource($this->actual), $message);
+            PHPUnit::assertFalse(
+                Validator::isClosedResource($this->actual),
+                $message
+            );
 
             return $this;
             // @codeCoverageIgnoreEnd
