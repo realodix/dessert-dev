@@ -4,10 +4,8 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\IsEqual;
-use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
-use PHPUnit\Runner\Version as PHPUnitVersion;
 use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Modified;
 use Realodix\NextProject\Support\Str;
@@ -143,9 +141,11 @@ trait ExtendedTrait
     {
         PHPUnit::assertFileExists($this->actual, $message);
 
-        $constraint = new LogicalNot(new IsEqual($expectedString));
-
-        PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
+        PHPUnit::assertThat(
+            file_get_contents($this->actual),
+            new LogicalNot(new IsEqual($expectedString)),
+            $message
+        );
 
         return $this;
     }
@@ -154,19 +154,11 @@ trait ExtendedTrait
     {
         PHPUnit::assertFileExists($this->actual, $message);
 
-        if (version_compare(PHPUnitVersion::series(), '9.0', '<')) {
-            // @codeCoverageIgnoreStart
-            $constraint = new IsEqual($expectedString, 0.0, 10, false, true);
-
-            PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        $constraint = new IsEqualIgnoringCase($expectedString);
-
-        PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
+        PHPUnit::assertThat(
+            file_get_contents($this->actual),
+            new IsEqual($expectedString, 0.0, 10, false, true),
+            $message
+        );
 
         return $this;
     }
@@ -175,17 +167,7 @@ trait ExtendedTrait
     {
         PHPUnit::assertFileExists($this->actual, $message);
 
-        if (version_compare(PHPUnitVersion::series(), '9.0', '<')) {
-            // @codeCoverageIgnoreStart
-            $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
-
-            PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
-
-            return $this;
-            // @codeCoverageIgnoreEnd
-        }
-
-        $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
+        $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
 
         PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
 
