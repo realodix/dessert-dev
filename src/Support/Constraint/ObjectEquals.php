@@ -5,6 +5,8 @@ namespace Realodix\NextProject\Support\Constraint;
 use PHPUnit\Framework\Constraint\Constraint;
 
 /**
+ * For internal use only to support older PHPUnit
+ *
  * Reference:
  * - https://phpunit.readthedocs.io/en/9.5/assertions.html#assertobjectequals
  * - https://github.com/sebastianbergmann/phpunit/blob/9.5/src/Framework/Constraint/Object/ObjectEquals.php
