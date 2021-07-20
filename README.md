@@ -78,7 +78,6 @@ verify($user->getRate())
 // $this->assertLessThan(10, $user->getRate());
 // $this->assertEquals(7, $user->getRate(), 'first user rate is 7');
 
-
 // and many more !
 ```
 
