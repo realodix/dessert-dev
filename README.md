@@ -58,14 +58,12 @@ expect([1, 2, 3])->each()
     ->isInt()
     ->and(true)
         ->true()
-        ->notFalse()
-        ->not()->false();
+        ->notFalse();
 
 // $this->assertIsInt(1);
 // $this->assertIsInt(2);
 // $this->assertIsInt(3);
 // $this->assertTrue(true);
-// $this->assertNotFalse(true);
 // $this->assertNotFalse(true);
 
 
