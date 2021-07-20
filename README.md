@@ -7,12 +7,8 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 
 ### Features
 - **Chain your check(s)**
-- **Forward-compatible**
-
-  Write your tests with the assertions supported by the latest PHPUnit version and run them on PHPUnit 8.5 - 9.x.
-- **Less error-prone**
-
-  No more confusion about the order of the "expected" and "actual" values.
+- **Forward-compatible**: Write your tests with the assertions supported by the latest PHPUnit version and run them on PHPUnit 8.5 - 9.x.
+- **Less error-prone**: No more confusion about the order of the "expected" and "actual" values.
 
 ## Installation
 
