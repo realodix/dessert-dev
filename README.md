@@ -20,7 +20,7 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 #### Install the package
 
 ```sh
-composer require realodix/next-project
+composer require --dev realodix/next-project
 ```
 
 ## Writing Tests
