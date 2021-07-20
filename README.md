@@ -82,6 +82,8 @@ verify($user->getRate())
 // and many more !
 ```
 
+For other usage examples, please see how We write tests for this package in the [/tests](/tests/Unit) folder.
+
 ### Assertion Aliases
 
 In addition to assertions, NextProject offers you a set of assertion aliases. For the full list of **assertion aliases**, please refer to [assertion aliases](/docs/AssertionAliases.md) documentation.
