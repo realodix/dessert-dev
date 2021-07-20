@@ -2,7 +2,7 @@
 
 use Realodix\NextProject\Assertion;
 
-if (! function_exists('ass')) {
+if (! \function_exists('ass')) {
     /**
      * @param mixed $actual
      *
@@ -14,7 +14,7 @@ if (! function_exists('ass')) {
     }
 }
 
-if (! function_exists('expect')) {
+if (! \function_exists('expect')) {
     /**
      * @param mixed $actual
      *
@@ -26,7 +26,7 @@ if (! function_exists('expect')) {
     }
 }
 
-if (! function_exists('should')) {
+if (! \function_exists('should')) {
     /**
      * @param mixed $actual
      *
@@ -38,7 +38,7 @@ if (! function_exists('should')) {
     }
 }
 
-if (! function_exists('verify')) {
+if (! \function_exists('verify')) {
     /**
      * @param mixed $actual
      *

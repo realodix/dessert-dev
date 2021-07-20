@@ -308,7 +308,7 @@ trait PolyfillTrait
             if ($message === '') {
                 $message = sprintf(
                     'Failed asserting that %s is of type "resource (closed)"',
-                    \var_export($this->actual, true)
+                    var_export($this->actual, true)
                 );
             }
 
@@ -343,7 +343,7 @@ trait PolyfillTrait
             if ($message === '') {
                 $message = sprintf(
                     'Failed asserting that %s is not of type "resource (closed)"',
-                    \var_export($this->actual, true)
+                    var_export($this->actual, true)
                 );
             }
 

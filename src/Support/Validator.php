@@ -16,7 +16,7 @@ final class Validator
      */
     public static function isClosedResource($value): bool
     {
-        if (gettype($value) === 'resource (closed)') {
+        if (\gettype($value) === 'resource (closed)') {
             return true;
         }
 

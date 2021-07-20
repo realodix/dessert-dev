@@ -13,7 +13,7 @@ final class Modified
 {
     public static function assertContains($needle, $haystack, string $message = '')
     {
-        if (is_string($haystack)) {
+        if (\is_string($haystack)) {
             return PHPUnit::assertStringContainsString($needle, $haystack, $message);
         }
 
@@ -22,7 +22,7 @@ final class Modified
 
     public static function assertNotContains($needle, $haystack, string $message = '')
     {
-        if (is_string($haystack)) {
+        if (\is_string($haystack)) {
             return PHPUnit::assertStringNotContainsString($needle, $haystack, $message);
         }
 

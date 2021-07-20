@@ -24,7 +24,7 @@ final class Markup
     ) {
         $results = (new Query($output))->execute($selector);
 
-        return PHPUnit::assertGreaterThan(0, count($results), $message);
+        return PHPUnit::assertGreaterThan(0, \count($results), $message);
     }
 
     /**
@@ -42,7 +42,7 @@ final class Markup
     ) {
         $results = (new Query($output))->execute($selector);
 
-        return PHPUnit::assertEquals(0, count($results), $message);
+        return PHPUnit::assertEquals(0, \count($results), $message);
     }
 
     /**

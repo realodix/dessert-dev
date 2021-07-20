@@ -54,7 +54,7 @@ class Assertion
             throw new \BadMethodCallException('Expectation value is not iterable.');
         }
 
-        if (is_callable($callback)) {
+        if (\is_callable($callback)) {
             foreach ($this->actual as $item) {
                 $callback(new self($item));
             }

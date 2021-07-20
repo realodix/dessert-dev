@@ -49,12 +49,12 @@ final class ObjectEquals extends Constraint
      */
     protected function matches($actual): bool
     {
-        if (! is_object($actual)) {
+        if (! \is_object($actual)) {
             // PHPUnit\Framework\ActualValueIsNotAnObjectException
             throw new \TypeError(
                 sprintf(
                     'An actual value must be an object, %s given',
-                    gettype($actual)
+                    \gettype($actual)
                 )
             );
         }
@@ -66,7 +66,7 @@ final class ObjectEquals extends Constraint
             throw new \ErrorException(
                 sprintf(
                     'Comparison method %s::%s() does not exist.',
-                    get_class($actual),
+                    \get_class($actual),
                     $this->method
                 )
             );
@@ -78,7 +78,7 @@ final class ObjectEquals extends Constraint
         // PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException
         $boolReturnTypeError = sprintf(
             'Comparison method %s::%s() does not declare bool return type.',
-            get_class($actual),
+            \get_class($actual),
             $this->method
         );
 
@@ -108,7 +108,7 @@ final class ObjectEquals extends Constraint
             throw new \ArgumentCountError(
                 sprintf(
                     'Comparison method %s::%s() does not declare exactly one parameter.',
-                    get_class($actual),
+                    \get_class($actual),
                     $this->method
                 )
             );
@@ -119,7 +119,7 @@ final class ObjectEquals extends Constraint
         // PHPUnit\Framework\ComparisonMethodDoesNotAcceptParameterTypeException
         $parameterTypeError = sprintf(
             'Parameter of comparison method %s::%s() does not have a declared type.',
-            get_class($actual),
+            \get_class($actual),
             $this->method
         );
 
@@ -136,15 +136,15 @@ final class ObjectEquals extends Constraint
         $typeName = $type->getName();
 
         if ($typeName === 'self') {
-            $typeName = get_class($actual);
+            $typeName = \get_class($actual);
         }
 
         if (! $this->expected instanceof $typeName) {
             throw new \TypeError(
                 sprintf(
                     '%s is not an accepted argument type for comparison method %s::%s().',
-                    get_class($this->expected),
-                    get_class($actual),
+                    \get_class($this->expected),
+                    \get_class($actual),
                     $this->method
                 )
             );

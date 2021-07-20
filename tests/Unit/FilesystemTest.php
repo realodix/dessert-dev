@@ -83,13 +83,13 @@ final class FilesystemTest extends TestCase
 
     public function testFileIsNotWritable()
     {
-        $tempFile = \tempnam(\sys_get_temp_dir(), 'not_writable');
-        \chmod($tempFile, \octdec('0'));
+        $tempFile = tempnam(sys_get_temp_dir(), 'not_writable');
+        chmod($tempFile, octdec('0'));
 
         ass($tempFile)->fileIsNotWritable($tempFile);
 
-        \chmod($tempFile, \octdec('755'));
-        \unlink($tempFile);
+        chmod($tempFile, octdec('755'));
+        unlink($tempFile);
     }
 
     public function testFileIsReadable()
