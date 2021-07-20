@@ -52,6 +52,20 @@ final class Expect
         return $this;
     }
 
+    public function describedByAMessageMatching(string $pattern): self
+    {
+        $this->testCase->expectDeprecationMessageMatches($pattern);
+
+        return $this;
+    }
+
+    public function describedByAMessageContaining(string $part): self
+    {
+        $this->testCase->expectDeprecationMessageMatches('/'.preg_quote($part).'/');
+
+        return $this;
+    }
+
     public function notice(): self
     {
         $this->testCase->expectNotice();
@@ -69,20 +83,6 @@ final class Expect
     public function error(): self
     {
         $this->testCase->expectError();
-
-        return $this;
-    }
-
-    public function describedByAMessageMatching(string $pattern): self
-    {
-        $this->testCase->expectDeprecationMessageMatches($pattern);
-
-        return $this;
-    }
-
-    public function describedByAMessageContaining(string $part): self
-    {
-        $this->testCase->expectDeprecationMessageMatches('/'.preg_quote($part).'/');
 
         return $this;
     }
