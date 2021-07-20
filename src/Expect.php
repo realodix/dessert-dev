@@ -24,7 +24,7 @@ final class Expect
         return new self($testCase);
     }
 
-    public function anException(string $class = \Exception::class): self
+    public function exception(string $class = \Exception::class): self
     {
         $this->testCase->expectException($class);
 
@@ -45,28 +45,28 @@ final class Expect
         return $this;
     }
 
-    public function aDeprecation(): self
+    public function deprecation(): self
     {
         $this->testCase->expectDeprecation();
 
         return $this;
     }
 
-    public function aNotice(): self
+    public function notice(): self
     {
         $this->testCase->expectNotice();
 
         return $this;
     }
 
-    public function aWarning(): self
+    public function warning(): self
     {
         $this->testCase->expectWarning();
 
         return $this;
     }
 
-    public function anError(): self
+    public function error(): self
     {
         $this->testCase->expectError();
 
