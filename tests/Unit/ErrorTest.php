@@ -22,6 +22,23 @@ class ErrorTest extends TestCase
         throw new \InvalidArgumentException();
     }
 
+    public function testExceptionCode()
+    {
+        Expect::after($this)
+            ->eCode(42);
+
+        throw new \Exception("", 42);
+    }
+
+    public function testExceptionMessage()
+    {
+        Expect::after($this)
+            ->eMessage('Exception message')
+            ->emMatches('/^Exception/');
+
+        throw new \Exception('Exception message');
+    }
+
     public function testDeprecationCanBeExpected(): void
     {
         Expect::after($this)
