@@ -13,8 +13,8 @@ final class ExtendedTest extends TestCase
     public function testHelperMethods(): void
     {
         // and()
-        ass(1)->isInt(3)
-            ->and(true)->true();
+        ass(1)->isInt
+            ->and(true)->true;
 
         // each()
         expect([1, 2, 3, 4, 5])

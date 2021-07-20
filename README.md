@@ -34,8 +34,9 @@ NextProject offers you six functions constructor to write your tests:
 - `should($actual)`
 - `verify($actual)`
 
-Write test cases and test methods as usual, just switch to `Assert::that()` to write your assertions.
-Use the one that best fits your test naming convention, or all. They share the same behavior & syntax.
+Write test cases and test methods as usual, just switch to `Assert::that()` to write your
+assertions. Use the one that best fits your test naming convention, or all. They share the
+same behavior & syntax.
 
 For the full list of **assertions**, please refer to [PHPUnit Assertions](https://phpunit.readthedocs.io/en/9.5/assertions.html) documentation.
 
@@ -52,6 +53,22 @@ Assert::that(1)
 verify(1)
     ->isInt()       // $this->assertIsInt(1);
     ->isNotFloat(); // $this->assertIsFloat(1);
+
+expect([1, 2, 3, 4, 5])
+    ->each()->isInt()
+    ->and(true)
+        ->true()
+        ->notFalse()
+        ->not()->false();
+
+// $this->assertIsInt(1);
+// $this->assertIsInt(2);
+// $this->assertIsInt(3);
+// $this->assertIsInt(4);
+// $this->assertIsInt(5);
+// $this->assertTrue(true);
+// $this->assertNotFalse(true);
+// $this->assertNotFalse(true);
 
 
 $user = User::find(1);
