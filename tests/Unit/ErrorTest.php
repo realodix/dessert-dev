@@ -7,14 +7,14 @@ use Realodix\NextProject\Expect;
 
 class ErrorTest extends TestCase
 {
-    public function test_expects_an_exception_will_be_thrown()
+    public function testException()
     {
         Expect::after($this)->exception();
 
         throw new \Exception();
     }
 
-    public function test_expects_a_specific_exception_will_be_thrown()
+    public function testExpectsASpecificExceptionWillBeThrown()
     {
         Expect::after($this)
             ->exception(\InvalidArgumentException::class);
@@ -27,7 +27,7 @@ class ErrorTest extends TestCase
         Expect::after($this)
             ->eCode(42);
 
-        throw new \Exception("", 42);
+        throw new \Exception('', 42);
     }
 
     public function testExceptionMessage()
