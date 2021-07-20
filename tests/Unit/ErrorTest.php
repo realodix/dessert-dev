@@ -5,9 +5,12 @@ namespace Realodix\NextProject\Test;
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Expect;
 
-class ExpectTest extends TestCase
+class ErrorTest extends TestCase
 {
-    public function testExpectsAnExceptionWillBeThrown()
+    /**
+     * Expects an exception will be thrown
+     */
+    public function testException()
     {
         Expect::after($this)->exception();
 
@@ -22,7 +25,10 @@ class ExpectTest extends TestCase
         throw new \InvalidArgumentException();
     }
 
-    public function testExpectsAnExceptionWillBeThrownWithAMessage()
+    /**
+     * Expects an exception will be thrown with a message
+     */
+    public function testExceptionMessage()
     {
         Expect::after($this)
             ->exception()
@@ -31,7 +37,10 @@ class ExpectTest extends TestCase
         throw new \Exception('Exception message');
     }
 
-    public function testExpectsAnExceptionWillBeThrownWithAMessageMatchingARegex()
+    /**
+     * Expects an exception will be thrown with a message matching a regex
+     */
+    public function testDeprecationMessageMatches()
     {
         Expect::after($this)
             ->exception()
@@ -49,7 +58,10 @@ class ExpectTest extends TestCase
         throw new \Exception('An exception message with a part to match');
     }
 
-    public function testExpectsAnExceptionWithSpecificCodeWillBeThrown()
+    /**
+     * Expects an exception with specific code will be thrown
+     */
+    public function testExceptionCode()
     {
         Expect::after($this)
             ->exception()
