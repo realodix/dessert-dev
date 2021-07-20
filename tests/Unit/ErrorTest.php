@@ -32,7 +32,7 @@ class ErrorTest extends TestCase
     {
         Expect::after($this)
             ->exception()
-            ->describedBy('Exception message');
+            ->eMessage('Exception message');
 
         throw new \Exception('Exception message');
     }
@@ -65,7 +65,7 @@ class ErrorTest extends TestCase
     {
         Expect::after($this)
             ->exception()
-            ->havingCode(42);
+            ->eCode(42);
 
         throw new \Exception('', 42);
     }

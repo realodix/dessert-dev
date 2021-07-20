@@ -9,80 +9,80 @@ final class Expect
     /**
      * @var TestCase
      */
-    private $testCase;
+    private $expectedException;
 
     /**
-     * @param TestCase $testCase
+     * @param TestCase $expectedException
      */
-    private function __construct(TestCase $testCase)
+    private function __construct(TestCase $expectedException)
     {
-        $this->testCase = $testCase;
+        $this->expectedException = $expectedException;
     }
 
-    public static function after(TestCase $testCase)
+    public static function after(TestCase $expectedException)
     {
-        return new self($testCase);
+        return new self($expectedException);
     }
 
     public function exception(string $class = \Exception::class): self
     {
-        $this->testCase->expectException($class);
+        $this->expectedException->expectException($class);
 
         return $this;
     }
 
-    public function describedBy(string $message): self
+    public function eMessage(string $message): self
     {
-        $this->testCase->expectExceptionMessage($message);
+        $this->expectedException->expectExceptionMessage($message);
 
         return $this;
     }
 
-    public function havingCode(int $code): self
+    public function eCode(int $code): self
     {
-        $this->testCase->expectExceptionCode($code);
+        $this->expectedException->expectExceptionCode($code);
 
         return $this;
     }
 
     public function deprecation(): self
     {
-        $this->testCase->expectDeprecation();
+        $this->expectedException->expectDeprecation();
 
         return $this;
     }
 
     public function describedByAMessageMatching(string $pattern): self
     {
-        $this->testCase->expectDeprecationMessageMatches($pattern);
+        $this->expectedException->expectDeprecationMessageMatches($pattern);
 
         return $this;
     }
 
     public function describedByAMessageContaining(string $part): self
     {
-        $this->testCase->expectDeprecationMessageMatches('/'.preg_quote($part).'/');
+        $this->expectedException->expectDeprecationMessageMatches('/'.preg_quote($part).'/');
 
         return $this;
     }
 
     public function notice(): self
     {
-        $this->testCase->expectNotice();
+        $this->expectedException->expectNotice();
 
         return $this;
     }
 
     public function warning(): self
     {
-        $this->testCase->expectWarning();
+        $this->expectedException->expectWarning();
 
         return $this;
     }
 
     public function error(): self
     {
-        $this->testCase->expectError();
+        $this->expectedException->expectError();
 
         return $this;
     }
