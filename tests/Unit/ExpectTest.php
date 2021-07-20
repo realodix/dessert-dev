@@ -16,35 +16,44 @@ class ExpectTest extends TestCase
 
     public function testExpectsASpecificExceptionWillBeThrown()
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)
+            ->exception(\InvalidArgumentException::class);
 
         throw new \InvalidArgumentException();
     }
 
     public function testExpectsAnExceptionWillBeThrownWithAMessage()
     {
-        Expect::after($this)->exception()->describedBy('Exception message');
+        Expect::after($this)
+            ->exception()
+            ->describedBy('Exception message');
 
         throw new \Exception('Exception message');
     }
 
     public function testExpectsAnExceptionWillBeThrownWithAMessageMatchingARegex()
     {
-        Expect::after($this)->exception()->describedByAMessageMatching('/^Exception/');
+        Expect::after($this)
+            ->exception()
+            ->describedByAMessageMatching('/^Exception/');
 
         throw new \Exception('Exception message');
     }
 
     public function testExpectsAnExceptionWillBeThrownWithAMessageContainingContent()
     {
-        Expect::after($this)->exception()->describedByAMessageContaining('message');
+        Expect::after($this)
+            ->exception()
+            ->describedByAMessageContaining('message');
 
         throw new \Exception('An exception message with a part to match');
     }
 
     public function testExpectsAnExceptionWithSpecificCodeWillBeThrown()
     {
-        Expect::after($this)->exception()->havingCode(42);
+        Expect::after($this)
+            ->exception()
+            ->havingCode(42);
 
         throw new \Exception('', 42);
     }
