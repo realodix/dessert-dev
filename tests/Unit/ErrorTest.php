@@ -7,6 +7,21 @@ use Realodix\NextProject\Expect;
 
 class ErrorTest extends TestCase
 {
+    public function test_expects_an_exception_will_be_thrown()
+    {
+        Expect::after($this)->exception();
+
+        throw new \Exception();
+    }
+
+    public function test_expects_a_specific_exception_will_be_thrown()
+    {
+        Expect::after($this)
+            ->exception(\InvalidArgumentException::class);
+
+        throw new \InvalidArgumentException();
+    }
+
     public function testDeprecationCanBeExpected(): void
     {
         Expect::after($this)
