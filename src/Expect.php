@@ -9,129 +9,129 @@ final class Expect
     /**
      * @var TestCase
      */
-    private $expectedException;
+    private $exception;
 
     /**
-     * @param TestCase $expectedException
+     * @param TestCase $exception
      */
-    private function __construct(TestCase $expectedException)
+    private function __construct(TestCase $exception)
     {
-        $this->expectedException = $expectedException;
+        $this->exception = $exception;
     }
 
-    public static function after(TestCase $expectedException)
+    public static function after(TestCase $exception)
     {
-        return new self($expectedException);
+        return new self($exception);
     }
 
     public function exception(string $class = \Exception::class): self
     {
-        $this->expectedException->expectException($class);
+        $this->exception->expectException($class);
 
         return $this;
     }
 
     public function eCode(int $code): self
     {
-        $this->expectedException->expectExceptionCode($code);
+        $this->exception->expectExceptionCode($code);
 
         return $this;
     }
 
     public function eMessage(string $message): self
     {
-        $this->expectedException->expectExceptionMessage($message);
+        $this->exception->expectExceptionMessage($message);
 
         return $this;
     }
 
     public function emMatches(string $regex): self
     {
-        $this->expectedException->expectExceptionMessageMatches($regex);
+        $this->exception->expectExceptionMessageMatches($regex);
 
         return $this;
     }
 
     public function deprecation(): self
     {
-        $this->expectedException->expectDeprecation();
+        $this->exception->expectDeprecation();
 
         return $this;
     }
 
     public function dMessage(string $message): self
     {
-        $this->expectedException->expectDeprecationMessage($message);
+        $this->exception->expectDeprecationMessage($message);
 
         return $this;
     }
 
     public function dmMatches(string $regex): self
     {
-        $this->expectedException->expectDeprecationMessageMatches($regex);
+        $this->exception->expectDeprecationMessageMatches($regex);
 
         return $this;
     }
 
     public function notice(): self
     {
-        $this->expectedException->expectNotice();
+        $this->exception->expectNotice();
 
         return $this;
     }
 
     public function nMessage(string $message): self
     {
-        $this->expectedException->expectNoticeMessage($message);
+        $this->exception->expectNoticeMessage($message);
 
         return $this;
     }
 
     public function nmMatches(string $regex): self
     {
-        $this->expectedException->expectNoticeMessageMatches($regex);
+        $this->exception->expectNoticeMessageMatches($regex);
 
         return $this;
     }
 
     public function warning(): self
     {
-        $this->expectedException->expectWarning();
+        $this->exception->expectWarning();
 
         return $this;
     }
 
     public function wMessage(string $message): self
     {
-        $this->expectedException->expectWarningMessage($message);
+        $this->exception->expectWarningMessage($message);
 
         return $this;
     }
 
     public function wmMatches(string $regex): self
     {
-        $this->expectedException->expectWarningMessageMatches($regex);
+        $this->exception->expectWarningMessageMatches($regex);
 
         return $this;
     }
 
     public function error(): self
     {
-        $this->expectedException->expectError();
+        $this->exception->expectError();
 
         return $this;
     }
 
     public function erMessage(string $message): self
     {
-        $this->expectedException->expectErrorMessage($message);
+        $this->exception->expectErrorMessage($message);
 
         return $this;
     }
 
     public function ermMatches(string $regex): self
     {
-        $this->expectedException->expectErrorMessageMatches($regex);
+        $this->exception->expectErrorMessageMatches($regex);
 
         return $this;
     }
