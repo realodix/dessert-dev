@@ -67,17 +67,6 @@ verify([1, 2, 3])->each()
 // $this->assertNotFalse(true);
 
 
-$user = User::find(1);
-
-verify($user->getRate())
-    ->greaterThan(5)
-    ->lessThan(10)
-    ->equals(7, 'first user rate is 7');
-
-// $this->assertGreaterThan(5, $user->getRate());
-// $this->assertLessThan(10, $user->getRate());
-// $this->assertEquals(7, $user->getRate(), 'first user rate is 7');
-
 // and many more !
 ```
 
