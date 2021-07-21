@@ -97,20 +97,6 @@ class Assertion
         return $this;
     }
 
-    public function containsEquals($needle, string $message = ''): self
-    {
-        PHPUnit::assertContainsEquals($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notContainsEquals($needle, string $message = ''): self
-    {
-        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
-
-        return $this;
-    }
-
     public function containsOnly($type, $isNativeType = null, string $message = ''): self
     {
         PHPUnit::assertContainsOnly($type, $this->actual, $isNativeType, $message);

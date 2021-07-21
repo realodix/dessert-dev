@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\AssertionFailedError;
 
 final class ComparisonTest extends TestCase
 {
@@ -15,7 +16,15 @@ final class ComparisonTest extends TestCase
         $b->foo = 'baz';
 
         ass([$a])->containsEquals($a);
-        ass([$b])->notContainsEquals($a);
+        ass([$a])->notContainsEquals($b);
+
+        try {
+            ass([$a])->containsEquals($b);
+        } catch (AssertionFailedError $e) {
+            return;
+        }
+
+        $this->fail();
     }
 
     public function testEquals(): void

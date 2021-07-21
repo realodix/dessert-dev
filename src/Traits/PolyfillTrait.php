@@ -9,6 +9,36 @@ use Realodix\NextProject\Support\Validator;
 
 trait PolyfillTrait
 {
+    public function containsEquals($needle, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertContains($needle, $this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertContainsEquals($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function notContainsEquals($needle, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertNotContains($needle, $this->actual, $message);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
+
+        return $this;
+    }
+
     /**
      * Asserts that the contents of one file is equal to the contents of another file
      * (canonicalizing).
