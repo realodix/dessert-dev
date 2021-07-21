@@ -32,14 +32,14 @@ final class Expect
         return $this;
     }
 
-    public function eCode(int $code): self
+    public function exceptionCode(int $code): self
     {
         $this->exception->expectExceptionCode($code);
 
         return $this;
     }
 
-    public function eMessage(string $message): self
+    public function exceptionMessage(string $message): self
     {
         $this->exception->expectExceptionMessage($message);
 
@@ -53,7 +53,7 @@ final class Expect
      *
      * @param string $regex
      */
-    public function emMatches(string $regex): self
+    public function exceptionMessageMatches(string $regex): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -83,7 +83,7 @@ final class Expect
         return $this;
     }
 
-    public function dMessage(string $message): self
+    public function deprecationMessage(string $message): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -98,7 +98,7 @@ final class Expect
         return $this;
     }
 
-    public function dmMatches(string $regex): self
+    public function deprecationMessageMatches(string $regex): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -128,7 +128,7 @@ final class Expect
         return $this;
     }
 
-    public function nMessage(string $message): self
+    public function noticeMessage(string $message): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -143,7 +143,7 @@ final class Expect
         return $this;
     }
 
-    public function nmMatches(string $regex): self
+    public function noticeMessageMatches(string $regex): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -173,7 +173,7 @@ final class Expect
         return $this;
     }
 
-    public function wMessage(string $message): self
+    public function warningMessage(string $message): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -188,7 +188,7 @@ final class Expect
         return $this;
     }
 
-    public function wmMatches(string $regex): self
+    public function warningMessageMatches(string $regex): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -218,7 +218,7 @@ final class Expect
         return $this;
     }
 
-    public function erMessage(string $message): self
+    public function errorMessage(string $message): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart
@@ -233,7 +233,7 @@ final class Expect
         return $this;
     }
 
-    public function ermMatches(string $regex): self
+    public function errorMessageMatches(string $regex): self
     {
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
             // @codeCoverageIgnoreStart

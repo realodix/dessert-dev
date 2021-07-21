@@ -25,7 +25,7 @@ class ErrorTest extends TestCase
     public function testExceptionCode()
     {
         Expect::after($this)
-            ->eCode(42);
+            ->exceptionCode(42);
 
         throw new \Exception('', 42);
     }
@@ -33,8 +33,8 @@ class ErrorTest extends TestCase
     public function testExceptionMessage()
     {
         Expect::after($this)
-            ->eMessage('Exception message')
-            ->emMatches('/^Exception/');
+            ->exceptionMessage('Exception message')
+            ->exceptionMessageMatches('/^Exception/');
 
         throw new \Exception('Exception message');
     }
@@ -43,8 +43,8 @@ class ErrorTest extends TestCase
     {
         Expect::after($this)
             ->deprecation()
-            ->dMessage('foo')
-            ->dmMatches('/foo/');
+            ->deprecationMessage('foo')
+            ->deprecationMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_DEPRECATED);
     }
@@ -53,8 +53,8 @@ class ErrorTest extends TestCase
     {
         Expect::after($this)
             ->notice()
-            ->nMessage('foo')
-            ->nmMatches('/foo/');
+            ->noticeMessage('foo')
+            ->noticeMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_NOTICE);
     }
@@ -63,8 +63,8 @@ class ErrorTest extends TestCase
     {
         Expect::after($this)
             ->warning()
-            ->wMessage('foo')
-            ->wmMatches('/foo/');
+            ->warningMessage('foo')
+            ->warningMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_WARNING);
     }
@@ -73,8 +73,8 @@ class ErrorTest extends TestCase
     {
         Expect::after($this)
             ->error()
-            ->erMessage('foo')
-            ->ermMatches('/foo/');
+            ->errorMessage('foo')
+            ->errorMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_ERROR);
     }
