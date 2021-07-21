@@ -619,12 +619,22 @@ trait PolyfillTrait
      * @param string $message      Optional failure message to display.
      * @param object $this->actual The value to test.
      */
-    public function objectEquals(object $expected, string $method = 'equals', string $message = '')
+    public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
         if (version_compare(PHPUnitVersion::series(), '9.4', '<')) {
             // @codeCoverageIgnoreStart
-            $constraint = new ObjectEquals($expected, $method);
+            // Object type declarations were introduced in PHP 7.2, so it has to be
+            // validated manually
+            if (! \is_object($expected)) {
+                throw new \TypeError(
+                    sprintf(
+                        'Argument 1 passed to assertObjectEquals() must be an object, %s given',
+                        get_debug_type($expected)
+                    )
+                );
+            }
 
+            $constraint = new ObjectEquals($expected, $method);
             PHPUnit::assertThat($this->actual, $constraint, $message);
 
             return $this;

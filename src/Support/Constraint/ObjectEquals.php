@@ -26,7 +26,7 @@ final class ObjectEquals extends Constraint
      */
     private $method;
 
-    public function __construct(object $object, string $method = 'equals')
+    public function __construct($object, string $method = 'equals')
     {
         $this->expected = $object;
         $this->method = $method;
@@ -54,7 +54,7 @@ final class ObjectEquals extends Constraint
             throw new \TypeError(
                 sprintf(
                     'An actual value must be an object, %s given',
-                    \gettype($actual)
+                    get_debug_type($actual)
                 )
             );
         }
