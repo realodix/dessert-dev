@@ -10,6 +10,222 @@ use Realodix\NextProject\Support\Validator;
 trait PolyfillTrait
 {
     /**
+     * Asserts that the contents of one file is equal to the contents of another file
+     * (canonicalizing).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileEquals($expected, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the contents of one file is not equal to the contents of another file
+     * (canonicalizing).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the contents of one file is equal to the contents of another file
+     * (ignoring case).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileEquals($expected, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the contents of one file is not equal to the contents of another file
+     * (ignoring case).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the contents of a string is equal to the contents of a file
+     * (canonicalizing).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the contents of a string is not equal to the contents of a file
+     * (canonicalizing).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the contents of a string is equal to the contents of a file (ignoring
+     * case).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the contents of a string is not equal to the contents of a file
+     * (ignoring case).
+     *
+     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
+     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
+     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
+     * removed in PHPUnit 9.0.0.
+     *
+     * @param string $expectedFile
+     * @param string $message
+     */
+    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
+    {
+        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
+            // @codeCoverageIgnoreStart
+            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
+        PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts that a directory does not exist.
      *
      * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotExists().

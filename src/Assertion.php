@@ -291,34 +291,6 @@ class Assertion
         return $this;
     }
 
-    public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
-    {
-        PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
-    {
-        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
-    {
-        PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
-    {
-        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
-
-        return $this;
-    }
-
     public function fileExists(string $message = ''): self
     {
         PHPUnit::assertFileExists($this->actual, $message);
@@ -756,34 +728,6 @@ class Assertion
     public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
         PHPUnit::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
-    {
-        PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
     }
