@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Test;
 
-use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\AssertionFailedError;
+use PHPUnit\Framework\TestCase;
 
 final class ComparisonTest extends TestCase
 {

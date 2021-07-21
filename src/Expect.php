@@ -3,6 +3,7 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Runner\Version as PHPUnitVersion;
 
 final class Expect
 {
@@ -45,8 +46,23 @@ final class Expect
         return $this;
     }
 
+    /**
+     * Introduced in PHPUnit 8.4.0 to improve the name of the expectExceptionMessageRegExp()
+     * method. The expectExceptionMessageRegExp() method was soft deprecated in PHPUnit 8.4.0,
+     * hard deprecated (warning) in PHPUnit 8.5.3 and removed in PHPUnit 9.0.0.
+     *
+     * @param string $regex
+     */
     public function emMatches(string $regex): self
     {
+        if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
+            // @codeCoverageIgnoreStart
+            $this->exception->expectExceptionMessageRegExp($regex);
+
+            return $this;
+            // @codeCoverageIgnoreEnd
+        }
+
         $this->exception->expectExceptionMessageMatches($regex);
 
         return $this;
