@@ -3,7 +3,7 @@
 namespace Realodix\NextProject\Support;
 
 use Laminas\Dom\Query;
-use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Assert;
 
 /**
  * @internal
@@ -24,7 +24,7 @@ final class Markup
     ) {
         $results = (new Query($output))->execute($selector);
 
-        return PHPUnit::assertGreaterThan(0, \count($results), $message);
+        return Assert::assertGreaterThan(0, \count($results), $message);
     }
 
     /**
@@ -42,7 +42,7 @@ final class Markup
     ) {
         $results = (new Query($output))->execute($selector);
 
-        return PHPUnit::assertEquals(0, \count($results), $message);
+        return Assert::assertEquals(0, \count($results), $message);
     }
 
     /**
@@ -61,7 +61,7 @@ final class Markup
     ) {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
-        return PHPUnit::assertStringContainsString($contents, $matchedElements, $message);
+        return Assert::assertStringContainsString($contents, $matchedElements, $message);
     }
 
     /**
@@ -80,7 +80,7 @@ final class Markup
     ) {
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
-        return PHPUnit::assertStringNotContainsString($contents, $matchedElements, $message);
+        return Assert::assertStringNotContainsString($contents, $matchedElements, $message);
     }
 
     /**
@@ -174,7 +174,7 @@ final class Markup
     ) {
         $results = (new Query($output))->execute($selector);
 
-        return PHPUnit::assertCount($count, $results, $message);
+        return Assert::assertCount($count, $results, $message);
     }
 
     /**

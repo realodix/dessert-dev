@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Traits;
 
-use PHPUnit\Framework\Assert as PHPUnit;
-use PHPUnit\Runner\Version as PHPUnitVersion;
+use PHPUnit\Framework\Assert;
+use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Constraint\ObjectEquals;
 use Realodix\NextProject\Support\Validator;
 
@@ -12,14 +12,14 @@ trait PolyfillTrait
     public function containsEquals($needle, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
-            PHPUnit::assertContains($needle, $this->actual, $message);
+        if (version_compare(Version::series(), '8.1', '<')) {
+            Assert::assertContains($needle, $this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertContainsEquals($needle, $this->actual, $message);
+        Assert::assertContainsEquals($needle, $this->actual, $message);
 
         return $this;
     }
@@ -27,14 +27,14 @@ trait PolyfillTrait
     public function notContainsEquals($needle, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.1', '<')) {
-            PHPUnit::assertNotContains($needle, $this->actual, $message);
+        if (version_compare(Version::series(), '8.1', '<')) {
+            Assert::assertNotContains($needle, $this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertNotContainsEquals($needle, $this->actual, $message);
+        Assert::assertNotContainsEquals($needle, $this->actual, $message);
 
         return $this;
     }
@@ -42,14 +42,14 @@ trait PolyfillTrait
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertFileEquals($expected, $this->actual, $message, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertFileEquals($expected, $this->actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
+        Assert::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -57,14 +57,14 @@ trait PolyfillTrait
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertFileNotEquals($expected, $this->actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+        Assert::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
@@ -72,14 +72,14 @@ trait PolyfillTrait
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertFileEquals($expected, $this->actual, $message, false, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertFileEquals($expected, $this->actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
+        Assert::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -87,14 +87,14 @@ trait PolyfillTrait
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertFileNotEquals($expected, $this->actual, $message, false, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertFileNotEquals($expected, $this->actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
+        Assert::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
@@ -102,14 +102,14 @@ trait PolyfillTrait
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+        Assert::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -117,14 +117,14 @@ trait PolyfillTrait
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+        Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -132,14 +132,14 @@ trait PolyfillTrait
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+        Assert::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -147,14 +147,14 @@ trait PolyfillTrait
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '8.5', '<')) {
-            PHPUnit::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);
+        if (version_compare(Version::series(), '8.5', '<')) {
+            Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+        Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -162,14 +162,14 @@ trait PolyfillTrait
     public function directoryDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertDirectoryNotExists($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertDirectoryNotExists($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertDirectoryDoesNotExist($this->actual, $message);
+        Assert::assertDirectoryDoesNotExist($this->actual, $message);
 
         return $this;
     }
@@ -177,14 +177,14 @@ trait PolyfillTrait
     public function directoryIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertDirectoryNotIsReadable($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertDirectoryNotIsReadable($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertDirectoryIsNotReadable($this->actual, $message);
+        Assert::assertDirectoryIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -192,14 +192,14 @@ trait PolyfillTrait
     public function directoryIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertDirectoryNotIsWritable($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertDirectoryNotIsWritable($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertDirectoryIsNotWritable($this->actual, $message);
+        Assert::assertDirectoryIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -207,14 +207,14 @@ trait PolyfillTrait
     public function fileDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertFileNotExists($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertFileNotExists($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertFileDoesNotExist($this->actual, $message);
+        Assert::assertFileDoesNotExist($this->actual, $message);
 
         return $this;
     }
@@ -222,14 +222,14 @@ trait PolyfillTrait
     public function fileIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertFileNotIsReadable($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertFileNotIsReadable($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertFileIsNotReadable($this->actual, $message);
+        Assert::assertFileIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -237,14 +237,14 @@ trait PolyfillTrait
     public function fileIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertFileNotIsWritable($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertFileNotIsWritable($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertFileIsNotWritable($this->actual, $message);
+        Assert::assertFileIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -252,14 +252,14 @@ trait PolyfillTrait
     public function isNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertNotIsReadable($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertNotIsReadable($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertIsNotReadable($this->actual, $message);
+        Assert::assertIsNotReadable($this->actual, $message);
 
         return $this;
     }
@@ -267,14 +267,14 @@ trait PolyfillTrait
     public function isNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertNotIsWritable($this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertNotIsWritable($this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertIsNotWritable($this->actual, $message);
+        Assert::assertIsNotWritable($this->actual, $message);
 
         return $this;
     }
@@ -282,14 +282,14 @@ trait PolyfillTrait
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertRegExp($pattern, $this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertRegExp($pattern, $this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertMatchesRegularExpression($pattern, $this->actual, $message);
+        Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
 
         return $this;
     }
@@ -297,14 +297,14 @@ trait PolyfillTrait
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.1', '<')) {
-            PHPUnit::assertNotRegExp($pattern, $this->actual, $message);
+        if (version_compare(Version::series(), '9.1', '<')) {
+            Assert::assertNotRegExp($pattern, $this->actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
+        Assert::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
 
         return $this;
     }
@@ -312,7 +312,7 @@ trait PolyfillTrait
     public function isClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
+        if (version_compare(Version::series(), '9.3', '<')) {
             if ($message === '') {
                 $message = sprintf(
                     'Failed asserting that %s is of type "resource (closed)"',
@@ -320,7 +320,7 @@ trait PolyfillTrait
                 );
             }
 
-            PHPUnit::assertTrue(
+            Assert::assertTrue(
                 Validator::isClosedResource($this->actual),
                 $message
             );
@@ -329,7 +329,7 @@ trait PolyfillTrait
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertIsClosedResource($this->actual, $message);
+        Assert::assertIsClosedResource($this->actual, $message);
 
         return $this;
     }
@@ -337,7 +337,7 @@ trait PolyfillTrait
     public function isNotClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.3', '<')) {
+        if (version_compare(Version::series(), '9.3', '<')) {
             if ($message === '') {
                 $message = sprintf(
                     'Failed asserting that %s is not of type "resource (closed)"',
@@ -345,7 +345,7 @@ trait PolyfillTrait
                 );
             }
 
-            PHPUnit::assertFalse(
+            Assert::assertFalse(
                 Validator::isClosedResource($this->actual),
                 $message
             );
@@ -354,7 +354,7 @@ trait PolyfillTrait
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertIsNotClosedResource($this->actual, $message);
+        Assert::assertIsNotClosedResource($this->actual, $message);
 
         return $this;
     }
@@ -362,7 +362,7 @@ trait PolyfillTrait
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
         // @codeCoverageIgnoreStart
-        if (version_compare(PHPUnitVersion::series(), '9.4', '<')) {
+        if (version_compare(Version::series(), '9.4', '<')) {
             // Object type declarations were introduced in PHP 7.2, so it has to be
             // validated manually
             if (! \is_object($expected)) {
@@ -375,13 +375,13 @@ trait PolyfillTrait
             }
 
             $constraint = new ObjectEquals($expected, $method);
-            PHPUnit::assertThat($this->actual, $constraint, $message);
+            Assert::assertThat($this->actual, $constraint, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        PHPUnit::assertObjectEquals($expected, $this->actual, $method, $message);
+        Assert::assertObjectEquals($expected, $this->actual, $method, $message);
 
         return $this;
     }
