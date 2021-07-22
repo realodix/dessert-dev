@@ -34,13 +34,13 @@ class Assertion
     /**
      * Creates a new expectation.
      *
-     * @param TValue $value
+     * @param mixed $actual
      *
-     * @return self<TValue>
+     * @return self
      */
-    public function and($value): Assertion
+    public function and($actual): Assertion
     {
-        return new self($value);
+        return new self($actual);
     }
 
     /**
