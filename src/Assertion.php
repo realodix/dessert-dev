@@ -638,7 +638,7 @@ class Assertion
         return $this;
     }
 
-    public function stringContainsString(int $needle, $message = ''): self
+    public function stringContainsString($needle, $message = ''): self
     {
         Assert::assertStringContainsString($needle, $this->actual, $message);
 
