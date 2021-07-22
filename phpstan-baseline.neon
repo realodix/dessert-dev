@@ -1,6 +1,56 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Class PHPUnit\\\\Framework\\\\Constraint\\\\IsEqual constructor invoked with 5 parameters, 1\\-4 required\\.$#"
+			count: 2
+			path: src/Assertion.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:directoryExists\\(\\) invoked with 2 parameters, 0\\-1 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFileEquals\\(\\) invoked with 4 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFileEquals\\(\\) invoked with 5 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFileNotEquals\\(\\) invoked with 4 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFileNotEquals\\(\\) invoked with 5 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEqualsFile\\(\\) invoked with 4 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEqualsFile\\(\\) invoked with 5 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotEqualsFile\\(\\) invoked with 4 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotEqualsFile\\(\\) invoked with 5 parameters, 2\\-3 required\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
 			message: "#^Method Realodix\\\\NextProject\\\\Opposite\\:\\:__call\\(\\) should return Realodix\\\\NextProject\\\\Assertion but return statement is missing\\.$#"
 			count: 1
 			path: src/Opposite.php
