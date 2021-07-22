@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
   <file src="src/Expect.php">
+    <ArgumentTypeCoercion occurrences="5">
+      <code>$class</code>
+      <code>'\PHPUnit\Framework\Error\Deprecated'</code>
+      <code>'\PHPUnit\Framework\Error\Error'</code>
+      <code>'\PHPUnit\Framework\Error\Notice'</code>
+      <code>'\PHPUnit\Framework\Error\Warning'</code>
+    </ArgumentTypeCoercion>
     <UndefinedClass occurrences="4">
       <code>'\PHPUnit\Framework\Error\Deprecated'</code>
       <code>'\PHPUnit\Framework\Error\Error'</code>
@@ -28,6 +35,11 @@
       <code>$actual</code>
       <code>$actual</code>
     </ParamNameMismatch>
+  </file>
+  <file src="src/Support/Markup.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$result-&gt;firstChild</code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Traits/AliasesTrait.php">
     <TooManyArguments occurrences="1">
