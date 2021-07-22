@@ -1516,6 +1516,11 @@ parameters:
 			path: src/Support/Markup.php
 
 		-
+			message: "#^Parameter \\#1 \\$node of method DOMDocument\\:\\:importNode\\(\\) expects DOMNode, DOMNode\\|null given\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|false given\\.$#"
 			count: 1
 			path: src/Support/Markup.php
