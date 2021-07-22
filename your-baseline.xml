@@ -16,6 +16,8 @@
     </UndefinedMethod>
   </file>
   <file src="src/Opposite.php">
+    <InternalClass occurrences="1"/>
+    <InternalMethod occurrences="1"/>
     <InvalidReturnType occurrences="2">
       <code>Assertion</code>
       <code>Assertion</code>
@@ -26,5 +28,32 @@
       <code>$actual</code>
       <code>$actual</code>
     </ParamNameMismatch>
+  </file>
+  <file src="src/Traits/AliasesTrait.php">
+    <TooManyArguments occurrences="1">
+      <code>directoryExists</code>
+    </TooManyArguments>
+  </file>
+  <file src="src/Traits/ExtendedTrait.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>10</code>
+      <code>10</code>
+    </InvalidScalarArgument>
+    <TooManyArguments occurrences="2">
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+    </TooManyArguments>
+  </file>
+  <file src="src/Traits/PolyfillTrait.php">
+    <TooManyArguments occurrences="8">
+      <code>Assert::assertFileEquals($expected, $this-&gt;actual, $message, false, true)</code>
+      <code>Assert::assertFileEquals($expected, $this-&gt;actual, $message, true)</code>
+      <code>Assert::assertFileNotEquals($expected, $this-&gt;actual, $message, false, true)</code>
+      <code>Assert::assertFileNotEquals($expected, $this-&gt;actual, $message, true)</code>
+      <code>Assert::assertStringEqualsFile($expectedFile, $this-&gt;actual, $message, false, true)</code>
+      <code>Assert::assertStringEqualsFile($expectedFile, $this-&gt;actual, $message, true)</code>
+      <code>Assert::assertStringNotEqualsFile($expectedFile, $this-&gt;actual, $message, false, true)</code>
+      <code>Assert::assertStringNotEqualsFile($expectedFile, $this-&gt;actual, $message, true)</code>
+    </TooManyArguments>
   </file>
 </files>
