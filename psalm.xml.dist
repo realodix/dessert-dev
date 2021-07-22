@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-    errorLevel="3"
+    errorLevel="2"
     errorBaseline="your-baseline.xml"
 >
     <projectFiles>
