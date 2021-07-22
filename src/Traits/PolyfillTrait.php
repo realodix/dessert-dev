@@ -40,13 +40,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of one file is equal to the contents of another file
-     * (canonicalizing).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileEquals() with these
+     * optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertFileEquals() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expected
      * @param string $message
@@ -67,13 +66,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of one file is not equal to the contents of another file
-     * (canonicalizing).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileNotEquals() with
+     * these optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertFileNotEquals() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expected
      * @param string $message
@@ -94,13 +92,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of one file is equal to the contents of another file
-     * (ignoring case).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileEquals() with these
+     * optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertFileEquals() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expected
      * @param string $message
@@ -121,13 +118,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of one file is not equal to the contents of another file
-     * (ignoring case).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileNotEquals() with
+     * these optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertFileNotEquals() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expected
      * @param string $message
@@ -148,13 +144,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of a string is equal to the contents of a file
-     * (canonicalizing).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringEqualsFile() with
+     * these optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertStringEqualsFile() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expectedFile
      * @param string $message
@@ -175,13 +170,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of a string is not equal to the contents of a file
-     * (canonicalizing).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringNotEqualsFile()
+     * with these optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertStringNotEqualsFile() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expectedFile
      * @param string $message
@@ -202,13 +196,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of a string is equal to the contents of a file (ignoring
-     * case).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringEqualsFile() with
+     * these optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertStringEqualsFile() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expectedFile
      * @param string $message
@@ -229,13 +222,12 @@ trait PolyfillTrait
     }
 
     /**
-     * Asserts that the contents of a string is not equal to the contents of a file
-     * (ignoring case).
+     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringNotEqualsFile()
+     * with these optional parameters.
      *
-     * Introduced in PHPUnit 8.5.0 as alternatives to using Assert::assertFileEquals() and
-     * Assert::assertFileNotEquals() with these optional parameters. Passing the respective
-     * optional parameters to these methods was hard deprecated in PHPUnit 8.5.0 and
-     * removed in PHPUnit 9.0.0.
+     * assertStringNotEqualsFile() optional parameters status:
+     * - Deprecated: PHPUnit 8.5.0
+     * - Removed: PHPUnit 9.0.0
      *
      * @param string $expectedFile
      * @param string $message
