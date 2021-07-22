@@ -1,0 +1,87 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Opposite\\:\\:__call\\(\\) should return Realodix\\\\NextProject\\\\Assertion but return statement is missing\\.$#"
+			count: 1
+			path: src/Opposite.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Opposite\\:\\:__get\\(\\) should return Realodix\\\\NextProject\\\\Assertion but return statement is missing\\.$#"
+			count: 1
+			path: src/Opposite.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertGreaterThan\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertContains\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertJsonStringEqualsJsonFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertJsonStringNotEqualsJsonFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotContains\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEqualsFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotEqualsFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertXmlStringEqualsXmlFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertXmlStringNotEqualsXmlFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Support/Modified.php
+
