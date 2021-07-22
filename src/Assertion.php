@@ -36,7 +36,7 @@ class Assertion
      *
      * @param mixed $actual
      *
-     * @return Assertion
+     * @return self
      */
     public function and($actual): Assertion
     {
