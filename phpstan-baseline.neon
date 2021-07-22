@@ -11,6 +11,11 @@ parameters:
 			path: src/Assertion.php
 
 		-
+			message: "#^Parameter \\#3 \\$canonicalize of class PHPUnit\\\\Framework\\\\Constraint\\\\IsEqual constructor expects bool, int given\\.$#"
+			count: 2
+			path: src/Assertion.php
+
+		-
 			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFileEquals\\(\\) invoked with 4 parameters, 2\\-3 required\\.$#"
 			count: 1
 			path: src/Assertion.php
