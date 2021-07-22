@@ -55,13 +55,13 @@ final class Expect
      */
     public function exceptionMessageMatches(string $regex): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessageRegExp($regex);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectExceptionMessageMatches($regex);
 
@@ -70,13 +70,13 @@ final class Expect
 
     public function deprecation(): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectException('\PHPUnit\Framework\Error\Deprecated');
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectDeprecation();
 
@@ -85,13 +85,13 @@ final class Expect
 
     public function deprecationMessage(string $message): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessage($message);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectDeprecationMessage($message);
 
@@ -100,13 +100,13 @@ final class Expect
 
     public function deprecationMessageMatches(string $regex): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessageRegExp($regex);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectDeprecationMessageMatches($regex);
 
@@ -115,13 +115,13 @@ final class Expect
 
     public function notice(): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectException('\PHPUnit\Framework\Error\Notice');
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectNotice();
 
@@ -130,13 +130,13 @@ final class Expect
 
     public function noticeMessage(string $message): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessage($message);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectNoticeMessage($message);
 
@@ -145,13 +145,13 @@ final class Expect
 
     public function noticeMessageMatches(string $regex): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessageRegExp($regex);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectNoticeMessageMatches($regex);
 
@@ -160,13 +160,13 @@ final class Expect
 
     public function warning(): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectException('\PHPUnit\Framework\Error\Warning');
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectWarning();
 
@@ -175,13 +175,13 @@ final class Expect
 
     public function warningMessage(string $message): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessage($message);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectWarningMessage($message);
 
@@ -190,13 +190,13 @@ final class Expect
 
     public function warningMessageMatches(string $regex): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessageRegExp($regex);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectWarningMessageMatches($regex);
 
@@ -205,13 +205,13 @@ final class Expect
 
     public function error(): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectException('\PHPUnit\Framework\Error\Error');
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectError();
 
@@ -220,13 +220,13 @@ final class Expect
 
     public function errorMessage(string $message): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessage($message);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectErrorMessage($message);
 
@@ -235,13 +235,13 @@ final class Expect
 
     public function errorMessageMatches(string $regex): self
     {
+        // @codeCoverageIgnoreStart
         if (version_compare(PHPUnitVersion::series(), '8.4', '<')) {
-            // @codeCoverageIgnoreStart
             $this->exception->expectExceptionMessageRegExp($regex);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $this->exception->expectErrorMessageMatches($regex);
 

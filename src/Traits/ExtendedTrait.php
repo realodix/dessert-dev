@@ -163,8 +163,8 @@ trait ExtendedTrait
             );
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $constraint = new IsEqualIgnoringCase($expectedString);
 
@@ -184,8 +184,8 @@ trait ExtendedTrait
             PHPUnit::assertThat(file_get_contents($this->actual), $constraint, $message);
 
             return $this;
-            // @codeCoverageIgnoreEnd
         }
+        // @codeCoverageIgnoreEnd
 
         $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
 
