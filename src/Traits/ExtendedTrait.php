@@ -43,7 +43,7 @@ trait ExtendedTrait
         return $this;
     }
 
-    public function stringEquals(string $expected, string $message = ''): self
+    public function stringEquals($expected, $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringEqualsJsonString($expected, $this->actual, $message);
@@ -62,7 +62,7 @@ trait ExtendedTrait
         return $this;
     }
 
-    public function stringNotEquals(string $expected, string $message = ''): self
+    public function stringNotEquals($expected, $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);

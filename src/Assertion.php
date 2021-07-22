@@ -71,743 +71,693 @@ class Assertion
         return new Opposite($this);
     }
 
-    /**
-     * Asserts that an array has a specified key.
-     *
-     * @param int|string $key
-     * @param string     $message
-     */
-    public function arrayHasKey($key, string $message = ''): self
+    public function arrayHasKey($key, $message = ''): self
     {
         Assert::assertArrayHasKey($key, $this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts that an array does not have a specified key.
-     *
-     * @param int|string $key
-     * @param string     $message
-     */
-    public function arrayNotHasKey($key, string $message = ''): self
+    public function arrayNotHasKey($key, $message = ''): self
     {
         Assert::assertArrayNotHasKey($key, $this->actual, $message);
 
         return $this;
     }
 
-    public function containsOnly($type, $isNativeType = null, string $message = ''): self
+    public function containsOnly($type, $isNativeType = null, $message = ''): self
     {
         Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
 
-    public function notContainsOnly($type, $isNativeType = null, string $message = ''): self
+    public function notContainsOnly($type, $isNativeType = null, $message = ''): self
     {
         Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
 
-    public function containsOnlyInstancesOf($className, string $message = ''): self
+    public function containsOnlyInstancesOf($className, $message = ''): self
     {
         Assert::assertContainsOnlyInstancesOf($className, $this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @param int    $expectedCount
-     * @param string $message
-     */
-    public function count(int $expectedCount, string $message = ''): self
+    public function count($expectedCount, $message = ''): self
     {
         Assert::assertCount($expectedCount, $this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @param int    $expectedCount
-     * @param string $message
-     */
-    public function notCount(int $expectedCount, string $message = ''): self
+    public function notCount($expectedCount, $message = ''): self
     {
         Assert::assertNotCount($expectedCount, $this->actual, $message);
 
         return $this;
     }
 
-    public function equals($expected, string $message = ''): self
+    public function equals($expected, $message = ''): self
     {
         Assert::assertEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notEquals($expected, string $message = ''): self
+    public function notEquals($expected, $message = ''): self
     {
         Assert::assertNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function equalsCanonicalizing($expected, string $message = ''): self
+    public function equalsCanonicalizing($expected, $message = ''): self
     {
         Assert::assertEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notEqualsCanonicalizing($expected, string $message = ''): self
+    public function notEqualsCanonicalizing($expected, $message = ''): self
     {
         Assert::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function equalsIgnoringCase($expected, string $message = ''): self
+    public function equalsIgnoringCase($expected, $message = ''): self
     {
         Assert::assertEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notEqualsIgnoringCase($expected, string $message = ''): self
+    public function notEqualsIgnoringCase($expected, $message = ''): self
     {
         Assert::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function equalsWithDelta($expected, float $delta, string $message = ''): self
+    public function equalsWithDelta($expected, $delta, $message = ''): self
     {
         Assert::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
     }
 
-    public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
+    public function notEqualsWithDelta($expected, $delta, $message = ''): self
     {
         Assert::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
     }
 
-    public function classHasAttribute($attributeName, string $message = ''): self
+    public function classHasAttribute($attributeName, $message = ''): self
     {
         Assert::assertClassHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
-    public function classNotHasAttribute($attributeName, string $message = ''): self
+    public function classNotHasAttribute($attributeName, $message = ''): self
     {
         Assert::assertClassNotHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
-    public function classHasStaticAttribute($attributeName, string $message = ''): self
+    public function classHasStaticAttribute($attributeName, $message = ''): self
     {
         Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
-    public function classNotHasStaticAttribute($attributeName, string $message = ''): self
+    public function classNotHasStaticAttribute($attributeName, $message = ''): self
     {
         Assert::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
-    public function directoryExists(string $message = ''): self
+    public function directoryExists($message = ''): self
     {
         Assert::assertDirectoryExists($this->actual, $message);
 
         return $this;
     }
 
-    public function directoryIsReadable(string $message = ''): self
+    public function directoryIsReadable($message = ''): self
     {
         Assert::assertDirectoryIsReadable($this->actual, $message);
 
         return $this;
     }
 
-    public function directoryIsWritable(string $message = ''): self
+    public function directoryIsWritable($message = ''): self
     {
         Assert::assertDirectoryIsWritable($this->actual, $message);
 
         return $this;
     }
 
-    public function empty(string $message = ''): self
+    public function empty($message = ''): self
     {
         Assert::assertEmpty($this->actual, $message);
 
         return $this;
     }
 
-    public function notEmpty(string $message = ''): self
+    public function notEmpty($message = ''): self
     {
         Assert::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
 
-    public function fileEquals($expected, string $message = ''): self
+    public function fileEquals($expected, $message = ''): self
     {
         Assert::assertFileEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function fileNotEquals(string $expected, string $message = ''): self
+    public function fileNotEquals($expected, $message = ''): self
     {
         Assert::assertFileNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function fileExists(string $message = ''): self
+    public function fileExists($message = ''): self
     {
         Assert::assertFileExists($this->actual, $message);
 
         return $this;
     }
 
-    public function fileIsReadable(string $message = ''): self
+    public function fileIsReadable($message = ''): self
     {
         Assert::assertFileIsReadable($this->actual, $message);
 
         return $this;
     }
 
-    public function fileIsWritable(string $message = ''): self
+    public function fileIsWritable($message = ''): self
     {
         Assert::assertFileIsWritable($this->actual, $message);
 
         return $this;
     }
 
-    public function true(string $message = ''): self
+    public function true($message = ''): self
     {
         Assert::assertTrue($this->actual, $message);
 
         return $this;
     }
 
-    public function notTrue(string $message = ''): self
+    public function notTrue($message = ''): self
     {
         Assert::assertNotTrue($this->actual, $message);
 
         return $this;
     }
 
-    public function false(string $message = ''): self
+    public function false($message = ''): self
     {
         Assert::assertFalse($this->actual, $message);
 
         return $this;
     }
 
-    public function notFalse(string $message = ''): self
+    public function notFalse($message = ''): self
     {
         Assert::assertNotFalse($this->actual, $message);
 
         return $this;
     }
 
-    public function null(string $message = ''): self
+    public function null($message = ''): self
     {
         Assert::assertNull($this->actual, $message);
 
         return $this;
     }
 
-    public function notNull(string $message = ''): self
+    public function notNull($message = ''): self
     {
         Assert::assertNotNull($this->actual, $message);
 
         return $this;
     }
 
-    public function finite(string $message = ''): self
+    public function finite($message = ''): self
     {
         Assert::assertFinite($this->actual, $message);
 
         return $this;
     }
 
-    public function infinite(string $message = ''): self
+    public function infinite($message = ''): self
     {
         Assert::assertInfinite($this->actual, $message);
 
         return $this;
     }
 
-    public function nan(string $message = ''): self
+    public function nan($message = ''): self
     {
         Assert::assertNan($this->actual, $message);
 
         return $this;
     }
 
-    public function greaterThan($expected, string $message = ''): self
+    public function greaterThan($expected, $message = ''): self
     {
         Assert::assertGreaterThan($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function lessThan($expected, string $message = ''): self
+    public function lessThan($expected, $message = ''): self
     {
         Assert::assertLessThan($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function greaterThanOrEqual($expected, string $message = ''): self
+    public function greaterThanOrEqual($expected, $message = ''): self
     {
         Assert::assertGreaterThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function lessThanOrEqual($expected, string $message = ''): self
+    public function lessThanOrEqual($expected, $message = ''): self
     {
         Assert::assertLessThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function instanceOf(string $expected, string $message = ''): self
+    public function instanceOf($expected, $message = ''): self
     {
         Assert::assertInstanceOf($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notInstanceOf(string $expected, string $message = ''): self
+    public function notInstanceOf($expected, $message = ''): self
     {
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function isArray(string $message = ''): self
+    public function isArray($message = ''): self
     {
         Assert::assertIsArray($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotArray(string $message = ''): self
+    public function isNotArray($message = ''): self
     {
         Assert::assertIsNotArray($this->actual, $message);
 
         return $this;
     }
 
-    public function isBool(string $message = ''): self
+    public function isBool($message = ''): self
     {
         Assert::assertIsBool($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotBool(string $message = ''): self
+    public function isNotBool($message = ''): self
     {
         Assert::assertIsNotBool($this->actual, $message);
 
         return $this;
     }
 
-    public function isCallable(string $message = ''): self
+    public function isCallable($message = ''): self
     {
         Assert::assertIsCallable($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotCallable(string $message = ''): self
+    public function isNotCallable($message = ''): self
     {
         Assert::assertIsNotCallable($this->actual, $message);
 
         return $this;
     }
 
-    public function isFloat(string $message = ''): self
+    public function isFloat($message = ''): self
     {
         Assert::assertIsFloat($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotFloat(string $message = ''): self
+    public function isNotFloat($message = ''): self
     {
         Assert::assertIsNotFloat($this->actual, $message);
 
         return $this;
     }
 
-    public function isInt(string $message = ''): self
+    public function isInt($message = ''): self
     {
         Assert::assertIsInt($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotInt(string $message = ''): self
+    public function isNotInt($message = ''): self
     {
         Assert::assertIsNotInt($this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type iterable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isIterable(string $message = ''): self
+    public function isIterable($message = ''): self
     {
         Assert::assertIsIterable($this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts that a variable is not of type iterable.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotIterable(string $message = ''): self
+    public function isNotIterable($message = ''): self
     {
         Assert::assertIsNotIterable($this->actual, $message);
 
         return $this;
     }
 
-    public function isNumeric(string $message = ''): self
+    public function isNumeric($message = ''): self
     {
         Assert::assertIsNumeric($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotNumeric(string $message = ''): self
+    public function isNotNumeric($message = ''): self
     {
         Assert::assertIsNotNumeric($this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type object.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isObject(string $message = ''): self
+    public function isObject($message = ''): self
     {
         Assert::assertIsObject($this->actual, $message);
 
         return $this;
     }
 
-    /**
-     * Asserts that a variable is not of type object.
-     *
-     * @param string $message
-     *
-     * @return self
-     */
-    public function isNotObject(string $message = ''): self
+    public function isNotObject($message = ''): self
     {
         Assert::assertIsNotObject($this->actual, $message);
 
         return $this;
     }
 
-    public function isReadable(string $message = ''): self
+    public function isReadable($message = ''): self
     {
         Assert::assertIsReadable($this->actual, $message);
 
         return $this;
     }
 
-    public function isResource(string $message = ''): self
+    public function isResource($message = ''): self
     {
         Assert::assertIsResource($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotResource(string $message = ''): self
+    public function isNotResource($message = ''): self
     {
         Assert::assertIsNotResource($this->actual, $message);
 
         return $this;
     }
 
-    public function isScalar(string $message = ''): self
+    public function isScalar($message = ''): self
     {
         Assert::assertIsScalar($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotScalar(string $message = ''): self
+    public function isNotScalar($message = ''): self
     {
         Assert::assertIsNotScalar($this->actual, $message);
 
         return $this;
     }
 
-    public function isString(string $message = ''): self
+    public function isString($message = ''): self
     {
         Assert::assertIsString($this->actual, $message);
 
         return $this;
     }
 
-    public function isNotString(string $message = ''): self
+    public function isNotString($message = ''): self
     {
         Assert::assertIsNotString($this->actual, $message);
 
         return $this;
     }
 
-    public function isWritable(string $message = ''): self
+    public function isWritable($message = ''): self
     {
         Assert::assertIsWritable($this->actual, $message);
 
         return $this;
     }
 
-    public function json(string $message = ''): self
+    public function json($message = ''): self
     {
         Assert::assertJson($this->actual, $message);
 
         return $this;
     }
 
-    public function jsonFileEqualsJsonFile(string $expectedFile, string $message = ''): self
+    public function jsonFileEqualsJsonFile($expectedFile, $message = ''): self
     {
         Assert::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonFileNotEqualsJsonFile(string $expectedFile, string $message = ''): self
+    public function jsonFileNotEqualsJsonFile($expectedFile, $message = ''): self
     {
         Assert::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonStringEqualsJsonFile(string $expectedFile, string $message = ''): self
+    public function jsonStringEqualsJsonFile($expectedFile, $message = ''): self
     {
         Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
+    public function jsonStringNotEqualsJsonFile($expectedFile, $message = ''): self
     {
         Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
+    public function jsonStringEqualsJsonString($expectedJson, $message = ''): self
     {
         Assert::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
 
         return $this;
     }
 
-    public function jsonStringNotEqualsJsonString($expectedJson, string $message = ''): self
+    public function jsonStringNotEqualsJsonString($expectedJson, $message = ''): self
     {
         Assert::assertJsonStringNotEqualsJsonString($expectedJson, $this->actual, $message);
 
         return $this;
     }
 
-    public function objectHasAttribute($attributeName, string $message = ''): self
+    public function objectHasAttribute($attributeName, $message = ''): self
     {
         Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
-    public function objectNotHasAttribute($attributeName, string $message = ''): self
+    public function objectNotHasAttribute($attributeName, $message = ''): self
     {
         Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
     }
 
-    public function same($expected, string $message = ''): self
+    public function same($expected, $message = ''): self
     {
         Assert::assertSame($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notSame($expected, string $message = ''): self
+    public function notSame($expected, $message = ''): self
     {
         Assert::assertNotSame($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function sameSize($expected, string $message = ''): self
+    public function sameSize($expected, $message = ''): self
     {
         Assert::assertSameSize($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notSameSize($expected, string $message = ''): self
+    public function notSameSize($expected, $message = ''): self
     {
         Assert::assertNotSameSize($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringContainsString(string $needle, string $message = ''): self
+    public function stringContainsString($needle, $message = ''): self
     {
         Assert::assertStringContainsString($needle, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringNotContainsString(string $needle, string $message = ''): self
+    public function stringNotContainsString($needle, $message = ''): self
     {
         Assert::assertStringNotContainsString($needle, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
+    public function stringContainsStringIgnoringCase($needle, $message = ''): self
     {
         Assert::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
+    public function stringNotContainsStringIgnoringCase($needle, $message = ''): self
     {
         Assert::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringMatchesFormat($format, string $message = ''): self
+    public function stringMatchesFormat($format, $message = ''): self
     {
         Assert::assertStringMatchesFormat($format, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringNotMatchesFormat($format, string $message = ''): self
+    public function stringNotMatchesFormat($format, $message = ''): self
     {
         Assert::assertStringNotMatchesFormat($format, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringMatchesFormatFile($formatFile, string $message = ''): self
+    public function stringMatchesFormatFile($formatFile, $message = ''): self
     {
         Assert::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringNotMatchesFormatFile($formatFile, string $message = ''): self
+    public function stringNotMatchesFormatFile($formatFile, $message = ''): self
     {
         Assert::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringStartsWith($prefix, string $message = ''): self
+    public function stringStartsWith($prefix, $message = ''): self
     {
         Assert::assertStringStartsWith($prefix, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringStartsNotWith($prefix, string $message = ''): self
+    public function stringStartsNotWith($prefix, $message = ''): self
     {
         Assert::assertStringStartsNotWith($prefix, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringEndsNotWith($suffix, string $message = ''): self
+    public function stringEndsNotWith($suffix, $message = ''): self
     {
         Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringEndsWith($suffix, string $message = ''): self
+    public function stringEndsWith($suffix, $message = ''): self
     {
         Assert::assertStringEndsWith($suffix, $this->actual, $message);
 
         return $this;
     }
 
-    public function xmlFileEqualsXmlFile(string $expectedFile, string $message = ''): self
+    public function xmlFileEqualsXmlFile($expectedFile, $message = ''): self
     {
         Assert::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function xmlFileNotEqualsXmlFile(string $expectedFile, string $message = ''): self
+    public function xmlFileNotEqualsXmlFile($expectedFile, $message = ''): self
     {
         Assert::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function xmlStringEqualsXmlFile(string $expectedFile, string $message = ''): self
+    public function xmlStringEqualsXmlFile($expectedFile, $message = ''): self
     {
         Assert::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
+    public function xmlStringNotEqualsXmlFile($expectedFile, $message = ''): self
     {
+        Assert::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
+
         return $this;
     }
 
-    public function xmlStringEqualsXmlString($expectedXml, string $message = ''): self
+    public function xmlStringEqualsXmlString($expectedXml, $message = ''): self
     {
         Assert::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
     }
 
-    public function xmlStringNotEqualsXmlString($expectedXml, string $message = ''): self
+    public function xmlStringNotEqualsXmlString($expectedXml, $message = ''): self
     {
         Assert::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
 
