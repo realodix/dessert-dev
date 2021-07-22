@@ -1426,6 +1426,11 @@ parameters:
 			path: src/Expect.php
 
 		-
+			message: "#^Parameter \\#1 \\$exception of method PHPUnit\\\\Framework\\\\TestCase\\:\\:expectException\\(\\) expects class\\-string\\<Throwable\\>, string given\\.$#"
+			count: 1
+			path: src/Expect.php
+
+		-
 			message: "#^Dead catch \\- PHPUnit\\\\Framework\\\\ExpectationFailedException is never thrown in the try block\\.$#"
 			count: 2
 			path: src/Opposite.php
@@ -1507,6 +1512,11 @@ parameters:
 
 		-
 			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:flattenAttributeArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|false given\\.$#"
 			count: 1
 			path: src/Support/Markup.php
 
