@@ -46,17 +46,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 to improve the name of the expectExceptionMessageRegExp()
-     * method.
-     *
-     * expectExceptionMessageRegExp() status:
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 8.5.3
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $regex
-     */
     public function exceptionMessageMatches(string $regex): self
     {
         // @codeCoverageIgnoreStart
@@ -72,15 +61,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     */
     public function deprecation(): self
     {
         // @codeCoverageIgnoreStart
@@ -96,17 +76,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $message
-     */
     public function deprecationMessage(string $message): self
     {
         // @codeCoverageIgnoreStart
@@ -122,17 +91,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $regex
-     */
     public function deprecationMessageMatches(string $regex): self
     {
         // @codeCoverageIgnoreStart
@@ -148,15 +106,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     */
     public function notice(): self
     {
         // @codeCoverageIgnoreStart
@@ -172,17 +121,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $message
-     */
     public function noticeMessage(string $message): self
     {
         // @codeCoverageIgnoreStart
@@ -198,17 +136,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $regex
-     */
     public function noticeMessageMatches(string $regex): self
     {
         // @codeCoverageIgnoreStart
@@ -224,15 +151,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     */
     public function warning(): self
     {
         // @codeCoverageIgnoreStart
@@ -248,17 +166,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $message
-     */
     public function warningMessage(string $message): self
     {
         // @codeCoverageIgnoreStart
@@ -274,17 +181,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $regex
-     */
     public function warningMessageMatches(string $regex): self
     {
         // @codeCoverageIgnoreStart
@@ -300,15 +196,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     */
     public function error(): self
     {
         // @codeCoverageIgnoreStart
@@ -324,17 +211,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $message
-     */
     public function errorMessage(string $message): self
     {
         // @codeCoverageIgnoreStart
@@ -350,17 +226,6 @@ final class Expect
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.4.0 as alternatives to using expectException() et al for
-     * expecting PHP native errors, warnings and notices.
-     *
-     * expectException*() for testing PHP native notices
-     * - Deprecated: PHPUnit 8.4.0
-     * - Warning: PHPUnit 9.0.0
-     * - Removed: PHPUnit 10.0.0
-     *
-     * @param string $regex
-     */
     public function errorMessageMatches(string $regex): self
     {
         // @codeCoverageIgnoreStart

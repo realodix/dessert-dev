@@ -39,17 +39,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileEquals() with these
-     * optional parameters.
-     *
-     * assertFileEquals() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expected
-     * @param string $message
-     */
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -65,17 +54,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileNotEquals() with
-     * these optional parameters.
-     *
-     * assertFileNotEquals() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expected
-     * @param string $message
-     */
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -91,17 +69,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileEquals() with these
-     * optional parameters.
-     *
-     * assertFileEquals() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expected
-     * @param string $message
-     */
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -117,17 +84,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertFileNotEquals() with
-     * these optional parameters.
-     *
-     * assertFileNotEquals() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expected
-     * @param string $message
-     */
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -143,17 +99,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringEqualsFile() with
-     * these optional parameters.
-     *
-     * assertStringEqualsFile() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -169,17 +114,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringNotEqualsFile()
-     * with these optional parameters.
-     *
-     * assertStringNotEqualsFile() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -195,17 +129,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringEqualsFile() with
-     * these optional parameters.
-     *
-     * assertStringEqualsFile() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -221,17 +144,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Introduced in PHPUnit 8.5.0 as alternatives to using assertStringNotEqualsFile()
-     * with these optional parameters.
-     *
-     * assertStringNotEqualsFile() optional parameters status:
-     * - Deprecated: PHPUnit 8.5.0
-     * - Removed: PHPUnit 9.0.0
-     *
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -247,19 +159,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a directory does not exist.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotExists().
-     * The original methods these new methods replace were hard deprecated in PHPUnit
-     * 9.1.0 and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4067
-     * - https://github.com/sebastianbergmann/phpunit/issues/4069
-     *
-     * @param string $message
-     */
     public function directoryDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -275,19 +174,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a directory exists and is not readable.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotIsReadable().
-     * The original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4070
-     * - https://github.com/sebastianbergmann/phpunit/issues/4072
-     *
-     * @param string $message
-     */
     public function directoryIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -303,19 +189,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a directory exists and is not writable.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertDirectoryNotIsWritable()
-     * The original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4073
-     * - https://github.com/sebastianbergmann/phpunit/issues/4075
-     *
-     * @param string $message
-     */
     public function directoryIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -331,19 +204,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a file does not exist.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotExists(). The
-     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4076
-     * - https://github.com/sebastianbergmann/phpunit/issues/4078
-     *
-     * @param string $message
-     */
     public function fileDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -359,19 +219,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a file exists and is not readable.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotIsReadable().
-     * The original methods these new methods replace were hard deprecated in PHPUnit
-     * 9.1.0 and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4079
-     * - https://github.com/sebastianbergmann/phpunit/issues/4081
-     *
-     * @param string $message
-     */
     public function fileIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -387,19 +234,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a file exists and is not writable.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertFileNotIsWritable().
-     * The original methods these new methods replace were hard deprecated in PHPUnit
-     * 9.1.0 and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4082
-     * - https://github.com/sebastianbergmann/phpunit/issues/4536
-     *
-     * @param string $message
-     */
     public function fileIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -415,19 +249,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a file/dir exists and is not readable.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotIsReadable(). The
-     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4061
-     * - https://github.com/sebastianbergmann/phpunit/issues/4063
-     *
-     * @param string $message
-     */
     public function isNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -443,19 +264,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a file/dir exists and is not writable.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotIsWritable(). The
-     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4064
-     * - https://github.com/sebastianbergmann/phpunit/issues/4066
-     *
-     * @param string $message
-     */
     public function isNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -471,20 +279,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a string matches a given regular expression.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertRegExp(). The original
-     * methods these new methods replace were hard deprecated in PHPUnit 9.1.0 and removed
-     * in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4085
-     * - https://github.com/sebastianbergmann/phpunit/issues/4087
-     *
-     * @param string $pattern
-     * @param string $message
-     */
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -500,20 +294,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a string does not match a given regular expression.
-     *
-     * Introduced in PHPUnit 9.1.0 as alternative for Assert::assertNotRegExp(). The
-     * original methods these new methods replace were hard deprecated in PHPUnit 9.1.0
-     * and removed in PHPUnit 10.0.0.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/issues/4088
-     * - https://github.com/sebastianbergmann/phpunit/issues/4090
-     *
-     * @param string $pattern
-     * @param string $message
-     */
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -529,16 +309,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a variable is of type resource and is closed.
-     *
-     * These methods were introduced in PHPUnit 9.3.0.
-     * - https://github.com/sebastianbergmann/phpunit/pull/4365
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -564,16 +334,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that a variable is not of type resource or is an open resource.
-     *
-     * These methods were introduced in PHPUnit 9.3.0.
-     * - https://github.com/sebastianbergmann/phpunit/pull/4365
-     *
-     * @param string $message
-     *
-     * @return self
-     */
     public function isNotClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -599,18 +359,6 @@ trait PolyfillTrait
         return $this;
     }
 
-    /**
-     * Asserts that two objects are considered equal based on a custom object comparison
-     * using a comparator method in the target object.
-     *
-     * These methods were introduced in PHPUnit 9.4.0.
-     * - https://github.com/sebastianbergmann/phpunit/issues/4467
-     *
-     * @param object $expected     Expected value.
-     * @param string $method       The name of the comparator method within the object.
-     * @param string $message      Optional failure message to display.
-     * @param object $this->actual The value to test.
-     */
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
         // @codeCoverageIgnoreStart
