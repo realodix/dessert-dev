@@ -7,6 +7,19 @@
       <code>'\PHPUnit\Framework\Error\Notice'</code>
       <code>'\PHPUnit\Framework\Error\Warning'</code>
     </UndefinedClass>
+    <UndefinedMethod occurrences="5">
+      <code>expectExceptionMessageRegExp</code>
+      <code>expectExceptionMessageRegExp</code>
+      <code>expectExceptionMessageRegExp</code>
+      <code>expectExceptionMessageRegExp</code>
+      <code>expectExceptionMessageRegExp</code>
+    </UndefinedMethod>
+  </file>
+  <file src="src/Opposite.php">
+    <InvalidReturnType occurrences="2">
+      <code>Assertion</code>
+      <code>Assertion</code>
+    </InvalidReturnType>
   </file>
   <file src="src/Support/Constraint/ObjectEquals.php">
     <ParamNameMismatch occurrences="2">
