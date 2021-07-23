@@ -7,7 +7,7 @@ use PHPUnit\Framework\Exception;
 /**
  * @internal
  */
-final class InvalidActualArgumentException extends Exception
+final class InvalidActualValueException extends Exception
 {
     public static function create(string $type): self
     {
