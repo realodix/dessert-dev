@@ -114,9 +114,7 @@ class Assertion
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         if (! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create(
-                'iterable'
-            );
+            throw InvalidActualValueException::create('iterable');
         }
 
         Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
@@ -125,12 +123,16 @@ class Assertion
     }
 
     /**
-     * @param string $type
-     * @param ?bool  $isNativeType
-     * @param string $message
+     * @param string    $type
+     * @param bool|null $isNativeType
+     * @param string    $message
      */
     public function notContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
+        if (! is_iterable($this->actual)) {
+            throw InvalidActualValueException::create('iterable');
+        }
+
         Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
@@ -142,6 +144,10 @@ class Assertion
      */
     public function containsOnlyInstancesOf(string $className, string $message = ''): self
     {
+        if (! is_iterable($this->actual)) {
+            throw InvalidActualValueException::create('iterable');
+        }
+
         Assert::assertContainsOnlyInstancesOf($className, $this->actual, $message);
 
         return $this;
@@ -153,6 +159,10 @@ class Assertion
      */
     public function count(int $expectedCount, string $message = ''): self
     {
+        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+            throw InvalidActualValueException::create('countable or iterable');
+        }
+
         Assert::assertCount($expectedCount, $this->actual, $message);
 
         return $this;
@@ -164,6 +174,10 @@ class Assertion
      */
     public function notCount(int $expectedCount, string $message = ''): self
     {
+        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+            throw InvalidActualValueException::create('countable or iterable');
+        }
+
         Assert::assertNotCount($expectedCount, $this->actual, $message);
 
         return $this;
