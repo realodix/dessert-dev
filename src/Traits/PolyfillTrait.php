@@ -39,7 +39,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileEqualsCanonicalizing($expected, string $message = ''): self
+    public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -54,7 +54,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileNotEqualsCanonicalizing($expected, string $message = ''): self
+    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -69,7 +69,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileEqualsIgnoringCase($expected, string $message = ''): self
+    public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -84,7 +84,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileNotEqualsIgnoringCase($expected, string $message = ''): self
+    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -99,7 +99,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -114,7 +114,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -129,7 +129,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -144,7 +144,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -279,7 +279,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function matchesRegularExpression($pattern, string $message = ''): self
+    public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -294,7 +294,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function doesNotMatchRegularExpression($pattern, string $message = ''): self
+    public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -361,20 +361,20 @@ trait PolyfillTrait
 
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
+        // Validate object parameter type in function argument (PHP < 7.2).
+        if (! \is_object($expected)) {
+            throw new \TypeError(
+                sprintf(
+                    'Argument 1 passed to assertObjectEquals() must be an object, %s given',
+                    get_debug_type($expected)
+                )
+            );
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.4', '<')) {
-            // Object type declarations were introduced in PHP 7.2, so it has to be
-            // validated manually
-            if (! \is_object($expected)) {
-                throw new \TypeError(
-                    sprintf(
-                        'Argument 1 passed to assertObjectEquals() must be an object, %s given',
-                        get_debug_type($expected)
-                    )
-                );
-            }
-
             $constraint = new ObjectEquals($expected, $method);
+
             Assert::assertThat($this->actual, $constraint, $message);
 
             return $this;
