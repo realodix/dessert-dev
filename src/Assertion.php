@@ -78,7 +78,7 @@ class Assertion
      */
     public function arrayHasKey($key, string $message = ''): self
     {
-        if (! (\is_array($this->actual) || $this->actual instanceof ArrayAccess)) {
+        if (! (\is_array($this->actual) || $this->actual instanceof \ArrayAccess)) {
             throw InvalidActualValueException::create(
                 'array or ArrayAccess'
             );
@@ -95,7 +95,7 @@ class Assertion
      */
     public function arrayNotHasKey($key, string $message = ''): self
     {
-        if (! (\is_array($this->actual) || $this->actual instanceof ArrayAccess)) {
+        if (! (\is_array($this->actual) || $this->actual instanceof \ArrayAccess)) {
             throw InvalidActualValueException::create(
                 'array or ArrayAccess'
             );
@@ -159,7 +159,7 @@ class Assertion
      */
     public function count(int $expectedCount, string $message = ''): self
     {
-        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
             throw InvalidActualValueException::create('countable or iterable');
         }
 
@@ -174,7 +174,7 @@ class Assertion
      */
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
             throw InvalidActualValueException::create('countable or iterable');
         }
 
@@ -1021,7 +1021,7 @@ class Assertion
      */
     public function sameSize($expected, string $message = ''): self
     {
-        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
             throw InvalidActualValueException::create('countable or iterable');
         }
 
@@ -1036,7 +1036,7 @@ class Assertion
      */
     public function notSameSize($expected, string $message = ''): self
     {
-        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
             throw InvalidActualValueException::create('countable or iterable');
         }
 
