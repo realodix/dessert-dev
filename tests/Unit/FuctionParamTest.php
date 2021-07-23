@@ -233,10 +233,24 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function sameSizeExpectedValue(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        ass([])->sameSize('');
+    }
+
+    /** @test */
     public function notSameSizeActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass('')->notSameSize('');
+    }
+
+    /** @test */
+    public function notSameSizeExpectedValue(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        ass([])->notSameSize('');
     }
 
     /** @test */
