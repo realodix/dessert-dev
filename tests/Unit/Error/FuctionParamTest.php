@@ -227,6 +227,15 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function fileNotEqualsActualValue(): void
+    {
+        Expect::after($this)
+            ->exception(InvalidActualValueException::class);
+
+        ass(false)->fileNotEquals('');
+    }
+
+    /** @test */
     public function fileEqualsCanonicalizingActualValue(): void
     {
         Expect::after($this)
@@ -260,15 +269,6 @@ final class FuctionParamTest extends TestCase
             ->exception(InvalidActualValueException::class);
 
         ass(false)->fileNotEqualsIgnoringCase('');
-    }
-
-    /** @test */
-    public function fileNotEqualsActualValue(): void
-    {
-        Expect::after($this)
-            ->exception(InvalidActualValueException::class);
-
-        ass(false)->fileNotEquals('');
     }
 
     /** @test */
