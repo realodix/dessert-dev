@@ -210,21 +210,17 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MissingParamType occurrences="6">
+    <MissingParamType occurrences="4">
       <code>$expected</code>
       <code>$expected</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="25">
+    <MixedArgument occurrences="23">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
@@ -266,11 +262,9 @@
       <code>Assert::assertNotRegExp($pattern, $this-&gt;actual, $message)</code>
       <code>Assert::assertRegExp($pattern, $this-&gt;actual, $message)</code>
     </DeprecatedMethod>
-    <MissingParamType occurrences="3">
-      <code>$expected</code>
-      <code>$needle</code>
-      <code>$needle</code>
-    </MissingParamType>
+    <DocblockTypeContradiction occurrences="1">
+      <code>\is_object($expected)</code>
+    </DocblockTypeContradiction>
     <MissingReturnType occurrences="1">
       <code>objectEquals</code>
     </MissingReturnType>
