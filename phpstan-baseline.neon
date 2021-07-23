@@ -16,72 +16,12 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:arrayHasKey\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:arrayNotHasKey\\(\\) has parameter \\$key with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:arrayNotHasKey\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classHasAttribute\\(\\) has parameter \\$attributeName with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classHasAttribute\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classHasStaticAttribute\\(\\) has parameter \\$attributeName with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classHasStaticAttribute\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classNotHasAttribute\\(\\) has parameter \\$attributeName with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classNotHasAttribute\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classNotHasStaticAttribute\\(\\) has parameter \\$attributeName with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:classNotHasStaticAttribute\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:contains\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:contains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:containsEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -96,72 +36,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:containsOnly\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:containsOnly\\(\\) has parameter \\$type with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:containsOnlyInstancesOf\\(\\) has parameter \\$className with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:containsOnlyInstancesOf\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:count\\(\\) has parameter \\$expectedCount with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:count\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:dirExists\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:dirIsNotReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:dirIsNotWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:dirIsReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:dirIsWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:dirNotExist\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:directoryDoesNotExist\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:directoryExists\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -171,67 +46,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:directoryIsNotReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:directoryIsNotWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:directoryIsReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:directoryIsWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:doesNotMatchRegularExpression\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:doesNotMatchRegularExpression\\(\\) has parameter \\$pattern with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:empty\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:endNotWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:endNotWith\\(\\) has parameter \\$suffix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:endWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:endWith\\(\\) has parameter \\$suffix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:equals\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:equals\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -241,22 +56,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:equalsCanonicalizing\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:equalsIgnoringCase\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:equalsIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:equalsWithDelta\\(\\) has parameter \\$delta with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -266,117 +66,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:equalsWithDelta\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:false\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileDoesNotExist\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileEquals\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileEqualsCanonicalizing\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileEqualsCanonicalizing\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileEqualsIgnoringCase\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileEqualsIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileExists\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileIsNotReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileIsNotWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileIsReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileIsWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileNotEquals\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileNotEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileNotEqualsCanonicalizing\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileNotEqualsCanonicalizing\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileNotEqualsIgnoringCase\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileNotEqualsIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:finite\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greater\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greater\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -386,17 +76,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greaterOrEqual\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greaterThan\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greaterThan\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -406,32 +86,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greaterThanOrEqual\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:hasKey\\(\\) has parameter \\$key with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:hasKey\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:infinite\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:instanceOf\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:instanceOf\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -441,22 +96,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isAbove\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isArray\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isAtLeast\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isAtLeast\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -466,277 +106,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isAtMost\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isBelow\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isBelow\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isBool\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isCallable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isClosedResource\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isFloat\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isInt\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isIterable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotArray\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotBool\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotCallable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotClosedResource\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotFloat\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotInt\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotIterable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotNumeric\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotObject\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotResource\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotScalar\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNotWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isNumeric\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isObject\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isReadable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isResource\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isScalar\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isWritable\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:json\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileEqualsJsonFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileEqualsJsonFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileNotEqualsJsonFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileNotEqualsJsonFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileNotToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileNotToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonFileToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringEqualsJsonFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringEqualsJsonFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringEqualsJsonString\\(\\) has parameter \\$expectedJson with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringEqualsJsonString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotEqualsJsonFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotEqualsJsonFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotEqualsJsonString\\(\\) has parameter \\$expectedJson with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotEqualsJsonString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotToString\\(\\) has parameter \\$expectedJson with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringNotToString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringToString\\(\\) has parameter \\$expectedJson with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:jsonStringToString\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -746,17 +116,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:less\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:lessOrEqual\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:lessOrEqual\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -766,17 +126,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:lessThan\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:lessThanOrEqual\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:lessThanOrEqual\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -791,37 +141,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:match\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:matchesRegularExpression\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:matchesRegularExpression\\(\\) has parameter \\$pattern with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:nan\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContains\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContainsEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -836,27 +156,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContainsOnly\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContainsOnly\\(\\) has parameter \\$type with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notCount\\(\\) has parameter \\$expectedCount with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notCount\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEmpty\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -866,17 +166,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEqualsCanonicalizing\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEqualsCanonicalizing\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -886,27 +176,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEqualsIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEqualsWithDelta\\(\\) has parameter \\$delta with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEqualsWithDelta\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notEqualsWithDelta\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notFalse\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -916,57 +186,12 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notHasKey\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notInstanceOf\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notInstanceOf\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notMatch\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notNull\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notSame\\(\\) has parameter \\$expected with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notSame\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notSameSize\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notSameSize\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notTrue\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:null\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -981,37 +206,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:objectEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:objectHasAttribute\\(\\) has parameter \\$attributeName with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:objectHasAttribute\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:objectNotHasAttribute\\(\\) has parameter \\$attributeName with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:objectNotHasAttribute\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:same\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:same\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -1021,77 +216,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:sameSize\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:startNotWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:startNotWith\\(\\) has parameter \\$prefix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:startWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:startWith\\(\\) has parameter \\$prefix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringContainsString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringContainsString\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringContainsStringIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringContainsStringIgnoringCase\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEndsNotWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEndsNotWith\\(\\) has parameter \\$suffix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEndsWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEndsWith\\(\\) has parameter \\$suffix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEquals\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -1101,77 +226,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEqualsFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEqualsFileCanonicalizing\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEqualsFileCanonicalizing\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEqualsFileIgnoringCase\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringEqualsFileIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringMatchesFormat\\(\\) has parameter \\$format with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringMatchesFormat\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringMatchesFormatFile\\(\\) has parameter \\$formatFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringMatchesFormatFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotContainsString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotContainsString\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotContainsStringIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotContainsStringIgnoringCase\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEquals\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEquals\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -1181,122 +236,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEqualsFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEqualsFileCanonicalizing\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEqualsFileCanonicalizing\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEqualsFileIgnoringCase\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEqualsFileIgnoringCase\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotMatchesFormat\\(\\) has parameter \\$format with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotMatchesFormat\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotMatchesFormatFile\\(\\) has parameter \\$formatFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotMatchesFormatFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringStartsNotWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringStartsNotWith\\(\\) has parameter \\$prefix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringStartsWith\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringStartsWith\\(\\) has parameter \\$prefix with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:true\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileEqualsXmlFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileEqualsXmlFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileNotEqualsXmlFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileNotEqualsXmlFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileNotToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileNotToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringEqualsXmlFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringEqualsXmlFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -1306,37 +246,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringEqualsXmlString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotEqualsXmlFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotEqualsXmlFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotEqualsXmlString\\(\\) has parameter \\$expectedXml with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotEqualsXmlString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -1346,27 +256,17 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotToString\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringToFile\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringToString\\(\\) has parameter \\$expectedXml with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringToString\\(\\) has parameter \\$message with no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$expected of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
+			message: "#^Parameter \\#1 \\$expected of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -1429,11 +329,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$exception of method PHPUnit\\\\Framework\\\\TestCase\\:\\:expectException\\(\\) expects class\\-string\\<Throwable\\>, string given\\.$#"
 			count: 1
 			path: src/Expect.php
-
-		-
-			message: "#^Dead catch \\- PHPUnit\\\\Framework\\\\ExpectationFailedException is never thrown in the try block\\.$#"
-			count: 2
-			path: src/Opposite.php
 
 		-
 			message: "#^Expression \"\\$this\\-\\>original\\-\\>\\{\\$name\\}\" on a separate line does not do anything\\.$#"
