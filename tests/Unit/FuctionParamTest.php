@@ -5,6 +5,7 @@ namespace Realodix\NextProject\Test;
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Exception\InvalidActualValueException;
 use Realodix\NextProject\Exception\InvalidArgumentException;
+use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class FuctionParamTest extends TestCase
 {
@@ -370,6 +371,20 @@ final class FuctionParamTest extends TestCase
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->doesNotMatchRegularExpression('');
+    }
+
+    /** @test */
+    public function objectEqualsActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->objectEquals('');
+    }
+
+    /** @test */
+    public function objectEqualsExpextedValue(): void
+    {
+        $this->expectException(\TypeError::class);
+        ass(new ValueObject(1))->objectEquals('');
     }
 
     /** @test */
