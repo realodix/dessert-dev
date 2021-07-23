@@ -288,6 +288,10 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
+        if (! self::isValidClassAttributeName($attributeName)) {
+            throw InvalidArgumentException::create(1, 'valid attribute name');
+        }
+
         Assert::assertClassHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -301,6 +305,10 @@ class Assertion
     {
         if (! class_exists($this->actual)) {
             throw InvalidActualValueException::create('class name');
+        }
+
+        if (! self::isValidClassAttributeName($attributeName)) {
+            throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
         Assert::assertClassNotHasAttribute($attributeName, $this->actual, $message);
@@ -318,6 +326,10 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
+        if (! self::isValidClassAttributeName($attributeName)) {
+            throw InvalidArgumentException::create(1, 'valid attribute name');
+        }
+
         Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -331,6 +343,10 @@ class Assertion
     {
         if (! class_exists($this->actual)) {
             throw InvalidActualValueException::create('class name');
+        }
+
+        if (! self::isValidClassAttributeName($attributeName)) {
+            throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
         Assert::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
@@ -978,6 +994,10 @@ class Assertion
             throw InvalidActualValueException::create('object');
         }
 
+        if (!self::isValidObjectAttributeName($attributeName)) {
+            throw InvalidArgumentException::create(1, 'valid attribute name');
+        }
+
         Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -991,6 +1011,10 @@ class Assertion
     {
         if (! \is_object($this->actual)) {
             throw InvalidActualValueException::create('object');
+        }
+
+        if (!self::isValidObjectAttributeName($attributeName)) {
+            throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
         Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
@@ -1302,5 +1326,10 @@ class Assertion
         Assert::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
+    }
+
+    private static function isValidClassAttributeName(string $attributeName): bool
+    {
+        return (bool) preg_match('/[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/', $attributeName);
     }
 }
