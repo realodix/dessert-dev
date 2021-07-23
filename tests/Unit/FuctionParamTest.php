@@ -156,6 +156,20 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function instanceOfExpectedValue(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        ass('')->instanceOf('');
+    }
+
+    /** @test */
+    public function notInstanceOfExpectedValue(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        ass('')->notInstanceOf('');
+    }
+
+    /** @test */
     public function jsonFileEqualsJsonFileActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);

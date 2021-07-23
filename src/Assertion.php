@@ -629,7 +629,7 @@ class Assertion
     public function instanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw IInvalidActualValueException::create('integer or string');
+            throw InvalidArgumentException::create(1, 'integer or string');
         }
 
         Assert::assertInstanceOf($expected, $this->actual, $message);
@@ -644,7 +644,7 @@ class Assertion
     public function notInstanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw IInvalidActualValueException::create('integer or string');
+            throw InvalidArgumentException::create(1, 'integer or string');
         }
 
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
