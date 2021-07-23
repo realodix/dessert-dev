@@ -3,8 +3,8 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\InvalidArgumentException;
 use Realodix\NextProject\Exception\InvalidActualValueException;
+use Realodix\NextProject\Exception\InvalidArgumentException;
 
 class Assertion
 {

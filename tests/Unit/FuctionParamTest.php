@@ -2,9 +2,9 @@
 
 namespace Realodix\NextProject\Test;
 
-use PHPUnit\Framework\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Exception\InvalidActualValueException;
+use Realodix\NextProject\Exception\InvalidArgumentException;
 
 final class FuctionParamTest extends TestCase
 {
