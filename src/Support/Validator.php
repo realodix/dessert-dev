@@ -2,35 +2,11 @@
 
 namespace Realodix\NextProject\Support;
 
-use Realodix\NextProject\Exception\InvalidActualValueException;
-
 /**
  * @internal
  */
 final class Validator
 {
-    public static function actualValueCheck($actualValue, string $type)
-    {
-        switch ($type) {
-            case 'array_access':
-                if (! (\is_array($actualValue) || $actualValue instanceof \ArrayAccess)) {
-                    throw InvalidActualValueException::create(
-                        'array or ArrayAccess'
-                    );
-                }
-
-                return $actualValue;
-            case 'iterable':
-                if (! is_iterable($actualValue)) {
-                    throw InvalidActualValueException::create('iterable');
-                }
-
-                return $actualValue;
-            default:
-                return $actualValue;
-        }
-    }
-
     /**
      * Determines whether a variable represents a closed resource.
      *
