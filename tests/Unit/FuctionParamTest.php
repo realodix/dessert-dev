@@ -100,10 +100,45 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function isReadableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->isReadable();
+    }
+
+    /** @test */
+    public function isNotReadableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->isNotReadable();
+    }
+
+    /** @test */
+    public function isWritableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->isWritable();
+    }
+
+    /** @test */
+    public function isNotWritableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->isNotWritable();
+    }
+
+    /** @test */
     public function directoryExistsActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->directoryExists();
+    }
+
+    /** @test */
+    public function directoryDoesNotExistActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->directoryDoesNotExist();
     }
 
     /** @test */
@@ -114,6 +149,13 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function directoryIsNotReadableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->directoryIsNotReadable();
+    }
+
+    /** @test */
     public function directoryIsWritableActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
@@ -121,10 +163,45 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function directoryIsNotWritableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->directoryIsNotWritable();
+    }
+
+    /** @test */
     public function fileEqualsActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->fileEquals('');
+    }
+
+    /** @test */
+    public function fileEqualsCanonicalizingActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->fileEqualsCanonicalizing('');
+    }
+
+    /** @test */
+    public function fileNotEqualsCanonicalizingActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->fileNotEqualsCanonicalizing('');
+    }
+
+    /** @test */
+    public function fileEqualsIgnoringCaseActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->fileEqualsIgnoringCase('');
+    }
+
+    /** @test */
+    public function fileNotEqualsIgnoringCaseActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->fileNotEqualsIgnoringCase('');
     }
 
     /** @test */
@@ -142,6 +219,13 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function fileDoesNotExistActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->fileDoesNotExist();
+    }
+
+    /** @test */
     public function fileIsReadableActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
@@ -149,10 +233,24 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function fileIsNotReadableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->fileIsNotReadable();
+    }
+
+    /** @test */
     public function fileIsWritableActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->fileIsWritable();
+    }
+
+    /** @test */
+    public function fileIsNotWritableActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->fileIsNotWritable();
     }
 
     /** @test */
@@ -254,6 +352,20 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function matchesRegularExpressionActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->matchesRegularExpression('');
+    }
+
+    /** @test */
+    public function doesNotMatchRegularExpressionActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->doesNotMatchRegularExpression('');
+    }
+
+    /** @test */
     public function stringContainsStringActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
@@ -265,6 +377,34 @@ final class FuctionParamTest extends TestCase
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->stringNotContainsString('');
+    }
+
+    /** @test */
+    public function stringEqualsFileCanonicalizingActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringEqualsFileCanonicalizing('');
+    }
+
+    /** @test */
+    public function stringNotEqualsFileCanonicalizingActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringNotEqualsFileCanonicalizing('');
+    }
+
+    /** @test */
+    public function stringEqualsFileIgnoringCaseActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringEqualsFileIgnoringCase('');
+    }
+
+    /** @test */
+    public function stringNotEqualsFileIgnoringCaseActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringNotEqualsFileIgnoringCase('');
     }
 
     /** @test */

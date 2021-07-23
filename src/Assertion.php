@@ -801,6 +801,10 @@ class Assertion
      */
     public function isReadable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertIsReadable($this->actual, $message);
 
         return $this;
@@ -871,6 +875,10 @@ class Assertion
      */
     public function isWritable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertIsWritable($this->actual, $message);
 
         return $this;

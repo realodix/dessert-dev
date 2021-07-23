@@ -54,6 +54,10 @@ trait PolyfillTrait
      */
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertFileEquals($expected, $this->actual, $message, true);
