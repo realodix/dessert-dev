@@ -125,8 +125,8 @@ trait AliasesTrait
     }
 
     /**
-     * @param mixed  $key
-     * @param string $message
+     * @param int|string $key
+     * @param string     $message
      */
     public function hasKey($key, string $message = ''): self
     {
@@ -134,8 +134,8 @@ trait AliasesTrait
     }
 
     /**
-     * @param mixed  $key
-     * @param string $message
+     * @param int|string $key
+     * @param string     $message
      */
     public function notHasKey($key, string $message = ''): self
     {
