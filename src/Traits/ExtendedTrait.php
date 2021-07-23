@@ -15,35 +15,35 @@ use Realodix\NextProject\Support\Validator;
 
 trait ExtendedTrait
 {
-    public function contains($needle, $message = ''): self
+    public function contains($needle, string $message = ''): self
     {
         Modified::assertContains($needle, $this->actual, $message);
 
         return $this;
     }
 
-    public function notContains($needle, $message = ''): self
+    public function notContains($needle, string $message = ''): self
     {
         Modified::assertNotContains($needle, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringEqualsFile($expectedFile, $message = ''): self
+    public function stringEqualsFile($expectedFile, string $message = ''): self
     {
         Modified::assertStringEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringNotEqualsFile($expectedFile, $message = ''): self
+    public function stringNotEqualsFile($expectedFile, string $message = ''): self
     {
         Modified::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
-    public function stringEquals($expected, $message = ''): self
+    public function stringEquals($expected, string $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringEqualsJsonString($expected, $this->actual, $message);
@@ -62,7 +62,7 @@ trait ExtendedTrait
         return $this;
     }
 
-    public function stringNotEquals($expected, $message = ''): self
+    public function stringNotEquals($expected, string $message = ''): self
     {
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
