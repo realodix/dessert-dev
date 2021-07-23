@@ -1344,13 +1344,13 @@ class Assertion
         return $this;
     }
 
-    private static function isValidObjectAttributeName(string $attributeName): bool
-    {
-        return (bool) preg_match('/[^\x00-\x1f\x7f-\x9f]+/', $attributeName);
-    }
-
     private static function isValidClassAttributeName(string $attributeName): bool
     {
         return (bool) preg_match('/[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/', $attributeName);
+    }
+
+    private static function isValidObjectAttributeName(string $attributeName): bool
+    {
+        return (bool) preg_match('/[^\x00-\x1f\x7f-\x9f]+/', $attributeName);
     }
 }
