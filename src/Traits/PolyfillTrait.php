@@ -73,6 +73,10 @@ trait PolyfillTrait
      */
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertFileNotEquals($expected, $this->actual, $message, true);
@@ -92,6 +96,10 @@ trait PolyfillTrait
      */
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertFileEquals($expected, $this->actual, $message, false, true);
@@ -111,6 +119,10 @@ trait PolyfillTrait
      */
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertFileNotEquals($expected, $this->actual, $message, false, true);
@@ -130,6 +142,10 @@ trait PolyfillTrait
      */
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
@@ -149,6 +165,10 @@ trait PolyfillTrait
      */
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
@@ -168,6 +188,10 @@ trait PolyfillTrait
      */
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
@@ -187,6 +211,10 @@ trait PolyfillTrait
      */
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
             Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);

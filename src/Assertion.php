@@ -401,6 +401,10 @@ class Assertion
      */
     public function fileEquals(string $expected, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertFileEquals($expected, $this->actual, $message);
 
         return $this;
@@ -412,6 +416,10 @@ class Assertion
      */
     public function fileNotEquals(string $expected, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertFileNotEquals($expected, $this->actual, $message);
 
         return $this;
@@ -422,6 +430,10 @@ class Assertion
      */
     public function fileExists(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertFileExists($this->actual, $message);
 
         return $this;
@@ -432,6 +444,10 @@ class Assertion
      */
     public function fileIsReadable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertFileIsReadable($this->actual, $message);
 
         return $this;
@@ -442,6 +458,10 @@ class Assertion
      */
     public function fileIsWritable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertFileIsWritable($this->actual, $message);
 
         return $this;
