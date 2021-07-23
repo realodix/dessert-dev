@@ -20,6 +20,12 @@ final class Validator
                 }
 
                 return $actualValue;
+            case 'iterable':
+                if (! is_iterable($actualValue)) {
+                    throw InvalidActualValueException::create('iterable');
+                }
+
+                return $actualValue;
             default:
                 return $actualValue;
         }
