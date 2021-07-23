@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Test;
+namespace Realodix\NextProject\Test\Error;
 
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Exception\InvalidActualValueException;
