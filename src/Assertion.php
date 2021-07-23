@@ -85,14 +85,14 @@ class Assertion
         return $this;
     }
 
-    public function containsOnly($type, ?bool $isNativeType = null, string $message = ''): self
+    public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
     }
 
-    public function notContainsOnly($type, ?bool $isNativeType = null, string $message = ''): self
+    public function notContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
