@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
   <file src="src/Assertion.php">
+    <ArgumentTypeCoercion occurrences="2">
+      <code>$expected</code>
+      <code>$expected</code>
+    </ArgumentTypeCoercion>
     <MissingParamType occurrences="24">
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -32,10 +32,6 @@
       <code>$type</code>
     </MissingParamType>
     <MixedArgument occurrences="60">
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expectedXml</code>
@@ -231,7 +227,7 @@
     </UnusedFunctionCall>
   </file>
   <file src="src/Traits/AliasesTrait.php">
-    <MissingParamType occurrences="26">
+    <MissingParamType occurrences="13">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -241,24 +237,15 @@
       <code>$expected</code>
       <code>$expected</code>
       <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedJson</code>
-      <code>$expectedJson</code>
       <code>$expectedXml</code>
       <code>$expectedXml</code>
       <code>$key</code>
       <code>$key</code>
-      <code>$prefix</code>
-      <code>$prefix</code>
-      <code>$suffix</code>
-      <code>$suffix</code>
     </MissingParamType>
+    <MixedArgument occurrences="2">
+      <code>$expectedFile</code>
+      <code>$this-&gt;actual</code>
+    </MixedArgument>
     <TooManyArguments occurrences="1">
       <code>directoryExists</code>
     </TooManyArguments>
@@ -309,6 +296,9 @@
     </TooManyArguments>
   </file>
   <file src="src/Traits/PolyfillTrait.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$expected</code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod occurrences="10">
       <code>Assert::assertDirectoryNotExists($this-&gt;actual, $message)</code>
       <code>Assert::assertDirectoryNotIsReadable($this-&gt;actual, $message)</code>
@@ -322,10 +312,6 @@
       <code>Assert::assertRegExp($pattern, $this-&gt;actual, $message)</code>
     </DeprecatedMethod>
     <MissingParamType occurrences="3">
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
       <code>$expected</code>
       <code>$needle</code>
       <code>$needle</code>
