@@ -299,6 +299,10 @@ trait PolyfillTrait
      */
     public function fileDoesNotExist(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertFileNotExists($this->actual, $message);
@@ -317,6 +321,10 @@ trait PolyfillTrait
      */
     public function fileIsNotReadable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertFileNotIsReadable($this->actual, $message);
@@ -335,6 +343,10 @@ trait PolyfillTrait
      */
     public function fileIsNotWritable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertFileNotIsWritable($this->actual, $message);
@@ -353,6 +365,10 @@ trait PolyfillTrait
      */
     public function isNotReadable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertNotIsReadable($this->actual, $message);
@@ -371,6 +387,10 @@ trait PolyfillTrait
      */
     public function isNotWritable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertNotIsWritable($this->actual, $message);
@@ -390,6 +410,10 @@ trait PolyfillTrait
      */
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertRegExp($pattern, $this->actual, $message);
@@ -409,6 +433,10 @@ trait PolyfillTrait
      */
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertNotRegExp($pattern, $this->actual, $message);
@@ -485,6 +513,10 @@ trait PolyfillTrait
      */
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
+        if (! \is_object($this->actual)) {
+            throw InvalidActualValueException::create('object');
+        }
+
         // Validate object parameter type in function argument (PHP < 7.2).
         if (! \is_object($expected)) {
             throw new \TypeError(

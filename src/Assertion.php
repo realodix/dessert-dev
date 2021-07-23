@@ -1021,6 +1021,10 @@ class Assertion
      */
     public function sameSize($expected, string $message = ''): self
     {
+        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+            throw InvalidActualValueException::create('countable or iterable');
+        }
+
         Assert::assertSameSize($expected, $this->actual, $message);
 
         return $this;
@@ -1032,6 +1036,10 @@ class Assertion
      */
     public function notSameSize($expected, string $message = ''): self
     {
+        if (! $this->actual instanceof Countable && ! is_iterable($this->actual)) {
+            throw InvalidActualValueException::create('countable or iterable');
+        }
+
         Assert::assertNotSameSize($expected, $this->actual, $message);
 
         return $this;
@@ -1043,6 +1051,10 @@ class Assertion
      */
     public function stringContainsString(string $needle, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringContainsString($needle, $this->actual, $message);
 
         return $this;
@@ -1054,6 +1066,10 @@ class Assertion
      */
     public function stringNotContainsString(string $needle, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringNotContainsString($needle, $this->actual, $message);
 
         return $this;
@@ -1065,6 +1081,10 @@ class Assertion
      */
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
@@ -1076,6 +1096,10 @@ class Assertion
      */
     public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
 
         return $this;
@@ -1087,6 +1111,10 @@ class Assertion
      */
     public function stringMatchesFormat(string $format, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringMatchesFormat($format, $this->actual, $message);
 
         return $this;
@@ -1098,6 +1126,10 @@ class Assertion
      */
     public function stringNotMatchesFormat(string $format, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringNotMatchesFormat($format, $this->actual, $message);
 
         return $this;
@@ -1109,6 +1141,10 @@ class Assertion
      */
     public function stringMatchesFormatFile(string $formatFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
@@ -1120,6 +1156,10 @@ class Assertion
      */
     public function stringNotMatchesFormatFile(string $formatFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
@@ -1131,6 +1171,10 @@ class Assertion
      */
     public function stringStartsWith(string $prefix, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringStartsWith($prefix, $this->actual, $message);
 
         return $this;
@@ -1142,6 +1186,10 @@ class Assertion
      */
     public function stringStartsNotWith(string $prefix, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringStartsNotWith($prefix, $this->actual, $message);
 
         return $this;
@@ -1153,6 +1201,10 @@ class Assertion
      */
     public function stringEndsNotWith(string $suffix, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
 
         return $this;
@@ -1164,6 +1216,10 @@ class Assertion
      */
     public function stringEndsWith(string $suffix, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertStringEndsWith($suffix, $this->actual, $message);
 
         return $this;
@@ -1175,6 +1231,10 @@ class Assertion
      */
     public function xmlFileEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
@@ -1186,6 +1246,10 @@ class Assertion
      */
     public function xmlFileNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
