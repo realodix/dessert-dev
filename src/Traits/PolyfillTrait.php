@@ -9,7 +9,7 @@ use Realodix\NextProject\Support\Validator;
 
 trait PolyfillTrait
 {
-    public function containsEquals($needle, $message = ''): self
+    public function containsEquals($needle, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.1', '<')) {
@@ -24,7 +24,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function notContainsEquals($needle, $message = ''): self
+    public function notContainsEquals($needle, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.1', '<')) {
@@ -39,7 +39,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileEqualsCanonicalizing($expected, $message = ''): self
+    public function fileEqualsCanonicalizing($expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -54,7 +54,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileNotEqualsCanonicalizing($expected, $message = ''): self
+    public function fileNotEqualsCanonicalizing($expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -69,7 +69,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileEqualsIgnoringCase($expected, $message = ''): self
+    public function fileEqualsIgnoringCase($expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -84,7 +84,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileNotEqualsIgnoringCase($expected, $message = ''): self
+    public function fileNotEqualsIgnoringCase($expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -99,7 +99,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringEqualsFileCanonicalizing($expectedFile, $message = ''): self
+    public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -114,7 +114,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringNotEqualsFileCanonicalizing($expectedFile, $message = ''): self
+    public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -129,7 +129,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringEqualsFileIgnoringCase($expectedFile, $message = ''): self
+    public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -144,7 +144,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function stringNotEqualsFileIgnoringCase($expectedFile, $message = ''): self
+    public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
@@ -159,7 +159,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function directoryDoesNotExist($message = ''): self
+    public function directoryDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -174,7 +174,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function directoryIsNotReadable($message = ''): self
+    public function directoryIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -189,7 +189,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function directoryIsNotWritable($message = ''): self
+    public function directoryIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -204,7 +204,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileDoesNotExist($message = ''): self
+    public function fileDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -219,7 +219,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileIsNotReadable($message = ''): self
+    public function fileIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -234,7 +234,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function fileIsNotWritable($message = ''): self
+    public function fileIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -249,7 +249,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function isNotReadable($message = ''): self
+    public function isNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -264,7 +264,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function isNotWritable($message = ''): self
+    public function isNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -279,7 +279,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function matchesRegularExpression($pattern, $message = ''): self
+    public function matchesRegularExpression($pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -294,7 +294,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function doesNotMatchRegularExpression($pattern, $message = ''): self
+    public function doesNotMatchRegularExpression($pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
@@ -309,7 +309,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function isClosedResource($message = ''): self
+    public function isClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.3', '<')) {
@@ -334,7 +334,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function isNotClosedResource($message = ''): self
+    public function isNotClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.3', '<')) {
@@ -359,7 +359,7 @@ trait PolyfillTrait
         return $this;
     }
 
-    public function objectEquals($expected, string $method = 'equals', $message = '')
+    public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.4', '<')) {
