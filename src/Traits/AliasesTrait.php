@@ -84,32 +84,32 @@ trait AliasesTrait
         return $this->arrayNotHasKey($key, $message);
     }
 
-    public function jsonFileToFile($expectedFile, string $message = ''): self
+    public function jsonFileToFile(string $expectedFile, string $message = ''): self
     {
         return $this->jsonFileEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonFileNotToFile($expectedFile, string $message = ''): self
+    public function jsonFileNotToFile(string $expectedFile, string $message = ''): self
     {
         return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringToFile($expectedFile, string $message = ''): self
+    public function jsonStringToFile(string $expectedFile, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringNotToFile($expectedFile, string $message = ''): self
+    public function jsonStringNotToFile(string $expectedFile, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
     }
 
-    public function jsonStringToString($expectedJson, string $message = ''): self
+    public function jsonStringToString(string $expectedJson, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonString($expectedJson, $message);
     }
 
-    public function jsonStringNotToString($expectedJson, string $message = ''): self
+    public function jsonStringNotToString(string $expectedJson, string $message = ''): self
     {
         return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
     }
@@ -124,22 +124,22 @@ trait AliasesTrait
         return $this->doesNotMatchRegularExpression($pattern, $message);
     }
 
-    public function startWith($prefix, string $message = ''): self
+    public function startWith(string $prefix, string $message = ''): self
     {
         return $this->stringStartsWith($prefix, $message);
     }
 
-    public function startNotWith($prefix, string $message = ''): self
+    public function startNotWith(string $prefix, string $message = ''): self
     {
         return $this->stringStartsNotWith($prefix, $message);
     }
 
-    public function endWith($suffix, string $message = ''): self
+    public function endWith(string $suffix, string $message = ''): self
     {
         return $this->stringEndsWith($suffix, $message);
     }
 
-    public function endNotWith($suffix, string $message = ''): self
+    public function endNotWith(string $suffix, string $message = ''): self
     {
         return $this->stringEndsNotWith($suffix, $message);
     }
@@ -149,17 +149,17 @@ trait AliasesTrait
         return $this->xmlFileEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlFileNotToFile($expectedFile, string $message = ''): self
+    public function xmlFileNotToFile(string $expectedFile, string $message = ''): self
     {
         return $this->xmlFileNotEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringToFile($expectedFile, string $message = ''): self
+    public function xmlStringToFile(string $expectedFile, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringNotToFile($expectedFile, string $message = ''): self
+    public function xmlStringNotToFile(string $expectedFile, string $message = ''): self
     {
         return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
     }
