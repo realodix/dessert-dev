@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="1"
+    errorBaseline="psalm-baseline.xml"
+>
+    <projectFiles>
+        <directory name="src" />
+    </projectFiles>
+</psalm>
