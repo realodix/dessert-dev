@@ -35,4 +35,25 @@ final class FuctionParamTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         ass([])->notHasKey(true);
     }
+
+    /** @test */
+    public function containsOnlyActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass('not_iterable')->containsOnly('');
+    }
+
+    /** @test */
+    public function notContainsOnlyActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass('not_iterable')->notContainsOnly('');
+    }
+
+    /** @test */
+    public function containsOnlyInstancesOfActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass('not_iterable')->containsOnlyInstancesOf('');
+    }
 }
