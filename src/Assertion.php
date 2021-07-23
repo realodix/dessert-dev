@@ -3,6 +3,7 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\InvalidArgumentException;
 use Realodix\NextProject\Exception\InvalidActualValueException;
 
 class Assertion
@@ -82,6 +83,10 @@ class Assertion
             throw InvalidActualValueException::create('array or ArrayAccess');
         }
 
+        if (! (\is_int($key) || \is_string($key))) {
+            throw InvalidArgumentException::create(1, 'integer or string');
+        }
+
         Assert::assertArrayHasKey($key, $this->actual, $message);
 
         return $this;
@@ -95,6 +100,10 @@ class Assertion
     {
         if (! (\is_array($this->actual) || $this->actual instanceof \ArrayAccess)) {
             throw InvalidActualValueException::create('array or ArrayAccess');
+        }
+
+        if (! (\is_int($key) || \is_string($key))) {
+            throw InvalidArgumentException::create(1, 'integer or string');
         }
 
         Assert::assertArrayNotHasKey($key, $this->actual, $message);
