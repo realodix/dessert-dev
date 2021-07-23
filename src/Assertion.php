@@ -3,6 +3,7 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Exception\InvalidActualArgumentException;
 
 class Assertion
 {
@@ -72,11 +73,17 @@ class Assertion
     }
 
     /**
-     * @param mixed  $key
-     * @param string $message
+     * @param int|string $key
+     * @param string     $message
      */
     public function arrayHasKey($key, string $message = ''): self
     {
+        if (! (\is_array($this->actual) || $this->actual instanceof ArrayAccess)) {
+            throw InvalidActualArgumentException::create(
+                'array or ArrayAccess'
+            );
+        }
+
         Assert::assertArrayHasKey($key, $this->actual, $message);
 
         return $this;
