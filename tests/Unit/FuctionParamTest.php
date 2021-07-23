@@ -155,26 +155,27 @@ final class FuctionParamTest extends TestCase
         ass(false)->fileIsWritable();
     }
 
-
-
     /** @test */
     public function jsonFileEqualsJsonFileActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->jsonFileEqualsJsonFile('');
     }
+
     /** @test */
     public function jsonFileNotEqualsJsonFileActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->jsonFileNotEqualsJsonFile('');
     }
+
     /** @test */
     public function jsonStringEqualsJsonFileActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->jsonStringEqualsJsonFile('');
     }
+
     /** @test */
     public function jsonStringNotEqualsJsonFileActualValue(): void
     {
@@ -182,20 +183,20 @@ final class FuctionParamTest extends TestCase
         ass(false)->jsonStringNotEqualsJsonFile('');
     }
 
-
-
     /** @test */
     public function jsonStringEqualsJsonStringActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->jsonStringEqualsJsonString('');
     }
+
     /** @test */
     public function jsonStringNotEqualsJsonStringActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->jsonStringNotEqualsJsonString('');
     }
+
     /** @test */
     public function objectHasAttributeActualValue(): void
     {
@@ -208,5 +209,117 @@ final class FuctionParamTest extends TestCase
     {
         $this->expectException(InvalidActualValueException::class);
         ass(false)->objectNotHasAttribute('');
+    }
+
+    /** @test */
+    public function sameSizeActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass('')->sameSize('');
+    }
+
+    /** @test */
+    public function notSameSizeActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass('')->notSameSize('');
+    }
+
+    /** @test */
+    public function stringContainsStringActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringContainsString('');
+    }
+
+    /** @test */
+    public function stringNotContainsStringActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringNotContainsString('');
+    }
+
+    /** @test */
+    public function stringContainsStringIgnoringCaseActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringContainsStringIgnoringCase('');
+    }
+
+    /** @test */
+    public function stringNotContainsStringIgnoringCaseActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringNotContainsStringIgnoringCase('');
+    }
+
+    /** @test */
+    public function stringMatchesFormatActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringMatchesFormat('');
+    }
+
+    /** @test */
+    public function stringNotMatchesFormatActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringNotMatchesFormat('');
+    }
+
+    /** @test */
+    public function stringMatchesFormatFileActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringMatchesFormatFile('');
+    }
+
+    /** @test */
+    public function stringNotMatchesFormatFileActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringNotMatchesFormatFile('');
+    }
+
+    /** @test */
+    public function stringStartsWithActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringStartsWith('');
+    }
+
+    /** @test */
+    public function stringStartsNotWithActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringStartsNotWith('');
+    }
+
+    /** @test */
+    public function stringEndsWithActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringEndsWith('');
+    }
+
+    /** @test */
+    public function stringEndsNotWithActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->stringEndsNotWith('');
+    }
+
+    /** @test */
+    public function xmlFileEqualsXmlFileActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->xmlFileEqualsXmlFile('');
+    }
+
+    /** @test */
+    public function xmlFileNotEqualsXmlFileActualValue(): void
+    {
+        $this->expectException(InvalidActualValueException::class);
+        ass(false)->xmlFileNotEqualsXmlFile('');
     }
 }
