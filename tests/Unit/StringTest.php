@@ -8,7 +8,7 @@ final class StringTest extends TestCase
 {
     public function testContainsOnly(): void
     {
-        ass(['1', '2', '3'])->containsOnly('string', true);
+        ass(['1', '2', '3'])->containsOnly('string');
         ass(['1', '2', 3])->notContainsOnly('string');
     }
 
