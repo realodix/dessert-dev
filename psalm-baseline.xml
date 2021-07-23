@@ -197,21 +197,6 @@
     </UnusedFunctionCall>
   </file>
   <file src="src/Traits/AliasesTrait.php">
-    <MissingParamType occurrences="13">
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expectedFile</code>
-      <code>$expectedXml</code>
-      <code>$expectedXml</code>
-      <code>$key</code>
-      <code>$key</code>
-    </MissingParamType>
     <MixedArgument occurrences="2">
       <code>$expectedFile</code>
       <code>$this-&gt;actual</code>
