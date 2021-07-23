@@ -9,6 +9,10 @@ use Realodix\NextProject\Support\Validator;
 
 trait PolyfillTrait
 {
+    /**
+     * @param mixed  $needle
+     * @param string $message
+     */
     public function containsEquals($needle, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -24,6 +28,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param mixed  $needle
+     * @param string $message
+     */
     public function notContainsEquals($needle, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -39,6 +47,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expected
+     * @param string $message
+     */
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -54,6 +66,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expected
+     * @param string $message
+     */
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -69,6 +85,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expected
+     * @param string $message
+     */
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -84,6 +104,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expected
+     * @param string $message
+     */
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -99,6 +123,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expectedFile
+     * @param string $message
+     */
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -114,6 +142,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expectedFile
+     * @param string $message
+     */
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -129,6 +161,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expectedFile
+     * @param string $message
+     */
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -144,6 +180,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $expectedFile
+     * @param string $message
+     */
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -159,6 +199,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function directoryDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -174,6 +217,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function directoryIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -189,6 +235,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function directoryIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -204,6 +253,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function fileDoesNotExist(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -219,6 +271,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function fileIsNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -234,6 +289,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function fileIsNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -249,6 +307,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function isNotReadable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -264,6 +325,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function isNotWritable(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -279,6 +343,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $pattern
+     * @param string $message
+     */
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -294,6 +362,10 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $pattern
+     * @param string $message
+     */
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -309,6 +381,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function isClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -334,6 +409,9 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param string $message
+     */
     public function isNotClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -359,6 +437,11 @@ trait PolyfillTrait
         return $this;
     }
 
+    /**
+     * @param object $expected
+     * @param string $method
+     * @param string $message
+     */
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
         // Validate object parameter type in function argument (PHP < 7.2).

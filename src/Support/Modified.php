@@ -29,6 +29,11 @@ final class Modified
         return Assert::assertNotContains($needle, $haystack, $message);
     }
 
+    /**
+     * @param string $expectedFile
+     * @param string $actualString
+     * @param string $message
+     */
     public static function assertStringEqualsFile(string $expectedFile, string $actualString, string $message = '')
     {
         if (Validator::isJson($actualString)) {
@@ -42,6 +47,11 @@ final class Modified
         return Assert::assertStringEqualsFile($expectedFile, $actualString, $message);
     }
 
+    /**
+     * @param string $expectedFile
+     * @param string $actualString
+     * @param string $message
+     */
     public static function assertStringNotEqualsFile(string $expectedFile, string $actualString, string $message = '')
     {
         if (Validator::isJson($actualString)) {
