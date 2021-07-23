@@ -29,7 +29,7 @@ final class StringTest extends TestCase
     public function testStringContainsString(): void
     {
         ass('foo bar')
-            ->stringContainsString('o b')
+            ->stringContainsString(1)
             ->stringNotContainsString('BAR');
     }
 
