@@ -628,7 +628,7 @@ class Assertion
      */
     public function instanceOf(string $expected, string $message = ''): self
     {
-        if (!class_exists($expected) && !interface_exists($expected)) {
+        if (! class_exists($expected) && ! interface_exists($expected)) {
             throw IInvalidActualValueException::create('integer or string');
         }
 
@@ -643,7 +643,7 @@ class Assertion
      */
     public function notInstanceOf(string $expected, string $message = ''): self
     {
-        if (!class_exists($expected) && !interface_exists($expected)) {
+        if (! class_exists($expected) && ! interface_exists($expected)) {
             throw IInvalidActualValueException::create('integer or string');
         }
 
@@ -1002,7 +1002,7 @@ class Assertion
             throw InvalidActualValueException::create('object');
         }
 
-        if (!self::isValidObjectAttributeName($attributeName)) {
+        if (! self::isValidObjectAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -1021,7 +1021,7 @@ class Assertion
             throw InvalidActualValueException::create('object');
         }
 
-        if (!self::isValidObjectAttributeName($attributeName)) {
+        if (! self::isValidObjectAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -1062,7 +1062,7 @@ class Assertion
             throw InvalidActualValueException::create('countable or iterable');
         }
 
-        if (!$expected instanceof Countable && !is_iterable($expected)) {
+        if (! $expected instanceof Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create(1, 'countable or iterable');
         }
 
@@ -1081,7 +1081,7 @@ class Assertion
             throw InvalidActualValueException::create('countable or iterable');
         }
 
-        if (!$expected instanceof Countable && !is_iterable($expected)) {
+        if (! $expected instanceof Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create(1, 'countable or iterable');
         }
 
