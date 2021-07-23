@@ -279,6 +279,10 @@ class Assertion
      */
     public function classHasAttribute(string $attributeName, string $message = ''): self
     {
+        if (! class_exists($this->actual)) {
+            throw InvalidActualValueException::create('class name');
+        }
+
         Assert::assertClassHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -290,6 +294,10 @@ class Assertion
      */
     public function classNotHasAttribute(string $attributeName, string $message = ''): self
     {
+        if (! class_exists($this->actual)) {
+            throw InvalidActualValueException::create('class name');
+        }
+
         Assert::assertClassNotHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -301,6 +309,10 @@ class Assertion
      */
     public function classHasStaticAttribute(string $attributeName, string $message = ''): self
     {
+        if (! class_exists($this->actual)) {
+            throw InvalidActualValueException::create('class name');
+        }
+
         Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -312,6 +324,10 @@ class Assertion
      */
     public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
     {
+        if (! class_exists($this->actual)) {
+            throw InvalidActualValueException::create('class name');
+        }
+
         Assert::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -322,6 +338,10 @@ class Assertion
      */
     public function directoryExists(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertDirectoryExists($this->actual, $message);
 
         return $this;
@@ -332,6 +352,10 @@ class Assertion
      */
     public function directoryIsReadable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertDirectoryIsReadable($this->actual, $message);
 
         return $this;
@@ -342,6 +366,10 @@ class Assertion
      */
     public function directoryIsWritable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertDirectoryIsWritable($this->actual, $message);
 
         return $this;

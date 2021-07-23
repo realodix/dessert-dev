@@ -4,6 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Runner\Version;
+use Realodix\NextProject\Exception\InvalidActualValueException;
 use Realodix\NextProject\Support\Constraint\ObjectEquals;
 use Realodix\NextProject\Support\Validator;
 
@@ -204,6 +205,10 @@ trait PolyfillTrait
      */
     public function directoryDoesNotExist(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertDirectoryNotExists($this->actual, $message);
@@ -222,6 +227,10 @@ trait PolyfillTrait
      */
     public function directoryIsNotReadable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertDirectoryNotIsReadable($this->actual, $message);
@@ -240,6 +249,10 @@ trait PolyfillTrait
      */
     public function directoryIsNotWritable(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
             Assert::assertDirectoryNotIsWritable($this->actual, $message);
