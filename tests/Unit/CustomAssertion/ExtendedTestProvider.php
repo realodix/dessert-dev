@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Test;
+namespace Realodix\NextProject\Test\CustomAssertion;
 
 trait ExtendedTestProvider
 {

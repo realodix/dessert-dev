@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Test;
+namespace Realodix\NextProject\Test\CustomAssertion;
 
 use PHPUnit\Framework\TestCase;
 
