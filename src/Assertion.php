@@ -288,7 +288,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! (new self)->isValidClassAttributeName($attributeName)) {
+        if (! self::isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -307,7 +307,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! (new self)->isValidClassAttributeName($attributeName)) {
+        if (! self::isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -326,7 +326,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! (new self)->isValidClassAttributeName($attributeName)) {
+        if (! self::isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -345,7 +345,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! (new self)->isValidClassAttributeName($attributeName)) {
+        if (! self::isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -1342,6 +1342,11 @@ class Assertion
         Assert::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
+    }
+
+    private static function isValidObjectAttributeName(string $attributeName): bool
+    {
+        return (bool) preg_match('/[^\x00-\x1f\x7f-\x9f]+/', $attributeName);
     }
 
     private static function isValidClassAttributeName(string $attributeName): bool
