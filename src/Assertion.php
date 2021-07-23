@@ -889,6 +889,10 @@ class Assertion
      */
     public function json(string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertJson($this->actual, $message);
 
         return $this;
