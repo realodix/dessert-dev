@@ -5,7 +5,7 @@
       <code>$expected</code>
       <code>$expected</code>
     </ArgumentTypeCoercion>
-    <MissingParamType occurrences="22">
+    <MissingParamType occurrences="20">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -26,10 +26,8 @@
       <code>$expectedXml</code>
       <code>$key</code>
       <code>$key</code>
-      <code>$type</code>
-      <code>$type</code>
     </MissingParamType>
-    <MixedArgument occurrences="58">
+    <MixedArgument occurrences="56">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expectedXml</code>
@@ -86,8 +84,6 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
-      <code>$type</code>
-      <code>$type</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$item</code>
