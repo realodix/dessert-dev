@@ -76,6 +76,24 @@ For other usage examples, please see how We write tests for this package in the 
 
 In addition to assertions, NextProject offers you a set of assertion aliases. For the full list of **assertion aliases**, please refer to [assertion aliases](/docs/AssertionAliases.md) documentation.
 
+## Expect exceptions
+
+NextProject provides an expect exception from your code, using the `Expect` class:
+
+```php
+use Realodix\NextProject\Expect;
+
+public function test_an_exception_is_thrown()
+{
+    Expect::after($this)
+        ->exception(\InvalidArgumentException)
+        ->exceptionMessage('An exception message')
+        ->exceptionCode(42);
+    
+    // Act
+}
+```
+
 ## Extending
 
 In order to add more assertions you can extend the [`Assertion`](/src/Assertion.php) class:
