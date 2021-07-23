@@ -26,51 +26,6 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greater\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:greaterOrEqual\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:hasKey\\(\\) has parameter \\$key with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isAbove\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isAtLeast\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isAtMost\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:isBelow\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:less\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:lessOrEqual\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:markupHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Assertion.php
@@ -87,11 +42,6 @@ parameters:
 
 		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContainsEquals\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notHasKey\\(\\) has parameter \\$key with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -122,21 +72,6 @@ parameters:
 
 		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:stringNotEqualsFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlFileToFile\\(\\) has parameter \\$expectedFile with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringNotToString\\(\\) has parameter \\$expectedXml with no typehint specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:xmlStringToString\\(\\) has parameter \\$expectedXml with no typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
