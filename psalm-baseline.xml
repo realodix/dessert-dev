@@ -5,28 +5,6 @@
       <code>$expected</code>
       <code>$expected</code>
     </ArgumentTypeCoercion>
-    <MissingParamType occurrences="20">
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expectedXml</code>
-      <code>$expectedXml</code>
-      <code>$key</code>
-      <code>$key</code>
-    </MissingParamType>
     <MixedArgument occurrences="56">
       <code>$expected</code>
       <code>$expected</code>
