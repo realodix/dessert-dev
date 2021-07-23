@@ -123,7 +123,7 @@ final class ComparisonTest extends TestCase
     public function testGreaterThan(): void
     {
         ass(7)
-            ->greaterThan('5')
+            ->greaterThan(5, true)
             ->greaterThanOrEqual(7)
             ->greaterThanOrEqual(5);
     }
