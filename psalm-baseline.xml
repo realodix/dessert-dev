@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
   <file src="src/Assertion.php">
-    <ArgumentTypeCoercion occurrences="2">
-      <code>$expected</code>
-      <code>$expected</code>
-    </ArgumentTypeCoercion>
-    <MixedArgument occurrences="15">
-      <code>$expected</code>
-      <code>$expected</code>
+    <DocblockTypeContradiction occurrences="4">
+      <code>\is_int($key) || \is_string($key)</code>
+      <code>\is_int($key) || \is_string($key)</code>
+      <code>\is_string($key)</code>
+      <code>\is_string($key)</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="13">
       <code>$expectedXml</code>
       <code>$expectedXml</code>
       <code>$this-&gt;actual</code>
@@ -38,6 +38,19 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Exception/InvalidActualValueException.php">
+    <InternalClass occurrences="2">
+      <code>Exception</code>
+      <code>parent::__construct($message, $code, $previous)</code>
+    </InternalClass>
+    <InternalMethod occurrences="1">
+      <code>parent::__construct($message, $code, $previous)</code>
+    </InternalMethod>
+    <MixedArgument occurrences="2">
+      <code>$stack[1]['class']</code>
+      <code>$stack[1]['function']</code>
+    </MixedArgument>
+  </file>
+  <file src="src/Exception/InvalidArgumentException.php">
     <InternalClass occurrences="2">
       <code>Exception</code>
       <code>parent::__construct($message, $code, $previous)</code>
@@ -188,20 +201,11 @@
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="23">
+    <MixedArgument occurrences="14">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
