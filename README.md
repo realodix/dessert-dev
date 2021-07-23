@@ -78,8 +78,6 @@ In addition to assertions, NextProject offers you a set of assertion aliases. Fo
 
 ## Expect exceptions
 
-NextProject provides an expect exception from your code, using the `Expect` class:
-
 ```php
 use Realodix\NextProject\Expect;
 
