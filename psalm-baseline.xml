@@ -5,7 +5,7 @@
       <code>$expected</code>
       <code>$expected</code>
     </ArgumentTypeCoercion>
-    <MissingParamType occurrences="24">
+    <MissingParamType occurrences="22">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -24,20 +24,16 @@
       <code>$expected</code>
       <code>$expectedXml</code>
       <code>$expectedXml</code>
-      <code>$isNativeType</code>
-      <code>$isNativeType</code>
       <code>$key</code>
       <code>$key</code>
       <code>$type</code>
       <code>$type</code>
     </MissingParamType>
-    <MixedArgument occurrences="60">
+    <MixedArgument occurrences="58">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expectedXml</code>
       <code>$expectedXml</code>
-      <code>$isNativeType</code>
-      <code>$isNativeType</code>
       <code>$key</code>
       <code>$key</code>
       <code>$this-&gt;actual</code>
