@@ -577,9 +577,9 @@ class Assertion
      * @param mixed  $expected
      * @param string $message
      */
-    public function lessThan($expected, string $message = ''): self
+    public function greaterThanOrEqual($expected, string $message = ''): self
     {
-        Assert::assertLessThan($expected, $this->actual, $message);
+        Assert::assertGreaterThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
@@ -588,9 +588,9 @@ class Assertion
      * @param mixed  $expected
      * @param string $message
      */
-    public function greaterThanOrEqual($expected, string $message = ''): self
+    public function lessThan($expected, string $message = ''): self
     {
-        Assert::assertGreaterThanOrEqual($expected, $this->actual, $message);
+        Assert::assertLessThan($expected, $this->actual, $message);
 
         return $this;
     }
@@ -1232,13 +1232,13 @@ class Assertion
      * @param string $suffix
      * @param string $message
      */
-    public function stringEndsNotWith(string $suffix, string $message = ''): self
+    public function stringEndsWith(string $suffix, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
             throw InvalidActualValueException::create('string');
         }
 
-        Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
+        Assert::assertStringEndsWith($suffix, $this->actual, $message);
 
         return $this;
     }
@@ -1247,13 +1247,13 @@ class Assertion
      * @param string $suffix
      * @param string $message
      */
-    public function stringEndsWith(string $suffix, string $message = ''): self
+    public function stringEndsNotWith(string $suffix, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
             throw InvalidActualValueException::create('string');
         }
 
-        Assert::assertStringEndsWith($suffix, $this->actual, $message);
+        Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
 
         return $this;
     }
