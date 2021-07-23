@@ -513,6 +513,24 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function stringEndsNotWithActualValue(): void
+    {
+        Expect::after($this)
+            ->exception(InvalidActualValueException::class);
+
+        ass(false)->stringEndsNotWith('');
+    }
+
+    /** @test */
+    public function stringEndsWithActualValue(): void
+    {
+        Expect::after($this)
+            ->exception(InvalidActualValueException::class);
+
+        ass(false)->stringEndsWith('');
+    }
+
+    /** @test */
     public function stringEqualsFileCanonicalizingActualValue(): void
     {
         Expect::after($this)
@@ -618,24 +636,6 @@ final class FuctionParamTest extends TestCase
             ->exception(InvalidActualValueException::class);
 
         ass(false)->stringStartsWith('');
-    }
-
-    /** @test */
-    public function stringEndsNotWithActualValue(): void
-    {
-        Expect::after($this)
-            ->exception(InvalidActualValueException::class);
-
-        ass(false)->stringEndsNotWith('');
-    }
-
-    /** @test */
-    public function stringEndsWithActualValue(): void
-    {
-        Expect::after($this)
-            ->exception(InvalidActualValueException::class);
-
-        ass(false)->stringEndsWith('');
     }
 
     /** @test */
