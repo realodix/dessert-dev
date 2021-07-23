@@ -13,6 +13,7 @@ use PHPUnit\Framework\Constraint\Constraint;
  * - https://github.com/sebastianbergmann/phpunit/issues/4467
  *
  * @internal
+ * @codeCoverageIgnore
  */
 final class ObjectEquals extends Constraint
 {
