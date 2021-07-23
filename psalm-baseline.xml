@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
   <file src="src/Assertion.php">
-    <MissingParamType occurrences="160">
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$className</code>
-      <code>$delta</code>
-      <code>$delta</code>
+    <MissingParamType occurrences="24">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -31,283 +22,28 @@
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
-      <code>$expectedCount</code>
-      <code>$expectedCount</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedJson</code>
-      <code>$expectedJson</code>
       <code>$expectedXml</code>
       <code>$expectedXml</code>
-      <code>$format</code>
-      <code>$format</code>
-      <code>$formatFile</code>
-      <code>$formatFile</code>
       <code>$isNativeType</code>
       <code>$isNativeType</code>
       <code>$key</code>
       <code>$key</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$needle</code>
-      <code>$needle</code>
-      <code>$needle</code>
-      <code>$needle</code>
-      <code>$prefix</code>
-      <code>$prefix</code>
-      <code>$suffix</code>
-      <code>$suffix</code>
       <code>$type</code>
       <code>$type</code>
     </MissingParamType>
-    <MixedArgument occurrences="196">
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$attributeName</code>
-      <code>$className</code>
-      <code>$delta</code>
-      <code>$delta</code>
+    <MixedArgument occurrences="60">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
-      <code>$expectedCount</code>
-      <code>$expectedCount</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedJson</code>
-      <code>$expectedJson</code>
       <code>$expectedXml</code>
       <code>$expectedXml</code>
-      <code>$format</code>
-      <code>$format</code>
-      <code>$formatFile</code>
-      <code>$formatFile</code>
       <code>$isNativeType</code>
       <code>$isNativeType</code>
       <code>$key</code>
       <code>$key</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$needle</code>
-      <code>$needle</code>
-      <code>$needle</code>
-      <code>$needle</code>
-      <code>$prefix</code>
-      <code>$prefix</code>
-      <code>$suffix</code>
-      <code>$suffix</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
@@ -495,7 +231,7 @@
     </UnusedFunctionCall>
   </file>
   <file src="src/Traits/AliasesTrait.php">
-    <MissingParamType occurrences="60">
+    <MissingParamType occurrences="26">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -518,40 +254,6 @@
       <code>$expectedXml</code>
       <code>$key</code>
       <code>$key</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
       <code>$prefix</code>
       <code>$prefix</code>
       <code>$suffix</code>
@@ -566,37 +268,21 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MissingParamType occurrences="12">
+    <MissingParamType occurrences="6">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expectedFile</code>
       <code>$expectedFile</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="35">
+    <MixedArgument occurrences="25">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expectedFile</code>
       <code>$expectedFile</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
@@ -635,115 +321,19 @@
       <code>Assert::assertNotRegExp($pattern, $this-&gt;actual, $message)</code>
       <code>Assert::assertRegExp($pattern, $this-&gt;actual, $message)</code>
     </DeprecatedMethod>
-    <MissingParamType occurrences="36">
+    <MissingParamType occurrences="3">
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
       <code>$needle</code>
       <code>$needle</code>
-      <code>$pattern</code>
-      <code>$pattern</code>
     </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>objectEquals</code>
     </MissingReturnType>
-    <MixedArgument occurrences="108">
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$expectedFile</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$pattern</code>
-      <code>$pattern</code>
-      <code>$pattern</code>
-      <code>$pattern</code>
+    <MixedArgument occurrences="41">
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
