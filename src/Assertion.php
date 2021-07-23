@@ -288,7 +288,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! self::isValidClassAttributeName($attributeName)) {
+        if (! (new self)->isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -307,7 +307,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! self::isValidClassAttributeName($attributeName)) {
+        if (! (new self)->isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -326,7 +326,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! self::isValidClassAttributeName($attributeName)) {
+        if (! (new self)->isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -345,7 +345,7 @@ class Assertion
             throw InvalidActualValueException::create('class name');
         }
 
-        if (! self::isValidClassAttributeName($attributeName)) {
+        if (! (new self)->isValidClassAttributeName($attributeName)) {
             throw InvalidArgumentException::create(1, 'valid attribute name');
         }
 
@@ -628,6 +628,10 @@ class Assertion
      */
     public function instanceOf(string $expected, string $message = ''): self
     {
+        if (!class_exists($expected) && !interface_exists($expected)) {
+            throw IInvalidActualValueException::create('integer or string');
+        }
+
         Assert::assertInstanceOf($expected, $this->actual, $message);
 
         return $this;
@@ -639,6 +643,10 @@ class Assertion
      */
     public function notInstanceOf(string $expected, string $message = ''): self
     {
+        if (!class_exists($expected) && !interface_exists($expected)) {
+            throw IInvalidActualValueException::create('integer or string');
+        }
+
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
 
         return $this;
@@ -1054,6 +1062,10 @@ class Assertion
             throw InvalidActualValueException::create('countable or iterable');
         }
 
+        if (!$expected instanceof Countable && !is_iterable($expected)) {
+            throw InvalidArgumentException::create(1, 'countable or iterable');
+        }
+
         Assert::assertSameSize($expected, $this->actual, $message);
 
         return $this;
@@ -1067,6 +1079,10 @@ class Assertion
     {
         if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
             throw InvalidActualValueException::create('countable or iterable');
+        }
+
+        if (!$expected instanceof Countable && !is_iterable($expected)) {
+            throw InvalidArgumentException::create(1, 'countable or iterable');
         }
 
         Assert::assertNotSameSize($expected, $this->actual, $message);
