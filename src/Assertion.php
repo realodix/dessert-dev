@@ -879,6 +879,10 @@ class Assertion
      */
     public function jsonFileEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
@@ -890,6 +894,10 @@ class Assertion
      */
     public function jsonFileNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
@@ -901,6 +909,10 @@ class Assertion
      */
     public function jsonStringEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
@@ -912,6 +924,10 @@ class Assertion
      */
     public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
         return $this;
@@ -923,6 +939,10 @@ class Assertion
      */
     public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
 
         return $this;
@@ -934,6 +954,10 @@ class Assertion
      */
     public function jsonStringNotEqualsJsonString(string $expectedJson, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Assert::assertJsonStringNotEqualsJsonString($expectedJson, $this->actual, $message);
 
         return $this;
@@ -945,6 +969,10 @@ class Assertion
      */
     public function objectHasAttribute(string $attributeName, string $message = ''): self
     {
+        if (! \is_object($this->actual)) {
+            throw InvalidActualValueException::create('object');
+        }
+
         Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
@@ -956,6 +984,10 @@ class Assertion
      */
     public function objectNotHasAttribute(string $attributeName, string $message = ''): self
     {
+        if (! \is_object($this->actual)) {
+            throw InvalidActualValueException::create('object');
+        }
+
         Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
 
         return $this;
