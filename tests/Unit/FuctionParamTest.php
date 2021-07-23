@@ -75,14 +75,18 @@ final class FuctionParamTest extends TestCase
     public function classHasAttributeActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
-        ass('not_object')->classHasAttribute('#attribute');
+        ass('not_object')->classHasAttribute('');
+    }
+
     }
 
     /** @test */
     public function classNotHasAttributeActualValue(): void
     {
         $this->expectException(InvalidActualValueException::class);
-        ass('not_object')->classNotHasAttribute('!attribute');
+        ass('not_object')->classNotHasAttribute('');
+    }
+
     }
 
     /** @test */
