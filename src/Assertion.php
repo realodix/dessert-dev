@@ -90,8 +90,8 @@ class Assertion
     }
 
     /**
-     * @param int|string  $key
-     * @param string $message
+     * @param int|string $key
+     * @param string     $message
      */
     public function arrayNotHasKey($key, string $message = ''): self
     {
@@ -107,12 +107,18 @@ class Assertion
     }
 
     /**
-     * @param string $type
-     * @param ?bool  $isNativeType
-     * @param string $message
+     * @param string    $type
+     * @param bool|null $isNativeType
+     * @param string    $message
      */
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
+        if (! is_iterable($this->actual)) {
+            throw InvalidActualValueException::create(
+                'iterable'
+            );
+        }
+
         Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
 
         return $this;
