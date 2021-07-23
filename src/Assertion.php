@@ -90,11 +90,17 @@ class Assertion
     }
 
     /**
-     * @param mixed  $key
+     * @param int|string  $key
      * @param string $message
      */
     public function arrayNotHasKey($key, string $message = ''): self
     {
+        if (! (\is_array($this->actual) || $this->actual instanceof ArrayAccess)) {
+            throw InvalidActualArgumentException::create(
+                'array or ArrayAccess'
+            );
+        }
+
         Assert::assertArrayNotHasKey($key, $this->actual, $message);
 
         return $this;
