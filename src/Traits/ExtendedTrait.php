@@ -8,6 +8,7 @@ use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
+use Realodix\NextProject\Exception\InvalidActualValueException;
 use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Modified;
 use Realodix\NextProject\Support\Str;
@@ -220,6 +221,10 @@ trait ExtendedTrait
      */
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertContainsSelector($selector, $this->actual, $message);
 
         return $this;
@@ -231,6 +236,10 @@ trait ExtendedTrait
      */
     public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertNotContainsSelector($selector, $this->actual, $message);
 
         return $this;
@@ -243,6 +252,10 @@ trait ExtendedTrait
      */
     public function markupElementContains(string $contents, string $selector = '', string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertElementContains($contents, $selector, $this->actual, $message);
 
         return $this;
@@ -255,6 +268,10 @@ trait ExtendedTrait
      */
     public function markupElementNotContains(string $contents, string $selector = '', string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertElementNotContains($contents, $selector, $this->actual, $message);
 
         return $this;
@@ -267,6 +284,10 @@ trait ExtendedTrait
      */
     public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertElementRegExp($regexp, $selector, $this->actual, $message);
 
         return $this;
@@ -279,6 +300,10 @@ trait ExtendedTrait
      */
     public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertElementNotRegExp($regexp, $selector, $this->actual, $message);
 
         return $this;
@@ -290,6 +315,10 @@ trait ExtendedTrait
      */
     public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertHasElementWithAttributes($attributes, $this->actual, $message);
 
         return $this;
@@ -301,6 +330,10 @@ trait ExtendedTrait
      */
     public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertNotHasElementWithAttributes($attributes, $this->actual, $message);
 
         return $this;
@@ -313,6 +346,10 @@ trait ExtendedTrait
      */
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
+        if (! \is_string($this->actual)) {
+            throw InvalidActualValueException::create('string');
+        }
+
         Markup::assertSelectorCount($count, $selector, $this->actual, $message);
 
         return $this;
