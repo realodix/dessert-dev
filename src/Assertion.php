@@ -1062,7 +1062,7 @@ class Assertion
             throw InvalidActualValueException::create('countable or iterable');
         }
 
-        if (! $expected instanceof Countable && ! is_iterable($expected)) {
+        if (! $expected instanceof \Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create(1, 'countable or iterable');
         }
 
@@ -1081,7 +1081,7 @@ class Assertion
             throw InvalidActualValueException::create('countable or iterable');
         }
 
-        if (! $expected instanceof Countable && ! is_iterable($expected)) {
+        if (! $expected instanceof \Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create(1, 'countable or iterable');
         }
 
