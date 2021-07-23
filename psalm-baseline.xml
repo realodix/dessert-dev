@@ -7,12 +7,9 @@
       <code>\is_string($key)</code>
       <code>\is_string($key)</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="13">
+    <MixedArgument occurrences="10">
       <code>$expectedXml</code>
       <code>$expectedXml</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
@@ -38,26 +35,20 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Exception/InvalidActualValueException.php">
-    <InternalClass occurrences="2">
+    <InternalClass occurrences="1">
       <code>Exception</code>
-      <code>parent::__construct($message, $code, $previous)</code>
     </InternalClass>
-    <InternalMethod occurrences="1">
-      <code>parent::__construct($message, $code, $previous)</code>
-    </InternalMethod>
+    <InternalMethod occurrences="1"/>
     <MixedArgument occurrences="2">
       <code>$stack[1]['class']</code>
       <code>$stack[1]['function']</code>
     </MixedArgument>
   </file>
   <file src="src/Exception/InvalidArgumentException.php">
-    <InternalClass occurrences="2">
+    <InternalClass occurrences="1">
       <code>Exception</code>
-      <code>parent::__construct($message, $code, $previous)</code>
     </InternalClass>
-    <InternalMethod occurrences="1">
-      <code>parent::__construct($message, $code, $previous)</code>
-    </InternalMethod>
+    <InternalMethod occurrences="1"/>
     <MixedArgument occurrences="2">
       <code>$stack[1]['class']</code>
       <code>$stack[1]['function']</code>
@@ -245,9 +236,7 @@
     <MissingReturnType occurrences="1">
       <code>objectEquals</code>
     </MissingReturnType>
-    <MixedArgument occurrences="6">
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
+    <MixedArgument occurrences="4">
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
