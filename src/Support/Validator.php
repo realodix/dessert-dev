@@ -7,6 +7,29 @@ namespace Realodix\NextProject\Support;
  */
 final class Validator
 {
+    public static function actualValueCheck($actualValue, $type)
+    {
+        $stack = debug_backtrace();
+
+        $invalidArgument = sprintf(
+            'An actual value of %s() must be %s %s, %s given.',
+            $stack[1]['function'],
+            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+            $type,
+            get_debug_type($actualValue)
+        );
+
+        switch ($type) {
+            case 'array':
+                if (! (\is_array($actualValue) || $actualValue instanceof \ArrayAccess)) {
+                    throw new \InvalidArgumentException($invalidArgument);
+                }
+
+                return $actualValue;
+                break;
+        }
+    }
+
     /**
      * Determines whether a variable represents a closed resource.
      *

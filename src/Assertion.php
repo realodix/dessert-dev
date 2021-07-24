@@ -5,6 +5,7 @@ namespace Realodix\NextProject;
 use PHPUnit\Framework\Assert;
 use Realodix\NextProject\Exception\InvalidActualValueException;
 use Realodix\NextProject\Exception\InvalidArgumentException;
+use Realodix\NextProject\Support\Validator;
 
 class Assertion
 {
@@ -79,15 +80,13 @@ class Assertion
      */
     public function arrayHasKey($key, string $message = ''): self
     {
-        if (! (\is_array($this->actual) || $this->actual instanceof \ArrayAccess)) {
-            throw InvalidActualValueException::create($this->actual, 'array or ArrayAccess');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'array');
 
         if (! (\is_int($key) || \is_string($key))) {
             throw InvalidArgumentException::create($key, 1, 'integer or string');
         }
 
-        Assert::assertArrayHasKey($key, $this->actual, $message);
+        Assert::assertArrayHasKey($key, $actual, $message);
 
         return $this;
     }
@@ -98,15 +97,13 @@ class Assertion
      */
     public function arrayNotHasKey($key, string $message = ''): self
     {
-        if (! (\is_array($this->actual) || $this->actual instanceof \ArrayAccess)) {
-            throw InvalidActualValueException::create($this->actual, 'array or ArrayAccess');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'array');
 
         if (! (\is_int($key) || \is_string($key))) {
             throw InvalidArgumentException::create($key, 1, 'integer or string');
         }
 
-        Assert::assertArrayNotHasKey($key, $this->actual, $message);
+        Assert::assertArrayNotHasKey($key, $actual, $message);
 
         return $this;
     }
