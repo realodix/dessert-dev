@@ -155,11 +155,9 @@ class Assertion
      */
     public function count(int $expectedCount, string $message = ''): self
     {
-        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'countable or iterable');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
 
-        Assert::assertCount($expectedCount, $this->actual, $message);
+        Assert::assertCount($expectedCount, $actual, $message);
 
         return $this;
     }
@@ -170,11 +168,9 @@ class Assertion
      */
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'countable or iterable');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
 
-        Assert::assertNotCount($expectedCount, $this->actual, $message);
+        Assert::assertNotCount($expectedCount, $actual, $message);
 
         return $this;
     }
@@ -1037,15 +1033,13 @@ class Assertion
      */
     public function sameSize($expected, string $message = ''): self
     {
-        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'countable or iterable');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
 
         if (! $expected instanceof \Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
         }
 
-        Assert::assertSameSize($expected, $this->actual, $message);
+        Assert::assertSameSize($expected, $actual, $message);
 
         return $this;
     }
@@ -1056,15 +1050,13 @@ class Assertion
      */
     public function notSameSize($expected, string $message = ''): self
     {
-        if (! $this->actual instanceof \Countable && ! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'countable or iterable');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
 
         if (! $expected instanceof \Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
         }
 
-        Assert::assertNotSameSize($expected, $this->actual, $message);
+        Assert::assertNotSameSize($expected, $actual, $message);
 
         return $this;
     }

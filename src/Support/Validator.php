@@ -34,6 +34,13 @@ final class Validator
 
                 return $actualValue;
             break;
+            case 'iterable_countable':
+                if (! is_iterable($actualValue) && ! $actualValue instanceof \Countable) {
+                    throw new \InvalidArgumentException($invalidArgument);
+                }
+
+                return $actualValue;
+            break;
         }
     }
 
