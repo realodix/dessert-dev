@@ -3,7 +3,6 @@
 namespace Realodix\NextProject\Test\Error;
 
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Exception\InvalidArgumentException;
 use Realodix\NextProject\Expect;
 use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
@@ -20,7 +19,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function arrayHasKeyExpectedValue(): void
     {
-        Expect::after($this)->exception(InvalidArgumentException::class);
+        Expect::after($this)->exception(\InvalidArgumentException::class);
 
         ass([])->hasKey(true);
     }
@@ -36,7 +35,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function arrayHasNotKeyExpectedValue(): void
     {
-        Expect::after($this)->exception(InvalidArgumentException::class);
+        Expect::after($this)->exception(\InvalidArgumentException::class);
 
         ass([])->notHasKey(true);
     }
@@ -260,7 +259,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function instanceOfExpectedValue(): void
     {
-        Expect::after($this)->exception(InvalidArgumentException::class);
+        Expect::after($this)->exception(\InvalidArgumentException::class);
 
         ass('')->instanceOf('');
     }
@@ -268,7 +267,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function notInstanceOfExpectedValue(): void
     {
-        Expect::after($this)->exception(InvalidArgumentException::class);
+        Expect::after($this)->exception(\InvalidArgumentException::class);
 
         ass('')->notInstanceOf('');
     }
@@ -419,7 +418,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function sameSizeExpectedValue(): void
     {
-        Expect::after($this)->exception(InvalidArgumentException::class);
+        Expect::after($this)->exception(\InvalidArgumentException::class);
 
         ass([])->sameSize('');
     }
@@ -435,7 +434,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function notSameSizeExpectedValue(): void
     {
-        Expect::after($this)->exception(InvalidArgumentException::class);
+        Expect::after($this)->exception(\InvalidArgumentException::class);
 
         ass([])->notSameSize('');
     }

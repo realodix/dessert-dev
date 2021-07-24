@@ -75,6 +75,59 @@ final class Validator
         }
     }
 
+    public static function expectedValue($expectedValue, int $argument, string $type)
+    {
+        $stack = debug_backtrace();
+
+        switch ($type) {
+            case 'class':
+                if (! class_exists($expectedValue) && ! interface_exists($expectedValue)) {
+                    throw new \InvalidArgumentException(
+                        sprintf(
+                            'Argument #%d of %s() must be %s %s, %s given',
+                            $argument,
+                            $stack[1]['function'],
+                            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+                            'class or interface',
+                            get_debug_type($expectedValue)
+                        )
+                    );
+                }
+
+                return $expectedValue;
+            case 'int_string':
+                if (! (\is_int($expectedValue) || \is_string($expectedValue))) {
+                    throw new \InvalidArgumentException(
+                        sprintf(
+                            'Argument #%d of %s() must be %s %s, %s given',
+                            $argument,
+                            $stack[1]['function'],
+                            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+                            'integer or string',
+                            get_debug_type($expectedValue)
+                        )
+                    );
+                }
+
+                return $expectedValue;
+            case 'iterable_countable':
+                if (! $expectedValue instanceof \Countable && ! is_iterable($expectedValue)) {
+                    throw new \InvalidArgumentException(
+                        sprintf(
+                            'Argument #%d of %s() must be %s %s, %s given',
+                            $argument,
+                            $stack[1]['function'],
+                            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+                            'countable or iterable',
+                            get_debug_type($expectedValue)
+                        )
+                    );
+                }
+
+                return $expectedValue;
+        }
+    }
+
     /**
      * Determines whether a variable represents a closed resource.
      *

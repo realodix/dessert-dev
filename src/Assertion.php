@@ -3,7 +3,6 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert;
-use Realodix\NextProject\Exception\InvalidArgumentException;
 use Realodix\NextProject\Support\Validator;
 
 class Assertion
@@ -80,12 +79,9 @@ class Assertion
     public function arrayHasKey($key, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'array');
+        $expected = Validator::expectedValue($key, 1, 'int_string');
 
-        if (! (\is_int($key) || \is_string($key))) {
-            throw InvalidArgumentException::create($key, 1, 'integer or string');
-        }
-
-        Assert::assertArrayHasKey($key, $actual, $message);
+        Assert::assertArrayHasKey($expected, $actual, $message);
 
         return $this;
     }
@@ -97,12 +93,9 @@ class Assertion
     public function arrayNotHasKey($key, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'array');
+        $expected = Validator::expectedValue($key, 1, 'int_string');
 
-        if (! (\is_int($key) || \is_string($key))) {
-            throw InvalidArgumentException::create($key, 1, 'integer or string');
-        }
-
-        Assert::assertArrayNotHasKey($key, $actual, $message);
+        Assert::assertArrayNotHasKey($expected, $actual, $message);
 
         return $this;
     }
@@ -574,9 +567,7 @@ class Assertion
      */
     public function instanceOf(string $expected, string $message = ''): self
     {
-        if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw InvalidArgumentException::create($expected, 1, 'integer or string');
-        }
+        $expected = Validator::expectedValue($expected, 1, 'class');
 
         Assert::assertInstanceOf($expected, $this->actual, $message);
 
@@ -589,9 +580,7 @@ class Assertion
      */
     public function notInstanceOf(string $expected, string $message = ''): self
     {
-        if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw InvalidArgumentException::create($expected, 1, 'integer or string');
-        }
+        $expected = Validator::expectedValue($expected, 1, 'class');
 
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
 
@@ -987,10 +976,7 @@ class Assertion
     public function sameSize($expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable_countable');
-
-        if (! $expected instanceof \Countable && ! is_iterable($expected)) {
-            throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
-        }
+        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
 
         Assert::assertSameSize($expected, $actual, $message);
 
@@ -1004,10 +990,7 @@ class Assertion
     public function notSameSize($expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable_countable');
-
-        if (! $expected instanceof \Countable && ! is_iterable($expected)) {
-            throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
-        }
+        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
 
         Assert::assertNotSameSize($expected, $actual, $message);
 
