@@ -115,11 +115,9 @@ class Assertion
      */
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        if (! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'iterable');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'iterable');
 
-        Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
+        Assert::assertContainsOnly($type, $actual, $isNativeType, $message);
 
         return $this;
     }
@@ -131,11 +129,9 @@ class Assertion
      */
     public function notContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        if (! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'iterable');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'iterable');
 
-        Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
+        Assert::assertNotContainsOnly($type, $actual, $isNativeType, $message);
 
         return $this;
     }
@@ -146,11 +142,9 @@ class Assertion
      */
     public function containsOnlyInstancesOf(string $className, string $message = ''): self
     {
-        if (! is_iterable($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'iterable');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'iterable');
 
-        Assert::assertContainsOnlyInstancesOf($className, $this->actual, $message);
+        Assert::assertContainsOnlyInstancesOf($className, $actual, $message);
 
         return $this;
     }

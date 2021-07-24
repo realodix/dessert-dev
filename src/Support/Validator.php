@@ -27,6 +27,13 @@ final class Validator
 
                 return $actualValue;
             break;
+            case 'iterable':
+                if (! is_iterable($actualValue)) {
+                    throw new \InvalidArgumentException($invalidArgument);
+                }
+
+                return $actualValue;
+            break;
         }
     }
 
