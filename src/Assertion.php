@@ -263,7 +263,7 @@ class Assertion
      */
     public function classHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassHasAttribute($attributeName, $actual, $message);
 
@@ -276,7 +276,7 @@ class Assertion
      */
     public function classNotHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
 
@@ -289,7 +289,7 @@ class Assertion
      */
     public function classHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassHasStaticAttribute($attributeName, $actual, $message);
 
@@ -302,7 +302,7 @@ class Assertion
      */
     public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassNotHasStaticAttribute($attributeName, $actual, $message);
 

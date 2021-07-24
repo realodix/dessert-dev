@@ -26,7 +26,7 @@ final class Validator
                 }
 
                 return $actualValue;
-            case 'class_name':
+            case 'class':
                 if (! class_exists($actualValue)) {
                     throw new \InvalidArgumentException(
                         sprintf(
