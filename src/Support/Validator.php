@@ -26,7 +26,6 @@ final class Validator
                 }
 
                 return $actualValue;
-            break;
             case 'class_name':
                 if (! class_exists($actualValue)) {
                     throw new \InvalidArgumentException(
@@ -41,14 +40,12 @@ final class Validator
                 }
 
                 return $actualValue;
-            break;
             case 'iterable':
                 if (! is_iterable($actualValue)) {
                     throw new \InvalidArgumentException($invalidArgument);
                 }
 
                 return $actualValue;
-            break;
             case 'iterable_countable':
                 if (! is_iterable($actualValue) && ! $actualValue instanceof \Countable) {
                     throw new \InvalidArgumentException(
@@ -63,21 +60,18 @@ final class Validator
                 }
 
                 return $actualValue;
-            break;
             case 'object':
                 if (! \is_object($actualValue)) {
                     throw new \InvalidArgumentException($invalidArgument);
                 }
 
                 return $actualValue;
-            break;
             case 'string':
                 if (! \is_string($actualValue)) {
                     throw new \InvalidArgumentException($invalidArgument);
                 }
 
                 return $actualValue;
-            break;
         }
     }
 

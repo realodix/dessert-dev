@@ -7,19 +7,107 @@
       <code>\is_string($key)</code>
       <code>\is_string($key)</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="52">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$expectedXml</code>
       <code>$expectedXml</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="47">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$item</code>
     </MixedAssignment>
   </file>
@@ -34,23 +122,15 @@
       <code>$this-&gt;$name()</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/Exception/InvalidActualValueException.php">
-    <InternalClass occurrences="1">
-      <code>Exception</code>
-    </InternalClass>
-    <InternalMethod occurrences="1"/>
-    <MixedArgument occurrences="2">
-      <code>$stack[1]['class']</code>
-      <code>$stack[1]['function']</code>
-    </MixedArgument>
-  </file>
   <file src="src/Exception/InvalidArgumentException.php">
     <InternalClass occurrences="1">
       <code>Exception</code>
     </InternalClass>
     <InternalMethod occurrences="1"/>
-    <MixedArgument occurrences="2">
-      <code>$stack[1]['class']</code>
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
+    <MixedArgument occurrences="1">
       <code>$stack[1]['function']</code>
     </MixedArgument>
   </file>
@@ -167,6 +247,23 @@
     </MixedArgument>
   </file>
   <file src="src/Support/Validator.php">
+    <MissingParamType occurrences="2">
+      <code>$actualValue</code>
+      <code>$type</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="1">
+      <code>actualValueCheck</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="8">
+      <code>$actualValue</code>
+      <code>$stack[1]['function']</code>
+      <code>$stack[1]['function']</code>
+      <code>$stack[1]['function']</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$type</code>
+    </MixedArgument>
     <UnusedFunctionCall occurrences="2">
       <code>json_decode</code>
       <code>simplexml_load_string</code>
@@ -192,7 +289,16 @@
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="14">
+    <MixedArgument occurrences="23">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -208,27 +314,37 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
+    <MixedAssignment occurrences="9">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+    </MixedAssignment>
     <TooManyArguments occurrences="2">
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
     </TooManyArguments>
   </file>
   <file src="src/Traits/PolyfillTrait.php">
-    <ArgumentTypeCoercion occurrences="2">
+    <ArgumentTypeCoercion occurrences="1">
       <code>$expected</code>
-      <code>$this-&gt;actual</code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod occurrences="10">
-      <code>Assert::assertDirectoryNotExists($this-&gt;actual, $message)</code>
-      <code>Assert::assertDirectoryNotIsReadable($this-&gt;actual, $message)</code>
-      <code>Assert::assertDirectoryNotIsWritable($this-&gt;actual, $message)</code>
-      <code>Assert::assertFileNotExists($this-&gt;actual, $message)</code>
-      <code>Assert::assertFileNotIsReadable($this-&gt;actual, $message)</code>
-      <code>Assert::assertFileNotIsWritable($this-&gt;actual, $message)</code>
-      <code>Assert::assertNotIsReadable($this-&gt;actual, $message)</code>
-      <code>Assert::assertNotIsWritable($this-&gt;actual, $message)</code>
-      <code>Assert::assertNotRegExp($pattern, $this-&gt;actual, $message)</code>
-      <code>Assert::assertRegExp($pattern, $this-&gt;actual, $message)</code>
+      <code>Assert::assertDirectoryNotExists($actual, $message)</code>
+      <code>Assert::assertDirectoryNotIsReadable($actual, $message)</code>
+      <code>Assert::assertDirectoryNotIsWritable($actual, $message)</code>
+      <code>Assert::assertFileNotExists($actual, $message)</code>
+      <code>Assert::assertFileNotIsReadable($actual, $message)</code>
+      <code>Assert::assertFileNotIsWritable($actual, $message)</code>
+      <code>Assert::assertNotIsReadable($actual, $message)</code>
+      <code>Assert::assertNotIsWritable($actual, $message)</code>
+      <code>Assert::assertNotRegExp($pattern, $actual, $message)</code>
+      <code>Assert::assertRegExp($pattern, $actual, $message)</code>
     </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="1">
       <code>\is_object($expected)</code>
@@ -236,21 +352,79 @@
     <MissingReturnType occurrences="1">
       <code>objectEquals</code>
     </MissingReturnType>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="41">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
+    <MixedAssignment occurrences="19">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+    </MixedAssignment>
     <TooManyArguments occurrences="8">
-      <code>Assert::assertFileEquals($expected, $this-&gt;actual, $message, false, true)</code>
-      <code>Assert::assertFileEquals($expected, $this-&gt;actual, $message, true)</code>
-      <code>Assert::assertFileNotEquals($expected, $this-&gt;actual, $message, false, true)</code>
-      <code>Assert::assertFileNotEquals($expected, $this-&gt;actual, $message, true)</code>
-      <code>Assert::assertStringEqualsFile($expectedFile, $this-&gt;actual, $message, false, true)</code>
-      <code>Assert::assertStringEqualsFile($expectedFile, $this-&gt;actual, $message, true)</code>
-      <code>Assert::assertStringNotEqualsFile($expectedFile, $this-&gt;actual, $message, false, true)</code>
-      <code>Assert::assertStringNotEqualsFile($expectedFile, $this-&gt;actual, $message, true)</code>
+      <code>Assert::assertFileEquals($expected, $actual, $message, false, true)</code>
+      <code>Assert::assertFileEquals($expected, $actual, $message, true)</code>
+      <code>Assert::assertFileNotEquals($expected, $actual, $message, false, true)</code>
+      <code>Assert::assertFileNotEquals($expected, $actual, $message, true)</code>
+      <code>Assert::assertStringEqualsFile($expectedFile, $actual, $message, false, true)</code>
+      <code>Assert::assertStringEqualsFile($expectedFile, $actual, $message, true)</code>
+      <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true)</code>
+      <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true)</code>
     </TooManyArguments>
   </file>
   <file src="vendor/phpunit/phpunit/src/Framework/Exception/Exception.php">
