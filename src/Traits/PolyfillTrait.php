@@ -55,7 +55,7 @@ trait PolyfillTrait
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -78,7 +78,7 @@ trait PolyfillTrait
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -101,7 +101,7 @@ trait PolyfillTrait
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -124,7 +124,7 @@ trait PolyfillTrait
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -147,7 +147,7 @@ trait PolyfillTrait
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -170,7 +170,7 @@ trait PolyfillTrait
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -193,7 +193,7 @@ trait PolyfillTrait
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -216,7 +216,7 @@ trait PolyfillTrait
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -238,7 +238,7 @@ trait PolyfillTrait
     public function directoryDoesNotExist(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -260,7 +260,7 @@ trait PolyfillTrait
     public function directoryIsNotReadable(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -282,7 +282,7 @@ trait PolyfillTrait
     public function directoryIsNotWritable(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -304,7 +304,7 @@ trait PolyfillTrait
     public function fileDoesNotExist(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -326,7 +326,7 @@ trait PolyfillTrait
     public function fileIsNotReadable(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -348,7 +348,7 @@ trait PolyfillTrait
     public function fileIsNotWritable(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -370,7 +370,7 @@ trait PolyfillTrait
     public function isNotReadable(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -392,7 +392,7 @@ trait PolyfillTrait
     public function isNotWritable(string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -415,7 +415,7 @@ trait PolyfillTrait
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -438,7 +438,7 @@ trait PolyfillTrait
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string');
+            throw InvalidActualValueException::create($this->actual, 'string');
         }
 
         // @codeCoverageIgnoreStart
@@ -518,7 +518,7 @@ trait PolyfillTrait
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
         if (! \is_object($this->actual)) {
-            throw InvalidActualValueException::create('object');
+            throw InvalidActualValueException::create($this->actual, 'object');
         }
 
         // Validate object parameter type in function argument (PHP < 7.2).

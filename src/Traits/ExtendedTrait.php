@@ -222,7 +222,7 @@ trait ExtendedTrait
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertContainsSelector($selector, $this->actual, $message);
@@ -237,7 +237,7 @@ trait ExtendedTrait
     public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertNotContainsSelector($selector, $this->actual, $message);
@@ -253,7 +253,7 @@ trait ExtendedTrait
     public function markupElementContains(string $contents, string $selector = '', string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertElementContains($contents, $selector, $this->actual, $message);
@@ -269,7 +269,7 @@ trait ExtendedTrait
     public function markupElementNotContains(string $contents, string $selector = '', string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertElementNotContains($contents, $selector, $this->actual, $message);
@@ -285,7 +285,7 @@ trait ExtendedTrait
     public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertElementRegExp($regexp, $selector, $this->actual, $message);
@@ -301,7 +301,7 @@ trait ExtendedTrait
     public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertElementNotRegExp($regexp, $selector, $this->actual, $message);
@@ -316,7 +316,7 @@ trait ExtendedTrait
     public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertHasElementWithAttributes($attributes, $this->actual, $message);
@@ -331,7 +331,7 @@ trait ExtendedTrait
     public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertNotHasElementWithAttributes($attributes, $this->actual, $message);
@@ -347,7 +347,7 @@ trait ExtendedTrait
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create('string'); // @codeCoverageIgnore
+            throw InvalidActualValueException::create($this->actual, 'string'); // @codeCoverageIgnore
         }
 
         Markup::assertSelectorCount($count, $selector, $this->actual, $message);
