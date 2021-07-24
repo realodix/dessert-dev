@@ -7,15 +7,20 @@ namespace Realodix\NextProject\Support;
  */
 final class Validator
 {
-    public static function actualValue($actualValue, string $type)
+    public static function actualValue($actualValue, string $type, ?string $msg = null)
     {
         $stack = debug_backtrace();
+        $typeGiven = $type;
+
+        if (! \is_null($msg)) {
+            $typeGiven = $msg;
+        }
 
         $invalidArgument = sprintf(
             'An actual value of %s() must be %s %s, %s given.',
             $stack[1]['function'],
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-            $type,
+            $typeGiven,
             get_debug_type($actualValue)
         );
 
@@ -28,15 +33,7 @@ final class Validator
                 return $actualValue;
             case 'class':
                 if (! class_exists($actualValue)) {
-                    throw new \InvalidArgumentException(
-                        sprintf(
-                            'An actual value of %s() must be %s %s, %s given.',
-                            $stack[1]['function'],
-                            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-                            'class name',
-                            get_debug_type($actualValue)
-                        )
-                    );
+                    throw new \InvalidArgumentException($invalidArgument);
                 }
 
                 return $actualValue;
@@ -48,15 +45,7 @@ final class Validator
                 return $actualValue;
             case 'iterable_countable':
                 if (! is_iterable($actualValue) && ! $actualValue instanceof \Countable) {
-                    throw new \InvalidArgumentException(
-                        sprintf(
-                            'An actual value of %s() must be %s %s, %s given.',
-                            $stack[1]['function'],
-                            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-                            'countable or iterable',
-                            get_debug_type($actualValue)
-                        )
-                    );
+                    throw new \InvalidArgumentException($invalidArgument);
                 }
 
                 return $actualValue;

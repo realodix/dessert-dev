@@ -249,12 +249,10 @@
       <code>actualValue</code>
       <code>expectedValue</code>
     </MissingReturnType>
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="7">
       <code>$actualValue</code>
       <code>$expectedValue</code>
       <code>$expectedValue</code>
-      <code>$stack[1]['function']</code>
-      <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
