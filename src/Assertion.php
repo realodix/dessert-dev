@@ -79,7 +79,7 @@ class Assertion
      */
     public function arrayHasKey($key, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'array');
+        $actual = Validator::actualValue($this->actual, 'array');
 
         if (! (\is_int($key) || \is_string($key))) {
             throw InvalidArgumentException::create($key, 1, 'integer or string');
@@ -96,7 +96,7 @@ class Assertion
      */
     public function arrayNotHasKey($key, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'array');
+        $actual = Validator::actualValue($this->actual, 'array');
 
         if (! (\is_int($key) || \is_string($key))) {
             throw InvalidArgumentException::create($key, 1, 'integer or string');
@@ -114,7 +114,7 @@ class Assertion
      */
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'iterable');
+        $actual = Validator::actualValue($this->actual, 'iterable');
 
         Assert::assertContainsOnly($type, $actual, $isNativeType, $message);
 
@@ -128,7 +128,7 @@ class Assertion
      */
     public function notContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'iterable');
+        $actual = Validator::actualValue($this->actual, 'iterable');
 
         Assert::assertNotContainsOnly($type, $actual, $isNativeType, $message);
 
@@ -141,7 +141,7 @@ class Assertion
      */
     public function containsOnlyInstancesOf(string $className, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'iterable');
+        $actual = Validator::actualValue($this->actual, 'iterable');
 
         Assert::assertContainsOnlyInstancesOf($className, $actual, $message);
 
@@ -154,7 +154,7 @@ class Assertion
      */
     public function count(int $expectedCount, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
 
         Assert::assertCount($expectedCount, $actual, $message);
 
@@ -167,7 +167,7 @@ class Assertion
      */
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
 
         Assert::assertNotCount($expectedCount, $actual, $message);
 
@@ -270,7 +270,7 @@ class Assertion
      */
     public function classHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class_name');
 
         Assert::assertClassHasAttribute($attributeName, $actual, $message);
 
@@ -283,7 +283,7 @@ class Assertion
      */
     public function classNotHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class_name');
 
         Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
 
@@ -296,7 +296,7 @@ class Assertion
      */
     public function classHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class_name');
 
         Assert::assertClassHasStaticAttribute($attributeName, $actual, $message);
 
@@ -309,7 +309,7 @@ class Assertion
      */
     public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'class_name');
+        $actual = Validator::actualValue($this->actual, 'class_name');
 
         Assert::assertClassNotHasStaticAttribute($attributeName, $actual, $message);
 
@@ -321,7 +321,7 @@ class Assertion
      */
     public function directoryExists(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertDirectoryExists($actual, $message);
 
@@ -333,7 +333,7 @@ class Assertion
      */
     public function directoryIsReadable(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertDirectoryIsReadable($actual, $message);
 
@@ -345,7 +345,7 @@ class Assertion
      */
     public function directoryIsWritable(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertDirectoryIsWritable($actual, $message);
 
@@ -378,7 +378,7 @@ class Assertion
      */
     public function fileEquals(string $expected, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertFileEquals($expected, $actual, $message);
 
@@ -391,7 +391,7 @@ class Assertion
      */
     public function fileNotEquals(string $expected, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertFileNotEquals($expected, $actual, $message);
 
@@ -403,7 +403,7 @@ class Assertion
      */
     public function fileExists(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertFileExists($actual, $message);
 
@@ -415,7 +415,7 @@ class Assertion
      */
     public function fileIsReadable(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertFileIsReadable($actual, $message);
 
@@ -427,7 +427,7 @@ class Assertion
      */
     public function fileIsWritable(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertFileIsWritable($actual, $message);
 
@@ -763,7 +763,7 @@ class Assertion
      */
     public function isReadable(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertIsReadable($actual, $message);
 
@@ -835,7 +835,7 @@ class Assertion
      */
     public function isWritable(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertIsWritable($actual, $message);
 
@@ -847,7 +847,7 @@ class Assertion
      */
     public function json(string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertJson($actual, $message);
 
@@ -860,7 +860,7 @@ class Assertion
      */
     public function jsonFileEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertJsonFileEqualsJsonFile($expectedFile, $actual, $message);
 
@@ -873,7 +873,7 @@ class Assertion
      */
     public function jsonFileNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertJsonFileNotEqualsJsonFile($expectedFile, $actual, $message);
 
@@ -886,7 +886,7 @@ class Assertion
      */
     public function jsonStringEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertJsonStringEqualsJsonFile($expectedFile, $actual, $message);
 
@@ -899,7 +899,7 @@ class Assertion
      */
     public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $actual, $message);
 
@@ -912,7 +912,7 @@ class Assertion
      */
     public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertJsonStringEqualsJsonString($expectedJson, $actual, $message);
 
@@ -925,7 +925,7 @@ class Assertion
      */
     public function jsonStringNotEqualsJsonString(string $expectedJson, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertJsonStringNotEqualsJsonString($expectedJson, $actual, $message);
 
@@ -938,7 +938,7 @@ class Assertion
      */
     public function objectHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'object');
+        $actual = Validator::actualValue($this->actual, 'object');
 
         Assert::assertObjectHasAttribute($attributeName, $actual, $message);
 
@@ -951,7 +951,7 @@ class Assertion
      */
     public function objectNotHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'object');
+        $actual = Validator::actualValue($this->actual, 'object');
 
         Assert::assertObjectNotHasAttribute($attributeName, $actual, $message);
 
@@ -986,7 +986,7 @@ class Assertion
      */
     public function sameSize($expected, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
 
         if (! $expected instanceof \Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
@@ -1003,7 +1003,7 @@ class Assertion
      */
     public function notSameSize($expected, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
 
         if (! $expected instanceof \Countable && ! is_iterable($expected)) {
             throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
@@ -1020,7 +1020,7 @@ class Assertion
      */
     public function stringContainsString(string $needle, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringContainsString($needle, $actual, $message);
 
@@ -1033,7 +1033,7 @@ class Assertion
      */
     public function stringNotContainsString(string $needle, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringNotContainsString($needle, $actual, $message);
 
@@ -1046,7 +1046,7 @@ class Assertion
      */
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringContainsStringIgnoringCase($needle, $actual, $message);
 
@@ -1059,7 +1059,7 @@ class Assertion
      */
     public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringNotContainsStringIgnoringCase($needle, $actual, $message);
 
@@ -1072,7 +1072,7 @@ class Assertion
      */
     public function stringMatchesFormat(string $format, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringMatchesFormat($format, $actual, $message);
 
@@ -1085,7 +1085,7 @@ class Assertion
      */
     public function stringNotMatchesFormat(string $format, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringNotMatchesFormat($format, $actual, $message);
 
@@ -1098,7 +1098,7 @@ class Assertion
      */
     public function stringMatchesFormatFile(string $formatFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringMatchesFormatFile($formatFile, $actual, $message);
 
@@ -1111,7 +1111,7 @@ class Assertion
      */
     public function stringNotMatchesFormatFile(string $formatFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringNotMatchesFormatFile($formatFile, $actual, $message);
 
@@ -1124,7 +1124,7 @@ class Assertion
      */
     public function stringStartsWith(string $prefix, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringStartsWith($prefix, $actual, $message);
 
@@ -1137,7 +1137,7 @@ class Assertion
      */
     public function stringStartsNotWith(string $prefix, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringStartsNotWith($prefix, $actual, $message);
 
@@ -1150,7 +1150,7 @@ class Assertion
      */
     public function stringEndsWith(string $suffix, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringEndsWith($suffix, $actual, $message);
 
@@ -1163,7 +1163,7 @@ class Assertion
      */
     public function stringEndsNotWith(string $suffix, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringEndsNotWith($suffix, $actual, $message);
 
@@ -1176,7 +1176,7 @@ class Assertion
      */
     public function xmlFileEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertXmlFileEqualsXmlFile($expectedFile, $actual, $message);
 
@@ -1189,7 +1189,7 @@ class Assertion
      */
     public function xmlFileNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertXmlFileNotEqualsXmlFile($expectedFile, $actual, $message);
 

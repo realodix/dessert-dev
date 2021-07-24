@@ -220,7 +220,7 @@ trait ExtendedTrait
      */
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertContainsSelector($selector, $actual, $message);
 
@@ -233,7 +233,7 @@ trait ExtendedTrait
      */
     public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertNotContainsSelector($selector, $actual, $message);
 
@@ -247,7 +247,7 @@ trait ExtendedTrait
      */
     public function markupElementContains(string $contents, string $selector = '', string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertElementContains($contents, $selector, $actual, $message);
 
@@ -261,7 +261,7 @@ trait ExtendedTrait
      */
     public function markupElementNotContains(string $contents, string $selector = '', string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertElementNotContains($contents, $selector, $actual, $message);
 
@@ -275,7 +275,7 @@ trait ExtendedTrait
      */
     public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertElementRegExp($regexp, $selector, $actual, $message);
 
@@ -289,7 +289,7 @@ trait ExtendedTrait
      */
     public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertElementNotRegExp($regexp, $selector, $actual, $message);
 
@@ -302,7 +302,7 @@ trait ExtendedTrait
      */
     public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertHasElementWithAttributes($attributes, $actual, $message);
 
@@ -315,7 +315,7 @@ trait ExtendedTrait
      */
     public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertNotHasElementWithAttributes($attributes, $actual, $message);
 
@@ -329,7 +329,7 @@ trait ExtendedTrait
      */
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
-        $actual = Validator::actualValueCheck($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
         Markup::assertSelectorCount($count, $selector, $actual, $message);
 

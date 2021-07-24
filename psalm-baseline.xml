@@ -252,7 +252,7 @@
       <code>$type</code>
     </MissingParamType>
     <MissingReturnType occurrences="1">
-      <code>actualValueCheck</code>
+      <code>actualValue</code>
     </MissingReturnType>
     <MixedArgument occurrences="8">
       <code>$actualValue</code>
