@@ -84,7 +84,7 @@ class Assertion
         }
 
         if (! (\is_int($key) || \is_string($key))) {
-            throw InvalidArgumentException::create(1, 'integer or string');
+            throw InvalidArgumentException::create($key, 1, 'integer or string');
         }
 
         Assert::assertArrayHasKey($key, $this->actual, $message);
@@ -103,7 +103,7 @@ class Assertion
         }
 
         if (! (\is_int($key) || \is_string($key))) {
-            throw InvalidArgumentException::create(1, 'integer or string');
+            throw InvalidArgumentException::create($key, 1, 'integer or string');
         }
 
         Assert::assertArrayNotHasKey($key, $this->actual, $message);
@@ -613,7 +613,7 @@ class Assertion
     public function instanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw InvalidArgumentException::create(1, 'integer or string');
+            throw InvalidArgumentException::create($expected, 1, 'integer or string');
         }
 
         Assert::assertInstanceOf($expected, $this->actual, $message);
@@ -628,7 +628,7 @@ class Assertion
     public function notInstanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw InvalidArgumentException::create(1, 'integer or string');
+            throw InvalidArgumentException::create($expected, 1, 'integer or string');
         }
 
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
@@ -1051,7 +1051,7 @@ class Assertion
         }
 
         if (! $expected instanceof \Countable && ! is_iterable($expected)) {
-            throw InvalidArgumentException::create(1, 'countable or iterable');
+            throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
         }
 
         Assert::assertSameSize($expected, $this->actual, $message);
@@ -1070,7 +1070,7 @@ class Assertion
         }
 
         if (! $expected instanceof \Countable && ! is_iterable($expected)) {
-            throw InvalidArgumentException::create(1, 'countable or iterable');
+            throw InvalidArgumentException::create($expected, 1, 'countable or iterable');
         }
 
         Assert::assertNotSameSize($expected, $this->actual, $message);
