@@ -271,11 +271,9 @@ class Assertion
      */
     public function classHasAttribute(string $attributeName, string $message = ''): self
     {
-        if (! class_exists($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'class name');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'class_name');
 
-        Assert::assertClassHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertClassHasAttribute($attributeName, $actual, $message);
 
         return $this;
     }
@@ -286,11 +284,9 @@ class Assertion
      */
     public function classNotHasAttribute(string $attributeName, string $message = ''): self
     {
-        if (! class_exists($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'class name');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'class_name');
 
-        Assert::assertClassNotHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
 
         return $this;
     }
@@ -301,11 +297,9 @@ class Assertion
      */
     public function classHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        if (! class_exists($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'class name');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'class_name');
 
-        Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
+        Assert::assertClassHasStaticAttribute($attributeName, $actual, $message);
 
         return $this;
     }
@@ -316,11 +310,9 @@ class Assertion
      */
     public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        if (! class_exists($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'class name');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'class_name');
 
-        Assert::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
+        Assert::assertClassNotHasStaticAttribute($attributeName, $actual, $message);
 
         return $this;
     }

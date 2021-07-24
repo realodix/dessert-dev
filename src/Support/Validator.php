@@ -27,6 +27,21 @@ final class Validator
 
                 return $actualValue;
             break;
+            case 'class_name':
+                if (! class_exists($actualValue)) {
+                    throw new \InvalidArgumentException(
+                        sprintf(
+                            'An actual value of %s() must be %s %s, %s given.',
+                            $stack[1]['function'],
+                            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+                            'class name',
+                            get_debug_type($actualValue)
+                        )
+                    );
+                }
+
+                return $actualValue;
+            break;
             case 'iterable':
                 if (! is_iterable($actualValue)) {
                     throw new \InvalidArgumentException($invalidArgument);
@@ -36,7 +51,15 @@ final class Validator
             break;
             case 'iterable_countable':
                 if (! is_iterable($actualValue) && ! $actualValue instanceof \Countable) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \InvalidArgumentException(
+                        sprintf(
+                            'An actual value of %s() must be %s %s, %s given.',
+                            $stack[1]['function'],
+                            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+                            'countable or iterable',
+                            get_debug_type($actualValue)
+                        )
+                    );
                 }
 
                 return $actualValue;
