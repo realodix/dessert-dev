@@ -64,8 +64,15 @@ final class Validator
 
                 return $actualValue;
             break;
+            case 'object':
+                if (! \is_object($actualValue)) {
+                    throw new \InvalidArgumentException($invalidArgument);
+                }
+
+                return $actualValue;
+            break;
             case 'string':
-                if (! is_iterable($actualValue)) {
+                if (! \is_string($actualValue)) {
                     throw new \InvalidArgumentException($invalidArgument);
                 }
 

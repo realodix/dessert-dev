@@ -3,7 +3,6 @@
 namespace Realodix\NextProject;
 
 use PHPUnit\Framework\Assert;
-use Realodix\NextProject\Exception\InvalidActualValueException;
 use Realodix\NextProject\Exception\InvalidArgumentException;
 use Realodix\NextProject\Support\Validator;
 
@@ -939,11 +938,9 @@ class Assertion
      */
     public function objectHasAttribute(string $attributeName, string $message = ''): self
     {
-        if (! \is_object($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'object');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'object');
 
-        Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertObjectHasAttribute($attributeName, $actual, $message);
 
         return $this;
     }
@@ -954,11 +951,9 @@ class Assertion
      */
     public function objectNotHasAttribute(string $attributeName, string $message = ''): self
     {
-        if (! \is_object($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'object');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'object');
 
-        Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertObjectNotHasAttribute($attributeName, $actual, $message);
 
         return $this;
     }

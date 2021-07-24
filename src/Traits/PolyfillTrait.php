@@ -4,7 +4,6 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Runner\Version;
-use Realodix\NextProject\Exception\InvalidActualValueException;
 use Realodix\NextProject\Support\Constraint\ObjectEquals;
 use Realodix\NextProject\Support\Validator;
 
@@ -481,9 +480,7 @@ trait PolyfillTrait
      */
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
-        if (! \is_object($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'object');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'object');
 
         // Validate object parameter type in function argument (PHP < 7.2).
         if (! \is_object($expected)) {
@@ -499,13 +496,13 @@ trait PolyfillTrait
         if (version_compare(Version::series(), '9.4', '<')) {
             $constraint = new ObjectEquals($expected, $method);
 
-            Assert::assertThat($this->actual, $constraint, $message);
+            Assert::assertThat($actual, $constraint, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertObjectEquals($expected, $this->actual, $method, $message);
+        Assert::assertObjectEquals($expected, $actual, $method, $message);
 
         return $this;
     }
