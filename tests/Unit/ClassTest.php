@@ -23,7 +23,7 @@ final class ClassTest extends TestCase
 
     public function testClassHasStaticAttribute(): void
     {
-        ass(FakeClassForTesting::class)
+        ass('FakeClassForTesting::class')
             ->classHasStaticAttribute('staticProperty')
             ->classNotHasStaticAttribute('fakeProperty');
     }

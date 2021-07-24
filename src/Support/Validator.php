@@ -7,13 +7,13 @@ namespace Realodix\NextProject\Support;
  */
 final class Validator
 {
-    public static function actualValue($actualValue, string $type, ?string $msg = null)
+    public static function actualValue($actualValue, string $type)
     {
         $stack = debug_backtrace();
-        $typeGiven = $type;
+        $typeGiven = str_replace('_', ' or ', $type);
 
-        if (! \is_null($msg)) {
-            $typeGiven = $msg;
+        if ($type === 'class') {
+            $typeGiven = 'class name';
         }
 
         $invalidArgument = sprintf(

@@ -147,7 +147,7 @@ class Assertion
      */
     public function count(int $expectedCount, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable', 'countable or iterable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
 
         Assert::assertCount($expectedCount, $actual, $message);
 
@@ -160,7 +160,7 @@ class Assertion
      */
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable', 'countable or iterable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
 
         Assert::assertNotCount($expectedCount, $actual, $message);
 
@@ -263,7 +263,7 @@ class Assertion
      */
     public function classHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class', 'class name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassHasAttribute($attributeName, $actual, $message);
 
@@ -276,7 +276,7 @@ class Assertion
      */
     public function classNotHasAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class', 'class name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
 
@@ -289,7 +289,7 @@ class Assertion
      */
     public function classHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class', 'class name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassHasStaticAttribute($attributeName, $actual, $message);
 
@@ -302,7 +302,7 @@ class Assertion
      */
     public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'class', 'class name');
+        $actual = Validator::actualValue($this->actual, 'class');
 
         Assert::assertClassNotHasStaticAttribute($attributeName, $actual, $message);
 
@@ -975,7 +975,7 @@ class Assertion
      */
     public function sameSize($expected, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable', 'countable or iterable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
         $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
 
         Assert::assertSameSize($expected, $actual, $message);
@@ -989,7 +989,7 @@ class Assertion
      */
     public function notSameSize($expected, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable', 'countable or iterable');
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
         $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
 
         Assert::assertNotSameSize($expected, $actual, $message);
