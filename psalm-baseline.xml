@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
   <file src="src/Assertion.php">
-    <DocblockTypeContradiction occurrences="4">
-      <code>\is_int($key) || \is_string($key)</code>
-      <code>\is_int($key) || \is_string($key)</code>
-      <code>\is_string($key)</code>
-      <code>\is_string($key)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="52">
+    <MixedArgument occurrences="58">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -54,6 +48,12 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
       <code>$expectedXml</code>
       <code>$expectedXml</code>
       <code>$this-&gt;actual</code>
@@ -61,7 +61,7 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="47">
+    <MixedAssignment occurrences="53">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -108,6 +108,12 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$expected</code>
       <code>$item</code>
     </MixedAssignment>
   </file>
@@ -247,14 +253,21 @@
     </MixedArgument>
   </file>
   <file src="src/Support/Validator.php">
-    <MissingParamType occurrences="1">
+    <MissingParamType occurrences="2">
       <code>$actualValue</code>
+      <code>$expectedValue</code>
     </MissingParamType>
-    <MissingReturnType occurrences="1">
+    <MissingReturnType occurrences="2">
       <code>actualValue</code>
+      <code>expectedValue</code>
     </MissingReturnType>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="9">
       <code>$actualValue</code>
+      <code>$expectedValue</code>
+      <code>$expectedValue</code>
+      <code>$stack[1]['function']</code>
+      <code>$stack[1]['function']</code>
+      <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
