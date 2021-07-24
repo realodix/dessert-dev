@@ -54,19 +54,17 @@ trait PolyfillTrait
      */
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileEquals($expected, $this->actual, $message, true);
+            Assert::assertFileEquals($expected, $actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
+        Assert::assertFileEqualsCanonicalizing($expected, $actual, $message);
 
         return $this;
     }
@@ -77,19 +75,17 @@ trait PolyfillTrait
      */
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileNotEquals($expected, $this->actual, $message, true);
+            Assert::assertFileNotEquals($expected, $actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
+        Assert::assertFileNotEqualsCanonicalizing($expected, $actual, $message);
 
         return $this;
     }
@@ -100,19 +96,17 @@ trait PolyfillTrait
      */
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileEquals($expected, $this->actual, $message, false, true);
+            Assert::assertFileEquals($expected, $actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
+        Assert::assertFileEqualsIgnoringCase($expected, $actual, $message);
 
         return $this;
     }
@@ -123,19 +117,17 @@ trait PolyfillTrait
      */
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileNotEquals($expected, $this->actual, $message, false, true);
+            Assert::assertFileNotEquals($expected, $actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
+        Assert::assertFileNotEqualsIgnoringCase($expected, $actual, $message);
 
         return $this;
     }
@@ -146,19 +138,17 @@ trait PolyfillTrait
      */
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringEqualsFile($expectedFile, $this->actual, $message, true);
+            Assert::assertStringEqualsFile($expectedFile, $actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+        Assert::assertStringEqualsFileCanonicalizing($expectedFile, $actual, $message);
 
         return $this;
     }
@@ -169,19 +159,17 @@ trait PolyfillTrait
      */
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message, true);
+            Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+        Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $actual, $message);
 
         return $this;
     }
@@ -192,19 +180,17 @@ trait PolyfillTrait
      */
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringEqualsFile($expectedFile, $this->actual, $message, false, true);
+            Assert::assertStringEqualsFile($expectedFile, $actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+        Assert::assertStringEqualsFileIgnoringCase($expectedFile, $actual, $message);
 
         return $this;
     }
@@ -215,19 +201,17 @@ trait PolyfillTrait
      */
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message, false, true);
+            Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+        Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $actual, $message);
 
         return $this;
     }
@@ -237,19 +221,17 @@ trait PolyfillTrait
      */
     public function directoryDoesNotExist(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertDirectoryNotExists($this->actual, $message);
+            Assert::assertDirectoryNotExists($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertDirectoryDoesNotExist($this->actual, $message);
+        Assert::assertDirectoryDoesNotExist($actual, $message);
 
         return $this;
     }
@@ -259,19 +241,17 @@ trait PolyfillTrait
      */
     public function directoryIsNotReadable(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertDirectoryNotIsReadable($this->actual, $message);
+            Assert::assertDirectoryNotIsReadable($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertDirectoryIsNotReadable($this->actual, $message);
+        Assert::assertDirectoryIsNotReadable($actual, $message);
 
         return $this;
     }
@@ -281,19 +261,17 @@ trait PolyfillTrait
      */
     public function directoryIsNotWritable(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertDirectoryNotIsWritable($this->actual, $message);
+            Assert::assertDirectoryNotIsWritable($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertDirectoryIsNotWritable($this->actual, $message);
+        Assert::assertDirectoryIsNotWritable($actual, $message);
 
         return $this;
     }
@@ -303,19 +281,17 @@ trait PolyfillTrait
      */
     public function fileDoesNotExist(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertFileNotExists($this->actual, $message);
+            Assert::assertFileNotExists($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertFileDoesNotExist($this->actual, $message);
+        Assert::assertFileDoesNotExist($actual, $message);
 
         return $this;
     }
@@ -325,19 +301,17 @@ trait PolyfillTrait
      */
     public function fileIsNotReadable(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertFileNotIsReadable($this->actual, $message);
+            Assert::assertFileNotIsReadable($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertFileIsNotReadable($this->actual, $message);
+        Assert::assertFileIsNotReadable($actual, $message);
 
         return $this;
     }
@@ -347,19 +321,17 @@ trait PolyfillTrait
      */
     public function fileIsNotWritable(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertFileNotIsWritable($this->actual, $message);
+            Assert::assertFileNotIsWritable($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertFileIsNotWritable($this->actual, $message);
+        Assert::assertFileIsNotWritable($actual, $message);
 
         return $this;
     }
@@ -369,19 +341,17 @@ trait PolyfillTrait
      */
     public function isNotReadable(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertNotIsReadable($this->actual, $message);
+            Assert::assertNotIsReadable($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertIsNotReadable($this->actual, $message);
+        Assert::assertIsNotReadable($actual, $message);
 
         return $this;
     }
@@ -391,19 +361,17 @@ trait PolyfillTrait
      */
     public function isNotWritable(string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertNotIsWritable($this->actual, $message);
+            Assert::assertNotIsWritable($actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertIsNotWritable($this->actual, $message);
+        Assert::assertIsNotWritable($actual, $message);
 
         return $this;
     }
@@ -414,19 +382,17 @@ trait PolyfillTrait
      */
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertRegExp($pattern, $this->actual, $message);
+            Assert::assertRegExp($pattern, $actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
+        Assert::assertMatchesRegularExpression($pattern, $actual, $message);
 
         return $this;
     }
@@ -437,19 +403,17 @@ trait PolyfillTrait
      */
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
-        if (! \is_string($this->actual)) {
-            throw InvalidActualValueException::create($this->actual, 'string');
-        }
+        $actual = Validator::actualValueCheck($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertNotRegExp($pattern, $this->actual, $message);
+            Assert::assertNotRegExp($pattern, $actual, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
+        Assert::assertDoesNotMatchRegularExpression($pattern, $actual, $message);
 
         return $this;
     }
