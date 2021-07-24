@@ -26,7 +26,7 @@ final class Validator
                 }
 
                 return $actualValue;
-                break;
+            break;
         }
     }
 
