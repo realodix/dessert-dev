@@ -7,6 +7,12 @@ namespace Realodix\NextProject\Support;
  */
 final class Validator
 {
+    /**
+     * Determines whether the actual value given is valid or invalid
+     *
+     * @param mixed  $actualValue
+     * @param string $type
+     */
     public static function actualValue($actualValue, string $type)
     {
         $stack = debug_backtrace();
@@ -64,6 +70,13 @@ final class Validator
         }
     }
 
+    /**
+     * Determines whether the expected value given is valid or invalid
+     *
+     * @param mixed  $expectedValue
+     * @param int    $argument
+     * @param string $type
+     */
     public static function expectedValue($expectedValue, int $argument, string $type)
     {
         $stack = debug_backtrace();

@@ -241,20 +241,14 @@
     </MixedArgument>
   </file>
   <file src="src/Support/Validator.php">
-    <MissingParamType occurrences="2">
-      <code>$actualValue</code>
-      <code>$expectedValue</code>
-    </MissingParamType>
     <MissingReturnType occurrences="2">
       <code>actualValue</code>
       <code>expectedValue</code>
     </MissingReturnType>
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="5">
       <code>$actualValue</code>
       <code>$expectedValue</code>
       <code>$expectedValue</code>
-      <code>$stack[1]['function']</code>
-      <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
     </MixedArgument>
