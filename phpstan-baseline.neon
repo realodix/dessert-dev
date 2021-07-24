@@ -335,8 +335,3 @@ parameters:
 			count: 1
 			path: src/Support/Validator.php
 
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Validator\\:\\:actualValue\\(\\) has parameter \\$type with no typehint specified\\.$#"
-			count: 1
-			path: src/Support/Validator.php
-

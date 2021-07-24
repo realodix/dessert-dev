@@ -247,22 +247,17 @@
     </MixedArgument>
   </file>
   <file src="src/Support/Validator.php">
-    <MissingParamType occurrences="2">
+    <MissingParamType occurrences="1">
       <code>$actualValue</code>
-      <code>$type</code>
     </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>actualValue</code>
     </MissingReturnType>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="4">
       <code>$actualValue</code>
       <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
       <code>$stack[1]['function']</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$type</code>
     </MixedArgument>
     <UnusedFunctionCall occurrences="2">
       <code>json_decode</code>

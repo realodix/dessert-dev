@@ -7,7 +7,7 @@ namespace Realodix\NextProject\Support;
  */
 final class Validator
 {
-    public static function actualValue($actualValue, $type)
+    public static function actualValue($actualValue, string $type)
     {
         $stack = debug_backtrace();
 
