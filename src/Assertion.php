@@ -53,7 +53,7 @@ class Assertion
     public function each(callable $callback = null): Each
     {
         if (! is_iterable($this->actual)) {
-            throw new \BadMethodCallException('Expectation value is not iterable.');
+            throw new \BadMethodCallException('An actual value must be iterable.');
         }
 
         if (\is_callable($callback)) {
