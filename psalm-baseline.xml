@@ -128,18 +128,6 @@
       <code>$this-&gt;$name()</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/Exception/InvalidArgumentException.php">
-    <InternalClass occurrences="1">
-      <code>Exception</code>
-    </InternalClass>
-    <InternalMethod occurrences="1"/>
-    <MissingParamType occurrences="1">
-      <code>$value</code>
-    </MissingParamType>
-    <MixedArgument occurrences="1">
-      <code>$stack[1]['function']</code>
-    </MixedArgument>
-  </file>
   <file src="src/Expect.php">
     <ArgumentTypeCoercion occurrences="5">
       <code>$class</code>
@@ -434,18 +422,5 @@
       <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true)</code>
       <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true)</code>
     </TooManyArguments>
-  </file>
-  <file src="vendor/phpunit/phpunit/src/Framework/Exception/Exception.php">
-    <MissingParamType occurrences="2">
-      <code>$code</code>
-      <code>$message</code>
-    </MissingParamType>
-    <MixedArgument occurrences="2">
-      <code>$code</code>
-      <code>$message</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;serializableTrace[$key]['args']</code>
-    </MixedArrayAccess>
   </file>
 </files>

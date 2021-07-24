@@ -96,11 +96,6 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Exception\\\\InvalidArgumentException\\:\\:create\\(\\) has parameter \\$value with no typehint specified\\.$#"
-			count: 1
-			path: src/Exception/InvalidArgumentException.php
-
-		-
 			message: "#^Call to an undefined method PHPUnit\\\\Framework\\\\TestCase\\:\\:expectExceptionMessageRegExp\\(\\)\\.$#"
 			count: 5
 			path: src/Expect.php
