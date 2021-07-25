@@ -18,7 +18,7 @@
         "symfony/polyfill-php80": "^1.23"
     },
     "require-dev": {
-        "realodix/php-cs-fixer-config": "^3.0"
+        "realodix/php-cs-fixer-config": "^2.0|^3.0"
     },
     "autoload": {
         "files": [
