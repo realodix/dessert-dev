@@ -2,15 +2,9 @@
 
 namespace Realodix\NextProject\Traits;
 
-use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\Constraint\IsEqual;
-use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
-use PHPUnit\Framework\Constraint\LogicalNot;
-use PHPUnit\Framework\Constraint\StringContains;
-use PHPUnit\Runner\Version;
+use Realodix\NextProject\Extend\AssertMixed;
 use Realodix\NextProject\Extend\Markup;
 use Realodix\NextProject\Extend\Modified;
-use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
 trait ExtendedTrait
@@ -51,98 +45,57 @@ trait ExtendedTrait
         return $this;
     }
 
-    public function stringEquals($expected, string $message = ''): self
+    /**
+     * @param string $expected
+     * @param string $message
+     */
+    public function stringEquals(string $expected, string $message = ''): self
     {
-        if (Validator::isJson($this->actual)) {
-            Assert::assertJsonStringEqualsJsonString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($this->actual)) {
-            Assert::assertXmlStringEqualsXmlString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        Assert::assertEquals($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEquals($expected, string $message = ''): self
-    {
-        if (Validator::isJson($this->actual)) {
-            Assert::assertJsonStringNotEqualsJsonString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($this->actual)) {
-            Assert::assertXmlStringNotEqualsXmlString($expected, $this->actual, $message);
-
-            return $this;
-        }
-
-        Assert::assertNotEquals($expected, $this->actual, $message);
+        AssertMixed::stringEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
     /**
-     * Asserts string contains string ignoring line endings
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4670
-     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function stringNotEquals(string $expected, string $message = ''): self
+    {
+        AssertMixed::stringNotEquals($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * @param string $needle
      * @param string $message
      */
     public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
     {
-        $needle = Str::normalizeLineEndings($needle);
-        $haystack = Str::normalizeLineEndings($this->actual);
-
-        Assert::assertThat($haystack, new StringContains($needle, false), $message);
+        AssertMixed::stringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
 
         return $this;
     }
 
     /**
-     * Asserts that two strings equality ignoring line endings
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4670
-     *
      * @param string $expected
      * @param string $message
      */
     public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
     {
-        $expected = Str::normalizeLineEndings($expected);
-        $actual = Str::normalizeLineEndings($this->actual);
-
-        Assert::assertThat($actual, new IsEqual($expected), $message);
+        AssertMixed::stringEqualIgnoringLineEndings($expected, $this->actual, $message);
 
         return $this;
     }
 
     /**
-     * Asserts that the contents of one file is equal to the string.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4649
-     *
      * @param string $expectedString
      * @param string $message
      */
     public function fileEqualsString(string $expectedString, string $message = ''): self
     {
-        Assert::assertFileExists($this->actual, $message);
-
-        $constraint = new IsEqual($expectedString);
-
-        Assert::assertThat(file_get_contents($this->actual), $constraint, $message);
+        AssertMixed::fileEqualsString($expectedString, $this->actual, $message);
 
         return $this;
     }
@@ -153,11 +106,7 @@ trait ExtendedTrait
      */
     public function fileNotEqualsString(string $expectedString, string $message = ''): self
     {
-        Assert::assertFileExists($this->actual, $message);
-
-        $constraint = new LogicalNot(new IsEqual($expectedString));
-
-        Assert::assertThat(file_get_contents($this->actual), $constraint, $message);
+        AssertMixed::fileNotEqualsString($expectedString, $this->actual, $message);
 
         return $this;
     }
@@ -168,23 +117,7 @@ trait ExtendedTrait
      */
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        Assert::assertFileExists($this->actual, $message);
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.0', '<')) {
-            Assert::assertThat(
-                file_get_contents($this->actual),
-                new IsEqual($expectedString, 0.0, 10, false, true),
-                $message
-            );
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
-        $constraint = new IsEqualIgnoringCase($expectedString);
-
-        Assert::assertThat(file_get_contents($this->actual), $constraint, $message);
+        AssertMixed::fileEqualsStringIgnoringCase($expectedString, $this->actual, $message);
 
         return $this;
     }
@@ -195,21 +128,7 @@ trait ExtendedTrait
      */
     public function fileNotEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        Assert::assertFileExists($this->actual, $message);
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.0', '<')) {
-            $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
-
-            Assert::assertThat(file_get_contents($this->actual), $constraint, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
-        $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
-
-        Assert::assertThat(file_get_contents($this->actual), $constraint, $message);
+        AssertMixed::fileNotEqualsStringIgnoringCase($expectedString, $this->actual, $message);
 
         return $this;
     }

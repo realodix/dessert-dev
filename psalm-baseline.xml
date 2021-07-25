@@ -153,6 +153,26 @@
       <code>expectExceptionMessageRegExp</code>
     </UndefinedMethod>
   </file>
+  <file src="src/Extend/AssertMixed.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>10</code>
+      <code>10</code>
+    </InvalidScalarArgument>
+    <MissingReturnType occurrences="8">
+      <code>fileEqualsString</code>
+      <code>fileEqualsStringIgnoringCase</code>
+      <code>fileNotEqualsString</code>
+      <code>fileNotEqualsStringIgnoringCase</code>
+      <code>stringContainsStringIgnoringLineEndings</code>
+      <code>stringEqualIgnoringLineEndings</code>
+      <code>stringEquals</code>
+      <code>stringNotEquals</code>
+    </MissingReturnType>
+    <TooManyArguments occurrences="2">
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+    </TooManyArguments>
+  </file>
   <file src="src/Extend/Markup.php">
     <DeprecatedClass occurrences="8">
       <code>(new Query($markup))-&gt;execute($query)</code>
@@ -267,17 +287,11 @@
     </TooManyArguments>
   </file>
   <file src="src/Traits/ExtendedTrait.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>10</code>
-      <code>10</code>
-    </InvalidScalarArgument>
-    <MissingParamType occurrences="4">
-      <code>$expected</code>
-      <code>$expected</code>
+    <MissingParamType occurrences="2">
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="23">
+    <MixedArgument occurrences="19">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -287,10 +301,6 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
@@ -313,10 +323,6 @@
       <code>$actual</code>
       <code>$actual</code>
     </MixedAssignment>
-    <TooManyArguments occurrences="2">
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-    </TooManyArguments>
   </file>
   <file src="src/Traits/PolyfillTrait.php">
     <ArgumentTypeCoercion occurrences="1">
