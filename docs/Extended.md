@@ -22,12 +22,28 @@
 
 | Assertions                                  | Descriptions |
 | ------------------------------------------- | ------------ |
-| `fileEqualsString()`                        ||
-| `fileNotEqualsString()`                     ||
-| `fileEqualsStringIgnoringCase()`            ||
-| `fileNotEqualsStringIgnoringCase()`         ||
 | `stringContainsStringIgnoringLineEndings()` ||
 | `stringEqualIgnoringLineEndings()`          ||
+
+### fileEqualsString()
+
+Asserts that the contents of one file is equal to the string.
+
+```php
+verify($file)->fileEqualsString('expected_string', 'optional_message')
+```
+
+`fileNotEqualsString()` is the inverse of this assertion and takes the same arguments.
+
+### fileEqualsStringIgnoringCase()
+
+Asserts that the contents of one file is equal to the string (ignoring case).
+
+```php
+verify($file)->fileEqualsStringIgnoringCase('expected_string', 'optional_message')
+```
+
+`fileNotEqualsStringIgnoringCase()` is the inverse of this assertion and takes the same arguments.
 
 ### markupContainsSelector()
 `markupContainsSelector(string $selector, string $message = '')`
