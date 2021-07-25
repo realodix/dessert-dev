@@ -3,36 +3,36 @@
 namespace Realodix\NextProject\Traits;
 
 use Realodix\NextProject\Extend\AssertMixed;
-use Realodix\NextProject\Extend\Markup;
-use Realodix\NextProject\Extend\Modified;
+use Realodix\NextProject\Extend\AssertMarkup;
+use Realodix\NextProject\Extend\AssertModified;
 use Realodix\NextProject\Support\Validator;
 
 trait ExtendedTrait
 {
     public function contains($needle, string $message = ''): self
     {
-        Modified::assertContains($needle, $this->actual, $message);
+        AssertModified::assertContains($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function notContains($needle, string $message = ''): self
     {
-        Modified::assertNotContains($needle, $this->actual, $message);
+        AssertModified::assertNotContains($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function stringEqualsFile(string $expectedFile, string $message = ''): self
     {
-        Modified::assertStringEqualsFile($expectedFile, $this->actual, $message);
+        AssertModified::assertStringEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
     public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
     {
-        Modified::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
+        AssertModified::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
@@ -97,7 +97,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertContainsSelector($selector, $actual, $message);
+        AssertMarkup::assertContainsSelector($selector, $actual, $message);
 
         return $this;
     }
@@ -106,7 +106,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertNotContainsSelector($selector, $actual, $message);
+        AssertMarkup::assertNotContainsSelector($selector, $actual, $message);
 
         return $this;
     }
@@ -115,7 +115,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertElementContains($contents, $selector, $actual, $message);
+        AssertMarkup::assertElementContains($contents, $selector, $actual, $message);
 
         return $this;
     }
@@ -124,7 +124,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertElementNotContains($contents, $selector, $actual, $message);
+        AssertMarkup::assertElementNotContains($contents, $selector, $actual, $message);
 
         return $this;
     }
@@ -133,7 +133,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertElementRegExp($regexp, $selector, $actual, $message);
+        AssertMarkup::assertElementRegExp($regexp, $selector, $actual, $message);
 
         return $this;
     }
@@ -142,7 +142,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertElementNotRegExp($regexp, $selector, $actual, $message);
+        AssertMarkup::assertElementNotRegExp($regexp, $selector, $actual, $message);
 
         return $this;
     }
@@ -151,7 +151,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertHasElementWithAttributes($attributes, $actual, $message);
+        AssertMarkup::assertHasElementWithAttributes($attributes, $actual, $message);
 
         return $this;
     }
@@ -160,7 +160,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertNotHasElementWithAttributes($attributes, $actual, $message);
+        AssertMarkup::assertNotHasElementWithAttributes($attributes, $actual, $message);
 
         return $this;
     }
@@ -169,7 +169,7 @@ trait ExtendedTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        Markup::assertSelectorCount($count, $selector, $actual, $message);
+        AssertMarkup::assertSelectorCount($count, $selector, $actual, $message);
 
         return $this;
     }

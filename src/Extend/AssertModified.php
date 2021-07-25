@@ -10,7 +10,7 @@ use Realodix\NextProject\Support\Validator;
  *
  * @internal
  */
-final class Modified
+final class AssertModified
 {
     public static function assertContains($needle, $haystack, string $message = '')
     {

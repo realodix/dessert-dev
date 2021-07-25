@@ -153,27 +153,7 @@
       <code>expectExceptionMessageRegExp</code>
     </UndefinedMethod>
   </file>
-  <file src="src/Extend/AssertMixed.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>10</code>
-      <code>10</code>
-    </InvalidScalarArgument>
-    <MissingReturnType occurrences="8">
-      <code>fileEqualsString</code>
-      <code>fileEqualsStringIgnoringCase</code>
-      <code>fileNotEqualsString</code>
-      <code>fileNotEqualsStringIgnoringCase</code>
-      <code>stringContainsStringIgnoringLineEndings</code>
-      <code>stringEqualIgnoringLineEndings</code>
-      <code>stringEquals</code>
-      <code>stringNotEquals</code>
-    </MissingReturnType>
-    <TooManyArguments occurrences="2">
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-    </TooManyArguments>
-  </file>
-  <file src="src/Extend/Markup.php">
+  <file src="src/Extend/AssertMarkup.php">
     <DeprecatedClass occurrences="8">
       <code>(new Query($markup))-&gt;execute($query)</code>
       <code>(new Query($output))-&gt;execute($selector)</code>
@@ -208,7 +188,27 @@
       <code>$result-&gt;firstChild</code>
     </PossiblyNullArgument>
   </file>
-  <file src="src/Extend/Modified.php">
+  <file src="src/Extend/AssertMixed.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>10</code>
+      <code>10</code>
+    </InvalidScalarArgument>
+    <MissingReturnType occurrences="8">
+      <code>fileEqualsString</code>
+      <code>fileEqualsStringIgnoringCase</code>
+      <code>fileNotEqualsString</code>
+      <code>fileNotEqualsStringIgnoringCase</code>
+      <code>stringContainsStringIgnoringLineEndings</code>
+      <code>stringEqualIgnoringLineEndings</code>
+      <code>stringEquals</code>
+      <code>stringNotEquals</code>
+    </MissingReturnType>
+    <TooManyArguments occurrences="2">
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+    </TooManyArguments>
+  </file>
+  <file src="src/Extend/AssertModified.php">
     <MissingParamType occurrences="4">
       <code>$haystack</code>
       <code>$haystack</code>

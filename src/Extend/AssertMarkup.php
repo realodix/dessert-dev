@@ -8,7 +8,7 @@ use PHPUnit\Framework\Assert;
 /**
  * @internal
  */
-final class Markup
+final class AssertMarkup
 {
     /**
      * Assert that the given string contains an element matching the given selector.
