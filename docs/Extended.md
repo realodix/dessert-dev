@@ -20,20 +20,20 @@
 
 ## Custom Assertions
 
-| Assertions                                  |
-| ------------------------------------------- |
-| `fileEqualsString()`                        |
-| `fileNotEqualsString()`                     |
-| `fileEqualsStringIgnoringCase()`            |
-| `fileNotEqualsStringIgnoringCase()`         |
-| `stringContainsStringIgnoringLineEndings()` |
-| `stringEqualIgnoringLineEndings()`          |
-| `markupContainsSelector()`                  |
-| `markupNotContainsSelector()`               |
-| `markupElementContains()`                   |
-| `markupElementNotContains()`                |
-| `markupElementRegExp()`                     |
-| `markupElementNotRegExp()`                  |
-| `markupHasElementWithAttributes()`          |
-| `markupNotHasElementWithAttributes()`       |
-| `markupSelectorCount()`                     |
+| Assertions                                  | Description |
+| ------------------------------------------- | ----------- |
+| `fileEqualsString()`                        ||
+| `fileNotEqualsString()`                     ||
+| `fileEqualsStringIgnoringCase()`            ||
+| `fileNotEqualsStringIgnoringCase()`         ||
+| `stringContainsStringIgnoringLineEndings()` ||
+| `stringEqualIgnoringLineEndings()`          ||
+| `markupContainsSelector()`                  | Assert that the given string contains an element matching the given selector. |
+| `markupNotContainsSelector()`               | Assert that the given string does not contain an element matching the given selector. |
+| `markupElementContains()`                   | Assert that the element with the given selector contains a string. |
+| `markupElementNotContains()`                | Assert that the element with the given selector does not contain a string. |
+| `markupElementRegExp()`                     | Assert that the element with the given selector contains a string. |
+| `markupElementNotRegExp()`                  | Assert that the element with the given selector does not contain a string. |
+| `markupHasElementWithAttributes()`          | Assert that an element with the given attributes exists in the given markup. |
+| `markupNotHasElementWithAttributes()`       | Assert that an element with the given attributes does not exist in the given markup. |
+| `markupSelectorCount()`                     | Assert the number of times an element matching the given selector is found. |
