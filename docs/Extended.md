@@ -1,4 +1,5 @@
-## Extended Behaviour
+## Custom Behaviour
+
 | Assertions              | Description |
 | ----------------------- | ----------- |
 | `contains()`            | [`contains`][contains] or [`stringContainsString`][stringCS] |
@@ -12,7 +13,8 @@
 [jsonSEJF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertjsonstringequalsjsonfile
 [xmlSEXF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertxmlstringequalsxmlfile
 
-## Extended Assertions 
+## Custom Assertions
+
 | Assertions                                  |
 | ------------------------------------------- |
 | `fileEqualsString()`                        |
