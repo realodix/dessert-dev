@@ -28,13 +28,16 @@
 | `fileNotEqualsStringIgnoringCase()`         ||
 | `stringContainsStringIgnoringLineEndings()` ||
 | `stringEqualIgnoringLineEndings()`          ||
-| `markupElementContains()`                   | Assert that the element with the given selector contains a string. |
-| `markupElementNotContains()`                | Assert that the element with the given selector does not contain a string. |
 
 ### markupContainsSelector()
 `markupContainsSelector(string $selector, string $message = '')`
 
 `markupNotContainsSelector()` is the inverse of this assertion and takes the same arguments.
+
+### markupElementContains()
+`markupElementContains(string $contents, string $selector = '', string $message = '')`
+
+`markupElementNotContains()` is the inverse of this assertion and takes the same arguments.
 
 ### markupElementRegExp()
 `markupElementRegExp(string $regexp, string $selector = '', string $message = '')`
