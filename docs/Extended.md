@@ -37,3 +37,6 @@
 | `markupHasElementWithAttributes()`          | Assert that an element with the given attributes exists in the given markup. |
 | `markupNotHasElementWithAttributes()`       | Assert that an element with the given attributes does not exist in the given markup. |
 | `markupSelectorCount()`                     | Assert the number of times an element matching the given selector is found. |
+
+### markupContainsSelector()
+`markupContainsSelector(string $selector, string $message = '')`
