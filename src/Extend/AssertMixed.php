@@ -108,11 +108,6 @@ final class AssertMixed
         return Assert::assertThat(file_get_contents($actual), $constraint, $message);
     }
 
-    /**
-     * @param string $expectedString
-     * @param string $actual
-     * @param string $message
-     */
     public static function fileNotEqualsString(
         string $expectedString,
         string $actual,
@@ -125,11 +120,6 @@ final class AssertMixed
         return Assert::assertThat(file_get_contents($actual), $constraint, $message);
     }
 
-    /**
-     * @param string $expectedString
-     * @param string $actual
-     * @param string $message
-     */
     public static function fileEqualsStringIgnoringCase(
         string $expectedString,
         string $actual,
@@ -152,11 +142,6 @@ final class AssertMixed
         return Assert::assertThat(file_get_contents($actual), $constraint, $message);
     }
 
-    /**
-     * @param string $expectedString
-     * @param string $actual
-     * @param string $message
-     */
     public static function fileNotEqualsStringIgnoringCase(
         string $expectedString,
         string $actual,
