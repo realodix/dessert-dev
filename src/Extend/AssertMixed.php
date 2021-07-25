@@ -54,8 +54,11 @@ final class AssertMixed
      * @param string $actual
      * @param string $message
      */
-    public static function stringContainsStringIgnoringLineEndings(string $needle, string $actual, string $message = '')
-    {
+    public static function stringContainsStringIgnoringLineEndings(
+        string $needle,
+        string $actual,
+        string $message = ''
+    ) {
         $needle = Str::normalizeLineEndings($needle);
         $haystack = Str::normalizeLineEndings($actual);
 
@@ -72,8 +75,11 @@ final class AssertMixed
      * @param string $actual
      * @param string $message
      */
-    public static function stringEqualIgnoringLineEndings(string $expected, string $actual, string $message = '')
-    {
+    public static function stringEqualIgnoringLineEndings(
+        string $expected,
+        string $actual,
+        string $message = ''
+    ) {
         $expected = Str::normalizeLineEndings($expected);
         $actual = Str::normalizeLineEndings($actual);
 
@@ -90,8 +96,11 @@ final class AssertMixed
      * @param string $actual
      * @param string $message
      */
-    public static function fileEqualsString(string $expectedString, string $actual, string $message = '')
-    {
+    public static function fileEqualsString(
+        string $expectedString,
+        string $actual,
+        string $message = ''
+    ) {
         Assert::assertFileExists($actual, $message);
 
         $constraint = new IsEqual($expectedString);
@@ -104,8 +113,11 @@ final class AssertMixed
      * @param string $actual
      * @param string $message
      */
-    public static function fileNotEqualsString(string $expectedString, string $actual, string $message = '')
-    {
+    public static function fileNotEqualsString(
+        string $expectedString,
+        string $actual,
+        string $message = ''
+    ) {
         Assert::assertFileExists($actual, $message);
 
         $constraint = new LogicalNot(new IsEqual($expectedString));
@@ -118,8 +130,11 @@ final class AssertMixed
      * @param string $actual
      * @param string $message
      */
-    public static function fileEqualsStringIgnoringCase(string $expectedString, string $actual, string $message = '')
-    {
+    public static function fileEqualsStringIgnoringCase(
+        string $expectedString,
+        string $actual,
+        string $message = ''
+    ) {
         Assert::assertFileExists($actual, $message);
 
         // @codeCoverageIgnoreStart
@@ -142,8 +157,11 @@ final class AssertMixed
      * @param string $actual
      * @param string $message
      */
-    public static function fileNotEqualsStringIgnoringCase(string $expectedString, string $actual, string $message = '')
-    {
+    public static function fileNotEqualsStringIgnoringCase(
+        string $expectedString,
+        string $actual,
+        string $message = ''
+    ) {
         Assert::assertFileExists($actual, $message);
 
         // @codeCoverageIgnoreStart
