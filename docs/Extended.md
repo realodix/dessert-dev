@@ -40,3 +40,6 @@
 `markupContainsSelector(string $selector, string $message = '')`
 
 `markupNotContainsSelector()` is the inverse of this assertion and takes the same arguments.
+
+### markupSelectorCount()
+`markupSelectorCount(int $count, string $selector, string $message = '')`
