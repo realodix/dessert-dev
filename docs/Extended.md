@@ -1,7 +1,7 @@
 ## Custom Behaviour
 
-| Assertions              | Description |
-| ----------------------- | ----------- |
+| Assertions              | Descriptions |
+| ----------------------- | ------------ |
 | `contains()`            | [`contains`][contains] or [`stringContainsString`][stringCS] |
 | `notContains()`         | [`notContains`][contains] or [`stringNotContainsString`][stringCS] |
 | `stringEquals()`        | [`equals`][equals] or [`jsonStringEqualsJsonString`][jsonSEJS] or [`xmlStringEqualsXmlString`][xmlSEXS] |
@@ -20,8 +20,8 @@
 
 ## Custom Assertions
 
-| Assertions                                  | Description |
-| ------------------------------------------- | ----------- |
+| Assertions                                  | Descriptions |
+| ------------------------------------------- | ------------ |
 | `fileEqualsString()`                        ||
 | `fileNotEqualsString()`                     ||
 | `fileEqualsStringIgnoringCase()`            ||
