@@ -30,11 +30,32 @@ final class AssertModified
         return Assert::assertNotContains($needle, $haystack, $message);
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $actualString
-     * @param string $message
-     */
+    public static function stringEquals(string $expected, string $actual, string $message = '')
+    {
+        if (Validator::isJson($actual)) {
+            return Assert::assertJsonStringEqualsJsonString($expected, $actual, $message);
+        }
+
+        if (Validator::isXml($actual)) {
+            return Assert::assertXmlStringEqualsXmlString($expected, $actual, $message);
+        }
+
+        return Assert::assertEquals($expected, $actual, $message);
+    }
+
+    public static function stringNotEquals(string $expected, string $actual, string $message = '')
+    {
+        if (Validator::isJson($actual)) {
+            return Assert::assertJsonStringNotEqualsJsonString($expected, $actual, $message);
+        }
+
+        if (Validator::isXml($actual)) {
+            return Assert::assertXmlStringNotEqualsXmlString($expected, $actual, $message);
+        }
+
+        return Assert::assertNotEquals($expected, $actual, $message);
+    }
+
     public static function assertStringEqualsFile(string $expectedFile, string $actualString, string $message = '')
     {
         if (Validator::isJson($actualString)) {
@@ -48,11 +69,6 @@ final class AssertModified
         return Assert::assertStringEqualsFile($expectedFile, $actualString, $message);
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $actualString
-     * @param string $message
-     */
     public static function assertStringNotEqualsFile(string $expectedFile, string $actualString, string $message = '')
     {
         if (Validator::isJson($actualString)) {

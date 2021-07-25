@@ -9,7 +9,7 @@ use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Str;
-use Realodix\NextProject\Support\Validator;
+
 
 /**
  * Mixed assertions.
@@ -18,32 +18,6 @@ use Realodix\NextProject\Support\Validator;
  */
 final class AssertMixed
 {
-    public static function stringEquals(string $expected, string $actual, string $message = '')
-    {
-        if (Validator::isJson($actual)) {
-            return Assert::assertJsonStringEqualsJsonString($expected, $actual, $message);
-        }
-
-        if (Validator::isXml($actual)) {
-            return Assert::assertXmlStringEqualsXmlString($expected, $actual, $message);
-        }
-
-        return Assert::assertEquals($expected, $actual, $message);
-    }
-
-    public static function stringNotEquals(string $expected, string $actual, string $message = '')
-    {
-        if (Validator::isJson($actual)) {
-            return Assert::assertJsonStringNotEqualsJsonString($expected, $actual, $message);
-        }
-
-        if (Validator::isXml($actual)) {
-            return Assert::assertXmlStringNotEqualsXmlString($expected, $actual, $message);
-        }
-
-        return Assert::assertNotEquals($expected, $actual, $message);
-    }
-
     /**
      * Asserts string contains string ignoring line endings
      *

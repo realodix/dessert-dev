@@ -141,49 +141,6 @@ final class ExtendedAssertionsTest extends TestCase
             ->markupSelectorCount(3, 'li');
     }
 
-    public function testStringEqualsFile(): void
-    {
-        $stringFile = TEST_FILES_PATH.'string_foobar.txt';
-        ass('foo_bar')
-            ->stringEqualsFile($stringFile)
-            ->and('another_string')
-                ->stringNotEqualsFile($stringFile);
-
-        // JSon
-        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
-        $jsonString = json_encode(['foo' => 'bar']);
-        ass($jsonString)
-            ->stringEqualsFile($jsonFile)
-            ->and(json_encode(['foo' => 'baz']))
-                ->stringNotEqualsFile($jsonFile);
-
-        // XML
-        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
-        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
-        ass('<foo/>')
-            ->stringEqualsFile($xmlFoo)
-            ->stringNotEqualsFile($xmlBar);
-    }
-
-    public function testStringEqualsString(): void
-    {
-        ass('hello')
-            ->stringEquals('hello')
-            ->stringNotEquals('string');
-
-        // JSon
-        $jsonString = json_encode(['foo' => 'bar']);
-        ass($jsonString)
-            ->stringEquals($jsonString)
-            ->stringNotEquals(json_encode(['foo' => 'baz']));
-
-        // XML
-        $xmlString = '<foo/>';
-        ass($xmlString)
-            ->stringEquals($xmlString)
-            ->stringNotEquals('<bar/>');
-    }
-
     /**
      * @dataProvider stringContainsStringIgnoringLineEndingsProvider
      *

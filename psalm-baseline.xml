@@ -193,15 +193,13 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MissingReturnType occurrences="8">
+    <MissingReturnType occurrences="6">
       <code>fileEqualsString</code>
       <code>fileEqualsStringIgnoringCase</code>
       <code>fileNotEqualsString</code>
       <code>fileNotEqualsStringIgnoringCase</code>
       <code>stringContainsStringIgnoringLineEndings</code>
       <code>stringEqualIgnoringLineEndings</code>
-      <code>stringEquals</code>
-      <code>stringNotEquals</code>
     </MissingReturnType>
     <TooManyArguments occurrences="2">
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
@@ -215,11 +213,13 @@
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MissingReturnType occurrences="4">
+    <MissingReturnType occurrences="6">
       <code>assertContains</code>
       <code>assertNotContains</code>
       <code>assertStringEqualsFile</code>
       <code>assertStringNotEqualsFile</code>
+      <code>stringEquals</code>
+      <code>stringNotEquals</code>
     </MissingReturnType>
     <MixedArgument occurrences="4">
       <code>$haystack</code>

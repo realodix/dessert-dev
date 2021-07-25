@@ -39,14 +39,14 @@ trait ExtendedTrait
 
     public function stringEquals(string $expected, string $message = ''): self
     {
-        AssertMixed::stringEquals($expected, $this->actual, $message);
+        AssertModified::stringEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
     public function stringNotEquals(string $expected, string $message = ''): self
     {
-        AssertMixed::stringNotEquals($expected, $this->actual, $message);
+        AssertModified::stringNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
