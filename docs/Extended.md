@@ -37,6 +37,6 @@
 | `markupSelectorCount()`                     | Assert the number of times an element matching the given selector is found. |
 
 ### markupContainsSelector()
-`markupContainsSelector(string $selector, string $output = '', string $message = '')`
+`markupContainsSelector(string $selector, string $message = '')`
 
 `markupNotContainsSelector()` is the inverse of this assertion and takes the same arguments.
