@@ -32,13 +32,16 @@
 | `markupElementNotContains()`                | Assert that the element with the given selector does not contain a string. |
 | `markupElementRegExp()`                     | Assert that the element with the given selector contains a string. |
 | `markupElementNotRegExp()`                  | Assert that the element with the given selector does not contain a string. |
-| `markupHasElementWithAttributes()`          | Assert that an element with the given attributes exists in the given markup. |
-| `markupNotHasElementWithAttributes()`       | Assert that an element with the given attributes does not exist in the given markup. |
 
 ### markupContainsSelector()
 `markupContainsSelector(string $selector, string $message = '')`
 
 `markupNotContainsSelector()` is the inverse of this assertion and takes the same arguments.
+
+### markupHasElementWithAttributes()
+`markupHasElementWithAttributes(array $attributes = [], string $message = '')`
+
+`markupNotHasElementWithAttributes()` is the inverse of this assertion and takes the same arguments.
 
 ### markupSelectorCount()
 `markupSelectorCount(int $count, string $selector, string $message = '')`
