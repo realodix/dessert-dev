@@ -10,7 +10,6 @@ use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Str;
 
-
 /**
  * Mixed assertions.
  *

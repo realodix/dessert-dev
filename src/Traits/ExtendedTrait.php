@@ -2,8 +2,8 @@
 
 namespace Realodix\NextProject\Traits;
 
-use Realodix\NextProject\Extend\AssertMixed;
 use Realodix\NextProject\Extend\AssertMarkup;
+use Realodix\NextProject\Extend\AssertMixed;
 use Realodix\NextProject\Extend\AssertModified;
 use Realodix\NextProject\Support\Validator;
 
