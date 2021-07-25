@@ -153,39 +153,7 @@
       <code>expectExceptionMessageRegExp</code>
     </UndefinedMethod>
   </file>
-  <file src="src/Opposite.php">
-    <InternalClass occurrences="1"/>
-    <InternalMethod occurrences="1"/>
-    <InvalidReturnType occurrences="2">
-      <code>Assertion</code>
-      <code>Assertion</code>
-    </InvalidReturnType>
-    <MissingClosureParamType occurrences="1">
-      <code>$argument</code>
-    </MissingClosureParamType>
-  </file>
-  <file src="src/Support/Constraint/ObjectEquals.php">
-    <MissingParamType occurrences="1">
-      <code>$object</code>
-    </MissingParamType>
-    <MixedAssignment occurrences="1">
-      <code>$this-&gt;expected</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="1">
-      <code>$this-&gt;method</code>
-    </MixedMethodCall>
-    <MixedReturnStatement occurrences="1">
-      <code>$actual-&gt;{$this-&gt;method}($this-&gt;expected)</code>
-    </MixedReturnStatement>
-    <ParamNameMismatch occurrences="2">
-      <code>$actual</code>
-      <code>$actual</code>
-    </ParamNameMismatch>
-  </file>
-  <file src="src/Support/Markup.php">
+  <file src="src/Extend/Markup.php">
     <DeprecatedClass occurrences="8">
       <code>(new Query($markup))-&gt;execute($query)</code>
       <code>(new Query($output))-&gt;execute($selector)</code>
@@ -220,7 +188,7 @@
       <code>$result-&gt;firstChild</code>
     </PossiblyNullArgument>
   </file>
-  <file src="src/Support/Modified.php">
+  <file src="src/Extend/Modified.php">
     <MissingParamType occurrences="4">
       <code>$haystack</code>
       <code>$haystack</code>
@@ -239,6 +207,38 @@
       <code>$needle</code>
       <code>$needle</code>
     </MixedArgument>
+  </file>
+  <file src="src/Opposite.php">
+    <InternalClass occurrences="1"/>
+    <InternalMethod occurrences="1"/>
+    <InvalidReturnType occurrences="2">
+      <code>Assertion</code>
+      <code>Assertion</code>
+    </InvalidReturnType>
+    <MissingClosureParamType occurrences="1">
+      <code>$argument</code>
+    </MissingClosureParamType>
+  </file>
+  <file src="src/Support/Constraint/ObjectEquals.php">
+    <MissingParamType occurrences="1">
+      <code>$object</code>
+    </MissingParamType>
+    <MixedAssignment occurrences="1">
+      <code>$this-&gt;expected</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="1">
+      <code>$this-&gt;method</code>
+    </MixedMethodCall>
+    <MixedReturnStatement occurrences="1">
+      <code>$actual-&gt;{$this-&gt;method}($this-&gt;expected)</code>
+    </MixedReturnStatement>
+    <ParamNameMismatch occurrences="2">
+      <code>$actual</code>
+      <code>$actual</code>
+    </ParamNameMismatch>
   </file>
   <file src="src/Support/Validator.php">
     <MissingReturnType occurrences="2">

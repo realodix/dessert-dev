@@ -8,8 +8,8 @@ use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
-use Realodix\NextProject\Support\Markup;
-use Realodix\NextProject\Support\Modified;
+use Realodix\NextProject\Extend\Markup;
+use Realodix\NextProject\Extend\Modified;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 

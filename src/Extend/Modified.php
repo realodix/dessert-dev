@@ -1,8 +1,9 @@
 <?php
 
-namespace Realodix\NextProject\Support;
+namespace Realodix\NextProject\Extend;
 
 use PHPUnit\Framework\Assert;
+use Realodix\NextProject\Support\Validator;
 
 /**
  * Assertion in PHPUnit that got behavior changes.

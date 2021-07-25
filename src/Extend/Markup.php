@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Support;
+namespace Realodix\NextProject\Extend;
 
 use Laminas\Dom\Query;
 use PHPUnit\Framework\Assert;

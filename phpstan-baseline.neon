@@ -111,6 +111,191 @@ parameters:
 			path: src/Expect.php
 
 		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertContainsSelector\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertElementContains\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertElementNotContains\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertElementNotRegExp\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertElementRegExp\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertHasElementWithAttributes\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertNotContainsSelector\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertNotHasElementWithAttributes\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertNotHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:assertSelectorCount\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Markup\\:\\:flattenAttributeArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Parameter \\#1 \\$node of method DOMDocument\\:\\:importNode\\(\\) expects DOMNode, DOMNode\\|null given\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertGreaterThan\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Markup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertContains\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertContains\\(\\) has parameter \\$haystack with no typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertContains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertNotContains\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertNotContains\\(\\) has parameter \\$haystack with no typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertNotContains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertStringEqualsFile\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\Modified\\:\\:assertStringNotEqualsFile\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertContains\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertJsonStringEqualsJsonFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertJsonStringNotEqualsJsonFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotContains\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEqualsFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotEqualsFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertXmlStringEqualsXmlFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
+			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertXmlStringNotEqualsXmlFile\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Extend/Modified.php
+
+		-
 			message: "#^Expression \"\\$this\\-\\>original\\-\\>\\{\\$name\\}\" on a separate line does not do anything\\.$#"
 			count: 1
 			path: src/Opposite.php
@@ -129,191 +314,6 @@ parameters:
 			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Constraint\\\\ObjectEquals\\:\\:__construct\\(\\) has parameter \\$object with no typehint specified\\.$#"
 			count: 1
 			path: src/Support/Constraint/ObjectEquals.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertContainsSelector\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertElementContains\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertElementNotContains\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertElementNotRegExp\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertElementRegExp\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertHasElementWithAttributes\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertNotContainsSelector\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertNotHasElementWithAttributes\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertNotHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:assertSelectorCount\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:flattenAttributeArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Parameter \\#1 \\$node of method DOMDocument\\:\\:importNode\\(\\) expects DOMNode, DOMNode\\|null given\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|false given\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertGreaterThan\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertContains\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertContains\\(\\) has parameter \\$haystack with no typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertContains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertNotContains\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertNotContains\\(\\) has parameter \\$haystack with no typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertNotContains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertStringEqualsFile\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Modified\\:\\:assertStringNotEqualsFile\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertContains\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertJsonStringEqualsJsonFile\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertJsonStringNotEqualsJsonFile\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotContains\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEqualsFile\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotEqualsFile\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertXmlStringEqualsXmlFile\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertXmlStringNotEqualsXmlFile\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Support/Modified.php
 
 		-
 			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Validator\\:\\:actualValue\\(\\) has no return typehint specified\\.$#"
