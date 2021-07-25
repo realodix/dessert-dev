@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Test\CustomAssertion;
 
-trait ExtendedTestProvider
+trait ExtendedAssertionsTestProvider
 {
     public function markupContainsSelectorProvider()
     {

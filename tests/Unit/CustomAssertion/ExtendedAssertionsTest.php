@@ -6,9 +6,9 @@ use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
-final class ExtendedTest extends TestCase
+final class ExtendedAssertionsTest extends TestCase
 {
-    use ExtendedTestProvider;
+    use ExtendedAssertionsTestProvider;
 
     public function testHelperMethods(): void
     {

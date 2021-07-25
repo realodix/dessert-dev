@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test\CustomAssertion;
 
 use PHPUnit\Framework\TestCase;
 
-final class AliasesTest extends TestCase
+final class AssertionAliasesTest extends TestCase
 {
     /** @test */
     public function regExp(): void

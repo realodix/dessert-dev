@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test\CustomAssertion;
 
 use PHPUnit\Framework\TestCase;
 
-final class MergedFunctionsTest extends TestCase
+final class MergedAssertionsTest extends TestCase
 {
     public function testContains(): void
     {
