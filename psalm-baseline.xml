@@ -153,28 +153,6 @@
       <code>expectExceptionMessageRegExp</code>
     </UndefinedMethod>
   </file>
-  <file src="src/Extend/AssertModified.php">
-    <MissingParamType occurrences="4">
-      <code>$haystack</code>
-      <code>$haystack</code>
-      <code>$needle</code>
-      <code>$needle</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="6">
-      <code>assertContains</code>
-      <code>assertNotContains</code>
-      <code>assertStringEqualsFile</code>
-      <code>assertStringNotEqualsFile</code>
-      <code>stringEquals</code>
-      <code>stringNotEquals</code>
-    </MissingReturnType>
-    <MixedArgument occurrences="4">
-      <code>$haystack</code>
-      <code>$haystack</code>
-      <code>$needle</code>
-      <code>$needle</code>
-    </MixedArgument>
-  </file>
   <file src="src/Opposite.php">
     <InternalClass occurrences="1"/>
     <InternalMethod occurrences="1"/>
@@ -270,11 +248,7 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MissingParamType occurrences="2">
-      <code>$needle</code>
-      <code>$needle</code>
-    </MissingParamType>
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="13">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -287,10 +261,6 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
       <code>Validator::actualValue($this-&gt;actual, 'string')</code>
     </MixedArgument>
     <MixedAssignment occurrences="12">
@@ -311,6 +281,30 @@
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
     </TooManyArguments>
+  </file>
+  <file src="src/Traits/ModifiedTrait.php">
+    <MissingParamType occurrences="2">
+      <code>$needle</code>
+      <code>$needle</code>
+    </MissingParamType>
+    <MixedArgument occurrences="8">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$haystack</code>
+      <code>$haystack</code>
+      <code>$needle</code>
+      <code>$needle</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="6">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$haystack</code>
+      <code>$haystack</code>
+    </MixedAssignment>
   </file>
   <file src="src/Traits/PolyfillTrait.php">
     <ArgumentTypeCoercion occurrences="1">

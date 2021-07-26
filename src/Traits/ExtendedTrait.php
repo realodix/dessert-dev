@@ -8,55 +8,12 @@ use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
-use Realodix\NextProject\Extend\AssertModified;
 use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
 trait ExtendedTrait
 {
-    public function contains($needle, string $message = ''): self
-    {
-        AssertModified::assertContains($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function notContains($needle, string $message = ''): self
-    {
-        AssertModified::assertNotContains($needle, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEqualsFile(string $expectedFile, string $message = ''): self
-    {
-        AssertModified::assertStringEqualsFile($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
-    {
-        AssertModified::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringEquals(string $expected, string $message = ''): self
-    {
-        AssertModified::stringEquals($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotEquals(string $expected, string $message = ''): self
-    {
-        AssertModified::stringNotEquals($expected, $this->actual, $message);
-
-        return $this;
-    }
-
     /**
      * Asserts string contains string ignoring line endings
      *

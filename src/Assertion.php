@@ -9,6 +9,7 @@ class Assertion
 {
     use Traits\AliasesTrait;
     use Traits\ExtendedTrait;
+    use Traits\ModifiedTrait;
     use Traits\PolyfillTrait;
 
     /** @var mixed */
