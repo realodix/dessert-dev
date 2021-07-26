@@ -6,9 +6,7 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
-use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
-use Realodix\NextProject\Support\Str;
 
 /**
  * Mixed assertions.
@@ -17,27 +15,6 @@ use Realodix\NextProject\Support\Str;
  */
 final class AssertMixed
 {
-    /**
-     * Asserts that two strings equality ignoring line endings
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4670
-     *
-     * @param string $expected
-     * @param string $actual
-     * @param string $message
-     */
-    public static function stringEqualIgnoringLineEndings(
-        string $expected,
-        string $actual,
-        string $message = ''
-    ) {
-        $expected = Str::normalizeLineEndings($expected);
-        $actual = Str::normalizeLineEndings($actual);
-
-        return Assert::assertThat($actual, new IsEqual($expected), $message);
-    }
-
     /**
      * Asserts that the contents of one file is equal to the string.
      *
