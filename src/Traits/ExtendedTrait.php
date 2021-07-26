@@ -167,9 +167,9 @@ trait ExtendedTrait
 
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
-        // $actual = Validator::actualValue($this->actual, 'string');
+        $actual = Validator::actualValue($this->actual, 'string');
 
-        AssertMarkup::assertSelectorCount($count, $selector, $this->actual, $message);
+        AssertMarkup::assertSelectorCount($count, $selector, $actual, $message);
 
         return $this;
     }
