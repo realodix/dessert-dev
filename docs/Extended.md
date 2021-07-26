@@ -62,17 +62,16 @@ verify('a\r\nb')
 `markupContainsSelector(string $selector, string $message = '')`
 
 ```php
-// Should find matching selectors
-verify('<a href="https://example.com" id="my-link" class="link another-class">Example</a>')
-    ->markupContainsSelector('#my-link');
+$content = '
+    <a href="https://example.com" id="my-link" class="link another-class">Example</a>
+';
 
-// Should pick up multiple instances of a selector
-verify('<a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contact">Contact</a>')
-    ->markupContainsSelector('a');
-
-// Should verify that the given selector does not exist
-verify('<h1 id="page-title" class="foo bar">This element has little to do with the link.</h1>')
-    ->markupNotContainsSelector('#my-link');
+ass($content)
+    // Should find matching selectors
+    ->markupContainsSelector('#my-link')
+    // Should verify that the given selector does not exist
+    ->and('<span>foo bar</span>')
+        ->markupNotContainsSelector('#my-link');
 ```
 
 ### markupElementContains()

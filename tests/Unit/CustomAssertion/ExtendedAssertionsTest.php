@@ -115,17 +115,20 @@ final class ExtendedAssertionsTest extends TestCase
      */
     public function testMarkupContainsSelector(string $selector)
     {
-        // Should find matching selectors
-        ass('<a href="https://example.com" id="my-link" class="link another-class">Example</a>')
-            ->markupContainsSelector($selector);
-
         // Should pick up multiple instances of a selector
         ass('<a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contact">Contact</a>')
             ->markupContainsSelector('a');
 
-        // Should verify that the given selector does not exist
-        ass('<h1 id="page-title" class="foo bar">This element has little to do with the link.</h1>')
-            ->markupNotContainsSelector($selector);
+        $content = '
+            <a href="https://example.com" id="my-link" class="link another-class">Example</a>
+        ';
+
+        ass($content)
+            // Should find matching selectors
+            ->markupContainsSelector($selector)
+            // Should verify that the given selector does not exist
+            ->and('<span>foo bar</span>')
+                ->markupNotContainsSelector($selector);
     }
 
     public function testMarkupElementContains()
