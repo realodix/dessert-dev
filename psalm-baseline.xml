@@ -153,24 +153,6 @@
       <code>expectExceptionMessageRegExp</code>
     </UndefinedMethod>
   </file>
-  <file src="src/Extend/AssertMixed.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>10</code>
-      <code>10</code>
-    </InvalidScalarArgument>
-    <MissingReturnType occurrences="6">
-      <code>fileEqualsString</code>
-      <code>fileEqualsStringIgnoringCase</code>
-      <code>fileNotEqualsString</code>
-      <code>fileNotEqualsStringIgnoringCase</code>
-      <code>stringContainsStringIgnoringLineEndings</code>
-      <code>stringEqualIgnoringLineEndings</code>
-    </MissingReturnType>
-    <TooManyArguments occurrences="2">
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-    </TooManyArguments>
-  </file>
   <file src="src/Extend/AssertModified.php">
     <MissingParamType occurrences="4">
       <code>$haystack</code>
@@ -280,6 +262,14 @@
     </TooManyArguments>
   </file>
   <file src="src/Traits/ExtendedTrait.php">
+    <InvalidNullableReturnType occurrences="2">
+      <code>self</code>
+      <code>self</code>
+    </InvalidNullableReturnType>
+    <InvalidScalarArgument occurrences="2">
+      <code>10</code>
+      <code>10</code>
+    </InvalidScalarArgument>
     <MissingParamType occurrences="2">
       <code>$needle</code>
       <code>$needle</code>
@@ -292,18 +282,23 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
+      <code>Validator::actualValue($this-&gt;actual, 'string')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="12">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -312,6 +307,10 @@
       <code>$actual</code>
       <code>$actual</code>
     </MixedAssignment>
+    <TooManyArguments occurrences="2">
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
+    </TooManyArguments>
   </file>
   <file src="src/Traits/PolyfillTrait.php">
     <ArgumentTypeCoercion occurrences="1">

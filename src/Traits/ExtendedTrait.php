@@ -4,9 +4,10 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
-use Realodix\NextProject\Extend\AssertMixed;
+use PHPUnit\Runner\Version;
 use Realodix\NextProject\Extend\AssertModified;
 use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Str;
@@ -130,14 +131,40 @@ trait ExtendedTrait
 
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        AssertMixed::fileEqualsStringIgnoringCase($expectedString, $this->actual, $message);
+        $actual = Validator::actualValue($this->actual, 'string');
+        Assert::assertFileExists($actual, $message);
+
+        // @codeCoverageIgnoreStart
+        if (version_compare(Version::series(), '9.0', '<')) {
+            return Assert::assertThat(
+                file_get_contents($actual),
+                new IsEqual($expectedString, 0.0, 10, false, true),
+                $message
+            );
+        }
+        // @codeCoverageIgnoreEnd
+
+        $constraint = new IsEqualIgnoringCase($expectedString);
+        Assert::assertThat(file_get_contents($actual), $constraint, $message);
 
         return $this;
     }
 
     public function fileNotEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        AssertMixed::fileNotEqualsStringIgnoringCase($expectedString, $this->actual, $message);
+        $actual = Validator::actualValue($this->actual, 'string');
+        Assert::assertFileExists($actual, $message);
+
+        // @codeCoverageIgnoreStart
+        if (version_compare(Version::series(), '9.0', '<')) {
+            $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
+
+            return Assert::assertThat(file_get_contents($actual), $constraint, $message);
+        }
+        // @codeCoverageIgnoreEnd
+
+        $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
+        Assert::assertThat(file_get_contents($actual), $constraint, $message);
 
         return $this;
     }
