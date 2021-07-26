@@ -21,16 +21,6 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileEqualsStringIgnoringCase\\(\\) should return Realodix\\\\NextProject\\\\Assertion but returns void\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:fileNotEqualsStringIgnoringCase\\(\\) should return Realodix\\\\NextProject\\\\Assertion but returns void\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:markupHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Assertion.php
@@ -52,11 +42,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$canonicalize of class PHPUnit\\\\Framework\\\\Constraint\\\\IsEqual constructor expects bool, int given\\.$#"
-			count: 2
-			path: src/Assertion.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertThat\\(\\) \\(void\\) is used\\.$#"
 			count: 2
 			path: src/Assertion.php
 

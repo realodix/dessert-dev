@@ -15,7 +15,7 @@ use Realodix\NextProject\Support\Validator;
 trait ExtendedTrait
 {
     /**
-     * Asserts string contains string ignoring line endings
+     * Asserts string contains string (ignoring line endings).
      *
      * Reference:
      * - https://github.com/sebastianbergmann/phpunit/pull/4670
@@ -35,7 +35,7 @@ trait ExtendedTrait
     }
 
     /**
-     * Asserts that two strings equality ignoring line endings
+     * Asserts that two strings equality (ignoring line endings).
      *
      * Reference:
      * - https://github.com/sebastianbergmann/phpunit/pull/4670
@@ -86,6 +86,12 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Asserts that the contents of one file is equal to the string (ignoring case).
+     *
+     * @param string $expectedString
+     * @param string $message
+     */
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');

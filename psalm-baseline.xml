@@ -240,10 +240,6 @@
     </TooManyArguments>
   </file>
   <file src="src/Traits/ExtendedTrait.php">
-    <InvalidNullableReturnType occurrences="2">
-      <code>self</code>
-      <code>self</code>
-    </InvalidNullableReturnType>
     <InvalidScalarArgument occurrences="2">
       <code>10</code>
       <code>10</code>
