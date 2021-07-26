@@ -7,6 +7,12 @@ use Realodix\NextProject\Extend\AssertMixed;
 use Realodix\NextProject\Extend\AssertModified;
 use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Validator;
+use Realodix\NextProject\Support\Str;
+use PHPUnit\Framework\Constraint\StringContains;
+use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
+use PHPUnit\Framework\Constraint\LogicalNot;
+use PHPUnit\Runner\Version;
 
 trait ExtendedTrait
 {
@@ -52,9 +58,21 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Asserts string contains string ignoring line endings
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/pull/4670
+     *
+     * @param string $needle
+     * @param string $message
+     */
     public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
     {
-        AssertMixed::stringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
+        $needle = Str::normalizeLineEndings($needle);
+        $haystack = Str::normalizeLineEndings($this->actual);
+
+        Assert::assertThat($haystack, new StringContains($needle, false), $message);
 
         return $this;
     }

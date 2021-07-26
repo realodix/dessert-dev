@@ -18,27 +18,6 @@ use Realodix\NextProject\Support\Str;
 final class AssertMixed
 {
     /**
-     * Asserts string contains string ignoring line endings
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4670
-     *
-     * @param string $needle
-     * @param string $actual
-     * @param string $message
-     */
-    public static function stringContainsStringIgnoringLineEndings(
-        string $needle,
-        string $actual,
-        string $message = ''
-    ) {
-        $needle = Str::normalizeLineEndings($needle);
-        $haystack = Str::normalizeLineEndings($actual);
-
-        return Assert::assertThat($haystack, new StringContains($needle, false), $message);
-    }
-
-    /**
      * Asserts that two strings equality ignoring line endings
      *
      * Reference:
