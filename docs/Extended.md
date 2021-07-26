@@ -45,7 +45,8 @@ verify($file)->fileEqualsStringIgnoringCase('expected_string', 'optional_message
 Asserts string contains string (ignoring line endings).
 
 ```php
-verify('oo')->stringContainsStringIgnoringLineEndings('foo bar', 'optional_message')
+verify('oo')
+    ->stringContainsStringIgnoringLineEndings('foo bar', 'optional_message')
 ```
 
 ### stringEqualIgnoringLineEndings()
@@ -53,7 +54,8 @@ verify('oo')->stringContainsStringIgnoringLineEndings('foo bar', 'optional_messa
 Asserts that two strings equality (ignoring line endings).
 
 ```php
-verify('a\r\nb')->stringEqualIgnoringLineEndings('a\nb', 'optional_message')
+verify('a\r\nb')
+    ->stringEqualIgnoringLineEndings('a\nb', 'optional_message')
 ```
 
 ### markupContainsSelector()
