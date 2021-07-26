@@ -156,17 +156,18 @@ final class ExtendedAssertionsTest extends TestCase
 
     public function testMarkupElementRegExp()
     {
-        // Should use regular expression matching
-        ass('<header>Lorem ipsum</header><div id="main">ABC123</div>')
-            ->markupElementRegExp('/[A-Z0-9-]+/', '#main');
+        $content = '
+            <div id="main">ABC123</div>
+            <div id="sidebar"><span>ABC</span></div>
+        ';
 
-        // Should be able to search for nested contents
-        ass('<header>Lorem ipsum</header><div id="main"><span>ABC</span></div>')
-            ->markupElementRegExp('/[A-Z]+/', '#main');
-
-        // Should use regular expression matching
-        ass('<header>Foo bar baz</header><div id="main">ABC</div>')
-            ->markupElementNotRegExp('/[0-9-]+/', '#main');
+        ass($content)
+            // Should use regular expression matching
+            ->markupElementRegExp('/[A-Z0-9-]+/', '#main')
+            // Should be able to search for nested contents
+            ->markupElementRegExp('/[A-Z]+/', '#sidebar')
+            // Should use regular expression matching
+            ->markupElementNotRegExp('/[0-9-]+/', '#sidebar');
     }
 
     public function testMarkupHasElementWithAttributes()
