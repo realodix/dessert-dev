@@ -146,12 +146,17 @@ parameters:
 			path: src/Extend/AssertMarkup.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:flattenAttributeArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:executeDomQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Extend/AssertMarkup.php
 
 		-
-			message: "#^Parameter \\#1 \\$node of method DOMDocument\\:\\:importNode\\(\\) expects DOMNode, DOMNode\\|null given\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:executeDomQuery\\(\\) should return array but returns Laminas\\\\Dom\\\\NodeList\\.$#"
+			count: 1
+			path: src/Extend/AssertMarkup.php
+
+		-
+			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:flattenAttributeArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Extend/AssertMarkup.php
 

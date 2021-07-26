@@ -19,7 +19,7 @@ final class AssertMarkup
      */
     public static function assertContainsSelector(string $selector, string $output = '', string $message = '')
     {
-        $results = (new Query($output))->execute($selector);
+        $results = self::executeDomQuery($output, $selector);
 
         return Assert::assertGreaterThan(0, \count($results), $message);
     }
@@ -34,7 +34,7 @@ final class AssertMarkup
      */
     public static function assertNotContainsSelector(string $selector, string $output = '', string $message = '')
     {
-        $results = (new Query($output))->execute($selector);
+        $results = self::executeDomQuery($output, $selector);
 
         return Assert::assertEquals(0, \count($results), $message);
     }
@@ -140,7 +140,7 @@ final class AssertMarkup
      */
     public static function assertSelectorCount(int $count, string $selector, string $output = '', string $message = '')
     {
-        $results = (new Query($output))->execute($selector);
+        $results = self::executeDomQuery($output, $selector);
 
         return Assert::assertCount($count, $results, $message);
     }
@@ -177,7 +177,7 @@ final class AssertMarkup
      */
     protected static function getInnerHtmlOfMatchedElements(string $markup, string $query): string
     {
-        $results = (new Query($markup))->execute($query);
+        $results = self::executeDomQuery($markup, $query);
         $contents = [];
 
         // Loop through results and collect their innerHTML values.
@@ -189,5 +189,18 @@ final class AssertMarkup
         }
 
         return implode(PHP_EOL, $contents);
+    }
+
+    /**
+     * Build a new DOMDocument from the given markup, then execute a query against it.
+     *
+     * @param string $content The HTML for the DOMDocument.
+     * @param string $query   The DOM selector query.
+     *
+     * @return array
+     */
+    protected static function executeDomQuery(string $content, string $query)
+    {
+        return (new Query($content))->execute($query);
     }
 }

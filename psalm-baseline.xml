@@ -154,16 +154,16 @@
     </UndefinedMethod>
   </file>
   <file src="src/Extend/AssertMarkup.php">
-    <DeprecatedClass occurrences="8">
-      <code>(new Query($markup))-&gt;execute($query)</code>
-      <code>(new Query($output))-&gt;execute($selector)</code>
-      <code>(new Query($output))-&gt;execute($selector)</code>
-      <code>(new Query($output))-&gt;execute($selector)</code>
-      <code>new Query($markup)</code>
-      <code>new Query($output)</code>
-      <code>new Query($output)</code>
-      <code>new Query($output)</code>
+    <DeprecatedClass occurrences="2">
+      <code>(new Query($content))-&gt;execute($query)</code>
+      <code>new Query($content)</code>
     </DeprecatedClass>
+    <InvalidReturnStatement occurrences="1">
+      <code>(new Query($content))-&gt;execute($query)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>array</code>
+    </InvalidReturnType>
     <MissingClosureParamType occurrences="2">
       <code>$key</code>
       <code>$value</code>
@@ -179,14 +179,18 @@
       <code>assertNotHasElementWithAttributes</code>
       <code>assertSelectorCount</code>
     </MissingReturnType>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="4">
       <code>$key</code>
       <code>$key</code>
+      <code>$result-&gt;firstChild</code>
       <code>$value</code>
     </MixedArgument>
-    <PossiblyNullArgument occurrences="1">
+    <MixedAssignment occurrences="1">
+      <code>$result</code>
+    </MixedAssignment>
+    <MixedPropertyFetch occurrences="1">
       <code>$result-&gt;firstChild</code>
-    </PossiblyNullArgument>
+    </MixedPropertyFetch>
   </file>
   <file src="src/Extend/AssertMixed.php">
     <InvalidScalarArgument occurrences="2">
