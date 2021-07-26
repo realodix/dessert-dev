@@ -46,6 +46,69 @@ final class ExtendedAssertionsTest extends TestCase
     }
 
     /**
+     * @dataProvider stringContainsStringIgnoringLineEndingsProvider
+     *
+     * @param string $needle
+     * @param string $haystack
+     */
+    public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
+    {
+        ass($haystack)
+            ->stringContainsStringIgnoringLineEndings($needle);
+    }
+
+    public function testNotStringContainsStringIgnoringLineEndings(): void
+    {
+        $this->expectException(ExpectationFailedException::class);
+
+        ass("\r\nc\r\n")
+            ->stringContainsStringIgnoringLineEndings("b\nc");
+    }
+
+    /**
+     * @dataProvider stringEqualIgnoringLineEndingsProvider
+     *
+     * @param string $expected
+     * @param string $actual
+     */
+    public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    {
+        ass($actual)
+            ->stringEqualIgnoringLineEndings($expected);
+    }
+
+    /**
+     * @dataProvider stringEqualIgnoringLineEndingsFailProvider
+     *
+     * @param string $expected
+     * @param string $actual
+     */
+    public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    {
+        $this->expectException(ExpectationFailedException::class);
+        ass($actual)
+            ->stringEqualIgnoringLineEndings($expected);
+    }
+
+    public function testFileEqualsString(): void
+    {
+        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
+
+        ass($xmlFile)
+            ->fileEqualsString('<foo/>')
+            ->fileNotEqualsString('<FOO/>');
+    }
+
+    public function testFileEqualsStringIgnoringCase(): void
+    {
+        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
+
+        ass($xmlFile)
+            ->fileEqualsStringIgnoringCase('<FOO/>')
+            ->fileNotEqualsStringIgnoringCase('<bar/>');
+    }
+
+    /**
      * @dataProvider markupContainsSelectorProvider
      *
      * @param string $selector
@@ -139,68 +202,5 @@ final class ExtendedAssertionsTest extends TestCase
     {
         ass('<ul><li>1</li><li>2</li><li>3</li></ul>')
             ->markupSelectorCount(3, 'li');
-    }
-
-    /**
-     * @dataProvider stringContainsStringIgnoringLineEndingsProvider
-     *
-     * @param string $needle
-     * @param string $haystack
-     */
-    public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
-    {
-        ass($haystack)
-            ->stringContainsStringIgnoringLineEndings($needle);
-    }
-
-    public function testNotStringContainsStringIgnoringLineEndings(): void
-    {
-        $this->expectException(ExpectationFailedException::class);
-
-        ass("\r\nc\r\n")
-            ->stringContainsStringIgnoringLineEndings("b\nc");
-    }
-
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsProvider
-     *
-     * @param string $expected
-     * @param string $actual
-     */
-    public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
-    {
-        ass($actual)
-            ->stringEqualIgnoringLineEndings($expected);
-    }
-
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsFailProvider
-     *
-     * @param string $expected
-     * @param string $actual
-     */
-    public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
-    {
-        $this->expectException(ExpectationFailedException::class);
-        ass($actual)
-            ->stringEqualIgnoringLineEndings($expected);
-    }
-
-    public function testFileEqualsString(): void
-    {
-        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
-
-        ass($xmlFile)
-            ->fileEqualsString('<foo/>')
-            ->fileNotEqualsString('<FOO/>');
-    }
-
-    public function testFileEqualsStringIgnoringCase(): void
-    {
-        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
-
-        ass($xmlFile)
-            ->fileEqualsStringIgnoringCase('<FOO/>')
-            ->fileNotEqualsStringIgnoringCase('<bar/>');
     }
 }
