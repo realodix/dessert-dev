@@ -168,15 +168,11 @@
       <code>$key</code>
       <code>$value</code>
     </MissingClosureParamType>
-    <MissingReturnType occurrences="8">
-      <code>assertContainsSelector</code>
+    <MissingReturnType occurrences="4">
       <code>assertElementContains</code>
       <code>assertElementNotContains</code>
       <code>assertElementNotRegExp</code>
       <code>assertElementRegExp</code>
-      <code>assertHasElementWithAttributes</code>
-      <code>assertNotContainsSelector</code>
-      <code>assertNotHasElementWithAttributes</code>
     </MissingReturnType>
     <MixedArgument occurrences="4">
       <code>$key</code>
@@ -322,9 +318,7 @@
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="19">
-      <code>$actual</code>
-      <code>$actual</code>
+    <MixedArgument occurrences="17">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -343,9 +337,7 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="9">
-      <code>$actual</code>
-      <code>$actual</code>
+    <MixedAssignment occurrences="7">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>

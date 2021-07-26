@@ -91,11 +91,6 @@ parameters:
 			path: src/Expect.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertContainsSelector\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertElementContains\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Extend/AssertMarkup.php
@@ -116,31 +111,6 @@ parameters:
 			path: src/Extend/AssertMarkup.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertHasElementWithAttributes\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertNotContainsSelector\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertNotHasElementWithAttributes\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertNotHasElementWithAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:executeDomQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Extend/AssertMarkup.php
@@ -157,16 +127,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|false given\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertGreaterThan\\(\\) \\(void\\) is used\\.$#"
 			count: 1
 			path: src/Extend/AssertMarkup.php
 

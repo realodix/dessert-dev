@@ -11,35 +11,6 @@ use PHPUnit\Framework\Assert;
 final class AssertMarkup
 {
     /**
-     * Assert that the given string contains an element matching the given selector.
-     *
-     * @param string $selector A query $selector for the element to find.
-     * @param string $output   The $output that should contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public static function assertContainsSelector(string $selector, string $output = '', string $message = '')
-    {
-        $results = self::executeDomQuery($output, $selector);
-
-        return Assert::assertGreaterThan(0, \count($results), $message);
-    }
-
-    /**
-     * Assert that the given string does not contain an element matching the given
-     * selector.
-     *
-     * @param string $selector A query $selector for the element to find.
-     * @param string $output   The $output that should not contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public static function assertNotContainsSelector(string $selector, string $output = '', string $message = '')
-    {
-        $results = self::executeDomQuery($output, $selector);
-
-        return Assert::assertEquals(0, \count($results), $message);
-    }
-
-    /**
      * Assert an element's contents contain the given string.
      *
      * @param string $contents The string to look for within the DOM node's contents.
@@ -97,58 +68,6 @@ final class AssertMarkup
         $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
 
         return ass($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
-    }
-
-    /**
-     * Assert that an element with the given attributes exists in the given markup.
-     *
-     * @param array  $attributes An array of HTML attributes that should be found on the element.
-     * @param string $output     The $output that should contain an element with the
-     *                           provided $attributes.
-     * @param string $message    A message to display if the assertion fails.
-     */
-    public static function assertHasElementWithAttributes(array $attributes = [], string $output = '', string $message = '')
-    {
-        $attributes = '*'.self::flattenAttributeArray($attributes);
-
-        return self::assertContainsSelector($attributes, $output, $message);
-    }
-
-    /**
-     * Assert that an element with the given attributes does not exist in the given
-     * markup.
-     *
-     * @param array  $attributes An array of HTML attributes that should be found on the element.
-     * @param string $output     The $output that should not contain an element with the
-     *                           provided $attributes.
-     * @param string $message    A message to display if the assertion fails.
-     */
-    public static function assertNotHasElementWithAttributes(array $attributes = [], string $output = '', string $message = '')
-    {
-        $attributes = '*'.self::flattenAttributeArray($attributes);
-
-        return self::assertNotContainsSelector($attributes, $output, $message);
-    }
-
-    /**
-     * Given an array of HTML attributes, flatten them into a XPath attribute selector.
-     *
-     * @param array $attributes HTML attributes and their values.
-     *
-     * @return string A XPath attribute query selector.
-     */
-    protected static function flattenAttributeArray(array $attributes): string
-    {
-        array_walk($attributes, function (&$value, $key) {
-            // Boolean attributes.
-            if (null === $value) {
-                $value = sprintf('[%s]', $key);
-            } else {
-                $value = sprintf('[%s="%s"]', $key, htmlspecialchars($value));
-            }
-        });
-
-        return implode('', $attributes);
     }
 
     /**

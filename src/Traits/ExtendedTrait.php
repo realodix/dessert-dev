@@ -95,20 +95,34 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Assert that the given string contains an element matching the given selector.
+     *
+     * @param string $selector A query $selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
+        $results = Markup::executeDomQuery($actual, $selector);
 
-        AssertMarkup::assertContainsSelector($selector, $actual, $message);
+        Assert::assertGreaterThan(0, \count($results), $message);
 
         return $this;
     }
 
+    /**
+     * Assert that the given string does not contain an element matching the given selector.
+     *
+     * @param string $selector A query $selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
+        $results = Markup::executeDomQuery($actual, $selector);
 
-        AssertMarkup::assertNotContainsSelector($selector, $actual, $message);
+        Assert::assertEquals(0, \count($results), $message);
 
         return $this;
     }
@@ -149,24 +163,42 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Assert that an element with the given attributes exists in the given markup.
+     *
+     * @param array  $attributes An array of HTML attributes that should be found on the element.
+     * @param string $message    A message to display if the assertion fails.
+     */
     public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        $attributes = '*'.Markup::flattenAttributeArray($attributes);
 
-        AssertMarkup::assertHasElementWithAttributes($attributes, $actual, $message);
+        $this->markupContainsSelector($attributes, $message);
 
         return $this;
     }
 
+    /**
+     * Assert that an element with the given attributes does not exist in the given markup.
+     *
+     * @param array  $attributes An array of HTML attributes that should be found on the element.
+     * @param string $message    A message to display if the assertion fails.
+     */
     public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        AssertMarkup::assertNotHasElementWithAttributes($attributes, $actual, $message);
+        $attributes = '*'.Markup::flattenAttributeArray($attributes);
+        $this->markupNotContainsSelector($attributes, $message);
 
         return $this;
     }
 
+    /**
+     * Assert the number of times an element matching the given selector is found.
+     *
+     * @param int    $count    The number of matching elements expected.
+     * @param string $selector A query selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
