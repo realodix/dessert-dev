@@ -4,6 +4,7 @@ namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use Realodix\NextProject\Extend\AssertMixed;
 use Realodix\NextProject\Extend\AssertModified;
@@ -96,16 +97,33 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Asserts that the contents of one file is equal to the string.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/pull/4649
+     *
+     * @param string $expectedString
+     * @param string $message
+     */
     public function fileEqualsString(string $expectedString, string $message = ''): self
     {
-        AssertMixed::fileEqualsString($expectedString, $this->actual, $message);
+        $actual = Validator::actualValue($this->actual, 'string');
+        $constraint = new IsEqual($expectedString);
+
+        Assert::assertFileExists($actual, $message);
+        Assert::assertThat(file_get_contents($actual), $constraint, $message);
 
         return $this;
     }
 
     public function fileNotEqualsString(string $expectedString, string $message = ''): self
     {
-        AssertMixed::fileNotEqualsString($expectedString, $this->actual, $message);
+        $actual = Validator::actualValue($this->actual, 'string');
+        $constraint = new LogicalNot(new IsEqual($expectedString));
+
+        Assert::assertFileExists($actual, $message);
+        Assert::assertThat(file_get_contents($actual), $constraint, $message);
 
         return $this;
     }

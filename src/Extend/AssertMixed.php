@@ -15,40 +15,6 @@ use PHPUnit\Runner\Version;
  */
 final class AssertMixed
 {
-    /**
-     * Asserts that the contents of one file is equal to the string.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4649
-     *
-     * @param string $expectedString
-     * @param string $actual
-     * @param string $message
-     */
-    public static function fileEqualsString(
-        string $expectedString,
-        string $actual,
-        string $message = ''
-    ) {
-        Assert::assertFileExists($actual, $message);
-
-        $constraint = new IsEqual($expectedString);
-
-        return Assert::assertThat(file_get_contents($actual), $constraint, $message);
-    }
-
-    public static function fileNotEqualsString(
-        string $expectedString,
-        string $actual,
-        string $message = ''
-    ) {
-        Assert::assertFileExists($actual, $message);
-
-        $constraint = new LogicalNot(new IsEqual($expectedString));
-
-        return Assert::assertThat(file_get_contents($actual), $constraint, $message);
-    }
-
     public static function fileEqualsStringIgnoringCase(
         string $expectedString,
         string $actual,
