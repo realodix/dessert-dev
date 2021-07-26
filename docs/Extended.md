@@ -71,6 +71,20 @@ verify('a\r\nb')
 ### markupElementRegExp()
 `markupElementRegExp(string $regexp, string $selector = '', string $message = '')`
 
+```php
+// Should use regular expression matching
+verify('<header>Lorem ipsum</header><div id="main">ABC123</div>')
+    ->markupElementRegExp('/[A-Z0-9-]+/', '#main');
+
+// Should be able to search for nested contents
+verify('<header>Lorem ipsum</header><div id="main"><span>ABC</span></div>')
+    ->markupElementRegExp('/[A-Z]+/', '#main');
+
+// Should use regular expression matching
+verify('<header>Foo bar baz</header><div id="main">ABC</div>')
+    ->markupElementNotRegExp('/[0-9-]+/', '#main');
+```
+
 `markupElementNotRegExp()` is the inverse of this assertion and takes the same arguments.
 
 ### markupHasElementWithAttributes()
@@ -90,5 +104,5 @@ $content = '
   </ul>
 ';
 
-ass($content)->markupSelectorCount(3, 'li');
+verify($content)->markupSelectorCount(3, 'li');
 ```
