@@ -93,11 +93,13 @@ trait ExtendedTrait
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.0', '<')) {
-            return Assert::assertThat(
+            Assert::assertThat(
                 file_get_contents($actual),
                 new IsEqual($expectedString, 0.0, 10, false, true),
                 $message
             );
+
+            return $this;
         }
         // @codeCoverageIgnoreEnd
 
@@ -116,7 +118,9 @@ trait ExtendedTrait
         if (version_compare(Version::series(), '9.0', '<')) {
             $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
 
-            return Assert::assertThat(file_get_contents($actual), $constraint, $message);
+            Assert::assertThat(file_get_contents($actual), $constraint, $message);
+
+            return $this;
         }
         // @codeCoverageIgnoreEnd
 
