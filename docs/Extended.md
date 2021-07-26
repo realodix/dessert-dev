@@ -64,7 +64,7 @@ verify('a\r\nb')
 ```php
 // Should find matching selectors
 verify('<a href="https://example.com" id="my-link" class="link another-class">Example</a>')
-    ->markupContainsSelector($selector);
+    ->markupContainsSelector('#my-link');
 
 // Should pick up multiple instances of a selector
 verify('<a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contact">Contact</a>')
@@ -72,7 +72,7 @@ verify('<a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contac
 
 // Should verify that the given selector does not exist
 verify('<h1 id="page-title" class="foo bar">This element has little to do with the link.</h1>')
-    ->markupNotContainsSelector($selector);
+    ->markupNotContainsSelector('#my-link');
 ```
 
 `markupNotContainsSelector()` is the inverse of this assertion and takes the same arguments.
