@@ -137,7 +137,7 @@ final class ExtendedAssertionsTest extends TestCase
 
     public function testMarkupSelectorCount()
     {
-        ass(1)
+        ass('<ul><li>1</li><li>2</li><li>3</li></ul>')
             ->markupSelectorCount(3, 'li');
     }
 
