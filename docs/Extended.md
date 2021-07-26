@@ -120,30 +120,30 @@ verify('<header>Foo bar baz</header><div id="main">ABC</div>')
 
 ```php
 // Should find an element with the given attributesSelectorCount
-$expected = [
+$attributes = [
     'type'  => 'email',
     'value' => 'test@example.com',
 ];
-$actual = '<label>Email</label><br><input type="email" value="test@example.com" />';
+$content= '<label>Email</label><br><input type="email" value="test@example.com" />';
 
-verify($actual)->markupHasElementWithAttributes($expected);
+verify($content)->markupHasElementWithAttributes($attributes);
 
 // Should be able to parse spaces in attribute values
-$expected = [
+$attributes = [
     'data-attr' => 'foo bar baz',
 ];
-$actual = '<div data-attr="foo bar baz">Contents</div>';
+$content = '<div data-attr="foo bar baz">Contents</div>';
 
-verify($actual)->markupHasElementWithAttributes($expected);
+verify($content)->markupHasElementWithAttributes($attributes);
 
 // Should ensure no element has the provided attributes
-$expected = [
+$attributes = [
     'type'  => 'email',
     'value' => 'test@example.com',
 ];
-$actual = '<label>City</label><br><input type="text" value="New York" data-foo="bar" />';
+$content = '<label>City</label><br><input type="text" value="New York" data-foo="bar" />';
 
-verify($actual)->markupNotHasElementWithAttributes($expected);
+verify($content)->markupNotHasElementWithAttributes($attributes);
 ```
 
 `markupNotHasElementWithAttributes()` is the inverse of this assertion and takes the same arguments.
