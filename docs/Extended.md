@@ -79,17 +79,17 @@ verify('<h1 id="page-title" class="foo bar">This element has little to do with t
 `markupElementContains(string $contents, string $selector = '', string $message = '')`
 
 ```php
-// Should be able to search for a selector
-verify('<header>Lorem ipsum</header><div id="main">Lorem ipsum</div>')
-    ->markupElementContains('ipsum', '#main');
+$content = '
+    <div id="main"><span class="foo">Lorem ipsum</span></div>
+';
 
-// Should be able to chain multiple selectors
-verify('<div id="main"><span class="foo">Lorem ipsum</span></div>')
-    ->markupElementContains('ipsum', '#main .foo');
-
-// Should be able to search for a selector
-verify('<header>Foo bar baz</header><div id="main">Some string</div>')
-    ->markupElementNotContains('ipsum', '#main');
+ass($content)
+    // Should be able to search for a selector
+    ->markupElementContains('ipsum', '#main')
+    // Should be able to chain multiple selectors
+    ->markupElementContains('ipsum', '#main .foo')
+    // Should be able to search for a selector
+    ->markupElementNotContains('ipsum', '#foo');
 ```
 
 ### markupElementRegExp()
