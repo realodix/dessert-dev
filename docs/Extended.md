@@ -80,3 +80,15 @@ verify('a\r\nb')
 
 ### markupSelectorCount()
 `markupSelectorCount(int $count, string $selector, string $message = '')`
+
+```php
+$content = '
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+';
+
+ass($content)->markupSelectorCount(3, 'li');
+```
