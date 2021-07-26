@@ -113,31 +113,19 @@ verify('<header>Foo bar baz</header><div id="main">ABC</div>')
 `markupHasElementWithAttributes(array $attributes = [], string $message = '')`
 
 ```php
-// Should find an element with the given attributesSelectorCount
-$attributes = [
-    'type'  => 'email',
-    'value' => 'test@example.com',
-];
-$content= '<label>Email</label><br><input type="email" value="test@example.com" />';
+$content = '
+    <div data-attr="foo bar baz">
+        <label>Email</label><br><input type="email" value="test@example.com" />
+    </div>
+';
 
-verify($content)->markupHasElementWithAttributes($attributes);
-
-// Should be able to parse spaces in attribute values
-$attributes = [
-    'data-attr' => 'foo bar baz',
-];
-$content = '<div data-attr="foo bar baz">Contents</div>';
-
-verify($content)->markupHasElementWithAttributes($attributes);
-
-// Should ensure no element has the provided attributes
-$attributes = [
-    'type'  => 'email',
-    'value' => 'test@example.com',
-];
-$content = '<label>City</label><br><input type="text" value="New York" data-foo="bar" />';
-
-verify($content)->markupNotHasElementWithAttributes($attributes);
+verify($content)
+    // Should find an element with the given attributesSelectorCount
+    ->markupHasElementWithAttributes(['type' => 'email', 'value' => 'test@example.com'])
+    // Should be able to parse spaces in attribute values
+    ->markupHasElementWithAttributes(['data-attr' => 'foo bar baz'])
+    // Should ensure no element has the provided attributes
+    ->markupNotHasElementWithAttributes(['value' => 'foo@bar.com']);
 ```
 
 ### markupSelectorCount()
