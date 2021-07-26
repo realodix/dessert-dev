@@ -91,31 +91,6 @@ parameters:
 			path: src/Expect.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertElementNotRegExp\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertElementRegExp\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:executeDomQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:executeDomQuery\\(\\) should return array but returns Laminas\\\\Dom\\\\NodeList\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|false given\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
 			message: "#^Class PHPUnit\\\\Framework\\\\Constraint\\\\IsEqual constructor invoked with 5 parameters, 1\\-4 required\\.$#"
 			count: 2
 			path: src/Extend/AssertMixed.php
