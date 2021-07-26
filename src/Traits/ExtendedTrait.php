@@ -3,7 +3,6 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
-use Realodix\NextProject\Extend\AssertMarkup;
 use Realodix\NextProject\Extend\AssertMixed;
 use Realodix\NextProject\Extend\AssertModified;
 use Realodix\NextProject\Support\Markup;
@@ -161,20 +160,36 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Assert an element's contents contain the given regular expression pattern.
+     *
+     * @param string $regexp   The regular expression pattern to look for within the DOM node.
+     * @param string $selector A query $selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
+        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        AssertMarkup::assertElementRegExp($regexp, $selector, $actual, $message);
+        $this->and($matchedElements)->matchesRegularExpression($regexp, $message);
 
         return $this;
     }
 
+    /**
+     * Assert an element's contents do not contain the given regular expression pattern.
+     *
+     * @param string $regexp   The regular expression pattern to look for within the DOM node.
+     * @param string $selector A query $selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
+        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        AssertMarkup::assertElementNotRegExp($regexp, $selector, $actual, $message);
+        $this->and($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
 
         return $this;
     }
