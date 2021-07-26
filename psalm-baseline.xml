@@ -164,21 +164,12 @@
     <InvalidReturnType occurrences="1">
       <code>array</code>
     </InvalidReturnType>
-    <MissingClosureParamType occurrences="2">
-      <code>$key</code>
-      <code>$value</code>
-    </MissingClosureParamType>
-    <MissingReturnType occurrences="4">
-      <code>assertElementContains</code>
-      <code>assertElementNotContains</code>
+    <MissingReturnType occurrences="2">
       <code>assertElementNotRegExp</code>
       <code>assertElementRegExp</code>
     </MissingReturnType>
-    <MixedArgument occurrences="4">
-      <code>$key</code>
-      <code>$key</code>
+    <MixedArgument occurrences="1">
       <code>$result-&gt;firstChild</code>
-      <code>$value</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$result</code>

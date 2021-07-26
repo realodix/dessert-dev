@@ -127,20 +127,36 @@ trait ExtendedTrait
         return $this;
     }
 
+    /**
+     * Assert an element's contents contain the given string.
+     *
+     * @param string $contents The string to look for within the DOM node's contents.
+     * @param string $selector A query selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementContains(string $contents, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
+        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        AssertMarkup::assertElementContains($contents, $selector, $actual, $message);
+        Assert::assertStringContainsString($contents, $matchedElements, $message);
 
         return $this;
     }
 
+    /**
+     * Assert an element's contents do not contain the given string.
+     *
+     * @param string $contents The string to look for within the DOM node's contents.
+     * @param string $selector A query $selector for the element to find.
+     * @param string $message  A message to display if the assertion fails.
+     */
     public function markupElementNotContains(string $contents, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
+        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        AssertMarkup::assertElementNotContains($contents, $selector, $actual, $message);
+        Assert::assertStringNotContainsString($contents, $matchedElements, $message);
 
         return $this;
     }

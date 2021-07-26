@@ -11,36 +11,6 @@ use PHPUnit\Framework\Assert;
 final class AssertMarkup
 {
     /**
-     * Assert an element's contents contain the given string.
-     *
-     * @param string $contents The string to look for within the DOM node's contents.
-     * @param string $selector A query $selector for the element to find.
-     * @param string $output   The $output that should contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public static function assertElementContains(string $contents, string $selector = '', string $output = '', string $message = '')
-    {
-        $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
-
-        return Assert::assertStringContainsString($contents, $matchedElements, $message);
-    }
-
-    /**
-     * Assert an element's contents do not contain the given string.
-     *
-     * @param string $contents The string to look for within the DOM node's contents.
-     * @param string $selector A query $selector for the element to find.
-     * @param string $output   The $output that should not contain the $selector.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public static function assertElementNotContains(string $contents, string $selector = '', string $output = '', string $message = '')
-    {
-        $matchedElements = self::getInnerHtmlOfMatchedElements($output, $selector);
-
-        return Assert::assertStringNotContainsString($contents, $matchedElements, $message);
-    }
-
-    /**
      * Assert an element's contents contain the given regular expression pattern.
      *
      * @param string $regexp   The regular expression pattern to look for within the DOM node.

@@ -91,16 +91,6 @@ parameters:
 			path: src/Expect.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertElementContains\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertElementNotContains\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:assertElementNotRegExp\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Extend/AssertMarkup.php
@@ -121,22 +111,7 @@ parameters:
 			path: src/Extend/AssertMarkup.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Extend\\\\AssertMarkup\\:\\:flattenAttributeArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|false given\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Extend/AssertMarkup.php
-
-		-
-			message: "#^Result of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) \\(void\\) is used\\.$#"
 			count: 1
 			path: src/Extend/AssertMarkup.php
 
