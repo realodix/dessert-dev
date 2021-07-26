@@ -131,21 +131,6 @@ final class AssertMarkup
     }
 
     /**
-     * Assert the number of times an element matching the given selector is found.
-     *
-     * @param int    $count    The number of matching elements expected.
-     * @param string $selector A query $selector for the element to find.
-     * @param string $output   The markup to run the assertion against.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public static function assertSelectorCount(int $count, string $selector, string $output = '', string $message = '')
-    {
-        $results = self::executeDomQuery($output, $selector);
-
-        return Assert::assertCount($count, $results, $message);
-    }
-
-    /**
      * Given an array of HTML attributes, flatten them into a XPath attribute selector.
      *
      * @param array $attributes HTML attributes and their values.

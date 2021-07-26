@@ -2,9 +2,11 @@
 
 namespace Realodix\NextProject\Traits;
 
+use PHPUnit\Framework\Assert;
 use Realodix\NextProject\Extend\AssertMarkup;
 use Realodix\NextProject\Extend\AssertMixed;
 use Realodix\NextProject\Extend\AssertModified;
+use Realodix\NextProject\Support\Markup;
 use Realodix\NextProject\Support\Validator;
 
 trait ExtendedTrait
@@ -168,8 +170,9 @@ trait ExtendedTrait
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
+        $results = Markup::executeDomQuery($actual, $selector);
 
-        AssertMarkup::assertSelectorCount($count, $selector, $actual, $message);
+        Assert::assertCount($count, $results, $message);
 
         return $this;
     }

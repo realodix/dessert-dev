@@ -168,7 +168,7 @@
       <code>$key</code>
       <code>$value</code>
     </MissingClosureParamType>
-    <MissingReturnType occurrences="9">
+    <MissingReturnType occurrences="8">
       <code>assertContainsSelector</code>
       <code>assertElementContains</code>
       <code>assertElementNotContains</code>
@@ -177,7 +177,6 @@
       <code>assertHasElementWithAttributes</code>
       <code>assertNotContainsSelector</code>
       <code>assertNotHasElementWithAttributes</code>
-      <code>assertSelectorCount</code>
     </MissingReturnType>
     <MixedArgument occurrences="4">
       <code>$key</code>
@@ -263,6 +262,34 @@
       <code>$actual</code>
       <code>$actual</code>
     </ParamNameMismatch>
+  </file>
+  <file src="src/Support/Markup.php">
+    <DeprecatedClass occurrences="2">
+      <code>(new Query($content))-&gt;execute($query)</code>
+      <code>new Query($content)</code>
+    </DeprecatedClass>
+    <InvalidReturnStatement occurrences="1">
+      <code>(new Query($content))-&gt;execute($query)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>array</code>
+    </InvalidReturnType>
+    <MissingClosureParamType occurrences="2">
+      <code>$key</code>
+      <code>$value</code>
+    </MissingClosureParamType>
+    <MixedArgument occurrences="4">
+      <code>$key</code>
+      <code>$key</code>
+      <code>$result-&gt;firstChild</code>
+      <code>$value</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$result</code>
+    </MixedAssignment>
+    <MixedPropertyFetch occurrences="1">
+      <code>$result-&gt;firstChild</code>
+    </MixedPropertyFetch>
   </file>
   <file src="src/Support/Validator.php">
     <MissingReturnType occurrences="2">
