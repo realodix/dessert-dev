@@ -20,11 +20,6 @@
 
 ## Custom Assertions
 
-| Assertions                                  | Descriptions |
-| ------------------------------------------- | ------------ |
-| `stringContainsStringIgnoringLineEndings()` ||
-| `stringEqualIgnoringLineEndings()`          ||
-
 ### fileEqualsString()
 
 Asserts that the contents of one file is equal to the string.
@@ -44,6 +39,22 @@ verify($file)->fileEqualsStringIgnoringCase('expected_string', 'optional_message
 ```
 
 `fileNotEqualsStringIgnoringCase()` is the inverse of this assertion and takes the same arguments.
+
+### stringContainsStringIgnoringLineEndings()
+
+Asserts string contains string (ignoring line endings).
+
+```php
+verify('oo')->stringContainsStringIgnoringLineEndings('foo bar', 'optional_message')
+```
+
+### stringEqualIgnoringLineEndings()
+
+Asserts that two strings equality (ignoring line endings).
+
+```php
+verify('a\r\nb')->stringEqualIgnoringLineEndings('a\nb', 'optional_message')
+```
 
 ### markupContainsSelector()
 `markupContainsSelector(string $selector, string $message = '')`
