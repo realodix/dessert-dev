@@ -75,8 +75,6 @@ verify('<h1 id="page-title" class="foo bar">This element has little to do with t
     ->markupNotContainsSelector('#my-link');
 ```
 
-`markupNotContainsSelector()` is the inverse of this assertion and takes the same arguments.
-
 ### markupElementContains()
 `markupElementContains(string $contents, string $selector = '', string $message = '')`
 
@@ -94,8 +92,6 @@ verify('<header>Foo bar baz</header><div id="main">Some string</div>')
     ->markupElementNotContains('ipsum', '#main');
 ```
 
-`markupElementNotContains()` is the inverse of this assertion and takes the same arguments.
-
 ### markupElementRegExp()
 `markupElementRegExp(string $regexp, string $selector = '', string $message = '')`
 
@@ -112,8 +108,6 @@ verify('<header>Lorem ipsum</header><div id="main"><span>ABC</span></div>')
 verify('<header>Foo bar baz</header><div id="main">ABC</div>')
     ->markupElementNotRegExp('/[0-9-]+/', '#main');
 ```
-
-`markupElementNotRegExp()` is the inverse of this assertion and takes the same arguments.
 
 ### markupHasElementWithAttributes()
 `markupHasElementWithAttributes(array $attributes = [], string $message = '')`
@@ -145,8 +139,6 @@ $content = '<label>City</label><br><input type="text" value="New York" data-foo=
 
 verify($content)->markupNotHasElementWithAttributes($attributes);
 ```
-
-`markupNotHasElementWithAttributes()` is the inverse of this assertion and takes the same arguments.
 
 ### markupSelectorCount()
 `markupSelectorCount(int $count, string $selector, string $message = '')`
