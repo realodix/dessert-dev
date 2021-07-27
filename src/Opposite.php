@@ -74,7 +74,7 @@ final class Opposite
 
         throw new ExpectationFailedException(
             sprintf(
-                'Expecting %s not %s %s.',
+                'Failed asserting that %s not %s %s.',
                 $toString($this->original->actual),
                 strtolower((string) preg_replace('/(?<!\ )[A-Z]/', ' $0', $name)),
                 implode(
