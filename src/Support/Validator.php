@@ -187,7 +187,7 @@ final class Validator
 
                 return $expectedValue;
             case 'object':
-                if (! is_object($expectedValue)) {
+                if (! \is_object($expectedValue)) {
                     throw new \TypeError($invalidArgument);
                 }
 
