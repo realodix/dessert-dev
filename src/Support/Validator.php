@@ -186,6 +186,12 @@ final class Validator
                 }
 
                 return $expectedValue;
+            case 'object':
+                if (! is_object($expectedValue)) {
+                    throw new \InvalidArgumentException($invalidArgument);
+                }
+
+                return $expectedValue;
         }
     }
 }

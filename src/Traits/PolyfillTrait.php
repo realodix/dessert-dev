@@ -481,16 +481,8 @@ trait PolyfillTrait
     public function objectEquals($expected, string $method = 'equals', string $message = '')
     {
         $actual = Validator::actualValue($this->actual, 'object');
-
-        // Validate object parameter type in function argument (PHP < 7.2).
-        if (! \is_object($expected)) {
-            throw new \TypeError(
-                sprintf(
-                    'Argument 1 passed to assertObjectEquals() must be an object, %s given',
-                    get_debug_type($expected)
-                )
-            );
-        }
+        // Validate object parameter type in function argument (PHP < 7.2)
+        $expected = Validator::expectedValue($expected, 1, 'object');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.4', '<')) {

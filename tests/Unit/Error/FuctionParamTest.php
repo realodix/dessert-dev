@@ -387,7 +387,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function objectEqualsExpextedValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException(\InvalidArgumentException::class);
         ass(new ValueObject(1))->objectEquals('');
     }
 

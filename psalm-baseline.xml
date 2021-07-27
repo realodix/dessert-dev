@@ -303,9 +303,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Traits/PolyfillTrait.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$expected</code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod occurrences="10">
       <code>Assert::assertDirectoryNotExists($actual, $message)</code>
       <code>Assert::assertDirectoryNotIsReadable($actual, $message)</code>
@@ -318,13 +315,10 @@
       <code>Assert::assertNotRegExp($pattern, $actual, $message)</code>
       <code>Assert::assertRegExp($pattern, $actual, $message)</code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction occurrences="1">
-      <code>\is_object($expected)</code>
-    </DocblockTypeContradiction>
     <MissingReturnType occurrences="1">
       <code>objectEquals</code>
     </MissingReturnType>
-    <MixedArgument occurrences="41">
+    <MixedArgument occurrences="42">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -362,12 +356,13 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$expected</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="20">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -387,6 +382,7 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$expected</code>
     </MixedAssignment>
     <TooManyArguments occurrences="8">
       <code>Assert::assertFileEquals($expected, $actual, $message, false, true)</code>
