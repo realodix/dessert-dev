@@ -34,6 +34,48 @@ trait ExtendedTrait
         return $this;
     }
 
+    public function stringEquals(string $expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        if (Validator::isJson($actual)) {
+            Assert::assertJsonStringEqualsJsonString($expected, $actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($actual)) {
+            Assert::assertXmlStringEqualsXmlString($expected, $actual, $message);
+
+            return $this;
+        }
+
+        Assert::assertEquals($expected, $actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEquals(string $expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        if (Validator::isJson($actual)) {
+            Assert::assertJsonStringNotEqualsJsonString($expected, $actual, $message);
+
+            return $this;
+        }
+
+        if (Validator::isXml($actual)) {
+            Assert::assertXmlStringNotEqualsXmlString($expected, $actual, $message);
+
+            return $this;
+        }
+
+        Assert::assertNotEquals($expected, $actual, $message);
+
+        return $this;
+    }
+
     /**
      * Asserts that two strings equality (ignoring line endings).
      *
@@ -147,7 +189,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $results = Markup::executeDomQuery($actual, $selector);
 
-       $this->is(\count($results))->greaterThan(0, $message);
+        $this->is(\count($results))->greaterThan(0, $message);
 
         return $this;
     }

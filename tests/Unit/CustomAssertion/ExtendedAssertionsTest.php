@@ -65,6 +65,25 @@ final class ExtendedAssertionsTest extends TestCase
             ->stringContainsStringIgnoringLineEndings("b\nc");
     }
 
+    public function testStringEquals(): void
+    {
+        ass('hello')
+            ->stringEquals('hello')
+            ->stringNotEquals('string');
+
+        // JSon
+        $jsonString = json_encode(['foo' => 'bar']);
+        ass($jsonString)
+            ->stringEquals($jsonString)
+            ->stringNotEquals(json_encode(['foo' => 'baz']));
+
+        // XML
+        $xmlString = '<foo/>';
+        ass($xmlString)
+            ->stringEquals($xmlString)
+            ->stringNotEquals('<bar/>');
+    }
+
     /**
      * @dataProvider stringEqualIgnoringLineEndingsProvider
      *

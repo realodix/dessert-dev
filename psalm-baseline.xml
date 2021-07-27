@@ -244,7 +244,9 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="13">
+    <MixedArgument occurrences="15">
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -259,7 +261,11 @@
       <code>$actual</code>
       <code>Validator::actualValue($this-&gt;actual, 'string')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="16">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -283,9 +289,7 @@
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="8">
-      <code>$actual</code>
-      <code>$actual</code>
+    <MixedArgument occurrences="6">
       <code>$actual</code>
       <code>$actual</code>
       <code>$haystack</code>
@@ -293,9 +297,7 @@
       <code>$needle</code>
       <code>$needle</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$actual</code>
-      <code>$actual</code>
+    <MixedAssignment occurrences="4">
       <code>$actual</code>
       <code>$actual</code>
       <code>$haystack</code>
