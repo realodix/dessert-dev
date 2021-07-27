@@ -14,6 +14,18 @@ if (! \function_exists('ass')) {
     }
 }
 
+if (! \function_exists('verify')) {
+    /**
+     * @param mixed $actual
+     *
+     * @return Assertion
+     */
+    function verify($actual): Assertion
+    {
+        return new Assertion($actual);
+    }
+}
+
 if (! \function_exists('expect')) {
     /**
      * @param mixed $actual
@@ -33,18 +45,6 @@ if (! \function_exists('should')) {
      * @return Assertion
      */
     function should($actual): Assertion
-    {
-        return new Assertion($actual);
-    }
-}
-
-if (! \function_exists('verify')) {
-    /**
-     * @param mixed $actual
-     *
-     * @return Assertion
-     */
-    function verify($actual): Assertion
     {
         return new Assertion($actual);
     }
