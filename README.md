@@ -25,7 +25,7 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 composer require --dev realodix/next-project
 ```
 
-## Writing Tests
+## Writing a Test
 
 NextProject offers you six functions constructor to write your tests: 
 
