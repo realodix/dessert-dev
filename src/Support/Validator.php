@@ -95,7 +95,7 @@ final class Validator
         }
 
         $invalidArgument = sprintf(
-            'An actual value of %s() must be %s %s, %s given.',
+            '%s(): Actual value must be of type %s %s, %s given.',
             $stack[1]['function'],
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
@@ -105,37 +105,37 @@ final class Validator
         switch ($type) {
             case 'array':
                 if (! (\is_array($actualValue) || $actualValue instanceof \ArrayAccess)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $actualValue;
             case 'class':
                 if (! class_exists($actualValue)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $actualValue;
             case 'iterable':
                 if (! is_iterable($actualValue)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $actualValue;
             case 'iterable_countable':
                 if (! is_iterable($actualValue) && ! $actualValue instanceof \Countable) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $actualValue;
             case 'object':
                 if (! \is_object($actualValue)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $actualValue;
             case 'string':
                 if (! \is_string($actualValue)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $actualValue;

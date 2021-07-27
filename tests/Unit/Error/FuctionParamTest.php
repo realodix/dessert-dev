@@ -11,7 +11,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function arrayHasKeyActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('$errors')->hasKey(true);
     }
@@ -27,7 +27,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function arrayHasNotKeyActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('$errors')->notHasKey(true);
     }
@@ -43,7 +43,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function containsOnlyActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('not_iterable')->containsOnly('');
     }
@@ -51,7 +51,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function notContainsOnlyActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('not_iterable')->notContainsOnly('');
     }
@@ -59,7 +59,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function containsOnlyInstancesOfActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('not_iterable')->containsOnlyInstancesOf('');
     }
@@ -67,7 +67,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function countActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('not_countable_or_iterable')->count(1);
     }
@@ -75,7 +75,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function notCountActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('not_countable_or_iterable')->notCount(1);
     }
@@ -83,7 +83,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function classHasAttributeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('not_object')->classHasAttribute('');
     }
@@ -91,7 +91,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function classNotHasAttributeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('not_object')->classNotHasAttribute('');
     }
@@ -99,7 +99,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function classHasStaticAttributeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('')->classHasStaticAttribute('');
     }
@@ -107,7 +107,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function classNotHasStaticAttributeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('')->classNotHasStaticAttribute('');
     }
@@ -115,7 +115,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function directoryExistsActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->directoryExists();
     }
@@ -123,7 +123,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function directoryDoesNotExistActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->directoryDoesNotExist();
     }
@@ -131,7 +131,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function directoryIsReadableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->directoryIsReadable();
     }
@@ -139,7 +139,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function directoryIsNotReadableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->directoryIsNotReadable();
     }
@@ -147,7 +147,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function directoryIsWritableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->directoryIsWritable();
     }
@@ -155,7 +155,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function directoryIsNotWritableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->directoryIsNotWritable();
     }
@@ -163,7 +163,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileEqualsActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileEquals('');
     }
@@ -171,7 +171,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileNotEqualsActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileNotEquals('');
     }
@@ -179,7 +179,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileEqualsCanonicalizingActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileEqualsCanonicalizing('');
     }
@@ -187,7 +187,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileNotEqualsCanonicalizingActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileNotEqualsCanonicalizing('');
     }
@@ -195,7 +195,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileEqualsIgnoringCaseActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileEqualsIgnoringCase('');
     }
@@ -203,7 +203,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileNotEqualsIgnoringCaseActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileNotEqualsIgnoringCase('');
     }
@@ -211,7 +211,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileExistsActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileExists();
     }
@@ -219,7 +219,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileDoesNotExistActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileDoesNotExist();
     }
@@ -227,7 +227,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileIsReadableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileIsReadable();
     }
@@ -235,7 +235,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileIsNotReadableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileIsNotReadable();
     }
@@ -243,7 +243,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileIsWritableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileIsWritable();
     }
@@ -251,7 +251,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function fileIsNotWritableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->fileIsNotWritable();
     }
@@ -275,7 +275,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function isReadableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->isReadable();
     }
@@ -283,7 +283,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function isNotReadableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->isNotReadable();
     }
@@ -291,7 +291,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function isWritableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->isWritable();
     }
@@ -299,7 +299,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function isNotWritableActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->isNotWritable();
     }
@@ -307,7 +307,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function jsonActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->json('');
     }
@@ -315,7 +315,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function jsonFileEqualsJsonFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->jsonFileEqualsJsonFile('');
     }
@@ -323,7 +323,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function jsonFileNotEqualsJsonFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->jsonFileNotEqualsJsonFile('');
     }
@@ -331,7 +331,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function jsonStringEqualsJsonFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->jsonStringEqualsJsonFile('');
     }
@@ -339,7 +339,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function jsonStringNotEqualsJsonFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->jsonStringNotEqualsJsonFile('');
     }
@@ -347,7 +347,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function jsonStringEqualsJsonStringActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->jsonStringEqualsJsonString('');
     }
@@ -355,7 +355,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function jsonStringNotEqualsJsonStringActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->jsonStringNotEqualsJsonString('');
     }
@@ -363,7 +363,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function matchesRegularExpressionActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->matchesRegularExpression('');
     }
@@ -371,7 +371,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function doesNotMatchRegularExpressionActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->doesNotMatchRegularExpression('');
     }
@@ -379,7 +379,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function objectEqualsActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->objectEquals('');
     }
@@ -394,7 +394,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function objectHasAttributeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->objectHasAttribute('');
     }
@@ -402,7 +402,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function objectNotHasAttributeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->objectNotHasAttribute('');
     }
@@ -410,7 +410,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function sameSizeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('')->sameSize('');
     }
@@ -426,7 +426,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function notSameSizeActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('')->notSameSize('');
     }
@@ -442,7 +442,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringContainsStringActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringContainsString('');
     }
@@ -450,7 +450,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringNotContainsStringActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringNotContainsString('');
     }
@@ -458,7 +458,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringContainsStringIgnoringCaseActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringContainsStringIgnoringCase('');
     }
@@ -466,7 +466,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringNotContainsStringIgnoringCaseActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringNotContainsStringIgnoringCase('');
     }
@@ -474,7 +474,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringEqualsFileCanonicalizingActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringEqualsFileCanonicalizing('');
     }
@@ -482,7 +482,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringNotEqualsFileCanonicalizingActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringNotEqualsFileCanonicalizing('');
     }
@@ -490,7 +490,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringEqualsFileIgnoringCaseActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringEqualsFileIgnoringCase('');
     }
@@ -498,7 +498,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringNotEqualsFileIgnoringCaseActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringNotEqualsFileIgnoringCase('');
     }
@@ -506,7 +506,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringMatchesFormatActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringMatchesFormat('');
     }
@@ -514,7 +514,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringNotMatchesFormatActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringNotMatchesFormat('');
     }
@@ -522,7 +522,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringMatchesFormatFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringMatchesFormatFile('');
     }
@@ -530,7 +530,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringNotMatchesFormatFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringNotMatchesFormatFile('');
     }
@@ -538,7 +538,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringStartsWithActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringStartsWith('');
     }
@@ -546,7 +546,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringStartsNotWithActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringStartsNotWith('');
     }
@@ -554,7 +554,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringEndsWithActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringEndsWith('');
     }
@@ -562,7 +562,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function stringEndsNotWithActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->stringEndsNotWith('');
     }
@@ -570,7 +570,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function xmlFileEqualsXmlFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->xmlFileEqualsXmlFile('');
     }
@@ -578,7 +578,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function xmlFileNotEqualsXmlFileActualValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass(false)->xmlFileNotEqualsXmlFile('');
     }
