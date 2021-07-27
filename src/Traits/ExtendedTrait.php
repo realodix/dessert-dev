@@ -39,18 +39,18 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
 
         if (Validator::isJson($actual)) {
-            Assert::assertJsonStringEqualsJsonString($expected, $actual, $message);
+            $this->is($actual)->jsonStringEqualsJsonString($expected, $message);
 
             return $this;
         }
 
         if (Validator::isXml($actual)) {
-            Assert::assertXmlStringEqualsXmlString($expected, $actual, $message);
+            $this->is($actual)->xmlStringEqualsXmlString($expected, $message);
 
             return $this;
         }
 
-        Assert::assertEquals($expected, $actual, $message);
+        $this->is($actual)->equals($expected, $message);
 
         return $this;
     }
@@ -60,18 +60,18 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
 
         if (Validator::isJson($actual)) {
-            Assert::assertJsonStringNotEqualsJsonString($expected, $actual, $message);
+            $this->is($actual)->jsonStringNotEqualsJsonString($expected, $message);
 
             return $this;
         }
 
         if (Validator::isXml($actual)) {
-            Assert::assertXmlStringNotEqualsXmlString($expected, $actual, $message);
+            $this->is($actual)->xmlStringNotEqualsXmlString($expected, $message);
 
             return $this;
         }
 
-        Assert::assertNotEquals($expected, $actual, $message);
+        $this->is($actual)->notEquals($expected, $message);
 
         return $this;
     }
