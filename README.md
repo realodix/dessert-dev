@@ -177,4 +177,4 @@ a Pull Request.
 
 ## License
 
-[MIT License](/LICENSE)
+NextProject is an open-sourced software licensed under the [MIT License](/LICENSE)
