@@ -23,7 +23,7 @@
     },
     "autoload": {
         "files": [
-            "src/bootstrap.php"
+            "src/Functions.php"
         ],
         "psr-4": {
             "Realodix\\NextProject\\": ["src", "src/Dessert"]
