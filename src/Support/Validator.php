@@ -159,9 +159,9 @@ final class Validator
         }
 
         $invalidArgument = sprintf(
-            'Argument #%d of %s() must be %s %s, %s given',
-            $argument,
+            '%s(): Argument #%d must be of type %s %s, %s given',
             $stack[1]['function'],
+            $argument,
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
             get_debug_type($expectedValue)
