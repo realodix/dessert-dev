@@ -3,7 +3,6 @@
 namespace Realodix\NextProject\Support;
 
 use Laminas\Dom\Query;
-use DOMWrap\Document;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
