@@ -3,6 +3,7 @@
 namespace Realodix\NextProject\Support;
 
 use Laminas\Dom\Query;
+use DOMWrap\Document;
 
 /**
  * @internal
@@ -65,6 +66,6 @@ final class Markup
      */
     public static function executeDomQuery(string $content, string $query)
     {
-        return (new Query($content))->execute($query);
+        return (new Document())->html($content)->find($query);
     }
 }
