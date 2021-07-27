@@ -27,7 +27,7 @@ composer require --dev realodix/next-project
 
 ## Writing Tests
 
-NextProject offers you six functions constructor to write your tests: 
+NextProject offers you six functions to write your tests: 
 
 - `Assert::that($actual)`
 - `Check::that($actual)`
