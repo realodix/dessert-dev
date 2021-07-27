@@ -41,7 +41,7 @@ final class Each
     public function __call(string $name, array $arguments): Each
     {
         foreach ($this->original->actual as $item) {
-            expect($item)->$name(...$arguments);
+            verify($item)->$name(...$arguments);
         }
 
         return $this;
