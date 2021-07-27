@@ -7,7 +7,7 @@ use Symfony\Component\DomCrawler\Crawler;
 /**
  * @internal
  */
-final class Markup
+final class Dom
 {
     /**
      * Given an array of HTML attributes, flatten them into a XPath attribute selector.

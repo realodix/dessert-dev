@@ -184,7 +184,7 @@
       <code>$actual</code>
     </ParamNameMismatch>
   </file>
-  <file src="src/Support/Markup.php">
+  <file src="src/Support/Dom.php">
     <MissingClosureParamType occurrences="2">
       <code>$key</code>
       <code>$value</code>

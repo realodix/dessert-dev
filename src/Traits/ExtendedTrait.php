@@ -8,7 +8,7 @@ use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
-use Realodix\NextProject\Support\Markup;
+use Realodix\NextProject\Support\Dom;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
@@ -187,7 +187,7 @@ trait ExtendedTrait
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Markup::executeDomQuery($actual, $selector)->count();
+        $results = Dom::executeDomQuery($actual, $selector)->count();
 
         $this->actual($results)->greaterThan(0, $message);
 
@@ -203,7 +203,7 @@ trait ExtendedTrait
     public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Markup::executeDomQuery($actual, $selector)->count();
+        $results = Dom::executeDomQuery($actual, $selector)->count();
 
         $this->actual($results)->equals(0, $message);
 
@@ -220,7 +220,7 @@ trait ExtendedTrait
     public function markupElementContains(string $contents, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
+        $matchedElements = Dom::getInnerHtmlOfMatchedElements($actual, $selector);
 
         $this->actual($matchedElements)->stringContainsString($contents, $message);
 
@@ -237,7 +237,7 @@ trait ExtendedTrait
     public function markupElementNotContains(string $contents, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
+        $matchedElements = Dom::getInnerHtmlOfMatchedElements($actual, $selector);
 
         $this->actual($matchedElements)->stringNotContainsString($contents, $message);
 
@@ -254,7 +254,7 @@ trait ExtendedTrait
     public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
+        $matchedElements = Dom::getInnerHtmlOfMatchedElements($actual, $selector);
 
         $this->actual($matchedElements)->matchesRegularExpression($regexp, $message);
 
@@ -271,7 +271,7 @@ trait ExtendedTrait
     public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
+        $matchedElements = Dom::getInnerHtmlOfMatchedElements($actual, $selector);
 
         $this->actual($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
 
@@ -287,7 +287,7 @@ trait ExtendedTrait
     public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $attributes = '*'.Markup::flattenAttributeArray($attributes);
+        $attributes = '*'.Dom::flattenAttributeArray($attributes);
 
         $this->actual($actual)->markupContainsSelector($attributes, $message);
 
@@ -303,7 +303,7 @@ trait ExtendedTrait
     public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $attributes = '*'.Markup::flattenAttributeArray($attributes);
+        $attributes = '*'.Dom::flattenAttributeArray($attributes);
 
         $this->actual($actual)->markupNotContainsSelector($attributes, $message);
 
@@ -320,7 +320,7 @@ trait ExtendedTrait
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Markup::executeDomQuery($actual, $selector);
+        $results = Dom::executeDomQuery($actual, $selector);
 
         $this->actual($results)->count($count, $message);
 
