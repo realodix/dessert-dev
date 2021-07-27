@@ -83,7 +83,7 @@ If your library still needs to support PHP 7.1 and therefore needs PHPUnit 7.5 f
 ```php
 use Realodix\NextProject\Expect;
 
-public function test_an_exception_is_thrown()
+public function testException(): void
 {
     Expect::after($this)
         ->exception(\InvalidArgumentException)
@@ -92,44 +92,44 @@ public function test_an_exception_is_thrown()
 }
 
 public function testDeprecationCanBeExpected(): void
-    {
-        Expect::after($this)
-            ->deprecation();
-            ->deprecationMessage('foo');
-            ->deprecationMessageMatches('/foo/');
+{
+    Expect::after($this)
+        ->deprecation();
+        ->deprecationMessage('foo');
+        ->deprecationMessageMatches('/foo/');
 
-        \trigger_error('foo', \E_USER_DEPRECATED);
-    }
+    \trigger_error('foo', \E_USER_DEPRECATED);
+}
 
-    public function testNoticeCanBeExpected(): void
-    {
-        Expect::after($this)
-            ->notice();
-            ->noticeMessage('foo');
-            ->noticeMessageMatches('/foo/');
+public function testNoticeCanBeExpected(): void
+{
+    Expect::after($this)
+        ->notice();
+        ->noticeMessage('foo');
+        ->noticeMessageMatches('/foo/');
 
-        \trigger_error('foo', \E_USER_NOTICE);
-    }
+    \trigger_error('foo', \E_USER_NOTICE);
+}
 
-    public function testWarningCanBeExpected(): void
-    {
-        Expect::after($this)
-            ->warning();
-            ->warningMessage('foo');
-            ->warningMessageMatches('/foo/');
+public function testWarningCanBeExpected(): void
+{
+    Expect::after($this)
+        ->warning();
+        ->warningMessage('foo');
+        ->warningMessageMatches('/foo/');
 
-        \trigger_error('foo', \E_USER_WARNING);
-    }
+    \trigger_error('foo', \E_USER_WARNING);
+}
 
-    public function testErrorCanBeExpected(): void
-    {
-        Expect::after($this)
-            ->error();
-            ->errorMessage('foo');
-            ->errorMessageMatches('/foo/');
+public function testErrorCanBeExpected(): void
+{
+    Expect::after($this)
+        ->error();
+        ->errorMessage('foo');
+        ->errorMessageMatches('/foo/');
 
-        \trigger_error('foo', \E_USER_ERROR);
-    }
+    \trigger_error('foo', \E_USER_ERROR);
+}
 ```
 
 [testing-exceptions]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-exceptions
