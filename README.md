@@ -36,7 +36,7 @@ NextProject offers you six functions constructor to write your tests:
 - `should($actual)`
 - `verify($actual)`
 
-Write test cases and test methods as usual, just switch to `Assert::that()` (or choose one in the list above) to write your
+Write test cases and test methods as usual, just switch to: e.g. `Assert::that()`, to write your
 assertions. Use the one that best fits your test naming convention, or all. They share the
 same behavior & syntax.
 
