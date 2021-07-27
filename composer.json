@@ -15,6 +15,7 @@
         "laminas/laminas-dom": ">=2.7",
         "phpunit/phpunit": "^7.5|^8|^9",
         "scotteh/php-dom-wrapper": "^2.0",
+        "symfony/dom-crawler": "^5.3",
         "symfony/polyfill-php72": "^1.23",
         "symfony/polyfill-php80": "^1.23"
     },

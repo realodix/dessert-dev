@@ -4,6 +4,7 @@ namespace Realodix\NextProject\Support;
 
 use Laminas\Dom\Query;
 use DOMWrap\Document;
+use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * @internal
@@ -66,6 +67,6 @@ final class Markup
      */
     public static function executeDomQuery(string $content, string $query)
     {
-        return (new Document())->html($content)->find($query);
+        return (new Crawler($content))->filter($query);
     }
 }
