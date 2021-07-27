@@ -20,7 +20,7 @@ final class Dom
     {
         array_walk($attributes, function (&$value, $key) {
             // Boolean attributes.
-            if (null === $value) {
+            if (\is_null($value)) {
                 $value = sprintf('[%s]', $key);
             } else {
                 $value = sprintf('[%s="%s"]', $key, htmlspecialchars($value));
