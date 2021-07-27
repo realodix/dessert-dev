@@ -46,6 +46,18 @@ class Assertion
     }
 
     /**
+     * Creates a new expectation.
+     *
+     * @param mixed $actual
+     *
+     * @return self
+     */
+    private function is($actual): Assertion
+    {
+        return new self($actual);
+    }
+
+    /**
      * Creates an expectation on each item of the iterable "value".
      *
      * @param null|callable $callback

@@ -180,7 +180,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        Assert::assertStringContainsString($contents, $matchedElements, $message);
+        $this->is($matchedElements)->stringContainsString($contents, $message);
 
         return $this;
     }
@@ -197,7 +197,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        Assert::assertStringNotContainsString($contents, $matchedElements, $message);
+        $this->is($matchedElements)->stringNotContainsString($contents, $message);
 
         return $this;
     }
