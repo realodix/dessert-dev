@@ -36,7 +36,7 @@ trait ExtendedTrait
 
     public function stringEquals(string $expected, string $message = ''): self
     {
-        $actual = $this->is(Validator::actualValue($this->actual, 'string'));
+        $actual = $this->actual(Validator::actualValue($this->actual, 'string'));
 
         if (Validator::isJson($this->actual)) {
             $actual->jsonStringEqualsJsonString($expected, $message);
@@ -57,7 +57,7 @@ trait ExtendedTrait
 
     public function stringNotEquals(string $expected, string $message = ''): self
     {
-        $actual = $this->is(Validator::actualValue($this->actual, 'string'));
+        $actual = $this->actual(Validator::actualValue($this->actual, 'string'));
 
         if (Validator::isJson($this->actual)) {
             $actual->jsonStringNotEqualsJsonString($expected, $message);
@@ -189,7 +189,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $results = Markup::executeDomQuery($actual, $selector);
 
-        $this->is(\count($results))->greaterThan(0, $message);
+        $this->actual(\count($results))->greaterThan(0, $message);
 
         return $this;
     }
@@ -205,7 +205,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $results = Markup::executeDomQuery($actual, $selector);
 
-        $this->is(\count($results))->equals(0, $message);
+        $this->actual(\count($results))->equals(0, $message);
 
         return $this;
     }
@@ -222,7 +222,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        $this->is($matchedElements)->stringContainsString($contents, $message);
+        $this->actual($matchedElements)->stringContainsString($contents, $message);
 
         return $this;
     }
@@ -239,7 +239,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        $this->is($matchedElements)->stringNotContainsString($contents, $message);
+        $this->actual($matchedElements)->stringNotContainsString($contents, $message);
 
         return $this;
     }
@@ -256,7 +256,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        $this->is($matchedElements)->matchesRegularExpression($regexp, $message);
+        $this->actual($matchedElements)->matchesRegularExpression($regexp, $message);
 
         return $this;
     }
@@ -273,7 +273,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        $this->is($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
+        $this->actual($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
 
         return $this;
     }
@@ -289,7 +289,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $attributes = '*'.Markup::flattenAttributeArray($attributes);
 
-        $this->is($actual)->markupContainsSelector($attributes, $message);
+        $this->actual($actual)->markupContainsSelector($attributes, $message);
 
         return $this;
     }
@@ -305,7 +305,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $attributes = '*'.Markup::flattenAttributeArray($attributes);
 
-        $this->is($actual)->markupNotContainsSelector($attributes, $message);
+        $this->actual($actual)->markupNotContainsSelector($attributes, $message);
 
         return $this;
     }
@@ -322,7 +322,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $results = Markup::executeDomQuery($actual, $selector);
 
-        $this->is($results)->count($count, $message);
+        $this->actual($results)->count($count, $message);
 
         return $this;
     }

@@ -52,7 +52,7 @@ class Assertion
      *
      * @return self
      */
-    private function is($actual): Assertion
+    private function actual($actual): Assertion
     {
         return new self($actual);
     }
