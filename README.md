@@ -78,6 +78,8 @@ In addition to assertions, NextProject offers you a set of assertion aliases. Fo
 
 ## Expect exceptions
 
+If your library still needs to support PHP 7.1 and therefore needs PHPUnit 7.5 for testing, this is a function you can use to support [`expectExceptionMessageMatches()`][testing-exceptions], [`expectError()`][testing-php-errors], [`expectWarning()`][testing-php-errors], [`expectNotice()`][testing-php-errors] and [`expectDeprecation()`][testing-php-errors].
+
 ```php
 use Realodix\NextProject\Expect;
 
@@ -87,10 +89,51 @@ public function test_an_exception_is_thrown()
         ->exception(\InvalidArgumentException)
         ->exceptionMessage('An exception message')
         ->exceptionCode(42);
-    
-    // Act
 }
+
+public function testDeprecationCanBeExpected(): void
+    {
+        Expect::after($this)
+            ->deprecation();
+            ->deprecationMessage('foo');
+            ->deprecationMessageMatches('/foo/');
+
+        \trigger_error('foo', \E_USER_DEPRECATED);
+    }
+
+    public function testNoticeCanBeExpected(): void
+    {
+        Expect::after($this)
+            ->notice();
+            ->noticeMessage('foo');
+            ->noticeMessageMatches('/foo/');
+
+        \trigger_error('foo', \E_USER_NOTICE);
+    }
+
+    public function testWarningCanBeExpected(): void
+    {
+        Expect::after($this)
+            ->warning();
+            ->warningMessage('foo');
+            ->warningMessageMatches('/foo/');
+
+        \trigger_error('foo', \E_USER_WARNING);
+    }
+
+    public function testErrorCanBeExpected(): void
+    {
+        Expect::after($this)
+            ->error();
+            ->errorMessage('foo');
+            ->errorMessageMatches('/foo/');
+
+        \trigger_error('foo', \E_USER_ERROR);
+    }
 ```
+
+[testing-exceptions]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-exceptions
+[testing-php-errors]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-php-errors-warnings-and-notices
 
 ## Extending
 
