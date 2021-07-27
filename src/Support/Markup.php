@@ -2,7 +2,6 @@
 
 namespace Realodix\NextProject\Support;
 
-use Laminas\Dom\Query;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
