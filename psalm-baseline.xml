@@ -162,6 +162,9 @@
     <MissingClosureParamType occurrences="1">
       <code>$argument</code>
     </MissingClosureParamType>
+    <UnusedParam occurrences="1">
+      <code>$name</code>
+    </UnusedParam>
   </file>
   <file src="src/Support/Constraint/ObjectEquals.php">
     <MissingParamType occurrences="1">
