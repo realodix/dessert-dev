@@ -114,6 +114,110 @@ class Assertion
     }
 
     /**
+     * @param string $attributeName
+     * @param string $message
+     */
+    public function classHasAttribute(string $attributeName, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'class');
+
+        Assert::assertClassHasAttribute($attributeName, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $attributeName
+     * @param string $message
+     */
+    public function classNotHasAttribute(string $attributeName, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'class');
+
+        Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $attributeName
+     * @param string $message
+     */
+    public function classHasStaticAttribute(string $attributeName, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'class');
+
+        Assert::assertClassHasStaticAttribute($attributeName, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $attributeName
+     * @param string $message
+     */
+    public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'class');
+
+        Assert::assertClassNotHasStaticAttribute($attributeName, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $needle
+     * @param string $message
+     */
+    public function stringContainsString(string $needle, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringContainsString($needle, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $needle
+     * @param string $message
+     */
+    public function stringNotContainsString(string $needle, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringNotContainsString($needle, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $needle
+     * @param string $message
+     */
+    public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringContainsStringIgnoringCase($needle, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $needle
+     * @param string $message
+     */
+    public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringNotContainsStringIgnoringCase($needle, $actual, $message);
+
+        return $this;
+    }
+
+    /**
      * @param string    $type
      * @param bool|null $isNativeType
      * @param string    $message
@@ -176,6 +280,62 @@ class Assertion
         $actual = Validator::actualValue($this->actual, 'iterable_countable');
 
         Assert::assertNotCount($expectedCount, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function directoryExists(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertDirectoryExists($actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function directoryIsReadable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertDirectoryIsReadable($actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function directoryIsWritable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertDirectoryIsWritable($actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function empty(string $message = ''): self
+    {
+        Assert::assertEmpty($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function notEmpty(string $message = ''): self
+    {
+        Assert::assertNotEmpty($this->actual, $message);
 
         return $this;
     }
@@ -271,114 +431,6 @@ class Assertion
     }
 
     /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassHasAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classNotHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classHasStaticAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassHasStaticAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassNotHasStaticAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function directoryExists(string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        Assert::assertDirectoryExists($actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function directoryIsReadable(string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        Assert::assertDirectoryIsReadable($actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function directoryIsWritable(string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        Assert::assertDirectoryIsWritable($actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function empty(string $message = ''): self
-    {
-        Assert::assertEmpty($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function notEmpty(string $message = ''): self
-    {
-        Assert::assertNotEmpty($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
      * @param string $expected
      * @param string $message
      */
@@ -443,66 +495,6 @@ class Assertion
     /**
      * @param string $message
      */
-    public function true(string $message = ''): self
-    {
-        Assert::assertTrue($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function notTrue(string $message = ''): self
-    {
-        Assert::assertNotTrue($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function false(string $message = ''): self
-    {
-        Assert::assertFalse($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function notFalse(string $message = ''): self
-    {
-        Assert::assertNotFalse($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function null(string $message = ''): self
-    {
-        Assert::assertNull($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function notNull(string $message = ''): self
-    {
-        Assert::assertNotNull($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
     public function finite(string $message = ''): self
     {
         Assert::assertFinite($this->actual, $message);
@@ -516,16 +508,6 @@ class Assertion
     public function infinite(string $message = ''): self
     {
         Assert::assertInfinite($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function nan(string $message = ''): self
-    {
-        Assert::assertNan($this->actual, $message);
 
         return $this;
     }
@@ -935,6 +917,36 @@ class Assertion
     }
 
     /**
+     * @param string $message
+     */
+    public function nan(string $message = ''): self
+    {
+        Assert::assertNan($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function null(string $message = ''): self
+    {
+        Assert::assertNull($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function notNull(string $message = ''): self
+    {
+        Assert::assertNotNull($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
      * @param string $attributeName
      * @param string $message
      */
@@ -956,108 +968,6 @@ class Assertion
         $actual = Validator::actualValue($this->actual, 'object');
 
         Assert::assertObjectNotHasAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param mixed  $expected
-     * @param string $message
-     */
-    public function same($expected, string $message = ''): self
-    {
-        Assert::assertSame($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param mixed  $expected
-     * @param string $message
-     */
-    public function notSame($expected, string $message = ''): self
-    {
-        Assert::assertNotSame($expected, $this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param mixed  $expected
-     * @param string $message
-     */
-    public function sameSize($expected, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable');
-        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
-
-        Assert::assertSameSize($expected, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param mixed  $expected
-     * @param string $message
-     */
-    public function notSameSize($expected, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable');
-        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
-
-        Assert::assertNotSameSize($expected, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $needle
-     * @param string $message
-     */
-    public function stringContainsString(string $needle, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        Assert::assertStringContainsString($needle, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $needle
-     * @param string $message
-     */
-    public function stringNotContainsString(string $needle, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        Assert::assertStringNotContainsString($needle, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $needle
-     * @param string $message
-     */
-    public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        Assert::assertStringContainsStringIgnoringCase($needle, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $needle
-     * @param string $message
-     */
-    public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-
-        Assert::assertStringNotContainsStringIgnoringCase($needle, $actual, $message);
 
         return $this;
     }
@@ -1115,6 +1025,56 @@ class Assertion
     }
 
     /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function same($expected, string $message = ''): self
+    {
+        Assert::assertSame($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function notSame($expected, string $message = ''): self
+    {
+        Assert::assertNotSame($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function sameSize($expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
+        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
+
+        Assert::assertSameSize($expected, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function notSameSize($expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'iterable_countable');
+        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
+
+        Assert::assertNotSameSize($expected, $actual, $message);
+
+        return $this;
+    }
+
+    /**
      * @param string $prefix
      * @param string $message
      */
@@ -1162,6 +1122,46 @@ class Assertion
         $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertStringEndsNotWith($suffix, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function true(string $message = ''): self
+    {
+        Assert::assertTrue($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function notTrue(string $message = ''): self
+    {
+        Assert::assertNotTrue($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function false(string $message = ''): self
+    {
+        Assert::assertFalse($this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function notFalse(string $message = ''): self
+    {
+        Assert::assertNotFalse($this->actual, $message);
 
         return $this;
     }
