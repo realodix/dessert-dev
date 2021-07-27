@@ -257,13 +257,11 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
+      <code>$this-&gt;actual</code>
+      <code>$this-&gt;actual</code>
       <code>Validator::actualValue($this-&gt;actual, 'string')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="16">
-      <code>$actual</code>
-      <code>$actual</code>
+    <MixedAssignment occurrences="14">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>

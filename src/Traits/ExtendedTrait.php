@@ -36,42 +36,42 @@ trait ExtendedTrait
 
     public function stringEquals(string $expected, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        $actual = $this->is(Validator::actualValue($this->actual, 'string'));
 
-        if (Validator::isJson($actual)) {
-            $this->is($actual)->jsonStringEqualsJsonString($expected, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($actual)) {
-            $this->is($actual)->xmlStringEqualsXmlString($expected, $message);
+        if (Validator::isJson($this->actual)) {
+            $actual->jsonStringEqualsJsonString($expected, $message);
 
             return $this;
         }
 
-        $this->is($actual)->equals($expected, $message);
+        if (Validator::isXml($this->actual)) {
+            $actual->xmlStringEqualsXmlString($expected, $message);
+
+            return $this;
+        }
+
+        $actual->equals($expected, $message);
 
         return $this;
     }
 
     public function stringNotEquals(string $expected, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        $actual = $this->is(Validator::actualValue($this->actual, 'string'));
 
-        if (Validator::isJson($actual)) {
-            $this->is($actual)->jsonStringNotEqualsJsonString($expected, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($actual)) {
-            $this->is($actual)->xmlStringNotEqualsXmlString($expected, $message);
+        if (Validator::isJson($this->actual)) {
+            $actual->jsonStringNotEqualsJsonString($expected, $message);
 
             return $this;
         }
 
-        $this->is($actual)->notEquals($expected, $message);
+        if (Validator::isXml($this->actual)) {
+            $actual->xmlStringNotEqualsXmlString($expected, $message);
+
+            return $this;
+        }
+
+        $actual->notEquals($expected, $message);
 
         return $this;
     }
