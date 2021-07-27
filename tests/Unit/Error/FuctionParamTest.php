@@ -19,7 +19,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function arrayHasKeyExpectedValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass([])->hasKey(true);
     }
@@ -35,7 +35,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function arrayHasNotKeyExpectedValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass([])->notHasKey(true);
     }
@@ -259,7 +259,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function instanceOfExpectedValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('')->instanceOf('');
     }
@@ -267,7 +267,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function notInstanceOfExpectedValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass('')->notInstanceOf('');
     }
@@ -385,9 +385,9 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function objectEqualsExpextedValue(): void
+    public function objectEqualsExpectedValue(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\TypeError::class);
         ass(new ValueObject(1))->objectEquals('');
     }
 
@@ -418,7 +418,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function sameSizeExpectedValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass([])->sameSize('');
     }
@@ -434,7 +434,7 @@ final class FuctionParamTest extends TestCase
     /** @test */
     public function notSameSizeExpectedValue(): void
     {
-        Expect::after($this)->exception(\InvalidArgumentException::class);
+        Expect::after($this)->exception(\TypeError::class);
 
         ass([])->notSameSize('');
     }

@@ -170,25 +170,25 @@ final class Validator
         switch ($type) {
             case 'class':
                 if (! class_exists($expectedValue) && ! interface_exists($expectedValue)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $expectedValue;
             case 'int_string':
                 if (! (\is_int($expectedValue) || \is_string($expectedValue))) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $expectedValue;
             case 'iterable_countable':
                 if (! $expectedValue instanceof \Countable && ! is_iterable($expectedValue)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $expectedValue;
             case 'object':
                 if (! is_object($expectedValue)) {
-                    throw new \InvalidArgumentException($invalidArgument);
+                    throw new \TypeError($invalidArgument);
                 }
 
                 return $expectedValue;
