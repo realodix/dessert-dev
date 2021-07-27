@@ -214,7 +214,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        $this->and($matchedElements)->matchesRegularExpression($regexp, $message);
+        $this->is($matchedElements)->matchesRegularExpression($regexp, $message);
 
         return $this;
     }
@@ -231,7 +231,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $matchedElements = Markup::getInnerHtmlOfMatchedElements($actual, $selector);
 
-        $this->and($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
+        $this->is($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
 
         return $this;
     }
