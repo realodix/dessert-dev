@@ -41,7 +41,7 @@ final class Dom
      */
     public static function getInnerHtmlOfMatchedElements(string $markup, string $query): string
     {
-        $results = self::executeDomQuery($markup, $query);
+        $results = self::executeQuery($markup, $query);
         $contents = [];
 
         // Loop through results and collect their innerHTML values.
@@ -63,7 +63,7 @@ final class Dom
      *
      * @return Crawler
      */
-    public static function executeDomQuery(string $content, string $query): Crawler
+    public static function executeQuery(string $content, string $query): Crawler
     {
         return (new Crawler($content))->filter($query);
     }

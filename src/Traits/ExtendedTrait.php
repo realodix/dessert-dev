@@ -187,7 +187,7 @@ trait ExtendedTrait
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Dom::executeDomQuery($actual, $selector)->count();
+        $results = Dom::executeQuery($actual, $selector)->count();
 
         $this->actual($results)->greaterThan(0, $message);
 
@@ -203,7 +203,7 @@ trait ExtendedTrait
     public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Dom::executeDomQuery($actual, $selector)->count();
+        $results = Dom::executeQuery($actual, $selector)->count();
 
         $this->actual($results)->equals(0, $message);
 
@@ -320,7 +320,7 @@ trait ExtendedTrait
     public function markupSelectorCount(int $count, string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Dom::executeDomQuery($actual, $selector);
+        $results = Dom::executeQuery($actual, $selector);
 
         $this->actual($results)->count($count, $message);
 
