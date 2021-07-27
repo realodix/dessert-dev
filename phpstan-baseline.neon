@@ -96,11 +96,6 @@ parameters:
 			path: src/Expect.php
 
 		-
-			message: "#^Parameter \\#1 \\$exception of method PHPUnit\\\\Framework\\\\TestCase\\:\\:expectException\\(\\) expects class\\-string\\<Throwable\\>, string given\\.$#"
-			count: 1
-			path: src/Expect.php
-
-		-
 			message: "#^Expression \"\\$this\\-\\>original\\-\\>\\{\\$name\\}\" on a separate line does not do anything\\.$#"
 			count: 1
 			path: src/Opposite.php

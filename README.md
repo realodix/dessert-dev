@@ -86,9 +86,9 @@ use Realodix\NextProject\Expect;
 public function testException(): void
 {
     Expect::after($this)
-        ->exception(\InvalidArgumentException)
-        ->exceptionMessage('An exception message')
-        ->exceptionCode(42);
+        ->exceptionMessageMatches('/^Exception/');
+
+    throw new \Exception('Exception message');
 }
 
 public function testDeprecationCanBeExpected(): void

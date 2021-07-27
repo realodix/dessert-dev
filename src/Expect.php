@@ -25,27 +25,6 @@ final class Expect
         return new self($exception);
     }
 
-    public function exception(string $class = \Exception::class): self
-    {
-        $this->exception->expectException($class);
-
-        return $this;
-    }
-
-    public function exceptionCode(int $code): self
-    {
-        $this->exception->expectExceptionCode($code);
-
-        return $this;
-    }
-
-    public function exceptionMessage(string $message): self
-    {
-        $this->exception->expectExceptionMessage($message);
-
-        return $this;
-    }
-
     public function exceptionMessageMatches(string $regex): self
     {
         // @codeCoverageIgnoreStart

@@ -7,33 +7,10 @@ use Realodix\NextProject\Expect;
 
 class ErrorTest extends TestCase
 {
-    public function testException()
+    public function testExceptionMessageMatches()
     {
-        Expect::after($this)->exception();
-
-        throw new \Exception();
-    }
-
-    public function testExpectsASpecificExceptionWillBeThrown()
-    {
+        $this->expectExceptionMessage('Exception message');
         Expect::after($this)
-            ->exception(\InvalidArgumentException::class);
-
-        throw new \InvalidArgumentException();
-    }
-
-    public function testExceptionCode()
-    {
-        Expect::after($this)
-            ->exceptionCode(42);
-
-        throw new \Exception('', 42);
-    }
-
-    public function testExceptionMessage()
-    {
-        Expect::after($this)
-            ->exceptionMessage('Exception message')
             ->exceptionMessageMatches('/^Exception/');
 
         throw new \Exception('Exception message');

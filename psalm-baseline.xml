@@ -129,8 +129,7 @@
     </MixedReturnStatement>
   </file>
   <file src="src/Expect.php">
-    <ArgumentTypeCoercion occurrences="5">
-      <code>$class</code>
+    <ArgumentTypeCoercion occurrences="4">
       <code>'\PHPUnit\Framework\Error\Deprecated'</code>
       <code>'\PHPUnit\Framework\Error\Error'</code>
       <code>'\PHPUnit\Framework\Error\Notice'</code>
