@@ -116,17 +116,12 @@ parameters:
 			path: src/Support/Constraint/ObjectEquals.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:executeDomQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:executeDomQuery\\(\\) should return array but returns Laminas\\\\Dom\\\\NodeList\\.$#"
-			count: 1
-			path: src/Support/Markup.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Markup\\:\\:flattenAttributeArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Support/Markup.php
+
+		-
+			message: "#^Parameter \\#1 \\$node of method DOMDocument\\:\\:importNode\\(\\) expects DOMNode, DOMNode\\|null given\\.$#"
 			count: 1
 			path: src/Support/Markup.php
 

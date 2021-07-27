@@ -63,9 +63,9 @@ final class Markup
      * @param string $content The HTML for the DOMDocument.
      * @param string $query   The DOM selector query.
      *
-     * @return array
+     * @return Crawler
      */
-    public static function executeDomQuery(string $content, string $query)
+    public static function executeDomQuery(string $content, string $query): Crawler
     {
         return (new Crawler($content))->filter($query);
     }

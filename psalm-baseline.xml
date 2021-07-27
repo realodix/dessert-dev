@@ -185,16 +185,6 @@
     </ParamNameMismatch>
   </file>
   <file src="src/Support/Markup.php">
-    <DeprecatedClass occurrences="2">
-      <code>(new Query($content))-&gt;execute($query)</code>
-      <code>new Query($content)</code>
-    </DeprecatedClass>
-    <InvalidReturnStatement occurrences="1">
-      <code>(new Query($content))-&gt;execute($query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>array</code>
-    </InvalidReturnType>
     <MissingClosureParamType occurrences="2">
       <code>$key</code>
       <code>$value</code>
@@ -211,6 +201,9 @@
     <MixedPropertyFetch occurrences="1">
       <code>$result-&gt;firstChild</code>
     </MixedPropertyFetch>
+    <PossiblyNullArgument occurrences="1">
+      <code>$result-&gt;firstChild</code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Support/Validator.php">
     <MissingReturnType occurrences="2">

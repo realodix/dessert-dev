@@ -187,9 +187,9 @@ trait ExtendedTrait
     public function markupContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Markup::executeDomQuery($actual, $selector);
+        $results = Markup::executeDomQuery($actual, $selector)->count();
 
-        $this->actual(\count($results))->greaterThan(0, $message);
+        $this->actual($results)->greaterThan(0, $message);
 
         return $this;
     }
@@ -203,9 +203,9 @@ trait ExtendedTrait
     public function markupNotContainsSelector(string $selector, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-        $results = Markup::executeDomQuery($actual, $selector);
+        $results = Markup::executeDomQuery($actual, $selector)->count();
 
-        $this->actual(\count($results))->equals(0, $message);
+        $this->actual($results)->equals(0, $message);
 
         return $this;
     }
