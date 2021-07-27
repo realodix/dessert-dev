@@ -244,9 +244,10 @@ trait ExtendedTrait
      */
     public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
+        $actual = Validator::actualValue($this->actual, 'string');
         $attributes = '*'.Markup::flattenAttributeArray($attributes);
 
-        $this->markupContainsSelector($attributes, $message);
+        $this->is($actual)->markupContainsSelector($attributes, $message);
 
         return $this;
     }
@@ -259,8 +260,10 @@ trait ExtendedTrait
      */
     public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
     {
+        $actual = Validator::actualValue($this->actual, 'string');
         $attributes = '*'.Markup::flattenAttributeArray($attributes);
-        $this->markupNotContainsSelector($attributes, $message);
+
+        $this->is($actual)->markupNotContainsSelector($attributes, $message);
 
         return $this;
     }
