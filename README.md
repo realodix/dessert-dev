@@ -56,7 +56,9 @@ verify(1)
     ->isInt()       // $this->assertIsInt(1);
     ->isNotFloat(); // $this->assertIsFloat(1);
 
-verify([1, 2, 3])->each()
+verify([1, 2, 3])
+    // modifier to create an expectation on each item of the given iterable
+    ->each()
     ->isInt()
     ->and(true)
         ->true()
