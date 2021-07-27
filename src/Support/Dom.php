@@ -65,6 +65,8 @@ final class Dom
      */
     public static function executeQuery(string $content, string $query): Crawler
     {
-        return (new Crawler($content))->filter($query);
+        $crawler = new Crawler($content);
+
+        return $crawler->filter($query);
     }
 }
