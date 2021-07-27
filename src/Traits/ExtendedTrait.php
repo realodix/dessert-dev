@@ -147,7 +147,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $results = Markup::executeDomQuery($actual, $selector);
 
-        Assert::assertGreaterThan(0, \count($results), $message);
+       $this->is(\count($results))->greaterThan(0, $message);
 
         return $this;
     }
@@ -163,7 +163,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $results = Markup::executeDomQuery($actual, $selector);
 
-        Assert::assertEquals(0, \count($results), $message);
+        $this->is(\count($results))->equals(0, $message);
 
         return $this;
     }
@@ -280,7 +280,7 @@ trait ExtendedTrait
         $actual = Validator::actualValue($this->actual, 'string');
         $results = Markup::executeDomQuery($actual, $selector);
 
-        Assert::assertCount($count, $results, $message);
+        $this->is($results)->count($count, $message);
 
         return $this;
     }
