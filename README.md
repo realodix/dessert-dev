@@ -8,7 +8,7 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 ### Features
 - **Chain your check(s)**
 - **Forward-compatible**: Write your tests with the assertions supported by the latest PHPUnit version and run them on PHPUnit 7.5 - 9.x.
-- **Easy to upgrade**: dropping support for an older PHPUnit version becomes as straight-forward as removing it from the version constraint in your composer.json file.
+- **Easy to upgrade**: dropping support for an older PHPUnit version becomes as straight-forward as removing it from the version constraint in your `composer.json` file.
 - **Less error-prone**: No more confusion about the order of the "expected" and "actual" values.
 - **Easy to troubleshoot**: every failing check throws an Exception with a clear message status to ease your TDD experience.
 
