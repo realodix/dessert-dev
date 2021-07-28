@@ -128,11 +128,6 @@
       <code>$this-&gt;$name()</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/Functions.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'\PHPUnit\Framework\TestCase'</code>
-    </ArgumentTypeCoercion>
-  </file>
   <file src="src/Opposite.php">
     <InternalClass occurrences="1"/>
     <InternalMethod occurrences="1"/>
@@ -188,11 +183,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$result-&gt;firstChild</code>
     </PossiblyNullArgument>
-  </file>
-  <file src="src/Support/ExpectException.php">
-    <DuplicateClass occurrences="1">
-      <code>ExpectException</code>
-    </DuplicateClass>
   </file>
   <file src="src/Support/Validator.php">
     <MissingReturnType occurrences="2">
