@@ -65,11 +65,8 @@ class YourTest extends TestCase
             ->isNotFloat(); // $this->assertIsFloat(1);
 
         verify([1, 2, 3])
-            // Modifier to create an assertion on each item of the
-            // given iterable
             ->each()
             ->isInt()
-            // Pass a new value to the and function
             ->and(true)
                 ->true()
                 ->notFalse();
@@ -91,10 +88,34 @@ For other usage examples, please see how We write tests for this package in the 
 
 #### and($actualValue)
 
-Pass a new value to the `and()` function to chain multiple expectations in a single test:
+Pass a new value to the `and()` function to chain multiple assertions in a single test:
 
 ```php
-expect($id)->toBe(14)->and($name)->toBe('Nuno');
+Assert::that($id)->same(1)->and($name)->same('Sebastian');
+
+// $this->assertSame($expected, $this->value);
+// $this->assertSame($expected, $this->value);
+```
+
+#### each($actualValue)
+
+Use the `each()` modifier to create an expectation on each item of the given iterable:
+
+```php
+Assert::that([1, 2, 3])->each->isInt();
+
+// $this->assertIsInt(1);
+// $this->assertIsInt(2);
+// $this->assertIsInt(3);
+```
+
+#### not()
+
+Use the `not()` modifier before a check to invert it:
+
+```php
+Assert::that('string')->isNotInt();
+Assert::that('string')->not->isInt();
 ```
 
 ### Assertion Aliases
