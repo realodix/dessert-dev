@@ -10,9 +10,9 @@ final class AssertTest extends TestCase
 {
     public function testArrayHasKey(): void
     {
-        $errors = ['title' => 'You should add title'];
+        $array = ['title' => 'You should add title'];
 
-        ass($errors)
+        ass($array)
             ->hasKey('title')
             ->notHasKey('body');
     }
