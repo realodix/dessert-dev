@@ -3,55 +3,51 @@
 namespace Realodix\NextProject\Test\Error;
 
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Expect;
+use Realodix\NextProject\Support\ExpectException;
 
 class ErrorTest extends TestCase
 {
+    use ExpectException;
+
     public function testExceptionMessageMatches()
     {
-        $this->expectExceptionMessage('Exception message');
-        Expect::after($this)
-            ->exceptionMessageMatches('/^Exception/');
+        $this->expectExceptionMessageMatches('/^Exception/');
 
         throw new \Exception('Exception message');
     }
 
     public function testDeprecationCanBeExpected(): void
     {
-        Expect::after($this)
-            ->deprecation()
-            ->deprecationMessage('foo')
-            ->deprecationMessageMatches('/foo/');
+        $this->expectDeprecation();
+        $this->expectDeprecationMessage('foo');
+        $this->expectDeprecationMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_DEPRECATED);
     }
 
     public function testNoticeCanBeExpected(): void
     {
-        Expect::after($this)
-            ->notice()
-            ->noticeMessage('foo')
-            ->noticeMessageMatches('/foo/');
+        $this->expectNotice();
+        $this->expectNoticeMessage('foo');
+        $this->expectNoticeMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_NOTICE);
     }
 
     public function testWarningCanBeExpected(): void
     {
-        Expect::after($this)
-            ->warning()
-            ->warningMessage('foo')
-            ->warningMessageMatches('/foo/');
+        $this->expectWarning();
+        $this->expectWarningMessage('foo');
+        $this->expectWarningMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_WARNING);
     }
 
     public function testErrorCanBeExpected(): void
     {
-        Expect::after($this)
-            ->error()
-            ->errorMessage('foo')
-            ->errorMessageMatches('/foo/');
+        $this->expectError();
+        $this->expectErrorMessage('foo');
+        $this->expectErrorMessageMatches('/foo/');
 
         trigger_error('foo', E_USER_ERROR);
     }

@@ -81,62 +81,27 @@ For other usage examples, please see how We write tests for this package in the 
 
 In addition to assertions, NextProject offers you a set of assertion aliases. For the full list of **assertion aliases**, please refer to [assertion aliases](/docs/AssertionAliases.md) documentation.
 
-## Expect exceptions
+## Testing Exceptions, Errors, Warnings, and Notices
 
-If your library still needs to support PHP 7.1 and therefore needs PHPUnit 7.5 for testing, this is a function you can use to support [`expectExceptionMessageMatches()`][testing-exceptions], [`expectError()`][testing-php-errors], [`expectWarning()`][testing-php-errors], [`expectNotice()`][testing-php-errors] and [`expectDeprecation()`][testing-php-errors].
+If your library still needs to support PHP 7.1 and therefore needs PHPUnit 7.5 for testing, then use the [`ExpectException`][src-expect] trait to support [`expectExceptionMessageMatches()`][testing-exceptions], [`expectError()`][testing-php-errors], [`expectWarning()`][testing-php-errors], [`expectNotice()`][testing-php-errors] and [`expectDeprecation()`][testing-php-errors].
 
 ```php
-use Realodix\NextProject\Expect;
+<?php
 
-public function testException(): void
+use PHPUnit\Framework\TestCase;
+use Realodix\NextProject\Support\ExpectException;
+
+class ErrorTest extends TestCase
 {
-    Expect::after($this)
-        ->exceptionMessageMatches('/^Exception/');
+    use ExpectException;
 
-    throw new \Exception('Exception message');
-}
-
-public function testDeprecationCanBeExpected(): void
-{
-    Expect::after($this)
-        ->deprecation();
-        ->deprecationMessage('foo');
-        ->deprecationMessageMatches('/foo/');
-
-    \trigger_error('foo', \E_USER_DEPRECATED);
-}
-
-public function testNoticeCanBeExpected(): void
-{
-    Expect::after($this)
-        ->notice();
-        ->noticeMessage('foo');
-        ->noticeMessageMatches('/foo/');
-
-    \trigger_error('foo', \E_USER_NOTICE);
-}
-
-public function testWarningCanBeExpected(): void
-{
-    Expect::after($this)
-        ->warning();
-        ->warningMessage('foo');
-        ->warningMessageMatches('/foo/');
-
-    \trigger_error('foo', \E_USER_WARNING);
-}
-
-public function testErrorCanBeExpected(): void
-{
-    Expect::after($this)
-        ->error();
-        ->errorMessage('foo');
-        ->errorMessageMatches('/foo/');
-
-    \trigger_error('foo', \E_USER_ERROR);
+    // ..
 }
 ```
 
+When you don't need [`ExpectException`][src-expect] on the PHPUnit version > 8.4.0 on which the tests are being run, the autoloader will automatically load an empty trait with that same name, so you can safely use these trait in tests which need to be PHPUnit cross-version compatible.
+
+[src-expect]: /src/Support/ExpectException.php
 [testing-exceptions]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-exceptions
 [testing-php-errors]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-php-errors-warnings-and-notices
 
