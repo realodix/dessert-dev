@@ -87,6 +87,16 @@ class YourTest extends TestCase
 
 For other usage examples, please see how We write tests for this package in the [/tests](/tests/Unit) folder.
 
+### Modifier
+
+#### and($actualValue)
+
+Pass a new value to the `and()` function to chain multiple expectations in a single test:
+
+```php
+expect($id)->toBe(14)->and($name)->toBe('Nuno');
+```
+
 ### Assertion Aliases
 
 In addition to assertions, NextProject offers you a set of assertion aliases. For the full list of **assertion aliases**, please refer to [assertion aliases](/docs/AssertionAliases.md) documentation.
