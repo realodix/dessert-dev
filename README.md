@@ -59,7 +59,6 @@ class YourTest extends TestCase
 
     public function test_global_function(): void
     {
-        // Global function
         verify(1)
             ->isInt()       // $this->assertIsInt(1);
             ->isNotFloat(); // $this->assertIsFloat(1);
