@@ -121,30 +121,6 @@ Assert::that('string')->not->isInt();
 
 In addition to assertions, NextProject offers you a set of assertion aliases. For the full list of **assertion aliases**, please refer to [assertion aliases](/docs/AssertionAliases.md) documentation.
 
-## Testing Exceptions, Errors, Warnings, and Notices
-
-If your library still needs to support PHP 7.1 and therefore needs PHPUnit 7.5 for testing, then use the [`ExpectException`][src-expect] trait to support [`expectExceptionMessageMatches()`][testing-exceptions], [`expectError()`][testing-php-errors], [`expectWarning()`][testing-php-errors], [`expectNotice()`][testing-php-errors] and [`expectDeprecation()`][testing-php-errors].
-
-```php
-<?php
-
-use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Support\ExpectException;
-
-class ErrorTest extends TestCase
-{
-    use ExpectException;
-
-    // ..
-}
-```
-
-When you don't need [`ExpectException`][src-expect] trait on the PHPUnit > 8.4.0 on which the tests are being run, the autoloader will automatically load an empty trait with that same name, so you can safely use these trait in tests which need to be PHPUnit cross-version compatible.
-
-[src-expect]: /src/Support/ExpectException.php
-[testing-exceptions]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-exceptions
-[testing-php-errors]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-php-errors-warnings-and-notices
-
 ## Extending
 
 In order to add more assertions you can extend the [`Assertion`](/src/Assertion.php) class:

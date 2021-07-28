@@ -49,13 +49,3 @@ if (! \function_exists('should')) {
         return new Assertion($actual);
     }
 }
-
-if (! method_exists('\PHPUnit\Framework\TestCase', 'expectErrorMessage')) {
-    // PHPUnit < 8.4.0.
-    require_once __DIR__.'/Support/ExpectException.php';
-
-    return;
-}
-
-// PHPUnit >= 8.4.0.
-require_once __DIR__.'/Support/ExpectException_Empty.php';
