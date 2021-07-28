@@ -10,21 +10,19 @@ final class BehaviourExtendedTest extends TestCase
     public function testArrayHasKey(): void
     {
         $test_array = [
-            'a' => 1,
-            'b',
-            'c' => 'world',
-            'd' => [
-                'e' => 'hello',
+            'a' => 'foo',
+            'b' => [
+                'c' => 'bar',
             ],
             'key.with.dots' => false,
         ];
 
         ass($test_array)
-            ->hasKey('c')
-            ->hasKey('d.e')
+            ->hasKey('a')
+            ->hasKey('b.c')
             ->hasKey('key.with.dots')
-            ->hasKey('c', 'world')
-            ->hasKey('d.e', 'hello')
+            ->hasKey('a', 'foo')
+            ->hasKey('b.c', 'bar')
             ->hasKey('key.with.dots', false);
 
         $this->expectException(ExpectationFailedException::class);
@@ -35,21 +33,19 @@ final class BehaviourExtendedTest extends TestCase
     public function testArrayNotHasKey(): void
     {
         $test_array = [
-            'a' => 1,
-            'b',
-            'c' => 'world',
-            'd' => [
-                'e' => 'hello',
+            'a' => 'foo',
+            'b' => [
+                'c' => 'bar',
             ],
             'key.with.dots' => false,
         ];
 
         ass($test_array)
             ->notHasKey('x')
-            ->notHasKey('d.x')
+            ->notHasKey('b.x')
             ->notHasKey('key.with.x')
-            ->notHasKey('x', 'world')
-            ->notHasKey('d.x', 'hello')
+            ->notHasKey('x', 'foo')
+            ->notHasKey('b.x', 'bar')
             ->notHasKey('key.with.x', true);
 
         $this->expectException(ExpectationFailedException::class);
