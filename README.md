@@ -65,11 +65,12 @@ class YourTest extends TestCase
             ->isNotFloat(); // $this->assertIsFloat(1);
 
         verify([1, 2, 3])
-            // Modifier to create an expectation on each item of the given iterable
+            // Modifier to create an expectation on each item of 
+            // the given iterable
             ->each()
             ->isInt()
-            // Pass a new value to the and function to chain multiple expectations in 
-            // a single test
+            // Pass a new value to the and function to chain multiple 
+            // expectations in a single test
             ->and(true)
                 ->true()
                 ->notFalse();
