@@ -43,36 +43,46 @@ same behavior & syntax.
 For the full list of **assertions**, please refer to [PHPUnit Assertions](https://phpunit.readthedocs.io/en/9.5/assertions.html) documentation.
 
 ```php
+<?php
+
 use Realodix\NextProject\Assert;
+use PHPUnit\Framework\TestCase;
 
-// Static method
-Assert::that(1)
-    ->isInt()       // $this->assertIsInt(1);
-    ->isNotFloat(); // $this->assertIsFloat(1);
+class YourTest extends TestCase
+{
+    public function test_with_static_method(): void
+    {
+        Assert::that(1)
+            ->isInt()       // $this->assertIsInt(1);
+            ->isNotFloat(); // $this->assertIsFloat(1);
+    }
 
+    public function test_global_function(): void
+    {
+        // Global function
+        verify(1)
+            ->isInt()       // $this->assertIsInt(1);
+            ->isNotFloat(); // $this->assertIsFloat(1);
 
-// Global function
-verify(1)
-    ->isInt()       // $this->assertIsInt(1);
-    ->isNotFloat(); // $this->assertIsFloat(1);
+        verify([1, 2, 3])
+            // Modifier to create an expectation on each item of the given iterable
+            ->each()
+            ->isInt()
+            // Pass a new value to the and function to chain multiple expectations in 
+            // a single test
+            ->and(true)
+                ->true()
+                ->notFalse();
+        
+        // $this->assertIsInt(1);
+        // $this->assertIsInt(2);
+        // $this->assertIsInt(3);
+        // $this->assertTrue(true);
+        // $this->assertNotFalse(true);
+    }
 
-verify([1, 2, 3])
-    // Modifier to create an expectation on each item of the given iterable
-    ->each()
-    ->isInt()
-    // Pass a new value to the and function to chain multiple expectations in a single test
-    ->and(true)
-        ->true()
-        ->notFalse();
-
-// $this->assertIsInt(1);
-// $this->assertIsInt(2);
-// $this->assertIsInt(3);
-// $this->assertTrue(true);
-// $this->assertNotFalse(true);
-
-
-// and many more !
+    // and many more !
+}
 ```
 
 For other usage examples, please see how We write tests for this package in the [/tests](/tests/Unit) folder.
