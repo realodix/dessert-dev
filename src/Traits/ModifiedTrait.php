@@ -3,10 +3,52 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\ExpectationFailedException;
+use Realodix\NextProject\Support\Arr;
 use Realodix\NextProject\Support\Validator;
 
 trait ModifiedTrait
 {
+    /**
+     * @param int|string $key
+     * @param mixed      $value
+     * @param string     $message
+     */
+    public function arrayHasKey($key, $value = null, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'array');
+        $key = Validator::expectedValue($key, 1, 'int_string');
+
+        try {
+            Assert::assertTrue(Arr::has($actual, $key), $message);
+        } catch (ExpectationFailedException $exception) {
+            throw new ExpectationFailedException(
+                "Failed asserting that an array has the key '${key}'",
+                $exception->getComparisonFailure()
+            );
+        }
+
+        if (! $value === null) {
+            Assert::assertEquals($value, Arr::get($actual, $key));
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param int|string $key
+     * @param string     $message
+     */
+    public function arrayNotHasKey($key, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'array');
+        $expected = Validator::expectedValue($key, 1, 'int_string');
+
+        Assert::assertArrayNotHasKey($expected, $actual, $message);
+
+        return $this;
+    }
+
     public function contains($needle, string $message = ''): self
     {
         $haystack = $this->actual;

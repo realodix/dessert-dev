@@ -86,34 +86,6 @@ class Assertion
     }
 
     /**
-     * @param int|string $key
-     * @param string     $message
-     */
-    public function arrayHasKey($key, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'array');
-        $expected = Validator::expectedValue($key, 1, 'int_string');
-
-        Assert::assertArrayHasKey($expected, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param int|string $key
-     * @param string     $message
-     */
-    public function arrayNotHasKey($key, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'array');
-        $expected = Validator::expectedValue($key, 1, 'int_string');
-
-        Assert::assertArrayNotHasKey($expected, $actual, $message);
-
-        return $this;
-    }
-
-    /**
      * @param string $attributeName
      * @param string $message
      */

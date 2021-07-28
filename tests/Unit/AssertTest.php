@@ -8,15 +8,6 @@ use Realodix\NextProject\Check;
 
 final class AssertTest extends TestCase
 {
-    public function testArrayHasKey(): void
-    {
-        $array = ['title' => 'You should add title'];
-
-        ass($array)
-            ->hasKey('title')
-            ->notHasKey('body');
-    }
-
     public function testCount(): void
     {
         ass([1, 2, 3])
