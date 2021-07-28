@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
   <file src="src/Assertion.php">
-    <MixedArgument occurrences="58">
+    <MixedArgument occurrences="54">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -46,10 +46,6 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$expected</code>
-      <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -61,7 +57,7 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="53">
+    <MixedAssignment occurrences="49">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -106,10 +102,6 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$expected</code>
-      <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
       <code>$expected</code>
@@ -141,6 +133,12 @@
     <UnusedParam occurrences="1">
       <code>$name</code>
     </UnusedParam>
+  </file>
+  <file src="src/Support/Arr.php">
+    <MixedAssignment occurrences="2">
+      <code>$array</code>
+      <code>$array</code>
+    </MixedAssignment>
   </file>
   <file src="src/Support/Constraint/ObjectEquals.php">
     <MissingParamType occurrences="1">
@@ -254,23 +252,36 @@
     </TooManyArguments>
   </file>
   <file src="src/Traits/ModifiedTrait.php">
+    <InternalClass occurrences="1"/>
+    <InternalMethod occurrences="2">
+      <code>getComparisonFailure</code>
+    </InternalMethod>
     <MissingParamType occurrences="2">
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="11">
       <code>$actual</code>
       <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$expected</code>
       <code>$haystack</code>
       <code>$haystack</code>
+      <code>$key</code>
+      <code>$key</code>
       <code>$needle</code>
       <code>$needle</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="8">
       <code>$actual</code>
       <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$expected</code>
       <code>$haystack</code>
       <code>$haystack</code>
+      <code>$key</code>
     </MixedAssignment>
   </file>
   <file src="src/Traits/PolyfillTrait.php">

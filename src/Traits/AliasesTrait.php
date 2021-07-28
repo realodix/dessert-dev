@@ -126,11 +126,12 @@ trait AliasesTrait
 
     /**
      * @param int|string $key
+     * @param null|mixed $value
      * @param string     $message
      */
-    public function hasKey($key, string $message = ''): self
+    public function hasKey($key, $value = null, string $message = ''): self
     {
-        return $this->arrayHasKey($key, $message);
+        return $this->arrayHasKey($key, $value, $message);
     }
 
     /**

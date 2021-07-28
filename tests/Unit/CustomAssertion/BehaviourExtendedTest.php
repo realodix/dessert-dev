@@ -2,6 +2,7 @@
 
 namespace Realodix\NextProject\Test\CustomAssertion;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
 final class BehaviourExtendedTest extends TestCase
@@ -31,6 +32,10 @@ final class BehaviourExtendedTest extends TestCase
             ->hasKey('c', 'world')
             ->hasKey('d.e', 'hello')
             ->hasKey('key.with.dots', false);
+
+        $this->expectException(ExpectationFailedException::class);
+
+        ass($test_array)->hasKey('foo');
     }
 
     public function testContains(): void

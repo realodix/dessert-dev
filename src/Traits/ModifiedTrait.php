@@ -11,7 +11,7 @@ trait ModifiedTrait
 {
     /**
      * @param int|string $key
-     * @param mixed      $value
+     * @param null|mixed $value
      * @param string     $message
      */
     public function arrayHasKey($key, $value = null, string $message = ''): self
@@ -28,8 +28,10 @@ trait ModifiedTrait
             );
         }
 
-        if (! $value === null) {
+        if ($value !== null) {
             Assert::assertEquals($value, Arr::get($actual, $key));
+
+            return $this;
         }
 
         return $this;
