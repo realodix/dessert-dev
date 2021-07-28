@@ -139,7 +139,7 @@ class ErrorTest extends TestCase
 }
 ```
 
-When you don't need [`ExpectException`][src-expect] on the PHPUnit version > 8.4.0 on which the tests are being run, the autoloader will automatically load an empty trait with that same name, so you can safely use these trait in tests which need to be PHPUnit cross-version compatible.
+When you don't need [`ExpectException`][src-expect] trait on the PHPUnit > 8.4.0 on which the tests are being run, the autoloader will automatically load an empty trait with that same name, so you can safely use these trait in tests which need to be PHPUnit cross-version compatible.
 
 [src-expect]: /src/Support/ExpectException.php
 [testing-exceptions]: https://phpunit.readthedocs.io/en/stable/writing-tests-for-phpunit.html#testing-exceptions
