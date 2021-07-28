@@ -39,14 +39,28 @@ trait ModifiedTrait
 
     /**
      * @param int|string $key
+     * @param null|mixed $value
      * @param string     $message
      */
-    public function arrayNotHasKey($key, string $message = ''): self
+    public function arrayNotHasKey($key, $value = null, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'array');
-        $expected = Validator::expectedValue($key, 1, 'int_string');
+        $key = Validator::expectedValue($key, 1, 'int_string');
 
-        Assert::assertArrayNotHasKey($expected, $actual, $message);
+        try {
+            Assert::assertFalse(Arr::has($actual, $key), $message);
+        } catch (ExpectationFailedException $exception) {
+            throw new ExpectationFailedException(
+                "Failed asserting that an array has the key '${key}'",
+                $exception->getComparisonFailure()
+            );
+        }
+
+        if ($value !== null) {
+            Assert::assertNotEquals($value, Arr::get($actual, $key));
+
+            return $this;
+        }
 
         return $this;
     }

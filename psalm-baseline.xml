@@ -252,22 +252,24 @@
     </TooManyArguments>
   </file>
   <file src="src/Traits/ModifiedTrait.php">
-    <InternalClass occurrences="1"/>
-    <InternalMethod occurrences="2">
+    <InternalClass occurrences="2"/>
+    <InternalMethod occurrences="4">
+      <code>getComparisonFailure</code>
       <code>getComparisonFailure</code>
     </InternalMethod>
     <MissingParamType occurrences="2">
       <code>$needle</code>
       <code>$needle</code>
     </MissingParamType>
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="12">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$expected</code>
       <code>$haystack</code>
       <code>$haystack</code>
+      <code>$key</code>
+      <code>$key</code>
       <code>$key</code>
       <code>$key</code>
       <code>$needle</code>
@@ -278,9 +280,9 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
-      <code>$expected</code>
       <code>$haystack</code>
       <code>$haystack</code>
+      <code>$key</code>
       <code>$key</code>
     </MixedAssignment>
   </file>

@@ -9,12 +9,6 @@ final class BehaviourExtendedTest extends TestCase
 {
     public function testArrayHasKey(): void
     {
-        $array = ['title' => 'You should add title'];
-
-        ass($array)
-            ->hasKey('title')
-            ->notHasKey('body');
-
         $test_array = [
             'a' => 1,
             'b',
@@ -36,6 +30,31 @@ final class BehaviourExtendedTest extends TestCase
         $this->expectException(ExpectationFailedException::class);
 
         ass($test_array)->hasKey('foo');
+    }
+
+    public function testArrayNotHasKey(): void
+    {
+        $test_array = [
+            'a' => 1,
+            'b',
+            'c' => 'world',
+            'd' => [
+                'e' => 'hello',
+            ],
+            'key.with.dots' => false,
+        ];
+
+        ass($test_array)
+            ->notHasKey('x')
+            ->notHasKey('d.x')
+            ->notHasKey('key.with.x')
+            ->notHasKey('x', 'world')
+            ->notHasKey('d.x', 'hello')
+            ->notHasKey('key.with.x', true);
+
+        $this->expectException(ExpectationFailedException::class);
+
+        ass($test_array)->notHasKey('key.with.dots');
     }
 
     public function testContains(): void
