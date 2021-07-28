@@ -69,8 +69,7 @@ class YourTest extends TestCase
             // given iterable
             ->each()
             ->isInt()
-            // Pass a new value to the and function to chain multiple 
-            // assertions in a single test
+            // Pass a new value to the and function
             ->and(true)
                 ->true()
                 ->notFalse();
