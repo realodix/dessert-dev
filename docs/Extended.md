@@ -24,6 +24,8 @@ verify(['user' => ['nuno' => 'maduro']])->toHaveKey('user.nuno');
 verify(['user' => ['nuno' => 'maduro']])->toHaveKey('user.nuno', 'maduro');
 ```
 
+`arrayNotHasKey()` is the inverse of this assertion and takes the same arguments.
+
 [contains]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertcontains
 [stringCS]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertstringcontainsstring
 [stringEF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertstringequalsfile
