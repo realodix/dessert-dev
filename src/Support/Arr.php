@@ -3,9 +3,8 @@
 namespace Realodix\NextProject\Support;
 
 /**
- * Credits: most of this class methods and implementations
- * belongs to the Arr helper of laravel/framework project
- * (https://github.com/laravel/framework).
+ * Credits: most of this class methods and implementations belongs to the Arr helper of
+ * laravel/framework project (https://github.com/laravel/framework).
  *
  * @internal
  */
