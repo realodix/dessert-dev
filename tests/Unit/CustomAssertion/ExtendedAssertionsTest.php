@@ -38,6 +38,15 @@ final class ExtendedAssertionsTest extends TestCase
                 ->false();
     }
 
+    public function testArrayHasKeys(): void
+    {
+        $array = ['name' => 'Desk', 'price' => 100];
+
+        ass($array)
+            ->arrayHasKeys(['name', 'price'])
+            ->arrayNotHasKeys(['foo', 'bar']);
+    }
+
     public function testContains(): void
     {
         ass([3, 2])

@@ -42,6 +42,18 @@ verify($array)
 [jsonSEJS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertjsonstringequalsjsonstring
 [xmlSEXS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertxmlstringequalsxmlstring
 
+### arrayHasKeys()
+
+Asserts that the value array has the provided $keys.
+
+```php
+$array = ['name' => 'Desk', 'price' => 100];
+
+verify($array)
+    ->arrayHasKeys(['name', 'price'])
+    ->arrayNotHasKeys(['foo', 'bar']);
+```
+
 ### fileEqualsString()
 
 Asserts that the contents of one file is equal to the string.
