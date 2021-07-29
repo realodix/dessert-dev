@@ -2,8 +2,6 @@
 
 | Assertions              | Descriptions |
 | ----------------------- | ------------ |
-| `arrayHasKey()`         | *See the explanation below this table*. |
-| `arrayNotHasKey()`      | |
 | `contains()`            | [`contains`][contains] or [`stringContainsString`][stringCS] |
 | `notContains()`         | [`notContains`][contains] or [`stringNotContainsString`][stringCS] |
 | `stringEqualsFile()`    | [`stringEqualsFile`][stringEF] or [`jsonStringEqualsJsonFile`][jsonSEJF] or [`xmlStringEqualsXmlFile`][xmlSEXF] |
