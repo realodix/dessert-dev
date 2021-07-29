@@ -9,6 +9,21 @@
 | `stringEqualsFile()`    | [`stringEqualsFile`][stringEF] or [`jsonStringEqualsJsonFile`][jsonSEJF] or [`xmlStringEqualsXmlFile`][xmlSEXF] |
 | `stringNotEqualsFile()` | [`stringNotEqualsFile`][stringEF] or [`jsonStringNotEqualsJsonFile`][jsonSEJF] or [`xmlStringNotEqualsXmlFile`][xmlSEXF] |
 
+### arrayHasKey()
+
+Asserts that the value array contains the provided `$key`:
+
+```php
+verify($array)->toHaveKey('key-a');
+
+// You may pass a second parameter to assert that the value at the given key is equal to something:
+verify(['foo' => 'bar'])->toHaveKey('foo', 'bar');
+
+// This expectation also supports dot notation for reaching deeper into nested arrays:
+verify(['user' => ['nuno' => 'maduro']])->toHaveKey('user.nuno');
+verify(['user' => ['nuno' => 'maduro']])->toHaveKey('user.nuno', 'maduro');
+```
+
 [contains]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertcontains
 [stringCS]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertstringcontainsstring
 [stringEF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertstringequalsfile
