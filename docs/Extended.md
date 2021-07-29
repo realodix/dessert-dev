@@ -14,14 +14,13 @@
 Asserts that the value array contains the provided `$key`:
 
 ```php
-verify($array)->toHaveKey('key-a');
+$array = ['product' => ['name' => 'Desk', 'price' => 100]];
 
-// You may pass a second parameter to assert that the value at the given key is equal to something:
-verify(['foo' => 'bar'])->toHaveKey('foo', 'bar');
-
-// This expectation also supports dot notation for reaching deeper into nested arrays:
-verify(['user' => ['nuno' => 'maduro']])->toHaveKey('user.nuno');
-verify(['user' => ['nuno' => 'maduro']])->toHaveKey('user.nuno', 'maduro');
+verify($array)
+    ->arrayHasKey('product')
+    // Also supports dot notation for reaching deeper into nested arrays
+    ->arrayHasKey('product.name')
+    ->arrayHasKey('product.price', 100);
 ```
 
 `arrayNotHasKey()` is the inverse of this assertion and takes the same arguments.
