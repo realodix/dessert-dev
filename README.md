@@ -36,9 +36,9 @@ NextProject offers you six functions to write your tests:
 - `should($actual)`
 - `verify($actual)`
 
-Write test cases and test methods as usual, just switch to: e.g. `Assert::that()`, to write your
-assertions. Use the one that best fits your test naming convention, or all. They share the
-same behavior & syntax.
+Write test cases and test methods as usual, just switch to: e.g. `Assert::that()`, to
+write your assertions. Use the one that best fits your test naming convention, or all.
+They share the same behavior & syntax.
 
 For the full list of **assertions**, please refer to [PHPUnit Assertions](https://phpunit.readthedocs.io/en/9.5/assertions.html) documentation.
 
