@@ -6,6 +6,11 @@ parameters:
 			path: src/Assertion.php
 
 		-
+			message: "#^Instantiated class Realodix\\\\NextProject\\\\Traits\\\\BadMethodCallException not found\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:__get\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
@@ -43,6 +48,11 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$canonicalize of class PHPUnit\\\\Framework\\\\Constraint\\\\IsEqual constructor expects bool, int given\\.$#"
 			count: 2
+			path: src/Assertion.php
+
+		-
+			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) invoked with 1 parameter, 2\\-3 required\\.$#"
+			count: 1
 			path: src/Assertion.php
 
 		-
@@ -86,6 +96,11 @@ parameters:
 			path: src/Assertion.php
 
 		-
+			message: "#^Throwing object of an unknown class Realodix\\\\NextProject\\\\Traits\\\\BadMethodCallException\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
 			message: "#^Expression \"\\$this\\-\\>original\\-\\>\\{\\$name\\}\" on a separate line does not do anything\\.$#"
 			count: 1
 			path: src/Opposite.php
@@ -97,6 +112,11 @@ parameters:
 
 		-
 			message: "#^Method Realodix\\\\NextProject\\\\Opposite\\:\\:__get\\(\\) should return Realodix\\\\NextProject\\\\Assertion but return statement is missing\\.$#"
+			count: 1
+			path: src/Opposite.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$name$#"
 			count: 1
 			path: src/Opposite.php
 
