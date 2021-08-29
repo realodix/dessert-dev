@@ -16,8 +16,7 @@ final class Validator
      */
     public static function isClosedResource($value): bool
     {
-        // Introduced in PHP 8 as alternative for get_debug_type(). Thanks
-        // symfony/polyfill-php80, this works to handle PHP < 7.2.
+        // symfony/polyfill-php80
         if (get_debug_type($value) === 'resource (closed)') {
             return true;
         }
@@ -99,7 +98,7 @@ final class Validator
             $stack[1]['function'],
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($actualValue)
+            get_debug_type($actualValue) // symfony/polyfill-php80
         );
 
         switch ($type) {
@@ -164,7 +163,7 @@ final class Validator
             $argument,
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($expectedValue)
+            get_debug_type($expectedValue) // symfony/polyfill-php80
         );
 
         switch ($type) {
