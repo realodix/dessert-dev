@@ -332,25 +332,25 @@ trait ExtendedTrait
      *
      * @param int $number
      */
-    public function length(int $number): Expectation
+    public function length(int $number): self
     {
-        if (\is_string($this->value)) {
-            Assert::assertEquals($number, mb_strlen($this->value));
+        if (\is_string($this->actual)) {
+            Assert::assertEquals($number, mb_strlen($this->actual));
 
             return $this;
         }
 
-        if (is_iterable($this->value)) {
+        if (is_iterable($this->actual)) {
             Assert::assertCount($number);
 
             return $this;
         }
 
-        if (\is_object($this->value)) {
-            if (method_exists($this->value, 'toArray')) {
-                $array = $this->value->toArray();
+        if (\is_object($this->actual)) {
+            if (method_exists($this->actual, 'toArray')) {
+                $array = $this->actual->toArray();
             } else {
-                $array = (array) $this->value;
+                $array = (array) $this->actual;
             }
 
             Assert::assertCount($number, $array);

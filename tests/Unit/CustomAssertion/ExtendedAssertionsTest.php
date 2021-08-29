@@ -214,4 +214,15 @@ final class ExtendedAssertionsTest extends TestCase
         ass('<ul><li>1</li><li>2</li><li>3</li></ul>')
             ->markupSelectorCount(3, 'li');
     }
+
+    public function testLength()
+    {
+        ass([
+            'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
+            (object) [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            // collect([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+        ])
+            ->each()
+            ->length(9);
+    }
 }
