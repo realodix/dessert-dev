@@ -224,5 +224,7 @@ final class ExtendedAssertionsTest extends TestCase
         ])
             ->each()
             ->length(9);
+
+        ass([1, 2, 3])->length(3);
     }
 }

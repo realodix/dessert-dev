@@ -51,11 +51,6 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) invoked with 1 parameter, 2\\-3 required\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFileEquals\\(\\) invoked with 4 parameters, 2\\-3 required\\.$#"
 			count: 1
 			path: src/Assertion.php

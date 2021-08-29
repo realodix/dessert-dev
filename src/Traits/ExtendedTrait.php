@@ -341,7 +341,7 @@ trait ExtendedTrait
         }
 
         if (is_iterable($this->actual)) {
-            Assert::assertCount($number);
+            $this->count($number);
 
             return $this;
         }
