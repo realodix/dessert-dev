@@ -326,4 +326,36 @@ trait ExtendedTrait
 
         return $this;
     }
+
+    /**
+     * Asserts that $number matches value's Length.
+     */
+    public function length(int $number): Expectation
+    {
+        if (is_string($this->value)) {
+            Assert::assertEquals($number, grapheme_strlen($this->value));
+
+            return $this;
+        }
+
+        if (is_iterable($this->value)) {
+            Assert::assertCount($number);
+
+            return $this;
+        }
+
+        if (is_object($this->value)) {
+            if (method_exists($this->value, 'toArray')) {
+                $array = $this->value->toArray();
+            } else {
+                $array = (array) $this->value;
+            }
+
+            Assert::assertCount($number, $array);
+
+            return $this;
+        }
+
+        throw new BadMethodCallException('Expectation value length is not countable.');
+    }
 }
