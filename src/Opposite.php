@@ -39,7 +39,7 @@ final class Opposite
             return $this->original;
         }
 
-        $this->throwExpectationFailedException($name, $arguments);
+        $this->throwExpectationFailedException($arguments);
     }
 
     /**
@@ -55,16 +55,16 @@ final class Opposite
             return $this->original;
         }
 
-        $this->throwExpectationFailedException($name);
+        $this->throwExpectationFailedException();
     }
 
     /**
      * Creates a new expectation failed exception with a nice readable message.
      *
-     * @param string            $name
      * @param array<int, mixed> $arguments
+     * @param string            $name
      */
-    private function throwExpectationFailedException(string $name, array $arguments = []): void
+    private function throwExpectationFailedException(array $arguments = []): void
     {
         $exporter = new Exporter();
 

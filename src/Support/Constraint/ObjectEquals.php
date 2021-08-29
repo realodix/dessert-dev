@@ -55,7 +55,7 @@ final class ObjectEquals extends Constraint
             throw new \TypeError(
                 sprintf(
                     'An actual value must be an object, %s given',
-                    get_debug_type($actual)
+                    get_debug_type($actual) // symfony/polyfill-php80
                 )
             );
         }

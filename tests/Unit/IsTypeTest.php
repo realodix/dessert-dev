@@ -68,11 +68,6 @@ final class IsTypeTest extends TestCase
     public function isIterable(): void
     {
         ass([])->isIterable();
-    }
-
-    /** @test */
-    public function isNotIterable(): void
-    {
         ass(null)->isNotIterable();
     }
 
