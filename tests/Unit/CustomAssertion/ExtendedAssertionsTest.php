@@ -355,4 +355,13 @@ final class ExtendedAssertionsTest extends TestCase
         );
         ass(function () {})->throw(function () {});
     }
+
+    public function testThrowClosureMissingTypeHint()
+    {
+        $this->expectException(
+            \LogicException::class,
+            'The "throw" closure\'s parameter must be type-hinted as the class string'
+        );
+        ass(function () {})->throw(function ($e) {});
+    }
 }
