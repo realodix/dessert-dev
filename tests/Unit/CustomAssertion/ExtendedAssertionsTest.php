@@ -270,6 +270,12 @@ final class ExtendedAssertionsTest extends TestCase
             ->throw(function (\RuntimeException $e) {}, 'actual message');
     }
 
+    public function testThrowNotFailures()
+    {
+        $this->expectException(ExpectationFailedException::class);
+        ass(function () { throw new RuntimeException(); })->not->throw(RuntimeException::class);
+    }
+
     public function testNotThrow()
     {
         ass(function () {})->not->throw(\Exception::class);
@@ -341,10 +347,5 @@ final class ExtendedAssertionsTest extends TestCase
             ->throw(\RuntimeException::class, 'expected message');
     }
 
-    public function testThrowNotFailures()
-    {
-        $this->expectException(ExpectationFailedException::class);
-        ass(function () { throw new \RuntimeException('actual message'); })
-            ->throw(\RuntimeException::class, 'expected message');
-    }
+
 }
