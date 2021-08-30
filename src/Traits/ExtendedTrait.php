@@ -360,4 +360,39 @@ trait ExtendedTrait
 
         throw new \BadMethodCallException('Expectation value length is not countable.');
     }
+
+
+    /**
+     * Asserts that $number not matches value's Length.
+     *
+     * @param int $number
+     */
+    public function notHasLength(int $number): self
+    {
+        if (\is_string($this->actual)) {
+            Assert::assertNotEquals($number, mb_strlen($this->actual));
+
+            return $this;
+        }
+
+        if (is_iterable($this->actual)) {
+            $this->notCount($number);
+
+            return $this;
+        }
+
+        if (\is_object($this->actual)) {
+            if (method_exists($this->actual, 'toArray')) {
+                $array = $this->actual->toArray();
+            } else {
+                $array = (array) $this->actual;
+            }
+
+            Assert::assertNotCount($number, $array);
+
+            return $this;
+        }
+
+        throw new \BadMethodCallException('Expectation value length is not countable.');
+    }
 }

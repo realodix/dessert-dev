@@ -228,6 +228,19 @@ final class ExtendedAssertionsTest extends TestCase
         ass([1, 2, 3])->hasLength(3);
     }
 
+    public function testNotHasLength()
+    {
+        ass([
+            'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
+            (object) [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            // collect([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+        ])
+            ->each()
+            ->notHasLength(1);
+
+        ass([1, 2, 3])->notHasLength(1);
+    }
+
     public function testHasLengthError()
     {
         $this->expectException(\BadMethodCallException::class);

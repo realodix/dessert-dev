@@ -211,7 +211,7 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="17">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -225,11 +225,12 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$array</code>
+      <code>$array</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>Validator::actualValue($this-&gt;actual, 'string')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="16">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -244,6 +245,7 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$array</code>
       <code>$array</code>
     </MixedAssignment>
     <TooManyArguments occurrences="2">
