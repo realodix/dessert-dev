@@ -248,10 +248,16 @@
       <code>$array</code>
       <code>$array</code>
     </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>self</code>
+    </MixedInferredReturnType>
     <TooManyArguments occurrences="2">
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
     </TooManyArguments>
+    <UndefinedDocblockClass occurrences="1">
+      <code>string|Closure</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/Traits/ModifiedTrait.php">
     <InternalClass occurrences="2"/>

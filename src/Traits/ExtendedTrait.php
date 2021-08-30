@@ -10,6 +10,7 @@ use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Dom;
+use Realodix\NextProject\Support\NullClosure;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
@@ -433,7 +434,7 @@ trait ExtendedTrait
      *                                         Closure: first parameter = exception class
      * @param null|string    $exceptionMessage
      */
-    public function throw($exception, string $exceptionMessage = null): Expectation
+    public function throw($exception, string $exceptionMessage = null): self
     {
         $callback = NullClosure::create();
 
