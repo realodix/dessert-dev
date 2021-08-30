@@ -251,4 +251,117 @@ final class ExtendedAssertionsTest extends TestCase
         ass('<ul><li>1</li><li>2</li><li>3</li></ul>')
             ->markupSelectorCount(3, 'li');
     }
+
+    public function testThrow()
+    {
+        ass(function () {throw new \RuntimeException(); })
+            ->throw(\RuntimeException::class)
+            ->throw(\Exception::class)
+            ->throw(function (\RuntimeException $e) {});
+
+        ass(function () {throw new \RuntimeException('actual message'); })
+            ->throw(function (\Exception $e) {
+                ass($e->getMessage())->same('actual message');
+            });
+
+        ass(function () {throw new \RuntimeException('actual message'); })
+            ->throw('actual message')
+            ->throw(\RuntimeException::class, 'actual message')
+            ->throw(function (\RuntimeException $e) {}, 'actual message');
+    }
+
+    public function testThrowNotFailures()
+    {
+        $this->expectException(ExpectationFailedException::class);
+        ass(function () { throw new RuntimeException(); })->not->throw(RuntimeException::class);
+    }
+
+    public function testNotThrow()
+    {
+        ass(function () {})->not->throw(\Exception::class);
+
+        ass(function () {throw new Exception(); })->not->throw(\RuntimeException::class);
+    }
+
+    public function testThrowFailures1()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Exception "' . \RuntimeException::class . '" not thrown.'
+        );
+        ass(function () {})->throw(\RuntimeException::class);
+    }
+
+    public function testThrowFailures2()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Exception "' . \RuntimeException::class . '" not thrown.'
+        );
+        ass(function () {})->throw(function (\RuntimeException $e) {});
+    }
+
+    public function testThrowFailures3()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Failed asserting that Exception Object'
+        );
+        ass(function () { throw new Exception(); })->throw(function (RuntimeException $e) {});
+    }
+
+    public function testThrowFailures4()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Failed asserting that two strings are identical'
+        );
+        ass(function () { throw new \Exception('actual message'); })
+            ->throw(function (\Exception $e) {
+                ass($e->getMessage())->same('expected message');
+            });
+    }
+
+    public function testThrowFailures5()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Failed asserting that \'actual message\' contains "expected message".'
+        );
+        ass(function () { throw new \Exception('actual message'); })->throw('expected message');
+    }
+
+    public function testThrowFailures6()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Exception with message "actual message" not thrown'
+        );
+        ass(function () {})->throw('actual message');
+    }
+
+    public function testThrowFailures7()
+    {
+        $this->expectException(ExpectationFailedException::class);
+        ass(function () { throw new \RuntimeException('actual message'); })
+            ->throw(\RuntimeException::class, 'expected message');
+    }
+
+    public function testThrowClosureMissingParameter()
+    {
+        $this->expectException(
+            \LogicException::class,
+            'The "throw" closure must have a single parameter type-hinted as the class string'
+        );
+        ass(function () {})->throw(function () {});
+    }
+
+    public function testThrowClosureMissingTypeHint()
+    {
+        $this->expectException(
+            \LogicException::class,
+            'The "throw" closure\'s parameter must be type-hinted as the class string'
+        );
+        ass(function () {})->throw(function ($e) {});
+    }
 }

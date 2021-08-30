@@ -7,8 +7,10 @@ use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringContains;
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Dom;
+use Realodix\NextProject\Support\NullClosure;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
@@ -423,5 +425,57 @@ trait ExtendedTrait
         $this->actual($results)->count($count, $message);
 
         return $this;
+    }
+
+    /**
+     * Asserts that executing value throws an exception.
+     *
+     * @param string|Closure $exception        string: the exception class
+     *                                         Closure: first parameter = exception class
+     * @param null|string    $exceptionMessage
+     */
+    public function throw($exception, string $exceptionMessage = null): self
+    {
+        $callback = NullClosure::create();
+
+        if ($exception instanceof \Closure) {
+            $callback = $exception;
+            $parameters = (new \ReflectionFunction($exception))->getParameters();
+
+            if (1 !== \count($parameters)) {
+                throw new \LogicException('The "throw" closure must have a single parameter type-hinted as the class string');
+            }
+
+            if (! ($type = $parameters[0]->getType()) instanceof \ReflectionNamedType) {
+                throw new \LogicException('The "throw" closure\'s parameter must be type-hinted as the class string');
+            }
+
+            $exception = $type->getName();
+        }
+
+        try {
+            ($this->actual)();
+        } catch (\Throwable $e) {
+            if (! class_exists($exception)) {
+                Assert::assertStringContainsString($exception, $e->getMessage());
+
+                return $this;
+            }
+
+            if ($exceptionMessage) {
+                Assert::assertStringContainsString($exceptionMessage, $e->getMessage());
+            }
+
+            Assert::assertInstanceOf($exception, $e);
+            $callback($e);
+
+            return $this;
+        }
+
+        if (! class_exists($exception)) {
+            throw new ExpectationFailedException("Exception with message \"{$exception}\" not thrown.");
+        }
+
+        throw new ExpectationFailedException("Exception \"{$exception}\" not thrown.");
     }
 }
