@@ -21,10 +21,8 @@ final class ExtendedAssertionsTest extends TestCase
             ->each->isInt;
 
         expect([
-            function () {
-            },
-            function () {
-            },
+            function () {},
+            function () {},
         ])
         ->each()->isCallable()
         ->and(1)->isInt();

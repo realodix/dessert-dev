@@ -23,10 +23,7 @@ final class IsTypeTest extends TestCase
     /** @test */
     public function isCallable(): void
     {
-        ass(
-            function (): void {
-            }
-        )->isCallable();
+        ass(function (): void {})->isCallable();
 
         ass(false)->isNotCallable();
     }
