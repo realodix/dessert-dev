@@ -101,6 +101,11 @@ parameters:
 			path: src/Opposite.php
 
 		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$name$#"
+			count: 1
+			path: src/Opposite.php
+
+		-
 			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Constraint\\\\ObjectEquals\\:\\:__construct\\(\\) has parameter \\$object with no typehint specified\\.$#"
 			count: 1
 			path: src/Support/Constraint/ObjectEquals.php

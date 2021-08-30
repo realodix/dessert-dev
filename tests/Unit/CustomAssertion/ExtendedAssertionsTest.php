@@ -54,6 +54,36 @@ final class ExtendedAssertionsTest extends TestCase
             ->notContains(5, 'user have 5 posts');
     }
 
+    public function testHasLength()
+    {
+        ass([
+            'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
+            (object) [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        ])
+            ->each()
+            ->hasLength(9);
+
+        ass([1, 2, 3])->hasLength(3);
+    }
+
+    public function testNotHasLength()
+    {
+        ass([
+            'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
+            (object) [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        ])
+            ->each()
+            ->notHasLength(1);
+
+        ass([1, 2, 3])->notHasLength(1);
+    }
+
+    public function testHasLengthError()
+    {
+        $this->expectException(\BadMethodCallException::class);
+        ass([1, 1.5, true, null])->each->hasLength(1);
+    }
+
     /**
      * @dataProvider stringContainsStringIgnoringLineEndingsProvider
      *

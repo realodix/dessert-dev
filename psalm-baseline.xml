@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
+<files psalm-version="4.9.3@4c262932602b9bbab5020863d1eb22d49de0dbf4">
   <file src="src/Assertion.php">
     <MixedArgument occurrences="54">
       <code>$actual</code>
@@ -130,9 +130,6 @@
     <MissingClosureParamType occurrences="1">
       <code>$argument</code>
     </MissingClosureParamType>
-    <UnusedParam occurrences="1">
-      <code>$name</code>
-    </UnusedParam>
   </file>
   <file src="src/Support/Arr.php">
     <MixedAssignment occurrences="2">
@@ -172,6 +169,9 @@
       <code>$result-&gt;firstChild</code>
       <code>$value</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$attributes</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="1">
       <code>$result</code>
     </MixedAssignment>
@@ -187,12 +187,10 @@
       <code>actualValue</code>
       <code>expectedValue</code>
     </MissingReturnType>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="3">
       <code>$actualValue</code>
       <code>$expectedValue</code>
       <code>$expectedValue</code>
-      <code>$stack[1]['function']</code>
-      <code>$stack[1]['function']</code>
     </MixedArgument>
     <UnusedFunctionCall occurrences="2">
       <code>json_decode</code>
@@ -213,7 +211,7 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="17">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -226,11 +224,13 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$array</code>
+      <code>$array</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>Validator::actualValue($this-&gt;actual, 'string')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="16">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -245,6 +245,8 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$array</code>
+      <code>$array</code>
     </MixedAssignment>
     <TooManyArguments occurrences="2">
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>

@@ -209,6 +209,74 @@ trait ExtendedTrait
     }
 
     /**
+     * Asserts that $number matches value's Length.
+     *
+     * @param int $number
+     */
+    public function hasLength(int $number): self
+    {
+        if (\is_string($this->actual)) {
+            Assert::assertEquals($number, mb_strlen($this->actual));
+
+            return $this;
+        }
+
+        if (is_iterable($this->actual)) {
+            $this->count($number);
+
+            return $this;
+        }
+
+        if (\is_object($this->actual)) {
+            if (method_exists($this->actual, 'toArray')) {
+                $array = $this->actual->toArray();
+            } else {
+                $array = (array) $this->actual;
+            }
+
+            Assert::assertCount($number, $array);
+
+            return $this;
+        }
+
+        throw new \BadMethodCallException('Expectation value length is not countable.');
+    }
+
+    /**
+     * Asserts that $number not matches value's Length.
+     *
+     * @param int $number
+     */
+    public function notHasLength(int $number): self
+    {
+        if (\is_string($this->actual)) {
+            Assert::assertNotEquals($number, mb_strlen($this->actual));
+
+            return $this;
+        }
+
+        if (is_iterable($this->actual)) {
+            $this->notCount($number);
+
+            return $this;
+        }
+
+        if (\is_object($this->actual)) {
+            if (method_exists($this->actual, 'toArray')) {
+                $array = $this->actual->toArray();
+            } else {
+                $array = (array) $this->actual;
+            }
+
+            Assert::assertNotCount($number, $array);
+
+            return $this;
+        }
+
+        throw new \BadMethodCallException('Expectation value length is not countable.');
+    }
+
+    /**
      * Assert that the given string contains an element matching the given selector.
      *
      * @param string $selector A query $selector for the element to find.
