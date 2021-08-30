@@ -63,7 +63,7 @@ final class ExtendedAssertionsTest extends TestCase
         ass([
             'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
             (object) [1, 2, 3, 4, 5, 6, 7, 8, 9],
-            // collect([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+            collect([1, 2, 3, 4, 5, 6, 7, 8, 9]),
         ])
             ->each()
             ->notHasLength(1);
