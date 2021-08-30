@@ -273,4 +273,68 @@ final class ExtendedAssertionsTest extends TestCase
             ->throw(\RuntimeException::class, 'actual message')
             ->throw(function (\RuntimeException $e) {}, 'actual message');
     }
+
+    public function testThrowFailures1()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Exception "' . \RuntimeException::class . '" not thrown.'
+        );
+        ass(function () {})->throw(\RuntimeException::class);
+    }
+
+    public function testThrowFailures2()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Exception "' . \RuntimeException::class . '" not thrown.'
+        );
+        ass(function () {})->throw(function (\RuntimeException $e) {});
+    }
+
+    public function testThrowFailures3()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Failed asserting that Exception Object'
+        );
+        ass(function () { throw new Exception(); })->throw(function (RuntimeException $e) {});
+    }
+
+    public function testThrowFailures4()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Failed asserting that two strings are identical'
+        );
+        ass(function () { throw new \Exception('actual message'); })
+            ->throw(function (\Exception $e) {
+                ass($e->getMessage())->same('expected message');
+            });
+    }
+
+    public function testThrowFailures5()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Failed asserting that \'actual message\' contains "expected message".'
+        );
+        ass(function () { throw new \Exception('actual message'); })->throw('expected message');
+    }
+
+    public function testThrowFailures6()
+    {
+        $this->expectException(
+            ExpectationFailedException::class,
+            'Exception with message "actual message" not thrown'
+        );
+        ass(function () {})->throw('actual message');
+    }
+
+    public function testThrowFailures7()
+    {
+        $this->expectException(ExpectationFailedException::class);
+        ass(function () { throw new \RuntimeException('actual message'); })
+            ->throw(\RuntimeException::class, 'expected message');
+    }
 }
