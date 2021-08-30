@@ -347,5 +347,12 @@ final class ExtendedAssertionsTest extends TestCase
             ->throw(\RuntimeException::class, 'expected message');
     }
 
-
+    public function testThrowClosureMissingParameter()
+    {
+        $this->expectException(
+            \LogicException::class,
+            'The "throw" closure must have a single parameter type-hinted as the class string'
+        );
+        ass(function () {})->throw(function () {});
+    }
 }
