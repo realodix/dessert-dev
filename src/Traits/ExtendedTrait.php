@@ -15,6 +15,36 @@ use Realodix\NextProject\Support\Validator;
 trait ExtendedTrait
 {
     /**
+     * Asserts that the value array has the provided $keys.
+     *
+     * @param array<int, int|string> $keys
+     * @param string                 $message
+     */
+    public function arrayHasKeys(array $keys, string $message = ''): self
+    {
+        foreach ($keys as $key) {
+            $this->arrayHasKey($key, null, $message);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the value array not has the provided $keys.
+     *
+     * @param array<int, int|string> $keys
+     * @param string                 $message
+     */
+    public function arrayNotHasKeys(array $keys, string $message = ''): self
+    {
+        foreach ($keys as $key) {
+            $this->arrayNotHasKey($key, null, $message);
+        }
+
+        return $this;
+    }
+
+    /**
      * Asserts string contains string (ignoring line endings).
      *
      * Reference:
