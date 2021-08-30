@@ -250,9 +250,6 @@
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
     </TooManyArguments>
-    <UndefinedClass occurrences="1">
-      <code>BadMethodCallException</code>
-    </UndefinedClass>
   </file>
   <file src="src/Traits/ModifiedTrait.php">
     <InternalClass occurrences="2"/>

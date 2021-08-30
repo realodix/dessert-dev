@@ -215,7 +215,7 @@ final class ExtendedAssertionsTest extends TestCase
             ->markupSelectorCount(3, 'li');
     }
 
-    public function testLength()
+    public function testHaveLength()
     {
         ass([
             'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
@@ -223,14 +223,14 @@ final class ExtendedAssertionsTest extends TestCase
             // collect([1, 2, 3, 4, 5, 6, 7, 8, 9]),
         ])
             ->each()
-            ->length(9);
+            ->haveLength(9);
 
-        ass([1, 2, 3])->length(3);
+        ass([1, 2, 3])->haveLength(3);
     }
 
-    public function testLengthError()
+    public function testHaveLengthError()
     {
         $this->expectException(\BadMethodCallException::class);
-        ass([1, 1.5, true, null])->each->length(1);
+        ass([1, 1.5, true, null])->each->haveLength(1);
     }
 }

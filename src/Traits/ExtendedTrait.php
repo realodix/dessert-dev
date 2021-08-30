@@ -332,7 +332,7 @@ trait ExtendedTrait
      *
      * @param int $number
      */
-    public function length(int $number): self
+    public function haveLength(int $number): self
     {
         if (\is_string($this->actual)) {
             Assert::assertEquals($number, mb_strlen($this->actual));

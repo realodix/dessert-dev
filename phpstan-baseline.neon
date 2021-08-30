@@ -6,11 +6,6 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Instantiated class Realodix\\\\NextProject\\\\Traits\\\\BadMethodCallException not found\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:__get\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Assertion.php
@@ -87,11 +82,6 @@ parameters:
 
 		-
 			message: "#^Static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotEqualsFile\\(\\) invoked with 5 parameters, 2\\-3 required\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
-			message: "#^Throwing object of an unknown class Realodix\\\\NextProject\\\\Traits\\\\BadMethodCallException\\.$#"
 			count: 1
 			path: src/Assertion.php
 
