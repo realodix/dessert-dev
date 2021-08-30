@@ -264,14 +264,17 @@ final class ExtendedAssertionsTest extends TestCase
                 ass($e->getMessage())->same('actual message');
             });
 
-        ass(function () {})->not->throw(\Exception::class);
-
-        ass(function () {throw new Exception(); })->not->throw(\RuntimeException::class);
-
         ass(function () {throw new \RuntimeException('actual message'); })
             ->throw('actual message')
             ->throw(\RuntimeException::class, 'actual message')
             ->throw(function (\RuntimeException $e) {}, 'actual message');
+    }
+
+    public function testNotThrow()
+    {
+        ass(function () {})->not->throw(\Exception::class);
+
+        ass(function () {throw new Exception(); })->not->throw(\RuntimeException::class);
     }
 
     public function testThrowFailures1()
