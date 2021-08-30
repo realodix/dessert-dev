@@ -254,33 +254,23 @@ final class ExtendedAssertionsTest extends TestCase
 
     public function testThrow()
     {
-        ass(function () {
-            throw new \RuntimeException();
-        })
-        ->throw(\RuntimeException::class)
-        ->throw(\Exception::class)
-        ->throw(function (\RuntimeException $e) {
-        });
+        ass(function () {throw new \RuntimeException(); })
+            ->throw(\RuntimeException::class)
+            ->throw(\Exception::class)
+            ->throw(function (\RuntimeException $e) {});
 
-        ass(function () {
-            throw new \RuntimeException('actual message');
-        })->throw(function (\Exception $e) {
-            ass($e->getMessage())->same('actual message');
-        });
+        ass(function () {throw new \RuntimeException('actual message'); })
+            ->throw(function (\Exception $e) {
+                ass($e->getMessage())->same('actual message');
+            });
 
-        ass(function () {
-        })->not->throw(\Exception::class);
+        ass(function () {})->not->throw(\Exception::class);
 
-        ass(function () {
-            throw new Exception();
-        })->not->throw(\RuntimeException::class);
+        ass(function () {throw new Exception(); })->not->throw(\RuntimeException::class);
 
-        ass(function () {
-            throw new \RuntimeException('actual message');
-        })
-        ->throw('actual message')
-        ->throw(\RuntimeException::class, 'actual message')
-        ->throw(function (\RuntimeException $e) {
-        }, 'actual message');
+        ass(function () {throw new \RuntimeException('actual message'); })
+            ->throw('actual message')
+            ->throw(\RuntimeException::class, 'actual message')
+            ->throw(function (\RuntimeException $e) {}, 'actual message');
     }
 }
