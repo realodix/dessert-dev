@@ -12,7 +12,6 @@
     ],
     "require": {
         "php": "^7.1|^8.0",
-        "illuminate/support": "^5.8|^6.20|^7.30|^8.57",
         "phpunit/phpunit": "^7.5|^8|^9",
         "symfony/css-selector": "^4.4.27|^5.3",
         "symfony/dom-crawler": "^4.4.27|^5.3",
