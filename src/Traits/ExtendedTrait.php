@@ -358,6 +358,6 @@ trait ExtendedTrait
             return $this;
         }
 
-        throw new BadMethodCallException('Expectation value length is not countable.');
+        throw new \BadMethodCallException('Expectation value length is not countable.');
     }
 }

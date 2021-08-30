@@ -227,4 +227,10 @@ final class ExtendedAssertionsTest extends TestCase
 
         ass([1, 2, 3])->length(3);
     }
+
+    public function testLengthError()
+    {
+        $this->expectException(\BadMethodCallException::class);
+        ass([1, 1.5, true, null])->each->length(1);
+    }
 }
