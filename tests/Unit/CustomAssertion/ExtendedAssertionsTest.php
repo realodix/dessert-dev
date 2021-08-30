@@ -244,6 +244,6 @@ final class ExtendedAssertionsTest extends TestCase
     public function testHasLengthError()
     {
         $this->expectException(\BadMethodCallException::class);
-        ass([1, 1.5, true, null])->each->hasLength(1);
+        ass([1, 1.5, true, null])->each->HasLength(1);
     }
 }
