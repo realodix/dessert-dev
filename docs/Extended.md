@@ -62,6 +62,18 @@ verify($file)->fileEqualsStringIgnoringCase('expected_string', 'optional_message
 
 `fileNotEqualsStringIgnoringCase()` is the inverse of this assertion and takes the same arguments.
 
+### hasLength()
+
+Asserts that $number matches value's Length.
+
+```php
+verify('foo')->hasLength(3);
+
+verify([1, 2, 3])->hasLength(3);
+```
+
+`notHasLength()` is the inverse of this assertion and takes the same arguments.
+
 ### stringContainsStringIgnoringLineEndings()
 
 Asserts string contains string (ignoring line endings).
