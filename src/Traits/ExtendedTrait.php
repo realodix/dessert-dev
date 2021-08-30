@@ -454,7 +454,7 @@ trait ExtendedTrait
         }
 
         try {
-            ($this->value)();
+            ($this->actual)();
         } catch (\Throwable $e) {
             if (! class_exists($exception)) {
                 Assert::assertStringContainsString($exception, $e->getMessage());

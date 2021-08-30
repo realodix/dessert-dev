@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Access to an undefined property Realodix\\\\NextProject\\\\Assertion\\:\\:\\$value\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Class PHPUnit\\\\Framework\\\\Constraint\\\\IsEqual constructor invoked with 5 parameters, 1\\-4 required\\.$#"
 			count: 2
 			path: src/Assertion.php
