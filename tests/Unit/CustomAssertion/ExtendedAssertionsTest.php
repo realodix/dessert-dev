@@ -17,10 +17,10 @@ final class ExtendedAssertionsTest extends TestCase
             ->and(true)->true;
 
         // each()
-        expect([1, 2, 3, 4, 5])
+        ass([1, 2, 3, 4, 5])
             ->each->isInt;
 
-        expect([
+        ass([
             function () {},
             function () {},
         ])
@@ -28,7 +28,7 @@ final class ExtendedAssertionsTest extends TestCase
         ->and(1)->isInt();
 
         // not()
-        expect(true)
+        ass(true)
             ->true()
             ->not()->false()
             ->not->false
