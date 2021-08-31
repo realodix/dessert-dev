@@ -7,10 +7,10 @@ use Realodix\NextProject\Support\Validator;
 
 class Assertion
 {
-    use Traits\AliasesTrait;
-    use Traits\ExtendedTrait;
-    use Traits\ModifiedTrait;
     use Traits\PolyfillTrait;
+    use Traits\AliasesTrait;
+    use Traits\ModifiedTrait;
+    use Traits\ExtendedTrait;
 
     /** @var mixed */
     public $actual = null;
