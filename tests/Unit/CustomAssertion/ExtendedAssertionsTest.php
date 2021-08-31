@@ -287,7 +287,7 @@ final class ExtendedAssertionsTest extends TestCase
     {
         $this->expectException(
             ExpectationFailedException::class,
-            'Exception "' . \RuntimeException::class . '" not thrown.'
+            'Exception "'.\RuntimeException::class.'" not thrown.'
         );
         ass(function () {})->throw(\RuntimeException::class);
     }
@@ -296,7 +296,7 @@ final class ExtendedAssertionsTest extends TestCase
     {
         $this->expectException(
             ExpectationFailedException::class,
-            'Exception "' . \RuntimeException::class . '" not thrown.'
+            'Exception "'.\RuntimeException::class.'" not thrown.'
         );
         ass(function () {})->throw(function (\RuntimeException $e) {});
     }
