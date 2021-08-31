@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Test\CustomAssertion;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
-final class BehaviourExtendedTest extends TestCase
+final class ExtendedBehaviourTest extends TestCase
 {
     public function testArrayHasKey(): void
     {
