@@ -117,9 +117,9 @@ Assert::that('string')->isNotInt();
 Assert::that('string')->not->isInt();
 ```
 
-### Assertion Aliases
+### Alias Assertions
 
-In addition to assertions, NextProject offers you a set of assertion aliases. For the full list of **assertion aliases**, please refer to [assertion aliases](/docs/AssertionAliases.md) documentation.
+In addition to assertions, NextProject offers you a set of alias assertions. For the full list of **alias assertions**, please refer to [Alias Assertions](/docs/AliasAssertions.md) documentation.
 
 ## Extending
 
