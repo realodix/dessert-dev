@@ -77,12 +77,14 @@ final class ComparisonTest extends TestCase
     public function testEqualsWithDelta(): void
     {
         ass(1.01)->equalsWithDelta(1.0, 0.1);
-        ass(3.251)->equalsWithDelta(3.25, 0.01);
-        ass(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
+        ass(3.251)
+            ->equalsWithDelta(3.25, 0.01)
+            ->equalsWithDelta(3.25, 0.01, 'respects delta');
 
         ass(1.2)->notEqualsWithDelta(1.0, 0.1);
-        ass(3.252)->notEqualsWithDelta(3.25, 0.001);
-        ass(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
+        ass(3.252)
+            ->notEqualsWithDelta(3.25, 0.001)
+            ->notEqualsWithDelta(3.25, 0.001, 'respects delta');
     }
 
     public function testFalse(): void
