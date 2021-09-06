@@ -116,6 +116,12 @@ final class PHPUnitTest extends TestCase
         rmdir($dirName);
     }
 
+    public function testEmpty(): void
+    {
+        ass([])->empty();
+        ass(['3', '5'])->notEmpty();
+    }
+
     public function testInstanceOf(): void
     {
         $testClass = new \DateTime();

@@ -8,12 +8,6 @@ use Realodix\NextProject\Check;
 
 final class AssertTest extends TestCase
 {
-    public function testEmpty(): void
-    {
-        ass([])->empty();
-        ass(['3', '5'])->notEmpty();
-    }
-
     public function testFinite(): void
     {
         ass(1)->finite();
