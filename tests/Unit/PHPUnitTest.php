@@ -28,6 +28,20 @@ final class PHPUnitTest extends TestCase
             ->classNotHasStaticAttribute('fakeProperty');
     }
 
+    public function testStringContainsString(): void
+    {
+        ass('foo bar')
+            ->stringContainsString('o b')
+            ->stringNotContainsString('BAR');
+    }
+
+    public function testStringContainsStringIgnoringCase(): void
+    {
+        ass('foo bar')
+            ->stringContainsStringIgnoringCase('O b')
+            ->stringNotContainsStringIgnoringCase('baz');
+    }
+
     public function testContainsOnlyInstancesOf(): void
     {
         $array = [
