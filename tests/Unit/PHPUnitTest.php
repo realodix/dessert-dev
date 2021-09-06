@@ -199,6 +199,50 @@ final class PHPUnitTest extends TestCase
         ass($file3)->fileNotEqualsIgnoringCase($file1);
     }
 
+    public function testFileIsReadable()
+    {
+        $file = TEST_FILES_PATH.'string_foobar.txt';
+
+        ass($file)->fileIsReadable();
+    }
+
+    public function testFileIsNotReadable()
+    {
+        // symfony/polyfill-php72
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $tempFile = tempnam(
+            sys_get_temp_dir(),
+            'unreadable'
+        );
+
+        chmod($tempFile, octdec('0'));
+
+        ass($tempFile)->fileIsNotReadable();
+
+        unlink($tempFile);
+    }
+
+    public function testFileIsWritable()
+    {
+        $file = TEST_FILES_PATH.'string_foobar.txt';
+
+        ass($file)->fileIsWritable();
+    }
+
+    public function testFileIsNotWritable()
+    {
+        $tempFile = tempnam(sys_get_temp_dir(), 'not_writable');
+        chmod($tempFile, octdec('0'));
+
+        ass($tempFile)->fileIsNotWritable($tempFile);
+
+        chmod($tempFile, octdec('755'));
+        unlink($tempFile);
+    }
+
     public function testInstanceOf(): void
     {
         $testClass = new \DateTime();
