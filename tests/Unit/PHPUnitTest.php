@@ -149,6 +149,22 @@ final class PHPUnitTest extends TestCase
             ->notEqualsIgnoringCase('BAR');
     }
 
+    /**
+     * Two objects can be asserted to be equal using comparison method.
+     */
+    public function testObjectEquals(): void
+    {
+        ass(new ValueObject(1))->objectEquals(new ValueObject(1));
+
+        try {
+            ass(new ValueObject(2))->objectEquals(new ValueObject(1));
+        } catch (AssertionFailedError $e) {
+            return;
+        }
+
+        $this->fail();
+    }
+
     public function testEqualsWithDelta(): void
     {
         ass(1.01)->equalsWithDelta(1.0, 0.1);
@@ -525,22 +541,6 @@ final class PHPUnitTest extends TestCase
         ass('<foo/>')
             ->xmlStringToString('<foo/>')
             ->xmlStringNotToString('<bar/>');
-    }
-
-    /**
-     * Two objects can be asserted to be equal using comparison method.
-     */
-    public function testObjectEquals(): void
-    {
-        ass(new ValueObject(1))->objectEquals(new ValueObject(1));
-
-        try {
-            ass(new ValueObject(2))->objectEquals(new ValueObject(1));
-        } catch (AssertionFailedError $e) {
-            return;
-        }
-
-        $this->fail();
     }
 }
 
