@@ -12,18 +12,4 @@ final class StringTest extends TestCase
 
         ass($json)->json();
     }
-
-    public function testStringStartsWith(): void
-    {
-        ass('foobar')
-            ->startWith('fo')
-            ->startNotWith('ar');
-    }
-
-    public function testStringEndsWith(): void
-    {
-        ass('foobar')
-            ->endWith('ar')
-            ->endNotWith('foo');
-    }
 }

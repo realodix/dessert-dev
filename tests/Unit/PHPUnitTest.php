@@ -162,12 +162,6 @@ final class PHPUnitTest extends TestCase
             ->notEqualsWithDelta(3.25, 0.001, 'respects delta');
     }
 
-    public function testFalse(): void
-    {
-        ass(false)->false();
-        ass(true)->notFalse();
-    }
-
     public function testFileEquals(): void
     {
         ass(__FILE__)
@@ -449,6 +443,61 @@ final class PHPUnitTest extends TestCase
 
         ass('foo_bar')->stringMatchesFormatFile($formatFile);
         ass('string_not_matches')->stringNotMatchesFormatFile($formatFile);
+    }
+
+    public function testSame(): void
+    {
+        ass(1)->same(0 + 1)
+              ->notSame(true);
+    }
+
+    public function testSameSize(): void
+    {
+        ass([1, 2])
+            ->sameSize([1, 2])
+            ->notSameSize([1, 2, 3]);
+    }
+
+    public function testStringStartsWith(): void
+    {
+        ass('foobar')
+            ->startWith('fo')
+            ->startNotWith('ar');
+    }
+
+    public function testStringEndsWith(): void
+    {
+        ass('foobar')
+            ->endWith('ar')
+            ->endNotWith('foo');
+    }
+
+    public function testStringEqualsFileCanonicalizing(): void
+    {
+        ass('foo_bar')
+            ->stringEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
+        ass('notSame')
+            ->stringNotEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
+    }
+
+    public function testStringEqualsFileIgnoringCase(): void
+    {
+        ass('FOO_BAR')
+            ->stringEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
+        ass('Test 123')
+            ->stringNotEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
+    }
+
+    public function testTrue(): void
+    {
+        ass(true)->true();
+        ass(false)->notTrue();
+    }
+
+    public function testFalse(): void
+    {
+        ass(false)->false();
+        ass(true)->notFalse();
     }
 
     /**

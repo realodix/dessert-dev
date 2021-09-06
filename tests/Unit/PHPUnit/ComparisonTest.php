@@ -51,41 +51,6 @@ final class ComparisonTest extends TestCase
         $this->fail();
     }
 
-    public function testSame(): void
-    {
-        ass(1)->same(0 + 1)
-              ->notSame(true);
-    }
-
-    public function testSameSize(): void
-    {
-        ass([1, 2])
-            ->sameSize([1, 2])
-            ->notSameSize([1, 2, 3]);
-    }
-
-    public function testStringEqualsFileCanonicalizing(): void
-    {
-        ass('foo_bar')
-            ->stringEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
-        ass('notSame')
-            ->stringNotEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
-    }
-
-    public function testStringEqualsFileIgnoringCase(): void
-    {
-        ass('FOO_BAR')
-            ->stringEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
-        ass('Test 123')
-            ->stringNotEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
-    }
-
-    public function testTrue(): void
-    {
-        ass(true)->true();
-        ass(false)->notTrue();
-    }
-
     public function testXmlFileEqualsXmlFile(): void
     {
         $actual = TEST_FILES_PATH.'xml_foo.xml';
