@@ -13,11 +13,6 @@ final class AssertTest extends TestCase
         ass(1)->finite();
     }
 
-    public function testInfinite(): void
-    {
-        ass(INF)->infinite();
-    }
-
     public function testNan(): void
     {
         ass(NAN)->nan();

@@ -51,14 +51,6 @@ final class ComparisonTest extends TestCase
         $this->fail();
     }
 
-    public function testGreaterThan(): void
-    {
-        ass(7)
-            ->greaterThan(5, true)
-            ->greaterThanOrEqual(7)
-            ->greaterThanOrEqual(5);
-    }
-
     public function testJsonFileEqualsJsonFile(): void
     {
         $fileExpected = TEST_FILES_PATH.'json_array_object.json';

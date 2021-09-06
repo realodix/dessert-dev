@@ -243,6 +243,19 @@ final class PHPUnitTest extends TestCase
         unlink($tempFile);
     }
 
+    public function testGreaterThan(): void
+    {
+        ass(7)
+            ->greaterThan(5, true)
+            ->greaterThanOrEqual(7)
+            ->greaterThanOrEqual(5);
+    }
+
+    public function testInfinite(): void
+    {
+        ass(INF)->infinite();
+    }
+
     public function testInstanceOf(): void
     {
         $testClass = new \DateTime();
