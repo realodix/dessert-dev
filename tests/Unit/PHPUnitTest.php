@@ -19,8 +19,9 @@ final class PHPUnitTest extends TestCase
 
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
             $testObject = (object) ['existingAttribute' => true];
-            ass($testObject)->objectNotHasAttribute('fakeproperty');
+
             ass($testObject)->objectHasAttribute('existingAttribute');
+            ass($testObject)->objectNotHasAttribute('fakeproperty');
         }
     }
 
