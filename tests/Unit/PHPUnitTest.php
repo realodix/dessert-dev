@@ -1,12 +1,12 @@
 <?php
 
-namespace Realodix\NextProject\Test\PHPUnit;
+namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
-final class ClassTest extends TestCase
+final class PHPUnitTest extends TestCase
 {
     public function testClassHasAttribute(): void
     {
@@ -39,7 +39,7 @@ final class ClassTest extends TestCase
         ass($array)->containsOnlyInstancesOf(FakeClassForTesting::class);
     }
 
-    public function testIsInstanceOf(): void
+    public function testInstanceOf(): void
     {
         $testClass = new \DateTime();
 
