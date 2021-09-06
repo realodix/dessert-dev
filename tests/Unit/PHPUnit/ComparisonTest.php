@@ -51,42 +51,6 @@ final class ComparisonTest extends TestCase
         $this->fail();
     }
 
-    public function testEquals(): void
-    {
-        ass(5)->equals(5);
-        ass('hello')->equals('hello');
-        ass(5)->equals(5, 'user have 5 posts');
-
-        ass(3)->notEquals(5);
-    }
-
-    public function testEqualsCanonicalizing(): void
-    {
-        ass([3, 2, 1])
-            ->equalsCanonicalizing([1, 2, 3])
-            ->notEqualsCanonicalizing([2, 3, 0, 1]);
-    }
-
-    public function testEqualsIgnoringCase(): void
-    {
-        ass('foo')
-            ->equalsIgnoringCase('FOO')
-            ->notEqualsIgnoringCase('BAR');
-    }
-
-    public function testEqualsWithDelta(): void
-    {
-        ass(1.01)->equalsWithDelta(1.0, 0.1);
-        ass(3.251)
-            ->equalsWithDelta(3.25, 0.01)
-            ->equalsWithDelta(3.25, 0.01, 'respects delta');
-
-        ass(1.2)->notEqualsWithDelta(1.0, 0.1);
-        ass(3.252)
-            ->notEqualsWithDelta(3.25, 0.001)
-            ->notEqualsWithDelta(3.25, 0.001, 'respects delta');
-    }
-
     public function testFalse(): void
     {
         ass(false)->false();
