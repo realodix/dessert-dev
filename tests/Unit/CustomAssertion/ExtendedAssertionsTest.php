@@ -10,32 +10,6 @@ final class ExtendedAssertionsTest extends TestCase
 {
     use ExtendedAssertionsTestProvider;
 
-    public function testHelperMethods(): void
-    {
-        // and()
-        ass(1)->isInt
-            ->and(true)->true;
-
-        // each()
-        ass([1, 2, 3, 4, 5])
-            ->each->isInt;
-
-        ass([
-            function () {},
-            function () {},
-        ])
-        ->each()->isCallable()
-        ->and(1)->isInt();
-
-        // not()
-        ass(true)
-            ->true()
-            ->not()->false()
-            ->not->false
-            ->and(false)
-                ->false();
-    }
-
     public function testArrayHasKeys(): void
     {
         $array = ['name' => 'Desk', 'price' => 100];
