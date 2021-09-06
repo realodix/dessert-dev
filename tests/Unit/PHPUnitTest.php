@@ -382,6 +382,34 @@ final class PHPUnitTest extends TestCase
         ass($path)->isNotWritable();
     }
 
+    public function testJsonFileEqualsJsonFile(): void
+    {
+        $fileExpected = TEST_FILES_PATH.'json_array_object.json';
+        $fileActual = TEST_FILES_PATH.'json_simple_object.json';
+
+        ass($fileActual)
+            ->jsonFileToFile($fileActual)
+            ->jsonFileNotToFile($fileExpected);
+    }
+
+    public function testJsonStringEqualsJsonFile(): void
+    {
+        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
+        $jsonString = json_encode(['foo' => 'bar']);
+
+        ass($jsonString)->jsonStringToFile($jsonFile);
+        ass(json_encode(['foo' => 'baz']))->jsonStringNotToFile($jsonFile);
+    }
+
+    public function testJsonStringEqualsJsonString(): void
+    {
+        $jsonString = json_encode(['foo' => 'bar']);
+
+        ass($jsonString)
+            ->jsonStringToString($jsonString)
+            ->jsonStringNotToString(json_encode(['foo' => 'baz']));
+    }
+
     /**
      * Two objects can be asserted to be equal using comparison method.
      */
