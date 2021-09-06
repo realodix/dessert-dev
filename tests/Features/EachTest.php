@@ -6,10 +6,16 @@ use PHPUnit\Framework\TestCase;
 
 final class EachTest extends TestCase
 {
-    /** @test */
-    public function an_exception_is_thrown_if_the_the_type_is_not_iterable(): void
+    /**
+     * An exception is thrown if the the type is not iterable
+     */
+    public function testAnExceptionIsThrown(): void
     {
-        $this->expectException(\BadMethodCallException::class, 'Expectation value is not iterable.');
+        $this->expectException(
+            \BadMethodCallException::class,
+            'Expectation value is not iterable.'
+        );
+
         ass('Foobar')->each()->same('Foobar');
     }
 }
