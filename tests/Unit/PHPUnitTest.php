@@ -400,6 +400,13 @@ final class PHPUnitTest extends TestCase
         ass($path)->isNotWritable();
     }
 
+    public function testJson(): void
+    {
+        $json = json_encode(['foo' => 'bar']);
+
+        ass($json)->json();
+    }
+
     public function testJsonFileEqualsJsonFile(): void
     {
         $fileExpected = TEST_FILES_PATH.'json_array_object.json';
