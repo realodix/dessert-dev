@@ -66,6 +66,56 @@ final class PHPUnitTest extends TestCase
             ->notCount(2);
     }
 
+    public function testDirectoryExists(): void
+    {
+        ass(__DIR__)->dirExists();
+    }
+
+    public function testDirectoryNotExists(): void
+    {
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirNotExist();
+    }
+
+    public function testDirectoryIsReadable(): void
+    {
+        ass(__DIR__)->dirIsReadable();
+    }
+
+    public function testDirectoryIsNotReadable(): void
+    {
+        // symfony/polyfill-php72
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
+        mkdir($dirName, octdec('0'));
+
+        ass($dirName)->dirIsNotReadable();
+
+        rmdir($dirName);
+    }
+
+    public function testDirectoryIsWritable(): void
+    {
+        ass(__DIR__)->dirIsWritable();
+    }
+
+    public function testDirectoryIsNotWritable(): void
+    {
+        // symfony/polyfill-php72
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
+        mkdir($dirName, octdec('444'));
+
+        ass($dirName)->dirIsNotWritable();
+
+        rmdir($dirName);
+    }
+
     public function testInstanceOf(): void
     {
         $testClass = new \DateTime();
