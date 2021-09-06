@@ -51,41 +51,6 @@ final class ComparisonTest extends TestCase
         $this->fail();
     }
 
-    public function testFalse(): void
-    {
-        ass(false)->false();
-        ass(true)->notFalse();
-    }
-
-    public function testFileEquals(): void
-    {
-        ass(__FILE__)
-            ->fileEquals(__FILE__)
-            ->fileNotEquals(
-                TEST_FILES_PATH.'string_foobar.txt'
-            );
-    }
-
-    public function testFileEqualsCanonicalizing()
-    {
-        $actual = TEST_FILES_PATH.'string_foobar.txt';
-        $expected = TEST_FILES_PATH.'string_foobar_upper.txt';
-
-        ass($actual)
-            ->fileEqualsCanonicalizing($actual)
-            ->fileNotEqualsCanonicalizing($expected);
-    }
-
-    public function testFileEqualsIgnoringCase()
-    {
-        $file1 = TEST_FILES_PATH.'string_foobar.txt';
-        $file2 = TEST_FILES_PATH.'string_foobar_upper.txt';
-        $file3 = TEST_FILES_PATH.'string_foobaz.txt';
-
-        ass($file1)->fileEqualsIgnoringCase($file2);
-        ass($file3)->fileNotEqualsIgnoringCase($file1);
-    }
-
     public function testGreaterThan(): void
     {
         ass(7)

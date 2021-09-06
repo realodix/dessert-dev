@@ -9,10 +9,11 @@ use PHPUnit\Framework\TestCase;
 
 final class FilesystemTest extends TestCase
 {
-    public function testFileExists(): void
+    public function testFileIsReadable()
     {
-        ass(__FILE__)->fileExists();
-        ass('completelyrandomfilename.txt')->fileDoesNotExist();
+        $file = TEST_FILES_PATH.'string_foobar.txt';
+
+        ass($file)->fileIsReadable();
     }
 
     public function testFileIsNotReadable()
@@ -34,6 +35,13 @@ final class FilesystemTest extends TestCase
         unlink($tempFile);
     }
 
+    public function testFileIsWritable()
+    {
+        $file = TEST_FILES_PATH.'string_foobar.txt';
+
+        ass($file)->fileIsWritable();
+    }
+
     public function testFileIsNotWritable()
     {
         $tempFile = tempnam(sys_get_temp_dir(), 'not_writable');
@@ -43,20 +51,6 @@ final class FilesystemTest extends TestCase
 
         chmod($tempFile, octdec('755'));
         unlink($tempFile);
-    }
-
-    public function testFileIsReadable()
-    {
-        $file = TEST_FILES_PATH.'string_foobar.txt';
-
-        ass($file)->fileIsReadable();
-    }
-
-    public function testFileIsWritable()
-    {
-        $file = TEST_FILES_PATH.'string_foobar.txt';
-
-        ass($file)->fileIsWritable();
     }
 
     public function testIsReadable(): void
