@@ -429,6 +429,28 @@ final class PHPUnitTest extends TestCase
         ass(true)->notNull();
     }
 
+    public function testMatchesRegularExpression(): void
+    {
+        ass('foobar')
+            ->matchesRegularExpression('/foobar/')
+            ->doesNotMatchRegularExpression('/foobarbaz/');
+    }
+
+    public function testStringMatchesFormat(): void
+    {
+        ass('somestring')
+            ->stringMatchesFormat('%s')
+            ->stringNotMatchesFormat('%i');
+    }
+
+    public function testStringMatchesFormatFile(): void
+    {
+        $formatFile = TEST_FILES_PATH.'string_foobar.txt';
+
+        ass('foo_bar')->stringMatchesFormatFile($formatFile);
+        ass('string_not_matches')->stringNotMatchesFormatFile($formatFile);
+    }
+
     /**
      * Two objects can be asserted to be equal using comparison method.
      */

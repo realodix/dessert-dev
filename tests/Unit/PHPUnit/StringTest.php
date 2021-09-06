@@ -13,11 +13,11 @@ final class StringTest extends TestCase
         ass($json)->json();
     }
 
-    public function testMatchesRegularExpression(): void
+    public function testStringStartsWith(): void
     {
         ass('foobar')
-            ->matchesRegularExpression('/foobar/')
-            ->doesNotMatchRegularExpression('/foobarbaz/');
+            ->startWith('fo')
+            ->startNotWith('ar');
     }
 
     public function testStringEndsWith(): void
@@ -25,27 +25,5 @@ final class StringTest extends TestCase
         ass('foobar')
             ->endWith('ar')
             ->endNotWith('foo');
-    }
-
-    public function testStringMatchesFormat(): void
-    {
-        ass('somestring')
-            ->stringMatchesFormat('%s')
-            ->stringNotMatchesFormat('%i');
-    }
-
-    public function testStringMatchesFormatFile(): void
-    {
-        $formatFile = TEST_FILES_PATH.'string_foobar.txt';
-
-        ass('foo_bar')->stringMatchesFormatFile($formatFile);
-        ass('string_not_matches')->stringNotMatchesFormatFile($formatFile);
-    }
-
-    public function testStringStartsWith(): void
-    {
-        ass('foobar')
-            ->startWith('fo')
-            ->startNotWith('ar');
     }
 }
