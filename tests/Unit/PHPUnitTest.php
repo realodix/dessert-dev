@@ -500,6 +500,33 @@ final class PHPUnitTest extends TestCase
         ass(true)->notFalse();
     }
 
+    public function testXmlFileEqualsXmlFile(): void
+    {
+        $actual = TEST_FILES_PATH.'xml_foo.xml';
+        $expected = TEST_FILES_PATH.'xml_bar.xml';
+
+        ass($actual)
+            ->xmlFileToFile($actual)
+            ->xmlFileNotToFile($expected);
+    }
+
+    public function testXmlStringEqualsXmlFile(): void
+    {
+        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
+        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
+
+        ass('<foo/>')
+            ->xmlStringToFile($xmlFoo)
+            ->xmlStringNotToFile($xmlBar);
+    }
+
+    public function testXmlStringEqualsXmlString(): void
+    {
+        ass('<foo/>')
+            ->xmlStringToString('<foo/>')
+            ->xmlStringNotToString('<bar/>');
+    }
+
     /**
      * Two objects can be asserted to be equal using comparison method.
      */
