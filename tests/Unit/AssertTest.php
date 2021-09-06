@@ -8,18 +8,6 @@ use Realodix\NextProject\Check;
 
 final class AssertTest extends TestCase
 {
-    public function testFinite(): void
-    {
-        ass(1)->finite();
-    }
-
-    public function testVariants(): void
-    {
-        expect([])->empty();
-        should([])->empty();
-        verify([])->empty();
-    }
-
     public function testVariantsStaticClass(): void
     {
         Assert::that(true)

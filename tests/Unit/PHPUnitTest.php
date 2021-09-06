@@ -321,6 +321,11 @@ final class PHPUnitTest extends TestCase
         ass(INF)->infinite();
     }
 
+    public function testFinite(): void
+    {
+        ass(1)->finite();
+    }
+
     public function testInstanceOf(): void
     {
         $testClass = new \DateTime();
