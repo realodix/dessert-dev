@@ -335,30 +335,26 @@ final class PHPUnitTest extends TestCase
             ->notInstanceOf('DateTimeZone');
     }
 
-    /** @test */
-    public function isArray(): void
+    public function testIsArray(): void
     {
         ass([1, 2, 3])->isArray();
         ass(false)->isNotArray();
     }
 
-    /** @test */
-    public function isBool(): void
+    public function testIsBool(): void
     {
         ass(false)->isBool();
         ass([1, 2, 3])->isNotBool();
     }
 
-    /** @test */
-    public function isCallable(): void
+    public function testIsCallable(): void
     {
         ass(function (): void {})->isCallable();
 
         ass(false)->isNotCallable();
     }
 
-    /** @test */
-    public function isClosedResource(): void
+    public function testIsClosedResource(): void
     {
         $resource = fopen(__FILE__, 'r');
         fclose($resource);
@@ -376,57 +372,49 @@ final class PHPUnitTest extends TestCase
             ->false();
     }
 
-    /** @test */
-    public function isFloat(): void
+    public function testIsFloat(): void
     {
         ass(1.5)->isFloat();
         ass(1)->isNotFloat();
     }
 
-    /** @test */
-    public function isInt(): void
+    public function testIsInt(): void
     {
         ass(5)->isInt();
         ass(1.5)->isNotInt();
     }
 
-    /** @test */
-    public function isIterable(): void
+    public function testIsIterable(): void
     {
         ass([])->isIterable();
         ass(null)->isNotIterable();
     }
 
-    /** @test */
-    public function isNumeric(): void
+    public function testIsNumeric(): void
     {
         ass('1.5')->isNumeric();
         ass('foo bar')->isNotNumeric();
     }
 
-    /** @test */
-    public function isObject(): void
+    public function testIsObject(): void
     {
         ass(new \stdClass)->isObject();
         ass(false)->isNotObject();
     }
 
-    /** @test */
-    public function isResource(): void
+    public function testIsResource(): void
     {
         ass(fopen(__FILE__, 'r'))->isResource();
         ass(false)->isNotResource();
     }
 
-    /** @test */
-    public function isScalar(): void
+    public function testIsScalar(): void
     {
         ass('foo bar')->isScalar();
         ass([1, 2, 3])->isNotScalar();
     }
 
-    /** @test */
-    public function isString(): void
+    public function testIsString(): void
     {
         ass('foo bar')->isString();
         ass(false)->isNotString();

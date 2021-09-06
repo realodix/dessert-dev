@@ -16,9 +16,8 @@ final class AliasAssertionsTest extends TestCase
 
     public function testGreaterThan(): void
     {
-        ass(2)
-            ->greater(1)
-            ->greaterOrEqual(2);
+        ass(2)->greater(1)
+              ->greaterOrEqual(2);
 
         ass(2)->isAbove(1)
               ->isAtLeast(2);
