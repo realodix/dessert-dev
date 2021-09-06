@@ -62,7 +62,6 @@ final class Opposite
      * Creates a new expectation failed exception with a nice readable message.
      *
      * @param array<int, mixed> $arguments
-     * @param string            $name
      */
     private function throwExpectationFailedException(array $arguments = []): void
     {
