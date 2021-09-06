@@ -59,6 +59,13 @@ final class PHPUnitTest extends TestCase
         ass($array)->containsOnlyInstancesOf(FakeClassForTesting::class);
     }
 
+    public function testCount(): void
+    {
+        ass([1, 2, 3])
+            ->count(3)
+            ->notCount(2);
+    }
+
     public function testInstanceOf(): void
     {
         $testClass = new \DateTime();
