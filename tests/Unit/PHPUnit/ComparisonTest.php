@@ -51,13 +51,6 @@ final class ComparisonTest extends TestCase
         $this->fail();
     }
 
-    public function testLessThan(): void
-    {
-        ass(7)->lessThan(10)
-              ->lessThanOrEqual(7)
-              ->lessThanOrEqual(8);
-    }
-
     public function testNull(): void
     {
         ass(null)->null();

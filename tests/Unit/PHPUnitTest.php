@@ -254,6 +254,13 @@ final class PHPUnitTest extends TestCase
             ->greaterThanOrEqual(5);
     }
 
+    public function testLessThan(): void
+    {
+        ass(7)->lessThan(10)
+              ->lessThanOrEqual(7)
+              ->lessThanOrEqual(8);
+    }
+
     public function testInfinite(): void
     {
         ass(INF)->infinite();
