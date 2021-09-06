@@ -417,6 +417,17 @@ final class PHPUnitTest extends TestCase
             ->jsonStringNotToString(json_encode(['foo' => 'baz']));
     }
 
+    public function testNan(): void
+    {
+        ass(NAN)->nan();
+    }
+
+    public function testNull(): void
+    {
+        ass(null)->null();
+        ass(true)->notNull();
+    }
+
     /**
      * Two objects can be asserted to be equal using comparison method.
      */

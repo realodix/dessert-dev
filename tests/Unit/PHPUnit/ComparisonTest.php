@@ -51,12 +51,6 @@ final class ComparisonTest extends TestCase
         $this->fail();
     }
 
-    public function testNull(): void
-    {
-        ass(null)->null();
-        ass(true)->notNull();
-    }
-
     public function testSame(): void
     {
         ass(1)->same(0 + 1)

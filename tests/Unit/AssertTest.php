@@ -13,11 +13,6 @@ final class AssertTest extends TestCase
         ass(1)->finite();
     }
 
-    public function testNan(): void
-    {
-        ass(NAN)->nan();
-    }
-
     public function testVariants(): void
     {
         expect([])->empty();
