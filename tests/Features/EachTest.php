@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Test\Features;
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Assertion;
 
-final class EachMethodTest extends TestCase
+final class EachTest extends TestCase
 {
     /**
      * Expects on each item
