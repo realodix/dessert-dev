@@ -27,15 +27,6 @@ final class GeneralTest extends TestCase
             ->and(true)->true;
     }
 
-    public function testEachMethod(): void
-    {
-        ass([1, 2, 3, 4, 5])
-            ->each->isInt;
-
-        ass([function () {}, function () {}])
-            ->each()->isCallable();
-    }
-
     public function testNotMethod(): void
     {
         ass(true)
