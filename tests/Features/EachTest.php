@@ -7,6 +7,24 @@ use PHPUnit\Framework\TestCase;
 final class EachTest extends TestCase
 {
     /**
+     * Expects on each item
+     */
+    public function testEach(): void
+    {
+        ass([1, 1, 1])
+            ->each()
+            ->equal(1);
+
+        ass(static::getCount())->same(3); // + 1 assertion
+
+        ass([1, 1, 1])
+            ->each
+            ->equal(1);
+
+        ass(static::getCount())->same(7);
+    }
+
+    /**
      * An exception is thrown if the the type is not iterable
      */
     public function testAnExceptionIsThrown(): void
