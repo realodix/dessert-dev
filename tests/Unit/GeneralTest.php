@@ -27,14 +27,6 @@ final class GeneralTest extends TestCase
             ->and(true)->true;
     }
 
-    public function testNotMethod(): void
-    {
-        ass(true)
-            ->true()
-            ->not()->false()
-            ->not->false;
-    }
-
     /** @test */
     public function canBeExtended(): void
     {
