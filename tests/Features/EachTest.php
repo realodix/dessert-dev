@@ -13,13 +13,13 @@ final class EachTest extends TestCase
     {
         ass([1, 1, 1])
             ->each()
-            ->equal(1);
+            ->equals(1);
 
         ass(static::getCount())->same(3); // + 1 assertion
 
         ass([1, 1, 1])
             ->each
-            ->equal(1);
+            ->equals(1);
 
         ass(static::getCount())->same(7);
     }
