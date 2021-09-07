@@ -58,7 +58,7 @@ final class EachTest extends TestCase
         ass(static::getCount())->same(13);
     }
 
-    /**
+    /*
      * Opposite expectations on each item
      */
     // public function testOpposite(): void
@@ -77,7 +77,7 @@ final class EachTest extends TestCase
     //     ass(static::getCount())->same(7);
     // }
 
-    /**
+    /*
      * Chained opposite and non-opposite expectations
      */
     // public function testChainedOppositeAndNonOpposite(): void
@@ -91,7 +91,7 @@ final class EachTest extends TestCase
     //     ass(static::getCount())->same(6);
     // }
 
-    /**
+    /*
      * Can add expectations via "and"
      */
     // public function testCanAddExpectationsViaAnd(): void
@@ -112,17 +112,17 @@ final class EachTest extends TestCase
     //     ass(static::getCount())->same(14);
     // }
 
-    /**
+    /*
      * Accepts callables
      */
-    public function testCallables(): void
-    {
-        ass([1, 2, 3])->each(function ($number) {
-            ass($number)->instanceOf(Assertion::class);
-            ass($number->value)->isInt();
-            $number->isInt->not->isString;
-        });
+    // public function testCallables(): void
+    // {
+    //     ass([1, 2, 3])->each(function ($number) {
+    //         ass($number)->instanceOf(Assertion::class);
+    //         ass($number->value)->isInt();
+    //         $number->isInt->not->isString;
+    //     });
 
-        ass(static::getCount())->same(12);
-    }
+    //     ass(static::getCount())->same(12);
+    // }
 }
