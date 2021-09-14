@@ -89,27 +89,27 @@ class Assertion
      * @param string $attributeName
      * @param string $message
      */
-    public function classHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
+    // public function classHasAttribute(string $attributeName, string $message = ''): self
+    // {
+    //     $actual = Validator::actualValue($this->actual, 'class');
 
-        Assert::assertClassHasAttribute($attributeName, $actual, $message);
+    //     Assert::assertClassHasAttribute($attributeName, $actual, $message);
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @param string $attributeName
      * @param string $message
      */
-    public function classNotHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
+    // public function classNotHasAttribute(string $attributeName, string $message = ''): self
+    // {
+    //     $actual = Validator::actualValue($this->actual, 'class');
 
-        Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
+    //     Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @param string $attributeName
