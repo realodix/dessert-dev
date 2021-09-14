@@ -11,26 +11,26 @@ use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitTest extends TestCase
 {
-    public function testClassHasAttribute(): void
-    {
-        ass('Exception')
-            ->classHasAttribute('message')
-            ->classNotHasAttribute('fakeproperty');
+    // public function testClassHasAttribute(): void
+    // {
+    //     ass('Exception')
+    //         ->classHasAttribute('message')
+    //         ->classNotHasAttribute('fakeproperty');
 
-        if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-            $testObject = (object) ['existingAttribute' => true];
+    //     if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
+    //         $testObject = (object) ['existingAttribute' => true];
 
-            ass($testObject)->objectHasAttribute('existingAttribute');
-            ass($testObject)->objectNotHasAttribute('fakeproperty');
-        }
-    }
+    //         ass($testObject)->objectHasAttribute('existingAttribute');
+    //         ass($testObject)->objectNotHasAttribute('fakeproperty');
+    //     }
+    // }
 
-    public function testClassHasStaticAttribute(): void
-    {
-        ass(FakeClassForTesting::class)
-            ->classHasStaticAttribute('staticProperty')
-            ->classNotHasStaticAttribute('fakeProperty');
-    }
+    // public function testClassHasStaticAttribute(): void
+    // {
+    //     ass(FakeClassForTesting::class)
+    //         ->classHasStaticAttribute('staticProperty')
+    //         ->classNotHasStaticAttribute('fakeProperty');
+    // }
 
     public function testStringContainsString(): void
     {
