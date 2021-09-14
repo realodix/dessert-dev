@@ -172,9 +172,10 @@ final class PHPUnitTest extends TestCase
 
     public function testEquals(): void
     {
-        ass(5)->equals(5);
         ass('hello')->equals('hello');
-        ass(5)->equals(5, 'user have 5 posts');
+        ass(5)
+            ->equals(5)
+            ->equals(5, 'user have 5 posts');
 
         ass(3)->notEquals(5);
     }
