@@ -1,0 +1,42 @@
+name: PU10
+
+on:
+  - pull_request
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.0']
+        stability: [lowest, stable]
+        include:
+          - php-version: '8.1'
+            stability: stable
+            flags: "--ignore-platform-req=php"
+
+    name: PHP ${{ matrix.php-version }} (${{ matrix.stability }})
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: xdebug
+
+      - name: Install dependencies
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          command: composer require phpunit/phpunit dev-master
+
+      - name: Execute tests
+        run: |
+          ./vendor/bin/phpunit --migrate-configuration
+          ./vendor/bin/phpunit
