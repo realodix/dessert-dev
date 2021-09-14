@@ -37,4 +37,6 @@ jobs:
           command: composer require phpunit/phpunit dev-master
 
       - name: Execute tests
-        run: ./vendor/bin/phpunit
+        run: |
+          ./vendor/bin/phpunit --migrate-configuration
+          ./vendor/bin/phpunit
