@@ -13,9 +13,9 @@ final class PHPUnitTest extends TestCase
 {
     public function testClassHasAttribute(): void
     {
-        // ass('Exception')
-        //     ->classHasAttribute('message')
-        //     ->classNotHasAttribute('fakeproperty');
+        ass('Exception')
+            ->classHasAttribute('message')
+            ->classNotHasAttribute('fakeproperty');
 
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
             $testObject = (object) ['existingAttribute' => true];
