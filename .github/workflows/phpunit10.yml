@@ -1,4 +1,4 @@
-name: CI
+name: PHPUnit 10
 
 on:
   - pull_request
