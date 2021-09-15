@@ -89,7 +89,10 @@ For other usage examples, please see how We write tests for this package in the 
 Pass a new value to the `and()` function to chain multiple assertions in a single test:
 
 ```php
-Assert::that($id)->same(1)->and($name)->same('Sebastian');
+verify($id)
+    ->same(1)
+    ->and($name)
+        ->same('Sebastian');
 
 // $this->assertSame($expected, $this->value);
 // $this->assertSame($expected, $this->value);
@@ -100,7 +103,7 @@ Assert::that($id)->same(1)->and($name)->same('Sebastian');
 Use the `each()` modifier to create an expectation on each item of the given iterable:
 
 ```php
-Assert::that([1, 2, 3])->each->isInt();
+verify([1, 2, 3])->each->isInt();
 
 // $this->assertIsInt(1);
 // $this->assertIsInt(2);
@@ -112,8 +115,8 @@ Assert::that([1, 2, 3])->each->isInt();
 Use the `not()` modifier before a check to invert it:
 
 ```php
-Assert::that('string')->isNotInt();
-Assert::that('string')->not->isInt();
+verify('string')->isNotInt();
+verify('string')->not->isInt();
 ```
 
 ### Alias Assertions
@@ -149,7 +152,7 @@ $myVerify = new MyVerify;
 
 $myVerify->success('it works!');
 
-Assert::that('this also')->notEquals('works');
+verify('this also')->notEquals('works');
 ```
 
 ## Improvements
