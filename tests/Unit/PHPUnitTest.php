@@ -575,7 +575,7 @@ final class PHPUnitTest extends TestCase
     public function testClassHasAttribute(): void
     {
         if (version_compare(Version::series(), '9.5', '>')) {
-            $this->markTestSkipped('Deprecated and will be removed in PHPUnit 11');
+            $this->markTestSkipped('Deprecated in PHPUnit 10 and will be removed in PHPUnit 11');
         }
 
         ass('Exception')
@@ -597,7 +597,7 @@ final class PHPUnitTest extends TestCase
     public function testClassHasStaticAttribute(): void
     {
         if (version_compare(Version::series(), '9.5', '>')) {
-            $this->markTestSkipped('Deprecated and will be removed in PHPUnit 11');
+            $this->markTestSkipped('Deprecated in PHPUnit 10 and will be removed in PHPUnit 11');
         }
 
         ass(FakeClassForTesting::class)
