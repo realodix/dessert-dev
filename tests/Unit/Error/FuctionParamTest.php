@@ -80,38 +80,6 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function classHasAttributeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass('not_object')->classHasAttribute('');
-    }
-
-    /** @test */
-    public function classNotHasAttributeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass('not_object')->classNotHasAttribute('');
-    }
-
-    /** @test */
-    public function classHasStaticAttributeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass('')->classHasStaticAttribute('');
-    }
-
-    /** @test */
-    public function classNotHasStaticAttributeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass('')->classNotHasStaticAttribute('');
-    }
-
-    /** @test */
     public function directoryExistsActualValue(): void
     {
         $this->expectException(\TypeError::class);
@@ -388,22 +356,6 @@ final class FuctionParamTest extends TestCase
     {
         $this->expectException(\TypeError::class);
         ass(new ValueObject(1))->objectEquals('');
-    }
-
-    /** @test */
-    public function objectHasAttributeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass(false)->objectHasAttribute('');
-    }
-
-    /** @test */
-    public function objectNotHasAttributeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass(false)->objectNotHasAttribute('');
     }
 
     /** @test */

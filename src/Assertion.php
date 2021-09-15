@@ -7,6 +7,7 @@ use Realodix\NextProject\Support\Validator;
 
 class Assertion
 {
+    use Traits\DeprecatedTrait;
     use Traits\PolyfillTrait;
     use Traits\AliasesTrait;
     use Traits\ModifiedTrait;
@@ -83,58 +84,6 @@ class Assertion
     public function not(): Opposite
     {
         return new Opposite($this);
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassHasAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classNotHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassNotHasAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classHasStaticAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassHasStaticAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'class');
-
-        Assert::assertClassNotHasStaticAttribute($attributeName, $actual, $message);
-
-        return $this;
     }
 
     /**
@@ -914,32 +863,6 @@ class Assertion
     public function notNull(string $message = ''): self
     {
         Assert::assertNotNull($this->actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function objectHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'object');
-
-        Assert::assertObjectHasAttribute($attributeName, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * @param string $attributeName
-     * @param string $message
-     */
-    public function objectNotHasAttribute(string $attributeName, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'object');
-
-        Assert::assertObjectNotHasAttribute($attributeName, $actual, $message);
 
         return $this;
     }
