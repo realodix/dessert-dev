@@ -5,33 +5,13 @@ namespace Realodix\NextProject\Test;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
+use PHPUnit\Runner\Version;
 
 // Coba dibuat, ditemukan pada test Dir
 // $this->expectException(AssertionFailedError::class);
 
 final class PHPUnitTest extends TestCase
 {
-    // public function testClassHasAttribute(): void
-    // {
-    //     ass('Exception')
-    //         ->classHasAttribute('message')
-    //         ->classNotHasAttribute('fakeproperty');
-
-    //     if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-    //         $testObject = (object) ['existingAttribute' => true];
-
-    //         ass($testObject)->objectHasAttribute('existingAttribute');
-    //         ass($testObject)->objectNotHasAttribute('fakeproperty');
-    //     }
-    // }
-
-    // public function testClassHasStaticAttribute(): void
-    // {
-    //     ass(FakeClassForTesting::class)
-    //         ->classHasStaticAttribute('staticProperty')
-    //         ->classNotHasStaticAttribute('fakeProperty');
-    // }
-
     public function testStringContainsString(): void
     {
         ass('foo bar')
@@ -586,6 +566,43 @@ final class PHPUnitTest extends TestCase
         ass('<foo/>')
             ->xmlStringToString('<foo/>')
             ->xmlStringNotToString('<bar/>');
+    }
+
+    /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     */
+    public function testClassHasAttribute(): void
+    {
+        if (version_compare(Version::series(), '9.5', '>')) {
+            $this->markTestSkipped('Deprecated and will be removed in PHPUnit 11');
+        }
+
+        ass('Exception')
+            ->classHasAttribute('message')
+            ->classNotHasAttribute('fakeproperty');
+
+        if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
+            $testObject = (object) ['existingAttribute' => true];
+
+            ass($testObject)->objectHasAttribute('existingAttribute');
+            ass($testObject)->objectNotHasAttribute('fakeproperty');
+        }
+    }
+
+    /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     */
+    public function testClassHasStaticAttribute(): void
+    {
+        if (version_compare(Version::series(), '9.5', '>')) {
+            $this->markTestSkipped('Deprecated and will be removed in PHPUnit 11');
+        }
+
+        ass(FakeClassForTesting::class)
+            ->classHasStaticAttribute('staticProperty')
+            ->classNotHasStaticAttribute('fakeProperty');
     }
 }
 
