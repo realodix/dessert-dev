@@ -51,7 +51,7 @@ jobs:
             stability: stable
             flags: "--ignore-platform-req=php"
 
-    name: PHPUnit Dev - PHP ${{ matrix.php-version }} (${{ matrix.stability }})
+    name: PUDev - PHP ${{ matrix.php-version }} (${{ matrix.stability }})
 
     steps:
       - name: Checkout
