@@ -2,6 +2,8 @@
 
 namespace Realodix\NextProject\Traits;
 
+use Realodix\NextProject\Support\Validator;
+
 trait DeprecatedTrait
 {
     /**
