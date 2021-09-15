@@ -9,7 +9,8 @@ trait DeprecatedTrait
 {
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4602
      *
      * @param string $attributeName
      * @param string $message
@@ -25,7 +26,8 @@ trait DeprecatedTrait
 
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4602
      *
      * @param string $attributeName
      * @param string $message
@@ -41,7 +43,8 @@ trait DeprecatedTrait
 
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/46021
      *
      * @param string $attributeName
      * @param string $message
@@ -57,7 +60,8 @@ trait DeprecatedTrait
 
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4602
      *
      * @param string $attributeName
      * @param string $message
@@ -73,7 +77,8 @@ trait DeprecatedTrait
 
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4602
      *
      * @param string $attributeName
      * @param string $message
@@ -89,7 +94,8 @@ trait DeprecatedTrait
 
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4602
      *
      * @param string $attributeName
      * @param string $message

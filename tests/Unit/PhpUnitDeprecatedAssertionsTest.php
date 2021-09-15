@@ -9,7 +9,8 @@ final class PhpUnitDeprecatedAssertionsTest extends TestCase
 {
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4602
      */
     public function testClassHasAttribute(): void
     {
@@ -63,7 +64,8 @@ final class PhpUnitDeprecatedAssertionsTest extends TestCase
 
     /**
      * Deprecated in PHPUnit 10
-     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4601
+     * - https://github.com/sebastianbergmann/phpunit/issues/4602
      */
     public function testClassHasStaticAttribute(): void
     {
