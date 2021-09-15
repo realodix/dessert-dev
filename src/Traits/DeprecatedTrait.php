@@ -2,11 +2,15 @@
 
 namespace Realodix\NextProject\Traits;
 
+use PHPUnit\Framework\Assert;
 use Realodix\NextProject\Support\Validator;
 
 trait DeprecatedTrait
 {
     /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     *
      * @param string $attributeName
      * @param string $message
      */
@@ -20,6 +24,9 @@ trait DeprecatedTrait
     }
 
     /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     *
      * @param string $attributeName
      * @param string $message
      */
@@ -33,6 +40,9 @@ trait DeprecatedTrait
     }
 
     /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     *
      * @param string $attributeName
      * @param string $message
      */
@@ -46,6 +56,9 @@ trait DeprecatedTrait
     }
 
     /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     *
      * @param string $attributeName
      * @param string $message
      */
@@ -59,6 +72,9 @@ trait DeprecatedTrait
     }
 
     /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     *
      * @param string $attributeName
      * @param string $message
      */
@@ -72,6 +88,9 @@ trait DeprecatedTrait
     }
 
     /**
+     * Deprecated in PHPUnit 10
+     * https://github.com/sebastianbergmann/phpunit/issues/4601
+     *
      * @param string $attributeName
      * @param string $message
      */
