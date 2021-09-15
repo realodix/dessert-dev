@@ -9,9 +9,9 @@ final class OppositeTest extends TestCase
     /**
      * Not property calls
      */
-    public function testnotPropertyCalls(): void
+    public function testNotPropertyCalls(): void
     {
-        expect(true)
+        ass(true)
             ->true()
             ->not()->false()
             ->not->false
