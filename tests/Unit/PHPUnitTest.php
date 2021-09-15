@@ -4,8 +4,8 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 use PHPUnit\Runner\Version;
+use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
 // Coba dibuat, ditemukan pada test Dir
 // $this->expectException(AssertionFailedError::class);
