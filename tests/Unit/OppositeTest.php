@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Test\Features;
+namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
 
