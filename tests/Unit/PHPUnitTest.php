@@ -11,27 +11,6 @@ use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitTest extends TestCase
 {
-    public function testClassHasAttribute(): void
-    {
-        ass('Exception')
-            ->classHasAttribute('message')
-            ->classNotHasAttribute('fakeproperty');
-
-        if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-            $testObject = (object) ['existingAttribute' => true];
-
-            ass($testObject)->objectHasAttribute('existingAttribute');
-            ass($testObject)->objectNotHasAttribute('fakeproperty');
-        }
-    }
-
-    public function testClassHasStaticAttribute(): void
-    {
-        ass(FakeClassForTesting::class)
-            ->classHasStaticAttribute('staticProperty')
-            ->classNotHasStaticAttribute('fakeProperty');
-    }
-
     public function testStringContainsString(): void
     {
         ass('foo bar')
@@ -172,9 +151,10 @@ final class PHPUnitTest extends TestCase
 
     public function testEquals(): void
     {
-        ass(5)->equals(5);
         ass('hello')->equals('hello');
-        ass(5)->equals(5, 'user have 5 posts');
+        ass(5)
+            ->equals(5)
+            ->equals(5, 'user have 5 posts');
 
         ass(3)->notEquals(5);
     }
@@ -259,9 +239,8 @@ final class PHPUnitTest extends TestCase
 
     public function testFileIsReadable()
     {
-        $file = TEST_FILES_PATH.'string_foobar.txt';
-
-        ass($file)->fileIsReadable();
+        ass(TEST_FILES_PATH.'string_foobar.txt')
+            ->fileIsReadable();
     }
 
     public function testFileIsNotReadable()
@@ -285,9 +264,8 @@ final class PHPUnitTest extends TestCase
 
     public function testFileIsWritable()
     {
-        $file = TEST_FILES_PATH.'string_foobar.txt';
-
-        ass($file)->fileIsWritable();
+        ass(TEST_FILES_PATH.'string_foobar.txt')
+            ->fileIsWritable();
     }
 
     public function testFileIsNotWritable()
@@ -328,9 +306,7 @@ final class PHPUnitTest extends TestCase
 
     public function testInstanceOf(): void
     {
-        $testClass = new \DateTime();
-
-        ass($testClass)
+        ass(new \DateTime())
             ->instanceOf('DateTime')
             ->notInstanceOf('DateTimeZone');
     }
@@ -534,18 +510,22 @@ final class PHPUnitTest extends TestCase
 
     public function testStringEqualsFileCanonicalizing(): void
     {
+        $string_foobar = TEST_FILES_PATH.'string_foobar.txt';
+
         ass('foo_bar')
-            ->stringEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
+            ->stringEqualsFileCanonicalizing($string_foobar);
         ass('notSame')
-            ->stringNotEqualsFileCanonicalizing(TEST_FILES_PATH.'string_foobar.txt');
+            ->stringNotEqualsFileCanonicalizing($string_foobar);
     }
 
     public function testStringEqualsFileIgnoringCase(): void
     {
+        $string_foobar = TEST_FILES_PATH.'string_foobar.txt';
+
         ass('FOO_BAR')
-            ->stringEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
+            ->stringEqualsFileIgnoringCase($string_foobar);
         ass('Test 123')
-            ->stringNotEqualsFileIgnoringCase(TEST_FILES_PATH.'string_foobar.txt');
+            ->stringNotEqualsFileIgnoringCase($string_foobar);
     }
 
     public function testTrue(): void
