@@ -54,7 +54,7 @@ verify($array)
 
 ### hasProperty()
 
-Asserts that the `$value` contains the property `$name`:
+Asserts that the `$actualValue` contains the property `$name`:
 
 ```php
 verify($user)
@@ -64,7 +64,7 @@ verify($user)
 
 ### hasProperties()
 
-Asserts that the `$value` contains the provided properties `$names`:
+Asserts that the `$actualValue` contains the provided properties `$names`:
 
 ```php
 $obj->name = "Jhon";
