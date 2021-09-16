@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Test;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Runner\Version;
 
-final class DeprecatedAssertionsTest extends TestCase
+final class PHPUnitDeprecatedTest extends TestCase
 {
     /**
      * Deprecated in PHPUnit 10
