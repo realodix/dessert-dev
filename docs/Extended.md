@@ -42,7 +42,7 @@ verify($array)
 
 ### arrayHasKeys()
 
-Asserts that the value array has the provided $keys.
+Asserts that the value array has the provided `$keys`.
 
 ```php
 $array = ['name' => 'Desk', 'price' => 100];
@@ -80,7 +80,8 @@ verify($obj)
 Asserts that the contents of one file is equal to the string.
 
 ```php
-verify($file)->fileEqualsString('expected_string', 'optional_message')
+verify($file)
+    ->fileEqualsString('expected_string', 'optional_message')
 ```
 
 `fileNotEqualsString()` is the inverse of this assertion and takes the same arguments.
@@ -90,7 +91,8 @@ verify($file)->fileEqualsString('expected_string', 'optional_message')
 Asserts that the contents of one file is equal to the string (ignoring case).
 
 ```php
-verify($file)->fileEqualsStringIgnoringCase('expected_string', 'optional_message')
+verify($file)
+    ->fileEqualsStringIgnoringCase('expected_string', 'optional_message')
 ```
 
 `fileNotEqualsStringIgnoringCase()` is the inverse of this assertion and takes the same arguments.
@@ -131,10 +133,12 @@ Asserts that a closure throws an exception class, exception message, or the comb
 
 ```php
 // It throws the desired Exception class
-verify(fn() => throw new \Exception('Something happened.'))->throw(\Exception::class);
+verify(fn() => throw new \Exception('Something happened.'))
+    ->throw(\Exception::class);
 
 // It throws an exception with desired message
-verify(fn() => throw new \Exception('Something happened.'))->throw('Something happened.');
+verify(fn() => throw new \Exception('Something happened.'))
+    ->throw('Something happened.');
 
 // It throws the desired Exception class with the desired message
 verify(fn() => throw new \Exception('Something happened.'))
@@ -145,8 +149,11 @@ You may assert more than one exception per test:
 
 ```php
 // It asserts two exceptions with their specific messages
-verify(fn() => throw new \Exception('Error 1'))->throw(\Exception::class, 'Error 1');
-verify(fn() => throw new \Exception('Error 2'))->throw(\Exception::class, 'Error 2');
+verify(fn() => throw new \Exception('Error 1'))
+    ->throw(\Exception::class, 'Error 1');
+
+verify(fn() => throw new \Exception('Error 2'))
+    ->throw(\Exception::class, 'Error 2');
 ```
 
 It is also possible to use `not()` modifier together with `throw()`:
