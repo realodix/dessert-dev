@@ -19,6 +19,66 @@ final class ExtendedAssertionsTest extends TestCase
             ->arrayNotHasKeys(['foo', 'bar']);
     }
 
+    public function testHasProperty()
+    {
+        $obj = new \stdClass();
+        $obj->foo = 'bar';
+        $obj->fooNull = null;
+
+        ass($obj)->hasProperty('foo');
+        ass($obj)->hasProperty('foo', 'bar');
+        ass($obj)->hasProperty('fooNull');
+        ass($obj)->hasProperty('fooNull', null);
+    }
+
+    public function testHasPropertyFailures()
+    {
+        $obj = new \stdClass();
+        $obj->foo = 'bar';
+        $obj->fooNull = null;
+
+        $this->expectException(ExpectationFailedException::class);
+        ass($obj)->hasProperty('bar');
+    }
+
+    public function testHasPropertyNotFailures()
+    {
+        $obj = new \stdClass();
+        $obj->foo = 'bar';
+        $obj->fooNull = null;
+
+        $this->expectException(ExpectationFailedException::class);
+        ass($obj)->not->hasProperty('foo');
+    }
+
+    public function testHasProperties()
+    {
+        $object = new \stdClass();
+        $object->name = 'Jhon';
+        $object->age = 21;
+
+        ass($object)->hasProperties(['name', 'age']);
+    }
+
+    public function testHasPropertiesFailures()
+    {
+        $object = new \stdClass();
+        $object->name = 'Jhon';
+
+        $this->expectException(ExpectationFailedException::class);
+        ass($object)->hasProperties(['name', 'age']);
+    }
+
+    public function testHasPropertiesNotFailures()
+    {
+        $object = new \stdClass();
+        $object->name = 'Jhon';
+        $object->age = 21;
+
+        $this->expectException(ExpectationFailedException::class);
+        ass($object)->not->hasProperties(['name', 'age']);
+    }
+
     public function testContains(): void
     {
         ass([3, 2])

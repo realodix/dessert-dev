@@ -47,6 +47,39 @@ trait ExtendedTrait
     }
 
     /**
+     * Asserts that the value contains the property $name.
+     *
+     * @param string $name
+     * @param mixed  $value
+     */
+    public function hasProperty(string $name, $value = null): self
+    {
+        $this->isObject();
+
+        Assert::assertTrue(property_exists($this->actual, $name));
+
+        if (\func_num_args() > 1) {
+            Assert::assertEquals($value, $this->actual->{$name});
+        }
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the value contains the provided properties $names.
+     *
+     * @param iterable<array-key, string> $names
+     */
+    public function hasProperties(iterable $names): self
+    {
+        foreach ($names as $name) {
+            $this->hasProperty($name);
+        }
+
+        return $this;
+    }
+
+    /**
      * Asserts string contains string (ignoring line endings).
      *
      * Reference:

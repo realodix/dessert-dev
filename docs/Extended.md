@@ -52,6 +52,29 @@ verify($array)
     ->arrayNotHasKeys(['foo', 'bar']);
 ```
 
+### hasProperty()
+
+Asserts that the `$value` contains the property `$name`:
+
+```php
+verify($user)
+    ->hasProperty('name')
+    ->hasProperty('name', 'Sebastian');
+```
+
+### hasProperties()
+
+Asserts that the value contains the provided properties `$names`.
+
+```php
+$obj->name = "Jhon";
+$obj->age = 21;
+
+verify($obj)
+    ->hasProperties(["name", "age"])            // passes
+    ->hasProperties(["name", "age", "gender"]); // doest not pass
+```
+
 ### fileEqualsString()
 
 Asserts that the contents of one file is equal to the string.

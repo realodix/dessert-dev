@@ -217,7 +217,7 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="18">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -232,6 +232,7 @@
       <code>$actual</code>
       <code>$array</code>
       <code>$array</code>
+      <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>Validator::actualValue($this-&gt;actual, 'string')</code>
@@ -257,6 +258,9 @@
     <MixedInferredReturnType occurrences="1">
       <code>self</code>
     </MixedInferredReturnType>
+    <MixedPropertyFetch occurrences="1">
+      <code>$this-&gt;actual-&gt;{$name}</code>
+    </MixedPropertyFetch>
     <TooManyArguments occurrences="2">
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
