@@ -64,7 +64,7 @@ verify($user)
 
 ### hasProperties()
 
-Asserts that the value contains the provided properties `$names`.
+Asserts that the `$value` contains the provided properties `$names`:
 
 ```php
 $obj->name = "Jhon";
