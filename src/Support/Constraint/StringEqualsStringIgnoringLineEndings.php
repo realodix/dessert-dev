@@ -15,7 +15,7 @@ use PHPUnit\Framework\Constraint\Constraint;
  */
 final class StringEqualsStringIgnoringLineEndings extends Constraint
 {
-    private string $string;
+    private $string;
 
     public function __construct(string $string)
     {
