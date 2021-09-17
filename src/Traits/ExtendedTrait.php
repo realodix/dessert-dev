@@ -6,12 +6,10 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
-use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Dom;
 use Realodix\NextProject\Support\NullClosure;
-use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
 trait ExtendedTrait
@@ -79,26 +77,6 @@ trait ExtendedTrait
         return $this;
     }
 
-    /**
-     * Asserts string contains string (ignoring line endings).
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4670
-     *
-     * @param string $needle
-     * @param string $message
-     */
-    public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $needle = Str::normalizeLineEndings($needle);
-        $haystack = Str::normalizeLineEndings($actual);
-
-        Assert::assertThat($haystack, new StringContains($needle, false), $message);
-
-        return $this;
-    }
-
     public function stringEquals(string $expected, string $message = ''): self
     {
         $actual = $this->actual(Validator::actualValue($this->actual, 'string'));
@@ -137,27 +115,6 @@ trait ExtendedTrait
         }
 
         $actual->notEquals($expected, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that two strings equality (ignoring line endings).
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4670
-     *
-     * @param string $expected
-     * @param string $message
-     */
-    public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
-    {
-        $actual = Str::normalizeLineEndings(
-            Validator::actualValue($this->actual, 'string')
-        );
-        $expected = Str::normalizeLineEndings($expected);
-
-        Assert::assertThat($actual, new IsEqual($expected), $message);
 
         return $this;
     }

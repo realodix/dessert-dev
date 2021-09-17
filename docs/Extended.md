@@ -109,24 +109,6 @@ verify([1, 2, 3])->hasLength(3);
 
 `notHasLength()` is the inverse of this assertion and takes the same arguments.
 
-### stringContainsStringIgnoringLineEndings()
-
-Asserts string contains string (ignoring line endings).
-
-```php
-verify('oo')
-    ->stringContainsStringIgnoringLineEndings('foo bar', 'optional_message')
-```
-
-### stringEqualIgnoringLineEndings()
-
-Asserts that two strings equality (ignoring line endings).
-
-```php
-verify('a\r\nb')
-    ->stringEqualIgnoringLineEndings('a\nb', 'optional_message')
-```
-
 ### throw()
 
 Asserts that a closure throws an exception class, exception message, or the combination of both.

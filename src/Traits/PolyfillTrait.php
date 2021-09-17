@@ -3,8 +3,11 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Constraint\ObjectEquals;
+use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
 trait PolyfillTrait
@@ -495,6 +498,67 @@ trait PolyfillTrait
         // @codeCoverageIgnoreEnd
 
         Assert::assertObjectEquals($expected, $actual, $method, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts string contains string (ignoring line endings).
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4641
+     * - https://github.com/sebastianbergmann/phpunit/pull/4670
+     *
+     * @param string $needle
+     * @param string $message
+     */
+    public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        // @codeCoverageIgnoreStart
+        if (version_compare(Version::series(), '10.0', '<')) {
+            $needle = Str::normalizeLineEndings($needle);
+            $haystack = Str::normalizeLineEndings($actual);
+
+            Assert::assertThat($haystack, new StringContains($needle, false), $message);
+
+            return $this;
+        }
+        // @codeCoverageIgnoreEnd
+
+        Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * Asserts that two strings equality (ignoring line endings).
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/issues/4641
+     * - https://github.com/sebastianbergmann/phpunit/pull/4670
+     *
+     * @param string $expected
+     * @param string $message
+     */
+    public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
+    {
+        $actual = Str::normalizeLineEndings(
+            Validator::actualValue($this->actual, 'string')
+        );
+
+        // @codeCoverageIgnoreStart
+        if (version_compare(Version::series(), '10.0', '<')) {
+            $expected = Str::normalizeLineEndings($expected);
+
+            Assert::assertThat($actual, new IsEqual($expected), $message);
+
+            return $this;
+        }
+        // @codeCoverageIgnoreEnd
+
+        Assert::assertStringEqualIgnoringLineEndings($expected, $actual, $message);
 
         return $this;
     }
