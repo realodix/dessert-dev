@@ -398,7 +398,7 @@
     </TooManyArguments>
     <UndefinedMethod occurrences="2">
       <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message)</code>
-      <code>Assert::assertStringEqualIgnoringLineEndings($expected, $actual, $message)</code>
+      <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message)</code>
     </UndefinedMethod>
   </file>
 </files>
