@@ -558,7 +558,7 @@ trait PolyfillTrait
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertStringEqualIgnoringLineEndings($expected, $actual, $message);
+        Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message);
 
         return $this;
     }
