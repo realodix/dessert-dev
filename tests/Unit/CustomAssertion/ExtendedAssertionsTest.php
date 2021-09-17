@@ -116,26 +116,6 @@ final class ExtendedAssertionsTest extends TestCase
         ass([1, 1.5, true, null])->each->hasLength(1);
     }
 
-    /**
-     * @dataProvider stringContainsStringIgnoringLineEndingsProvider
-     *
-     * @param string $needle
-     * @param string $haystack
-     */
-    public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
-    {
-        ass($haystack)
-            ->stringContainsStringIgnoringLineEndings($needle);
-    }
-
-    public function testNotStringContainsStringIgnoringLineEndings(): void
-    {
-        $this->expectException(ExpectationFailedException::class);
-
-        ass("\r\nc\r\n")
-            ->stringContainsStringIgnoringLineEndings("b\nc");
-    }
-
     public function testStringEquals(): void
     {
         ass('hello')
@@ -153,31 +133,6 @@ final class ExtendedAssertionsTest extends TestCase
         ass($xmlString)
             ->stringEquals($xmlString)
             ->stringNotEquals('<bar/>');
-    }
-
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsProvider
-     *
-     * @param string $expected
-     * @param string $actual
-     */
-    public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
-    {
-        ass($actual)
-            ->stringEqualIgnoringLineEndings($expected);
-    }
-
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsFailProvider
-     *
-     * @param string $expected
-     * @param string $actual
-     */
-    public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
-    {
-        $this->expectException(ExpectationFailedException::class);
-        ass($actual)
-            ->stringEqualIgnoringLineEndings($expected);
     }
 
     public function testFileEqualsString(): void
@@ -397,5 +352,50 @@ final class ExtendedAssertionsTest extends TestCase
             'The "throw" closure\'s parameter must be type-hinted as the class string'
         );
         ass(function () {})->throw(function ($e) {});
+    }
+
+    /**
+     * @dataProvider stringContainsStringIgnoringLineEndingsProvider
+     *
+     * @param string $needle
+     * @param string $haystack
+     */
+    public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
+    {
+        ass($haystack)
+            ->stringContainsStringIgnoringLineEndings($needle);
+    }
+
+    public function testNotStringContainsStringIgnoringLineEndings(): void
+    {
+        $this->expectException(ExpectationFailedException::class);
+
+        ass("\r\nc\r\n")
+            ->stringContainsStringIgnoringLineEndings("b\nc");
+    }
+
+    /**
+     * @dataProvider stringEqualIgnoringLineEndingsProvider
+     *
+     * @param string $expected
+     * @param string $actual
+     */
+    public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    {
+        ass($actual)
+            ->stringEqualIgnoringLineEndings($expected);
+    }
+
+    /**
+     * @dataProvider stringEqualIgnoringLineEndingsFailProvider
+     *
+     * @param string $expected
+     * @param string $actual
+     */
+    public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    {
+        $this->expectException(ExpectationFailedException::class);
+        ass($actual)
+            ->stringEqualIgnoringLineEndings($expected);
     }
 }
