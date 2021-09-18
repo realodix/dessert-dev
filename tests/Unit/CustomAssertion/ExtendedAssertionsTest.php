@@ -353,49 +353,4 @@ final class ExtendedAssertionsTest extends TestCase
         );
         ass(function () {})->throw(function ($e) {});
     }
-
-    /**
-     * @dataProvider stringContainsStringIgnoringLineEndingsProvider
-     *
-     * @param string $needle
-     * @param string $haystack
-     */
-    public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
-    {
-        ass($haystack)
-            ->stringContainsStringIgnoringLineEndings($needle);
-    }
-
-    public function testNotStringContainsStringIgnoringLineEndings(): void
-    {
-        $this->expectException(ExpectationFailedException::class);
-
-        ass("\r\nc\r\n")
-            ->stringContainsStringIgnoringLineEndings("b\nc");
-    }
-
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsProvider
-     *
-     * @param string $expected
-     * @param string $actual
-     */
-    public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
-    {
-        ass($actual)
-            ->stringEqualIgnoringLineEndings($expected);
-    }
-
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsFailProvider
-     *
-     * @param string $expected
-     * @param string $actual
-     */
-    public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
-    {
-        $this->expectException(ExpectationFailedException::class);
-        ass($actual)
-            ->stringEqualIgnoringLineEndings($expected);
-    }
 }
