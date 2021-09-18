@@ -15,6 +15,9 @@ use PHPUnit\Framework\Constraint\Constraint;
  */
 final class StringEqualsStringIgnoringLineEndings extends Constraint
 {
+    /**
+     * @var string
+     */
     private $string;
 
     public function __construct(string $string)
@@ -41,7 +44,7 @@ final class StringEqualsStringIgnoringLineEndings extends Constraint
      */
     protected function matches($other): bool
     {
-        return $this->string === $this->normalizeLineEndings((string) $other);
+        return (string) $this->string === $this->normalizeLineEndings((string) $other);
     }
 
     private function normalizeLineEndings(string $string): string
