@@ -423,6 +423,14 @@ final class FuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function stringContainsStringIgnoringLineEndingsActualValue(): void
+    {
+        $this->expectException(\TypeError::class);
+
+        ass(false)->stringContainsStringIgnoringLineEndings('');
+    }
+
+    /** @test */
     public function stringEqualsFileCanonicalizingActualValue(): void
     {
         $this->expectException(\TypeError::class);
@@ -452,6 +460,14 @@ final class FuctionParamTest extends TestCase
         $this->expectException(\TypeError::class);
 
         ass(false)->stringNotEqualsFileIgnoringCase('');
+    }
+
+    /** @test */
+    public function stringEqualIgnoringLineEndingsActualValue(): void
+    {
+        $this->expectException(\TypeError::class);
+
+        ass(false)->stringEqualIgnoringLineEndings('');
     }
 
     /** @test */
@@ -532,21 +548,5 @@ final class FuctionParamTest extends TestCase
         $this->expectException(\TypeError::class);
 
         ass(false)->xmlFileNotEqualsXmlFile('');
-    }
-
-    /** @test */
-    public function stringContainsStringIgnoringLineEndingsActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass(false)->stringContainsStringIgnoringLineEndings('');
-    }
-
-    /** @test */
-    public function stringEqualIgnoringLineEndingsActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
-
-        ass(false)->stringEqualIgnoringLineEndings('');
     }
 }
