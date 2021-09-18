@@ -548,10 +548,11 @@ trait PolyfillTrait
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
-            $actual = Str::normalizeLineEndings($this->actual);
-            $expected = Str::normalizeLineEndings($expected);
-
-            Assert::assertThat($actual, new IsEqual($expected), $message);
+            Assert::assertThat(
+                Str::normalizeLineEndings($this->actual),
+                new IsEqual(Str::normalizeLineEndings($expected)),
+                $message
+            );
 
             return $this;
         }
