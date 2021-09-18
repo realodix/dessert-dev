@@ -217,8 +217,7 @@
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="18">
-      <code>$actual</code>
+    <MixedArgument occurrences="16">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -235,10 +234,8 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
-      <code>Validator::actualValue($this-&gt;actual, 'string')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="16">
-      <code>$actual</code>
+    <MixedAssignment occurrences="15">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -320,7 +317,8 @@
     <MissingReturnType occurrences="1">
       <code>objectEquals</code>
     </MissingReturnType>
-    <MixedArgument occurrences="42">
+    <MixedArgument occurrences="44">
+      <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -363,8 +361,11 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
+      <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="20">
+    <MixedAssignment occurrences="22">
+      <code>$actual</code>
+      <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -396,5 +397,9 @@
       <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true)</code>
       <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true)</code>
     </TooManyArguments>
+    <UndefinedMethod occurrences="2">
+      <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message)</code>
+      <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message)</code>
+    </UndefinedMethod>
   </file>
 </files>
