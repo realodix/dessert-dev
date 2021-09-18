@@ -12,7 +12,7 @@ use Realodix\NextProject\Support\Dom;
 use Realodix\NextProject\Support\NullClosure;
 use Realodix\NextProject\Support\Validator;
 
-trait ExtendedTrait
+trait CustomTrait
 {
     /**
      * Asserts that the value array has the provided $keys.

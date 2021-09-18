@@ -1,11 +1,11 @@
 <?php
 
-namespace Realodix\NextProject\Test\CustomAssertion;
+namespace Realodix\NextProject\Test\Custom;
 
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
-final class ExtendedBehaviourTest extends TestCase
+final class CustomBehaviourTest extends TestCase
 {
     public function testArrayHasKey(): void
     {

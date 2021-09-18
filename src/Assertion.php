@@ -11,7 +11,7 @@ class Assertion
     use Traits\PolyfillTrait;
     use Traits\AliasesTrait;
     use Traits\ModifiedTrait;
-    use Traits\ExtendedTrait;
+    use Traits\CustomTrait;
 
     /** @var mixed */
     public $actual = null;

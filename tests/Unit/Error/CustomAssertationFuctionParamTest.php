@@ -3,7 +3,6 @@
 namespace Realodix\NextProject\Test\Error;
 
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class CustomAssertationFuctionParamTest extends TestCase
 {

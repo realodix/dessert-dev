@@ -1,14 +1,14 @@
 <?php
 
-namespace Realodix\NextProject\Test\CustomAssertion;
+namespace Realodix\NextProject\Test\Custom;
 
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
-final class ExtendedAssertionsTest extends TestCase
+final class CustomAssertionsTest extends TestCase
 {
-    use ExtendedAssertionsTestProvider;
+    use CustomAssertionsTestProvider;
 
     public function testArrayHasKeys(): void
     {

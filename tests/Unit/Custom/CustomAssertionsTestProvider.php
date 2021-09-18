@@ -1,8 +1,8 @@
 <?php
 
-namespace Realodix\NextProject\Test\CustomAssertion;
+namespace Realodix\NextProject\Test\Custom;
 
-trait ExtendedAssertionsTestProvider
+trait CustomAssertionsTestProvider
 {
     public function markupContainsSelectorProvider()
     {

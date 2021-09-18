@@ -194,25 +194,7 @@
       <code>directoryExists</code>
     </TooManyArguments>
   </file>
-  <file src="src/Traits/DeprecatedTrait.php">
-    <MixedArgument occurrences="6">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Traits/ExtendedTrait.php">
+  <file src="src/Traits/CustomTrait.php">
     <InvalidScalarArgument occurrences="2">
       <code>10</code>
       <code>10</code>
@@ -229,13 +211,14 @@
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
+      <code>$actual</code>
       <code>$array</code>
       <code>$array</code>
-      <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="16">
+      <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -256,7 +239,7 @@
       <code>self</code>
     </MixedInferredReturnType>
     <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;actual-&gt;{$name}</code>
+      <code>$actual-&gt;{$name}</code>
     </MixedPropertyFetch>
     <TooManyArguments occurrences="2">
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
@@ -265,6 +248,24 @@
     <UndefinedDocblockClass occurrences="1">
       <code>string|Closure</code>
     </UndefinedDocblockClass>
+  </file>
+  <file src="src/Traits/DeprecatedTrait.php">
+    <MixedArgument occurrences="6">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="6">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+    </MixedAssignment>
   </file>
   <file src="src/Traits/ModifiedTrait.php">
     <InternalClass occurrences="2"/>
