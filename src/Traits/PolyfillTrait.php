@@ -3,10 +3,10 @@
 namespace Realodix\NextProject\Traits;
 
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
 use Realodix\NextProject\Support\Constraint\ObjectEquals;
-use Realodix\NextProject\Support\Constraint\StringEqualsStringIgnoringLineEndings;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
@@ -548,7 +548,10 @@ trait PolyfillTrait
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
-            Assert::assertThat($actual, new StringEqualsStringIgnoringLineEndings($expected), $message);
+            $actual = Str::normalizeLineEndings($this->actual);
+            $expected = Str::normalizeLineEndings($expected);
+
+            Assert::assertThat($actual, new IsEqual($expected), $message);
 
             return $this;
         }
