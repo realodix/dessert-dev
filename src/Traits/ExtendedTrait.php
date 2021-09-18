@@ -52,12 +52,12 @@ trait ExtendedTrait
      */
     public function hasProperty(string $name, $value = null): self
     {
-        $this->isObject();
+        $actual = Validator::actualValue($this->actual, 'object');
 
-        Assert::assertTrue(property_exists($this->actual, $name));
+        Assert::assertTrue(property_exists($actual, $name));
 
         if (\func_num_args() > 1) {
-            Assert::assertEquals($value, $this->actual->{$name});
+            Assert::assertEquals($value, $actual->{$name});
         }
 
         return $this;
