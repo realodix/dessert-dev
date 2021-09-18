@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test\Error;
 
 use PHPUnit\Framework\TestCase;
 
-final class CustomAssertationFuctionParamTest extends TestCase
+final class CustomAssertionsFuctionParamTest extends TestCase
 {
     /** @test */
     public function hasPropertyActualValue(): void
