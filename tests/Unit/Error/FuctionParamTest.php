@@ -533,4 +533,20 @@ final class FuctionParamTest extends TestCase
 
         ass(false)->xmlFileNotEqualsXmlFile('');
     }
+
+    /** @test */
+    public function stringContainsStringIgnoringLineEndingsActualValue(): void
+    {
+        $this->expectException(\TypeError::class);
+
+        ass(false)->stringContainsStringIgnoringLineEndings('');
+    }
+
+    /** @test */
+    public function stringEqualIgnoringLineEndingsActualValue(): void
+    {
+        $this->expectException(\TypeError::class);
+
+        ass(false)->stringEqualIgnoringLineEndings('');
+    }
 }
