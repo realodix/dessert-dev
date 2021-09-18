@@ -518,10 +518,11 @@ trait PolyfillTrait
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
-            $needle = Str::normalizeLineEndings($needle);
-            $haystack = Str::normalizeLineEndings($actual);
-
-            Assert::assertThat($haystack, new StringContains($needle, false), $message);
+            Assert::assertThat(
+                Str::normalizeLineEndings($actual),
+                new StringContains(Str::normalizeLineEndings($needle), false),
+                $message
+            );
 
             return $this;
         }
