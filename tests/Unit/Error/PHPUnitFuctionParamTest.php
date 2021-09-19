@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Test\Error;
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
-final class FuctionParamTest extends TestCase
+final class PHPUnitFuctionParamTest extends TestCase
 {
     /** @test */
     public function arrayHasKeyActualValue(): void
