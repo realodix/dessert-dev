@@ -431,9 +431,7 @@ final class PHPUnitTest extends TestCase
 
         ass($fileActual)
             ->jsonFileEqualsJsonFile($fileActual)
-            ->jsonFileNotEqualsJsonFile($fileExpected)
-            ->jsonFileToFile($fileActual)
-            ->jsonFileNotToFile($fileExpected);
+            ->jsonFileNotEqualsJsonFile($fileExpected);
     }
 
     public function testJsonStringEqualsJsonFile(): void
@@ -442,12 +440,10 @@ final class PHPUnitTest extends TestCase
         $jsonString = json_encode(['foo' => 'bar']);
 
         ass($jsonString)
-            ->jsonStringEqualsJsonFile($jsonFile)
-            ->jsonStringToFile($jsonFile);
+            ->jsonStringEqualsJsonFile($jsonFile);
 
         ass(json_encode(['foo' => 'baz']))
-            ->jsonStringNotEqualsJsonFile($jsonFile)
-            ->jsonStringNotToFile($jsonFile);
+            ->jsonStringNotEqualsJsonFile($jsonFile);
     }
 
     public function testJsonStringEqualsJsonString(): void
@@ -456,9 +452,7 @@ final class PHPUnitTest extends TestCase
 
         ass($jsonString)
             ->jsonStringEqualsJsonString($jsonString)
-            ->jsonStringNotEqualsJsonString(json_encode(['foo' => 'baz']))
-            ->jsonStringToString($jsonString)
-            ->jsonStringNotToString(json_encode(['foo' => 'baz']));
+            ->jsonStringNotEqualsJsonString(json_encode(['foo' => 'baz']));
     }
 
     public function testNan(): void
@@ -510,15 +504,15 @@ final class PHPUnitTest extends TestCase
     public function testStringStartsWith(): void
     {
         ass('foobar')
-            ->startWith('fo')
-            ->startNotWith('ar');
+            ->stringStartsWith('fo')
+            ->stringStartsNotWith('ar');
     }
 
     public function testStringEndsWith(): void
     {
         ass('foobar')
-            ->endWith('ar')
-            ->endNotWith('foo');
+            ->stringEndsWith('ar')
+            ->stringEndsNotWith('foo');
     }
 
     public function testStringEqualsFileCanonicalizing(): void
@@ -559,8 +553,8 @@ final class PHPUnitTest extends TestCase
         $expected = TEST_FILES_PATH.'xml_bar.xml';
 
         ass($actual)
-            ->xmlFileToFile($actual)
-            ->xmlFileNotToFile($expected);
+            ->xmlFileEqualsXmlFile($actual)
+            ->xmlFileNotEqualsXmlFile($expected);
     }
 
     public function testXmlStringEqualsXmlFile(): void
@@ -569,15 +563,15 @@ final class PHPUnitTest extends TestCase
         $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
 
         ass('<foo/>')
-            ->xmlStringToFile($xmlFoo)
-            ->xmlStringNotToFile($xmlBar);
+            ->xmlStringEqualsXmlFile($xmlFoo)
+            ->xmlStringNotEqualsXmlFile($xmlBar);
     }
 
     public function testXmlStringEqualsXmlString(): void
     {
         ass('<foo/>')
-            ->xmlStringToString('<foo/>')
-            ->xmlStringNotToString('<bar/>');
+            ->xmlStringEqualsXmlString('<foo/>')
+            ->xmlStringNotEqualsXmlString('<bar/>');
     }
 
     public function testDirectoryIsNotReadable(): void
