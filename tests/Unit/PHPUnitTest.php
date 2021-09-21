@@ -119,63 +119,25 @@ final class PHPUnitTest extends TestCase
     public function testDirectoryExists(): void
     {
         ass(__DIR__)
-            ->directoryExists()
-            ->dirExists();
+            ->directoryExists();
     }
 
     public function testDirectoryNotExists(): void
     {
         ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')
-            ->directoryDoesNotExist()
-            ->dirNotExist();
+            ->directoryDoesNotExist();
     }
 
     public function testDirectoryIsReadable(): void
     {
         ass(__DIR__)
-            ->directoryIsReadable()
-            ->dirIsReadable();
-    }
-
-    public function testDirectoryIsNotReadable(): void
-    {
-        // symfony/polyfill-php72
-        if (PHP_OS_FAMILY === 'Windows') {
-            $this->markTestSkipped('Cannot test this behaviour on Windows');
-        }
-
-        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
-        mkdir($dirName, octdec('0'));
-
-        ass($dirName)
-            ->directoryIsNotReadable()
-            ->dirIsNotReadable();
-
-        rmdir($dirName);
+            ->directoryIsReadable();
     }
 
     public function testDirectoryIsWritable(): void
     {
         ass(__DIR__)
-            ->directoryIsWritable()
-            ->dirIsWritable();
-    }
-
-    public function testDirectoryIsNotWritable(): void
-    {
-        // symfony/polyfill-php72
-        if (PHP_OS_FAMILY === 'Windows') {
-            $this->markTestSkipped('Cannot test this behaviour on Windows');
-        }
-
-        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
-        mkdir($dirName, octdec('444'));
-
-        ass($dirName)
-            ->directoryIsNotWritable()
-            ->dirIsNotWritable();
-
-        rmdir($dirName);
+            ->directoryIsWritable();
     }
 
     public function testEmpty(): void
@@ -303,25 +265,6 @@ final class PHPUnitTest extends TestCase
             ->fileIsReadable();
     }
 
-    public function testFileIsNotReadable()
-    {
-        // symfony/polyfill-php72
-        if (PHP_OS_FAMILY === 'Windows') {
-            $this->markTestSkipped('Cannot test this behaviour on Windows');
-        }
-
-        $tempFile = tempnam(
-            sys_get_temp_dir(),
-            'unreadable'
-        );
-
-        chmod($tempFile, octdec('0'));
-
-        ass($tempFile)->fileIsNotReadable();
-
-        unlink($tempFile);
-    }
-
     public function testFileIsWritable()
     {
         ass(TEST_FILES_PATH.'string_foobar.txt')
@@ -345,12 +288,6 @@ final class PHPUnitTest extends TestCase
             ->greaterThan(5, true)
             ->greaterThanOrEqual(7)
             ->greaterThanOrEqual(5);
-
-        ass(7)
-            ->greater(5, true)  // greaterThan
-            ->isAbove(5, true)  // greaterThan
-            ->greaterOrEqual(7) // greaterThanOrEqual
-            ->isAtLeast(5);     // greaterThanOrEqual
     }
 
     public function testLessThan(): void
@@ -359,12 +296,6 @@ final class PHPUnitTest extends TestCase
             ->lessThan(10)
             ->lessThanOrEqual(7)
             ->lessThanOrEqual(8);
-
-        ass(7)
-            ->less(10)       // lessThan
-            ->isBelow(10)    // lessThan
-            ->lessOrEqual(7) // lessThanOrEqual
-            ->isAtMost(8);   // lessThanOrEqual
     }
 
     public function testInfinite(): void
@@ -647,6 +578,59 @@ final class PHPUnitTest extends TestCase
         ass('<foo/>')
             ->xmlStringToString('<foo/>')
             ->xmlStringNotToString('<bar/>');
+    }
+
+    public function testDirectoryIsNotReadable(): void
+    {
+        // symfony/polyfill-php72
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
+        mkdir($dirName, octdec('0'));
+
+        ass($dirName)
+            ->directoryIsNotReadable()
+            ->dirIsNotReadable();
+
+        rmdir($dirName);
+    }
+
+    public function testDirectoryIsNotWritable(): void
+    {
+        // symfony/polyfill-php72
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
+        mkdir($dirName, octdec('444'));
+
+        ass($dirName)
+            ->directoryIsNotWritable()
+            ->dirIsNotWritable();
+
+        rmdir($dirName);
+    }
+
+    public function testFileIsNotReadable()
+    {
+        // symfony/polyfill-php72
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Cannot test this behaviour on Windows');
+        }
+
+        $tempFile = tempnam(
+            sys_get_temp_dir(),
+            'unreadable'
+        );
+
+        chmod($tempFile, octdec('0'));
+
+        ass($tempFile)->fileIsNotReadable();
+
+        unlink($tempFile);
     }
 }
 
