@@ -499,6 +499,8 @@ final class PHPUnitTest extends TestCase
         $fileActual = TEST_FILES_PATH.'json_simple_object.json';
 
         ass($fileActual)
+            ->jsonFileEqualsJsonFile($fileActual)
+            ->jsonFileNotEqualsJsonFile($fileExpected)
             ->jsonFileToFile($fileActual)
             ->jsonFileNotToFile($fileExpected);
     }
@@ -508,8 +510,13 @@ final class PHPUnitTest extends TestCase
         $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
         $jsonString = json_encode(['foo' => 'bar']);
 
-        ass($jsonString)->jsonStringToFile($jsonFile);
-        ass(json_encode(['foo' => 'baz']))->jsonStringNotToFile($jsonFile);
+        ass($jsonString)
+            ->jsonStringEqualsJsonFile($jsonFile)
+            ->jsonStringToFile($jsonFile);
+
+        ass(json_encode(['foo' => 'baz']))
+            ->jsonStringNotEqualsJsonFile($jsonFile)
+            ->jsonStringNotToFile($jsonFile);
     }
 
     public function testJsonStringEqualsJsonString(): void
@@ -517,6 +524,8 @@ final class PHPUnitTest extends TestCase
         $jsonString = json_encode(['foo' => 'bar']);
 
         ass($jsonString)
+            ->jsonStringEqualsJsonString($jsonString)
+            ->jsonStringNotEqualsJsonString(json_encode(['foo' => 'baz']))
             ->jsonStringToString($jsonString)
             ->jsonStringNotToString(json_encode(['foo' => 'baz']));
     }
