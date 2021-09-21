@@ -6,8 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 final class AliasAssertionsTest extends TestCase
 {
-    /** @test */
-    public function regExp(): void
+    public function testMatchesRegularExpression(): void
     {
         ass('foobar')
             ->match('/foobar/')
