@@ -118,17 +118,23 @@ final class PHPUnitTest extends TestCase
 
     public function testDirectoryExists(): void
     {
-        ass(__DIR__)->dirExists();
+        ass(__DIR__)
+            ->directoryExists()
+            ->dirExists();
     }
 
     public function testDirectoryNotExists(): void
     {
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')->dirNotExist();
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')
+            ->directoryDoesNotExist()
+            ->dirNotExist();
     }
 
     public function testDirectoryIsReadable(): void
     {
-        ass(__DIR__)->dirIsReadable();
+        ass(__DIR__)
+            ->directoryIsReadable()
+            ->dirIsReadable();
     }
 
     public function testDirectoryIsNotReadable(): void
@@ -141,14 +147,18 @@ final class PHPUnitTest extends TestCase
         $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
         mkdir($dirName, octdec('0'));
 
-        ass($dirName)->dirIsNotReadable();
+        ass($dirName)
+            ->directoryIsNotReadable()
+            ->dirIsNotReadable();
 
         rmdir($dirName);
     }
 
     public function testDirectoryIsWritable(): void
     {
-        ass(__DIR__)->dirIsWritable();
+        ass(__DIR__)
+            ->directoryIsWritable()
+            ->dirIsWritable();
     }
 
     public function testDirectoryIsNotWritable(): void
@@ -161,7 +171,9 @@ final class PHPUnitTest extends TestCase
         $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
         mkdir($dirName, octdec('444'));
 
-        ass($dirName)->dirIsNotWritable();
+        ass($dirName)
+            ->directoryIsNotWritable()
+            ->dirIsNotWritable();
 
         rmdir($dirName);
     }
@@ -333,13 +345,26 @@ final class PHPUnitTest extends TestCase
             ->greaterThan(5, true)
             ->greaterThanOrEqual(7)
             ->greaterThanOrEqual(5);
+
+        ass(7)
+            ->greater(5, true)  // greaterThan
+            ->isAbove(5, true)  // greaterThan
+            ->greaterOrEqual(7) // greaterThanOrEqual
+            ->isAtLeast(5);     // greaterThanOrEqual
     }
 
     public function testLessThan(): void
     {
-        ass(7)->lessThan(10)
-              ->lessThanOrEqual(7)
-              ->lessThanOrEqual(8);
+        ass(7)
+            ->lessThan(10)
+            ->lessThanOrEqual(7)
+            ->lessThanOrEqual(8);
+
+        ass(7)
+            ->less(10)       // lessThan
+            ->isBelow(10)    // lessThan
+            ->lessOrEqual(7) // lessThanOrEqual
+            ->isAtMost(8);   // lessThanOrEqual
     }
 
     public function testInfinite(): void
