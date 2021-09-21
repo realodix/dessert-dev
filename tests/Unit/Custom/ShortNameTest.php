@@ -76,8 +76,6 @@ final class ShortNameTest extends TestCase
             ->jsonStringNotToString(json_encode(['foo' => 'baz']));
     }
 
-
-
     public function testGreaterThan(): void
     {
         ass(2)->greater(1)
