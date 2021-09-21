@@ -6,6 +6,45 @@ use PHPUnit\Framework\TestCase;
 
 final class ShortNameTest extends TestCase
 {
+    public function testDirExists(): void
+    {
+        ass(__DIR__)
+            ->dirExists();
+
+        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')
+            ->dirNotExist();
+    }
+
+    public function testDirIsReadable(): void
+    {
+        ass(__DIR__)
+            ->dirIsReadable();
+    }
+
+    public function testDirIsWritable(): void
+    {
+        ass(__DIR__)
+            ->dirIsWritable();
+    }
+
+    public function testGreater(): void
+    {
+        ass(7)
+            ->greater(5, true)  // greaterThan
+            ->isAbove(5, true)  // greaterThan
+            ->greaterOrEqual(7) // greaterThanOrEqual
+            ->isAtLeast(5);     // greaterThanOrEqual
+    }
+
+    public function testLess(): void
+    {
+        ass(7)
+            ->less(10)       // lessThan
+            ->isBelow(10)    // lessThan
+            ->lessOrEqual(7) // lessThanOrEqual
+            ->isAtMost(8);   // lessThanOrEqual
+    }
+
     public function testMatchesRegularExpression(): void
     {
         ass('foobar')
