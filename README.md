@@ -119,9 +119,9 @@ verify('string')->isNotInt();
 verify('string')->not->isInt();
 ```
 
-### Short name Assertion
+### PHPUnit Assertion Short Names
 
-In addition to assertions, NextProject offers you a set of PHPUnit assertion method short names. For the full list of **method short names**, please refer to [PHPUnit Assertion Method Short Names](/docs/phpunit-assertion-method-short-names.md) documentation.
+In addition to assertions, NextProject offers you a set of PHPUnit assertion method short names. For the full list of **method short names**, please refer to [PHPUnit Assertion Short Names](/docs/phpunit-assertion-short-names.md) documentation.
 
 ## Extending
 
