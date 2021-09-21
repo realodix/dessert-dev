@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test\Custom;
 
 use PHPUnit\Framework\TestCase;
 
-final class AliasAssertionsTest extends TestCase
+final class ShortNameTest extends TestCase
 {
     public function testMatchesRegularExpression(): void
     {
