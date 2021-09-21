@@ -1,4 +1,4 @@
-| PHPUnit                           | Alias |
+| PHPUnit                           | Short Name |
 | --------------------------------- | ----------- |
 | `arrayHasKey()`                   | `hasKey()` |
 | `arrayNotHasKey()`                | `notHasKey()` |

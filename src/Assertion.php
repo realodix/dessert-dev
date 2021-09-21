@@ -9,7 +9,7 @@ class Assertion
 {
     use Traits\DeprecatedTrait;
     use Traits\PolyfillTrait;
-    use Traits\AliasesTrait;
+    use Traits\ShortNameTrait;
     use Traits\ModifiedTrait;
     use Traits\CustomTrait;
 

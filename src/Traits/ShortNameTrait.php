@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Traits;
 
-trait AliasesTrait
+trait ShortNameTrait
 {
     /**
      * @param string $message

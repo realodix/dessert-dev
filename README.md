@@ -119,9 +119,9 @@ verify('string')->isNotInt();
 verify('string')->not->isInt();
 ```
 
-### Alias Assertions
+### Short name Assertion
 
-In addition to assertions, NextProject offers you a set of alias assertions. For the full list of **alias assertions**, please refer to [Alias Assertions](/docs/AliasAssertions.md) documentation.
+In addition to assertions, NextProject offers you a set of PHPUnit assertion method short names. For the full list of **method short names**, please refer to [PHPUnit Assertion Method Short Names](/docs/phpunit-assertion-method-short-names.md) documentation.
 
 ## Extending
 
