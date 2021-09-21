@@ -30,8 +30,13 @@ final class ShortNameTest extends TestCase
     public function testGreater(): void
     {
         ass(7)
-            ->greater(5, true)  // greaterThan
-            ->isAbove(5, true)  // greaterThan
+            ->greater(5, true)   // greaterThan
+            ->isAbove(5, true);  // greaterThan
+    }
+
+    public function testGreaterOrEqual(): void
+    {
+        ass(7)
             ->greaterOrEqual(7) // greaterThanOrEqual
             ->isAtLeast(5);     // greaterThanOrEqual
     }
@@ -39,8 +44,13 @@ final class ShortNameTest extends TestCase
     public function testLess(): void
     {
         ass(7)
-            ->less(10)       // lessThan
-            ->isBelow(10)    // lessThan
+            ->less(10)        // lessThan
+            ->isBelow(10);    // lessThan
+    }
+
+    public function testLessOrEqual(): void
+    {
+        ass(7)
             ->lessOrEqual(7) // lessThanOrEqual
             ->isAtMost(8);   // lessThanOrEqual
     }
