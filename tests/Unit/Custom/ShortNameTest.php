@@ -45,12 +45,38 @@ final class ShortNameTest extends TestCase
             ->isAtMost(8);   // lessThanOrEqual
     }
 
-    public function testMatchesRegularExpression(): void
+    public function testJsonFileToFile(): void
     {
-        ass('foobar')
-            ->match('/foobar/')
-            ->notMatch('/foobarbaz/');
+        $fileExpected = TEST_FILES_PATH.'json_array_object.json';
+        $fileActual = TEST_FILES_PATH.'json_simple_object.json';
+
+        ass($fileActual)
+            ->jsonFileToFile($fileActual)
+            ->jsonFileNotToFile($fileExpected);
     }
+
+    public function testJsonStringToFile(): void
+    {
+        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
+        $jsonString = json_encode(['foo' => 'bar']);
+
+        ass($jsonString)
+            ->jsonStringToFile($jsonFile);
+
+        ass(json_encode(['foo' => 'baz']))
+            ->jsonStringNotToFile($jsonFile);
+    }
+
+    public function testJsonStringToString(): void
+    {
+        $jsonString = json_encode(['foo' => 'bar']);
+
+        ass($jsonString)
+            ->jsonStringToString($jsonString)
+            ->jsonStringNotToString(json_encode(['foo' => 'baz']));
+    }
+
+
 
     public function testGreaterThan(): void
     {
@@ -68,5 +94,53 @@ final class ShortNameTest extends TestCase
 
         ass(1)->isBelow(2)
               ->isAtMost(1);
+    }
+
+    public function testMatch(): void
+    {
+        ass('foobar')
+            ->match('/foobar/')
+            ->notMatch('/foobarbaz/');
+    }
+
+    public function testStartWith(): void
+    {
+        ass('foobar')
+            ->startWith('fo')
+            ->startNotWith('ar');
+    }
+
+    public function testEndsWith(): void
+    {
+        ass('foobar')
+            ->endWith('ar')
+            ->endNotWith('foo');
+    }
+
+    public function testXmlFileToFile(): void
+    {
+        $actual = TEST_FILES_PATH.'xml_foo.xml';
+        $expected = TEST_FILES_PATH.'xml_bar.xml';
+
+        ass($actual)
+            ->xmlFileToFile($actual)
+            ->xmlFileNotToFile($expected);
+    }
+
+    public function testXmlStringToFile(): void
+    {
+        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
+        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
+
+        ass('<foo/>')
+            ->xmlStringToFile($xmlFoo)
+            ->xmlStringNotToFile($xmlBar);
+    }
+
+    public function testXmlStringToString(): void
+    {
+        ass('<foo/>')
+            ->xmlStringToString('<foo/>')
+            ->xmlStringNotToString('<bar/>');
     }
 }
