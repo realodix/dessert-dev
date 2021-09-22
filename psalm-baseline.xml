@@ -185,15 +185,6 @@
       <code>simplexml_load_string</code>
     </UnusedFunctionCall>
   </file>
-  <file src="src/Traits/AliasesTrait.php">
-    <MixedArgument occurrences="2">
-      <code>$expectedFile</code>
-      <code>$this-&gt;actual</code>
-    </MixedArgument>
-    <TooManyArguments occurrences="1">
-      <code>directoryExists</code>
-    </TooManyArguments>
-  </file>
   <file src="src/Traits/CustomTrait.php">
     <InvalidScalarArgument occurrences="2">
       <code>10</code>
@@ -249,25 +240,7 @@
       <code>string|Closure</code>
     </UndefinedDocblockClass>
   </file>
-  <file src="src/Traits/DeprecatedTrait.php">
-    <MixedArgument occurrences="6">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Traits/ModifiedTrait.php">
+  <file src="src/Traits/PHPUnitCustomTrait.php">
     <InternalClass occurrences="2"/>
     <InternalMethod occurrences="4">
       <code>getComparisonFailure</code>
@@ -302,7 +275,25 @@
       <code>$key</code>
     </MixedAssignment>
   </file>
-  <file src="src/Traits/PolyfillTrait.php">
+  <file src="src/Traits/PHPUnitDeprecatedTrait.php">
+    <MixedArgument occurrences="6">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="6">
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+      <code>$actual</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <DeprecatedMethod occurrences="10">
       <code>Assert::assertDirectoryNotExists($actual, $message)</code>
       <code>Assert::assertDirectoryNotIsReadable($actual, $message)</code>
@@ -402,5 +393,14 @@
       <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message)</code>
       <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message)</code>
     </UndefinedMethod>
+  </file>
+  <file src="src/Traits/PHPUnitShortNameTrait.php">
+    <MixedArgument occurrences="2">
+      <code>$expectedFile</code>
+      <code>$this-&gt;actual</code>
+    </MixedArgument>
+    <TooManyArguments occurrences="1">
+      <code>directoryExists</code>
+    </TooManyArguments>
   </file>
 </files>

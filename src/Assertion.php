@@ -7,10 +7,10 @@ use Realodix\NextProject\Support\Validator;
 
 class Assertion
 {
-    use Traits\DeprecatedTrait;
-    use Traits\PolyfillTrait;
-    use Traits\ShortNameTrait;
-    use Traits\ModifiedTrait;
+    use Traits\PHPUnitDeprecatedTrait;
+    use Traits\PHPUnitPolyfillTrait;
+    use Traits\PHPUnitShortNameTrait;
+    use Traits\PHPUnitCustomTrait;
     use Traits\CustomTrait;
 
     /** @var mixed */

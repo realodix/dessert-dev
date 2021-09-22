@@ -4,7 +4,7 @@ namespace Realodix\NextProject\Test\Custom;
 
 use PHPUnit\Framework\TestCase;
 
-final class ShortNameTest extends TestCase
+final class PHPUnitShortNameTest extends TestCase
 {
     public function testDirExists(): void
     {

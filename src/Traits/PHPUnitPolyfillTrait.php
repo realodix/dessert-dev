@@ -10,7 +10,7 @@ use Realodix\NextProject\Support\Constraint\ObjectEquals;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
 
-trait PolyfillTrait
+trait PHPUnitPolyfillTrait
 {
     /**
      * @param mixed  $needle

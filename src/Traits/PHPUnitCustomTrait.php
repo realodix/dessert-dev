@@ -7,7 +7,7 @@ use PHPUnit\Framework\ExpectationFailedException;
 use Realodix\NextProject\Support\Arr;
 use Realodix\NextProject\Support\Validator;
 
-trait ModifiedTrait
+trait PHPUnitCustomTrait
 {
     /**
      * @param int|string $key

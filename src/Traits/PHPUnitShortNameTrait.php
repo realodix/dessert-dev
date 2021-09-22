@@ -2,7 +2,7 @@
 
 namespace Realodix\NextProject\Traits;
 
-trait ShortNameTrait
+trait PHPUnitShortNameTrait
 {
     /**
      * @param string $message

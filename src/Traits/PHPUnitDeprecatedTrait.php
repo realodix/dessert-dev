@@ -5,7 +5,7 @@ namespace Realodix\NextProject\Traits;
 use PHPUnit\Framework\Assert;
 use Realodix\NextProject\Support\Validator;
 
-trait DeprecatedTrait
+trait PHPUnitDeprecatedTrait
 {
     /**
      * Deprecated in PHPUnit 10
