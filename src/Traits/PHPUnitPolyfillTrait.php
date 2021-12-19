@@ -563,4 +563,14 @@ trait PHPUnitPolyfillTrait
 
         return $this;
     }
+
+    /**
+     * @param string $message
+     */
+    function arrayIsList(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'array');
+        Assert::assertArrayIsList($actual, $message);
+        return $this;
+    }
 }
