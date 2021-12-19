@@ -29,7 +29,7 @@ final class ArrayIsList extends Constraint
      *
      * @param mixed $other
      */
-    protected function matches(mixed $other): bool
+    protected function matches($other): bool
     {
         if (! \is_array($other)) {
             return false;
@@ -46,7 +46,7 @@ final class ArrayIsList extends Constraint
      *
      * @param mixed $other
      */
-    protected function failureDescription(mixed $other): string
+    protected function failureDescription($other): string
     {
         return 'an array '.$this->toString();
     }
