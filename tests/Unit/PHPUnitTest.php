@@ -14,6 +14,27 @@ final class PHPUnitTest extends TestCase
 {
     use PHPUnitTestProvider;
 
+    public function testArrayIsList(): void
+    {
+        ass([0, 1, 2])->arrayIsList();
+
+        $this->expectException(AssertionFailedError::class);
+
+        ass([0 => 0, 2 => 2, 3 => 3])->arrayIsList();
+    }
+
+    public function testArrayIsListWithEmptyArray(): void
+    {
+        ass([])->arrayIsList();
+    }
+
+    public function testArrayIsListFailsWithStringKeys(): void
+    {
+        $this->expectException(AssertionFailedError::class);
+
+        ass(['string' => 0])->arrayIsList();
+    }
+
     public function testStringContainsString(): void
     {
         ass('foo bar')
