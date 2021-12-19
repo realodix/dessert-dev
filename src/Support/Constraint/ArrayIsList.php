@@ -9,6 +9,7 @@ use PHPUnit\Framework\Constraint\Constraint;
  *
  * Reference:
  * - https://github.com/sebastianbergmann/phpunit/blob/master/src/Framework/Constraint/Traversable/ArrayIsList.php
+ * - https://github.com/sebastianbergmann/phpunit/pull/4818
  *
  * @internal
  * @codeCoverageIgnore
