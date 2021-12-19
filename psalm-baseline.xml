@@ -151,21 +151,14 @@
       <code>$key</code>
       <code>$value</code>
     </MissingClosureParamType>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="3">
       <code>$key</code>
       <code>$key</code>
-      <code>$result-&gt;firstChild</code>
       <code>$value</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$attributes</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$result</code>
-    </MixedAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$result-&gt;firstChild</code>
-    </MixedPropertyFetch>
     <PossiblyNullArgument occurrences="1">
       <code>$result-&gt;firstChild</code>
     </PossiblyNullArgument>
@@ -355,7 +348,8 @@
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
-    <MixedAssignment occurrences="22">
+    <MixedAssignment occurrences="23">
+      <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -389,7 +383,8 @@
       <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true)</code>
       <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true)</code>
     </TooManyArguments>
-    <UndefinedMethod occurrences="2">
+    <UndefinedMethod occurrences="3">
+      <code>Assert::assertArrayIsList($actual, $message)</code>
       <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message)</code>
       <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message)</code>
     </UndefinedMethod>

@@ -6,6 +6,7 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
+use Realodix\NextProject\Support\Constraint\ArrayIsList;
 use Realodix\NextProject\Support\Constraint\ObjectEquals;
 use Realodix\NextProject\Support\Str;
 use Realodix\NextProject\Support\Validator;
@@ -567,10 +568,24 @@ trait PHPUnitPolyfillTrait
     /**
      * @param string $message
      */
-    function arrayIsList(string $message = ''): self
+    public function arrayIsList(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'array');
+
+        // @codeCoverageIgnoreStart
+        if (version_compare(Version::series(), '10.0', '<')) {
+            Assert::assertThat(
+                $this->actual,
+                new ArrayIsList,
+                $message
+            );
+
+            return $this;
+        }
+        // @codeCoverageIgnoreEnd
+
         Assert::assertArrayIsList($actual, $message);
+
         return $this;
     }
 }

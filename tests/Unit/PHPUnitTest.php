@@ -25,7 +25,7 @@ final class PHPUnitTest extends TestCase
 
     public function testArrayIsListWithEmptyArray(): void
     {
-        $this->assertArrayIsList([]);
+        ass([])->arrayIsList();
     }
 
     public function testArrayIsListFailsWithStringKeys(): void

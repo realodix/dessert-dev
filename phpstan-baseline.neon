@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Call to an undefined static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayIsList\\(\\)\\.$#"
+			count: 1
+			path: src/Assertion.php
+
+		-
 			message: "#^Call to an undefined static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsStringIgnoringLineEndings\\(\\)\\.$#"
 			count: 1
 			path: src/Assertion.php
