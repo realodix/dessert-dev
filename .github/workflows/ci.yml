@@ -12,12 +12,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
+        php-version: ['7.1', '7.2', '7.3', '7.4', '8.0', '8.1']
         stability: [lowest, stable]
         include:
-          - php-version: '8.1'
-            stability: stable
-            flags: "--ignore-platform-req=php"
           - php-version: '8.2'
             stability: stable
             flags: "--ignore-platform-req=php"
@@ -32,13 +29,20 @@ jobs:
           php-version: ${{ matrix.php-version }}
           coverage: xdebug
 
-      - name: Install dependencies
+      - name: Install dependencies (PHP <= 8.0)
+        if: matrix.php-version <= 8.0
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: composer update --prefer-${{ matrix.stability }} --prefer-dist --no-interaction --no-progress ${{ matrix.flags }}
-
+          command: composer update --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
+      - name: Install dependencies (PHP >= 8.1)
+        if: matrix.php-version >= 8.1
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          command: composer require phpunit/phpunit ^9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
       - name: Execute tests
         run: ./vendor/bin/phpunit
 
@@ -52,19 +56,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
-
+          php-version: '8.1'
       - name: Install dependencies
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5
           command: composer require phpunit/phpunit dev-master
-
       - name: Execute tests
         run: |
           ./vendor/bin/phpunit --migrate-configuration
