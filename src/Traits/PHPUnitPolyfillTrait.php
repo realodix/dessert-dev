@@ -574,11 +574,7 @@ trait PHPUnitPolyfillTrait
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
-            Assert::assertThat(
-                $this->actual,
-                new ArrayIsList,
-                $message
-            );
+            Assert::assertThat($this->actual, new ArrayIsList, $message);
 
             return $this;
         }
