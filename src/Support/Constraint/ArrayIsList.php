@@ -36,6 +36,7 @@ final class ArrayIsList extends Constraint
             return false;
         }
 
+        // symfony/polyfill-php81
         return array_is_list($other);
     }
 
