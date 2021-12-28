@@ -566,6 +566,12 @@ trait PHPUnitPolyfillTrait
     }
 
     /**
+     * Asserts that array is list.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/pull/4818
+     * - https://github.com/sebastianbergmann/phpunit/commit/3d90cfe294cf1c7f331e2bef77ff4ad8949446fa
+     *
      * @param string $message
      */
     public function arrayIsList(string $message = ''): self
