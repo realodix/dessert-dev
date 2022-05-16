@@ -63,7 +63,7 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: composer require phpunit/phpunit dev-master
+          command: composer require phpunit/phpunit dev-main
       - name: Execute tests
         run: |
           ./vendor/bin/phpunit --migrate-configuration
