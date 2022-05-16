@@ -89,13 +89,16 @@ For other usage examples, please see how We write tests for this package in the 
 Pass a new value to the `and()` function to chain multiple assertions in a single test:
 
 ```php
+$id = 1;
+$name = Sebastian;
+
 verify($id)
     ->same(1)
     ->and($name)
         ->same('Sebastian');
 
-// $this->assertSame($expected, $this->value);
-// $this->assertSame($expected, $this->value);
+// $this->assertSame(1, $id);
+// $this->assertSame('Sebastian', $name);
 ```
 
 #### each($actualValue)
