@@ -26,7 +26,7 @@ composer require --dev realodix/next-project
 
 ## Writing Tests
 
-NextProject offers you six functions to write your tests: 
+NextProject offers you six functions to write your tests:
 
 - `Assert::that($actual)`
 - `Check::that($actual)`
@@ -52,23 +52,23 @@ class YourTest extends TestCase
     public function test_with_static_method(): void
     {
         Assert::that(1)
-            ->isInt()       // $this->assertIsInt(1);
-            ->isNotFloat(); // $this->assertIsFloat(1);
+          ->isInt()       // $this->assertIsInt(1);
+          ->isNotFloat(); // $this->assertIsFloat(1);
     }
 
     public function test_global_function(): void
     {
         verify(1)
-            ->isInt()       // $this->assertIsInt(1);
-            ->isNotFloat(); // $this->assertIsFloat(1);
+          ->isInt()       // $this->assertIsInt(1);
+          ->isNotFloat(); // $this->assertIsFloat(1);
 
         verify([1, 2, 3])
-            ->each()
-            ->isInt()
-            ->and(true)
-                ->true()
-                ->notFalse();
-        
+          ->each()
+          ->isInt()
+          ->and(true)
+            ->true()
+            ->notFalse();
+
         // $this->assertIsInt(1);
         // $this->assertIsInt(2);
         // $this->assertIsInt(3);
@@ -90,15 +90,15 @@ Pass a new value to the `and()` function to chain multiple assertions in a singl
 
 ```php
 $id = 1;
-$name = Sebastian;
+$name = 'Realodix';
 
 verify($id)
-    ->same(1)
-    ->and($name)
-        ->same('Sebastian');
+  ->same(1)
+  ->and($name)
+    ->same('Realodix');
 
 // $this->assertSame(1, $id);
-// $this->assertSame('Sebastian', $name);
+// $this->assertSame('Realodix', $name);
 ```
 
 #### each($actualValue)
