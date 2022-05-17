@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
+<files psalm-version="4.22.0@fc2c6ab4d5fa5d644d8617089f012f3bb84b8703">
   <file src="src/Assertion.php">
     <MixedArgument occurrences="48">
       <code>$actual</code>
@@ -120,10 +120,15 @@
     </MissingClosureParamType>
   </file>
   <file src="src/Support/Arr.php">
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="4">
       <code>$array</code>
       <code>$array</code>
+      <code>$results[$prepend.$value]</code>
+      <code>$value</code>
     </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$value</code>
+    </MixedOperand>
   </file>
   <file src="src/Support/Constraint/ObjectEquals.php">
     <MissingParamType occurrences="1">
@@ -179,11 +184,15 @@
     </UnusedFunctionCall>
   </file>
   <file src="src/Traits/CustomTrait.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>\is_array($key)</code>
+      <code>\is_array($key)</code>
+    </DocblockTypeContradiction>
     <InvalidScalarArgument occurrences="2">
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="18">
       <code>$actual</code>
       <code>$actual</code>
       <code>$actual</code>
@@ -198,6 +207,8 @@
       <code>$actual</code>
       <code>$array</code>
       <code>$array</code>
+      <code>$key</code>
+      <code>$key</code>
       <code>$this-&gt;actual</code>
       <code>$this-&gt;actual</code>
     </MixedArgument>
