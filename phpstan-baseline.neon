@@ -16,17 +16,22 @@ parameters:
 			path: src/Assertion.php
 
 		-
+			message: "#^Call to function is_array\\(\\) with int\\|string will always evaluate to false\\.$#"
+			count: 2
+			path: src/Assertion.php
+
+		-
 			message: "#^Class PHPUnit\\\\Framework\\\\Constraint\\\\IsEqual constructor invoked with 5 parameters, 1\\-4 required\\.$#"
 			count: 2
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:__get\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:__get\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:contains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:contains\\(\\) has parameter \\$needle with no type specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -46,12 +51,12 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:notContains\\(\\) has parameter \\$needle with no type specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:objectEquals\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Assertion\\:\\:objectEquals\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -71,7 +76,7 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Parameter \\$exception of method Realodix\\\\NextProject\\\\Assertion\\:\\:throw\\(\\) has invalid typehint type Realodix\\\\NextProject\\\\Traits\\\\Closure\\.$#"
+			message: "#^Parameter \\$exception of method Realodix\\\\NextProject\\\\Assertion\\:\\:throw\\(\\) has invalid type Realodix\\\\NextProject\\\\Traits\\\\Closure\\.$#"
 			count: 1
 			path: src/Assertion.php
 
@@ -116,22 +121,17 @@ parameters:
 			path: src/Assertion.php
 
 		-
+			message: "#^Dead catch \\- PHPUnit\\\\Framework\\\\ExpectationFailedException is never thrown in the try block\\.$#"
+			count: 1
+			path: src/Opposite.php
+
+		-
 			message: "#^Expression \"\\$this\\-\\>original\\-\\>\\{\\$name\\}\" on a separate line does not do anything\\.$#"
 			count: 1
 			path: src/Opposite.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Opposite\\:\\:__call\\(\\) should return Realodix\\\\NextProject\\\\Assertion but return statement is missing\\.$#"
-			count: 1
-			path: src/Opposite.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Opposite\\:\\:__get\\(\\) should return Realodix\\\\NextProject\\\\Assertion but return statement is missing\\.$#"
-			count: 1
-			path: src/Opposite.php
-
-		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Constraint\\\\ObjectEquals\\:\\:__construct\\(\\) has parameter \\$object with no typehint specified\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Constraint\\\\ObjectEquals\\:\\:__construct\\(\\) has parameter \\$object with no type specified\\.$#"
 			count: 1
 			path: src/Support/Constraint/ObjectEquals.php
 
@@ -151,12 +151,11 @@ parameters:
 			path: src/Support/Dom.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Validator\\:\\:actualValue\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Validator\\:\\:actualValue\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Support/Validator.php
 
 		-
-			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Validator\\:\\:expectedValue\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Realodix\\\\NextProject\\\\Support\\\\Validator\\:\\:expectedValue\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Support/Validator.php
-
