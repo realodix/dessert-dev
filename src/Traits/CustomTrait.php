@@ -2,6 +2,7 @@
 
 namespace Realodix\NextProject\Traits;
 
+
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
