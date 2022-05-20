@@ -19,14 +19,6 @@ trait PHPUnitPolyfillTrait
      */
     public function containsEquals($needle, string $message = ''): self
     {
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.1', '<')) {
-            Assert::assertContains($needle, $this->actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertContainsEquals($needle, $this->actual, $message);
 
         return $this;
@@ -38,14 +30,6 @@ trait PHPUnitPolyfillTrait
      */
     public function notContainsEquals($needle, string $message = ''): self
     {
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.1', '<')) {
-            Assert::assertNotContains($needle, $this->actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertNotContainsEquals($needle, $this->actual, $message);
 
         return $this;
@@ -58,15 +42,6 @@ trait PHPUnitPolyfillTrait
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileEquals($expected, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileEqualsCanonicalizing($expected, $actual, $message);
 
         return $this;
@@ -79,15 +54,6 @@ trait PHPUnitPolyfillTrait
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileNotEquals($expected, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileNotEqualsCanonicalizing($expected, $actual, $message);
 
         return $this;
@@ -100,15 +66,6 @@ trait PHPUnitPolyfillTrait
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileEquals($expected, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileEqualsIgnoringCase($expected, $actual, $message);
 
         return $this;
@@ -121,15 +78,6 @@ trait PHPUnitPolyfillTrait
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileNotEquals($expected, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileNotEqualsIgnoringCase($expected, $actual, $message);
 
         return $this;
@@ -142,15 +90,6 @@ trait PHPUnitPolyfillTrait
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringEqualsFile($expectedFile, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertStringEqualsFileCanonicalizing($expectedFile, $actual, $message);
 
         return $this;
@@ -163,15 +102,6 @@ trait PHPUnitPolyfillTrait
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $actual, $message);
 
         return $this;
@@ -184,15 +114,6 @@ trait PHPUnitPolyfillTrait
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringEqualsFile($expectedFile, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertStringEqualsFileIgnoringCase($expectedFile, $actual, $message);
 
         return $this;
@@ -205,15 +126,6 @@ trait PHPUnitPolyfillTrait
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $actual, $message);
 
         return $this;

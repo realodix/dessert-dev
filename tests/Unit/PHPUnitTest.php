@@ -597,7 +597,6 @@ final class PHPUnitTest extends TestCase
 
     public function testDirectoryIsNotReadable(): void
     {
-        // symfony/polyfill-php72
         if (PHP_OS_FAMILY === 'Windows') {
             $this->markTestSkipped('Cannot test this behaviour on Windows');
         }
@@ -614,7 +613,6 @@ final class PHPUnitTest extends TestCase
 
     public function testDirectoryIsNotWritable(): void
     {
-        // symfony/polyfill-php72
         if (PHP_OS_FAMILY === 'Windows') {
             $this->markTestSkipped('Cannot test this behaviour on Windows');
         }
@@ -631,7 +629,6 @@ final class PHPUnitTest extends TestCase
 
     public function testFileIsNotReadable()
     {
-        // symfony/polyfill-php72
         if (PHP_OS_FAMILY === 'Windows') {
             $this->markTestSkipped('Cannot test this behaviour on Windows');
         }
