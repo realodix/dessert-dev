@@ -36,7 +36,7 @@ jobs:
             if ${{ matrix.php-version <= 8.0 }}; then
               composer update --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
             else
-              command: composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
+              composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
             fi
       # - name: Install dependencies (PHP >= 8.1)
       #   if: matrix.php-version >= 8.1
