@@ -45,8 +45,8 @@ jobs:
       #     timeout_minutes: 5
       #     max_attempts: 5
       #     command: composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
-      # - name: Execute tests
-      #   run: ./vendor/bin/phpunit
+      - name: Execute tests
+        run: ./vendor/bin/phpunit
 
   PHPUnit-Dev:
     name: PHPUnit (dev)
