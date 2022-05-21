@@ -39,10 +39,10 @@ jobs:
             fi
       - name: Execute tests
         run: |
-          if ${{ matrix.stability == 'lowest' }}; then
+          if ${{ matrix.stability == 'stable' && matrix.php-version >= 7.3 }}; then
+            ./vendor/bin/phpunit --migrate-configuration
             ./vendor/bin/phpunit
           else
-            ./vendor/bin/phpunit --migrate-configuration
             ./vendor/bin/phpunit
           fi
 
