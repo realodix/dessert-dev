@@ -26,8 +26,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: xdebug
-      - name: Install dependencies (PHP <= 8.0)
-        # if: matrix.php-version <= 8.0
+      - name: Install dependencies
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
@@ -38,15 +37,14 @@ jobs:
             else
               composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
             fi
-      # - name: Install dependencies (PHP >= 8.1)
-      #   if: matrix.php-version >= 8.1
-      #   uses: nick-invision/retry@v2
-      #   with:
-      #     timeout_minutes: 5
-      #     max_attempts: 5
-      #     command: composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
       - name: Execute tests
-        run: ./vendor/bin/phpunit
+        run: |
+          if ${{ matrix.stability == 'lowest' }}; then
+            ./vendor/bin/phpunit
+          else
+            ./vendor/bin/phpunit --migrate-configuration
+            ./vendor/bin/phpunit
+          fi
 
   PHPUnit-Dev:
     name: PHPUnit (dev)
