@@ -504,6 +504,32 @@ trait PHPUnitPolyfillTrait
     }
 
     /**
+     * Asserts that array is list.
+     *
+     * Reference:
+     * - https://github.com/sebastianbergmann/phpunit/pull/4818
+     * - https://github.com/sebastianbergmann/phpunit/commit/3d90cfe294cf1c7f331e2bef77ff4ad8949446fa
+     *
+     * @param string $message
+     */
+    public function arrayIsList(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'array');
+
+        // @codeCoverageIgnoreStart
+        if (version_compare(Version::series(), '10.0', '<')) {
+            Assert::assertThat($this->actual, new ArrayIsList, $message);
+
+            return $this;
+        }
+        // @codeCoverageIgnoreEnd
+
+        Assert::assertArrayIsList($actual, $message);
+
+        return $this;
+    }
+
+    /**
      * Asserts string contains string (ignoring line endings).
      *
      * Reference:
@@ -563,32 +589,6 @@ trait PHPUnitPolyfillTrait
         // @codeCoverageIgnoreEnd
 
         Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message);
-
-        return $this;
-    }
-
-    /**
-     * Asserts that array is list.
-     *
-     * Reference:
-     * - https://github.com/sebastianbergmann/phpunit/pull/4818
-     * - https://github.com/sebastianbergmann/phpunit/commit/3d90cfe294cf1c7f331e2bef77ff4ad8949446fa
-     *
-     * @param string $message
-     */
-    public function arrayIsList(string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'array');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '10.0', '<')) {
-            Assert::assertThat($this->actual, new ArrayIsList, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
-        Assert::assertArrayIsList($actual, $message);
 
         return $this;
     }
