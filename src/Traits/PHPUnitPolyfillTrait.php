@@ -509,6 +509,7 @@ trait PHPUnitPolyfillTrait
      * Reference:
      * - https://github.com/sebastianbergmann/phpunit/issues/4641
      * - https://github.com/sebastianbergmann/phpunit/pull/4670
+     * - https://github.com/sebastianbergmann/phpunit/commit/466a113264f9b76decb58932f6b8dc0336ce81fe
      *
      * @param string $needle
      * @param string $message
@@ -540,6 +541,7 @@ trait PHPUnitPolyfillTrait
      * Reference:
      * - https://github.com/sebastianbergmann/phpunit/issues/4641
      * - https://github.com/sebastianbergmann/phpunit/pull/4670
+     * - https://github.com/sebastianbergmann/phpunit/commit/466a113264f9b76decb58932f6b8dc0336ce81fe
      *
      * @param string $expected
      * @param string $message
