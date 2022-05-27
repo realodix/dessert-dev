@@ -279,24 +279,6 @@
       <code>$key</code>
     </MixedAssignment>
   </file>
-  <file src="src/Traits/PHPUnitDeprecatedTrait.php">
-    <MixedArgument occurrences="6">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-    </MixedAssignment>
-  </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <DeprecatedMethod occurrences="10">
       <code>Assert::assertDirectoryNotExists($actual, $message)</code>
