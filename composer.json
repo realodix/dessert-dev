@@ -16,7 +16,7 @@
         "symfony/css-selector": "^5.4|^6",
         "symfony/dom-crawler": "^5.4|^6",
         "symfony/polyfill-php80": "^1.26",
-        "symfony/polyfill-php81": "^1.26",
+        "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
         "realodix/php-cs-fixer-config": "^2.0|^3.0"
