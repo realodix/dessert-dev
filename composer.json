@@ -12,11 +12,11 @@
     ],
     "require": {
         "php": "^7.2|^8.0",
-        "phpunit/phpunit": "^8.5|^9",
-        "symfony/css-selector": "^5.3|^6",
-        "symfony/dom-crawler": "^5.3|^6",
-        "symfony/polyfill-php80": "^1.23",
-        "symfony/polyfill-php81": "^1.23"
+        "phpunit/phpunit": "^8.5|^9.5",
+        "symfony/css-selector": "^5.4|^6",
+        "symfony/dom-crawler": "^5.4|^6",
+        "symfony/polyfill-php80": "^1.26",
+        "symfony/polyfill-php81": "^1.26",
     },
     "require-dev": {
         "realodix/php-cs-fixer-config": "^2.0|^3.0"

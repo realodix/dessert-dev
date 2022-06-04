@@ -25,27 +25,3 @@ if (! \function_exists('verify')) {
         return new Assertion($actual);
     }
 }
-
-if (! \function_exists('expect')) {
-    /**
-     * @param mixed $actual
-     *
-     * @return Assertion
-     */
-    function expect($actual): Assertion
-    {
-        return new Assertion($actual);
-    }
-}
-
-if (! \function_exists('should')) {
-    /**
-     * @param mixed $actual
-     *
-     * @return Assertion
-     */
-    function should($actual): Assertion
-    {
-        return new Assertion($actual);
-    }
-}

@@ -1,0 +1,55 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "[Tests] PHPUnit",
+            "type": "shell",
+            "command": "./vendor/bin/phpunit",
+            "problemMatcher": []
+        },
+        {
+            "label": "[Tests] PHPUnit (coverage-html)",
+            "type": "shell",
+            "command": "./vendor/bin/phpunit --coverage-html .logs/coverage-html",
+            "problemMatcher": []
+        },
+        {
+            "label": "[Tests] Infection",
+            "type": "shell",
+            "command": "infection --threads=4",
+            "problemMatcher": []
+        },
+        {
+            "label": "[CS] PHP CS Fixer",
+            "type": "shell",
+            "command": "./vendor/bin/php-cs-fixer fix -v",
+            "problemMatcher": []
+        },
+        {
+            "label": "[SA] Psalm",
+            "type": "shell",
+            "command": "psalm",
+            "problemMatcher": []
+        },
+        {
+            "label": "[SA] PHPStan",
+            "type": "shell",
+            "command": "phpstan analyse",
+            "problemMatcher": []
+        },
+        {
+            "label": "[SA] Psalm (baseline)",
+            "type": "shell",
+            "command": "psalm --set-baseline=psalm-baseline.xml",
+            "problemMatcher": []
+        },
+        {
+            "label": "[SA] PHPStan (baseline)",
+            "type": "shell",
+            "command": "phpstan --generate-baseline",
+            "problemMatcher": []
+        }
+    ]
+}

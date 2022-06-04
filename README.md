@@ -31,8 +31,6 @@ NextProject offers you six functions to write your tests:
 - `Assert::that($actual)`
 - `Check::that($actual)`
 - `ass($actual)`
-- `expect($actual)`
-- `should($actual)`
 - `verify($actual)`
 
 Write test cases and test methods as usual, just switch to: e.g. `Assert::that()`, to

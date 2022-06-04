@@ -93,23 +93,21 @@ final class EachTest extends TestCase
     /*
      * Can add expectations via "and"
      */
-    // public function testCanAddExpectationsViaAnd(): void
-    // {
-    //     ass([1, 2, 3])
-    //         ->each()
-    //         ->isInt // + 3
-    //         ->and([4, 5, 6])
-    //         ->each
-    //         ->lessThan(7) // + 3
-    //         ->not
-    //         ->lessThan(3)
-    //         ->greaterThan(3) // + 3
-    //         ->and('Hello World')
-    //         ->isString // + 1
-    //         ->equals('Hello World'); // + 1
+    public function testCanAddExpectationsViaAnd(): void
+    {
+        ass([1, 2, 3])
+            ->each()
+            ->isInt // + 3
+            ->and([4, 5, 6])->each
+                ->lessThan(7) // + 3
+                ->not->lessThan(7)
+                ->greaterThan(3) // + 3
+            ->and('Hello World')
+                ->isString // + 1
+                ->equals('Hello World'); // + 1
 
-    //     ass(static::getCount())->same(14);
-    // }
+        ass(static::getCount())->same(14);
+    }
 
     /*
      * Accepts callables

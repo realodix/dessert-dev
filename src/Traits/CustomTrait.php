@@ -8,6 +8,7 @@ use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Runner\Version;
+use Realodix\NextProject\Support\Arr;
 use Realodix\NextProject\Support\Dom;
 use Realodix\NextProject\Support\NullClosure;
 use Realodix\NextProject\Support\Validator;
@@ -22,8 +23,12 @@ trait CustomTrait
      */
     public function arrayHasKeys(array $keys, string $message = ''): self
     {
-        foreach ($keys as $key) {
-            $this->arrayHasKey($key, null, $message);
+        foreach ($keys as $k => $key) {
+            if (\is_array($key)) {
+                $this->arrayHasKeys(array_keys(Arr::dot($key, $k.'.')), $message);
+            } else {
+                $this->arrayHasKey($key, null, $message);
+            }
         }
 
         return $this;
@@ -37,8 +42,12 @@ trait CustomTrait
      */
     public function arrayNotHasKeys(array $keys, string $message = ''): self
     {
-        foreach ($keys as $key) {
-            $this->arrayNotHasKey($key, null, $message);
+        foreach ($keys as $k => $key) {
+            if (\is_array($key)) {
+                $this->arrayNotHasKeys(array_keys(Arr::dot($key, $k.'.')), $message);
+            } else {
+                $this->arrayNotHasKey($key, null, $message);
+            }
         }
 
         return $this;
