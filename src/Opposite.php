@@ -39,7 +39,7 @@ final class Opposite
             return $this->original;
         }
 
-        $this->throwExpectationFailedException($arguments);
+        $this->throwExpectationFailedException($name, $arguments);
     }
 
     /**
@@ -55,15 +55,16 @@ final class Opposite
             return $this->original;
         }
 
-        $this->throwExpectationFailedException();
+        $this->throwExpectationFailedException($name);
     }
 
     /**
      * Creates a new expectation failed exception with a nice readable message.
      *
+     * @param string            $name
      * @param array<int, mixed> $arguments
      */
-    private function throwExpectationFailedException(array $arguments = []): void
+    private function throwExpectationFailedException(string $name, array $arguments = []): void
     {
         $exporter = new Exporter();
 
@@ -75,16 +76,8 @@ final class Opposite
             sprintf(
                 'Failed asserting that %s is not %s %s.',
                 $toString($this->original->actual),
-                \gettype($this->original->actual),
-                implode(
-                    ' ',
-                    array_map(
-                        function ($argument) use ($toString): string {
-                            return $toString($argument);
-                        },
-                        $arguments
-                    )
-                )
+                strtolower((string) preg_replace('/(?<!\ )[A-Z]/', ' $0', $name)),
+                implode(' ', array_map(fn ($argument): string => $toString($argument), $arguments))
             )
         );
     }
