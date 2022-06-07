@@ -1,113 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
-  <file src="src/Assertion.php">
-    <MixedArgument occurrences="48">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expectedXml</code>
-      <code>$expectedXml</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="43">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$item</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Each.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>Each</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$this-&gt;$name()</code>
-    </MixedReturnStatement>
-  </file>
   <file src="src/Opposite.php">
     <InternalClass occurrences="1"/>
     <InternalMethod occurrences="1"/>
@@ -115,127 +7,23 @@
       <code>Assertion</code>
       <code>Assertion</code>
     </InvalidReturnType>
-    <MissingClosureParamType occurrences="1">
-      <code>$argument</code>
-    </MissingClosureParamType>
-  </file>
-  <file src="src/Support/Arr.php">
-    <MixedAssignment occurrences="4">
-      <code>$array</code>
-      <code>$array</code>
-      <code>$results[$prepend.$value]</code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$value</code>
-    </MixedOperand>
   </file>
   <file src="src/Support/Constraint/ObjectEquals.php">
-    <MissingParamType occurrences="1">
-      <code>$object</code>
-    </MissingParamType>
-    <MixedAssignment occurrences="1">
-      <code>$this-&gt;expected</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="1">
-      <code>$this-&gt;method</code>
-    </MixedMethodCall>
-    <MixedReturnStatement occurrences="1">
-      <code>$actual-&gt;{$this-&gt;method}($this-&gt;expected)</code>
-    </MixedReturnStatement>
     <ParamNameMismatch occurrences="2">
       <code>$actual</code>
       <code>$actual</code>
     </ParamNameMismatch>
   </file>
   <file src="src/Support/Dom.php">
-    <MissingClosureParamType occurrences="2">
-      <code>$key</code>
-      <code>$value</code>
-    </MissingClosureParamType>
-    <MixedArgument occurrences="3">
-      <code>$key</code>
-      <code>$key</code>
-      <code>$value</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$attributes</code>
-    </MixedArgumentTypeCoercion>
     <PossiblyNullArgument occurrences="1">
       <code>$result-&gt;firstChild</code>
     </PossiblyNullArgument>
   </file>
-  <file src="src/Support/Validator.php">
-    <MissingReturnType occurrences="2">
-      <code>actualValue</code>
-      <code>expectedValue</code>
-    </MissingReturnType>
-    <MixedArgument occurrences="3">
-      <code>$actualValue</code>
-      <code>$expectedValue</code>
-      <code>$expectedValue</code>
-    </MixedArgument>
-    <UnusedFunctionCall occurrences="2">
-      <code>json_decode</code>
-      <code>simplexml_load_string</code>
-    </UnusedFunctionCall>
-  </file>
   <file src="src/Traits/CustomTrait.php">
-    <DocblockTypeContradiction occurrences="2">
-      <code>\is_array($key)</code>
-      <code>\is_array($key)</code>
-    </DocblockTypeContradiction>
     <InvalidScalarArgument occurrences="2">
       <code>10</code>
       <code>10</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="18">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$array</code>
-      <code>$array</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="16">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$array</code>
-      <code>$array</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>self</code>
-    </MixedInferredReturnType>
-    <MixedPropertyFetch occurrences="1">
-      <code>$actual-&gt;{$name}</code>
-    </MixedPropertyFetch>
     <TooManyArguments occurrences="2">
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
       <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
@@ -250,122 +38,8 @@
       <code>getComparisonFailure</code>
       <code>getComparisonFailure</code>
     </InternalMethod>
-    <MissingParamType occurrences="2">
-      <code>$needle</code>
-      <code>$needle</code>
-    </MissingParamType>
-    <MixedArgument occurrences="12">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$haystack</code>
-      <code>$haystack</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$needle</code>
-      <code>$needle</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="8">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$haystack</code>
-      <code>$haystack</code>
-      <code>$key</code>
-      <code>$key</code>
-    </MixedAssignment>
   </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
-    <DeprecatedMethod occurrences="10">
-      <code>Assert::assertDirectoryNotExists($actual, $message)</code>
-      <code>Assert::assertDirectoryNotIsReadable($actual, $message)</code>
-      <code>Assert::assertDirectoryNotIsWritable($actual, $message)</code>
-      <code>Assert::assertFileNotExists($actual, $message)</code>
-      <code>Assert::assertFileNotIsReadable($actual, $message)</code>
-      <code>Assert::assertFileNotIsWritable($actual, $message)</code>
-      <code>Assert::assertNotIsReadable($actual, $message)</code>
-      <code>Assert::assertNotIsWritable($actual, $message)</code>
-      <code>Assert::assertNotRegExp($pattern, $actual, $message)</code>
-      <code>Assert::assertRegExp($pattern, $actual, $message)</code>
-    </DeprecatedMethod>
-    <MissingReturnType occurrences="1">
-      <code>objectEquals</code>
-    </MissingReturnType>
-    <MixedArgument occurrences="44">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$expected</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-      <code>$this-&gt;actual</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="23">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$expected</code>
-    </MixedAssignment>
     <TooManyArguments occurrences="8">
       <code>Assert::assertFileEquals($expected, $actual, $message, false, true)</code>
       <code>Assert::assertFileEquals($expected, $actual, $message, true)</code>
@@ -383,10 +57,6 @@
     </UndefinedMethod>
   </file>
   <file src="src/Traits/PHPUnitShortNameTrait.php">
-    <MixedArgument occurrences="2">
-      <code>$expectedFile</code>
-      <code>$this-&gt;actual</code>
-    </MixedArgument>
     <TooManyArguments occurrences="1">
       <code>directoryExists</code>
     </TooManyArguments>
