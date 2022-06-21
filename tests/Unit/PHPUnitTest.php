@@ -122,9 +122,9 @@ final class PHPUnitTest extends TestCase
     public function testContainsOnlyInstancesOf(): void
     {
         $array = [
-            new FakeClassForTesting(),
-            new FakeClassForTesting(),
-            new FakeClassForTesting(),
+            new FakeClassForTesting,
+            new FakeClassForTesting,
+            new FakeClassForTesting,
         ];
 
         ass($array)->containsOnlyInstancesOf(FakeClassForTesting::class);
@@ -331,7 +331,7 @@ final class PHPUnitTest extends TestCase
 
     public function testInstanceOf(): void
     {
-        ass(new \DateTime())
+        ass(new \DateTime)
             ->instanceOf('DateTime')
             ->notInstanceOf('DateTimeZone');
     }
