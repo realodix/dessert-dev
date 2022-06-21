@@ -11,6 +11,12 @@ final class PestExpectationsTest extends TestCase
         expect('string')->toBe('string');
     }
 
+    public function testToBeEmpty(): void
+    {
+        expect([])->toBeEmpty();
+        expect(null)->toBeEmpty();
+    }
+
     public function testToBeTrue(): void
     {
         expect(true)->toBeTrue();

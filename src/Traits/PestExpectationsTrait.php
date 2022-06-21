@@ -9,7 +9,15 @@ trait PestExpectationsTrait
      */
     public function toBe(string $message = ''): self
     {
-        return $this->same($this->actual, $message);
+        return $this->same($message);
+    }
+
+    /**
+     * @param string $message
+     */
+    public function toBeEmpty(string $message = ''): self
+    {
+        return $this->empty($message);
     }
 
     /**
@@ -17,7 +25,7 @@ trait PestExpectationsTrait
      */
     public function toBeTrue(string $message = ''): self
     {
-        return $this->true($this->actual, $message);
+        return $this->true($message);
     }
 
     /**
