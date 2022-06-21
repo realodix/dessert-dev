@@ -12,7 +12,6 @@ $addOrOverrideRules = [
             '=>' => 'align_single_space',
             '=' => 'single_space']
     ],
-    'phpdoc_annotation_without_dot' => false,
 ];
 
 return Config::create(new Realodix($addOrOverrideRules))
