@@ -40,15 +40,15 @@
             "problemMatcher": []
         },
         {
-            "label": "[SA] Psalm",
-            "type": "shell",
-            "command": "psalm",
-            "problemMatcher": []
-        },
-        {
             "label": "[SA] PHPStan",
             "type": "shell",
             "command": "phpstan analyse",
+            "problemMatcher": []
+        },
+        {
+            "label": "[SA] PHPStan (baseline)",
+            "type": "shell",
+            "command": "psalm --set-baseline=psalm-baseline.xml",
             "problemMatcher": []
         },
         {
