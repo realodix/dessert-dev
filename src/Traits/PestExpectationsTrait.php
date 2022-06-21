@@ -9,7 +9,7 @@ trait PestExpectationsTrait
      */
     public function toBe(string $message = ''): self
     {
-        return $this->same($message);
+        return $this->same($this->actual, $message);
     }
 
     /**
