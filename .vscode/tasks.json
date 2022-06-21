@@ -28,6 +28,18 @@
             "problemMatcher": []
         },
         {
+            "label": "Commit",
+            "type": "shell",
+            "command": "git add -A && git commit -m \"U-$(Get-Date -UFormat +'%y%m%d%H%M%S')\"",
+            "problemMatcher": []
+        },
+        {
+            "label": "Commit [skip ci]",
+            "type": "shell",
+            "command": "git add -A && git commit -m \"U-$(Get-Date -UFormat +'%y%m%d%H%M%S')' '[skip' 'ci]\" && git push",
+            "problemMatcher": []
+        },
+        {
             "label": "[SA] Psalm",
             "type": "shell",
             "command": "psalm",
@@ -40,15 +52,15 @@
             "problemMatcher": []
         },
         {
-            "label": "[SA] Psalm (baseline)",
+            "label": "[SA] Psalm",
             "type": "shell",
-            "command": "psalm --set-baseline=psalm-baseline.xml",
+            "command": "psalm",
             "problemMatcher": []
         },
         {
-            "label": "[SA] PHPStan (baseline)",
+            "label": "[SA] Psalm (baseline)",
             "type": "shell",
-            "command": "phpstan --generate-baseline",
+            "command": "psalm --set-baseline=psalm-baseline.xml",
             "problemMatcher": []
         }
     ]
