@@ -26,7 +26,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testHasProperty()
     {
-        $obj = new \stdClass();
+        $obj = new \stdClass;
         $obj->foo = 'bar';
         $obj->fooNull = null;
 
@@ -38,7 +38,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testHasPropertyFailures()
     {
-        $obj = new \stdClass();
+        $obj = new \stdClass;
         $obj->foo = 'bar';
         $obj->fooNull = null;
 
@@ -48,7 +48,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testHasPropertyNotFailures()
     {
-        $obj = new \stdClass();
+        $obj = new \stdClass;
         $obj->foo = 'bar';
         $obj->fooNull = null;
 
@@ -58,7 +58,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testHasProperties()
     {
-        $object = new \stdClass();
+        $object = new \stdClass;
         $object->name = 'Jhon';
         $object->age = 21;
 
@@ -67,7 +67,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testHasPropertiesFailures()
     {
-        $object = new \stdClass();
+        $object = new \stdClass;
         $object->name = 'Jhon';
 
         $this->expectException(ExpectationFailedException::class);
@@ -76,7 +76,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testHasPropertiesNotFailures()
     {
-        $object = new \stdClass();
+        $object = new \stdClass;
         $object->name = 'Jhon';
         $object->age = 21;
 
@@ -248,7 +248,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testThrow()
     {
-        ass(function () {throw new \RuntimeException(); })
+        ass(function () {throw new \RuntimeException; })
             ->throw(\RuntimeException::class)
             ->throw(\Exception::class)
             ->throw(function (\RuntimeException $e) {});
@@ -267,14 +267,14 @@ final class CustomAssertionsTest extends TestCase
     public function testThrowNotFailures()
     {
         $this->expectException(ExpectationFailedException::class);
-        ass(function () { throw new RuntimeException(); })->not->throw(RuntimeException::class);
+        ass(function () { throw new RuntimeException; })->not->throw(RuntimeException::class);
     }
 
     public function testNotThrow()
     {
         ass(function () {})->not->throw(\Exception::class);
 
-        ass(function () {throw new Exception(); })->not->throw(\RuntimeException::class);
+        ass(function () {throw new Exception; })->not->throw(\RuntimeException::class);
     }
 
     public function testThrowFailures1()
@@ -301,7 +301,7 @@ final class CustomAssertionsTest extends TestCase
             ExpectationFailedException::class,
             'Failed asserting that Exception Object'
         );
-        ass(function () { throw new Exception(); })->throw(function (RuntimeException $e) {});
+        ass(function () { throw new Exception; })->throw(function (RuntimeException $e) {});
     }
 
     public function testThrowFailures4()
