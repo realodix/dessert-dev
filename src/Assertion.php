@@ -7,6 +7,7 @@ use Realodix\NextProject\Support\Validator;
 
 class Assertion
 {
+    use Traits\PestExpectationsTrait;
     use Traits\PHPUnitPolyfillTrait;
     use Traits\PHPUnitShortNameTrait;
     use Traits\PHPUnitCustomTrait;

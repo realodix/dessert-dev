@@ -14,6 +14,18 @@ if (! \function_exists('ass')) {
     }
 }
 
+if (! \function_exists('expect')) {
+    /**
+     * @param mixed $actual
+     *
+     * @return Assertion
+     */
+    function expect($actual): Assertion
+    {
+        return new Assertion($actual);
+    }
+}
+
 if (! \function_exists('verify')) {
     /**
      * @param mixed $actual

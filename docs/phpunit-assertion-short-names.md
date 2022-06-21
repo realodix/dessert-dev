@@ -1,4 +1,4 @@
-| PHPUnit                           | Short Name |
+| PHPUnit                           | Short Name | Pest |
 | --------------------------------- | ----------- |
 | `arrayHasKey()`                   | `hasKey()` |
 | `arrayNotHasKey()`                | `notHasKey()` |
