@@ -66,7 +66,7 @@ final class Opposite
      */
     private function throwExpectationFailedException(string $name, array $arguments = []): void
     {
-        $exporter = new Exporter();
+        $exporter = new Exporter;
 
         $toString = function ($argument) use ($exporter): string {
             return $exporter->shortenedExport($argument);

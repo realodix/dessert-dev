@@ -35,6 +35,6 @@ final class GeneralTest extends TestCase
         $myAssert->success('it works!');
         Assert::that('this also')->notEquals('works');
 
-        ass(new CustomAssert())->instanceOf(Assertion::class);
+        ass(new CustomAssert)->instanceOf(Assertion::class);
     }
 }
