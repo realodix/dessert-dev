@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <psalm
-    errorLevel="3"
-    errorBaseline="psalm-baseline.xml"
->
+    errorBaseline="psalm-baseline.xml">
     <projectFiles>
         <directory name="src" />
     </projectFiles>
+    <issueHandlers>
+        <DeprecatedMethod errorLevel="info" />
+    </issueHandlers>
 </psalm>
