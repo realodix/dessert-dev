@@ -57,12 +57,12 @@ final class PHPUnitCustomTest extends TestCase
     {
         // Array
         ass([3, 2])
-            ->contains(3)
+            ->contains(3)->toBeIn(3)
             ->notContains(5, 'user have 5 posts');
 
         // String
         ass('foo bar')
-            ->contains('o b')
+            ->contains('o b')->toBeIn('o b')
             ->notContains('BAR');
     }
 

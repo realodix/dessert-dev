@@ -133,7 +133,7 @@ final class PHPUnitTest extends TestCase
     public function testCount(): void
     {
         ass([1, 2, 3])
-            ->count(3)
+            ->count(3)->toHaveCount(3)
             ->notCount(2);
     }
 
@@ -174,7 +174,7 @@ final class PHPUnitTest extends TestCase
     {
         ass('hello')->equals('hello');
         ass(5)
-            ->equals(5)
+            ->equals(5)->toEqual(5)
             ->equals(5, 'user have 5 posts');
 
         ass(3)->notEquals(5);
@@ -184,6 +184,7 @@ final class PHPUnitTest extends TestCase
     {
         ass([3, 2, 1])
             ->equalsCanonicalizing([1, 2, 3])
+            ->toEqualCanonicalizing([1, 2, 3])
             ->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
@@ -237,10 +238,12 @@ final class PHPUnitTest extends TestCase
 
     public function testEqualsWithDelta(): void
     {
-        ass(1.01)->equalsWithDelta(1.0, 0.1);
+        ass(1.01)->equalsWithDelta(1.0, 0.1)->toEqualWithDelta(1.0, 0.1);
         ass(3.251)
             ->equalsWithDelta(3.25, 0.01)
-            ->equalsWithDelta(3.25, 0.01, 'respects delta');
+            ->equalsWithDelta(3.25, 0.01, 'respects delta')
+            ->toEqualWithDelta(3.25, 0.01)
+            ->toEqualWithDelta(3.25, 0.01, 'respects delta');
 
         ass(1.2)->notEqualsWithDelta(1.0, 0.1);
         ass(3.252)

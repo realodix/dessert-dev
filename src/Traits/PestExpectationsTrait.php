@@ -72,4 +72,49 @@ trait PestExpectationsTrait
     {
         return $this->lessThanOrEqual($expected, $message);
     }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toHaveCount($expected, string $message = ''): self
+    {
+        return $this->count($expected, $message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toEqual($expected, string $message = ''): self
+    {
+        return $this->equals($expected, $message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toEqualCanonicalizing($expected, string $message = ''): self
+    {
+        return $this->equalsCanonicalizing($expected, $message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toEqualWithDelta($expected, string $message = ''): self
+    {
+        return $this->equalsWithDelta($expected, $message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeIn($expected, string $message = ''): self
+    {
+        return $this->contains($expected, $message);
+    }
 }
