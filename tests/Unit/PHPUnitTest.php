@@ -163,7 +163,10 @@ final class PHPUnitTest extends TestCase
 
     public function testEmpty(): void
     {
-        ass([])->empty();
+        ass([[], null])
+            ->each
+                ->empty()
+                ->toBeEmpty();
         ass(['3', '5'])->notEmpty();
     }
 
@@ -306,9 +309,9 @@ final class PHPUnitTest extends TestCase
     public function testGreaterThan(): void
     {
         ass(7)
-            ->greaterThan(5, true)
-            ->greaterThanOrEqual(7)
-            ->greaterThanOrEqual(5);
+            ->greaterThan(5, true)->toBeGreaterThan(5, true)
+            ->greaterThanOrEqual(7)->toBeGreaterThanOrEqual(7)
+            ->greaterThanOrEqual(5)->toBeGreaterThanOrEqual(5);
     }
 
     public function testLessThan(): void
@@ -511,8 +514,9 @@ final class PHPUnitTest extends TestCase
 
     public function testSame(): void
     {
-        ass(1)->same(0 + 1)
-              ->notSame(true);
+        ass(1)
+            ->same(0 + 1)->toBe(0 + 1)
+            ->notSame(true);
     }
 
     public function testSameSize(): void
@@ -558,13 +562,15 @@ final class PHPUnitTest extends TestCase
 
     public function testTrue(): void
     {
-        ass(true)->true();
+        ass(true)
+            ->true()->toBeTrue();
         ass(false)->notTrue();
     }
 
     public function testFalse(): void
     {
-        ass(false)->false();
+        ass(false)
+            ->false()->toBeFalse();
         ass(true)->notFalse();
     }
 

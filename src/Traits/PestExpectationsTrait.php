@@ -5,11 +5,12 @@ namespace Realodix\NextProject\Traits;
 trait PestExpectationsTrait
 {
     /**
+     * @param mixed  $expected
      * @param string $message
      */
-    public function toBe(string $message = ''): self
+    public function toBe($expected, string $message = ''): self
     {
-        return $this->same($this->actual, $message);
+        return $this->same($expected, $message);
     }
 
     /**
@@ -34,5 +35,23 @@ trait PestExpectationsTrait
     public function toBeFalse(string $message = ''): self
     {
         return $this->false($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeGreaterThan($expected, string $message = ''): self
+    {
+        return $this->greaterThan($expected, $message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeGreaterThanOrEqual($expected, string $message = ''): self
+    {
+        return $this->greaterThanOrEqual($expected, $message);
     }
 }
