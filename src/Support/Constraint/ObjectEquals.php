@@ -17,14 +17,10 @@ use PHPUnit\Framework\Constraint\Constraint;
  */
 final class ObjectEquals extends Constraint
 {
-    /**
-     * @var object
-     */
+    /** @var object */
     private $expected;
 
-    /**
-     * @var string
-     */
+    /** * @var string */
     private $method;
 
     /**
