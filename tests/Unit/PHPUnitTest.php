@@ -327,7 +327,10 @@ final class PHPUnitTest extends TestCase
 
     public function testInfinite(): void
     {
-        ass(INF)->infinite();
+        ass([INF, log(0)])
+            ->each
+                ->infinite()
+                ->toBeInfinite();
     }
 
     public function testFinite(): void
@@ -338,25 +341,26 @@ final class PHPUnitTest extends TestCase
     public function testInstanceOf(): void
     {
         ass(new \DateTime)
-            ->instanceOf('DateTime')
+            ->instanceOf('DateTime')->toBeInstanceOf('DateTime')
             ->notInstanceOf('DateTimeZone');
     }
 
     public function testIsArray(): void
     {
-        ass([1, 2, 3])->isArray();
+        ass([1, 2, 3])->isArray()->toBeArray();
         ass(false)->isNotArray();
     }
 
     public function testIsBool(): void
     {
-        ass(false)->isBool();
+        ass(false)->isBool()->toBeBool();
         ass([1, 2, 3])->isNotBool();
     }
 
     public function testIsCallable(): void
     {
-        ass(function (): void {})->isCallable();
+        ass(function (): void {})
+            ->isCallable()->toBeCallable();
 
         ass(false)->isNotCallable();
     }
@@ -381,13 +385,13 @@ final class PHPUnitTest extends TestCase
 
     public function testIsFloat(): void
     {
-        ass(1.5)->isFloat();
+        ass(1.5)->isFloat()->toBeFloat();
         ass(1)->isNotFloat();
     }
 
     public function testIsInt(): void
     {
-        ass(5)->isInt();
+        ass(5)->isInt()->toBeInt();
         ass(1.5)->isNotInt();
     }
 

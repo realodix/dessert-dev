@@ -117,4 +117,67 @@ trait PestExpectationsTrait
     {
         return $this->contains($expected, $message);
     }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeInfinite($message = ''): self
+    {
+        return $this->infinite($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeInstanceOf($expected, string $message = ''): self
+    {
+        return $this->instanceOf($expected, $message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeArray($message = ''): self
+    {
+        return $this->isArray($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeBool($message = ''): self
+    {
+        return $this->isBool($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeCallable($message = ''): self
+    {
+        return $this->isCallable($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeFloat($message = ''): self
+    {
+        return $this->isFloat($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeInt($message = ''): self
+    {
+        return $this->isInt($message);
+    }
 }
