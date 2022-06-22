@@ -23,11 +23,11 @@ verify($array)
 
 `arrayNotHasKey()` is the inverse of this assertion and takes the same arguments.
 
-[contains]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertcontains
-[stringCS]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertstringcontainsstring
-[stringEF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertstringequalsfile
-[jsonSEJF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertjsonstringequalsjsonfile
-[xmlSEXF]: https://phpunit.readthedocs.io/en/stable/assertions.html#assertxmlstringequalsxmlfile
+[contains]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertcontains
+[stringCS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertstringcontainsstring
+[stringEF]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertstringequalsfile
+[jsonSEJF]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertjsonstringequalsjsonfile
+[xmlSEXF]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertxmlstringequalsxmlfile
 
 ## Custom Assertions
 
