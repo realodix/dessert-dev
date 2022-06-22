@@ -7,10 +7,11 @@ namespace Realodix\NextProject;
  */
 final class Each
 {
-    /**
-     * @var Assertion
-     */
+    /** @var Assertion */
     private $original;
+
+    /** @var bool */
+    private $opposite = false;
 
     /**
      * Creates an expectation on each item of the iterable "value".
@@ -33,6 +34,18 @@ final class Each
     }
 
     /**
+     * Creates the opposite expectation for the value.
+     *
+     * @return self
+     */
+    public function not(): Each
+    {
+        $this->opposite = true;
+
+        return $this;
+    }
+
+    /**
      * Dynamically calls methods on the class with the given arguments on each item.
      *
      * @param string                   $name
@@ -41,8 +54,11 @@ final class Each
     public function __call(string $name, array $arguments): Each
     {
         foreach ($this->original->actual as $item) {
-            verify($item)->$name(...$arguments);
+            // verify($item)->$name(...$arguments);
+            $this->opposite ? verify($item)->not()->$name(...$arguments) : verify($item)->$name(...$arguments);
         }
+
+        $this->opposite = false;
 
         return $this;
     }
