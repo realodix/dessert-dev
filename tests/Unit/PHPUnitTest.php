@@ -122,12 +122,11 @@ final class PHPUnitTest extends TestCase
     public function testContainsOnlyInstancesOf(): void
     {
         $array = [
-            new FakeClassForTesting,
-            new FakeClassForTesting,
-            new FakeClassForTesting,
+            new \DateTimeImmutable,
+            new \DateTimeImmutable,
         ];
 
-        ass($array)->containsOnlyInstancesOf(FakeClassForTesting::class);
+        ass($array)->containsOnlyInstancesOf(\DateTimeImmutable::class);
     }
 
     public function testCount(): void
@@ -661,9 +660,4 @@ final class PHPUnitTest extends TestCase
 
         unlink($tempFile);
     }
-}
-
-class FakeClassForTesting
-{
-    public static $staticProperty;
 }
