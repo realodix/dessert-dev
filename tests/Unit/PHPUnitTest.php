@@ -397,25 +397,26 @@ final class PHPUnitTest extends TestCase
 
     public function testIsIterable(): void
     {
-        ass([])->isIterable();
+        ass([])->isIterable()->toBeIterable();
         ass(null)->isNotIterable();
     }
 
     public function testIsNumeric(): void
     {
-        ass('1.5')->isNumeric();
+        ass('1.5')->isNumeric()->toBeNumeric();
         ass('foo bar')->isNotNumeric();
     }
 
     public function testIsObject(): void
     {
-        ass(new \stdClass)->isObject();
+        ass(new \stdClass)->isObject()->toBeObject();
         ass(false)->isNotObject();
     }
 
     public function testIsResource(): void
     {
-        ass(fopen(__FILE__, 'r'))->isResource();
+        ass(fopen(__FILE__, 'r'))
+            ->isResource()->toBeResource();
         ass(false)->isNotResource();
     }
 

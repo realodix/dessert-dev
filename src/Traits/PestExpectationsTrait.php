@@ -180,4 +180,40 @@ trait PestExpectationsTrait
     {
         return $this->isInt($message);
     }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeIterable($message = ''): self
+    {
+        return $this->isIterable($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeNumeric($message = ''): self
+    {
+        return $this->isNumeric($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeObject($message = ''): self
+    {
+        return $this->isObject($message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeResource($message = ''): self
+    {
+        return $this->isResource($message);
+    }
 }
