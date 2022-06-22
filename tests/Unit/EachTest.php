@@ -43,7 +43,7 @@ final class EachTest extends TestCase
     public function testChainsExpectations(): void
     {
         ass([1, 1, 1])
-            ->each()
+            ->each
             ->isInt()
             ->equals(1);
 
@@ -51,7 +51,7 @@ final class EachTest extends TestCase
 
         ass([2, 2, 2])
             ->each
-            ->isInt
+            ->isInt()
             ->equals(2);
 
         ass(static::getCount())->same(13);
@@ -60,35 +60,33 @@ final class EachTest extends TestCase
     /*
      * Opposite expectations on each item
      */
-    // public function testOpposite(): void
-    // {
-    //     ass([1, 2, 3])
-    //         ->each()
-    //         ->not()
-    //         ->equals(4);
+    public function testOpposite(): void
+    {
+        ass([1, 2, 3])
+            ->each->not
+            ->equals(4);
 
-    //     ass(static::getCount())->same(3);
+        ass(static::getCount())->same(3);
 
-    //     ass([1, 2, 3])
-    //         ->each()
-    //         ->not->isString;
+        ass([1, 2, 3])
+            ->each()
+            ->not->isString;
 
-    //     ass(static::getCount())->same(7);
-    // }
+        ass(static::getCount())->same(7);
+    }
 
     /*
      * Chained opposite and non-opposite expectations
      */
-    // public function testChainedOppositeAndNonOpposite(): void
-    // {
-    //     ass([1, 2, 3])
-    //         ->each()
-    //         ->not()
-    //         ->equals(4)
-    //         ->isInt();
+    public function testChainedOppositeAndNonOpposite(): void
+    {
+        ass([1, 2, 3])
+            ->each->not
+            ->equals(4)
+            ->isInt();
 
-    //     ass(static::getCount())->same(6);
-    // }
+        ass(static::getCount())->same(6);
+    }
 
     /*
      * Can add expectations via "and"
@@ -96,11 +94,10 @@ final class EachTest extends TestCase
     public function testCanAddExpectationsViaAnd(): void
     {
         ass([1, 2, 3])
-            ->each()
-            ->isInt // + 3
+            ->each->isInt // + 3
             ->and([4, 5, 6])->each
                 ->lessThan(7) // + 3
-                ->not->lessThan(7)
+                ->not->lessThan(4)
                 ->greaterThan(3) // + 3
             ->and('Hello World')
                 ->isString // + 1
