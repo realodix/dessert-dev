@@ -10,9 +10,7 @@ use SebastianBergmann\Exporter\Exporter;
  */
 final class Opposite
 {
-    /**
-     * @var Assertion
-     */
+    /** @var Assertion */
     private $original;
 
     /**
