@@ -350,7 +350,7 @@ final class PHPUnitTest extends TestCase
 
     public function testIsCallable(): void
     {
-        ass(function (): void {})->isCallable();
+        ass('function (): void {}')->isCallable();
 
         ass(false)->isNotCallable();
     }
