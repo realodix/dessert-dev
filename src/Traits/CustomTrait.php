@@ -18,8 +18,8 @@ trait CustomTrait
     /**
      * Asserts that the value array has the provided $keys.
      *
-     * @param array<int, int|string> $keys
-     * @param string                 $message
+     * @param array  $keys
+     * @param string $message
      */
     public function arrayHasKeys(array $keys, string $message = ''): self
     {
@@ -37,8 +37,8 @@ trait CustomTrait
     /**
      * Asserts that the value array not has the provided $keys.
      *
-     * @param array<int, int|string> $keys
-     * @param string                 $message
+     * @param array  $keys
+     * @param string $message
      */
     public function arrayNotHasKeys(array $keys, string $message = ''): self
     {

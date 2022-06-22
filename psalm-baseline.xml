@@ -7,6 +7,9 @@
       <code>Assertion</code>
       <code>Assertion</code>
     </InvalidReturnType>
+    <MissingClosureParamType occurrences="1">
+      <code>$argument</code>
+    </MissingClosureParamType>
   </file>
   <file src="src/Support/Constraint/ObjectEquals.php">
     <ParamNameMismatch occurrences="2">
@@ -15,9 +18,19 @@
     </ParamNameMismatch>
   </file>
   <file src="src/Support/Dom.php">
+    <MissingClosureParamType occurrences="2">
+      <code>$key</code>
+      <code>$value</code>
+    </MissingClosureParamType>
     <PossiblyNullArgument occurrences="1">
       <code>$result-&gt;firstChild</code>
     </PossiblyNullArgument>
+  </file>
+  <file src="src/Support/Validator.php">
+    <MissingReturnType occurrences="2">
+      <code>actualValue</code>
+      <code>expectedValue</code>
+    </MissingReturnType>
   </file>
   <file src="src/Traits/CustomTrait.php">
     <InvalidScalarArgument occurrences="2">
@@ -38,6 +51,10 @@
       <code>getComparisonFailure</code>
       <code>getComparisonFailure</code>
     </InternalMethod>
+    <MissingParamType occurrences="2">
+      <code>$needle</code>
+      <code>$needle</code>
+    </MissingParamType>
   </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <TooManyArguments occurrences="8">
