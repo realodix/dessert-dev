@@ -34,6 +34,12 @@
             "problemMatcher": []
         },
         {
+            "label": "Commit & Push",
+            "type": "shell",
+            "command": "git add -A && git commit -m \"U-$(Get-Date -UFormat +'%y%m%d%H%M%S')\" && git push",
+            "problemMatcher": []
+        },
+        {
             "label": "Commit [skip ci]",
             "type": "shell",
             "command": "git add -A && git commit -m \"U-$(Get-Date -UFormat +'%y%m%d%H%M%S')' '[skip' 'ci]\" && git push",

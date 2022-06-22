@@ -84,13 +84,6 @@ final class CustomAssertionsTest extends TestCase
         ass($object)->not->hasProperties(['name', 'age']);
     }
 
-    public function testContains(): void
-    {
-        ass([3, 2])
-            ->contains(3)
-            ->notContains(5, 'user have 5 posts');
-    }
-
     public function testHasLength()
     {
         ass([
