@@ -54,4 +54,22 @@ trait PestExpectationsTrait
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeLessThan($expected, string $message = ''): self
+    {
+        return $this->lessThan($expected, $message);
+    }
+
+    /**
+     * @param mixed  $expected
+     * @param string $message
+     */
+    public function toBeLessThanOrEqual($expected, string $message = ''): self
+    {
+        return $this->lessThanOrEqual($expected, $message);
+    }
 }

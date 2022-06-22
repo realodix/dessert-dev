@@ -317,9 +317,9 @@ final class PHPUnitTest extends TestCase
     public function testLessThan(): void
     {
         ass(7)
-            ->lessThan(10)
-            ->lessThanOrEqual(7)
-            ->lessThanOrEqual(8);
+            ->lessThan(10)->toBeLessThan(10)
+            ->lessThanOrEqual(7)->toBeLessThanOrEqual(7)
+            ->lessThanOrEqual(8)->toBeLessThanOrEqual(8);
     }
 
     public function testInfinite(): void
