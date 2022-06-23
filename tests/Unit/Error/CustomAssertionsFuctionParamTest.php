@@ -6,10 +6,14 @@ use PHPUnit\Framework\TestCase;
 
 final class CustomAssertionsFuctionParamTest extends TestCase
 {
+    private function error() {
+        return \TypeError::class;
+    }
+
     /** @test */
     public function hasPropertyActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass('not_object')->hasProperty(true);
     }
@@ -17,7 +21,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function stringEqualsActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->stringEquals(true);
     }
@@ -25,7 +29,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function stringNotEqualsActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->stringNotEquals(true);
     }
@@ -33,7 +37,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function fileEqualsStringActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->fileEqualsString('string');
     }
@@ -41,7 +45,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function fileNotEqualsStringActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->fileNotEqualsString('string');
     }
@@ -49,7 +53,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function fileEqualsStringIgnoringCaseActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->fileEqualsStringIgnoringCase('string');
     }
@@ -57,7 +61,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function fileNotEqualsStringIgnoringCaseActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->fileNotEqualsStringIgnoringCase('string');
     }
@@ -65,7 +69,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupContainsSelectorActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupContainsSelector('string');
     }
@@ -73,7 +77,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupNotContainsSelectorActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupNotContainsSelector('string');
     }
@@ -81,7 +85,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupElementContainsActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupElementContains('string');
     }
@@ -89,7 +93,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupElementNotContainsActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupElementNotContains('string');
     }
@@ -97,7 +101,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupElementRegExpActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupElementRegExp('string');
     }
@@ -105,7 +109,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupElementNotRegExpActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupElementNotRegExp('string');
     }
@@ -113,7 +117,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupHasElementWithAttributesActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupHasElementWithAttributes(['array']);
     }
@@ -121,7 +125,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupNotHasElementWithAttributesActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupNotHasElementWithAttributes(['array']);
     }
@@ -129,7 +133,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     /** @test */
     public function markupSelectorCountActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
         ass(true)->markupSelectorCount(1, 'string');
     }
