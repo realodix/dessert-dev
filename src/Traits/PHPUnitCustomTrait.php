@@ -17,7 +17,7 @@ trait PHPUnitCustomTrait
     public function arrayHasKey($key, $value = null, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'array');
-        $key = Validator::expectedValue($key, 1, 'int|string');
+        $key = Validator::expectedValue($key, 'int|string');
 
         try {
             Assert::assertTrue(Arr::has($actual, $key), $message);
@@ -45,7 +45,7 @@ trait PHPUnitCustomTrait
     public function arrayNotHasKey($key, $value = null, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'array');
-        $key = Validator::expectedValue($key, 1, 'int|string');
+        $key = Validator::expectedValue($key, 'int|string');
 
         try {
             Assert::assertFalse(Arr::has($actual, $key), $message);

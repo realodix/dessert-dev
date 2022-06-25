@@ -145,10 +145,10 @@ final class Validator
      * Determines whether the expected value given is valid or invalid
      *
      * @param mixed  $expectedValue
-     * @param int    $argument
      * @param string $type
+     * @param int    $argument
      */
-    public static function expectedValue($expectedValue, int $argument, string $type)
+    public static function expectedValue($expectedValue, string $type, int $argument = 1)
     {
         $stack = debug_backtrace();
         $typeGiven = $type;
