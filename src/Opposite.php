@@ -66,7 +66,8 @@ final class Opposite
     {
         $exporter = new Exporter;
 
-        $toString = function ($argument) use ($exporter): string {
+        $toString = function ($argument) use ($exporter): string
+        {
             return $exporter->shortenedExport($argument);
         };
 
@@ -78,7 +79,8 @@ final class Opposite
                 implode(
                     ' ',
                     array_map(
-                        function ($argument) use ($toString): string {
+                        function ($argument) use ($toString): string
+                        {
                             return $toString($argument);
                         },
                         $arguments
