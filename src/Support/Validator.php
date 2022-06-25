@@ -151,7 +151,7 @@ final class Validator
     public static function expectedValue($expectedValue, int $argument, string $type)
     {
         $stack = debug_backtrace();
-        $typeGiven = str_replace('_', ' or ', $type);
+        $typeGiven = $type;
 
         if ($type === 'class') {
             $typeGiven = 'class or interface name';
@@ -166,31 +166,81 @@ final class Validator
             get_debug_type($expectedValue) // symfony/polyfill-php80
         );
 
-        switch ($type) {
-            case 'class':
-                if (! class_exists($expectedValue) && ! interface_exists($expectedValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
+        return self::parameterType($type, $expectedValue, $invalidArgument);
+    }
 
-                return $expectedValue;
-            case 'int_string':
-                if (! (\is_int($expectedValue) || \is_string($expectedValue))) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $expectedValue;
-            case 'iterable_countable':
-                if (! $expectedValue instanceof \Countable && ! is_iterable($expectedValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $expectedValue;
-            case 'object':
-                if (! \is_object($expectedValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $expectedValue;
+    public static function parameterType($types, $value, $name)
+    {
+        if (is_string($types)) {
+            $types = explode('|', $types);
         }
+
+        if (! self::hasType($value, $types)) {
+            throw new \TypeError($name);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @param mixed    $value
+     * @param string[] $allowedTypes
+     *
+     * @return bool
+     */
+    private static function hasType($value, array $allowedTypes): bool
+    {
+        // Apply strtolower because gettype returns "NULL" for null values.
+        $type = get_debug_type($value);
+
+        if (in_array($type, $allowedTypes)) {
+            return true;
+        }
+
+        if (in_array('object', $allowedTypes) && is_object($value)) {
+            return true;
+        }
+
+        if (in_array('class', $allowedTypes) && class_exists($value)) {
+            return true;
+        }
+
+        if (in_array('callable', $allowedTypes) && is_callable($value)) {
+            return true;
+        }
+
+        if (is_object($value) && self::isInstanceOf($value, $allowedTypes)) {
+            return true;
+        }
+
+        if (is_array($value) && in_array('Traversable', $allowedTypes)) {
+            return true;
+        }
+
+        if ($value === false && in_array('false', $allowedTypes)) {
+            return true;
+        }
+        if ($value === true && in_array('true', $allowedTypes)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param object   $value
+     * @param string[] $allowedTypes
+     *
+     * @return bool
+     */
+    private static function isInstanceOf($value, array $allowedTypes): bool
+    {
+        foreach ($allowedTypes as $type) {
+            if ($value instanceof $type) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
