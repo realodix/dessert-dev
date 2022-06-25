@@ -7,7 +7,8 @@ use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitFuctionParamTest extends TestCase
 {
-    private function error() {
+    private function error()
+    {
         return \TypeError::class;
     }
 

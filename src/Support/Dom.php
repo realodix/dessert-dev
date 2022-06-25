@@ -18,7 +18,8 @@ final class Dom
      */
     public static function flattenAttributeArray(array $attributes): string
     {
-        array_walk($attributes, function (&$value, $key) {
+        array_walk($attributes, function (&$value, $key)
+        {
             // Boolean attributes.
             if (\is_null($value)) {
                 $value = sprintf('[%s]', $key);

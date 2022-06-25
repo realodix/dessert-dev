@@ -6,7 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 final class CustomAssertionsFuctionParamTest extends TestCase
 {
-    private function error() {
+    private function error()
+    {
         return \TypeError::class;
     }
 
