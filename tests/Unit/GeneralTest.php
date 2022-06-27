@@ -4,7 +4,6 @@ namespace Realodix\NextProject\Test;
 
 use PHPUnit\Framework\TestCase;
 use Realodix\NextProject\Assert;
-use Realodix\NextProject\Assertion;
 use Realodix\NextProject\Check;
 use Realodix\NextProject\Test\Fixtures\CustomAssert;
 

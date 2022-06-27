@@ -101,44 +101,7 @@ final class Validator
             get_debug_type($actualValue) // symfony/polyfill-php80
         );
 
-        switch ($type) {
-            case 'array':
-                if (! (\is_array($actualValue) || $actualValue instanceof \ArrayAccess)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'class':
-                if (! class_exists($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'iterable':
-                if (! is_iterable($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'iterable_countable':
-                if (! is_iterable($actualValue) && ! $actualValue instanceof \Countable) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'object':
-                if (! \is_object($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'string':
-                if (! \is_string($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-        }
+        return self::parameterType($type, $actualValue, $invalidArgument);
     }
 
     /**
@@ -190,55 +153,14 @@ final class Validator
      */
     private static function hasType($value, array $allowedTypes): bool
     {
-        // Apply strtolower because gettype returns "NULL" for null values.
-        $type = strtolower(gettype($value));
+        $type = gettype($value);
 
         if (in_array($type, $allowedTypes)) {
             return true;
         }
 
-        // if (in_array('object', $allowedTypes) && is_object($value)) {
-        //     return true;
-        // }
-
-        if (in_array($type, $allowedTypes)) {
+        if (in_array('iterable', $allowedTypes) && is_iterable($value)) {
             return true;
-        }
-
-        if (in_array('callable', $allowedTypes) && is_callable($value)) {
-            return true;
-        }
-
-        if (is_object($value) && self::isInstanceOf($value, $allowedTypes)) {
-            return true;
-        }
-
-        if (is_array($value) && in_array('Traversable', $allowedTypes)) {
-            return true;
-        }
-
-        if ($value === false && in_array('false', $allowedTypes)) {
-            return true;
-        }
-        if ($value === true && in_array('true', $allowedTypes)) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param object   $value
-     * @param string[] $allowedTypes
-     *
-     * @return bool
-     */
-    private static function isInstanceOf($value, array $allowedTypes): bool
-    {
-        foreach ($allowedTypes as $type) {
-            if ($value instanceof $type) {
-                return true;
-            }
         }
 
         return false;
