@@ -191,17 +191,17 @@ final class Validator
     private static function hasType($value, array $allowedTypes): bool
     {
         // Apply strtolower because gettype returns "NULL" for null values.
-        $type = get_debug_type($value);
+        $type = strtolower(gettype($value));
 
         if (in_array($type, $allowedTypes)) {
             return true;
         }
 
-        if (in_array('object', $allowedTypes) && is_object($value)) {
-            return true;
-        }
+        // if (in_array('object', $allowedTypes) && is_object($value)) {
+        //     return true;
+        // }
 
-        if (in_array('class', $allowedTypes) && class_exists($value)) {
+        if (in_array($type, $allowedTypes)) {
             return true;
         }
 

@@ -229,22 +229,6 @@ final class PHPUnitFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function instanceOfExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass('')->instanceOf('');
-    }
-
-    /** @test */
-    public function notInstanceOfExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass('')->notInstanceOf('');
-    }
-
-    /** @test */
     public function isReadableActualValue(): void
     {
         $this->expectException($this->error());

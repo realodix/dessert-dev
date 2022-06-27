@@ -482,7 +482,7 @@ class Assertion
      */
     public function instanceOf(string $expected, string $message = ''): self
     {
-        $expected = Validator::expectedValue($expected, 'class');
+        // $expected = Validator::expectedValue($expected, 'class');
 
         Assert::assertInstanceOf($expected, $this->actual, $message);
 
@@ -495,7 +495,7 @@ class Assertion
      */
     public function notInstanceOf(string $expected, string $message = ''): self
     {
-        $expected = Validator::expectedValue($expected, 'class');
+        // $expected = Validator::expectedValue($expected, 'class');
 
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
 
