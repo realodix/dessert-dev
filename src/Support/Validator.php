@@ -159,6 +159,10 @@ final class Validator
             return true;
         }
 
+        if (in_array('class', $allowedTypes) && class_exists($value)) {
+            return true;
+        }
+
         if (in_array('iterable', $allowedTypes) && is_iterable($value)) {
             return true;
         }
