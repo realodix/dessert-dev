@@ -121,14 +121,14 @@ final class Validator
         }
 
         $invalidArgument = sprintf(
-            '%s(): Argument #%d must be of type %s %s, %s given',
+            'Argument #%d of %s() must be %s %s, %s given',
             $stack[1]['function'],
             $argument,
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
             get_debug_type($expectedValue) // symfony/polyfill-php80
         );
-
+        // Argument #1 of PHPUnit\Framework\Assert::assertNotInstanceOf() must be a class or interface name
         return self::parameterType($type, $expectedValue, $invalidArgument);
     }
 
@@ -139,7 +139,7 @@ final class Validator
         }
 
         if (! self::hasType($value, $types)) {
-            throw new \TypeError($name);
+            throw new \InvalidArgumentException($name);
         }
 
         return $value;

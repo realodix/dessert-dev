@@ -9,7 +9,7 @@ final class PHPUnitFuctionParamTest extends TestCase
 {
     private function error()
     {
-        return \TypeError::class;
+        return \InvalidArgumentException::class;
     }
 
     /** @test */
