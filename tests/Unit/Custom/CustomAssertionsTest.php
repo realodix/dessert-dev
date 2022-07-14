@@ -153,8 +153,6 @@ final class CustomAssertionsTest extends TestCase
 
     /**
      * @dataProvider markupContainsSelectorProvider
-     *
-     * @param string $selector
      */
     public function testMarkupContainsSelector(string $selector)
     {
@@ -247,8 +245,7 @@ final class CustomAssertionsTest extends TestCase
             ->throw(function (\RuntimeException $e) {});
 
         ass(function () {throw new \RuntimeException('actual message'); })
-            ->throw(function (\Exception $e)
-            {
+            ->throw(function (\Exception $e) {
                 ass($e->getMessage())->same('actual message');
             });
 
@@ -305,8 +302,7 @@ final class CustomAssertionsTest extends TestCase
             'Failed asserting that two strings are identical'
         );
         ass(function () { throw new \Exception('actual message'); })
-            ->throw(function (\Exception $e)
-            {
+            ->throw(function (\Exception $e) {
                 ass($e->getMessage())->same('expected message');
             });
     }

@@ -15,8 +15,6 @@ final class Each
 
     /**
      * Creates an expectation on each item of the iterable "value".
-     *
-     * @param Assertion $original
      */
     public function __construct(Assertion $original)
     {
@@ -48,7 +46,6 @@ final class Each
     /**
      * Dynamically calls methods on the class with the given arguments on each item.
      *
-     * @param string                   $name
      * @param array<int|string, mixed> $arguments
      */
     public function __call(string $name, array $arguments): Each
@@ -65,8 +62,6 @@ final class Each
 
     /**
      * Dynamically calls methods on the class without any arguments on each item.
-     *
-     * @param string $name
      */
     public function __get(string $name): Each
     {

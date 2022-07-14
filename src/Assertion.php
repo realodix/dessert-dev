@@ -25,8 +25,6 @@ class Assertion
 
     /**
      * Dynamically calls methods on the class without any arguments
-     *
-     * @param string $name
      */
     public function __get(string $name)
     {
@@ -59,8 +57,6 @@ class Assertion
 
     /**
      * Creates an expectation on each item of the iterable "value".
-     *
-     * @param null|callable $callback
      */
     public function each(callable $callback = null): Each
     {
@@ -85,10 +81,6 @@ class Assertion
         return new Opposite($this);
     }
 
-    /**
-     * @param string $needle
-     * @param string $message
-     */
     public function stringContainsString(string $needle, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -98,10 +90,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $needle
-     * @param string $message
-     */
     public function stringNotContainsString(string $needle, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -111,10 +99,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $needle
-     * @param string $message
-     */
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -124,10 +108,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $needle
-     * @param string $message
-     */
     public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -137,11 +117,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string    $type
-     * @param bool|null $isNativeType
-     * @param string    $message
-     */
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable');
@@ -151,11 +126,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string    $type
-     * @param bool|null $isNativeType
-     * @param string    $message
-     */
     public function notContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable');
@@ -165,10 +135,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $className
-     * @param string $message
-     */
     public function containsOnlyInstancesOf(string $className, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable');
@@ -178,10 +144,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param int    $expectedCount
-     * @param string $message
-     */
     public function count(int $expectedCount, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable|countable');
@@ -191,10 +153,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param int    $expectedCount
-     * @param string $message
-     */
     public function notCount(int $expectedCount, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable|countable');
@@ -204,9 +162,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function directoryExists(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -216,9 +171,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function directoryIsReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -228,9 +180,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function directoryIsWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -240,9 +189,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function empty(string $message = ''): self
     {
         Assert::assertEmpty($this->actual, $message);
@@ -250,9 +196,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function notEmpty(string $message = ''): self
     {
         Assert::assertNotEmpty($this->actual, $message);
@@ -261,8 +204,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function equals($expected, string $message = ''): self
     {
@@ -272,8 +214,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function notEquals($expected, string $message = ''): self
     {
@@ -283,8 +224,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function equalsCanonicalizing($expected, string $message = ''): self
     {
@@ -294,8 +234,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
@@ -305,8 +244,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function equalsIgnoringCase($expected, string $message = ''): self
     {
@@ -316,8 +254,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
@@ -327,9 +264,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param float  $delta
-     * @param string $message
+     * @param mixed $expected
      */
     public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
@@ -339,9 +274,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param float  $delta
-     * @param string $message
+     * @param mixed $expected
      */
     public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
@@ -350,10 +283,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function fileEquals(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -363,10 +292,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function fileNotEquals(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -376,9 +301,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function fileExists(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -388,9 +310,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function fileIsReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -400,9 +319,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function fileIsWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -412,9 +328,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function finite(string $message = ''): self
     {
         Assert::assertFinite($this->actual, $message);
@@ -422,9 +335,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function infinite(string $message = ''): self
     {
         Assert::assertInfinite($this->actual, $message);
@@ -433,8 +343,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function greaterThan($expected, string $message = ''): self
     {
@@ -444,8 +353,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function greaterThanOrEqual($expected, string $message = ''): self
     {
@@ -455,8 +363,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function lessThan($expected, string $message = ''): self
     {
@@ -466,8 +373,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function lessThanOrEqual($expected, string $message = ''): self
     {
@@ -476,10 +382,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function instanceOf(string $expected, string $message = ''): self
     {
         $expected = Validator::expectedValue($expected, 'class');
@@ -489,10 +391,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function notInstanceOf(string $expected, string $message = ''): self
     {
         $expected = Validator::expectedValue($expected, 'class');
@@ -502,9 +400,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isArray(string $message = ''): self
     {
         Assert::assertIsArray($this->actual, $message);
@@ -512,9 +407,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotArray(string $message = ''): self
     {
         Assert::assertIsNotArray($this->actual, $message);
@@ -522,9 +414,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isBool(string $message = ''): self
     {
         Assert::assertIsBool($this->actual, $message);
@@ -532,9 +421,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotBool(string $message = ''): self
     {
         Assert::assertIsNotBool($this->actual, $message);
@@ -542,9 +428,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isCallable(string $message = ''): self
     {
         Assert::assertIsCallable($this->actual, $message);
@@ -552,9 +435,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotCallable(string $message = ''): self
     {
         Assert::assertIsNotCallable($this->actual, $message);
@@ -562,9 +442,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isFloat(string $message = ''): self
     {
         Assert::assertIsFloat($this->actual, $message);
@@ -572,9 +449,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotFloat(string $message = ''): self
     {
         Assert::assertIsNotFloat($this->actual, $message);
@@ -582,9 +456,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isInt(string $message = ''): self
     {
         Assert::assertIsInt($this->actual, $message);
@@ -592,9 +463,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotInt(string $message = ''): self
     {
         Assert::assertIsNotInt($this->actual, $message);
@@ -602,9 +470,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isIterable(string $message = ''): self
     {
         Assert::assertIsIterable($this->actual, $message);
@@ -612,9 +477,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotIterable(string $message = ''): self
     {
         Assert::assertIsNotIterable($this->actual, $message);
@@ -622,9 +484,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNumeric(string $message = ''): self
     {
         Assert::assertIsNumeric($this->actual, $message);
@@ -632,9 +491,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotNumeric(string $message = ''): self
     {
         Assert::assertIsNotNumeric($this->actual, $message);
@@ -642,9 +498,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isObject(string $message = ''): self
     {
         Assert::assertIsObject($this->actual, $message);
@@ -652,9 +505,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotObject(string $message = ''): self
     {
         Assert::assertIsNotObject($this->actual, $message);
@@ -662,9 +512,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -674,9 +521,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isResource(string $message = ''): self
     {
         Assert::assertIsResource($this->actual, $message);
@@ -684,9 +528,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotResource(string $message = ''): self
     {
         Assert::assertIsNotResource($this->actual, $message);
@@ -694,9 +535,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isScalar(string $message = ''): self
     {
         Assert::assertIsScalar($this->actual, $message);
@@ -704,9 +542,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotScalar(string $message = ''): self
     {
         Assert::assertIsNotScalar($this->actual, $message);
@@ -714,9 +549,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isString(string $message = ''): self
     {
         Assert::assertIsString($this->actual, $message);
@@ -724,9 +556,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotString(string $message = ''): self
     {
         Assert::assertIsNotString($this->actual, $message);
@@ -734,9 +563,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -746,9 +572,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function json(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -758,10 +581,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function jsonFileEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -771,10 +590,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function jsonFileNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -784,10 +599,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function jsonStringEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -797,10 +608,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -810,10 +617,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedJson
-     * @param string $message
-     */
     public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -823,10 +626,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedJson
-     * @param string $message
-     */
     public function jsonStringNotEqualsJsonString(string $expectedJson, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -836,9 +635,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function nan(string $message = ''): self
     {
         Assert::assertNan($this->actual, $message);
@@ -846,9 +642,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function null(string $message = ''): self
     {
         Assert::assertNull($this->actual, $message);
@@ -856,9 +649,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function notNull(string $message = ''): self
     {
         Assert::assertNotNull($this->actual, $message);
@@ -866,10 +656,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $format
-     * @param string $message
-     */
     public function stringMatchesFormat(string $format, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -879,10 +665,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $format
-     * @param string $message
-     */
     public function stringNotMatchesFormat(string $format, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -892,10 +674,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $formatFile
-     * @param string $message
-     */
     public function stringMatchesFormatFile(string $formatFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -905,10 +683,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $formatFile
-     * @param string $message
-     */
     public function stringNotMatchesFormatFile(string $formatFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -919,8 +693,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function same($expected, string $message = ''): self
     {
@@ -930,8 +703,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function notSame($expected, string $message = ''): self
     {
@@ -941,8 +713,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function sameSize($expected, string $message = ''): self
     {
@@ -955,8 +726,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function notSameSize($expected, string $message = ''): self
     {
@@ -968,10 +738,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $prefix
-     * @param string $message
-     */
     public function stringStartsWith(string $prefix, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -981,10 +747,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $prefix
-     * @param string $message
-     */
     public function stringStartsNotWith(string $prefix, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -994,10 +756,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $suffix
-     * @param string $message
-     */
     public function stringEndsWith(string $suffix, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -1007,10 +765,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $suffix
-     * @param string $message
-     */
     public function stringEndsNotWith(string $suffix, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -1020,9 +774,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function true(string $message = ''): self
     {
         Assert::assertTrue($this->actual, $message);
@@ -1030,9 +781,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function notTrue(string $message = ''): self
     {
         Assert::assertNotTrue($this->actual, $message);
@@ -1040,9 +788,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function false(string $message = ''): self
     {
         Assert::assertFalse($this->actual, $message);
@@ -1050,9 +795,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function notFalse(string $message = ''): self
     {
         Assert::assertNotFalse($this->actual, $message);
@@ -1060,10 +802,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function xmlFileEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -1073,10 +811,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function xmlFileNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -1086,10 +820,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function xmlStringEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
@@ -1097,10 +827,6 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         Assert::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
@@ -1109,8 +835,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expectedXml
-     * @param string $message
+     * @param mixed $expectedXml
      */
     public function xmlStringEqualsXmlString($expectedXml, string $message = ''): self
     {
@@ -1120,8 +845,7 @@ class Assertion
     }
 
     /**
-     * @param mixed  $expectedXml
-     * @param string $message
+     * @param mixed $expectedXml
      */
     public function xmlStringNotEqualsXmlString($expectedXml, string $message = ''): self
     {

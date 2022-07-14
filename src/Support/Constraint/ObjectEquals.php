@@ -25,7 +25,6 @@ final class ObjectEquals extends Constraint
 
     /**
      * @param object $object
-     * @param string $method
      */
     public function __construct($object, string $method = 'equals')
     {

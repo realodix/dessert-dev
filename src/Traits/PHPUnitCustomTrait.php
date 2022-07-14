@@ -12,7 +12,6 @@ trait PHPUnitCustomTrait
     /**
      * @param int|string $key
      * @param null|mixed $value
-     * @param string     $message
      */
     public function arrayHasKey($key, $value = null, string $message = ''): self
     {
@@ -40,7 +39,6 @@ trait PHPUnitCustomTrait
     /**
      * @param int|string $key
      * @param null|mixed $value
-     * @param string     $message
      */
     public function arrayNotHasKey($key, $value = null, string $message = ''): self
     {
