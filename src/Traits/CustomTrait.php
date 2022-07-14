@@ -17,9 +17,6 @@ trait CustomTrait
 {
     /**
      * Asserts that the value array has the provided $keys.
-     *
-     * @param array  $keys
-     * @param string $message
      */
     public function arrayHasKeys(array $keys, string $message = ''): self
     {
@@ -36,9 +33,6 @@ trait CustomTrait
 
     /**
      * Asserts that the value array not has the provided $keys.
-     *
-     * @param array  $keys
-     * @param string $message
      */
     public function arrayNotHasKeys(array $keys, string $message = ''): self
     {
@@ -56,8 +50,7 @@ trait CustomTrait
     /**
      * Asserts that the value contains the property $name.
      *
-     * @param string $name
-     * @param mixed  $value
+     * @param mixed $value
      */
     public function hasProperty(string $name, $value = null): self
     {
@@ -133,9 +126,6 @@ trait CustomTrait
      *
      * Reference:
      * - https://github.com/sebastianbergmann/phpunit/pull/4649
-     *
-     * @param string $expectedString
-     * @param string $message
      */
     public function fileEqualsString(string $expectedString, string $message = ''): self
     {
@@ -161,9 +151,6 @@ trait CustomTrait
 
     /**
      * Asserts that the contents of one file is equal to the string (ignoring case).
-     *
-     * @param string $expectedString
-     * @param string $message
      */
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
@@ -211,8 +198,6 @@ trait CustomTrait
 
     /**
      * Asserts that $number matches value's Length.
-     *
-     * @param int $number
      */
     public function hasLength(int $number): self
     {
@@ -245,8 +230,6 @@ trait CustomTrait
 
     /**
      * Asserts that $number not matches value's Length.
-     *
-     * @param int $number
      */
     public function notHasLength(int $number): self
     {
@@ -429,9 +412,8 @@ trait CustomTrait
     /**
      * Asserts that executing value throws an exception.
      *
-     * @param string|Closure $exception        string: the exception class
-     *                                         Closure: first parameter = exception class
-     * @param null|string    $exceptionMessage
+     * @param string|Closure $exception string: the exception class
+     *                                  Closure: first parameter = exception class
      */
     public function throw($exception, string $exceptionMessage = null): self
     {

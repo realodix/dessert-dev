@@ -14,7 +14,6 @@ final class Arr
      * Flatten a multi-dimensional associative array with dots.
      *
      * @param array<array-key, mixed> $array
-     * @param string                  $prepend
      *
      * @return array<int|string, mixed>
      */

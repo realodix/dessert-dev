@@ -15,8 +15,6 @@ class Assert
      * should never pass around the chain.
      *
      * @param mixed $value
-     *
-     * @return Assertion
      */
     public static function that($value): Assertion
     {

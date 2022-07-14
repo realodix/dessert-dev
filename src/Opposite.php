@@ -15,8 +15,6 @@ final class Opposite
 
     /**
      * Creates a new opposite expectation.
-     *
-     * @param Assertion $original
      */
     public function __construct(Assertion $original)
     {
@@ -26,7 +24,6 @@ final class Opposite
     /**
      * Handle dynamic method calls into the original expectation.
      *
-     * @param string            $name
      * @param array<int, mixed> $arguments
      */
     public function __call(string $name, array $arguments): Assertion
@@ -42,8 +39,6 @@ final class Opposite
 
     /**
      * Handle dynamic properties gets into the original expectation.
-     *
-     * @param string $name
      */
     public function __get(string $name): Assertion
     {
@@ -58,16 +53,12 @@ final class Opposite
 
     /**
      * Creates a new expectation failed exception with a nice readable message.
-     *
-     * @param string $name
-     * @param array  $arguments
      */
     private function throwExpectationFailedException(string $name, array $arguments = []): void
     {
         $exporter = new Exporter;
 
-        $toString = function ($argument) use ($exporter): string
-        {
+        $toString = function ($argument) use ($exporter): string {
             return $exporter->shortenedExport($argument);
         };
 
@@ -79,8 +70,7 @@ final class Opposite
                 implode(
                     ' ',
                     array_map(
-                        function ($argument) use ($toString): string
-                        {
+                        function ($argument) use ($toString): string {
                             return $toString($argument);
                         },
                         $arguments
