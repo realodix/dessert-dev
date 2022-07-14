@@ -51,9 +51,6 @@ final class PHPUnitTest extends TestCase
 
     /**
      * @dataProvider stringContainsStringIgnoringLineEndingsProvider
-     *
-     * @param string $needle
-     * @param string $haystack
      */
     public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
     {
@@ -192,9 +189,6 @@ final class PHPUnitTest extends TestCase
 
     /**
      * @dataProvider stringEqualIgnoringLineEndingsProvider
-     *
-     * @param string $expected
-     * @param string $actual
      */
     public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
     {
@@ -204,9 +198,6 @@ final class PHPUnitTest extends TestCase
 
     /**
      * @dataProvider stringEqualIgnoringLineEndingsFailProvider
-     *
-     * @param string $expected
-     * @param string $actual
      */
     public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
     {

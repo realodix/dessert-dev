@@ -14,8 +14,7 @@ use Realodix\NextProject\Support\Validator;
 trait PHPUnitPolyfillTrait
 {
     /**
-     * @param mixed  $needle
-     * @param string $message
+     * @param mixed $needle
      */
     public function containsEquals($needle, string $message = ''): self
     {
@@ -25,8 +24,7 @@ trait PHPUnitPolyfillTrait
     }
 
     /**
-     * @param mixed  $needle
-     * @param string $message
+     * @param mixed $needle
      */
     public function notContainsEquals($needle, string $message = ''): self
     {
@@ -35,10 +33,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -47,10 +41,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -59,10 +49,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -71,10 +57,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expected
-     * @param string $message
-     */
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -83,10 +65,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -95,10 +73,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -107,10 +81,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -119,10 +89,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $expectedFile
-     * @param string $message
-     */
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -131,9 +97,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function directoryDoesNotExist(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -151,9 +114,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function directoryIsNotReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -171,9 +131,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function directoryIsNotWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -191,9 +148,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function fileDoesNotExist(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -211,9 +165,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function fileIsNotReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -231,9 +182,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function fileIsNotWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -251,9 +199,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -271,9 +216,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -291,10 +233,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $pattern
-     * @param string $message
-     */
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -312,10 +250,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $pattern
-     * @param string $message
-     */
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -333,9 +267,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -361,9 +292,6 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param string $message
-     */
     public function isNotClosedResource(string $message = ''): self
     {
         // @codeCoverageIgnoreStart
@@ -391,8 +319,6 @@ trait PHPUnitPolyfillTrait
 
     /**
      * @param object $expected
-     * @param string $method
-     * @param string $message
      */
     public function objectEquals($expected, string $method = 'equals', string $message = ''): self
     {
@@ -421,8 +347,6 @@ trait PHPUnitPolyfillTrait
      * Reference:
      * - https://github.com/sebastianbergmann/phpunit/pull/4818
      * - https://github.com/sebastianbergmann/phpunit/commit/3d90cfe294cf1c7f331e2bef77ff4ad8949446fa
-     *
-     * @param string $message
      */
     public function arrayIsList(string $message = ''): self
     {
@@ -448,9 +372,6 @@ trait PHPUnitPolyfillTrait
      * - https://github.com/sebastianbergmann/phpunit/issues/4641
      * - https://github.com/sebastianbergmann/phpunit/pull/4670
      * - https://github.com/sebastianbergmann/phpunit/commit/466a113264f9b76decb58932f6b8dc0336ce81fe
-     *
-     * @param string $needle
-     * @param string $message
      */
     public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
     {
@@ -480,9 +401,6 @@ trait PHPUnitPolyfillTrait
      * - https://github.com/sebastianbergmann/phpunit/issues/4641
      * - https://github.com/sebastianbergmann/phpunit/pull/4670
      * - https://github.com/sebastianbergmann/phpunit/commit/466a113264f9b76decb58932f6b8dc0336ce81fe
-     *
-     * @param string $expected
-     * @param string $message
      */
     public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
     {

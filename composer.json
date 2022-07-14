@@ -19,7 +19,7 @@
         "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
-        "realodix/cs-config": "^1.0"
+        "realodix/cs-config": "1.x-dev"
     },
     "autoload": {
         "files": [
