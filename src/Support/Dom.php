@@ -18,8 +18,7 @@ final class Dom
      */
     public static function flattenAttributeArray(array $attributes): string
     {
-        array_walk($attributes, function (&$value, $key)
-        {
+        array_walk($attributes, function (&$value, $key) {
             // Boolean attributes.
             if (\is_null($value)) {
                 $value = sprintf('[%s]', $key);
@@ -61,8 +60,6 @@ final class Dom
      *
      * @param string $content The HTML for the DOMDocument.
      * @param string $query   The DOM selector query.
-     *
-     * @return Crawler
      */
     public static function executeQuery(string $content, string $query): Crawler
     {
