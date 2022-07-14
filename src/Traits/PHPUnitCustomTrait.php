@@ -22,7 +22,7 @@ trait PHPUnitCustomTrait
             Assert::assertTrue(Arr::has($actual, $key), $message);
         } catch (ExpectationFailedException $exception) {
             throw new ExpectationFailedException(
-                "Failed asserting that an array has the key '${key}'",
+                "Failed asserting that an array has the key '{$key}'",
                 $exception->getComparisonFailure()
             );
         }
@@ -49,7 +49,7 @@ trait PHPUnitCustomTrait
             Assert::assertFalse(Arr::has($actual, $key), $message);
         } catch (ExpectationFailedException $exception) {
             throw new ExpectationFailedException(
-                "Failed asserting that an array has the key '${key}'",
+                "Failed asserting that an array has the key '{$key}'",
                 $exception->getComparisonFailure()
             );
         }
