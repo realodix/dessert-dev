@@ -135,8 +135,6 @@ final class Validator
     /**
      * @param mixed    $value
      * @param string[] $allowedTypes
-     *
-     * @return bool
      */
     private static function hasType($value, array $allowedTypes): bool
     {
