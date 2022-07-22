@@ -206,14 +206,9 @@ trait PHPUnitPolyfillTrait
         return $this;
     }
 
-    /**
-     * @param object $expected
-     */
-    public function objectEquals($expected, string $method = 'equals', string $message = ''): self
+    public function objectEquals(object $expected, string $method = 'equals', string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'object');
-        // Validate object parameter type in function argument (PHP < 7.2)
-        $expected = Validator::expectedValue($expected, 1, 'object');
 
         Assert::assertObjectEquals($expected, $actual, $method, $message);
 
