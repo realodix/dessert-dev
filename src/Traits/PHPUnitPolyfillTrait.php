@@ -15,14 +15,6 @@ trait PHPUnitPolyfillTrait
      */
     public function containsEquals($needle, string $message = ''): self
     {
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.1', '<')) {
-            Assert::assertContains($needle, $this->actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertContainsEquals($needle, $this->actual, $message);
 
         return $this;
@@ -33,14 +25,6 @@ trait PHPUnitPolyfillTrait
      */
     public function notContainsEquals($needle, string $message = ''): self
     {
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.1', '<')) {
-            Assert::assertNotContains($needle, $this->actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertNotContainsEquals($needle, $this->actual, $message);
 
         return $this;
@@ -49,14 +33,6 @@ trait PHPUnitPolyfillTrait
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileEquals($expected, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertFileEqualsCanonicalizing($expected, $actual, $message);
 
@@ -67,14 +43,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileNotEquals($expected, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileNotEqualsCanonicalizing($expected, $actual, $message);
 
         return $this;
@@ -83,14 +51,6 @@ trait PHPUnitPolyfillTrait
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileEquals($expected, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertFileEqualsIgnoringCase($expected, $actual, $message);
 
@@ -101,14 +61,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertFileNotEquals($expected, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileNotEqualsIgnoringCase($expected, $actual, $message);
 
         return $this;
@@ -117,14 +69,6 @@ trait PHPUnitPolyfillTrait
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringEqualsFile($expectedFile, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertStringEqualsFileCanonicalizing($expectedFile, $actual, $message);
 
@@ -135,14 +79,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $actual, $message);
 
         return $this;
@@ -151,14 +87,6 @@ trait PHPUnitPolyfillTrait
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringEqualsFile($expectedFile, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertStringEqualsFileIgnoringCase($expectedFile, $actual, $message);
 
@@ -169,14 +97,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '8.5', '<')) {
-            Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $actual, $message);
 
         return $this;
@@ -185,14 +105,6 @@ trait PHPUnitPolyfillTrait
     public function directoryDoesNotExist(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertDirectoryNotExists($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertDirectoryDoesNotExist($actual, $message);
 
@@ -203,14 +115,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertDirectoryNotIsReadable($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertDirectoryIsNotReadable($actual, $message);
 
         return $this;
@@ -219,14 +123,6 @@ trait PHPUnitPolyfillTrait
     public function directoryIsNotWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertDirectoryNotIsWritable($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertDirectoryIsNotWritable($actual, $message);
 
@@ -237,14 +133,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertFileNotExists($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileDoesNotExist($actual, $message);
 
         return $this;
@@ -253,14 +141,6 @@ trait PHPUnitPolyfillTrait
     public function fileIsNotReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertFileNotIsReadable($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertFileIsNotReadable($actual, $message);
 
@@ -271,14 +151,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertFileNotIsWritable($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertFileIsNotWritable($actual, $message);
 
         return $this;
@@ -287,14 +159,6 @@ trait PHPUnitPolyfillTrait
     public function isNotReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertNotIsReadable($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertIsNotReadable($actual, $message);
 
@@ -305,14 +169,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertNotIsWritable($actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertIsNotWritable($actual, $message);
 
         return $this;
@@ -321,14 +177,6 @@ trait PHPUnitPolyfillTrait
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertRegExp($pattern, $actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertMatchesRegularExpression($pattern, $actual, $message);
 
@@ -339,14 +187,6 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.1', '<')) {
-            Assert::assertNotRegExp($pattern, $actual, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertDoesNotMatchRegularExpression($pattern, $actual, $message);
 
         return $this;
@@ -354,24 +194,6 @@ trait PHPUnitPolyfillTrait
 
     public function isClosedResource(string $message = ''): self
     {
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.3', '<')) {
-            if ($message === '') {
-                $message = sprintf(
-                    'Failed asserting that %s is of type "resource (closed)"',
-                    var_export($this->actual, true)
-                );
-            }
-
-            Assert::assertTrue(
-                Validator::isClosedResource($this->actual),
-                $message
-            );
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertIsClosedResource($this->actual, $message);
 
         return $this;
@@ -379,24 +201,6 @@ trait PHPUnitPolyfillTrait
 
     public function isNotClosedResource(string $message = ''): self
     {
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.3', '<')) {
-            if ($message === '') {
-                $message = sprintf(
-                    'Failed asserting that %s is not of type "resource (closed)"',
-                    var_export($this->actual, true)
-                );
-            }
-
-            Assert::assertFalse(
-                Validator::isClosedResource($this->actual),
-                $message
-            );
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         Assert::assertIsNotClosedResource($this->actual, $message);
 
         return $this;
@@ -410,16 +214,6 @@ trait PHPUnitPolyfillTrait
         $actual = Validator::actualValue($this->actual, 'object');
         // Validate object parameter type in function argument (PHP < 7.2)
         $expected = Validator::expectedValue($expected, 1, 'object');
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.4', '<')) {
-            $constraint = new ObjectEquals($expected, $method);
-
-            Assert::assertThat($actual, $constraint, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertObjectEquals($expected, $actual, $method, $message);
 
