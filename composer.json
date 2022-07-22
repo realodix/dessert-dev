@@ -47,8 +47,8 @@
             "@cs",
             "@test"
         ],
-        "cs": "php-cs-fixer fix -v",
-        "test": "phpunit"
+        "cs": "./vendor/bin/php-cs-fixer fix",
+        "test": "./vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
