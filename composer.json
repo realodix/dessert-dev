@@ -12,10 +12,9 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "phpunit/phpunit": "^7.5|^8.5|^9.5|10.0-dev",
-        "symfony/css-selector": "^4.4.37|^5.4|^6",
-        "symfony/dom-crawler": "^4.4.42|^5.4|^6",
-        "symfony/polyfill-php72": "^1.26",
+        "phpunit/phpunit": "^9.5",
+        "symfony/css-selector": "^5.4|^6",
+        "symfony/dom-crawler": "^5.4|^6",
         "symfony/polyfill-php80": "^1.26",
         "symfony/polyfill-php81": "^1.26"
     },
