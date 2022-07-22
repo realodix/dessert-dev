@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Test;
+namespace Realodix\Dessert\Test;
 
 trait PHPUnitTestProvider
 {

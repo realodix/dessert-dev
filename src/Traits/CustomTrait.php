@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Traits;
+namespace Realodix\Dessert\Traits;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
@@ -8,10 +8,10 @@ use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Runner\Version;
-use Realodix\NextProject\Support\Arr;
-use Realodix\NextProject\Support\Dom;
-use Realodix\NextProject\Support\NullClosure;
-use Realodix\NextProject\Support\Validator;
+use Realodix\Dessert\Support\Arr;
+use Realodix\Dessert\Support\Dom;
+use Realodix\Dessert\Support\NullClosure;
+use Realodix\Dessert\Support\Validator;
 
 trait CustomTrait
 {

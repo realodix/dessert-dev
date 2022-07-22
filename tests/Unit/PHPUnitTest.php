@@ -1,11 +1,11 @@
 <?php
 
-namespace Realodix\NextProject\Test;
+namespace Realodix\Dessert\Test;
 
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
+use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
 
 // Coba dibuat, ditemukan pada test Dir
 // $this->expectException(AssertionFailedError::class);
@@ -357,9 +357,9 @@ final class PHPUnitTest extends TestCase
         ass(new \stdClass)->isNotClosedResource();
 
         // isClosedResource() test for code coverage
-        ass(\Realodix\NextProject\Support\Validator::isClosedResource($resource))
+        ass(\Realodix\Dessert\Support\Validator::isClosedResource($resource))
             ->true();
-        ass(\Realodix\NextProject\Support\Validator::isClosedResource(null))
+        ass(\Realodix\Dessert\Support\Validator::isClosedResource(null))
             ->false();
     }
 

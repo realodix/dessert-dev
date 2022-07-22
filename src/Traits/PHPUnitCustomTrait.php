@@ -1,11 +1,11 @@
 <?php
 
-namespace Realodix\NextProject\Traits;
+namespace Realodix\Dessert\Traits;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\ExpectationFailedException;
-use Realodix\NextProject\Support\Arr;
-use Realodix\NextProject\Support\Validator;
+use Realodix\Dessert\Support\Arr;
+use Realodix\Dessert\Support\Validator;
 
 trait PHPUnitCustomTrait
 {
