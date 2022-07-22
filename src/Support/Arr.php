@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Support;
+namespace Realodix\Dessert\Support;
 
 /**
  * Credits: most of this class methods and implementations belongs to the Arr helper of

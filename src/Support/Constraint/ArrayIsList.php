@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Support\Constraint;
+namespace Realodix\Dessert\Support\Constraint;
 
 use PHPUnit\Framework\Constraint\Constraint;
 

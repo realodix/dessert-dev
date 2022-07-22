@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject;
+namespace Realodix\Dessert;
 
 class Check
 {

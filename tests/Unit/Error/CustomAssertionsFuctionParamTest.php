@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Test\Error;
+namespace Realodix\Dessert\Test\Error;
 
 use PHPUnit\Framework\TestCase;
 
