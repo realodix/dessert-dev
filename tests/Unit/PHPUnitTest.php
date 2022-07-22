@@ -2,9 +2,7 @@
 
 namespace Realodix\Dessert\Test;
 
-use PHPUnit\Framework\AssertionFailedError;
-use PHPUnit\Framework\ExpectationFailedException;
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\{AssertionFailedError, ExpectationFailedException, TestCase};
 use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
 
 // Coba dibuat, ditemukan pada test Dir

@@ -2,10 +2,8 @@
 
 namespace Realodix\Dessert\Traits;
 
-use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\ExpectationFailedException;
-use Realodix\Dessert\Support\Arr;
-use Realodix\Dessert\Support\Validator;
+use PHPUnit\Framework\{Assert, ExpectationFailedException};
+use Realodix\Dessert\Support\{Arr, Validator};
 
 trait PHPUnitCustomTrait
 {

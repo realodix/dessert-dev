@@ -2,8 +2,7 @@
 
 namespace Realodix\Dessert\Test\Custom;
 
-use PHPUnit\Framework\ExpectationFailedException;
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\{ExpectationFailedException, TestCase};
 
 final class PHPUnitCustomTest extends TestCase
 {
