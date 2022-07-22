@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Traits;
+namespace Realodix\Dessert\Traits;
 
 trait PHPUnitShortNameTrait
 {

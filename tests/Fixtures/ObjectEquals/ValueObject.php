@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Test\Fixtures\ObjectEquals;
+namespace Realodix\Dessert\Test\Fixtures\ObjectEquals;
 
 final class ValueObject
 {

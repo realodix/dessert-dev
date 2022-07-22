@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\NextProject\Support;
+namespace Realodix\Dessert\Support;
 
 /**
  * @internal
