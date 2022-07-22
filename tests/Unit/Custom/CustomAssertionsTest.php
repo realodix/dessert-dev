@@ -1,10 +1,8 @@
 <?php
 
-namespace Realodix\NextProject\Test\Custom;
+namespace Realodix\Dessert\Test\Custom;
 
-use PHPUnit\Framework\AssertionFailedError;
-use PHPUnit\Framework\ExpectationFailedException;
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\{AssertionFailedError, ExpectationFailedException, TestCase};
 
 final class CustomAssertionsTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Realodix\NextProject;
+namespace Realodix\Dessert;
 
 use PHPUnit\Framework\Assert;
-use Realodix\NextProject\Support\Validator;
+use Realodix\Dessert\Support\Validator;
 
 class Assertion
 {

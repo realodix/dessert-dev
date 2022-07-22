@@ -1,6 +1,6 @@
 {
-    "name": "realodix/next-project",
-    "description": "next-project",
+    "name": "realodix/dessert",
+    "description": "Realodix dessert",
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/realodix/next-project",
@@ -27,7 +27,7 @@
             "src/Functions.php"
         ],
         "psr-4": {
-            "Realodix\\NextProject\\": ["src", "src/Dessert"]
+            "Realodix\\Dessert\\": ["src", "src/Dessert"]
         }
     },
     "autoload-dev": {
@@ -35,7 +35,7 @@
             "tests/bootstrap.php"
         ],
         "psr-4": {
-            "Realodix\\NextProject\\Test\\": ["tests", "tests/Unit"]
+            "Realodix\\Dessert\\Test\\": ["tests", "tests/Unit"]
         }
     },
     "extra": {

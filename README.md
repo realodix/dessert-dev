@@ -1,4 +1,4 @@
-# NextProject
+# Realodix Dessert
 
 ![PHPVersion](https://img.shields.io/badge/PHP-^7.1|^8-777BB4.svg?style=flat-square)
 ![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^7.5|^8|^9|^10-3C9CD7.svg?style=flat-square)
@@ -26,7 +26,7 @@ composer require --dev realodix/next-project
 
 ## Writing Tests
 
-NextProject offers you six functions to write your tests:
+Realodix Dessert offers you six functions to write your tests:
 
 - `Assert::that($actual)`
 - `Check::that($actual)`
@@ -43,7 +43,7 @@ For the full list of **assertions**, please refer to [PHPUnit Assertions](https:
 ```php
 <?php
 
-use Realodix\NextProject\Assert;
+use Realodix\Realodix Dessert\Assert;
 use PHPUnit\Framework\TestCase;
 
 class YourTest extends TestCase
@@ -123,14 +123,14 @@ verify('string')->not->isInt();
 
 ### PHPUnit Assertion Short Names
 
-In addition to assertions, NextProject offers you a set of PHPUnit assertion method short names. For the full list of **method short names**, please refer to [PHPUnit Assertion Short Names](/docs/phpunit-assertion-short-names.md) documentation.
+In addition to assertions, Realodix Dessert offers you a set of PHPUnit assertion method short names. For the full list of **method short names**, please refer to [PHPUnit Assertion Short Names](/docs/phpunit-assertion-short-names.md) documentation.
 
 ## Extending
 
 In order to add more assertions you can extend the [`Assertion`](/src/Assertion.php) class:
 
 ```php
-use Realodix\NextProject\Assertion;
+use Realodix\Realodix Dessert\Assertion;
 use PHPUnit\Framework\Assert;
 
 class MyVerify extends Assertion {
@@ -165,4 +165,4 @@ a Pull Request.
 
 ## License
 
-NextProject is an open-sourced software licensed under the [MIT License](/LICENSE)
+Realodix Dessert is an open-sourced software licensed under the [MIT License](/LICENSE)

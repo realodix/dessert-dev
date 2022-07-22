@@ -1,9 +1,9 @@
 <?php
 
-namespace Realodix\NextProject\Test\Fixtures;
+namespace Realodix\Dessert\Test\Fixtures;
 
 use PHPUnit\Framework\Assert;
-use Realodix\NextProject\Assertion;
+use Realodix\Dessert\Assertion;
 
 final class CustomAssert extends Assertion
 {
