@@ -26,7 +26,7 @@ composer require --dev realodix/next-project
 
 ## Writing Tests
 
-Realodix Dessert offers you six functions to write your tests:
+Realodix Dessert offers you 4 functions to write your tests:
 
 - `Assert::that($actual)`
 - `Check::that($actual)`
