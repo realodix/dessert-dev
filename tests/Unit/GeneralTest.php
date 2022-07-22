@@ -1,11 +1,10 @@
 <?php
 
-namespace Realodix\NextProject\Test;
+namespace Realodix\Dessert\Test;
 
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Assert;
-use Realodix\NextProject\Check;
 use Realodix\NextProject\Test\Fixtures\CustomAssert;
+use Realodix\NextProject\{Assert, Check};
 
 final class GeneralTest extends TestCase
 {

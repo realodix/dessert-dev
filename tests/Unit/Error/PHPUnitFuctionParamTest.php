@@ -1,9 +1,9 @@
 <?php
 
-namespace Realodix\NextProject\Test\Error;
+namespace Realodix\Dessert\Test\Error;
 
 use PHPUnit\Framework\TestCase;
-use Realodix\NextProject\Test\Fixtures\ObjectEquals\ValueObject;
+use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitFuctionParamTest extends TestCase
 {
