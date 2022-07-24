@@ -90,44 +90,7 @@ final class Validator
             get_debug_type($actualValue) // symfony/polyfill-php80
         );
 
-        switch ($type) {
-            case 'array':
-                if (! (\is_array($actualValue) || $actualValue instanceof \ArrayAccess)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'class':
-                if (! class_exists($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'iterable':
-                if (! is_iterable($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'iterable_countable':
-                if (! is_iterable($actualValue) && ! $actualValue instanceof \Countable) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'object':
-                if (! \is_object($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-            case 'string':
-                if (! \is_string($actualValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $actualValue;
-        }
+        return self::parameterType($type, $actualValue, $invalidArgument);
     }
 
     /**
@@ -135,49 +98,60 @@ final class Validator
      *
      * @param mixed $expectedValue
      */
-    public static function expectedValue($expectedValue, int $argument, string $type)
+    public static function expectedValue($expectedValue, string $type, int $argument = 1)
     {
         $stack = debug_backtrace();
-        $typeGiven = str_replace('_', ' or ', $type);
+        $typeGiven = $type;
 
         if ($type === 'class') {
             $typeGiven = 'class or interface name';
         }
 
         $invalidArgument = sprintf(
-            '%s(): Argument #%d must be of type %s %s, %s given',
+            'Argument #%d of %s() must be %s %s, %s given',
             $stack[1]['function'],
             $argument,
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
             get_debug_type($expectedValue) // symfony/polyfill-php80
         );
+        // Argument #1 of PHPUnit\Framework\Assert::assertNotInstanceOf() must be a class or interface name
+        return self::parameterType($type, $expectedValue, $invalidArgument);
+    }
 
-        switch ($type) {
-            case 'class':
-                if (! class_exists($expectedValue) && ! interface_exists($expectedValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $expectedValue;
-            case 'int_string':
-                if (! (\is_int($expectedValue) || \is_string($expectedValue))) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $expectedValue;
-            case 'iterable_countable':
-                if (! $expectedValue instanceof \Countable && ! is_iterable($expectedValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $expectedValue;
-            case 'object':
-                if (! \is_object($expectedValue)) {
-                    throw new \TypeError($invalidArgument);
-                }
-
-                return $expectedValue;
+    public static function parameterType($types, $value, $name)
+    {
+        if (is_string($types)) {
+            $types = explode('|', $types);
         }
+
+        if (! self::hasType($value, $types)) {
+            throw new \InvalidArgumentException($name);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @param mixed    $value
+     * @param string[] $allowedTypes
+     */
+    private static function hasType($value, array $allowedTypes): bool
+    {
+        $type = gettype($value);
+
+        if (in_array($type, $allowedTypes)) {
+            return true;
+        }
+
+        if (in_array('class', $allowedTypes) && class_exists($value)) {
+            return true;
+        }
+
+        if (in_array('iterable', $allowedTypes) && is_iterable($value)) {
+            return true;
+        }
+
+        return false;
     }
 }
