@@ -3,6 +3,7 @@
 namespace Realodix\Dessert\Test\Error;
 
 use PHPUnit\Framework\TestCase;
+use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitFuctionParamTest extends TestCase
 {
@@ -336,7 +337,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->objectEquals('');
+        ass('notObject')->objectEquals(new ValueObject(1));
     }
 
     /** @test */
