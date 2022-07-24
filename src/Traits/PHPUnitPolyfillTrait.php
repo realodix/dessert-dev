@@ -5,7 +5,7 @@ namespace Realodix\Dessert\Traits;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\{IsEqual, StringContains};
 use PHPUnit\Runner\Version;
-use Realodix\Dessert\Support\Constraint\{ArrayIsList, ObjectEquals};
+use Realodix\Dessert\Support\Constraint\ArrayIsList;
 use Realodix\Dessert\Support\{Str, Validator};
 
 trait PHPUnitPolyfillTrait

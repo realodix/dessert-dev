@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
   <file src="src/Opposite.php">
     <InternalClass occurrences="1"/>
     <InternalMethod occurrences="1"/>
@@ -57,16 +57,6 @@
     </MissingParamType>
   </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
-    <TooManyArguments occurrences="8">
-      <code>Assert::assertFileEquals($expected, $actual, $message, false, true)</code>
-      <code>Assert::assertFileEquals($expected, $actual, $message, true)</code>
-      <code>Assert::assertFileNotEquals($expected, $actual, $message, false, true)</code>
-      <code>Assert::assertFileNotEquals($expected, $actual, $message, true)</code>
-      <code>Assert::assertStringEqualsFile($expectedFile, $actual, $message, false, true)</code>
-      <code>Assert::assertStringEqualsFile($expectedFile, $actual, $message, true)</code>
-      <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, false, true)</code>
-      <code>Assert::assertStringNotEqualsFile($expectedFile, $actual, $message, true)</code>
-    </TooManyArguments>
     <UndefinedMethod occurrences="3">
       <code>Assert::assertArrayIsList($actual, $message)</code>
       <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message)</code>
