@@ -147,7 +147,7 @@ class Assertion
 
     public function count(int $expectedCount, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'iterable|countable');
 
         Assert::assertCount($expectedCount, $actual, $message);
 
@@ -156,7 +156,7 @@ class Assertion
 
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'iterable|countable');
 
         Assert::assertNotCount($expectedCount, $actual, $message);
 
@@ -385,7 +385,7 @@ class Assertion
 
     public function instanceOf(string $expected, string $message = ''): self
     {
-        $expected = Validator::expectedValue($expected, 1, 'class');
+        $expected = Validator::expectedValue($expected, 'class');
 
         Assert::assertInstanceOf($expected, $this->actual, $message);
 
@@ -394,7 +394,7 @@ class Assertion
 
     public function notInstanceOf(string $expected, string $message = ''): self
     {
-        $expected = Validator::expectedValue($expected, 1, 'class');
+        $expected = Validator::expectedValue($expected, 'class');
 
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
 
@@ -718,8 +718,8 @@ class Assertion
      */
     public function sameSize($expected, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable');
-        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'array');
+        $expected = Validator::expectedValue($expected, 'array');
 
         Assert::assertSameSize($expected, $actual, $message);
 
@@ -731,8 +731,8 @@ class Assertion
      */
     public function notSameSize($expected, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'iterable_countable');
-        $expected = Validator::expectedValue($expected, 1, 'iterable_countable');
+        $actual = Validator::actualValue($this->actual, 'array');
+        $expected = Validator::expectedValue($expected, 'array');
 
         Assert::assertNotSameSize($expected, $actual, $message);
 

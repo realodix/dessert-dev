@@ -9,7 +9,7 @@ final class PHPUnitFuctionParamTest extends TestCase
 {
     private function error()
     {
-        return \TypeError::class;
+        return \InvalidArgumentException::class;
     }
 
     /** @test */
@@ -226,22 +226,6 @@ final class PHPUnitFuctionParamTest extends TestCase
         $this->expectException($this->error());
 
         ass(false)->fileIsNotWritable();
-    }
-
-    /** @test */
-    public function instanceOfExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass('')->instanceOf('');
-    }
-
-    /** @test */
-    public function notInstanceOfExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass('')->notInstanceOf('');
     }
 
     /** @test */
