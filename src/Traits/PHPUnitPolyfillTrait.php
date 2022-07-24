@@ -321,7 +321,7 @@ trait PHPUnitPolyfillTrait
     {
         $actual = Validator::actualValue($this->actual, 'object');
         // Validate object parameter type in function argument (PHP < 7.2)
-        $expected = Validator::expectedValue($expected, 1, 'object');
+        $expected = Validator::expectedValue($expected, 'object');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '9.4', '<')) {

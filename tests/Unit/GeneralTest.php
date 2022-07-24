@@ -4,7 +4,7 @@ namespace Realodix\Dessert\Test;
 
 use PHPUnit\Framework\TestCase;
 use Realodix\Dessert\Test\Fixtures\CustomAssert;
-use Realodix\Dessert\{Assert, Assertion, Check};
+use Realodix\Dessert\{Assert, Check};
 
 final class GeneralTest extends TestCase
 {
@@ -33,6 +33,7 @@ final class GeneralTest extends TestCase
         $myAssert->success('it works!');
         Assert::that('this also')->notEquals('works');
 
-        ass(new CustomAssert)->instanceOf(Assertion::class);
+        ass($this->getMockBuilder(\Exception::class)->getMock())
+            ->instanceOf(\Exception::class);
     }
 }
