@@ -8,21 +8,6 @@ namespace Realodix\Dessert\Support;
 final class Validator
 {
     /**
-     * Determines whether a variable represents a closed resource.
-     *
-     * @param mixed $value The variable being type checked
-     */
-    public static function isClosedResource($value): bool
-    {
-        // symfony/polyfill-php80
-        if (get_debug_type($value) === 'resource (closed)') {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Check if a string is valid JSON
      */
     public static function isJson(string $value): bool
