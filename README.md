@@ -7,7 +7,6 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 
 ### Features
 - **Chain your check(s)**
-- **Forward compatibility**: Write your tests with the assertions supported by the latest PHPUnit version and run them with PHPUnit 7.5 - latest PHPUnit version.
 - **Less error-prone**: No more confusion about the order of the "*actual*" and "*expected*" values.
 - **Easy to troubleshoot**: Every failing check throws an Exception with a clear message status to ease your TDD experience.
 
@@ -26,7 +25,7 @@ composer require --dev realodix/next-project
 
 ## Writing Tests
 
-Realodix Dessert offers you 4 functions to write your tests:
+Realodix Dessert offers several functions to write your test:
 
 - `Assert::that($actual)`
 - `Check::that($actual)`
@@ -54,7 +53,7 @@ class YourTest extends TestCase
           ->isNotFloat(); // $this->assertIsFloat(1);
     }
 
-    public function test_global_function(): void
+    public function test_with_global_function(): void
     {
         verify(1)
           ->isInt()       // $this->assertIsInt(1);
