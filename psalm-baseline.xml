@@ -27,9 +27,15 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Support/Validator.php">
-    <MissingReturnType occurrences="2">
+    <MissingParamType occurrences="3">
+      <code>$name</code>
+      <code>$types</code>
+      <code>$value</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="3">
       <code>actualValue</code>
       <code>expectedValue</code>
+      <code>parameterType</code>
     </MissingReturnType>
   </file>
   <file src="src/Traits/CustomTrait.php">
