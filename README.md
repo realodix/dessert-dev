@@ -16,7 +16,7 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 #### Requirements
 
 - PHP 7.4 or higher
-- PHPUnit 7.5 or higher
+- PHPUnit 9.5 or higher
 
 #### Install the package
 
