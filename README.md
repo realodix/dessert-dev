@@ -7,7 +7,7 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 
 ### Features
 - **Chain your check(s)**
-- **Forward compatibility**: Write your tests with the assertions supported by the latest PHPUnit version and run them with PHPUnit 7.5 - latest PHPUnit version.
+- **Forward compatibility**: Write your tests with the assertions supported by the latest PHPUnit version and run them with PHPUnit 9.5 - latest PHPUnit version.
 - **Less error-prone**: No more confusion about the order of the "*actual*" and "*expected*" values.
 - **Easy to troubleshoot**: Every failing check throws an Exception with a clear message status to ease your TDD experience.
 
