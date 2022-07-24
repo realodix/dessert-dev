@@ -337,14 +337,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->objectEquals('');
-    }
-
-    /** @test */
-    public function objectEqualsExpectedValue(): void
-    {
-        $this->expectException($this->error());
-        ass(new ValueObject(1))->objectEquals('');
+        ass('notObject')->objectEquals(new ValueObject(1));
     }
 
     /** @test */
