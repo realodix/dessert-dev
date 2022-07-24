@@ -15,7 +15,6 @@
         "phpunit/phpunit": "^9.5",
         "symfony/css-selector": "^5.4|^6",
         "symfony/dom-crawler": "^5.4|^6",
-        "symfony/polyfill-php80": "^1.26",
         "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
