@@ -53,7 +53,7 @@ class YourTest extends TestCase
           ->isNotFloat(); // $this->assertIsFloat(1);
     }
 
-    public function test_global_function(): void
+    public function test_with_global_function(): void
     {
         verify(1)
           ->isInt()       // $this->assertIsInt(1);
