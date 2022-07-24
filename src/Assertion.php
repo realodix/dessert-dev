@@ -118,6 +118,26 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param mixed $needle
+     */
+    public function containsEquals($needle, string $message = ''): self
+    {
+        Assert::assertContainsEquals($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $needle
+     */
+    public function notContainsEquals($needle, string $message = ''): self
+    {
+        Assert::assertNotContainsEquals($needle, $this->actual, $message);
+
+        return $this;
+    }
+
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'iterable');
@@ -172,6 +192,15 @@ class Assertion
         return $this;
     }
 
+    public function directoryDoesNotExist(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertDirectoryDoesNotExist($actual, $message);
+
+        return $this;
+    }
+
     public function directoryIsReadable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -181,11 +210,29 @@ class Assertion
         return $this;
     }
 
+    public function directoryIsNotReadable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertDirectoryIsNotReadable($actual, $message);
+
+        return $this;
+    }
+
     public function directoryIsWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertDirectoryIsWritable($actual, $message);
+
+        return $this;
+    }
+
+    public function directoryIsNotWritable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertDirectoryIsNotWritable($actual, $message);
 
         return $this;
     }
@@ -284,6 +331,15 @@ class Assertion
         return $this;
     }
 
+    public function objectEquals(object $expected, string $method = 'equals', string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'object');
+
+        Assert::assertObjectEquals($expected, $actual, $method, $message);
+
+        return $this;
+    }
+
     public function fileEquals(string $expected, string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
@@ -302,11 +358,92 @@ class Assertion
         return $this;
     }
 
+    public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertFileEqualsCanonicalizing($expected, $actual, $message);
+
+        return $this;
+    }
+
+    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertFileNotEqualsCanonicalizing($expected, $actual, $message);
+
+        return $this;
+    }
+
+    public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertFileEqualsIgnoringCase($expected, $actual, $message);
+
+        return $this;
+    }
+
+    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertFileNotEqualsIgnoringCase($expected, $actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringEqualsFileCanonicalizing($expectedFile, $actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringEqualsFileIgnoringCase($expectedFile, $actual, $message);
+
+        return $this;
+    }
+
+    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $actual, $message);
+
+        return $this;
+    }
+
     public function fileExists(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertFileExists($actual, $message);
+
+        return $this;
+    }
+
+    public function fileDoesNotExist(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertFileDoesNotExist($actual, $message);
 
         return $this;
     }
@@ -320,11 +457,29 @@ class Assertion
         return $this;
     }
 
+    public function fileIsNotReadable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertFileIsNotReadable($actual, $message);
+
+        return $this;
+    }
+
     public function fileIsWritable(string $message = ''): self
     {
         $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertFileIsWritable($actual, $message);
+
+        return $this;
+    }
+
+    public function fileIsNotWritable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertFileIsNotWritable($actual, $message);
 
         return $this;
     }
@@ -485,6 +640,24 @@ class Assertion
         return $this;
     }
 
+    public function matchesRegularExpression(string $pattern, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertMatchesRegularExpression($pattern, $actual, $message);
+
+        return $this;
+    }
+
+    public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertDoesNotMatchRegularExpression($pattern, $actual, $message);
+
+        return $this;
+    }
+
     public function isNumeric(string $message = ''): self
     {
         Assert::assertIsNumeric($this->actual, $message);
@@ -522,6 +695,15 @@ class Assertion
         return $this;
     }
 
+    public function isNotReadable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertIsNotReadable($actual, $message);
+
+        return $this;
+    }
+
     public function isResource(string $message = ''): self
     {
         Assert::assertIsResource($this->actual, $message);
@@ -532,6 +714,20 @@ class Assertion
     public function isNotResource(string $message = ''): self
     {
         Assert::assertIsNotResource($this->actual, $message);
+
+        return $this;
+    }
+
+    public function isClosedResource(string $message = ''): self
+    {
+        Assert::assertIsClosedResource($this->actual, $message);
+
+        return $this;
+    }
+
+    public function isNotClosedResource(string $message = ''): self
+    {
+        Assert::assertIsNotClosedResource($this->actual, $message);
 
         return $this;
     }
@@ -569,6 +765,15 @@ class Assertion
         $actual = Validator::actualValue($this->actual, 'string');
 
         Assert::assertIsWritable($actual, $message);
+
+        return $this;
+    }
+
+    public function isNotWritable(string $message = ''): self
+    {
+        $actual = Validator::actualValue($this->actual, 'string');
+
+        Assert::assertIsNotWritable($actual, $message);
 
         return $this;
     }
