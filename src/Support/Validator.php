@@ -72,7 +72,7 @@ final class Validator
             $stack[1]['function'],
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($actualValue) // symfony/polyfill-php80
+            get_debug_type($actualValue)
         );
 
         return self::parameterType($type, $actualValue, $invalidArgument);
@@ -98,7 +98,7 @@ final class Validator
             $argument,
             \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($expectedValue) // symfony/polyfill-php80
+            get_debug_type($expectedValue)
         );
         // Argument #1 of PHPUnit\Framework\Assert::assertNotInstanceOf() must be a class or interface name
         return self::parameterType($type, $expectedValue, $invalidArgument);
