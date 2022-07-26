@@ -34,86 +34,54 @@ trait PHPUnitShortNameTrait
         return $this->directoryIsNotWritable($message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function greater($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function isAbove($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function less($expected, string $message = ''): self
     {
         return $this->lessThan($expected, $message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function isBelow($expected, string $message = ''): self
     {
         return $this->lessThan($expected, $message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function greaterOrEqual($expected, string $message = ''): self
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function isAtLeast($expected, string $message = ''): self
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function lessOrEqual($expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
 
-    /**
-     * @param mixed $expected
-     */
     public function isAtMost($expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
 
-    /**
-     * @param int|string $key
-     * @param null|mixed $value
-     */
-    public function hasKey($key, $value = null, string $message = ''): self
+    public function hasKey(int|string $key, string $message = ''): self
     {
-        return $this->arrayHasKey($key, $value, $message);
+        return $this->arrayHasKey($key, $message);
     }
 
-    /**
-     * @param int|string $key
-     * @param null|mixed $value
-     */
-    public function notHasKey($key, $value = null, string $message = ''): self
+    public function notHasKey(int|string $key, string $message = ''): self
     {
-        return $this->arrayNotHasKey($key, $value, $message);
+        return $this->arrayNotHasKey($key, $message);
     }
 
     public function jsonFileToFile(string $expectedFile, string $message = ''): self
@@ -176,9 +144,6 @@ trait PHPUnitShortNameTrait
         return $this->stringEndsNotWith($suffix, $message);
     }
 
-    /**
-     * @param mixed $expectedFile
-     */
     public function xmlFileToFile($expectedFile, string $message = ''): self
     {
         return $this->xmlFileEqualsXmlFile($expectedFile, $message);
@@ -199,17 +164,11 @@ trait PHPUnitShortNameTrait
         return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
     }
 
-    /**
-     * @param mixed $expectedXml
-     */
     public function xmlStringToString($expectedXml, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlString($expectedXml, $message);
     }
 
-    /**
-     * @param mixed $expectedXml
-     */
     public function xmlStringNotToString($expectedXml, string $message = ''): self
     {
         return $this->xmlStringNotEqualsXmlString($expectedXml, $message);

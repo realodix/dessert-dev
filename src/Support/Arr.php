@@ -13,8 +13,6 @@ final class Arr
     /**
      * Flatten a multi-dimensional associative array with dots.
      *
-     * @param array<array-key, mixed> $array
-     *
      * @return array<int|string, mixed>
      */
     public static function dot(array $array, string $prepend = ''): array
@@ -32,11 +30,7 @@ final class Arr
         return $results;
     }
 
-    /**
-     * @param array<mixed> $array
-     * @param string|int   $key
-     */
-    public static function has(array $array, $key): bool
+    public static function has(array $array, int|string $key): bool
     {
         $key = (string) $key;
 
@@ -56,13 +50,11 @@ final class Arr
     }
 
     /**
-     * @param array<mixed> $array
-     * @param string|int   $key
-     * @param null         $default
+     * @param null $default
      *
      * @return array|mixed|null
      */
-    public static function get(array $array, $key, $default = null)
+    public static function get(array $array, int|string $key, $default = null)
     {
         $key = (string) $key;
 

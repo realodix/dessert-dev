@@ -12,6 +12,39 @@ final class PHPUnitTest extends TestCase
 {
     use PHPUnitTestProvider;
 
+    public function testArrayHasKey(): void
+    {
+        ass(['foo'])->arrayHasKey(0);
+        ass(['foo' => 'bar'])->arrayHasKey('foo');
+
+        $array = new \ArrayObject;
+        $array['foo'] = 'bar';
+        ass($array)->arrayHasKey('foo');
+
+        $this->expectException(ExpectationFailedException::class);
+        ass($array)->arrayHasKey('bar');
+        // $array = new \PHPUnit\TestFixture\SampleArrayAccess;
+        // $array['foo'] = 'bar';
+        // ass($array)->arrayHasKey('foo');
+    }
+
+    public function testArrayNotHasKey(): void
+    {
+        ass(['foo'])
+            ->arrayNotHasKey(1)
+            ->not->arrayHasKey(1);
+        ass(['foo' => 'bar'])
+            ->arrayNotHasKey('bar')
+            ->not->arrayHasKey('bar');
+
+        $array = new \ArrayObject;
+        $array['foo'] = 'bar';
+        ass($array)->arrayNotHasKey('bar');
+
+        $this->expectException(ExpectationFailedException::class);
+        ass($array)->arrayNotHasKey('foo');
+    }
+
     public function testArrayIsList(): void
     {
         ass([0, 1, 2])->arrayIsList();

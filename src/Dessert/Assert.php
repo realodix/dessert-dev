@@ -13,10 +13,8 @@ class Assert
      *
      * The assertion chain can be stateful, that means be careful when you reuse it. You
      * should never pass around the chain.
-     *
-     * @param mixed $value
      */
-    public static function that($value): Assertion
+    public static function that(mixed $value): Assertion
     {
         return new Assertion($value);
     }

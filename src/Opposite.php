@@ -10,21 +10,15 @@ use SebastianBergmann\Exporter\Exporter;
  */
 final class Opposite
 {
-    /** @var Assertion */
-    private $original;
-
     /**
      * Creates a new opposite expectation.
      */
-    public function __construct(Assertion $original)
+    public function __construct(private Assertion $original)
     {
-        $this->original = $original;
     }
 
     /**
      * Handle dynamic method calls into the original expectation.
-     *
-     * @param array<int, mixed> $arguments
      */
     public function __call(string $name, array $arguments): Assertion
     {
