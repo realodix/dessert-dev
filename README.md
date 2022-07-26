@@ -1,7 +1,7 @@
 # Realodix Dessert
 
 ![PHPVersion](https://img.shields.io/badge/PHP-8-777BB4.svg?style=flat-square)
-![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-^9.5|^10-3C9CD7.svg?style=flat-square)
+![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-9.5%20|%2010-3C9CD7.svg?style=flat-square)
 
 A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was carefully crafted to bring the joy of testing to PHP.
 
