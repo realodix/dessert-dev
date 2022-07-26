@@ -4,7 +4,6 @@ namespace Realodix\Dessert\Traits;
 
 use PHPUnit\Framework\Constraint\{IsEqual, IsEqualIgnoringCase, LogicalNot};
 use PHPUnit\Framework\{Assert, ExpectationFailedException};
-use PHPUnit\Runner\Version;
 use Realodix\Dessert\Support\{Arr, Dom, NullClosure, Validator};
 
 trait CustomTrait
@@ -151,18 +150,6 @@ trait CustomTrait
         $actual = Validator::actualValue($this->actual, 'string');
         Assert::assertFileExists($actual, $message);
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.0', '<')) {
-            Assert::assertThat(
-                file_get_contents($actual),
-                new IsEqual($expectedString, 0.0, 10, false, true),
-                $message
-            );
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         $constraint = new IsEqualIgnoringCase($expectedString);
         Assert::assertThat(file_get_contents($actual), $constraint, $message);
 
@@ -173,16 +160,6 @@ trait CustomTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
         Assert::assertFileExists($actual, $message);
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.0', '<')) {
-            $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
-
-            Assert::assertThat(file_get_contents($actual), $constraint, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
         Assert::assertThat(file_get_contents($actual), $constraint, $message);

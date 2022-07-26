@@ -3,20 +3,16 @@
 use Realodix\Dessert\Assertion;
 
 if (! \function_exists('ass')) {
-    /**
-     * @param mixed $actual
-     */
-    function ass($actual): Assertion
+
+    function ass(mixed $actual): Assertion
     {
         return new Assertion($actual);
     }
 }
 
 if (! \function_exists('verify')) {
-    /**
-     * @param mixed $actual
-     */
-    function verify($actual): Assertion
+
+    function verify(mixed $actual): Assertion
     {
         return new Assertion($actual);
     }
