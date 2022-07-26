@@ -4,43 +4,10 @@ namespace Realodix\Dessert\Traits;
 
 use PHPUnit\Framework\Constraint\{IsEqual, IsEqualIgnoringCase, LogicalNot};
 use PHPUnit\Framework\{Assert, ExpectationFailedException};
-use PHPUnit\Runner\Version;
 use Realodix\Dessert\Support\{Arr, Dom, NullClosure, Validator};
 
 trait CustomTrait
 {
-    /**
-     * Asserts that the value array has the provided $keys.
-     */
-    public function arrayHasKeys(array $keys, string $message = ''): self
-    {
-        foreach ($keys as $k => $key) {
-            if (\is_array($key)) {
-                $this->arrayHasKeys(array_keys(Arr::dot($key, $k.'.')), $message);
-            } else {
-                $this->arrayHasKey($key, null, $message);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * Asserts that the value array not has the provided $keys.
-     */
-    public function arrayNotHasKeys(array $keys, string $message = ''): self
-    {
-        foreach ($keys as $k => $key) {
-            if (\is_array($key)) {
-                $this->arrayNotHasKeys(array_keys(Arr::dot($key, $k.'.')), $message);
-            } else {
-                $this->arrayNotHasKey($key, null, $message);
-            }
-        }
-
-        return $this;
-    }
-
     /**
      * Asserts that the value contains the property $name.
      *
@@ -151,18 +118,6 @@ trait CustomTrait
         $actual = Validator::actualValue($this->actual, 'string');
         Assert::assertFileExists($actual, $message);
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.0', '<')) {
-            Assert::assertThat(
-                file_get_contents($actual),
-                new IsEqual($expectedString, 0.0, 10, false, true),
-                $message
-            );
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
-
         $constraint = new IsEqualIgnoringCase($expectedString);
         Assert::assertThat(file_get_contents($actual), $constraint, $message);
 
@@ -173,16 +128,6 @@ trait CustomTrait
     {
         $actual = Validator::actualValue($this->actual, 'string');
         Assert::assertFileExists($actual, $message);
-
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '9.0', '<')) {
-            $constraint = new LogicalNot(new IsEqual($expectedString, 0.0, 10, false, true));
-
-            Assert::assertThat(file_get_contents($actual), $constraint, $message);
-
-            return $this;
-        }
-        // @codeCoverageIgnoreEnd
 
         $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
         Assert::assertThat(file_get_contents($actual), $constraint, $message);

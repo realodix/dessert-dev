@@ -7,34 +7,25 @@ namespace Realodix\Dessert;
  */
 final class Each
 {
-    /** @var Assertion */
-    private $original;
-
-    /** @var bool */
-    private $opposite = false;
+    private bool $opposite = false;
 
     /**
      * Creates an expectation on each item of the iterable "value".
      */
-    public function __construct(Assertion $original)
+    public function __construct(private Assertion $original)
     {
-        $this->original = $original;
     }
 
     /**
      * Creates a new expectation.
-     *
-     * @param mixed $value
      */
-    public function and($value): Assertion
+    public function and(mixed $value): Assertion
     {
         return $this->original->and($value);
     }
 
     /**
      * Creates the opposite expectation for the value.
-     *
-     * @return self
      */
     public function not(): Each
     {
@@ -45,8 +36,6 @@ final class Each
 
     /**
      * Dynamically calls methods on the class with the given arguments on each item.
-     *
-     * @param array<int|string, mixed> $arguments
      */
     public function __call(string $name, array $arguments): Each
     {

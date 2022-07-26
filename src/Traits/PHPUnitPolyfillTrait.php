@@ -19,7 +19,7 @@ trait PHPUnitPolyfillTrait
      */
     public function arrayIsList(string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'array');
+        Validator::actualValue($this->actual, 'array');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
@@ -29,7 +29,7 @@ trait PHPUnitPolyfillTrait
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertArrayIsList($actual, $message);
+        Assert::assertArrayIsList($this->actual, $message);
 
         return $this;
     }
@@ -44,12 +44,12 @@ trait PHPUnitPolyfillTrait
      */
     public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        Validator::actualValue($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
             Assert::assertThat(
-                Str::normalizeLineEndings($actual),
+                Str::normalizeLineEndings($this->actual),
                 new StringContains(Str::normalizeLineEndings($needle), false),
                 $message
             );
@@ -58,7 +58,7 @@ trait PHPUnitPolyfillTrait
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message);
+        Assert::assertStringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
 
         return $this;
     }
@@ -73,7 +73,7 @@ trait PHPUnitPolyfillTrait
      */
     public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        Validator::actualValue($this->actual, 'string');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
@@ -87,7 +87,7 @@ trait PHPUnitPolyfillTrait
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message);
+        Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this->actual, $message);
 
         return $this;
     }

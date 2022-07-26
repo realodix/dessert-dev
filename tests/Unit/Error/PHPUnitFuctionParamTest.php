@@ -21,27 +21,11 @@ final class PHPUnitFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function arrayHasKeyExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass([])->hasKey(true);
-    }
-
-    /** @test */
-    public function arrayHasNotKeyActualValue(): void
+    public function arrayNotHasKeyActualValue(): void
     {
         $this->expectException($this->error());
 
         ass('$errors')->notHasKey(true);
-    }
-
-    /** @test */
-    public function arrayHasNotKeyExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass([])->notHasKey(true);
     }
 
     /** @test */
@@ -343,33 +327,17 @@ final class PHPUnitFuctionParamTest extends TestCase
     /** @test */
     public function sameSizeActualValue(): void
     {
-        $this->expectException($this->error());
+        $this->expectException(\TypeError::class);
 
         ass('')->sameSize('');
     }
 
     /** @test */
-    public function sameSizeExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass([])->sameSize('');
-    }
-
-    /** @test */
     public function notSameSizeActualValue(): void
     {
-        $this->expectException($this->error());
+        $this->expectException(\TypeError::class);
 
         ass('')->notSameSize('');
-    }
-
-    /** @test */
-    public function notSameSizeExpectedValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass([])->notSameSize('');
     }
 
     /** @test */
