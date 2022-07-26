@@ -67,6 +67,27 @@ class Assertion
         return new Opposite($this);
     }
 
+    public function arrayHasKey(int|string $key, string $message = ''): self
+    {
+        Validator::actualValue($this->actual, 'array|ArrayAccess');
+
+        Assert::assertArrayHasKey($key, $this->actual, $message);
+
+        return $this;
+    }
+
+    /**
+     * @param null|mixed $value
+     */
+    public function arrayNotHasKey(int|string $key, $value = null, string $message = ''): self
+    {
+        Validator::actualValue($this->actual, 'array|ArrayAccess');
+
+        Assert::assertArrayNotHasKey($key, $this->actual, $message);
+
+        return $this;
+    }
+
     public function stringContainsString(string $needle, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'string');

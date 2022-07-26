@@ -2,56 +2,10 @@
 
 namespace Realodix\Dessert\Test\Custom;
 
-use PHPUnit\Framework\{ExpectationFailedException, TestCase};
+use PHPUnit\Framework\TestCase;
 
 final class PHPUnitCustomTest extends TestCase
 {
-    public function testArrayHasKey(): void
-    {
-        $test_array = [
-            'a' => 'foo',
-            'b' => [
-                'c' => 'bar',
-            ],
-            'key.with.dots' => false,
-        ];
-
-        ass($test_array)
-            ->hasKey('a')
-            ->hasKey('b.c')
-            ->hasKey('key.with.dots')
-            ->hasKey('a', 'foo')
-            ->hasKey('b.c', 'bar')
-            ->hasKey('key.with.dots', false);
-
-        $this->expectException(ExpectationFailedException::class);
-
-        ass($test_array)->hasKey('foo');
-    }
-
-    public function testArrayNotHasKey(): void
-    {
-        $test_array = [
-            'a' => 'foo',
-            'b' => [
-                'c' => 'bar',
-            ],
-            'key.with.dots' => false,
-        ];
-
-        ass($test_array)
-            ->notHasKey('x')
-            ->notHasKey('b.x')
-            ->notHasKey('key.with.x')
-            ->notHasKey('x', 'foo')
-            ->notHasKey('b.x', 'bar')
-            ->notHasKey('key.with.x', true);
-
-        $this->expectException(ExpectationFailedException::class);
-
-        ass($test_array)->notHasKey('key.with.dots');
-    }
-
     public function testContains(): void
     {
         // Array

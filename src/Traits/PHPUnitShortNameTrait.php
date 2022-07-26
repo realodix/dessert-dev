@@ -74,14 +74,14 @@ trait PHPUnitShortNameTrait
         return $this->lessThanOrEqual($expected, $message);
     }
 
-    public function hasKey(int|string $key, $value = null, string $message = ''): self
+    public function hasKey(int|string $key, string $message = ''): self
     {
-        return $this->arrayHasKey($key, $value, $message);
+        return $this->arrayHasKey($key, $message);
     }
 
-    public function notHasKey(int|string $key, $value = null, string $message = ''): self
+    public function notHasKey(int|string $key, string $message = ''): self
     {
-        return $this->arrayNotHasKey($key, $value, $message);
+        return $this->arrayNotHasKey($key, $message);
     }
 
     public function jsonFileToFile(string $expectedFile, string $message = ''): self

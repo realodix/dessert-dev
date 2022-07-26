@@ -2,61 +2,11 @@
 
 namespace Realodix\Dessert\Traits;
 
-use PHPUnit\Framework\{Assert, ExpectationFailedException};
-use Realodix\Dessert\Support\{Arr, Validator};
+use PHPUnit\Framework\Assert;
+use Realodix\Dessert\Support\Validator;
 
 trait PHPUnitCustomTrait
 {
-    /**
-     * @param null|mixed $value
-     */
-    public function arrayHasKey(int|string $key, $value = null, string $message = ''): self
-    {
-        Validator::actualValue($this->actual, 'array');
-
-        try {
-            Assert::assertTrue(Arr::has($this->actual, $key), $message);
-        } catch (ExpectationFailedException $exception) {
-            throw new ExpectationFailedException(
-                "Failed asserting that an array has the key '{$key}'",
-                $exception->getComparisonFailure()
-            );
-        }
-
-        if ($value !== null) {
-            Assert::assertEquals($value, Arr::get($this->actual, $key));
-
-            return $this;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param null|mixed $value
-     */
-    public function arrayNotHasKey(int|string $key, $value = null, string $message = ''): self
-    {
-        Validator::actualValue($this->actual, 'array');
-
-        try {
-            Assert::assertFalse(Arr::has($this->actual, $key), $message);
-        } catch (ExpectationFailedException $exception) {
-            throw new ExpectationFailedException(
-                "Failed asserting that an array has the key '{$key}'",
-                $exception->getComparisonFailure()
-            );
-        }
-
-        if ($value !== null) {
-            Assert::assertNotEquals($value, Arr::get($this->actual, $key));
-
-            return $this;
-        }
-
-        return $this;
-    }
-
     public function contains($needle, string $message = ''): self
     {
         $haystack = $this->actual;

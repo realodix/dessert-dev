@@ -7,22 +7,6 @@
 | `stringEqualsFile()`    | [`stringEqualsFile`][stringEF] or [`jsonStringEqualsJsonFile`][jsonSEJF] or [`xmlStringEqualsXmlFile`][xmlSEXF] |
 | `stringNotEqualsFile()` | [`stringNotEqualsFile`][stringEF] or [`jsonStringNotEqualsJsonFile`][jsonSEJF] or [`xmlStringNotEqualsXmlFile`][xmlSEXF] |
 
-### arrayHasKey()
-
-Asserts that the value array contains the provided `$key`:
-
-```php
-$array = ['product' => ['name' => 'Desk', 'price' => 100]];
-
-verify($array)
-    ->arrayHasKey('product')
-    // Also supports dot notation for reaching deeper into nested arrays
-    ->arrayHasKey('product.name')
-    ->arrayHasKey('product.price', 100);
-```
-
-`arrayNotHasKey()` is the inverse of this assertion and takes the same arguments.
-
 [contains]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertcontains
 [stringCS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertstringcontainsstring
 [stringEF]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertstringequalsfile

@@ -129,6 +129,10 @@ final class Validator
             return true;
         }
 
+        if (in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
+            return true;
+        }
+
         return false;
     }
 }
