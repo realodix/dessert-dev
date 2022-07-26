@@ -2,65 +2,11 @@
 
 namespace Realodix\Dessert\Traits;
 
-use PHPUnit\Framework\{Assert, ExpectationFailedException};
-use Realodix\Dessert\Support\{Arr, Validator};
+use PHPUnit\Framework\Assert;
+use Realodix\Dessert\Support\Validator;
 
 trait PHPUnitCustomTrait
 {
-    /**
-     * @param int|string $key
-     * @param null|mixed $value
-     */
-    public function arrayHasKey($key, $value = null, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'array');
-        $key = Validator::expectedValue($key, 'int|string');
-
-        try {
-            Assert::assertTrue(Arr::has($actual, $key), $message);
-        } catch (ExpectationFailedException $exception) {
-            throw new ExpectationFailedException(
-                "Failed asserting that an array has the key '{$key}'",
-                $exception->getComparisonFailure()
-            );
-        }
-
-        if ($value !== null) {
-            Assert::assertEquals($value, Arr::get($actual, $key));
-
-            return $this;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param int|string $key
-     * @param null|mixed $value
-     */
-    public function arrayNotHasKey($key, $value = null, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'array');
-        $key = Validator::expectedValue($key, 'int|string');
-
-        try {
-            Assert::assertFalse(Arr::has($actual, $key), $message);
-        } catch (ExpectationFailedException $exception) {
-            throw new ExpectationFailedException(
-                "Failed asserting that an array has the key '{$key}'",
-                $exception->getComparisonFailure()
-            );
-        }
-
-        if ($value !== null) {
-            Assert::assertNotEquals($value, Arr::get($actual, $key));
-
-            return $this;
-        }
-
-        return $this;
-    }
-
     public function contains($needle, string $message = ''): self
     {
         $haystack = $this->actual;
@@ -93,42 +39,42 @@ trait PHPUnitCustomTrait
 
     public function stringEqualsFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        Validator::actualValue($this->actual, 'string');
 
-        if (Validator::isJson($actual)) {
-            Assert::assertJsonStringEqualsJsonFile($expectedFile, $actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($actual)) {
-            Assert::assertXmlStringEqualsXmlFile($expectedFile, $actual, $message);
+        if (Validator::isJson($this->actual)) {
+            Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertStringEqualsFile($expectedFile, $actual, $message);
+        if (Validator::isXml($this->actual)) {
+            Assert::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
+
+            return $this;
+        }
+
+        Assert::assertStringEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }
 
     public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        Validator::actualValue($this->actual, 'string');
 
-        if (Validator::isJson($actual)) {
-            Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $actual, $message);
-
-            return $this;
-        }
-
-        if (Validator::isXml($actual)) {
-            Assert::assertXmlStringNotEqualsXmlFile($expectedFile, $actual, $message);
+        if (Validator::isJson($this->actual)) {
+            Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertStringNotEqualsFile($expectedFile, $actual, $message);
+        if (Validator::isXml($this->actual)) {
+            Assert::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
+
+            return $this;
+        }
+
+        Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
 
         return $this;
     }

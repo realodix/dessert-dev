@@ -55,10 +55,8 @@ final class Validator
 
     /**
      * Determines whether the actual value given is valid or invalid
-     *
-     * @param mixed $actualValue
      */
-    public static function actualValue($actualValue, string $type)
+    public static function actualValue(mixed $actualValue, string $type)
     {
         $stack = debug_backtrace();
         $typeGiven = str_replace('_', ' or ', $type);
@@ -80,10 +78,8 @@ final class Validator
 
     /**
      * Determines whether the expected value given is valid or invalid
-     *
-     * @param mixed $expectedValue
      */
-    public static function expectedValue($expectedValue, string $type, int $argument = 1)
+    public static function expectedValue(mixed $expectedValue, string $type, int $argument = 1)
     {
         $stack = debug_backtrace();
         $typeGiven = $type;
@@ -117,11 +113,7 @@ final class Validator
         return $value;
     }
 
-    /**
-     * @param mixed    $value
-     * @param string[] $allowedTypes
-     */
-    private static function hasType($value, array $allowedTypes): bool
+    private static function hasType(mixed $value, array $allowedTypes): bool
     {
         $type = gettype($value);
 
@@ -129,11 +121,24 @@ final class Validator
             return true;
         }
 
-        if (in_array('class', $allowedTypes) && class_exists($value)) {
+        if (in_array('class', $allowedTypes) && (class_exists($value) || interface_exists($value))) {
             return true;
         }
 
         if (in_array('iterable', $allowedTypes) && is_iterable($value)) {
+            return true;
+        }
+
+        if (in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
+            return true;
+        }
+
+        if (
+            in_array('Countable', $allowedTypes)
+            && $value instanceof \Countable
+            && $value instanceof \ResourceBundle
+            && $value instanceof \SimpleXMLElement
+        ) {
             return true;
         }
 

@@ -11,10 +11,10 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "phpunit/phpunit": "^9.5",
-        "symfony/css-selector": "^5.4|^6",
-        "symfony/dom-crawler": "^5.4|^6",
+        "symfony/css-selector": "^6.0",
+        "symfony/dom-crawler": "^6.0",
         "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
