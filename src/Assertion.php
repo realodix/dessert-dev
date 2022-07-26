@@ -171,7 +171,7 @@ class Assertion
 
     public function count(int $expectedCount, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable|countable');
+        Validator::actualValue($this->actual, 'iterable|Countable');
 
         Assert::assertCount($expectedCount, $this->actual, $message);
 
@@ -180,7 +180,7 @@ class Assertion
 
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable|countable');
+        Validator::actualValue($this->actual, 'iterable|Countable');
 
         Assert::assertNotCount($expectedCount, $this->actual, $message);
 

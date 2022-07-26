@@ -133,6 +133,15 @@ final class Validator
             return true;
         }
 
+        if (
+            in_array('Countable', $allowedTypes)
+            && $value instanceof \Countable
+            && $value instanceof \ResourceBundle
+            && $value instanceof \SimpleXMLElement
+        ) {
+            return true;
+        }
+
         return false;
     }
 }
