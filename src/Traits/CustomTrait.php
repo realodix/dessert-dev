@@ -9,38 +9,6 @@ use Realodix\Dessert\Support\{Arr, Dom, NullClosure, Validator};
 trait CustomTrait
 {
     /**
-     * Asserts that the value array has the provided $keys.
-     */
-    public function arrayHasKeys(array $keys, string $message = ''): self
-    {
-        foreach ($keys as $k => $key) {
-            if (\is_array($key)) {
-                $this->arrayHasKeys(array_keys(Arr::dot($key, $k.'.')), $message);
-            } else {
-                $this->arrayHasKey($key, null, $message);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * Asserts that the value array not has the provided $keys.
-     */
-    public function arrayNotHasKeys(array $keys, string $message = ''): self
-    {
-        foreach ($keys as $k => $key) {
-            if (\is_array($key)) {
-                $this->arrayNotHasKeys(array_keys(Arr::dot($key, $k.'.')), $message);
-            } else {
-                $this->arrayNotHasKey($key, null, $message);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * Asserts that the value contains the property $name.
      *
      * @param mixed $value

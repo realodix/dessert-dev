@@ -8,20 +8,6 @@ final class CustomAssertionsTest extends TestCase
 {
     use CustomAssertionsTestProvider;
 
-    public function testArrayHasKeys(): void
-    {
-        $array = ['name' => 'Desk', 'price' => 100];
-
-        ass($array)
-            ->arrayHasKeys(['name', 'price'])
-            ->arrayNotHasKeys(['foo', 'bar']);
-
-        $array = ['a' => 1, 'b', 'c' => 'world', 'foo' => ['bar' => ['bir' => 'biz']]];
-
-        ass($array)
-            ->arrayHasKeys(['a', 'c', 'foo' => ['bar' => ['bir']]]);
-    }
-
     public function testHasProperty()
     {
         $obj = new \stdClass;
