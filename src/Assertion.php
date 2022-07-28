@@ -2,7 +2,6 @@
 
 namespace Realodix\Dessert;
 
-use Countable;
 use PHPUnit\Framework\Assert;
 use Realodix\Dessert\Support\Validator;
 
@@ -881,7 +880,7 @@ class Assertion
         return $this;
     }
 
-    public function sameSize(Countable|iterable $expected, string $message = ''): self
+    public function sameSize(\Countable|iterable $expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
 
@@ -890,7 +889,7 @@ class Assertion
         return $this;
     }
 
-    public function notSameSize(Countable|iterable $expected, string $message = ''): self
+    public function notSameSize(\Countable|iterable $expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
 

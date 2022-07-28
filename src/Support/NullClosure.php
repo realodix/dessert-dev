@@ -2,8 +2,6 @@
 
 namespace Realodix\Dessert\Support;
 
-use Closure;
-
 /**
  * @internal
  */
@@ -12,9 +10,9 @@ final class NullClosure
     /**
      * Creates a nullable closure.
      */
-    public static function create(): Closure
+    public static function create(): \Closure
     {
-        return Closure::fromCallable(
+        return \Closure::fromCallable(
             function (): void {
             }
         );
