@@ -24,7 +24,7 @@ final class Opposite
     {
         try {
             $this->original->{$name}(...$arguments);
-        } catch (ExpectationFailedException $e) {
+        } catch (ExpectationFailedException) {
             return $this->original;
         }
 
@@ -38,7 +38,7 @@ final class Opposite
     {
         try {
             $this->original->{$name};
-        } catch (ExpectationFailedException $e) {
+        } catch (ExpectationFailedException) {
             return $this->original;
         }
 
