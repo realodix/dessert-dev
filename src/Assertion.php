@@ -982,6 +982,8 @@ class Assertion
 
     public function xmlStringEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
+        Validator::actualValue($this->actual, 'string');
+
         Assert::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
@@ -989,6 +991,8 @@ class Assertion
 
     public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
+        Validator::actualValue($this->actual, 'string');
+
         Assert::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
         return $this;
@@ -996,6 +1000,8 @@ class Assertion
 
     public function xmlStringEqualsXmlString(string $expectedXml, string $message = ''): self
     {
+        Validator::actualValue($this->actual, 'string');
+
         Assert::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
@@ -1003,6 +1009,8 @@ class Assertion
 
     public function xmlStringNotEqualsXmlString(string $expectedXml, string $message = ''): self
     {
+        Validator::actualValue($this->actual, 'string');
+
         Assert::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
 
         return $this;
