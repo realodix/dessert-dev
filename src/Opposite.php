@@ -64,9 +64,7 @@ final class Opposite
                 implode(
                     ' ',
                     array_map(
-                        function ($argument) use ($toString): string {
-                            return $toString($argument);
-                        },
+                        fn ($argument): string => $toString($argument),
                         $arguments
                     )
                 )
