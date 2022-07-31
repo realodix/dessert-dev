@@ -164,12 +164,12 @@ trait PHPUnitShortNameTrait
         return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
     }
 
-    public function xmlStringToString($expectedXml, string $message = ''): self
+    public function xmlStringToString(string $expectedXml, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlString($expectedXml, $message);
     }
 
-    public function xmlStringNotToString($expectedXml, string $message = ''): self
+    public function xmlStringNotToString(string $expectedXml, string $message = ''): self
     {
         return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
     }
