@@ -13,7 +13,7 @@ trait CustomTrait
      *
      * @param mixed $value
      */
-    public function hasProperty(string $name, $value = null): self
+    public function hasProperty(string $name, mixed $value = null): self
     {
         $actual = Validator::actualValue($this->actual, 'object');
 
@@ -28,8 +28,6 @@ trait CustomTrait
 
     /**
      * Asserts that the value contains the provided properties $names.
-     *
-     * @param iterable<array-key, string> $names
      */
     public function hasProperties(iterable $names): self
     {
@@ -354,7 +352,7 @@ trait CustomTrait
      * @param string|Closure $exception string: the exception class
      *                                  Closure: first parameter = exception class
      */
-    public function throw($exception, string $exceptionMessage = null): self
+    public function throw($exception, string|Closure $exceptionMessage = null): self
     {
         $callback = NullClosure::create();
 

@@ -24,7 +24,7 @@ final class Opposite
     {
         try {
             $this->original->{$name}(...$arguments);
-        } catch (ExpectationFailedException $e) {
+        } catch (ExpectationFailedException) {
             return $this->original;
         }
 
@@ -38,7 +38,7 @@ final class Opposite
     {
         try {
             $this->original->{$name};
-        } catch (ExpectationFailedException $e) {
+        } catch (ExpectationFailedException) {
             return $this->original;
         }
 
@@ -64,9 +64,7 @@ final class Opposite
                 implode(
                     ' ',
                     array_map(
-                        function ($argument) use ($toString): string {
-                            return $toString($argument);
-                        },
+                        fn ($argument): string => $toString($argument),
                         $arguments
                     )
                 )
