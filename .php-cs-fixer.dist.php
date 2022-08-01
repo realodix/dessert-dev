@@ -12,7 +12,7 @@ $addOrOverrideRules = [
     'binary_operator_spaces' => [
         'operators' => [
             '=>' => 'align_single_space',
-            '=' => 'single_space']
+        ],
     ],
 ];
 
