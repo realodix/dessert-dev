@@ -7,15 +7,6 @@
       <code>Assertion</code>
       <code>Assertion</code>
     </InvalidReturnType>
-    <MissingClosureParamType occurrences="1">
-      <code>$argument</code>
-    </MissingClosureParamType>
-  </file>
-  <file src="src/Support/Constraint/ObjectEquals.php">
-    <ParamNameMismatch occurrences="2">
-      <code>$actual</code>
-      <code>$actual</code>
-    </ParamNameMismatch>
   </file>
   <file src="src/Support/Dom.php">
     <MissingClosureParamType occurrences="2">
@@ -26,52 +17,21 @@
       <code>$result-&gt;firstChild</code>
     </PossiblyNullArgument>
   </file>
-  <file src="src/Support/Validator.php">
-    <MissingParamType occurrences="3">
-      <code>$name</code>
-      <code>$types</code>
-      <code>$value</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="3">
-      <code>actualValue</code>
-      <code>expectedValue</code>
-      <code>parameterType</code>
-    </MissingReturnType>
-  </file>
   <file src="src/Traits/CustomTrait.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>10</code>
-      <code>10</code>
-    </InvalidScalarArgument>
-    <TooManyArguments occurrences="2">
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-      <code>new IsEqual($expectedString, 0.0, 10, false, true)</code>
-    </TooManyArguments>
-    <UndefinedDocblockClass occurrences="1">
-      <code>string|Closure</code>
-    </UndefinedDocblockClass>
-  </file>
-  <file src="src/Traits/PHPUnitCustomTrait.php">
-    <InternalClass occurrences="2"/>
-    <InternalMethod occurrences="4">
-      <code>getComparisonFailure</code>
-      <code>getComparisonFailure</code>
+    <InternalClass occurrences="2">
+      <code>new ExpectationFailedException("Exception \"{$exception}\" not thrown.")</code>
+      <code>new ExpectationFailedException("Exception with message \"{$exception}\" not thrown.")</code>
+    </InternalClass>
+    <InternalMethod occurrences="2">
+      <code>new ExpectationFailedException("Exception \"{$exception}\" not thrown.")</code>
+      <code>new ExpectationFailedException("Exception with message \"{$exception}\" not thrown.")</code>
     </InternalMethod>
-    <MissingParamType occurrences="2">
-      <code>$needle</code>
-      <code>$needle</code>
-    </MissingParamType>
   </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <UndefinedMethod occurrences="3">
-      <code>Assert::assertArrayIsList($actual, $message)</code>
-      <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $actual, $message)</code>
-      <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $actual, $message)</code>
+      <code>Assert::assertArrayIsList($this-&gt;actual, $message)</code>
+      <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $this-&gt;actual, $message)</code>
+      <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this-&gt;actual, $message)</code>
     </UndefinedMethod>
-  </file>
-  <file src="src/Traits/PHPUnitShortNameTrait.php">
-    <TooManyArguments occurrences="1">
-      <code>directoryExists</code>
-    </TooManyArguments>
   </file>
 </files>

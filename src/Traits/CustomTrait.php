@@ -349,10 +349,10 @@ trait CustomTrait
     /**
      * Asserts that executing value throws an exception.
      *
-     * @param string|Closure $exception string: the exception class
-     *                                  Closure: first parameter = exception class
+     * @param string|\Closure $exception string: the exception class
+     *                                   Closure: first parameter = exception class
      */
-    public function throw($exception, string|Closure $exceptionMessage = null): self
+    public function throw(string|\Closure $exception, string $exceptionMessage = null): self
     {
         $callback = NullClosure::create();
 
