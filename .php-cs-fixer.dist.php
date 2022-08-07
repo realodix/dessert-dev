@@ -3,8 +3,7 @@
 use Realodix\CsConfig\{Config, Finder};
 use Realodix\CsConfig\Rules\Realodix;
 
-$finder = Finder::base(__DIR__);
-$addOrOverrideRules = [
+$localRules = [
     'single_import_per_statement' => false,
     'group_import' => true,
 
@@ -16,5 +15,4 @@ $addOrOverrideRules = [
     ],
 ];
 
-return Config::create(new Realodix($addOrOverrideRules))
-    ->setFinder($finder);
+return Config::create(new Realodix($localRules));
