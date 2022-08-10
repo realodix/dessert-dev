@@ -2,9 +2,14 @@
 
 namespace Realodix\Dessert\Traits;
 
-use PHPUnit\Framework\Constraint\{IsEqual, IsEqualIgnoringCase, LogicalNot};
-use PHPUnit\Framework\{Assert, ExpectationFailedException};
-use Realodix\Dessert\Support\{Arr, Dom, NullClosure, Validator};
+use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
+use PHPUnit\Framework\Constraint\LogicalNot;
+use PHPUnit\Framework\ExpectationFailedException;
+use Realodix\Dessert\Support\Dom;
+use Realodix\Dessert\Support\NullClosure;
+use Realodix\Dessert\Support\Validator;
 
 trait CustomTrait
 {

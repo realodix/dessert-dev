@@ -3,8 +3,9 @@
 namespace Realodix\Dessert\Test;
 
 use PHPUnit\Framework\TestCase;
+use Realodix\Dessert\Assert;
+use Realodix\Dessert\Check;
 use Realodix\Dessert\Test\Fixtures\CustomAssert;
-use Realodix\Dessert\{Assert, Check};
 
 final class GeneralTest extends TestCase
 {
