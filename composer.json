@@ -4,18 +4,14 @@
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/realodix/next-project",
-    "authors": [
-        {
-            "name": "Budi Hermawan",
-            "role": "Developer"
-        }
-    ],
+    "authors": [{"name": "Budi Hermawan", "role": "Developer" }],
     "require": {
         "php": "^8.0",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": ">=9.5",
         "symfony/css-selector": "^6.0",
         "symfony/dom-crawler": "^6.0",
-        "symfony/polyfill-php81": "^1.26"
+        "symfony/polyfill-php81": "^1.26",
+        "vimeo/psalm": "^4.26"
     },
     "require-dev": {
         "realodix/cs-config": "dev-main"
@@ -36,6 +32,11 @@
             "Realodix\\Dessert\\Test\\": ["tests", "tests/Unit"]
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "branch-alias": {
             "dev-main": "1.x-dev"
@@ -48,10 +49,5 @@
         ],
         "cs": "./vendor/bin/php-cs-fixer fix",
         "test": "./vendor/bin/phpunit"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

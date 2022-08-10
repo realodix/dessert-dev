@@ -6,7 +6,7 @@ trait PHPUnitShortNameTrait
 {
     public function dirExists(string $message = ''): self
     {
-        return $this->directoryExists($this->actual, $message);
+        return $this->directoryExists($message);
     }
 
     public function dirNotExist(string $message = ''): self
@@ -34,42 +34,42 @@ trait PHPUnitShortNameTrait
         return $this->directoryIsNotWritable($message);
     }
 
-    public function greater($expected, string $message = ''): self
+    public function greater(mixed $expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
     }
 
-    public function isAbove($expected, string $message = ''): self
+    public function isAbove(mixed $expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
     }
 
-    public function less($expected, string $message = ''): self
+    public function less(mixed $expected, string $message = ''): self
     {
         return $this->lessThan($expected, $message);
     }
 
-    public function isBelow($expected, string $message = ''): self
+    public function isBelow(mixed $expected, string $message = ''): self
     {
         return $this->lessThan($expected, $message);
     }
 
-    public function greaterOrEqual($expected, string $message = ''): self
+    public function greaterOrEqual(mixed $expected, string $message = ''): self
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
 
-    public function isAtLeast($expected, string $message = ''): self
+    public function isAtLeast(mixed $expected, string $message = ''): self
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
 
-    public function lessOrEqual($expected, string $message = ''): self
+    public function lessOrEqual(mixed $expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
 
-    public function isAtMost($expected, string $message = ''): self
+    public function isAtMost(mixed $expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
@@ -144,7 +144,7 @@ trait PHPUnitShortNameTrait
         return $this->stringEndsNotWith($suffix, $message);
     }
 
-    public function xmlFileToFile($expectedFile, string $message = ''): self
+    public function xmlFileToFile(string $expectedFile, string $message = ''): self
     {
         return $this->xmlFileEqualsXmlFile($expectedFile, $message);
     }

@@ -55,59 +55,67 @@ final class Validator
 
     /**
      * Determines whether the actual value given is valid or invalid
+     *
+     * @return mixed
      */
-    public static function actualValue(mixed $actualValue, string $type)
+    public static function actualValue(mixed $value, string $expectedType)
     {
         $stack = debug_backtrace();
-        $typeGiven = str_replace('_', ' or ', $type);
+        $typeGiven = str_replace('_', ' or ', $expectedType);
 
-        if ($type === 'class') {
+        if ($expectedType === 'class') {
             $typeGiven = 'class name';
         }
 
-        $invalidArgument = sprintf(
+        $errorName = sprintf(
             '%s(): Actual value must be of type %s %s, %s given.',
             $stack[1]['function'],
-            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($actualValue)
+            get_debug_type($value)
         );
 
-        return self::parameterType($type, $actualValue, $invalidArgument);
+        return self::parameterType($expectedType, $value, $errorName);
     }
 
     /**
      * Determines whether the expected value given is valid or invalid
+     *
+     * @return mixed
      */
-    public static function expectedValue(mixed $expectedValue, string $type, int $argument = 1)
+    public static function expectedValue(mixed $value, string $expectedType, int $argument = 1)
     {
         $stack = debug_backtrace();
-        $typeGiven = $type;
+        $typeGiven = $expectedType;
 
-        if ($type === 'class') {
+        if ($expectedType === 'class') {
             $typeGiven = 'class or interface name';
         }
 
-        $invalidArgument = sprintf(
+        $errorName = sprintf(
             'Argument #%d of %s() must be %s %s, %s given',
             $stack[1]['function'],
             $argument,
-            \in_array(lcfirst($type)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($expectedValue)
+            get_debug_type($value)
         );
+
         // Argument #1 of PHPUnit\Framework\Assert::assertNotInstanceOf() must be a class or interface name
-        return self::parameterType($type, $expectedValue, $invalidArgument);
+        return self::parameterType($expectedType, $value, $errorName);
     }
 
-    public static function parameterType($types, $value, $name)
+    /**
+     * @throws \InvalidArgumentException
+     *
+     * @return mixed
+     */
+    public static function parameterType(string $types, mixed $value, string $errorName)
     {
-        if (is_string($types)) {
-            $types = explode('|', $types);
-        }
+        $types = explode('|', $types);
 
         if (! self::hasType($value, $types)) {
-            throw new \InvalidArgumentException($name);
+            throw new \InvalidArgumentException($errorName);
         }
 
         return $value;

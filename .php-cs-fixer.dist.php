@@ -3,11 +3,7 @@
 use Realodix\CsConfig\{Config, Finder};
 use Realodix\CsConfig\Rules\Realodix;
 
-$finder = Finder::base(__DIR__);
-$addOrOverrideRules = [
-    'single_import_per_statement' => false,
-    'group_import' => true,
-
+$localRules = [
     // Realodix
     'binary_operator_spaces' => [
         'operators' => [
@@ -16,5 +12,4 @@ $addOrOverrideRules = [
     ],
 ];
 
-return Config::create(new Realodix($addOrOverrideRules))
-    ->setFinder($finder);
+return Config::create(new Realodix($localRules));
