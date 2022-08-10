@@ -1,6 +1,6 @@
 <?php
 
-use Realodix\CsConfig\{Config, Finder};
+use Realodix\CsConfig\Config;
 use Realodix\CsConfig\Rules\Realodix;
 
 $localRules = [
