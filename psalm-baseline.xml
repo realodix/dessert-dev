@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
+  <file src="src/Assertion.php">
+    <UnusedPsalmSuppress occurrences="3">
+      <code>MixedArgument</code>
+      <code>MixedArgument</code>
+      <code>MixedArgument</code>
+    </UnusedPsalmSuppress>
+  </file>
   <file src="src/Opposite.php">
     <InternalClass occurrences="1"/>
     <InternalMethod occurrences="1"/>
