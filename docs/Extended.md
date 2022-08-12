@@ -58,42 +58,6 @@ verify([1, 2, 3])->hasLength(3);
 
 `notHasLength()` is the inverse of this assertion and takes the same arguments.
 
-### throw()
-
-Asserts that a closure throws an exception class, exception message, or the combination of both.
-
-```php
-// It throws the desired Exception class
-verify(fn() => throw new \Exception('Something happened.'))
-    ->throw(\Exception::class);
-
-// It throws an exception with desired message
-verify(fn() => throw new \Exception('Something happened.'))
-    ->throw('Something happened.');
-
-// It throws the desired Exception class with the desired message
-verify(fn() => throw new \Exception('Something happened.'))
-    ->throw(\Exception::class, 'Something happened.');
-```
-
-You may assert more than one exception per test:
-
-```php
-// It asserts two exceptions with their specific messages
-verify(fn() => throw new \Exception('Error 1'))
-    ->throw(\Exception::class, 'Error 1');
-
-verify(fn() => throw new \Exception('Error 2'))
-    ->throw(\Exception::class, 'Error 2');
-```
-
-It is also possible to use `not()` modifier together with `throw()`:
-
-```php
-// It does not throw an Exception
-verify(fn ($x, $y) => $x + $y)->not->throw(\Exception::class);
-```
-
 ### markupContainsSelector()
 `markupContainsSelector(string $selector, string $message = '')`
 
