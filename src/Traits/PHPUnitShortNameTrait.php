@@ -84,36 +84,6 @@ trait PHPUnitShortNameTrait
         return $this->arrayNotHasKey($key, $message);
     }
 
-    public function jsonFileToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->jsonFileEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonFileNotToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonStringToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->jsonStringEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonStringNotToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->jsonStringNotEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonStringToString(string $expectedJson, string $message = ''): self
-    {
-        return $this->jsonStringEqualsJsonString($expectedJson, $message);
-    }
-
-    public function jsonStringNotToString(string $expectedJson, string $message = ''): self
-    {
-        return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
-    }
-
     public function match(string $pattern, string $message = ''): self
     {
         return $this->matchesRegularExpression($pattern, $message);
@@ -142,35 +112,5 @@ trait PHPUnitShortNameTrait
     public function endNotWith(string $suffix, string $message = ''): self
     {
         return $this->stringEndsNotWith($suffix, $message);
-    }
-
-    public function xmlFileToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->xmlFileEqualsXmlFile($expectedFile, $message);
-    }
-
-    public function xmlFileNotToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->xmlFileNotEqualsXmlFile($expectedFile, $message);
-    }
-
-    public function xmlStringToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->xmlStringEqualsXmlFile($expectedFile, $message);
-    }
-
-    public function xmlStringNotToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
-    }
-
-    public function xmlStringToString(string $expectedXml, string $message = ''): self
-    {
-        return $this->xmlStringEqualsXmlString($expectedXml, $message);
-    }
-
-    public function xmlStringNotToString(string $expectedXml, string $message = ''): self
-    {
-        return $this->xmlStringNotEqualsXmlString($expectedXml, $message);
     }
 }
