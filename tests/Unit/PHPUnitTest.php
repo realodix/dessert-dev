@@ -47,25 +47,25 @@ final class PHPUnitTest extends TestCase
         ass($array)->arrayNotHasKey('foo');
     }
 
-    public function testArrayIsList(): void
+    public function testIsList(): void
     {
-        ass([0, 1, 2])->arrayIsList();
+        ass([0, 1, 2])->isList();
 
         $this->expectException(AssertionFailedError::class);
 
-        ass([0 => 0, 2 => 2, 3 => 3])->arrayIsList();
+        ass([0 => 0, 2 => 2, 3 => 3])->isList();
     }
 
-    public function testArrayIsListWithEmptyArray(): void
+    public function testIsListWithEmptyArray(): void
     {
-        ass([])->arrayIsList();
+        ass([])->isList();
     }
 
-    public function testArrayIsListFailsWithStringKeys(): void
+    public function testIsListFailsWithStringKeys(): void
     {
         $this->expectException(AssertionFailedError::class);
 
-        ass(['string' => 0])->arrayIsList();
+        ass(['string' => 0])->isList();
     }
 
     public function testStringContainsString(): void

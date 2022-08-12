@@ -7,14 +7,14 @@
     "authors": [{"name": "Budi Hermawan", "role": "Developer" }],
     "require": {
         "php": "^8.0",
-        "phpunit/phpunit": ">=9.5",
+        "phpunit/phpunit": "^9.5",
         "symfony/css-selector": "^6.0",
         "symfony/dom-crawler": "^6.0",
-        "symfony/polyfill-php81": "^1.26",
-        "vimeo/psalm": "^4.26"
+        "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
-        "realodix/cs-config": "dev-main"
+        "realodix/relax": "dev-main",
+        "vimeo/psalm": "^4.26"
     },
     "autoload": {
         "files": [
