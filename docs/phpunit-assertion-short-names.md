@@ -12,8 +12,6 @@
 | `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
 | `lessThan()`                      | `isBelow()` \| `less()` |
 | `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
-| `jsonFileEqualsJsonFile()`        | `jsonFileToFile()` |
-| `jsonFileNotEqualsJsonFile()`     | `jsonFileNotToFile()` |
 | `jsonStringEqualsJsonFile()`      | `jsonStringToFile()` |
 | `jsonStringNotEqualsJsonFile()`   | `jsonStringNotToFile()` |
 | `jsonStringEqualsJsonString()`    | `jsonStringToString()` |

@@ -84,16 +84,6 @@ trait PHPUnitShortNameTrait
         return $this->arrayNotHasKey($key, $message);
     }
 
-    public function jsonFileToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->jsonFileEqualsJsonFile($expectedFile, $message);
-    }
-
-    public function jsonFileNotToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->jsonFileNotEqualsJsonFile($expectedFile, $message);
-    }
-
     public function jsonStringToFile(string $expectedFile, string $message = ''): self
     {
         return $this->jsonStringEqualsJsonFile($expectedFile, $message);
