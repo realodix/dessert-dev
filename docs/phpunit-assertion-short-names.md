@@ -12,8 +12,6 @@
 | `greaterThanOrEqual()`            | `isAtLeast()` \| `greaterOrEqual()` |
 | `lessThan()`                      | `isBelow()` \| `less()` |
 | `lessThanOrEqual()`               | `isAtMost()` \| `lessOrEqual()` |
-| `jsonStringEqualsJsonString()`    | `jsonStringToString()` |
-| `jsonStringNotEqualsJsonString()` | `jsonStringNotToString()` |
 | `matchesRegularExpression()`      | `match()` |
 | `doesNotMatchRegularExpression()` | `notMatch()` |
 | `stringStartsWith()`              | `startWith()` |

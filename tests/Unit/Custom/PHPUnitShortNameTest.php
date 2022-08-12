@@ -55,15 +55,6 @@ final class PHPUnitShortNameTest extends TestCase
             ->isAtMost(8);   // lessThanOrEqual
     }
 
-    public function testJsonStringToString(): void
-    {
-        $jsonString = json_encode(['foo' => 'bar']);
-
-        ass($jsonString)
-            ->jsonStringToString($jsonString)
-            ->jsonStringNotToString(json_encode(['foo' => 'baz']));
-    }
-
     public function testMatch(): void
     {
         ass('foobar')

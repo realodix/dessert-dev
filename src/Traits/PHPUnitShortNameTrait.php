@@ -84,16 +84,6 @@ trait PHPUnitShortNameTrait
         return $this->arrayNotHasKey($key, $message);
     }
 
-    public function jsonStringToString(string $expectedJson, string $message = ''): self
-    {
-        return $this->jsonStringEqualsJsonString($expectedJson, $message);
-    }
-
-    public function jsonStringNotToString(string $expectedJson, string $message = ''): self
-    {
-        return $this->jsonStringNotEqualsJsonString($expectedJson, $message);
-    }
-
     public function match(string $pattern, string $message = ''): self
     {
         return $this->matchesRegularExpression($pattern, $message);
