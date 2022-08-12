@@ -171,40 +171,6 @@ trait CustomTrait
     }
 
     /**
-     * Assert an element's contents contain the given regular expression pattern.
-     *
-     * @param string $regexp   The regular expression pattern to look for within the DOM node.
-     * @param string $selector A query $selector for the element to find.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupElementRegExp(string $regexp, string $selector = '', string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $matchedElements = Dom::getInnerHtmlOfMatchedElements($actual, $selector);
-
-        $this->actual($matchedElements)->matchesRegularExpression($regexp, $message);
-
-        return $this;
-    }
-
-    /**
-     * Assert an element's contents do not contain the given regular expression pattern.
-     *
-     * @param string $regexp   The regular expression pattern to look for within the DOM node.
-     * @param string $selector A query $selector for the element to find.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupElementNotRegExp(string $regexp, string $selector = '', string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $matchedElements = Dom::getInnerHtmlOfMatchedElements($actual, $selector);
-
-        $this->actual($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
-
-        return $this;
-    }
-
-    /**
      * Assert the number of times an element matching the given selector is found.
      *
      * @param int    $count    The number of matching elements expected.

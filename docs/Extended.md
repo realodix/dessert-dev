@@ -58,24 +58,6 @@ verify([1, 2, 3])->hasLength(3);
 
 `notHasLength()` is the inverse of this assertion and takes the same arguments.
 
-### markupElementRegExp()
-`markupElementRegExp(string $regexp, string $selector = '', string $message = '')`
-
-```php
-$content = '
-    <div id="main">ABC123</div>
-    <div id="sidebar"><span>ABC</span></div>
-';
-
-ass($content)
-    // Should use regular expression matching
-    ->markupElementRegExp('/[A-Z0-9-]+/', '#main')
-    // Should be able to search for nested contents
-    ->markupElementRegExp('/[A-Z]+/', '#sidebar')
-    // Should use regular expression matching
-    ->markupElementNotRegExp('/[0-9-]+/', '#sidebar');
-```
-
 ### markupSelectorCount()
 `markupSelectorCount(int $count, string $selector, string $message = '')`
 

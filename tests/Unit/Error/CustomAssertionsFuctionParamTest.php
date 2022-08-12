@@ -60,22 +60,6 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function markupElementRegExpActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupElementRegExp('string');
-    }
-
-    /** @test */
-    public function markupElementNotRegExpActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupElementNotRegExp('string');
-    }
-
-    /** @test */
     public function markupSelectorCountActualValue(): void
     {
         $this->expectException($this->error());

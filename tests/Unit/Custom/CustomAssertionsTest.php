@@ -73,22 +73,6 @@ final class CustomAssertionsTest extends TestCase
             ->fileNotEqualsStringIgnoringCase('<bar/>');
     }
 
-    public function testMarkupElementRegExp()
-    {
-        $content = '
-            <div id="main">ABC123</div>
-            <div id="sidebar"><span>ABC</span></div>
-        ';
-
-        ass($content)
-            // Should use regular expression matching
-            ->markupElementRegExp('/[A-Z0-9-]+/', '#main')
-            // Should be able to search for nested contents
-            ->markupElementRegExp('/[A-Z]+/', '#sidebar')
-            // Should use regular expression matching
-            ->markupElementNotRegExp('/[0-9-]+/', '#sidebar');
-    }
-
     public function testMarkupSelectorCount()
     {
         ass('<ul><li>1</li><li>2</li><li>3</li></ul>')
