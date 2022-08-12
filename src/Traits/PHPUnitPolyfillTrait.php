@@ -6,7 +6,7 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
-use Realodix\Dessert\Support\Constraint\ArrayIsList;
+use Realodix\Dessert\Support\Constraint\IsList;
 use Realodix\Dessert\Support\Str;
 use Realodix\Dessert\Support\Validator;
 
@@ -18,20 +18,21 @@ trait PHPUnitPolyfillTrait
      * Reference:
      * - https://github.com/sebastianbergmann/phpunit/pull/4818
      * - https://github.com/sebastianbergmann/phpunit/commit/3d90cfe294cf1c7f331e2bef77ff4ad8949446fa
+     * - https://github.com/sebastianbergmann/phpunit/commit/e04a947baf8d9b800ac8a1223f3be0f090cacf3e
      */
-    public function arrayIsList(string $message = ''): self
+    public function isList(string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
-            Assert::assertThat($this->actual, new ArrayIsList, $message);
+            Assert::assertThat($this->actual, new IsList, $message);
 
             return $this;
         }
         // @codeCoverageIgnoreEnd
 
-        Assert::assertArrayIsList($this->actual, $message);
+        Assert::assertIsList($this->actual, $message);
 
         return $this;
     }

@@ -29,7 +29,7 @@
   </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <UndefinedMethod occurrences="3">
-      <code>Assert::assertArrayIsList($this-&gt;actual, $message)</code>
+      <code>Assert::assertIsList($this-&gt;actual, $message)</code>
       <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $this-&gt;actual, $message)</code>
       <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this-&gt;actual, $message)</code>
     </UndefinedMethod>

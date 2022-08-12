@@ -8,13 +8,14 @@ use PHPUnit\Framework\Constraint\Constraint;
  * For internal use only to support older PHPUnit
  *
  * Reference:
- * - https://github.com/sebastianbergmann/phpunit/blob/master/src/Framework/Constraint/Traversable/ArrayIsList.php
+ * - https://github.com/sebastianbergmann/phpunit/blob/master/src/Framework/Constraint/Traversable/IsList.php
  * - https://github.com/sebastianbergmann/phpunit/pull/4818
+ * - https://github.com/sebastianbergmann/phpunit/commit/e04a947baf8d9b800ac8a1223f3be0f090cacf3e
  *
  * @internal
  * @codeCoverageIgnore
  */
-final class ArrayIsList extends Constraint
+final class IsList extends Constraint
 {
     /**
      * Returns a string representation of the constraint.
