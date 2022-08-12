@@ -18,8 +18,6 @@
 | `stringStartsNotWith()`           | `startNotWith()` |
 | `stringEndsWith()`                | `endWith()` |
 | `stringEndsNotWith()`             | `endNotWith()` |
-| `xmlFileEqualsXmlFile()`          | `xmlFileToFile()` |
-| `xmlFileNotEqualsXmlFile()`       | `xmlFileNotToFile()` |
 | `xmlStringEqualsXmlFile()`        | `xmlStringToFile()` |
 | `xmlStringNotEqualsXmlFile()`     | `xmlStringNotToFile()` |
 | `xmlStringEqualsXmlString()`      | `xmlStringToString()` |
