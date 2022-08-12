@@ -2,9 +2,14 @@
 
 namespace Realodix\Dessert\Traits;
 
-use PHPUnit\Framework\Constraint\{IsEqual, IsEqualIgnoringCase, LogicalNot};
-use PHPUnit\Framework\{Assert, ExpectationFailedException};
-use Realodix\Dessert\Support\{Arr, Dom, NullClosure, Validator};
+use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
+use PHPUnit\Framework\Constraint\LogicalNot;
+use PHPUnit\Framework\ExpectationFailedException;
+use Realodix\Dessert\Support\Dom;
+use Realodix\Dessert\Support\NullClosure;
+use Realodix\Dessert\Support\Validator;
 
 trait CustomTrait
 {
@@ -349,10 +354,10 @@ trait CustomTrait
     /**
      * Asserts that executing value throws an exception.
      *
-     * @param string|Closure $exception string: the exception class
-     *                                  Closure: first parameter = exception class
+     * @param string|\Closure $exception string: the exception class
+     *                                   Closure: first parameter = exception class
      */
-    public function throw($exception, string|Closure $exceptionMessage = null): self
+    public function throw(string|\Closure $exception, string $exceptionMessage = null): self
     {
         $callback = NullClosure::create();
 
