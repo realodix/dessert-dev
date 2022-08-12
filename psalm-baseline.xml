@@ -8,25 +8,6 @@
       <code>Assertion</code>
     </InvalidReturnType>
   </file>
-  <file src="src/Support/Dom.php">
-    <MissingClosureParamType occurrences="2">
-      <code>$key</code>
-      <code>$value</code>
-    </MissingClosureParamType>
-    <PossiblyNullArgument occurrences="1">
-      <code>$result-&gt;firstChild</code>
-    </PossiblyNullArgument>
-  </file>
-  <file src="src/Traits/CustomTrait.php">
-    <InternalClass occurrences="2">
-      <code>new ExpectationFailedException("Exception \"{$exception}\" not thrown.")</code>
-      <code>new ExpectationFailedException("Exception with message \"{$exception}\" not thrown.")</code>
-    </InternalClass>
-    <InternalMethod occurrences="2">
-      <code>new ExpectationFailedException("Exception \"{$exception}\" not thrown.")</code>
-      <code>new ExpectationFailedException("Exception with message \"{$exception}\" not thrown.")</code>
-    </InternalMethod>
-  </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <UndefinedMethod occurrences="3">
       <code>Assert::assertIsList($this-&gt;actual, $message)</code>
