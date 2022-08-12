@@ -58,6 +58,8 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: composer require phpunit/phpunit dev-main
+          command: |
+            composer remove vimeo/psalm --dev
+            composer require phpunit/phpunit dev-main --with-all-dependencies --ignore-platform-req=php
       - name: Execute tests
         run: ./vendor/bin/phpunit
