@@ -58,12 +58,4 @@ final class CustomAssertionsFuctionParamTest extends TestCase
 
         ass(true)->fileNotEqualsStringIgnoringCase('string');
     }
-
-    /** @test */
-    public function markupSelectorCountActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupSelectorCount(1, 'string');
-    }
 }

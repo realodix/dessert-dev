@@ -6,7 +6,6 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
-use Realodix\Dessert\Support\Dom;
 use Realodix\Dessert\Support\Validator;
 
 trait CustomTrait
@@ -168,22 +167,5 @@ trait CustomTrait
         }
 
         throw new \BadMethodCallException('Expectation value length is not countable.');
-    }
-
-    /**
-     * Assert the number of times an element matching the given selector is found.
-     *
-     * @param int    $count    The number of matching elements expected.
-     * @param string $selector A query selector for the element to find.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupSelectorCount(int $count, string $selector, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $results = Dom::executeQuery($actual, $selector);
-
-        $this->actual($results)->count($count, $message);
-
-        return $this;
     }
 }

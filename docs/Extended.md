@@ -57,18 +57,3 @@ verify([1, 2, 3])->hasLength(3);
 ```
 
 `notHasLength()` is the inverse of this assertion and takes the same arguments.
-
-### markupSelectorCount()
-`markupSelectorCount(int $count, string $selector, string $message = '')`
-
-```php
-$content = '
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-  </ul>
-';
-
-verify($content)->markupSelectorCount(3, 'li');
-```

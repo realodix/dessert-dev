@@ -72,10 +72,4 @@ final class CustomAssertionsTest extends TestCase
             ->fileEqualsStringIgnoringCase('<FOO/>')
             ->fileNotEqualsStringIgnoringCase('<bar/>');
     }
-
-    public function testMarkupSelectorCount()
-    {
-        ass('<ul><li>1</li><li>2</li><li>3</li></ul>')
-            ->markupSelectorCount(3, 'li');
-    }
 }
