@@ -13,36 +13,6 @@ use Realodix\Dessert\Support\Validator;
 
 trait CustomTrait
 {
-    /**
-     * Asserts that the value contains the property $name.
-     *
-     * @param mixed $value
-     */
-    public function hasProperty(string $name, mixed $value = null): self
-    {
-        $actual = Validator::actualValue($this->actual, 'object');
-
-        Assert::assertTrue(property_exists($actual, $name));
-
-        if (\func_num_args() > 1) {
-            Assert::assertEquals($value, $actual->{$name});
-        }
-
-        return $this;
-    }
-
-    /**
-     * Asserts that the value contains the provided properties $names.
-     */
-    public function hasProperties(iterable $names): self
-    {
-        foreach ($names as $name) {
-            $this->hasProperty($name);
-        }
-
-        return $this;
-    }
-
     public function stringEquals(string $expected, string $message = ''): self
     {
         $actual = $this->actual(Validator::actualValue($this->actual, 'string'));

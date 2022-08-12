@@ -12,14 +12,6 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function hasPropertyActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass('not_object')->hasProperty(true);
-    }
-
-    /** @test */
     public function stringEqualsActualValue(): void
     {
         $this->expectException($this->error());

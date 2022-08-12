@@ -24,29 +24,6 @@
 [jsonSEJS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertjsonstringequalsjsonstring
 [xmlSEXS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertxmlstringequalsxmlstring
 
-### hasProperty()
-
-Asserts that the `$actualValue` contains the property `$name`:
-
-```php
-verify($user)
-    ->hasProperty('name')
-    ->hasProperty('name', 'Sebastian');
-```
-
-### hasProperties()
-
-Asserts that the `$actualValue` contains the provided properties `$names`:
-
-```php
-$obj->name = "Jhon";
-$obj->age = 21;
-
-verify($obj)
-    ->hasProperties(["name", "age"])            // passes
-    ->hasProperties(["name", "age", "gender"]); // doest not pass
-```
-
 ### fileEqualsString()
 
 Asserts that the contents of one file is equal to the string.
