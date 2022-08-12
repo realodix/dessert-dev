@@ -76,16 +76,6 @@ final class PHPUnitShortNameTest extends TestCase
             ->endNotWith('foo');
     }
 
-    public function testXmlStringToFile(): void
-    {
-        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
-        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
-
-        ass('<foo/>')
-            ->xmlStringToFile($xmlFoo)
-            ->xmlStringNotToFile($xmlBar);
-    }
-
     public function testXmlStringToString(): void
     {
         ass('<foo/>')

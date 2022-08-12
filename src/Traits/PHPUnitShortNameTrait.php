@@ -114,16 +114,6 @@ trait PHPUnitShortNameTrait
         return $this->stringEndsNotWith($suffix, $message);
     }
 
-    public function xmlStringToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->xmlStringEqualsXmlFile($expectedFile, $message);
-    }
-
-    public function xmlStringNotToFile(string $expectedFile, string $message = ''): self
-    {
-        return $this->xmlStringNotEqualsXmlFile($expectedFile, $message);
-    }
-
     public function xmlStringToString(string $expectedXml, string $message = ''): self
     {
         return $this->xmlStringEqualsXmlString($expectedXml, $message);
