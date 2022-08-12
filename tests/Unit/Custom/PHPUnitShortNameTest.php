@@ -55,37 +55,6 @@ final class PHPUnitShortNameTest extends TestCase
             ->isAtMost(8);   // lessThanOrEqual
     }
 
-    public function testJsonFileToFile(): void
-    {
-        $fileExpected = TEST_FILES_PATH.'json_array_object.json';
-        $fileActual = TEST_FILES_PATH.'json_simple_object.json';
-
-        ass($fileActual)
-            ->jsonFileToFile($fileActual)
-            ->jsonFileNotToFile($fileExpected);
-    }
-
-    public function testJsonStringToFile(): void
-    {
-        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
-        $jsonString = json_encode(['foo' => 'bar']);
-
-        ass($jsonString)
-            ->jsonStringToFile($jsonFile);
-
-        ass(json_encode(['foo' => 'baz']))
-            ->jsonStringNotToFile($jsonFile);
-    }
-
-    public function testJsonStringToString(): void
-    {
-        $jsonString = json_encode(['foo' => 'bar']);
-
-        ass($jsonString)
-            ->jsonStringToString($jsonString)
-            ->jsonStringNotToString(json_encode(['foo' => 'baz']));
-    }
-
     public function testMatch(): void
     {
         ass('foobar')
@@ -105,32 +74,5 @@ final class PHPUnitShortNameTest extends TestCase
         ass('foobar')
             ->endWith('ar')
             ->endNotWith('foo');
-    }
-
-    public function testXmlFileToFile(): void
-    {
-        $actual = TEST_FILES_PATH.'xml_foo.xml';
-        $expected = TEST_FILES_PATH.'xml_bar.xml';
-
-        ass($actual)
-            ->xmlFileToFile($actual)
-            ->xmlFileNotToFile($expected);
-    }
-
-    public function testXmlStringToFile(): void
-    {
-        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
-        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
-
-        ass('<foo/>')
-            ->xmlStringToFile($xmlFoo)
-            ->xmlStringNotToFile($xmlBar);
-    }
-
-    public function testXmlStringToString(): void
-    {
-        ass('<foo/>')
-            ->xmlStringToString('<foo/>')
-            ->xmlStringNotToString('<bar/>');
     }
 }
