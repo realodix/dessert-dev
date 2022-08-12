@@ -75,11 +75,4 @@ final class PHPUnitShortNameTest extends TestCase
             ->endWith('ar')
             ->endNotWith('foo');
     }
-
-    public function testXmlStringToString(): void
-    {
-        ass('<foo/>')
-            ->xmlStringToString('<foo/>')
-            ->xmlStringNotToString('<bar/>');
-    }
 }
