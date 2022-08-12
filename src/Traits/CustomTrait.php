@@ -171,38 +171,6 @@ trait CustomTrait
     }
 
     /**
-     * Assert that the given string contains an element matching the given selector.
-     *
-     * @param string $selector A query $selector for the element to find.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupContainsSelector(string $selector, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $results = Dom::executeQuery($actual, $selector)->count();
-
-        $this->actual($results)->greaterThan(0, $message);
-
-        return $this;
-    }
-
-    /**
-     * Assert that the given string does not contain an element matching the given selector.
-     *
-     * @param string $selector A query $selector for the element to find.
-     * @param string $message  A message to display if the assertion fails.
-     */
-    public function markupNotContainsSelector(string $selector, string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $results = Dom::executeQuery($actual, $selector)->count();
-
-        $this->actual($results)->equals(0, $message);
-
-        return $this;
-    }
-
-    /**
      * Assert an element's contents contain the given string.
      *
      * @param string $contents The string to look for within the DOM node's contents.
@@ -266,38 +234,6 @@ trait CustomTrait
         $matchedElements = Dom::getInnerHtmlOfMatchedElements($actual, $selector);
 
         $this->actual($matchedElements)->doesNotMatchRegularExpression($regexp, $message);
-
-        return $this;
-    }
-
-    /**
-     * Assert that an element with the given attributes exists in the given markup.
-     *
-     * @param array  $attributes An array of HTML attributes that should be found on the element.
-     * @param string $message    A message to display if the assertion fails.
-     */
-    public function markupHasElementWithAttributes(array $attributes = [], string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $attributes = '*'.Dom::flattenAttributeArray($attributes);
-
-        $this->actual($actual)->markupContainsSelector($attributes, $message);
-
-        return $this;
-    }
-
-    /**
-     * Assert that an element with the given attributes does not exist in the given markup.
-     *
-     * @param array  $attributes An array of HTML attributes that should be found on the element.
-     * @param string $message    A message to display if the assertion fails.
-     */
-    public function markupNotHasElementWithAttributes(array $attributes = [], string $message = ''): self
-    {
-        $actual = Validator::actualValue($this->actual, 'string');
-        $attributes = '*'.Dom::flattenAttributeArray($attributes);
-
-        $this->actual($actual)->markupNotContainsSelector($attributes, $message);
 
         return $this;
     }

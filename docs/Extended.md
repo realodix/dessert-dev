@@ -58,22 +58,6 @@ verify([1, 2, 3])->hasLength(3);
 
 `notHasLength()` is the inverse of this assertion and takes the same arguments.
 
-### markupContainsSelector()
-`markupContainsSelector(string $selector, string $message = '')`
-
-```php
-$content = '
-    <a href="https://example.com" id="my-link" class="link another-class">Example</a>
-';
-
-ass($content)
-    // Should find matching selectors
-    ->markupContainsSelector('#my-link')
-    // Should verify that the given selector does not exist
-    ->and('<span>foo bar</span>')
-        ->markupNotContainsSelector('#my-link');
-```
-
 ### markupElementContains()
 `markupElementContains(string $contents, string $selector = '', string $message = '')`
 
@@ -107,25 +91,6 @@ ass($content)
     ->markupElementRegExp('/[A-Z]+/', '#sidebar')
     // Should use regular expression matching
     ->markupElementNotRegExp('/[0-9-]+/', '#sidebar');
-```
-
-### markupHasElementWithAttributes()
-`markupHasElementWithAttributes(array $attributes = [], string $message = '')`
-
-```php
-$content = '
-    <div data-attr="foo bar baz">
-        <label>Email</label><br><input type="email" value="test@example.com" />
-    </div>
-';
-
-verify($content)
-    // Should find an element with the given attributesSelectorCount
-    ->markupHasElementWithAttributes(['type' => 'email', 'value' => 'test@example.com'])
-    // Should be able to parse spaces in attribute values
-    ->markupHasElementWithAttributes(['data-attr' => 'foo bar baz'])
-    // Should ensure no element has the provided attributes
-    ->markupNotHasElementWithAttributes(['value' => 'foo@bar.com']);
 ```
 
 ### markupSelectorCount()

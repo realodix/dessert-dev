@@ -7,8 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 final class CustomAssertionsTest extends TestCase
 {
-    use CustomAssertionsTestProvider;
-
     public function testHasLength()
     {
         ass([
@@ -76,27 +74,6 @@ final class CustomAssertionsTest extends TestCase
             ->fileNotEqualsStringIgnoringCase('<bar/>');
     }
 
-    /**
-     * @dataProvider markupContainsSelectorProvider
-     */
-    public function testMarkupContainsSelector(string $selector)
-    {
-        // Should pick up multiple instances of a selector
-        ass('<a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contact">Contact</a>')
-            ->markupContainsSelector('a');
-
-        $content = '
-            <a href="https://example.com" id="my-link" class="link another-class">Example</a>
-        ';
-
-        ass($content)
-            // Should find matching selectors
-            ->markupContainsSelector($selector)
-            // Should verify that the given selector does not exist
-            ->and('<span>foo bar</span>')
-                ->markupNotContainsSelector($selector);
-    }
-
     public function testMarkupElementContains()
     {
         $content = '
@@ -137,23 +114,6 @@ final class CustomAssertionsTest extends TestCase
             ->markupElementRegExp('/[A-Z]+/', '#sidebar')
             // Should use regular expression matching
             ->markupElementNotRegExp('/[0-9-]+/', '#sidebar');
-    }
-
-    public function testMarkupHasElementWithAttributes()
-    {
-        $content = '
-            <div data-attr="foo bar baz">
-                <label>Email</label><br><input type="email" value="test@example.com" />
-            </div>
-        ';
-
-        ass($content)
-            // Should find an element with the given attributesSelectorCount
-            ->markupHasElementWithAttributes(['type' => 'email', 'value' => 'test@example.com'])
-            // Should be able to parse spaces in attribute values
-            ->markupHasElementWithAttributes(['data-attr' => 'foo bar baz'])
-            // Should ensure no element has the provided attributes
-            ->markupNotHasElementWithAttributes(['value' => 'foo@bar.com']);
     }
 
     public function testMarkupSelectorCount()

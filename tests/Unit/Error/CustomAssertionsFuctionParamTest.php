@@ -60,22 +60,6 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function markupContainsSelectorActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupContainsSelector('string');
-    }
-
-    /** @test */
-    public function markupNotContainsSelectorActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupNotContainsSelector('string');
-    }
-
-    /** @test */
     public function markupElementContainsActualValue(): void
     {
         $this->expectException($this->error());
@@ -105,22 +89,6 @@ final class CustomAssertionsFuctionParamTest extends TestCase
         $this->expectException($this->error());
 
         ass(true)->markupElementNotRegExp('string');
-    }
-
-    /** @test */
-    public function markupHasElementWithAttributesActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupHasElementWithAttributes(['array']);
-    }
-
-    /** @test */
-    public function markupNotHasElementWithAttributesActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupNotHasElementWithAttributes(['array']);
     }
 
     /** @test */
