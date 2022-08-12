@@ -58,23 +58,6 @@ verify([1, 2, 3])->hasLength(3);
 
 `notHasLength()` is the inverse of this assertion and takes the same arguments.
 
-### markupElementContains()
-`markupElementContains(string $contents, string $selector = '', string $message = '')`
-
-```php
-$content = '
-    <div id="main"><span class="foo">Lorem ipsum</span></div>
-';
-
-ass($content)
-    // Should be able to search for a selector
-    ->markupElementContains('ipsum', '#main')
-    // Should be able to chain multiple selectors
-    ->markupElementContains('ipsum', '#main .foo')
-    // Should be able to search for a selector
-    ->markupElementNotContains('ipsum', '#foo');
-```
-
 ### markupElementRegExp()
 `markupElementRegExp(string $regexp, string $selector = '', string $message = '')`
 

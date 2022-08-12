@@ -60,22 +60,6 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function markupElementContainsActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupElementContains('string');
-    }
-
-    /** @test */
-    public function markupElementNotContainsActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        ass(true)->markupElementNotContains('string');
-    }
-
-    /** @test */
     public function markupElementRegExpActualValue(): void
     {
         $this->expectException($this->error());

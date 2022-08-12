@@ -2,7 +2,6 @@
 
 namespace Realodix\Dessert\Test\Custom;
 
-use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
 
 final class CustomAssertionsTest extends TestCase
@@ -72,32 +71,6 @@ final class CustomAssertionsTest extends TestCase
         ass($xmlFile)
             ->fileEqualsStringIgnoringCase('<FOO/>')
             ->fileNotEqualsStringIgnoringCase('<bar/>');
-    }
-
-    public function testMarkupElementContains()
-    {
-        $content = '
-            <div id="main"><span class="foo">Lorem ipsum</span></div>
-        ';
-
-        ass($content)
-            // Should be able to search for a selector
-            ->markupElementContains('ipsum', '#main')
-            // Should be able to chain multiple selectors
-            ->markupElementContains('ipsum', '#main .foo')
-            // Should be able to search for a selector
-            ->markupElementNotContains('ipsum', '#foo');
-    }
-
-    public function testMarkupElementContainsWithException()
-    {
-        // Should scope text to the selected element
-        $exceptionMsg = 'The #main div does not contain the string "ipsum".';
-        $this->expectException(AssertionFailedError::class);
-        $this->expectExceptionMessage($exceptionMsg);
-
-        ass('<header>Lorem ipsum</header><div id="main">Foo bar baz</div>')
-            ->markupElementContains('ipsum', '#main', $exceptionMsg);
     }
 
     public function testMarkupElementRegExp()
