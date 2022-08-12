@@ -55,18 +55,6 @@ final class PHPUnitShortNameTest extends TestCase
             ->isAtMost(8);   // lessThanOrEqual
     }
 
-    public function testJsonStringToFile(): void
-    {
-        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
-        $jsonString = json_encode(['foo' => 'bar']);
-
-        ass($jsonString)
-            ->jsonStringToFile($jsonFile);
-
-        ass(json_encode(['foo' => 'baz']))
-            ->jsonStringNotToFile($jsonFile);
-    }
-
     public function testJsonStringToString(): void
     {
         $jsonString = json_encode(['foo' => 'bar']);
