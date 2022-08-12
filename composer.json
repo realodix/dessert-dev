@@ -14,7 +14,7 @@
         "vimeo/psalm": "^4.26"
     },
     "require-dev": {
-        "realodix/cs-config": "dev-main"
+        "realodix/relax": "dev-main"
     },
     "autoload": {
         "files": [

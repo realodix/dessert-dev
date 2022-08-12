@@ -1,7 +1,6 @@
 <?php
 
-use Realodix\CsConfig\Config;
-use Realodix\CsConfig\Rules\Realodix;
+use Realodix\Relax\Config;
 
 $localRules = [
     // Realodix
@@ -12,4 +11,4 @@ $localRules = [
     ],
 ];
 
-return Config::create(new Realodix($localRules));
+return Config::create('realodix', $localRules);
