@@ -62,4 +62,4 @@ jobs:
             composer remove vimeo/psalm --dev
             composer require phpunit/phpunit dev-main --with-all-dependencies --ignore-platform-req=php
       - name: Execute tests
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit --migrate-configuration
