@@ -2,8 +2,6 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
          colors="true"
-         cacheDirectory=".phpunit.cache"
-         cacheResultFile=".phpunit.result.cache"
 >
     <testsuites>
         <testsuite name="default">
