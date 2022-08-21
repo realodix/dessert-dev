@@ -62,6 +62,6 @@ jobs:
           # but phpunit/phpunit dev-main requires sebastian/diff ^5.0
           command: |
             composer remove realodix/relax --dev
-            composer require phpunit/phpunit dev-main --with-all-dependencies
+            composer require phpunit/phpunit dev-main
       - name: Execute tests
         run: ./vendor/bin/phpunit --migrate-configuration
