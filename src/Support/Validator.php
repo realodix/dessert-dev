@@ -106,9 +106,9 @@ final class Validator
     }
 
     /**
-     * @throws \InvalidArgumentException
-     *
      * @return mixed
+     *
+     * @throws \InvalidArgumentException
      */
     public static function parameterType(string $types, mixed $value, string $errorName)
     {
