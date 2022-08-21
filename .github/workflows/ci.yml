@@ -61,7 +61,7 @@ jobs:
           # friendsofphp/php-cs-fixer v3.10.0 requires sebastian/diff ^4.0,
           # but phpunit/phpunit dev-main requires sebastian/diff ^5.0
           command: |
-            composer remove realodix/relax
+            composer remove realodix/relax --dev
             composer require phpunit/phpunit dev-main --with-all-dependencies
       - name: Execute tests
         run: ./vendor/bin/phpunit --migrate-configuration
