@@ -85,11 +85,11 @@ trait CustomTrait
      */
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
-        Assert::assertFileExists($this->actual, $message);
+        $actual = Validator::actualValue($this->actual, 'string');
+        Assert::assertFileExists($actual, $message);
 
         $constraint = new IsEqualIgnoringCase($expectedString);
-        Assert::assertThat(file_get_contents($this->actual), $constraint, $message);
+        Assert::assertThat(file_get_contents($actual), $constraint, $message);
 
         return $this;
     }
