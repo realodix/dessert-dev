@@ -12,21 +12,21 @@ trait CustomTrait
 {
     public function stringEquals(string $expected, string $message = ''): self
     {
-        $actual = $this->actual(Validator::actualValue($this->actual, 'string'));
+        Validator::actualValue($this->actual, 'string');
 
         if (Validator::isJson($this->actual)) {
-            $actual->jsonStringEqualsJsonString($expected, $message);
+            $this->jsonStringEqualsJsonString($expected, $message);
 
             return $this;
         }
 
         if (Validator::isXml($this->actual)) {
-            $actual->xmlStringEqualsXmlString($expected, $message);
+            $this->xmlStringEqualsXmlString($expected, $message);
 
             return $this;
         }
 
-        $actual->equals($expected, $message);
+        $this->equals($expected, $message);
 
         return $this;
     }
