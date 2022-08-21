@@ -33,14 +33,6 @@ class Assertion
     }
 
     /**
-     * Creates a new expectation.
-     */
-    private function actual(mixed $actual): Assertion
-    {
-        return new self($actual);
-    }
-
-    /**
      * Creates an expectation on each item of the iterable "value".
      */
     public function each(callable $callback = null): Each
