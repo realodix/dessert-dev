@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
-  <file src="src/Assertion.php">
-    <ArgumentTypeCoercion occurrences="4">
-      <code>$prefix</code>
-      <code>$prefix</code>
-      <code>$suffix</code>
-      <code>$suffix</code>
-    </ArgumentTypeCoercion>
-  </file>
   <file src="src/Opposite.php">
     <InternalClass occurrences="1"/>
     <InternalMethod occurrences="1"/>
@@ -15,5 +7,12 @@
       <code>Assertion</code>
       <code>Assertion</code>
     </InvalidReturnType>
+  </file>
+  <file src="src/Traits/PHPUnitPolyfillTrait.php">
+    <UndefinedMethod occurrences="3">
+      <code>Assert::assertIsList($this-&gt;actual, $message)</code>
+      <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $this-&gt;actual, $message)</code>
+      <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this-&gt;actual, $message)</code>
+    </UndefinedMethod>
   </file>
 </files>
