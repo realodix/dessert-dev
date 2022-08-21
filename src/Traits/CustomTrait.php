@@ -71,11 +71,11 @@ trait CustomTrait
 
     public function fileNotEqualsString(string $expectedString, string $message = ''): self
     {
-        $actual = Validator::actualValue($this->actual, 'string');
+        Validator::actualValue($this->actual, 'string');
         $constraint = new LogicalNot(new IsEqual($expectedString));
 
-        Assert::assertFileExists($actual, $message);
-        Assert::assertThat(file_get_contents($actual), $constraint, $message);
+        Assert::assertFileExists($this->actual, $message);
+        Assert::assertThat(file_get_contents($this->actual), $constraint, $message);
 
         return $this;
     }
