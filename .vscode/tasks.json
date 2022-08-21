@@ -48,13 +48,13 @@
         {
             "label": "[SA] Psalm",
             "type": "shell",
-            "command": "./vendor/bin/psalm",
+            "command": "psalm",
             "problemMatcher": []
         },
         {
             "label": "[SA] Psalm (baseline)",
             "type": "shell",
-            "command": "./vendor/bin/psalm --set-baseline=psalm-baseline.xml",
+            "command": "psalm --set-baseline=psalm-baseline.xml",
             "problemMatcher": []
         }
     ]

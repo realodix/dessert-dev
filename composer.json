@@ -11,8 +11,7 @@
         "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
-        "realodix/relax": "dev-main",
-        "vimeo/psalm": "^4.26"
+        "realodix/relax": "dev-main"
     },
     "autoload": {
         "files": [
