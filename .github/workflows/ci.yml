@@ -58,7 +58,8 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: |
-            composer require phpunit/phpunit dev-main --update-no-dev --ignore-platform-req=php
+          # friendsofphp/php-cs-fixer v3.10.0 requires sebastian/diff ^4.0,
+          # but phpunit/phpunit dev-main requires sebastian/diff ^5.0
+          command: composer require phpunit/phpunit dev-main --ignore-platform-req=php --update-no-dev
       - name: Execute tests
         run: ./vendor/bin/phpunit --migrate-configuration
