@@ -7,7 +7,7 @@
     "authors": [{"name": "Budi Hermawan", "role": "Developer" }],
     "require": {
         "php": "^8.0",
-        "phpunit/phpunit": "^9.5|^10.0-dev",
+        "phpunit/phpunit": "^9.5",
         "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
@@ -30,7 +30,7 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "config": {
         "sort-packages": true
     },
