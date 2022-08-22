@@ -31,12 +31,7 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: |
-            if ${{ matrix.php-version <= 8.0 }}; then
-              composer update --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
-            else
-              composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
-            fi
+          command: composer update --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
       - name: Execute tests
         run: ./vendor/bin/phpunit
 
