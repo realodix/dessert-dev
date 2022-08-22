@@ -98,8 +98,8 @@ final class Validator
 
         $errorName = sprintf(
             'Argument #%d of %s() must be %s %s, %s given',
-            $stack[1]['function'],
             $argument,
+            $stack[1]['function'],
             \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
             get_debug_type($value)
