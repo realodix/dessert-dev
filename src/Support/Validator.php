@@ -142,11 +142,10 @@ final class Validator
             return true;
         }
 
-        if (in_array('iterable', $allowedTypes) && is_iterable($value)) {
-            return true;
-        }
-
-        if (in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
+        if (
+            in_array('iterable', $allowedTypes) && is_iterable($value)
+            || in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess
+        ) {
             return true;
         }
 
