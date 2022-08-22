@@ -67,10 +67,7 @@ class Assertion
         return $this;
     }
 
-    /**
-     * @param null|mixed $value
-     */
-    public function arrayNotHasKey(int|string $key, $value = null, string $message = ''): self
+    public function arrayNotHasKey(int|string $key, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array|ArrayAccess');
 
