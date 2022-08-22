@@ -132,7 +132,7 @@ final class Validator
      */
     private static function hasType($value, array $allowedTypes): bool
     {
-        $type = gettype($value);
+        $type = in_array('object', $allowedTypes) ? gettype($value) : get_debug_type($value);
 
         if (in_array($type, $allowedTypes)) {
             return true;

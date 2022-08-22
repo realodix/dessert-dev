@@ -2,6 +2,8 @@
 
 namespace Realodix\Dessert\Traits;
 
+use Realodix\Dessert\Support\Validator;
+
 trait PHPUnitShortNameTrait
 {
     public function dirExists(string $message = ''): self
@@ -103,6 +105,8 @@ trait PHPUnitShortNameTrait
      */
     public function hasKey($key, string $message = ''): self
     {
+        Validator::expectedValue($key, 'int|string');
+
         return $this->arrayHasKey($key, $message);
     }
 
@@ -111,6 +115,8 @@ trait PHPUnitShortNameTrait
      */
     public function notHasKey($key, string $message = ''): self
     {
+        Validator::expectedValue($key, 'int|string');
+
         return $this->arrayNotHasKey($key, $message);
     }
 

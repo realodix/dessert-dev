@@ -75,6 +75,7 @@ class Assertion
     public function arrayHasKey($key, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array|ArrayAccess');
+        Validator::expectedValue($key, 'int|string');
 
         Assert::assertArrayHasKey($key, $this->actual, $message);
 
@@ -87,6 +88,7 @@ class Assertion
     public function arrayNotHasKey($key, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array|ArrayAccess');
+        Validator::expectedValue($key, 'int|string');
 
         Assert::assertArrayNotHasKey($key, $this->actual, $message);
 
@@ -939,6 +941,7 @@ class Assertion
     public function sameSize($expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
+        Validator::expectedValue($expected, '\Countable|iterable');
 
         Assert::assertSameSize($expected, $this->actual, $message);
 
@@ -951,6 +954,7 @@ class Assertion
     public function notSameSize($expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
+        Validator::expectedValue($expected, '\Countable|iterable');
 
         Assert::assertNotSameSize($expected, $this->actual, $message);
 

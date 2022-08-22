@@ -8,6 +8,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "phpunit/phpunit": "^9.5",
+        "symfony/polyfill-php80": "^1.26",
         "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
