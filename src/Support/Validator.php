@@ -94,8 +94,8 @@ final class Validator
 
         $errorName = sprintf(
             'Argument #%d of %s() must be %s %s, %s given',
-            $stack[1]['function'],
             $argument,
+            $stack[1]['function'],
             \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
             get_debug_type($value)
@@ -123,7 +123,7 @@ final class Validator
 
     private static function hasType(mixed $value, array $allowedTypes): bool
     {
-        $type = gettype($value);
+        $type = in_array('object', $allowedTypes) ? gettype($value) : get_debug_type($value);
 
         if (in_array($type, $allowedTypes)) {
             return true;
@@ -133,11 +133,10 @@ final class Validator
             return true;
         }
 
-        if (in_array('iterable', $allowedTypes) && is_iterable($value)) {
-            return true;
-        }
-
-        if (in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
+        if (
+            in_array('iterable', $allowedTypes) && is_iterable($value)
+            || in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess
+        ) {
             return true;
         }
 
