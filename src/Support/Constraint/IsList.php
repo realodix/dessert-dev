@@ -28,8 +28,10 @@ final class IsList extends Constraint
     /**
      * Evaluates the constraint for parameter $other. Returns true if the
      * constraint is met, false otherwise.
+     *
+     * @param mixed $other
      */
-    protected function matches(mixed $other): bool
+    protected function matches($other): bool
     {
         if (! \is_array($other)) {
             return false;
@@ -44,8 +46,10 @@ final class IsList extends Constraint
      *
      * The beginning of failure messages is "Failed asserting that" in most
      * cases. This method should return the second part of that sentence.
+     *
+     * @param mixed $other
      */
-    protected function failureDescription(mixed $other): string
+    protected function failureDescription($other): string
     {
         return 'an array '.$this->toString();
     }

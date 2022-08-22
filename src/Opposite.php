@@ -52,7 +52,7 @@ final class Opposite
     {
         $exporter = new Exporter;
 
-        $toString = function (mixed $argument) use ($exporter): string {
+        $toString = function ($argument) use ($exporter): string {
             return $exporter->shortenedExport($argument);
         };
 

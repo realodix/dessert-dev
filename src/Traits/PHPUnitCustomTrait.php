@@ -7,7 +7,10 @@ use Realodix\Dessert\Support\Validator;
 
 trait PHPUnitCustomTrait
 {
-    public function contains(mixed $needle, string $message = ''): self
+    /**
+     * @param mixed $needle
+     */
+    public function contains($needle, string $message = ''): self
     {
         $haystack = $this->actual;
 
@@ -22,7 +25,10 @@ trait PHPUnitCustomTrait
         return $this;
     }
 
-    public function notContains(mixed $needle, string $message = ''): self
+    /**
+     * @param mixed $needle
+     */
+    public function notContains($needle, string $message = ''): self
     {
         $haystack = $this->actual;
 

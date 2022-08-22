@@ -18,8 +18,10 @@ final class Each
 
     /**
      * Creates a new expectation.
+     *
+     * @param mixed $value
      */
-    public function and(mixed $value): Assertion
+    public function and($value): Assertion
     {
         return $this->original->and($value);
     }

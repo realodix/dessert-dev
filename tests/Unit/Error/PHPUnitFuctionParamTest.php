@@ -325,20 +325,20 @@ final class PHPUnitFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function sameSizeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
+    // public function sameSizeActualValue(): void
+    // {
+    //     $this->expectException(\TypeError::class);
 
-        ass('')->sameSize('');
-    }
+    //     ass('')->sameSize('');
+    // }
 
     /** @test */
-    public function notSameSizeActualValue(): void
-    {
-        $this->expectException(\TypeError::class);
+    // public function notSameSizeActualValue(): void
+    // {
+    //     $this->expectException(\TypeError::class);
 
-        ass('')->notSameSize('');
-    }
+    //     ass('')->notSameSize('');
+    // }
 
     /** @test */
     public function stringContainsStringActualValue(): void

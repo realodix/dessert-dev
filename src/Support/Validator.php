@@ -56,9 +56,11 @@ final class Validator
     /**
      * Determines whether the actual value given is valid or invalid
      *
+     * @param mixed $value
+     *
      * @return mixed
      */
-    public static function actualValue(mixed $value, string $expectedType)
+    public static function actualValue($value, string $expectedType)
     {
         $stack = debug_backtrace();
         $typeGiven = str_replace('_', ' or ', $expectedType);
@@ -81,9 +83,11 @@ final class Validator
     /**
      * Determines whether the expected value given is valid or invalid
      *
+     * @param mixed $value
+     *
      * @return mixed
      */
-    public static function expectedValue(mixed $value, string $expectedType, int $argument = 1)
+    public static function expectedValue($value, string $expectedType, int $argument = 1)
     {
         $stack = debug_backtrace();
         $typeGiven = $expectedType;
@@ -106,11 +110,13 @@ final class Validator
     }
 
     /**
+     * @param mixed $value
+     *
      * @return mixed
      *
      * @throws \InvalidArgumentException
      */
-    public static function parameterType(string $types, mixed $value, string $errorName)
+    public static function parameterType(string $types, $value, string $errorName)
     {
         $types = explode('|', $types);
 
@@ -121,7 +127,10 @@ final class Validator
         return $value;
     }
 
-    private static function hasType(mixed $value, array $allowedTypes): bool
+    /**
+     * @param mixed $value
+     */
+    private static function hasType($value, array $allowedTypes): bool
     {
         $type = gettype($value);
 

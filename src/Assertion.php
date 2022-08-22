@@ -12,8 +12,17 @@ class Assertion
     use Traits\PHPUnitCustomTrait;
     use Traits\CustomTrait;
 
-    public function __construct(public mixed $actual)
+    /**
+     * @var mixed
+     */
+    public $actual;
+
+    /**
+     * @param mixed $actual
+     */
+    public function __construct($actual)
     {
+        $this->actual = $actual;
     }
 
     /**
@@ -26,8 +35,10 @@ class Assertion
 
     /**
      * Creates a new expectation.
+     *
+     * @param mixed $actual
      */
-    public function and(mixed $actual): Assertion
+    public function and($actual): Assertion
     {
         return new self($actual);
     }
@@ -58,7 +69,10 @@ class Assertion
         return new Opposite($this);
     }
 
-    public function arrayHasKey(int|string $key, string $message = ''): self
+    /**
+     * @param int|string $key
+     */
+    public function arrayHasKey($key, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array|ArrayAccess');
 
@@ -67,7 +81,10 @@ class Assertion
         return $this;
     }
 
-    public function arrayNotHasKey(int|string $key, string $message = ''): self
+    /**
+     * @param int|string $key
+     */
+    public function arrayNotHasKey($key, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array|ArrayAccess');
 
@@ -112,7 +129,10 @@ class Assertion
         return $this;
     }
 
-    public function containsEquals(mixed $needle, string $message = ''): self
+    /**
+     * @param mixed $needle
+     */
+    public function containsEquals($needle, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'iterable');
 
@@ -121,7 +141,10 @@ class Assertion
         return $this;
     }
 
-    public function notContainsEquals(mixed $needle, string $message = ''): self
+    /**
+     * @param mixed $needle
+     */
+    public function notContainsEquals($needle, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'iterable');
 
@@ -243,56 +266,80 @@ class Assertion
         return $this;
     }
 
-    public function equals(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function equals($expected, string $message = ''): self
     {
         Assert::assertEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notEquals(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function notEquals($expected, string $message = ''): self
     {
         Assert::assertNotEquals($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function equalsCanonicalizing(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function equalsCanonicalizing($expected, string $message = ''): self
     {
         Assert::assertEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notEqualsCanonicalizing(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function notEqualsCanonicalizing($expected, string $message = ''): self
     {
         Assert::assertNotEqualsCanonicalizing($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function equalsIgnoringCase(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function equalsIgnoringCase($expected, string $message = ''): self
     {
         Assert::assertEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notEqualsIgnoringCase(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function notEqualsIgnoringCase($expected, string $message = ''): self
     {
         Assert::assertNotEqualsIgnoringCase($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function equalsWithDelta(mixed $expected, float $delta, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function equalsWithDelta($expected, float $delta, string $message = ''): self
     {
         Assert::assertEqualsWithDelta($expected, $this->actual, $delta, $message);
 
         return $this;
     }
 
-    public function notEqualsWithDelta(mixed $expected, float $delta, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function notEqualsWithDelta($expected, float $delta, string $message = ''): self
     {
         Assert::assertNotEqualsWithDelta($expected, $this->actual, $delta, $message);
 
@@ -466,28 +513,40 @@ class Assertion
         return $this;
     }
 
-    public function greaterThan(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function greaterThan($expected, string $message = ''): self
     {
         Assert::assertGreaterThan($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function greaterThanOrEqual(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function greaterThanOrEqual($expected, string $message = ''): self
     {
         Assert::assertGreaterThanOrEqual($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function lessThan(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function lessThan($expected, string $message = ''): self
     {
         Assert::assertLessThan($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function lessThanOrEqual(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function lessThanOrEqual($expected, string $message = ''): self
     {
         Assert::assertLessThanOrEqual($expected, $this->actual, $message);
 
@@ -854,21 +913,30 @@ class Assertion
         return $this;
     }
 
-    public function same(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function same($expected, string $message = ''): self
     {
         Assert::assertSame($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function notSame(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function notSame($expected, string $message = ''): self
     {
         Assert::assertNotSame($expected, $this->actual, $message);
 
         return $this;
     }
 
-    public function sameSize(\Countable|iterable $expected, string $message = ''): self
+    /**
+     * @param \Countable|iterable $expected
+     */
+    public function sameSize($expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
 
@@ -877,7 +945,10 @@ class Assertion
         return $this;
     }
 
-    public function notSameSize(\Countable|iterable $expected, string $message = ''): self
+    /**
+     * @param \Countable|iterable $expected
+     */
+    public function notSameSize($expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
 

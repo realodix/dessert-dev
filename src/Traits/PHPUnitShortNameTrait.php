@@ -34,52 +34,82 @@ trait PHPUnitShortNameTrait
         return $this->directoryIsNotWritable($message);
     }
 
-    public function greater(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function greater($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
     }
 
-    public function isAbove(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function isAbove($expected, string $message = ''): self
     {
         return $this->greaterThan($expected, $message);
     }
 
-    public function less(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function less($expected, string $message = ''): self
     {
         return $this->lessThan($expected, $message);
     }
 
-    public function isBelow(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function isBelow($expected, string $message = ''): self
     {
         return $this->lessThan($expected, $message);
     }
 
-    public function greaterOrEqual(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function greaterOrEqual($expected, string $message = ''): self
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
 
-    public function isAtLeast(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function isAtLeast($expected, string $message = ''): self
     {
         return $this->greaterThanOrEqual($expected, $message);
     }
 
-    public function lessOrEqual(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function lessOrEqual($expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
 
-    public function isAtMost(mixed $expected, string $message = ''): self
+    /**
+     * @param mixed $expected
+     */
+    public function isAtMost($expected, string $message = ''): self
     {
         return $this->lessThanOrEqual($expected, $message);
     }
 
-    public function hasKey(int|string $key, string $message = ''): self
+    /**
+     * @param int|string $key
+     */
+    public function hasKey($key, string $message = ''): self
     {
         return $this->arrayHasKey($key, $message);
     }
 
-    public function notHasKey(int|string $key, string $message = ''): self
+    /**
+     * @param int|string $key
+     */
+    public function notHasKey($key, string $message = ''): self
     {
         return $this->arrayNotHasKey($key, $message);
     }
