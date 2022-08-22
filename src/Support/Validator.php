@@ -134,18 +134,10 @@ final class Validator
     {
         $type = in_array('object', $allowedTypes) ? gettype($value) : get_debug_type($value);
 
-        if (in_array($type, $allowedTypes)) {
-            return true;
-        }
-
-        if (in_array('class', $allowedTypes) && (class_exists($value) || interface_exists($value))) {
-            return true;
-        }
-
-        if (
-            in_array('iterable', $allowedTypes) && is_iterable($value)
-            || in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess
-        ) {
+        if (in_array($type, $allowedTypes)
+            || in_array('class', $allowedTypes) && (class_exists($value) || interface_exists($value))
+            || in_array('iterable', $allowedTypes) && is_iterable($value)
+            || in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
             return true;
         }
 
