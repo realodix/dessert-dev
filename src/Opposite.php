@@ -10,11 +10,15 @@ use SebastianBergmann\Exporter\Exporter;
  */
 final class Opposite
 {
+    /** @var Assertion */
+    private $original;
+
     /**
      * Creates a new opposite expectation.
      */
-    public function __construct(private Assertion $original)
+    public function __construct(Assertion $original)
     {
+        $this->original = $original;
     }
 
     /**
@@ -24,7 +28,7 @@ final class Opposite
     {
         try {
             $this->original->{$name}(...$arguments);
-        } catch (ExpectationFailedException) {
+        } catch (ExpectationFailedException $e) {
             return $this->original;
         }
 
@@ -38,7 +42,7 @@ final class Opposite
     {
         try {
             $this->original->{$name};
-        } catch (ExpectationFailedException) {
+        } catch (ExpectationFailedException $e) {
             return $this->original;
         }
 

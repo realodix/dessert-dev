@@ -7,13 +7,18 @@ namespace Realodix\Dessert;
  */
 final class Each
 {
-    private bool $opposite = false;
+    /** @var Assertion */
+    private $original;
+
+    /** @var bool */
+    private $opposite = false;
 
     /**
      * Creates an expectation on each item of the iterable "value".
      */
-    public function __construct(private Assertion $original)
+    public function __construct(Assertion $original)
     {
+        $this->original = $original;
     }
 
     /**
