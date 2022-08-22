@@ -68,7 +68,7 @@ class Assertion
     }
 
     /**
-     * @param null|mixed $value
+     * @param mixed $value
      */
     public function arrayNotHasKey(int|string $key, $value = null, string $message = ''): self
     {
