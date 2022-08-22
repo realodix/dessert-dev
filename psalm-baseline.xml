@@ -7,6 +7,9 @@
       <code>Assertion</code>
       <code>Assertion</code>
     </InvalidReturnType>
+    <MissingClosureParamType occurrences="1">
+      <code>$argument</code>
+    </MissingClosureParamType>
   </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <UndefinedMethod occurrences="3">
