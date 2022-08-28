@@ -80,6 +80,7 @@ class Type
 
         return ($type == $allowedTypes)
             || is_object($value) && $value instanceof $allowedTypes
+            || ('class' == $allowedTypes) && (class_exists($value) || interface_exists($value))
             || ('callable' == $allowedTypes) && is_callable($value)
             || ('scalar' == $allowedTypes) && is_scalar($value)
             // Array
@@ -99,7 +100,7 @@ class Type
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
      * merukan format yang valid.
      *
-     * @throws \Realodix\Assert\\InvalidArgumentException
+     * @throws \Realodix\Assert\InvalidArgumentException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {

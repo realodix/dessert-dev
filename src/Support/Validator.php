@@ -75,7 +75,7 @@ final class Validator
             get_debug_type($value)
         );
 
-        return self::parameterType($expectedType, $value, $errorName);
+        return Type::isType($expectedType, $value, $errorName);
     }
 
     /**
@@ -102,45 +102,6 @@ final class Validator
         );
 
         // Argument #1 of PHPUnit\Framework\Assert::assertNotInstanceOf() must be a class or interface name
-        return self::parameterType($expectedType, $value, $errorName);
-    }
-
-    /**
-     * @return mixed
-     *
-     * @throws \InvalidArgumentException
-     */
-    public static function parameterType(string $types, mixed $value, string $errorName)
-    {
-        $types = explode('|', $types);
-
-        if (! self::hasType($value, $types)) {
-            throw new \InvalidArgumentException($errorName);
-        }
-
-        return $value;
-    }
-
-    private static function hasType(mixed $value, array $allowedTypes): bool
-    {
-        $type = in_array('object', $allowedTypes) ? gettype($value) : get_debug_type($value);
-
-        if (in_array($type, $allowedTypes)
-            || in_array('class', $allowedTypes) && (class_exists($value) || interface_exists($value))
-            || in_array('iterable', $allowedTypes) && is_iterable($value)
-            || in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
-            return true;
-        }
-
-        if (
-            in_array('Countable', $allowedTypes)
-            && $value instanceof \Countable
-            && $value instanceof \ResourceBundle
-            && $value instanceof \SimpleXMLElement
-        ) {
-            return true;
-        }
-
-        return false;
+        return Type::isType($expectedType, $value, $errorName);
     }
 }
