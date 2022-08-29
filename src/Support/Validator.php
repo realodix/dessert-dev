@@ -63,10 +63,6 @@ final class Validator
         $stack = debug_backtrace();
         $typeGiven = str_replace('_', ' or ', $expectedType);
 
-        if ($expectedType === 'class') {
-            $typeGiven = 'class name';
-        }
-
         $errorName = sprintf(
             '%s(): Actual value must be of type %s %s, %s given.',
             $stack[1]['function'],
@@ -87,10 +83,6 @@ final class Validator
     {
         $stack = debug_backtrace();
         $typeGiven = $expectedType;
-
-        if ($expectedType === 'class') {
-            $typeGiven = 'class or interface name';
-        }
 
         $errorName = sprintf(
             'Argument #%d of %s() must be %s %s, %s given',

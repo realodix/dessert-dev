@@ -80,7 +80,6 @@ class Type
 
         return ($type == $allowedTypes)
             || is_object($value) && $value instanceof $allowedTypes
-            || ('class' == $allowedTypes) && (class_exists($value) || interface_exists($value))
             || ('callable' == $allowedTypes) && is_callable($value)
             || ('scalar' == $allowedTypes) && is_scalar($value)
             // Array

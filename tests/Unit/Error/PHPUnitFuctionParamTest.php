@@ -219,6 +219,7 @@ final class PHPUnitFuctionParamTest extends TestCase
 
         ass('')->instanceOf(fooBar::class);
     }
+
     /** @test */
     public function notInstanceOfExpectedValue(): void
     {
