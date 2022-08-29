@@ -213,6 +213,21 @@ final class PHPUnitFuctionParamTest extends TestCase
     }
 
     /** @test */
+    public function instanceOfExpectedValue(): void
+    {
+        $this->expectException($this->error());
+
+        ass('')->instanceOf(fooBar::class);
+    }
+    /** @test */
+    public function notInstanceOfExpectedValue(): void
+    {
+        $this->expectException($this->error());
+
+        ass('')->notInstanceOf(fooBar::class);
+    }
+
+    /** @test */
     public function isReadableActualValue(): void
     {
         $this->expectException($this->error());
@@ -327,17 +342,17 @@ final class PHPUnitFuctionParamTest extends TestCase
     /** @test */
     public function sameSizeActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
-        ass('')->sameSize('');
+        ass('')->sameSize([1]);
     }
 
     /** @test */
     public function notSameSizeActualValue(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException($this->error());
 
-        ass('')->notSameSize('');
+        ass('')->notSameSize([1]);
     }
 
     /** @test */
