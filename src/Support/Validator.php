@@ -79,33 +79,6 @@ final class Validator
     }
 
     /**
-     * Determines whether the expected value given is valid or invalid
-     *
-     * @return mixed
-     */
-    public static function expectedValue(mixed $value, string $expectedType, int $argument = 1)
-    {
-        $stack = debug_backtrace();
-        $typeGiven = $expectedType;
-
-        if ($expectedType === 'class') {
-            $typeGiven = 'class or interface name';
-        }
-
-        $errorName = sprintf(
-            'Argument #%d of %s() must be %s %s, %s given',
-            $argument,
-            $stack[1]['function'],
-            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-            $typeGiven,
-            get_debug_type($value)
-        );
-
-        // Argument #1 of PHPUnit\Framework\Assert::assertNotInstanceOf() must be a class or interface name
-        return self::parameterType($expectedType, $value, $errorName);
-    }
-
-    /**
      * @return mixed
      *
      * @throws \InvalidArgumentException
@@ -126,7 +99,6 @@ final class Validator
         $type = in_array('object', $allowedTypes) ? gettype($value) : get_debug_type($value);
 
         if (in_array($type, $allowedTypes)
-            || in_array('class', $allowedTypes) && (class_exists($value) || interface_exists($value))
             || in_array('iterable', $allowedTypes) && is_iterable($value)
             || in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
             return true;
