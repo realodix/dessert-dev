@@ -496,7 +496,12 @@ class Assertion
 
     public function instanceOf(string $expected, string $message = ''): self
     {
-        $expected = Validator::expectedValue($expected, 'class');
+        if (! class_exists($expected) && ! interface_exists($expected)) {
+            throw new \InvalidArgumentException(sprintf(
+                'Class or interface "%s" does not exist',
+                $expected
+            ));
+        }
 
         Assert::assertInstanceOf($expected, $this->actual, $message);
 
@@ -505,7 +510,12 @@ class Assertion
 
     public function notInstanceOf(string $expected, string $message = ''): self
     {
-        $expected = Validator::expectedValue($expected, 'class');
+        if (! class_exists($expected) && ! interface_exists($expected)) {
+            throw new \InvalidArgumentException(sprintf(
+                'Class or interface "%s" does not exist',
+                $expected
+            ));
+        }
 
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
 
