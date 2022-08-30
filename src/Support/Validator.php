@@ -93,7 +93,6 @@ final class Validator
             get_debug_type($value)
         );
 
-        // Argument #1 of PHPUnit\Framework\Assert::assertNotInstanceOf() must be a class or interface name
         return Type::isType($expectedType, $value, $errorName);
     }
 }
