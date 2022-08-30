@@ -68,7 +68,7 @@ final class Validator
             $stack[1]['function'],
             \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($value)
+            get_debug_type($value) // symfony/polyfill-php80
         );
 
         return Type::isType($expectedType, $value, $errorName);
@@ -90,7 +90,7 @@ final class Validator
             $stack[1]['function'],
             \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($value)
+            get_debug_type($value) // symfony/polyfill-php80
         );
 
         return Type::isType($expectedType, $value, $errorName);
