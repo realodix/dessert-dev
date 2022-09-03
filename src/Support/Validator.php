@@ -63,56 +63,35 @@ final class Validator
         $stack = debug_backtrace();
         $typeGiven = str_replace('_', ' or ', $expectedType);
 
-        if ($expectedType === 'class') {
-            $typeGiven = 'class name';
-        }
-
         $errorName = sprintf(
             '%s(): Actual value must be of type %s %s, %s given.',
             $stack[1]['function'],
             \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
             $typeGiven,
-            get_debug_type($value)
+            get_debug_type($value) // symfony/polyfill-php80
         );
 
-        return self::parameterType($expectedType, $value, $errorName);
+        return Type::is($expectedType, $value, $errorName);
     }
 
     /**
-     * @return mixed
+     * Determines whether the expected value given is valid or invalid
      *
-     * @throws \InvalidArgumentException
+     * @return mixed
      */
-    public static function parameterType(string $types, mixed $value, string $errorName)
+    public static function expectedValue(mixed $value, string $expectedType, int $argument = 1)
     {
-        $types = explode('|', $types);
+        $stack = debug_backtrace();
 
-        if (! self::hasType($value, $types)) {
-            throw new \InvalidArgumentException($errorName);
-        }
+        $errorName = sprintf(
+            'Argument #%d of %s() must be %s %s, %s given',
+            $argument,
+            $stack[1]['function'],
+            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+            $expectedType,
+            get_debug_type($value) // symfony/polyfill-php80
+        );
 
-        return $value;
-    }
-
-    private static function hasType(mixed $value, array $allowedTypes): bool
-    {
-        $type = in_array('object', $allowedTypes) ? gettype($value) : get_debug_type($value);
-
-        if (in_array($type, $allowedTypes)
-            || in_array('iterable', $allowedTypes) && is_iterable($value)
-            || in_array('ArrayAccess', $allowedTypes) && $value instanceof \ArrayAccess) {
-            return true;
-        }
-
-        if (
-            in_array('Countable', $allowedTypes)
-            && $value instanceof \Countable
-            && $value instanceof \ResourceBundle
-            && $value instanceof \SimpleXMLElement
-        ) {
-            return true;
-        }
-
-        return false;
+        return Type::is($expectedType, $value, $errorName);
     }
 }
