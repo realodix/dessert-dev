@@ -79,9 +79,11 @@ final class Validator
     /**
      * Determines whether the expected value given is valid or invalid
      *
+     * @param mixed $value
+     *
      * @return mixed
      */
-    public static function expectedValue(mixed $value, string $expectedType, int $argument = 1)
+    public static function expectedValue($value, string $expectedType, int $argument = 1)
     {
         $stack = debug_backtrace();
 
