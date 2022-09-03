@@ -951,7 +951,7 @@ class Assertion
     public function sameSize($expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
-        Validator::expectedValue($expected, '\Countable|iterable');
+        Validator::expectedValue($expected, 'countable|iterable');
 
         Assert::assertSameSize($expected, $this->actual, $message);
 
@@ -964,7 +964,7 @@ class Assertion
     public function notSameSize($expected, string $message = ''): self
     {
         Validator::actualValue($this->actual, 'array');
-        Validator::expectedValue($expected, '\Countable|iterable');
+        Validator::expectedValue($expected, 'countable|iterable');
 
         Assert::assertNotSameSize($expected, $this->actual, $message);
 
