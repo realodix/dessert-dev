@@ -82,14 +82,13 @@ final class Validator
     public static function expectedValue(mixed $value, string $expectedType, int $argument = 1)
     {
         $stack = debug_backtrace();
-        $typeGiven = $expectedType;
 
         $errorName = sprintf(
             'Argument #%d of %s() must be %s %s, %s given',
             $argument,
             $stack[1]['function'],
             \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-            $typeGiven,
+            $expectedType,
             get_debug_type($value) // symfony/polyfill-php80
         );
 
