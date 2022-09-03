@@ -71,7 +71,7 @@ final class Validator
             get_debug_type($value) // symfony/polyfill-php80
         );
 
-        return Type::isType($expectedType, $value, $errorName);
+        return Type::is($expectedType, $value, $errorName);
     }
 
     /**
@@ -93,6 +93,6 @@ final class Validator
             get_debug_type($value) // symfony/polyfill-php80
         );
 
-        return Type::isType($expectedType, $value, $errorName);
+        return Type::is($expectedType, $value, $errorName);
     }
 }

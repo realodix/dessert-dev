@@ -15,7 +15,7 @@ class Type
      * @throws InvalidArgumentException if $value is not of type (or, for objects, is not an
      *                                  instance of) $type.
      */
-    public static function isType(string $types, $value, string $message = ''): void
+    public static function is(string $types, $value, string $message = ''): void
     {
         self::assertTypeFormatDeclaration($types);
 
