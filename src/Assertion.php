@@ -946,7 +946,7 @@ class Assertion
     }
 
     /**
-     * @param \Countable|iterable $expected
+     * @param countable|iterable $expected
      */
     public function sameSize($expected, string $message = ''): self
     {
@@ -959,7 +959,7 @@ class Assertion
     }
 
     /**
-     * @param \Countable|iterable $expected
+     * @param countable|iterable $expected
      */
     public function notSameSize($expected, string $message = ''): self
     {
