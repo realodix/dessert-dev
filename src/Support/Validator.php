@@ -9,26 +9,26 @@ final class Validator
 {
     /**
      * Check if a string is valid JSON
+     *
+     * @psalm-suppress UnusedFunctionCall @json_decode()
      */
-    public static function isJson(string $value): bool
+    public static function isJson(string $data): bool
     {
-        if ($value === '') {
-            return false;
+        if (! empty($data)) {
+            @json_decode($data);
+
+            return json_last_error() === JSON_ERROR_NONE;
         }
 
-        json_decode($value);
-
-        if (json_last_error()) {
-            return false;
-        }
-
-        return true;
+        return false;
     }
 
     /**
      * Check if a string is valid XML
      * - https://stackoverflow.com/a/31240779/2732184
      * - https://github.com/mtvbrianking/laravel-xml/blob/master/src/Support/XmlValidator.php
+     *
+     * @psalm-suppress UnusedFunctionCall simplexml_load_string()
      */
     public static function isXml(string $xml): bool
     {
