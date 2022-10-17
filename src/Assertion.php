@@ -572,7 +572,7 @@ class Assertion
             throw new InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
                 $expected
-            ));
+            ), true);
         }
 
         Assert::assertInstanceOf($expected, $this->actual, $message);
@@ -586,7 +586,7 @@ class Assertion
             throw new InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
                 $expected
-            ));
+            ), true);
         }
 
         Assert::assertNotInstanceOf($expected, $this->actual, $message);
