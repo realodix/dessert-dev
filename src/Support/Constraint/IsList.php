@@ -13,6 +13,7 @@ use PHPUnit\Framework\Constraint\Constraint;
  * - https://github.com/sebastianbergmann/phpunit/commit/e04a947baf8d9b800ac8a1223f3be0f090cacf3e
  *
  * @internal
+ *
  * @codeCoverageIgnore
  */
 final class IsList extends Constraint
