@@ -6,15 +6,15 @@ on:
 
 jobs:
   build:
-    name: PHP ${{ matrix.php-version }} (${{ matrix.stability }})
+    name: PHP ${{ matrix.php-version }}_${{ matrix.stability }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.0', '8.1']
+        php-version: ['8.0', '8.1', '8.2']
         stability: [lowest, stable]
         include:
-          - php-version: '8.2'
+          - php-version: '8.3'
             stability: stable
             flags: "--ignore-platform-req=php"
 

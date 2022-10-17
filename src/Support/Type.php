@@ -12,8 +12,8 @@ class Type
      *                      type or a class or interface, or a list of such names.
      * @param mixed  $value The parameter's actual value.
      *
-     * @throws InvalidArgumentException if $value is not of type (or, for objects, is not an
-     *                                  instance of) $type.
+     * @throws \InvalidArgumentException if $value is not of type (or, for objects, is not an
+     *                                   instance of) $type.
      */
     public static function is(string $types, $value, string $message = ''): void
     {
@@ -73,6 +73,9 @@ class Type
         return false;
     }
 
+    /**
+     * @param mixed $value
+     */
     private static function rules($value, string $allowedTypes): bool
     {
         // Apply strtolower because gettype returns "NULL" for null values.
@@ -99,7 +102,7 @@ class Type
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
      * merukan format yang valid.
      *
-     * @throws \Realodix\Assert\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
