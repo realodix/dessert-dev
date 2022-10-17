@@ -4,7 +4,6 @@ namespace Realodix\Dessert;
 
 use PHPUnit\Framework\Assert;
 use Realodix\Dessert\Exceptions\InvalidActualValue;
-use Realodix\Dessert\Support\Validator;
 
 class Assertion
 {
@@ -182,8 +181,6 @@ class Assertion
 
     public function count(int $expectedCount, string $message = ''): self
     {
-
-
         if (! is_iterable($this->actual) || ! is_countable($this->actual)) {
             throw new InvalidActualValue;
         }
@@ -342,8 +339,6 @@ class Assertion
 
     public function objectEquals(object $expected, string $method = 'equals', string $message = ''): self
     {
-
-
         if (! is_object($this->actual)) {
             throw new InvalidActualValue;
         }
@@ -991,8 +986,6 @@ class Assertion
 
     public function sameSize(\Countable|iterable $expected, string $message = ''): self
     {
-
-
         if (! is_array($this->actual)) {
             throw new InvalidActualValue;
         }
