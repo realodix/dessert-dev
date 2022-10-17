@@ -10,36 +10,36 @@ trait PHPUnitCustomTrait
 {
     public function contains(mixed $needle, string $message = ''): self
     {
-        if (! is_string($this->actual) && ! is_iterable($this->actual)) {
-            throw new InvalidActualValue('string|iterable');
-        }
-
         if (\is_string($needle) && \is_string($this->actual)) {
             Assert::assertStringContainsString($needle, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertContains($needle, $this->actual, $message);
+        if (\is_iterable($this->actual)) {
+            Assert::assertContains($needle, $this->actual, $message);
 
-        return $this;
+            return $this;
+        }
+
+        throw new InvalidActualValue('string|iterable');
     }
 
     public function notContains(mixed $needle, string $message = ''): self
     {
-        if (! is_string($this->actual) && ! is_iterable($this->actual)) {
-            throw new InvalidActualValue('string|iterable');
-        }
-
         if (\is_string($needle) && \is_string($this->actual)) {
             Assert::assertStringNotContainsString($needle, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertNotContains($needle, $this->actual, $message);
+        if (\is_iterable($this->actual)) {
+            Assert::assertNotContains($needle, $this->actual, $message);
 
-        return $this;
+            return $this;
+        }
+
+        throw new InvalidActualValue('string|iterable');
     }
 
     public function stringEqualsFile(string $expectedFile, string $message = ''): self
