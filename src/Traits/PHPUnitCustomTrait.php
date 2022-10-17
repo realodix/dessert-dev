@@ -10,30 +10,34 @@ trait PHPUnitCustomTrait
 {
     public function contains(mixed $needle, string $message = ''): self
     {
-        $haystack = $this->actual;
+        if (! is_string($this->actual) && ! is_iterable($this->actual)) {
+            throw new InvalidActualValue('string|iterable');
+        }
 
-        if (\is_string($haystack)) {
-            Assert::assertStringContainsString($needle, $haystack, $message);
+        if (\is_string($needle) && \is_string($this->actual)) {
+            Assert::assertStringContainsString($needle, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertContains($needle, $haystack, $message);
+        Assert::assertContains($needle, $this->actual, $message);
 
         return $this;
     }
 
     public function notContains(mixed $needle, string $message = ''): self
     {
-        $haystack = $this->actual;
+        if (! is_string($this->actual) && ! is_iterable($this->actual)) {
+            throw new InvalidActualValue('string|iterable');
+        }
 
-        if (\is_string($haystack)) {
-            Assert::assertStringNotContainsString($needle, $haystack, $message);
+        if (\is_string($needle) && \is_string($this->actual)) {
+            Assert::assertStringNotContainsString($needle, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertNotContains($needle, $haystack, $message);
+        Assert::assertNotContains($needle, $this->actual, $message);
 
         return $this;
     }
