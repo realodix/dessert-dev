@@ -5,10 +5,9 @@ namespace Realodix\Dessert\Traits;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\StringContains;
-use PHPUnit\Runner\Version;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 use Realodix\Dessert\Support\Constraint\IsList;
 use Realodix\Dessert\Support\Str;
-use Realodix\Dessert\Support\Validator;
 
 trait PHPUnitPolyfillTrait
 {
@@ -22,15 +21,15 @@ trait PHPUnitPolyfillTrait
      */
     public function isList(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'array');
+        if (! is_array($this->actual)) {
+            throw new InvalidActualValue('array');
+        }
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '10.0', '<')) {
+        if (! \method_exists(Assert::class, 'assertIsList')) {
             Assert::assertThat($this->actual, new IsList, $message);
 
             return $this;
         }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertIsList($this->actual, $message);
 
@@ -47,10 +46,11 @@ trait PHPUnitPolyfillTrait
      */
     public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '10.0', '<')) {
+        if (! \method_exists(Assert::class, 'assertStringContainsStringIgnoringLineEndings')) {
             Assert::assertThat(
                 Str::normalizeLineEndings($this->actual),
                 new StringContains(Str::normalizeLineEndings($needle), false),
@@ -59,7 +59,6 @@ trait PHPUnitPolyfillTrait
 
             return $this;
         }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertStringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
 
@@ -76,10 +75,11 @@ trait PHPUnitPolyfillTrait
      */
     public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '10.0', '<')) {
+        if (! \method_exists(Assert::class, 'assertStringEqualsStringIgnoringLineEndings')) {
             Assert::assertThat(
                 Str::normalizeLineEndings($this->actual),
                 new IsEqual(Str::normalizeLineEndings($expected)),
@@ -88,7 +88,6 @@ trait PHPUnitPolyfillTrait
 
             return $this;
         }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this->actual, $message);
 
