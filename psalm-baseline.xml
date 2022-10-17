@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+  <file src="src/Each.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>Each</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;$name()</code>
+    </MixedReturnStatement>
+  </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
-    <UndefinedMethod occurrences="3">
-      <code>Assert::assertIsList($this-&gt;actual, $message)</code>
+    <UndefinedMethod occurrences="2">
       <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $this-&gt;actual, $message)</code>
       <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this-&gt;actual, $message)</code>
     </UndefinedMethod>

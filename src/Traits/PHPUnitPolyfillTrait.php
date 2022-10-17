@@ -26,13 +26,11 @@ trait PHPUnitPolyfillTrait
             throw new InvalidActualValue('array');
         }
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '10.0', '<')) {
+        if (\method_exists(Assert::class, 'assertIsList') === false) {
             Assert::assertThat($this->actual, new IsList, $message);
 
             return $this;
         }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertIsList($this->actual, $message);
 
