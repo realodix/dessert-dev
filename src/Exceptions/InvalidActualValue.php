@@ -7,7 +7,7 @@ namespace Realodix\Dessert\Exceptions;
  */
 final class InvalidActualValue extends \Exception
 {
-    public function __construct(string $type = '', $customMessage = false)
+    public function __construct(string $type = '', bool $customMessage = false)
     {
         if (! $customMessage) {
             $type = sprintf('Invalid actual value type. Expected %s.', $type);
