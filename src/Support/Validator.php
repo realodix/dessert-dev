@@ -9,8 +9,6 @@ final class Validator
 {
     /**
      * Check if a string is valid JSON
-     *
-     * @psalm-suppress UnusedFunctionCall @json_decode()
      */
     public static function isJson(string $data): bool
     {
@@ -27,8 +25,6 @@ final class Validator
      * Check if a string is valid XML
      * - https://stackoverflow.com/a/31240779/2732184
      * - https://github.com/mtvbrianking/laravel-xml/blob/master/src/Support/XmlValidator.php
-     *
-     * @psalm-suppress UnusedFunctionCall simplexml_load_string()
      */
     public static function isXml(string $xml): bool
     {
