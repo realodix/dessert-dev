@@ -569,7 +569,7 @@ class Assertion
     public function instanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw new \InvalidActualValue(sprintf(
+            throw new InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
                 $expected
             ));
@@ -583,7 +583,7 @@ class Assertion
     public function notInstanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw new \InvalidActualValue(sprintf(
+            throw new InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
                 $expected
             ));
