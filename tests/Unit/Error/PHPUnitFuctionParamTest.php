@@ -3,13 +3,14 @@
 namespace Realodix\Dessert\Test\Error;
 
 use PHPUnit\Framework\TestCase;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitFuctionParamTest extends TestCase
 {
     private function error()
     {
-        return \InvalidArgumentException::class;
+        return InvalidActualValue::class;
     }
 
     /** @test */

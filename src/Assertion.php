@@ -61,7 +61,9 @@ class Assertion
 
     public function arrayHasKey(int|string $key, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'array|ArrayAccess');
+        if (! is_array($this->actual) || ! $this->actual instanceof \ArrayAccess) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertArrayHasKey($key, $this->actual, $message);
 
@@ -70,7 +72,9 @@ class Assertion
 
     public function arrayNotHasKey(int|string $key, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'array|ArrayAccess');
+        if (! is_array($this->actual) || ! $this->actual instanceof \ArrayAccess) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertArrayNotHasKey($key, $this->actual, $message);
 
@@ -123,7 +127,9 @@ class Assertion
 
     public function containsEquals(mixed $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable');
+        if (! is_iterable($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertContainsEquals($needle, $this->actual, $message);
 
@@ -132,7 +138,9 @@ class Assertion
 
     public function notContainsEquals(mixed $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable');
+        if (! is_iterable($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertNotContainsEquals($needle, $this->actual, $message);
 
@@ -141,7 +149,9 @@ class Assertion
 
     public function containsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable');
+        if (! is_iterable($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertContainsOnly($type, $this->actual, $isNativeType, $message);
 
@@ -150,7 +160,9 @@ class Assertion
 
     public function notContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable');
+        if (! is_iterable($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertNotContainsOnly($type, $this->actual, $isNativeType, $message);
 
@@ -159,7 +171,9 @@ class Assertion
 
     public function containsOnlyInstancesOf(string $className, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable');
+        if (! is_iterable($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertContainsOnlyInstancesOf($className, $this->actual, $message);
 
@@ -168,7 +182,11 @@ class Assertion
 
     public function count(int $expectedCount, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable|Countable');
+
+
+        if (! is_iterable($this->actual) || ! is_countable($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertCount($expectedCount, $this->actual, $message);
 
@@ -177,7 +195,9 @@ class Assertion
 
     public function notCount(int $expectedCount, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'iterable|Countable');
+        if (! is_iterable($this->actual) || ! is_countable($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertNotCount($expectedCount, $this->actual, $message);
 
@@ -322,7 +342,11 @@ class Assertion
 
     public function objectEquals(object $expected, string $method = 'equals', string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'object');
+
+
+        if (! is_object($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertObjectEquals($expected, $this->actual, $method, $message);
 
@@ -550,7 +574,7 @@ class Assertion
     public function instanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw new \InvalidArgumentException(sprintf(
+            throw new \InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
                 $expected
             ));
@@ -564,7 +588,7 @@ class Assertion
     public function notInstanceOf(string $expected, string $message = ''): self
     {
         if (! class_exists($expected) && ! interface_exists($expected)) {
-            throw new \InvalidArgumentException(sprintf(
+            throw new \InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
                 $expected
             ));
@@ -967,7 +991,11 @@ class Assertion
 
     public function sameSize(\Countable|iterable $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'array');
+
+
+        if (! is_array($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertSameSize($expected, $this->actual, $message);
 
@@ -976,7 +1004,9 @@ class Assertion
 
     public function notSameSize(\Countable|iterable $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'array');
+        if (! is_array($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertNotSameSize($expected, $this->actual, $message);
 
