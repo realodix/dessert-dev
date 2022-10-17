@@ -19,6 +19,8 @@ final class Opposite
 
     /**
      * Handle dynamic method calls into the original expectation.
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
      */
     public function __call(string $name, array $arguments): Assertion
     {
@@ -33,6 +35,8 @@ final class Opposite
 
     /**
      * Handle dynamic properties gets into the original expectation.
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
      */
     public function __get(string $name): Assertion
     {
@@ -47,6 +51,8 @@ final class Opposite
 
     /**
      * Creates a new expectation failed exception with a nice readable message.
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
      */
     private function throwExpectationFailedException(string $name, array $arguments = []): void
     {

@@ -73,6 +73,9 @@ class Type
         return false;
     }
 
+    /**
+     * @param mixed $value
+     */
     private static function rules($value, string $allowedTypes): bool
     {
         // Apply strtolower because gettype returns "NULL" for null values.

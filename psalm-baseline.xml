@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+  <file src="src/Opposite.php">
+    <InvalidReturnType occurrences="2">
+      <code>Assertion</code>
+      <code>Assertion</code>
+    </InvalidReturnType>
+  </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <UndefinedMethod occurrences="3">
       <code>Assert::assertIsList($this-&gt;actual, $message)</code>
