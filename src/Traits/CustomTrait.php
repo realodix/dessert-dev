@@ -6,13 +6,16 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 use Realodix\Dessert\Support\Validator;
 
 trait CustomTrait
 {
     public function stringEquals(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
 
         if (Validator::isJson($this->actual)) {
             $this->jsonStringEqualsJsonString($expected, $message);
@@ -33,7 +36,9 @@ trait CustomTrait
 
     public function stringNotEquals(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
 
         if (Validator::isJson($this->actual)) {
             $this->jsonStringNotEqualsJsonString($expected, $message);
@@ -60,7 +65,10 @@ trait CustomTrait
      */
     public function fileEqualsString(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
         $constraint = new IsEqual($expectedString);
 
         Assert::assertFileExists($this->actual, $message);
@@ -71,7 +79,10 @@ trait CustomTrait
 
     public function fileNotEqualsString(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
         $constraint = new LogicalNot(new IsEqual($expectedString));
 
         Assert::assertFileExists($this->actual, $message);
@@ -85,7 +96,10 @@ trait CustomTrait
      */
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
         Assert::assertFileExists($this->actual, $message);
 
         $constraint = new IsEqualIgnoringCase($expectedString);
@@ -96,7 +110,10 @@ trait CustomTrait
 
     public function fileNotEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
         Assert::assertFileExists($this->actual, $message);
 
         $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
@@ -123,18 +140,12 @@ trait CustomTrait
         }
 
         if (\is_object($this->actual)) {
-            if (method_exists($this->actual, 'toArray')) {
-                $array = $this->actual->toArray();
-            } else {
-                $array = (array) $this->actual;
-            }
-
-            Assert::assertCount($number, $array);
+            Assert::assertCount($number, (array) $this->actual);
 
             return $this;
         }
 
-        throw new \BadMethodCallException('Expectation value length is not countable.');
+        throw new InvalidActualValue('Expectation value length is not countable.');
     }
 
     /**
@@ -155,17 +166,11 @@ trait CustomTrait
         }
 
         if (\is_object($this->actual)) {
-            if (method_exists($this->actual, 'toArray')) {
-                $array = $this->actual->toArray();
-            } else {
-                $array = (array) $this->actual;
-            }
-
-            Assert::assertNotCount($number, $array);
+            Assert::assertNotCount($number, (array) $this->actual);
 
             return $this;
         }
 
-        throw new \BadMethodCallException('Expectation value length is not countable.');
+        throw new InvalidActualValue('Expectation value length is not countable.');
     }
 }
