@@ -52,6 +52,8 @@ final class Opposite
     /**
      * Creates a new expectation failed exception with a nice readable message.
      *
+     * @return never
+     *
      * @throws \PHPUnit\Framework\ExpectationFailedException
      */
     private function throwExpectationFailedException(string $name, array $arguments = []): void
