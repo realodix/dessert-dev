@@ -140,13 +140,7 @@ trait CustomTrait
         }
 
         if (\is_object($this->actual)) {
-            if (method_exists($this->actual, 'toArray')) {
-                $array = $this->actual->toArray();
-            } else {
-                $array = (array) $this->actual;
-            }
-
-            Assert::assertCount($number, $array);
+            Assert::assertCount($number, (array) $this->actual);
 
             return $this;
         }
@@ -172,13 +166,7 @@ trait CustomTrait
         }
 
         if (\is_object($this->actual)) {
-            if (method_exists($this->actual, 'toArray')) {
-                $array = $this->actual->toArray();
-            } else {
-                $array = (array) $this->actual;
-            }
-
-            Assert::assertNotCount($number, $array);
+            Assert::assertNotCount($number, (array) $this->actual);
 
             return $this;
         }
