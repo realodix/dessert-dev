@@ -3,8 +3,9 @@
 namespace Realodix\Dessert\Traits;
 
 use PHPUnit\Framework\Assert;
-use Realodix\Dessert\Support\Validator;
 use Realodix\Dessert\Exceptions\InvalidActualValue;
+use Realodix\Dessert\Support\Validator;
+
 trait PHPUnitCustomTrait
 {
     public function contains(mixed $needle, string $message = ''): self

@@ -6,8 +6,9 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
-use Realodix\Dessert\Support\Validator;
 use Realodix\Dessert\Exceptions\InvalidActualValue;
+use Realodix\Dessert\Support\Validator;
+
 trait CustomTrait
 {
     public function stringEquals(string $expected, string $message = ''): self

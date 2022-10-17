@@ -6,10 +6,9 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Runner\Version;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 use Realodix\Dessert\Support\Constraint\IsList;
 use Realodix\Dessert\Support\Str;
-use Realodix\Dessert\Support\Validator;
-use Realodix\Dessert\Exceptions\InvalidActualValue;
 
 trait PHPUnitPolyfillTrait
 {
