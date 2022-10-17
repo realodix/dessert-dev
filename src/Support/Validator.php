@@ -52,46 +52,4 @@ final class Validator
 
         return empty($errors);
     }
-
-    /**
-     * Determines whether the actual value given is valid or invalid
-     *
-     * @return mixed
-     */
-    public static function actualValue(mixed $value, string $expectedType)
-    {
-        $stack = debug_backtrace();
-        $typeGiven = str_replace('_', ' or ', $expectedType);
-
-        $errorName = sprintf(
-            '%s(): Actual value must be of type %s %s, %s given.',
-            $stack[1]['function'],
-            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-            $typeGiven,
-            get_debug_type($value) // symfony/polyfill-php80
-        );
-
-        return Type::is($expectedType, $value, $errorName);
-    }
-
-    /**
-     * Determines whether the expected value given is valid or invalid
-     *
-     * @return mixed
-     */
-    public static function expectedValue(mixed $value, string $expectedType, int $argument = 1)
-    {
-        $stack = debug_backtrace();
-
-        $errorName = sprintf(
-            'Argument #%d of %s() must be %s %s, %s given',
-            $argument,
-            $stack[1]['function'],
-            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-            $expectedType,
-            get_debug_type($value) // symfony/polyfill-php80
-        );
-
-        return Type::is($expectedType, $value, $errorName);
-    }
 }

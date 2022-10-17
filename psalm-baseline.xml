@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
-  <file src="src/Assertion.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-  </file>
   <file src="src/Each.php">
     <MixedAssignment occurrences="1">
       <code>$item</code>
@@ -16,42 +11,11 @@
       <code>$this-&gt;$name()</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/Support/Type.php">
-    <MixedArgument occurrences="2">
-      <code>$aTypes</code>
-      <code>$allowedTypes</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$aTypes</code>
-    </MixedAssignment>
-  </file>
   <file src="src/Support/Validator.php">
     <UnusedFunctionCall occurrences="2">
       <code>json_decode</code>
       <code>simplexml_load_string</code>
     </UnusedFunctionCall>
-  </file>
-  <file src="src/Traits/CustomTrait.php">
-    <MixedArgument occurrences="2">
-      <code>$array</code>
-      <code>$array</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$array</code>
-      <code>$array</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Traits/PHPUnitCustomTrait.php">
-    <MixedArgument occurrences="4">
-      <code>$haystack</code>
-      <code>$haystack</code>
-      <code>$needle</code>
-      <code>$needle</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$haystack</code>
-      <code>$haystack</code>
-    </MixedAssignment>
   </file>
   <file src="src/Traits/PHPUnitPolyfillTrait.php">
     <UndefinedMethod occurrences="3">
