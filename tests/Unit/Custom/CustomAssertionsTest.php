@@ -3,6 +3,7 @@
 namespace Realodix\Dessert\Test\Custom;
 
 use PHPUnit\Framework\TestCase;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 
 final class CustomAssertionsTest extends TestCase
 {
@@ -32,7 +33,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testHasLengthError()
     {
-        $this->expectException(\BadMethodCallException::class);
+        $this->expectException(InvalidActualValue::class);
         ass([1, 1.5, true, null])->each->hasLength(1);
     }
 

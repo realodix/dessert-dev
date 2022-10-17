@@ -151,7 +151,7 @@ trait CustomTrait
             return $this;
         }
 
-        throw new \BadMethodCallException('Expectation value length is not countable.');
+        throw new InvalidActualValue('Expectation value length is not countable.');
     }
 
     /**
@@ -183,6 +183,6 @@ trait CustomTrait
             return $this;
         }
 
-        throw new \BadMethodCallException('Expectation value length is not countable.');
+        throw new InvalidActualValue('Expectation value length is not countable.');
     }
 }

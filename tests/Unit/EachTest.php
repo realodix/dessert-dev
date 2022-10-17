@@ -3,6 +3,7 @@
 namespace Realodix\Dessert\Test;
 
 use PHPUnit\Framework\TestCase;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 
 final class EachTest extends TestCase
 {
@@ -30,7 +31,7 @@ final class EachTest extends TestCase
     public function testAnExceptionIsThrown(): void
     {
         $this->expectException(
-            \BadMethodCallException::class,
+            InvalidActualValue::class,
             'Expectation value is not iterable.'
         );
 

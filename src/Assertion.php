@@ -38,10 +38,11 @@ class Assertion
     public function each(callable $callback = null): Each
     {
         if (! is_iterable($this->actual)) {
-            throw new \BadMethodCallException('An actual value must be iterable.');
+            throw new InvalidActualValue('iterable');
         }
 
         if (\is_callable($callback)) {
+            /** @var iterable $item */
             foreach ($this->actual as $item) {
                 $callback(new self($item));
             }
