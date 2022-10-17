@@ -26,12 +26,15 @@ trait PHPUnitPolyfillTrait
             throw new InvalidActualValue('array');
         }
 
-        if ( \method_exists(Assert::class, 'assertIsList')) {
-            Assert::assertIsList($this->actual, $message);
+        if (! \method_exists(Assert::class, 'assertIsList')) {
+            Assert::assertThat($this->actual, new IsList, $message);
 
             return $this;
         }
 
+        Assert::assertIsList($this->actual, $message);
+
+        return $this;
     }
 
     /**
@@ -48,13 +51,19 @@ trait PHPUnitPolyfillTrait
             throw new InvalidActualValue('string');
         }
 
-        if ( \method_exists(Assert::class, 'assertStringContainsStringIgnoringLineEndings')) {
-            Assert::assertStringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
+        if (! \method_exists(Assert::class, 'assertStringContainsStringIgnoringLineEndings')) {
+            Assert::assertThat(
+                Str::normalizeLineEndings($this->actual),
+                new StringContains(Str::normalizeLineEndings($needle), false),
+                $message
+            );
 
             return $this;
         }
 
+        Assert::assertStringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
 
+        return $this;
     }
 
     /**
@@ -71,12 +80,18 @@ trait PHPUnitPolyfillTrait
             throw new InvalidActualValue('string');
         }
 
-        if ( \method_exists(Assert::class, 'assertStringEqualsStringIgnoringLineEndings')) {
-            Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this->actual, $message);
+        if (! \method_exists(Assert::class, 'assertStringEqualsStringIgnoringLineEndings')) {
+            Assert::assertThat(
+                Str::normalizeLineEndings($this->actual),
+                new IsEqual(Str::normalizeLineEndings($expected)),
+                $message
+            );
 
             return $this;
         }
 
+        Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this->actual, $message);
 
+        return $this;
     }
 }
