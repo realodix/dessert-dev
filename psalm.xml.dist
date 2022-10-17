@@ -11,5 +11,7 @@
 
   <issueHandlers>
     <PropertyNotSetInConstructor errorLevel="info" />
+    <InternalClass errorLevel="suppress" />
+    <InternalMethod errorLevel="suppress" />
   </issueHandlers>
 </psalm>
