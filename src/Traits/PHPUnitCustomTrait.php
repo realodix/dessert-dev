@@ -4,7 +4,7 @@ namespace Realodix\Dessert\Traits;
 
 use PHPUnit\Framework\Assert;
 use Realodix\Dessert\Support\Validator;
-
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 trait PHPUnitCustomTrait
 {
     public function contains(mixed $needle, string $message = ''): self
@@ -39,7 +39,9 @@ trait PHPUnitCustomTrait
 
     public function stringEqualsFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
@@ -60,7 +62,9 @@ trait PHPUnitCustomTrait
 
     public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);

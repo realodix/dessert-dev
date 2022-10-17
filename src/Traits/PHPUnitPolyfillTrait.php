@@ -9,6 +9,7 @@ use PHPUnit\Runner\Version;
 use Realodix\Dessert\Support\Constraint\IsList;
 use Realodix\Dessert\Support\Str;
 use Realodix\Dessert\Support\Validator;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 
 trait PHPUnitPolyfillTrait
 {
@@ -22,7 +23,9 @@ trait PHPUnitPolyfillTrait
      */
     public function isList(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'array');
+        if (! is_array($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
@@ -47,7 +50,9 @@ trait PHPUnitPolyfillTrait
      */
     public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {
@@ -76,7 +81,9 @@ trait PHPUnitPolyfillTrait
      */
     public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         // @codeCoverageIgnoreStart
         if (version_compare(Version::series(), '10.0', '<')) {

@@ -7,12 +7,14 @@ use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsEqualIgnoringCase;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use Realodix\Dessert\Support\Validator;
-
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 trait CustomTrait
 {
     public function stringEquals(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         if (Validator::isJson($this->actual)) {
             $this->jsonStringEqualsJsonString($expected, $message);
@@ -33,7 +35,9 @@ trait CustomTrait
 
     public function stringNotEquals(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         if (Validator::isJson($this->actual)) {
             $this->jsonStringNotEqualsJsonString($expected, $message);
@@ -60,7 +64,10 @@ trait CustomTrait
      */
     public function fileEqualsString(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
+
         $constraint = new IsEqual($expectedString);
 
         Assert::assertFileExists($this->actual, $message);
@@ -71,7 +78,9 @@ trait CustomTrait
 
     public function fileNotEqualsString(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
         $constraint = new LogicalNot(new IsEqual($expectedString));
 
         Assert::assertFileExists($this->actual, $message);
@@ -85,7 +94,10 @@ trait CustomTrait
      */
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
+
         Assert::assertFileExists($this->actual, $message);
 
         $constraint = new IsEqualIgnoringCase($expectedString);
@@ -96,7 +108,9 @@ trait CustomTrait
 
     public function fileNotEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
         Assert::assertFileExists($this->actual, $message);
 
         $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));
