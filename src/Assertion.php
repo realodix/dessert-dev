@@ -3,6 +3,7 @@
 namespace Realodix\Dessert;
 
 use PHPUnit\Framework\Assert;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 use Realodix\Dessert\Support\Validator;
 
 class Assertion
@@ -78,7 +79,9 @@ class Assertion
 
     public function stringContainsString(string $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringContainsString($needle, $this->actual, $message);
 
@@ -87,7 +90,9 @@ class Assertion
 
     public function stringNotContainsString(string $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringNotContainsString($needle, $this->actual, $message);
 
@@ -96,7 +101,9 @@ class Assertion
 
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
 
@@ -105,7 +112,9 @@ class Assertion
 
     public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
 
@@ -177,7 +186,9 @@ class Assertion
 
     public function directoryExists(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertDirectoryExists($this->actual, $message);
 
@@ -186,7 +197,9 @@ class Assertion
 
     public function directoryDoesNotExist(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertDirectoryDoesNotExist($this->actual, $message);
 
@@ -195,7 +208,9 @@ class Assertion
 
     public function directoryIsReadable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertDirectoryIsReadable($this->actual, $message);
 
@@ -204,7 +219,9 @@ class Assertion
 
     public function directoryIsNotReadable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertDirectoryIsNotReadable($this->actual, $message);
 
@@ -213,7 +230,9 @@ class Assertion
 
     public function directoryIsWritable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertDirectoryIsWritable($this->actual, $message);
 
@@ -222,7 +241,9 @@ class Assertion
 
     public function directoryIsNotWritable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertDirectoryIsNotWritable($this->actual, $message);
 
@@ -310,7 +331,9 @@ class Assertion
 
     public function fileEquals(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileEquals($expected, $this->actual, $message);
 
@@ -319,7 +342,9 @@ class Assertion
 
     public function fileNotEquals(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileNotEquals($expected, $this->actual, $message);
 
@@ -328,7 +353,9 @@ class Assertion
 
     public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileEqualsCanonicalizing($expected, $this->actual, $message);
 
@@ -337,7 +364,9 @@ class Assertion
 
     public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileNotEqualsCanonicalizing($expected, $this->actual, $message);
 
@@ -346,7 +375,9 @@ class Assertion
 
     public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileEqualsIgnoringCase($expected, $this->actual, $message);
 
@@ -355,7 +386,9 @@ class Assertion
 
     public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileNotEqualsIgnoringCase($expected, $this->actual, $message);
 
@@ -364,7 +397,9 @@ class Assertion
 
     public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
@@ -373,7 +408,9 @@ class Assertion
 
     public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringNotEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
 
@@ -382,7 +419,9 @@ class Assertion
 
     public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
@@ -391,7 +430,9 @@ class Assertion
 
     public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringNotEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
 
@@ -400,7 +441,9 @@ class Assertion
 
     public function fileExists(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileExists($this->actual, $message);
 
@@ -409,7 +452,9 @@ class Assertion
 
     public function fileDoesNotExist(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileDoesNotExist($this->actual, $message);
 
@@ -418,7 +463,9 @@ class Assertion
 
     public function fileIsReadable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileIsReadable($this->actual, $message);
 
@@ -427,7 +474,9 @@ class Assertion
 
     public function fileIsNotReadable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileIsNotReadable($this->actual, $message);
 
@@ -436,7 +485,9 @@ class Assertion
 
     public function fileIsWritable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileIsWritable($this->actual, $message);
 
@@ -445,7 +496,9 @@ class Assertion
 
     public function fileIsNotWritable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertFileIsNotWritable($this->actual, $message);
 
@@ -608,7 +661,9 @@ class Assertion
 
     public function matchesRegularExpression(string $pattern, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
 
@@ -617,7 +672,9 @@ class Assertion
 
     public function doesNotMatchRegularExpression(string $pattern, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
 
@@ -654,7 +711,9 @@ class Assertion
 
     public function isReadable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertIsReadable($this->actual, $message);
 
@@ -663,7 +722,9 @@ class Assertion
 
     public function isNotReadable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertIsNotReadable($this->actual, $message);
 
@@ -728,7 +789,9 @@ class Assertion
 
     public function isWritable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertIsWritable($this->actual, $message);
 
@@ -737,7 +800,9 @@ class Assertion
 
     public function isNotWritable(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertIsNotWritable($this->actual, $message);
 
@@ -746,7 +811,9 @@ class Assertion
 
     public function json(string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertJson($this->actual, $message);
 
@@ -755,7 +822,9 @@ class Assertion
 
     public function jsonFileEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertJsonFileEqualsJsonFile($expectedFile, $this->actual, $message);
 
@@ -764,7 +833,9 @@ class Assertion
 
     public function jsonFileNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertJsonFileNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
@@ -773,7 +844,9 @@ class Assertion
 
     public function jsonStringEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
 
@@ -782,7 +855,9 @@ class Assertion
 
     public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
 
@@ -791,7 +866,9 @@ class Assertion
 
     public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
 
@@ -800,7 +877,9 @@ class Assertion
 
     public function jsonStringNotEqualsJsonString(string $expectedJson, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertJsonStringNotEqualsJsonString($expectedJson, $this->actual, $message);
 
@@ -830,7 +909,9 @@ class Assertion
 
     public function stringMatchesFormat(string $format, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringMatchesFormat($format, $this->actual, $message);
 
@@ -839,7 +920,9 @@ class Assertion
 
     public function stringNotMatchesFormat(string $format, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringNotMatchesFormat($format, $this->actual, $message);
 
@@ -848,7 +931,9 @@ class Assertion
 
     public function stringMatchesFormatFile(string $formatFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
 
@@ -857,7 +942,9 @@ class Assertion
 
     public function stringNotMatchesFormatFile(string $formatFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
 
@@ -898,7 +985,9 @@ class Assertion
 
     public function stringStartsWith(string $prefix, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringStartsWith($prefix, $this->actual, $message);
 
@@ -907,7 +996,9 @@ class Assertion
 
     public function stringStartsNotWith(string $prefix, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringStartsNotWith($prefix, $this->actual, $message);
 
@@ -916,7 +1007,9 @@ class Assertion
 
     public function stringEndsWith(string $suffix, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringEndsWith($suffix, $this->actual, $message);
 
@@ -925,7 +1018,9 @@ class Assertion
 
     public function stringEndsNotWith(string $suffix, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
 
@@ -962,7 +1057,9 @@ class Assertion
 
     public function xmlFileEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertXmlFileEqualsXmlFile($expectedFile, $this->actual, $message);
 
@@ -971,7 +1068,9 @@ class Assertion
 
     public function xmlFileNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertXmlFileNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
@@ -980,7 +1079,9 @@ class Assertion
 
     public function xmlStringEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertXmlStringEqualsXmlFile($expectedFile, $this->actual, $message);
 
@@ -989,7 +1090,9 @@ class Assertion
 
     public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertXmlStringNotEqualsXmlFile($expectedFile, $this->actual, $message);
 
@@ -998,7 +1101,9 @@ class Assertion
 
     public function xmlStringEqualsXmlString(string $expectedXml, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertXmlStringEqualsXmlString($expectedXml, $this->actual, $message);
 
@@ -1007,7 +1112,9 @@ class Assertion
 
     public function xmlStringNotEqualsXmlString(string $expectedXml, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue;
+        }
 
         Assert::assertXmlStringNotEqualsXmlString($expectedXml, $this->actual, $message);
 
