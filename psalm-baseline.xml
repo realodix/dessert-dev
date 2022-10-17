@@ -8,10 +8,4 @@
       <code>$this-&gt;$name()</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/Traits/PHPUnitPolyfillTrait.php">
-    <UndefinedMethod occurrences="2">
-      <code>Assert::assertStringContainsStringIgnoringLineEndings($needle, $this-&gt;actual, $message)</code>
-      <code>Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this-&gt;actual, $message)</code>
-    </UndefinedMethod>
-  </file>
 </files>

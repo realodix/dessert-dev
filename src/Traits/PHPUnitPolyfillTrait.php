@@ -26,7 +26,7 @@ trait PHPUnitPolyfillTrait
             throw new InvalidActualValue('array');
         }
 
-        if (\method_exists(Assert::class, 'assertIsList') === false) {
+        if (! \method_exists(Assert::class, 'assertIsList')) {
             Assert::assertThat($this->actual, new IsList, $message);
 
             return $this;
@@ -51,8 +51,7 @@ trait PHPUnitPolyfillTrait
             throw new InvalidActualValue('string');
         }
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '10.0', '<')) {
+        if (! \method_exists(Assert::class, 'assertStringContainsStringIgnoringLineEndings')) {
             Assert::assertThat(
                 Str::normalizeLineEndings($this->actual),
                 new StringContains(Str::normalizeLineEndings($needle), false),
@@ -61,7 +60,6 @@ trait PHPUnitPolyfillTrait
 
             return $this;
         }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertStringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
 
@@ -82,8 +80,7 @@ trait PHPUnitPolyfillTrait
             throw new InvalidActualValue('string');
         }
 
-        // @codeCoverageIgnoreStart
-        if (version_compare(Version::series(), '10.0', '<')) {
+        if (! \method_exists(Assert::class, 'assertStringEqualsStringIgnoringLineEndings')) {
             Assert::assertThat(
                 Str::normalizeLineEndings($this->actual),
                 new IsEqual(Str::normalizeLineEndings($expected)),
@@ -92,7 +89,6 @@ trait PHPUnitPolyfillTrait
 
             return $this;
         }
-        // @codeCoverageIgnoreEnd
 
         Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this->actual, $message);
 
