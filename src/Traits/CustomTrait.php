@@ -14,7 +14,7 @@ trait CustomTrait
     public function stringEquals(string $expected, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         if (Validator::isJson($this->actual)) {
@@ -37,7 +37,7 @@ trait CustomTrait
     public function stringNotEquals(string $expected, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         if (Validator::isJson($this->actual)) {
@@ -66,7 +66,7 @@ trait CustomTrait
     public function fileEqualsString(string $expectedString, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         $constraint = new IsEqual($expectedString);
@@ -80,8 +80,9 @@ trait CustomTrait
     public function fileNotEqualsString(string $expectedString, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
+
         $constraint = new LogicalNot(new IsEqual($expectedString));
 
         Assert::assertFileExists($this->actual, $message);
@@ -96,7 +97,7 @@ trait CustomTrait
     public function fileEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         Assert::assertFileExists($this->actual, $message);
@@ -110,8 +111,9 @@ trait CustomTrait
     public function fileNotEqualsStringIgnoringCase(string $expectedString, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
+
         Assert::assertFileExists($this->actual, $message);
 
         $constraint = new LogicalNot(new IsEqualIgnoringCase($expectedString));

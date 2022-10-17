@@ -41,7 +41,7 @@ trait PHPUnitCustomTrait
     public function stringEqualsFile(string $expectedFile, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         if (Validator::isJson($this->actual)) {
@@ -64,7 +64,7 @@ trait PHPUnitCustomTrait
     public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         if (Validator::isJson($this->actual)) {

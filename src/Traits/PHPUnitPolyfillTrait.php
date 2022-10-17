@@ -23,7 +23,7 @@ trait PHPUnitPolyfillTrait
     public function isList(string $message = ''): self
     {
         if (! is_array($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('array');
         }
 
         // @codeCoverageIgnoreStart
@@ -50,7 +50,7 @@ trait PHPUnitPolyfillTrait
     public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         // @codeCoverageIgnoreStart
@@ -81,7 +81,7 @@ trait PHPUnitPolyfillTrait
     public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
     {
         if (! is_string($this->actual)) {
-            throw new InvalidActualValue;
+            throw new InvalidActualValue('string');
         }
 
         // @codeCoverageIgnoreStart
