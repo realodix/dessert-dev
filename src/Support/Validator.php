@@ -10,19 +10,15 @@ final class Validator
     /**
      * Check if a string is valid JSON
      */
-    public static function isJson(string $value): bool
+    public static function isJson(string $data): bool
     {
-        if ($value === '') {
-            return false;
+        if (! empty($data)) {
+            @json_decode($data);
+
+            return json_last_error() === JSON_ERROR_NONE;
         }
 
-        json_decode($value);
-
-        if (json_last_error()) {
-            return false;
-        }
-
-        return true;
+        return false;
     }
 
     /**
@@ -51,51 +47,5 @@ final class Validator
         libxml_clear_errors();
 
         return empty($errors);
-    }
-
-    /**
-     * Determines whether the actual value given is valid or invalid
-     *
-     * @param mixed $value
-     *
-     * @return mixed
-     */
-    public static function actualValue($value, string $expectedType)
-    {
-        $stack = debug_backtrace();
-        $typeGiven = str_replace('_', ' or ', $expectedType);
-
-        $errorName = sprintf(
-            '%s(): Actual value must be of type %s %s, %s given.',
-            $stack[1]['function'],
-            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-            $typeGiven,
-            get_debug_type($value) // symfony/polyfill-php80
-        );
-
-        return Type::is($expectedType, $value, $errorName);
-    }
-
-    /**
-     * Determines whether the expected value given is valid or invalid
-     *
-     * @param mixed $value
-     *
-     * @return mixed
-     */
-    public static function expectedValue($value, string $expectedType, int $argument = 1)
-    {
-        $stack = debug_backtrace();
-
-        $errorName = sprintf(
-            'Argument #%d of %s() must be %s %s, %s given',
-            $argument,
-            $stack[1]['function'],
-            \in_array(lcfirst($expectedType)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-            $expectedType,
-            get_debug_type($value) // symfony/polyfill-php80
-        );
-
-        return Type::is($expectedType, $value, $errorName);
     }
 }

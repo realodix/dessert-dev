@@ -46,8 +46,8 @@ final class Each
      */
     public function __call(string $name, array $arguments): Each
     {
+        /** @var iterable $item */
         foreach ($this->original->actual as $item) {
-            // verify($item)->$name(...$arguments);
             $this->opposite ? verify($item)->not()->$name(...$arguments) : verify($item)->$name(...$arguments);
         }
 

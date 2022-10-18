@@ -3,6 +3,7 @@
 namespace Realodix\Dessert\Traits;
 
 use PHPUnit\Framework\Assert;
+use Realodix\Dessert\Exceptions\InvalidActualValue;
 use Realodix\Dessert\Support\Validator;
 
 trait PHPUnitCustomTrait
@@ -12,17 +13,19 @@ trait PHPUnitCustomTrait
      */
     public function contains($needle, string $message = ''): self
     {
-        $haystack = $this->actual;
-
-        if (\is_string($haystack)) {
-            Assert::assertStringContainsString($needle, $haystack, $message);
+        if (\is_string($needle) && \is_string($this->actual)) {
+            Assert::assertStringContainsString($needle, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertContains($needle, $haystack, $message);
+        if (\is_iterable($this->actual)) {
+            Assert::assertContains($needle, $this->actual, $message);
 
-        return $this;
+            return $this;
+        }
+
+        throw new InvalidActualValue('string|iterable');
     }
 
     /**
@@ -30,22 +33,26 @@ trait PHPUnitCustomTrait
      */
     public function notContains($needle, string $message = ''): self
     {
-        $haystack = $this->actual;
-
-        if (\is_string($haystack)) {
-            Assert::assertStringNotContainsString($needle, $haystack, $message);
+        if (\is_string($needle) && \is_string($this->actual)) {
+            Assert::assertStringNotContainsString($needle, $this->actual, $message);
 
             return $this;
         }
 
-        Assert::assertNotContains($needle, $haystack, $message);
+        if (\is_iterable($this->actual)) {
+            Assert::assertNotContains($needle, $this->actual, $message);
 
-        return $this;
+            return $this;
+        }
+
+        throw new InvalidActualValue('string|iterable');
     }
 
     public function stringEqualsFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
 
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringEqualsJsonFile($expectedFile, $this->actual, $message);
@@ -66,7 +73,9 @@ trait PHPUnitCustomTrait
 
     public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
     {
-        Validator::actualValue($this->actual, 'string');
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
 
         if (Validator::isJson($this->actual)) {
             Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
