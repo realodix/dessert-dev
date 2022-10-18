@@ -2,7 +2,7 @@
 
 namespace Realodix\Dessert\Traits;
 
-use Realodix\Dessert\Support\Validator;
+use Realodix\Dessert\Exceptions\InvalidExpectationValue;
 
 trait PHPUnitShortNameTrait
 {
@@ -105,7 +105,9 @@ trait PHPUnitShortNameTrait
      */
     public function hasKey($key, string $message = ''): self
     {
-        Validator::expectedValue($key, 'int|string');
+        if (! is_int($key) && ! is_string($key)) {
+            throw new InvalidExpectationValue('int|string');
+        }
 
         return $this->arrayHasKey($key, $message);
     }
@@ -115,7 +117,9 @@ trait PHPUnitShortNameTrait
      */
     public function notHasKey($key, string $message = ''): self
     {
-        Validator::expectedValue($key, 'int|string');
+        if (! is_int($key) && ! is_string($key)) {
+            throw new InvalidExpectationValue('int|string');
+        }
 
         return $this->arrayNotHasKey($key, $message);
     }

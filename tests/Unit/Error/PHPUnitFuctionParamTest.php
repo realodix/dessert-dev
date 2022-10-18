@@ -4,6 +4,7 @@ namespace Realodix\Dessert\Test\Error;
 
 use PHPUnit\Framework\TestCase;
 use Realodix\Dessert\Exceptions\InvalidActualValue;
+use Realodix\Dessert\Exceptions\InvalidExpectationValue;
 use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitFuctionParamTest extends TestCase
@@ -16,7 +17,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     /** @test */
     public function arrayHasKeyActualValue(): void
     {
-        $this->expectException($this->error());
+        $this->expectException(InvalidExpectationValue::class);
 
         ass('$errors')->hasKey(true);
     }
@@ -24,7 +25,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     /** @test */
     public function arrayNotHasKeyActualValue(): void
     {
-        $this->expectException($this->error());
+        $this->expectException(InvalidExpectationValue::class);
 
         ass('$errors')->notHasKey(true);
     }
