@@ -56,6 +56,18 @@
             "type": "shell",
             "command": "psalm --set-baseline=psalm-baseline.xml",
             "problemMatcher": []
+        },
+        {
+            "label": "[SA] PHPStan",
+            "type": "shell",
+            "command": "./vendor/bin/phpstan analyse",
+            "problemMatcher": []
+        },
+        {
+            "label": "[SA] PHPStan (baseline)",
+            "type": "shell",
+            "command": "./vendor/bin/phpstan analyse --generate-baseline",
+            "problemMatcher": []
         }
     ]
 }
