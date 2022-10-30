@@ -16,11 +16,6 @@ parameters:
 			path: src/Assertion.php
 
 		-
-			message: "#^Method Realodix\\\\Dessert\\\\Assertion\\:\\:__get\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Assertion.php
-
-		-
 			message: "#^Dead catch \\- PHPUnit\\\\Framework\\\\ExpectationFailedException is never thrown in the try block\\.$#"
 			count: 1
 			path: src/Opposite.php
