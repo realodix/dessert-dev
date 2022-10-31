@@ -1,6 +1,2 @@
 parameters:
 	ignoreErrors:
-		-
-			message: "#^Method Realodix\\\\Dessert\\\\Assertion\\:\\:__get\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Assertion.php

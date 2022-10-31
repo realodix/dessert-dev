@@ -4,6 +4,8 @@ namespace Realodix\Dessert;
 
 /**
  * @internal
+ *
+ * @template TValue
  */
 final class Each
 {
@@ -51,6 +53,8 @@ final class Each
 
     /**
      * Dynamically calls methods on the class without any arguments on each item.
+     *
+     * @return self<TValue>
      */
     public function __get(string $name): Each
     {

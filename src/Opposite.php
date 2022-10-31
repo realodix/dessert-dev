@@ -7,6 +7,8 @@ use SebastianBergmann\Exporter\Exporter;
 
 /**
  * @internal
+ *
+ * @template TValue
  */
 final class Opposite
 {
@@ -35,6 +37,8 @@ final class Opposite
 
     /**
      * Handle dynamic properties gets into the original expectation.
+     *
+     * @return Assertion<TValue>|Assertion<mixed>|never
      *
      * @throws \PHPUnit\Framework\ExpectationFailedException
      */
