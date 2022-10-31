@@ -9,3 +9,6 @@ parameters:
   checkMissingIterableValueType: false
   checkGenericClassInNonGenericObjectType: false
   treatPhpDocTypesAsCertain: false
+  ignoreErrors:
+    # PHPUnit 10
+    - "#Call to an undefined static method PHPUnit\\\\Framework\\\\Assert\\:\\:#"
