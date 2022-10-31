@@ -39,7 +39,7 @@ final class Each
     /**
      * Dynamically calls methods on the class with the given arguments on each item.
      */
-    public function __call(string $name, array $arguments): Each
+    public function __call(string $name, array $arguments): self
     {
         /** @var iterable $item */
         foreach ($this->original->actual as $item) {
@@ -56,7 +56,7 @@ final class Each
      *
      * @return self<TValue>
      */
-    public function __get(string $name): Each
+    public function __get(string $name): self
     {
         return $this->$name();
     }
