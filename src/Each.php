@@ -40,6 +40,9 @@ final class Each
 
     /**
      * Dynamically calls methods on the class with the given arguments on each item.
+     *
+     * @param array<int|string, mixed> $arguments
+     * @return self<TValue>
      */
     public function __call(string $name, array $arguments): self
     {

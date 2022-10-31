@@ -50,7 +50,6 @@ class Assertion
         }
 
         if (\is_callable($callback)) {
-            /** @var iterable $item */
             foreach ($this->actual as $item) {
                 $callback(new self($item));
             }

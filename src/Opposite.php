@@ -24,6 +24,8 @@ final class Opposite
     /**
      * Handle dynamic method calls into the original expectation.
      *
+     * @param array<int, mixed> $arguments
+     *
      * @throws \PHPUnit\Framework\ExpectationFailedException
      */
     public function __call(string $name, array $arguments): Assertion
@@ -58,6 +60,7 @@ final class Opposite
     /**
      * Creates a new expectation failed exception with a nice readable message.
      *
+     * @param array<int, mixed> $arguments
      * @return never
      *
      * @throws \PHPUnit\Framework\ExpectationFailedException
