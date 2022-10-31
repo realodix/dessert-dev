@@ -14,6 +14,8 @@ final class Opposite
 {
     /**
      * Creates a new opposite expectation.
+     *
+     * @param Assertion<TValue> $original
      */
     public function __construct(private Assertion $original)
     {

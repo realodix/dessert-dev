@@ -15,6 +15,9 @@ class Assertion
     use Traits\PHPUnitCustomTrait;
     use Traits\CustomTrait;
 
+    /**
+     * @param TValue $actual
+     */
     public function __construct(public mixed $actual)
     {
     }

@@ -13,6 +13,8 @@ final class Each
 
     /**
      * Creates an expectation on each item of the iterable "value".
+     *
+     * @param Assertion<TValue> $original
      */
     public function __construct(private Assertion $original)
     {
@@ -41,7 +43,6 @@ final class Each
      */
     public function __call(string $name, array $arguments): self
     {
-        /** @var iterable $item */
         foreach ($this->original->actual as $item) {
             $this->opposite ? verify($item)->not()->$name(...$arguments) : verify($item)->$name(...$arguments);
         }
