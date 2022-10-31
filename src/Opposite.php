@@ -41,8 +41,8 @@ final class Opposite
     public function __get(string $name): Assertion
     {
         try {
-            $this->original->{$name};
-        } catch (ExpectationFailedException) {
+            $this->original->{$name}; // @phpstan-ignore-line
+        } catch (ExpectationFailedException) { // @phpstan-ignore-line
             return $this->original;
         }
 
