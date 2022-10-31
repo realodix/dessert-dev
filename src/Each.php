@@ -4,6 +4,8 @@ namespace Realodix\Dessert;
 
 /**
  * @internal
+ *
+ * @template TValue
  */
 final class Each
 {
@@ -11,6 +13,8 @@ final class Each
 
     /**
      * Creates an expectation on each item of the iterable "value".
+     *
+     * @param Assertion<TValue> $original
      */
     public function __construct(private Assertion $original)
     {
@@ -36,10 +40,12 @@ final class Each
 
     /**
      * Dynamically calls methods on the class with the given arguments on each item.
+     *
+     * @param array<int|string, mixed> $arguments
+     * @return self<TValue>
      */
-    public function __call(string $name, array $arguments): Each
+    public function __call(string $name, array $arguments): self
     {
-        /** @var iterable $item */
         foreach ($this->original->actual as $item) {
             $this->opposite ? verify($item)->not()->$name(...$arguments) : verify($item)->$name(...$arguments);
         }
@@ -51,8 +57,10 @@ final class Each
 
     /**
      * Dynamically calls methods on the class without any arguments on each item.
+     *
+     * @return self<TValue>
      */
-    public function __get(string $name): Each
+    public function __get(string $name): self
     {
         return $this->$name();
     }

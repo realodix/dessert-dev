@@ -5,6 +5,9 @@ namespace Realodix\Dessert;
 use PHPUnit\Framework\Assert;
 use Realodix\Dessert\Exceptions\InvalidActualValue;
 
+/**
+ * @template TValue
+ */
 class Assertion
 {
     use Traits\PHPUnitPolyfillTrait;
@@ -12,12 +15,17 @@ class Assertion
     use Traits\PHPUnitCustomTrait;
     use Traits\CustomTrait;
 
+    /**
+     * @param TValue $actual
+     */
     public function __construct(public mixed $actual)
     {
     }
 
     /**
      * Dynamically calls methods on the class without any arguments
+     *
+     * @return TValue|self<TValue>|Each<TValue>|Opposite<TValue>
      */
     public function __get(string $name)
     {
@@ -42,7 +50,6 @@ class Assertion
         }
 
         if (\is_callable($callback)) {
-            /** @var iterable $item */
             foreach ($this->actual as $item) {
                 $callback(new self($item));
             }
