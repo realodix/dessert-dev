@@ -54,9 +54,9 @@ jobs:
           timeout_minutes: 5
           max_attempts: 5
           # 1. friendsofphp/php-cs-fixer v3.10.0 requires sebastian/diff ^4.0, but phpunit/phpunit dev-main requires
-          # sebastian/diff ^5.0
+          #    sebastian/diff ^5.0
           # 2. --with-all-dependencies phpunit/phpunit dev-main requires phpunit/php-code-coverage ^10.0 -> found
-          # phpunit/php-code-coverage[dev-main, 10.0.x-dev (alias of dev-main)] but the package is fixed to 9.2.16
+          #    phpunit/php-code-coverage[dev-main, 10.0.x-dev (alias of dev-main)] but the package is fixed to 9.2.16
           command: |
             composer remove realodix/relax --dev
             composer require phpunit/phpunit dev-main --with-all-dependencies
