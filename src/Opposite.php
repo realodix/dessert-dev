@@ -12,9 +12,6 @@ use SebastianBergmann\Exporter\Exporter;
  */
 final class Opposite
 {
-    /** @var Assertion */
-    private $original;
-
     /**
      * @readonly
      * @var Assertion<TValue>

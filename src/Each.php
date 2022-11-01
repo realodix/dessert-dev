@@ -9,9 +9,6 @@ namespace Realodix\Dessert;
  */
 final class Each
 {
-    /** @var Assertion */
-    private $original;
-
     /** @var bool */
     private $opposite = false;
 
