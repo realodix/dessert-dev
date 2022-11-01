@@ -57,7 +57,7 @@ final class Opposite
     {
         try {
             $this->original->{$name}; // @phpstan-ignore-line
-        } catch (ExpectationFailedException) { // @phpstan-ignore-line
+        } catch (ExpectationFailedException $e) { // @phpstan-ignore-line
             return $this->original;
         }
 
