@@ -16,7 +16,7 @@ final class Each
      * @readonly
      * @var Assertion<TValue>
      */
-    private Assertion $original;
+    private $original;
 
     /**
      * Creates an expectation on each item of the iterable "value".

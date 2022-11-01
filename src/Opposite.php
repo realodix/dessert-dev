@@ -16,7 +16,7 @@ final class Opposite
      * @readonly
      * @var Assertion<TValue>
      */
-    private Assertion $original;
+    private $original;
 
     /**
      * Creates a new opposite expectation.
