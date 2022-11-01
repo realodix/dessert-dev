@@ -16,10 +16,13 @@ class Assertion
     use Traits\PHPUnitCustomTrait;
     use Traits\CustomTrait;
 
+    /** @var TValue */
+    public $actual;
+
     /**
      * @param TValue $actual
      */
-    public function __construct(public mixed $actual)
+    public function __construct($actual)
     {
         $this->actual = $actual;
     }
@@ -1059,7 +1062,7 @@ class Assertion
     }
 
     /**
-     * @param countable|iterable $expected
+     * @param \Countable|iterable $expected
      */
     public function sameSize($expected, string $message = ''): self
     {
@@ -1077,7 +1080,7 @@ class Assertion
     }
 
     /**
-     * @param countable|iterable $expected
+     * @param \Countable|iterable $expected
      */
     public function notSameSize($expected, string $message = ''): self
     {
