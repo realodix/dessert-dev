@@ -12,12 +12,19 @@ final class Each
     private bool $opposite = false;
 
     /**
+     * @readonly
+     * @var Assertion<TValue>
+     */
+    private Assertion $original;
+
+    /**
      * Creates an expectation on each item of the iterable "value".
      *
      * @param Assertion<TValue> $original
      */
-    public function __construct(private Assertion $original)
+    public function __construct(Assertion $original)
     {
+        $this->original = $original;
     }
 
     /**
@@ -30,8 +37,10 @@ final class Each
 
     /**
      * Creates the opposite expectation for the value.
+     *
+     * @return self<TValue>
      */
-    public function not(): Each
+    public function not(): self
     {
         $this->opposite = true;
 

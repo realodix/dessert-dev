@@ -13,12 +13,19 @@ use SebastianBergmann\Exporter\Exporter;
 final class Opposite
 {
     /**
+     * @readonly
+     * @var Assertion<TValue>
+     */
+    private Assertion $original;
+
+    /**
      * Creates a new opposite expectation.
      *
      * @param Assertion<TValue> $original
      */
-    public function __construct(private Assertion $original)
+    public function __construct(Assertion $original)
     {
+        $this->original = $original;
     }
 
     /**
