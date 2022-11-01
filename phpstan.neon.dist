@@ -1,0 +1,14 @@
+includes:
+  - phpstan-baseline.neon
+
+parameters:
+  level: 7
+  paths:
+    - src
+  tmpDir: .tmp/PHPStan
+  checkMissingIterableValueType: false
+  checkGenericClassInNonGenericObjectType: false
+  treatPhpDocTypesAsCertain: false
+  ignoreErrors:
+    # PHPUnit 10
+    - "#Call to an undefined static method PHPUnit\\\\Framework\\\\Assert\\:\\:#"

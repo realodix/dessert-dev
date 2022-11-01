@@ -7,6 +7,8 @@ use SebastianBergmann\Exporter\Exporter;
 
 /**
  * @internal
+ *
+ * @template TValue
  */
 final class Opposite
 {
@@ -14,7 +16,15 @@ final class Opposite
     private $original;
 
     /**
+     * @readonly
+     * @var Assertion<TValue>
+     */
+    private Assertion $original;
+
+    /**
      * Creates a new opposite expectation.
+     *
+     * @param Assertion<TValue> $original
      */
     public function __construct(Assertion $original)
     {
@@ -23,6 +33,8 @@ final class Opposite
 
     /**
      * Handle dynamic method calls into the original expectation.
+     *
+     * @param array<int, mixed> $arguments
      *
      * @throws \PHPUnit\Framework\ExpectationFailedException
      */
@@ -40,13 +52,15 @@ final class Opposite
     /**
      * Handle dynamic properties gets into the original expectation.
      *
+     * @return Assertion<TValue>|Assertion<mixed>|never
+     *
      * @throws \PHPUnit\Framework\ExpectationFailedException
      */
     public function __get(string $name): Assertion
     {
         try {
-            $this->original->{$name};
-        } catch (ExpectationFailedException $e) {
+            $this->original->{$name}; // @phpstan-ignore-line
+        } catch (ExpectationFailedException) { // @phpstan-ignore-line
             return $this->original;
         }
 
@@ -56,6 +70,7 @@ final class Opposite
     /**
      * Creates a new expectation failed exception with a nice readable message.
      *
+     * @param array<int, mixed> $arguments
      * @return never
      *
      * @throws \PHPUnit\Framework\ExpectationFailedException
