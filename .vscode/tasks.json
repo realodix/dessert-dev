@@ -48,13 +48,13 @@
         {
             "label": "[SA] PHPStan",
             "type": "shell",
-            "command": "phpstan analyse",
+            "command": "./vendor/bin/phpstan analyse",
             "problemMatcher": []
         },
         {
             "label": "[SA] PHPStan (baseline)",
             "type": "shell",
-            "command": "phpstan analyse --generate-baseline",
+            "command": "./vendor/bin/phpstan analyse --generate-baseline",
             "problemMatcher": []
         }
     ]
