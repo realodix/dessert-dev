@@ -4,7 +4,7 @@ namespace Realodix\Dessert\Test;
 
 trait PHPUnitTestProvider
 {
-    public function stringContainsStringIgnoringLineEndingsProvider(): array
+    public static function stringContainsStringIgnoringLineEndingsProvider(): array
     {
         return [
             ["b\nc", "b\r\nc"],
@@ -12,7 +12,7 @@ trait PHPUnitTestProvider
         ];
     }
 
-    public function stringEqualIgnoringLineEndingsProvider(): array
+    public static function stringEqualIgnoringLineEndingsProvider(): array
     {
         return [
             'lf-crlf'   => ["a\nb", "a\r\nb"],
@@ -27,7 +27,7 @@ trait PHPUnitTestProvider
         ];
     }
 
-    public function stringEqualIgnoringLineEndingsFailProvider(): array
+    public static function stringEqualIgnoringLineEndingsFailProvider(): array
     {
         return [
             ["a\nb", 'ab'],
