@@ -62,5 +62,4 @@ jobs:
             composer require phpunit/phpunit dev-main --with-all-dependencies
       - name: Execute tests
         run: |
-          ./vendor/bin/phpunit --migrate-configuration
           ./vendor/bin/phpunit
