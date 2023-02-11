@@ -1014,6 +1014,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $prefix
+     */
     public function stringStartsWith(string $prefix, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -1025,6 +1028,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $prefix
+     */
     public function stringStartsNotWith(string $prefix, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -1036,6 +1042,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $suffix
+     */
     public function stringEndsWith(string $suffix, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -1047,6 +1056,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $suffix
+     */
     public function stringEndsNotWith(string $suffix, string $message = ''): self
     {
         if (! is_string($this->actual)) {
