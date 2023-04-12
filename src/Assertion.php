@@ -18,8 +18,9 @@ class Assertion
     /**
      * @param TValue $actual
      */
-    public function __construct(public mixed $actual)
-    {
+    public function __construct(
+        public mixed $actual
+    ) {
     }
 
     /**
