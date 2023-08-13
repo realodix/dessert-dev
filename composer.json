@@ -11,7 +11,7 @@
         "symfony/polyfill-php81": "^1.27"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.9",
+        "phpstan/phpstan": "^1.10",
         "realodix/relax": "^1.0"
     },
     "autoload": {
