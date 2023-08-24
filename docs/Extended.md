@@ -19,6 +19,7 @@
 | ----------------------- | ------------ |
 | `stringEquals()`        | [`equals`][equals] or [`jsonStringEqualsJsonString`][jsonSEJS] or [`xmlStringEqualsXmlString`][xmlSEXS] |
 | `stringNotEquals()`     | [`notEquals`][equals] or [`jsonStringNotJsonString`][jsonSEJS] or [`xmlStringNotEqualsXmlString`][xmlSEXS] |
+| `jsonPathCanonicalizing()` |  |
 
 [equals]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertequals
 [jsonSEJS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertjsonstringequalsjsonstring
