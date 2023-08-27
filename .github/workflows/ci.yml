@@ -47,19 +47,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
       - name: Install dependencies
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5
-          # 1. friendsofphp/php-cs-fixer v3.10.0 requires sebastian/diff ^4.0, but phpunit/phpunit dev-main requires
-          #    sebastian/diff ^5.0
-          # 2. --with-all-dependencies phpunit/phpunit dev-main requires phpunit/php-code-coverage ^10.0 -> found
-          #    phpunit/php-code-coverage[dev-main, 10.0.x-dev (alias of dev-main)] but the package is fixed to 9.2.16
-          command: |
-            composer remove realodix/relax --dev
-            composer require phpunit/phpunit dev-main --with-all-dependencies
+          command: composer require phpunit/phpunit dev-main --with-all-dependencies
       - name: Execute tests
-        run: |
-          ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit
