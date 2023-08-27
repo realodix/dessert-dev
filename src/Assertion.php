@@ -10,6 +10,7 @@ use Realodix\Dessert\Exceptions\InvalidActualValue;
  */
 class Assertion
 {
+    use Traits\PestExpectationsTrait;
     use Traits\PHPUnitPolyfillTrait;
     use Traits\PHPUnitShortNameTrait;
     use Traits\PHPUnitCustomTrait;
