@@ -1,7 +1,7 @@
 # Realodix Dessert
 
 ![PHPVersion](https://img.shields.io/badge/PHP-8-777BB4.svg?style=flat-square)
-![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-9.6%20|%2010-3C9CD7.svg?style=flat-square)
+![PHPUnitVersion](https://img.shields.io/badge/PHPUnit-%2010.3-3C9CD7.svg?style=flat-square)
 
 A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was carefully crafted to bring the joy of testing to PHP.
 
@@ -14,8 +14,8 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 
 #### Requirements
 
-- PHP 8.0 or higher
-- PHPUnit 9.6 or higher
+- PHP 8.1 or higher
+- PHPUnit 10.3 or higher
 
 #### Install the package
 
