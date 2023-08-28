@@ -7,8 +7,7 @@
     "authors": [{"name": "Budi Hermawan", "role": "Developer" }],
     "require": {
         "php": "^8.1",
-        "phpunit/phpunit": "^10.0",
-        "symfony/polyfill-php81": "^1.27"
+        "phpunit/phpunit": "^10.3"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.10",
