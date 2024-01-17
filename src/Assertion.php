@@ -10,10 +10,10 @@ use Realodix\Dessert\Exceptions\InvalidActualValue;
  */
 class Assertion
 {
+    use Traits\CustomTrait;
+    use Traits\PHPUnitCustomTrait;
     use Traits\PHPUnitPolyfillTrait;
     use Traits\PHPUnitShortNameTrait;
-    use Traits\PHPUnitCustomTrait;
-    use Traits\CustomTrait;
 
     /**
      * @param TValue $actual
@@ -44,7 +44,7 @@ class Assertion
     /**
      * Creates an expectation on each item of the iterable "value".
      */
-    public function each(callable $callback = null): Each
+    public function each(?callable $callback = null): Each
     {
         if (! is_iterable($this->actual)) {
             throw new InvalidActualValue('iterable');
