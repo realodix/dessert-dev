@@ -27,7 +27,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           coverage: xdebug
       - name: Install dependencies
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 5
           max_attempts: 5
@@ -49,7 +49,7 @@ jobs:
         with:
           php-version: '8.2'
       - name: Install dependencies
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 5
           max_attempts: 5
