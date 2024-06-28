@@ -41,7 +41,7 @@ For the full list of **assertions**, please refer to [PHPUnit Assertions](https:
 ```php
 <?php
 
-use Realodix\Realodix Dessert\Assert;
+use Realodix\Dessert\Assert;
 use PHPUnit\Framework\TestCase;
 
 class YourTest extends TestCase
