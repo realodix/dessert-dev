@@ -10,7 +10,7 @@
         "phpunit/phpunit": "^10.3"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan": "^1.11",
         "realodix/relax": "^1.14"
     },
     "autoload": {
