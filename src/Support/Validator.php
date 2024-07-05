@@ -34,7 +34,7 @@ final class Validator
         }
 
         // ignore html
-        if (false !== stripos($content, '<!DOCTYPE html>')) {
+        if (stripos($content, '<!DOCTYPE html>') !== false) {
             return false;
         }
 
