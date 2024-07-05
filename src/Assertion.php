@@ -10,18 +10,18 @@ use Realodix\Dessert\Exceptions\InvalidActualValue;
  */
 class Assertion
 {
+    use Traits\CustomTrait;
     use Traits\PestExpectationsTrait;
+    use Traits\PHPUnitCustomTrait;
     use Traits\PHPUnitPolyfillTrait;
     use Traits\PHPUnitShortNameTrait;
-    use Traits\PHPUnitCustomTrait;
-    use Traits\CustomTrait;
 
     /**
      * @param TValue $actual
      */
-    public function __construct(public mixed $actual)
-    {
-    }
+    public function __construct(
+        public mixed $actual
+    ) {}
 
     /**
      * Dynamically calls methods on the class without any arguments
@@ -44,7 +44,7 @@ class Assertion
     /**
      * Creates an expectation on each item of the iterable "value".
      */
-    public function each(callable $callback = null): Each
+    public function each(?callable $callback = null): Each
     {
         if (! is_iterable($this->actual)) {
             throw new InvalidActualValue('iterable');
@@ -1015,6 +1015,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $prefix
+     */
     public function stringStartsWith(string $prefix, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -1026,6 +1029,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $prefix
+     */
     public function stringStartsNotWith(string $prefix, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -1037,6 +1043,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $suffix
+     */
     public function stringEndsWith(string $suffix, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -1048,6 +1057,9 @@ class Assertion
         return $this;
     }
 
+    /**
+     * @param non-empty-string $suffix
+     */
     public function stringEndsNotWith(string $suffix, string $message = ''): self
     {
         if (! is_string($this->actual)) {

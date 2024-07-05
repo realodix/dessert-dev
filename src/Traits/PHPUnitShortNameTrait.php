@@ -94,21 +94,33 @@ trait PHPUnitShortNameTrait
         return $this->doesNotMatchRegularExpression($pattern, $message);
     }
 
+    /**
+     * @param non-empty-string $prefix
+     */
     public function startWith(string $prefix, string $message = ''): self
     {
         return $this->stringStartsWith($prefix, $message);
     }
 
+    /**
+     * @param non-empty-string $prefix
+     */
     public function startNotWith(string $prefix, string $message = ''): self
     {
         return $this->stringStartsNotWith($prefix, $message);
     }
 
+    /**
+     * @param non-empty-string $suffix
+     */
     public function endWith(string $suffix, string $message = ''): self
     {
         return $this->stringEndsWith($suffix, $message);
     }
 
+    /**
+     * @param non-empty-string $suffix
+     */
     public function endNotWith(string $suffix, string $message = ''): self
     {
         return $this->stringEndsNotWith($suffix, $message);

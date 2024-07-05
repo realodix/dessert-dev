@@ -6,14 +6,12 @@
     "homepage": "https://github.com/realodix/next-project",
     "authors": [{"name": "Budi Hermawan", "role": "Developer" }],
     "require": {
-        "php": "^8.0",
-        "phpunit/phpunit": "^9.6 || ^10.0",
-        "symfony/polyfill-php80": "^1.26",
-        "symfony/polyfill-php81": "^1.26"
+        "php": "^8.1",
+        "phpunit/phpunit": "^10.3"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.9",
-        "realodix/relax": "dev-main"
+        "phpstan/phpstan": "^1.11",
+        "realodix/relax": "^1.14"
     },
     "autoload": {
         "files": [

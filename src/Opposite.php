@@ -85,7 +85,7 @@ final class Opposite
                 'Failed asserting that %s is not %s %s.',
                 $toString($this->original->actual),
                 strtolower((string) preg_replace('/(?<!\ )[A-Z]/', ' $0', $name)),
-                implode(' ', array_map(fn ($argument): string => $toString($argument), $arguments))
+                implode(' ', array_map(fn($argument): string => $toString($argument), $arguments))
             )
         );
     }

@@ -3,6 +3,9 @@
 use Realodix\Relax\Config;
 
 $localRules = [
+    // Laravel
+    'method_chaining_indentation' => false,
+
     // Realodix
     'binary_operator_spaces' => [
         'operators' => [
@@ -11,4 +14,5 @@ $localRules = [
     ],
 ];
 
-return Config::create('@Realodix', $localRules);
+return Config::create('Realodix')
+    ->setRules($localRules);
