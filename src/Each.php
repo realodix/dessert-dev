@@ -2,6 +2,8 @@
 
 namespace Realodix\Dessert;
 
+use function verify;
+
 /**
  * @internal
  *
