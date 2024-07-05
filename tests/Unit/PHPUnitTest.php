@@ -162,7 +162,7 @@ final class PHPUnitTest extends TestCase
     public function testCount(): void
     {
         ass([1, 2, 3])
-            ->count(3)
+            ->count(3)->toHaveCount(3)
             ->notCount(2);
     }
 
@@ -192,7 +192,10 @@ final class PHPUnitTest extends TestCase
 
     public function testEmpty(): void
     {
-        ass([])->empty();
+        ass([[], null])
+            ->each
+                ->empty()
+                ->toBeEmpty();
         ass(['3', '5'])->notEmpty();
     }
 
@@ -200,7 +203,7 @@ final class PHPUnitTest extends TestCase
     {
         ass('hello')->equals('hello');
         ass(5)
-            ->equals(5)
+            ->equals(5)->toEqual(5)
             ->equals(5, 'user have 5 posts');
 
         ass(3)->notEquals(5);
@@ -210,6 +213,7 @@ final class PHPUnitTest extends TestCase
     {
         ass([3, 2, 1])
             ->equalsCanonicalizing([1, 2, 3])
+            ->toEqualCanonicalizing([1, 2, 3])
             ->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
@@ -257,10 +261,12 @@ final class PHPUnitTest extends TestCase
 
     public function testEqualsWithDelta(): void
     {
-        ass(1.01)->equalsWithDelta(1.0, 0.1);
+        ass(1.01)->equalsWithDelta(1.0, 0.1)->toEqualWithDelta(1.0, 0.1);
         ass(3.251)
             ->equalsWithDelta(3.25, 0.01)
-            ->equalsWithDelta(3.25, 0.01, 'respects delta');
+            ->equalsWithDelta(3.25, 0.01, 'respects delta')
+            ->toEqualWithDelta(3.25, 0.01)
+            ->toEqualWithDelta(3.25, 0.01, 'respects delta');
 
         ass(1.2)->notEqualsWithDelta(1.0, 0.1);
         ass(3.252)
@@ -329,22 +335,25 @@ final class PHPUnitTest extends TestCase
     public function testGreaterThan(): void
     {
         ass(7)
-            ->greaterThan(5, true)
-            ->greaterThanOrEqual(7)
-            ->greaterThanOrEqual(5);
+            ->greaterThan(5, true)->toBeGreaterThan(5, true)
+            ->greaterThanOrEqual(7)->toBeGreaterThanOrEqual(7)
+            ->greaterThanOrEqual(5)->toBeGreaterThanOrEqual(5);
     }
 
     public function testLessThan(): void
     {
         ass(7)
-            ->lessThan(10)
-            ->lessThanOrEqual(7)
-            ->lessThanOrEqual(8);
+            ->lessThan(10)->toBeLessThan(10)
+            ->lessThanOrEqual(7)->toBeLessThanOrEqual(7)
+            ->lessThanOrEqual(8)->toBeLessThanOrEqual(8);
     }
 
     public function testInfinite(): void
     {
-        ass(INF)->infinite();
+        ass([INF, log(0)])
+            ->each
+                ->infinite()
+                ->toBeInfinite();
     }
 
     public function testFinite(): void
@@ -355,25 +364,26 @@ final class PHPUnitTest extends TestCase
     public function testInstanceOf(): void
     {
         ass(new \DateTime)
-            ->instanceOf('DateTime')
+            ->instanceOf('DateTime')->toBeInstanceOf('DateTime')
             ->notInstanceOf('DateTimeZone');
     }
 
     public function testIsArray(): void
     {
-        ass([1, 2, 3])->isArray();
+        ass([1, 2, 3])->isArray()->toBeArray();
         ass(false)->isNotArray();
     }
 
     public function testIsBool(): void
     {
-        ass(false)->isBool();
+        ass(false)->isBool()->toBeBool();
         ass([1, 2, 3])->isNotBool();
     }
 
     public function testIsCallable(): void
     {
-        ass(function (): void {})->isCallable();
+        ass(function (): void {})
+            ->isCallable()->toBeCallable();
 
         ass(false)->isNotCallable();
     }
@@ -392,37 +402,38 @@ final class PHPUnitTest extends TestCase
 
     public function testIsFloat(): void
     {
-        ass(1.5)->isFloat();
+        ass(1.5)->isFloat()->toBeFloat();
         ass(1)->isNotFloat();
     }
 
     public function testIsInt(): void
     {
-        ass(5)->isInt();
+        ass(5)->isInt()->toBeInt();
         ass(1.5)->isNotInt();
     }
 
     public function testIsIterable(): void
     {
-        ass([])->isIterable();
+        ass([])->isIterable()->toBeIterable();
         ass(null)->isNotIterable();
     }
 
     public function testIsNumeric(): void
     {
-        ass('1.5')->isNumeric();
+        ass('1.5')->isNumeric()->toBeNumeric();
         ass('foo bar')->isNotNumeric();
     }
 
     public function testIsObject(): void
     {
-        ass(new \stdClass)->isObject();
+        ass(new \stdClass)->isObject()->toBeObject();
         ass(false)->isNotObject();
     }
 
     public function testIsResource(): void
     {
-        ass(fopen(__FILE__, 'r'))->isResource();
+        ass(fopen(__FILE__, 'r'))
+            ->isResource()->toBeResource();
         ass(false)->isNotResource();
     }
 
@@ -528,8 +539,9 @@ final class PHPUnitTest extends TestCase
 
     public function testSame(): void
     {
-        ass(1)->same(0 + 1)
-              ->notSame(true);
+        ass(1)
+            ->same(0 + 1)->toBe(0 + 1)
+            ->notSame(true);
     }
 
     public function testSameSize(): void
@@ -575,13 +587,15 @@ final class PHPUnitTest extends TestCase
 
     public function testTrue(): void
     {
-        ass(true)->true();
+        ass(true)
+            ->true()->toBeTrue();
         ass(false)->notTrue();
     }
 
     public function testFalse(): void
     {
-        ass(false)->false();
+        ass(false)
+            ->false()->toBeFalse();
         ass(true)->notFalse();
     }
 
