@@ -5,41 +5,30 @@ namespace Realodix\Dessert\Traits;
 trait PestExpectationsTrait
 {
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toBe($expected, string $message = ''): self
     {
         return $this->same($expected, $message);
     }
 
-    /**
-     * @param string $message
-     */
     public function toBeEmpty(string $message = ''): self
     {
         return $this->empty($message);
     }
 
-    /**
-     * @param string $message
-     */
     public function toBeTrue(string $message = ''): self
     {
         return $this->true($message);
     }
 
-    /**
-     * @param string $message
-     */
     public function toBeFalse(string $message = ''): self
     {
         return $this->false($message);
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toBeGreaterThan($expected, string $message = ''): self
     {
@@ -47,8 +36,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toBeGreaterThanOrEqual($expected, string $message = ''): self
     {
@@ -56,8 +44,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toBeLessThan($expected, string $message = ''): self
     {
@@ -65,8 +52,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toBeLessThanOrEqual($expected, string $message = ''): self
     {
@@ -74,8 +60,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toHaveCount($expected, string $message = ''): self
     {
@@ -83,8 +68,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toEqual($expected, string $message = ''): self
     {
@@ -92,8 +76,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toEqualCanonicalizing($expected, string $message = ''): self
     {
@@ -101,8 +84,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toEqualWithDelta($expected, string $message = ''): self
     {
@@ -110,8 +92,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toBeIn($expected, string $message = ''): self
     {
@@ -119,7 +100,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeInfinite($message = ''): self
@@ -128,8 +108,7 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
-     * @param string $message
+     * @param mixed $expected
      */
     public function toBeInstanceOf($expected, string $message = ''): self
     {
@@ -137,7 +116,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeArray($message = ''): self
@@ -146,7 +124,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeBool($message = ''): self
@@ -155,7 +132,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeCallable($message = ''): self
@@ -164,7 +140,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeFloat($message = ''): self
@@ -173,7 +148,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeInt($message = ''): self
@@ -182,7 +156,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeIterable($message = ''): self
@@ -191,7 +164,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeNumeric($message = ''): self
@@ -200,7 +172,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeObject($message = ''): self
@@ -209,7 +180,6 @@ trait PestExpectationsTrait
     }
 
     /**
-     * @param mixed  $expected
      * @param string $message
      */
     public function toBeResource($message = ''): self
