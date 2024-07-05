@@ -14,4 +14,5 @@ $localRules = [
     ],
 ];
 
-return Config::create('@Realodix', $localRules);
+return Config::create('Realodix')
+    ->setRules($localRules);

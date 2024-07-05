@@ -20,8 +20,7 @@ class Assertion
      */
     public function __construct(
         public mixed $actual
-    ) {
-    }
+    ) {}
 
     /**
      * Dynamically calls methods on the class without any arguments
