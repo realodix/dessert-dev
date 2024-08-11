@@ -28,26 +28,6 @@ final class Each
     }
 
     /**
-     * Creates a new expectation.
-     */
-    public function and(mixed $value): Assertion
-    {
-        return $this->original->and($value);
-    }
-
-    /**
-     * Creates the opposite expectation for the value.
-     *
-     * @return self<TValue>
-     */
-    public function not(): self
-    {
-        $this->opposite = true;
-
-        return $this;
-    }
-
-    /**
      * Dynamically calls methods on the class with the given arguments on each item.
      *
      * @param array<int|string, mixed> $arguments
@@ -72,5 +52,25 @@ final class Each
     public function __get(string $name): self
     {
         return $this->$name();
+    }
+
+    /**
+     * Creates a new expectation.
+     */
+    public function and(mixed $value): Assertion
+    {
+        return $this->original->and($value);
+    }
+
+    /**
+     * Creates the opposite expectation for the value.
+     *
+     * @return self<TValue>
+     */
+    public function not(): self
+    {
+        $this->opposite = true;
+
+        return $this;
     }
 }

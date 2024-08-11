@@ -11,7 +11,7 @@ final class PHPUnitShortNameTest extends TestCase
         ass(__DIR__)
             ->dirExists();
 
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')
+        ass(__DIR__ . DIRECTORY_SEPARATOR . 'NotExisting')
             ->dirNotExist();
     }
 

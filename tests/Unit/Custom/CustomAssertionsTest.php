@@ -58,7 +58,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testFileEqualsString(): void
     {
-        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
+        $xmlFile = TEST_FILES_PATH . 'xml_foo.xml';
 
         ass($xmlFile)
             ->fileEqualsString('<foo/>')
@@ -67,7 +67,7 @@ final class CustomAssertionsTest extends TestCase
 
     public function testFileEqualsStringIgnoringCase(): void
     {
-        $xmlFile = TEST_FILES_PATH.'xml_foo.xml';
+        $xmlFile = TEST_FILES_PATH . 'xml_foo.xml';
 
         ass($xmlFile)
             ->fileEqualsStringIgnoringCase('<FOO/>')

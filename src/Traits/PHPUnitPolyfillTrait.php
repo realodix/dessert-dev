@@ -54,7 +54,7 @@ trait PHPUnitPolyfillTrait
             Assert::assertThat(
                 Str::normalizeLineEndings($this->actual),
                 new StringContains(Str::normalizeLineEndings($needle), false),
-                $message
+                $message,
             );
 
             return $this;
@@ -83,7 +83,7 @@ trait PHPUnitPolyfillTrait
             Assert::assertThat(
                 Str::normalizeLineEndings($this->actual),
                 new IsEqual(Str::normalizeLineEndings($expected)),
-                $message
+                $message,
             );
 
             return $this;
