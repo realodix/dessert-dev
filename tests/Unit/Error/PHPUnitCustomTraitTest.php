@@ -17,7 +17,7 @@ final class PHPUnitCustomTraitTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->contains(1);
+        verify(true)->contains(1);
     }
 
     /** @test */
@@ -25,6 +25,6 @@ final class PHPUnitCustomTraitTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->notContains(1);
+        verify(true)->notContains(1);
     }
 }

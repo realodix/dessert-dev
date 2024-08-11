@@ -12,17 +12,17 @@ final class EachTest extends TestCase
      */
     public function testEach(): void
     {
-        ass([1, 1, 1])
+        verify([1, 1, 1])
             ->each()
             ->equals(1);
 
-        ass(self::getCount())->same(3); // + 1 assertion
+        verify(self::getCount())->same(3); // + 1 assertion
 
-        ass([1, 1, 1])
+        verify([1, 1, 1])
             ->each
             ->equals(1);
 
-        ass(self::getCount())->same(7);
+        verify(self::getCount())->same(7);
     }
 
     /**
@@ -35,7 +35,7 @@ final class EachTest extends TestCase
             'Expectation value is not iterable.',
         );
 
-        ass('Foobar')->each()->same('Foobar');
+        verify('Foobar')->each()->same('Foobar');
     }
 
     /**
@@ -43,19 +43,19 @@ final class EachTest extends TestCase
      */
     public function testChainsExpectations(): void
     {
-        ass([1, 1, 1])
+        verify([1, 1, 1])
             ->each
             ->isInt()
             ->equals(1);
 
-        ass(self::getCount())->same(6); // + 1 assertion
+        verify(self::getCount())->same(6); // + 1 assertion
 
-        ass([2, 2, 2])
+        verify([2, 2, 2])
             ->each
             ->isInt()
             ->equals(2);
 
-        ass(self::getCount())->same(13);
+        verify(self::getCount())->same(13);
     }
 
     /*
@@ -63,17 +63,17 @@ final class EachTest extends TestCase
      */
     public function testOpposite(): void
     {
-        ass([1, 2, 3])
+        verify([1, 2, 3])
             ->each->not
             ->equals(4);
 
-        ass(self::getCount())->same(3);
+        verify(self::getCount())->same(3);
 
-        ass([1, 2, 3])
+        verify([1, 2, 3])
             ->each()
             ->not->isString;
 
-        ass(self::getCount())->same(7);
+        verify(self::getCount())->same(7);
     }
 
     /*
@@ -81,12 +81,12 @@ final class EachTest extends TestCase
      */
     public function testChainedOppositeAndNonOpposite(): void
     {
-        ass([1, 2, 3])
+        verify([1, 2, 3])
             ->each->not
             ->equals(4)
             ->isInt();
 
-        ass(self::getCount())->same(6);
+        verify(self::getCount())->same(6);
     }
 
     /*
@@ -94,7 +94,7 @@ final class EachTest extends TestCase
      */
     public function testCanAddExpectationsViaAnd(): void
     {
-        ass([1, 2, 3])
+        verify([1, 2, 3])
             ->each->isInt // + 3
             ->and([4, 5, 6])->each
                 ->lessThan(7) // + 3
@@ -104,7 +104,7 @@ final class EachTest extends TestCase
                 ->isString // + 1
                 ->equals('Hello World'); // + 1
 
-        ass(self::getCount())->same(14);
+        verify(self::getCount())->same(14);
     }
 
     /*
@@ -112,12 +112,12 @@ final class EachTest extends TestCase
      */
     // public function testCallables(): void
     // {
-    //     ass([1, 2, 3])->each(function ($number) {
-    //         ass($number)->instanceOf(Assertion::class);
-    //         ass($number->value)->isInt();
+    //     verify([1, 2, 3])->each(function ($number) {
+    //         verify($number)->instanceOf(Assertion::class);
+    //         verify($number->value)->isInt();
     //         $number->isInt->not->isString;
     //     });
 
-    //     ass(static::getCount())->same(12);
+    //     verify(static::getCount())->same(12);
     // }
 }

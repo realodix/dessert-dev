@@ -16,68 +16,68 @@ final class PHPUnitTest extends TestCase
 
     public function testArrayHasKey(): void
     {
-        ass(['foo'])->arrayHasKey(0);
-        ass(['foo' => 'bar'])->arrayHasKey('foo');
+        verify(['foo'])->arrayHasKey(0);
+        verify(['foo' => 'bar'])->arrayHasKey('foo');
 
         $array = new \ArrayObject;
         $array['foo'] = 'bar';
-        ass($array)->arrayHasKey('foo');
+        verify($array)->arrayHasKey('foo');
 
         $this->expectException(ExpectationFailedException::class);
-        ass($array)->arrayHasKey('bar');
+        verify($array)->arrayHasKey('bar');
         // $array = new \PHPUnit\TestFixture\SampleArrayAccess;
         // $array['foo'] = 'bar';
-        // ass($array)->arrayHasKey('foo');
+        // verify($array)->arrayHasKey('foo');
     }
 
     public function testArrayNotHasKey(): void
     {
-        ass(['foo'])
+        verify(['foo'])
             ->arrayNotHasKey(1)
             ->not->arrayHasKey(1);
-        ass(['foo' => 'bar'])
+        verify(['foo' => 'bar'])
             ->arrayNotHasKey('bar')
             ->not->arrayHasKey('bar');
 
         $array = new \ArrayObject;
         $array['foo'] = 'bar';
-        ass($array)->arrayNotHasKey('bar');
+        verify($array)->arrayNotHasKey('bar');
 
         $this->expectException(ExpectationFailedException::class);
-        ass($array)->arrayNotHasKey('foo');
+        verify($array)->arrayNotHasKey('foo');
     }
 
     public function testIsList(): void
     {
-        ass([0, 1, 2])->isList();
+        verify([0, 1, 2])->isList();
 
         $this->expectException(AssertionFailedError::class);
 
-        ass([0 => 0, 2 => 2, 3 => 3])->isList();
+        verify([0 => 0, 2 => 2, 3 => 3])->isList();
     }
 
     public function testIsListWithEmptyArray(): void
     {
-        ass([])->isList();
+        verify([])->isList();
     }
 
     public function testIsListFailsWithStringKeys(): void
     {
         $this->expectException(AssertionFailedError::class);
 
-        ass(['string' => 0])->isList();
+        verify(['string' => 0])->isList();
     }
 
     public function testStringContainsString(): void
     {
-        ass('foo bar')
+        verify('foo bar')
             ->stringContainsString('o b')
             ->stringNotContainsString('BAR');
     }
 
     public function testStringContainsStringIgnoringCase(): void
     {
-        ass('foo bar')
+        verify('foo bar')
             ->stringContainsStringIgnoringCase('O b')
             ->stringNotContainsStringIgnoringCase('baz');
     }
@@ -87,7 +87,7 @@ final class PHPUnitTest extends TestCase
      */
     public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
     {
-        ass($haystack)
+        verify($haystack)
             ->stringContainsStringIgnoringLineEndings($needle);
     }
 
@@ -95,7 +95,7 @@ final class PHPUnitTest extends TestCase
     {
         $this->expectException(ExpectationFailedException::class);
 
-        ass("\r\nc\r\n")
+        verify("\r\nc\r\n")
             ->stringContainsStringIgnoringLineEndings("b\nc");
     }
 
@@ -110,10 +110,10 @@ final class PHPUnitTest extends TestCase
         $b = new \stdClass;
         $b->foo = 'baz';
 
-        ass([$a])->containsEquals($a);
+        verify([$a])->containsEquals($a);
 
         try {
-            ass([$a])->containsEquals($b);
+            verify([$a])->containsEquals($b);
         } catch (AssertionFailedError $e) {
             return;
         }
@@ -132,10 +132,10 @@ final class PHPUnitTest extends TestCase
         $b = new \stdClass;
         $b->foo = 'baz';
 
-        ass([$a])->notContainsEquals($b);
+        verify([$a])->notContainsEquals($b);
 
         try {
-            ass([$a])->notContainsEquals($a);
+            verify([$a])->notContainsEquals($a);
         } catch (AssertionFailedError $e) {
             return;
         }
@@ -145,8 +145,8 @@ final class PHPUnitTest extends TestCase
 
     public function testContainsOnly(): void
     {
-        ass(['1', '2', '3'])->containsOnly('string');
-        ass(['1', '2', 3])->notContainsOnly('string');
+        verify(['1', '2', '3'])->containsOnly('string');
+        verify(['1', '2', 3])->notContainsOnly('string');
     }
 
     public function testContainsOnlyInstancesOf(): void
@@ -156,66 +156,66 @@ final class PHPUnitTest extends TestCase
             new \DateTimeImmutable,
         ];
 
-        ass($array)->containsOnlyInstancesOf(\DateTimeImmutable::class);
+        verify($array)->containsOnlyInstancesOf(\DateTimeImmutable::class);
     }
 
     public function testCount(): void
     {
-        ass([1, 2, 3])
+        verify([1, 2, 3])
             ->count(3)
             ->notCount(2);
     }
 
     public function testDirectoryExists(): void
     {
-        ass(__DIR__)
+        verify(__DIR__)
             ->directoryExists();
     }
 
     public function testDirectoryNotExists(): void
     {
-        ass(__DIR__ . DIRECTORY_SEPARATOR . 'NotExisting')
+        verify(__DIR__ . DIRECTORY_SEPARATOR . 'NotExisting')
             ->directoryDoesNotExist();
     }
 
     public function testDirectoryIsReadable(): void
     {
-        ass(__DIR__)
+        verify(__DIR__)
             ->directoryIsReadable();
     }
 
     public function testDirectoryIsWritable(): void
     {
-        ass(__DIR__)
+        verify(__DIR__)
             ->directoryIsWritable();
     }
 
     public function testEmpty(): void
     {
-        ass([])->empty();
-        ass(['3', '5'])->notEmpty();
+        verify([])->empty();
+        verify(['3', '5'])->notEmpty();
     }
 
     public function testEquals(): void
     {
-        ass('hello')->equals('hello');
-        ass(5)
+        verify('hello')->equals('hello');
+        verify(5)
             ->equals(5)
             ->equals(5, 'user have 5 posts');
 
-        ass(3)->notEquals(5);
+        verify(3)->notEquals(5);
     }
 
     public function testEqualsCanonicalizing(): void
     {
-        ass([3, 2, 1])
+        verify([3, 2, 1])
             ->equalsCanonicalizing([1, 2, 3])
             ->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
     public function testEqualsIgnoringCase(): void
     {
-        ass('foo')
+        verify('foo')
             ->equalsIgnoringCase('FOO')
             ->notEqualsIgnoringCase('BAR');
     }
@@ -225,7 +225,7 @@ final class PHPUnitTest extends TestCase
      */
     public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
     {
-        ass($actual)
+        verify($actual)
             ->stringEqualIgnoringLineEndings($expected);
     }
 
@@ -235,7 +235,7 @@ final class PHPUnitTest extends TestCase
     public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
     {
         $this->expectException(ExpectationFailedException::class);
-        ass($actual)
+        verify($actual)
             ->stringEqualIgnoringLineEndings($expected);
     }
 
@@ -244,10 +244,10 @@ final class PHPUnitTest extends TestCase
      */
     public function testObjectEquals(): void
     {
-        ass(new ValueObject(1))->objectEquals(new ValueObject(1));
+        verify(new ValueObject(1))->objectEquals(new ValueObject(1));
 
         try {
-            ass(new ValueObject(2))->objectEquals(new ValueObject(1));
+            verify(new ValueObject(2))->objectEquals(new ValueObject(1));
         } catch (AssertionFailedError $e) {
             return;
         }
@@ -257,20 +257,20 @@ final class PHPUnitTest extends TestCase
 
     public function testEqualsWithDelta(): void
     {
-        ass(1.01)->equalsWithDelta(1.0, 0.1);
-        ass(3.251)
+        verify(1.01)->equalsWithDelta(1.0, 0.1);
+        verify(3.251)
             ->equalsWithDelta(3.25, 0.01)
             ->equalsWithDelta(3.25, 0.01, 'respects delta');
 
-        ass(1.2)->notEqualsWithDelta(1.0, 0.1);
-        ass(3.252)
+        verify(1.2)->notEqualsWithDelta(1.0, 0.1);
+        verify(3.252)
             ->notEqualsWithDelta(3.25, 0.001)
             ->notEqualsWithDelta(3.25, 0.001, 'respects delta');
     }
 
     public function testFileEquals(): void
     {
-        ass(__FILE__)
+        verify(__FILE__)
             ->fileEquals(__FILE__)
             ->fileNotEquals(
                 TEST_FILES_PATH . 'string_foobar.txt',
@@ -279,8 +279,8 @@ final class PHPUnitTest extends TestCase
 
     public function testFileExists(): void
     {
-        ass(__FILE__)->fileExists();
-        ass('completelyrandomfilename.txt')->fileDoesNotExist();
+        verify(__FILE__)->fileExists();
+        verify('completelyrandomfilename.txt')->fileDoesNotExist();
     }
 
     public function testFileEqualsCanonicalizing()
@@ -288,7 +288,7 @@ final class PHPUnitTest extends TestCase
         $actual = TEST_FILES_PATH . 'string_foobar.txt';
         $expected = TEST_FILES_PATH . 'string_foobar_upper.txt';
 
-        ass($actual)
+        verify($actual)
             ->fileEqualsCanonicalizing($actual)
             ->fileNotEqualsCanonicalizing($expected);
     }
@@ -299,19 +299,19 @@ final class PHPUnitTest extends TestCase
         $file2 = TEST_FILES_PATH . 'string_foobar_upper.txt';
         $file3 = TEST_FILES_PATH . 'string_foobaz.txt';
 
-        ass($file1)->fileEqualsIgnoringCase($file2);
-        ass($file3)->fileNotEqualsIgnoringCase($file1);
+        verify($file1)->fileEqualsIgnoringCase($file2);
+        verify($file3)->fileNotEqualsIgnoringCase($file1);
     }
 
     public function testFileIsReadable()
     {
-        ass(TEST_FILES_PATH . 'string_foobar.txt')
+        verify(TEST_FILES_PATH . 'string_foobar.txt')
             ->fileIsReadable();
     }
 
     public function testFileIsWritable()
     {
-        ass(TEST_FILES_PATH . 'string_foobar.txt')
+        verify(TEST_FILES_PATH . 'string_foobar.txt')
             ->fileIsWritable();
     }
 
@@ -320,7 +320,7 @@ final class PHPUnitTest extends TestCase
         $tempFile = tempnam(sys_get_temp_dir(), 'not_writable');
         chmod($tempFile, octdec('0'));
 
-        ass($tempFile)->fileIsNotWritable($tempFile);
+        verify($tempFile)->fileIsNotWritable($tempFile);
 
         chmod($tempFile, octdec('755'));
         unlink($tempFile);
@@ -328,7 +328,7 @@ final class PHPUnitTest extends TestCase
 
     public function testGreaterThan(): void
     {
-        ass(7)
+        verify(7)
             ->greaterThan(5, true)
             ->greaterThanOrEqual(7)
             ->greaterThanOrEqual(5);
@@ -336,7 +336,7 @@ final class PHPUnitTest extends TestCase
 
     public function testLessThan(): void
     {
-        ass(7)
+        verify(7)
             ->lessThan(10)
             ->lessThanOrEqual(7)
             ->lessThanOrEqual(8);
@@ -344,38 +344,38 @@ final class PHPUnitTest extends TestCase
 
     public function testInfinite(): void
     {
-        ass(INF)->infinite();
+        verify(INF)->infinite();
     }
 
     public function testFinite(): void
     {
-        ass(1)->finite();
+        verify(1)->finite();
     }
 
     public function testInstanceOf(): void
     {
-        ass(new \DateTime)
+        verify(new \DateTime)
             ->instanceOf('DateTime')
             ->notInstanceOf('DateTimeZone');
     }
 
     public function testIsArray(): void
     {
-        ass([1, 2, 3])->isArray();
-        ass(false)->isNotArray();
+        verify([1, 2, 3])->isArray();
+        verify(false)->isNotArray();
     }
 
     public function testIsBool(): void
     {
-        ass(false)->isBool();
-        ass([1, 2, 3])->isNotBool();
+        verify(false)->isBool();
+        verify([1, 2, 3])->isNotBool();
     }
 
     public function testIsCallable(): void
     {
-        ass(function (): void {})->isCallable();
+        verify(function (): void {})->isCallable();
 
-        ass(false)->isNotCallable();
+        verify(false)->isNotCallable();
     }
 
     public function testIsClosedResource(): void
@@ -383,83 +383,83 @@ final class PHPUnitTest extends TestCase
         $resource = fopen(__FILE__, 'r');
         fclose($resource);
 
-        ass($resource)->isClosedResource();
+        verify($resource)->isClosedResource();
 
-        ass(null)->isNotClosedResource();
-        ass(['array'])->isNotClosedResource();
-        ass(new \stdClass)->isNotClosedResource();
+        verify(null)->isNotClosedResource();
+        verify(['array'])->isNotClosedResource();
+        verify(new \stdClass)->isNotClosedResource();
     }
 
     public function testIsFloat(): void
     {
-        ass(1.5)->isFloat();
-        ass(1)->isNotFloat();
+        verify(1.5)->isFloat();
+        verify(1)->isNotFloat();
     }
 
     public function testIsInt(): void
     {
-        ass(5)->isInt();
-        ass(1.5)->isNotInt();
+        verify(5)->isInt();
+        verify(1.5)->isNotInt();
     }
 
     public function testIsIterable(): void
     {
-        ass([])->isIterable();
-        ass(null)->isNotIterable();
+        verify([])->isIterable();
+        verify(null)->isNotIterable();
     }
 
     public function testIsNumeric(): void
     {
-        ass('1.5')->isNumeric();
-        ass('foo bar')->isNotNumeric();
+        verify('1.5')->isNumeric();
+        verify('foo bar')->isNotNumeric();
     }
 
     public function testIsObject(): void
     {
-        ass(new \stdClass)->isObject();
-        ass(false)->isNotObject();
+        verify(new \stdClass)->isObject();
+        verify(false)->isNotObject();
     }
 
     public function testIsResource(): void
     {
-        ass(fopen(__FILE__, 'r'))->isResource();
-        ass(false)->isNotResource();
+        verify(fopen(__FILE__, 'r'))->isResource();
+        verify(false)->isNotResource();
     }
 
     public function testIsScalar(): void
     {
-        ass('foo bar')->isScalar();
-        ass([1, 2, 3])->isNotScalar();
+        verify('foo bar')->isScalar();
+        verify([1, 2, 3])->isNotScalar();
     }
 
     public function testIsString(): void
     {
-        ass('foo bar')->isString();
-        ass(false)->isNotString();
+        verify('foo bar')->isString();
+        verify(false)->isNotString();
     }
 
     public function testIsReadable(): void
     {
-        ass(TEST_FILES_PATH . 'string_foobar.txt')->isReadable();
+        verify(TEST_FILES_PATH . 'string_foobar.txt')->isReadable();
 
         $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting.php';
-        ass($path)->isNotReadable();
+        verify($path)->isNotReadable();
     }
 
     public function testIsWritable(): void
     {
         $path = TEST_FILES_PATH . 'string_foobar.txt';
-        ass($path)->isWritable();
+        verify($path)->isWritable();
 
         $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting' . \DIRECTORY_SEPARATOR;
-        ass($path)->isNotWritable();
+        verify($path)->isNotWritable();
     }
 
     public function testJson(): void
     {
         $json = json_encode(['foo' => 'bar']);
 
-        ass($json)->json();
+        verify($json)->json();
     }
 
     public function testJsonFileEqualsJsonFile(): void
@@ -467,7 +467,7 @@ final class PHPUnitTest extends TestCase
         $fileExpected = TEST_FILES_PATH . 'json_array_object.json';
         $fileActual = TEST_FILES_PATH . 'json_simple_object.json';
 
-        ass($fileActual)
+        verify($fileActual)
             ->jsonFileEqualsJsonFile($fileActual)
             ->jsonFileNotEqualsJsonFile($fileExpected);
     }
@@ -477,10 +477,10 @@ final class PHPUnitTest extends TestCase
         $jsonFile = TEST_FILES_PATH . 'json_simple_object.json';
         $jsonString = json_encode(['foo' => 'bar']);
 
-        ass($jsonString)
+        verify($jsonString)
             ->jsonStringEqualsJsonFile($jsonFile);
 
-        ass(json_encode(['foo' => 'baz']))
+        verify(json_encode(['foo' => 'baz']))
             ->jsonStringNotEqualsJsonFile($jsonFile);
     }
 
@@ -488,32 +488,32 @@ final class PHPUnitTest extends TestCase
     {
         $jsonString = json_encode(['foo' => 'bar']);
 
-        ass($jsonString)
+        verify($jsonString)
             ->jsonStringEqualsJsonString($jsonString)
             ->jsonStringNotEqualsJsonString(json_encode(['foo' => 'baz']));
     }
 
     public function testNan(): void
     {
-        ass(NAN)->nan();
+        verify(NAN)->nan();
     }
 
     public function testNull(): void
     {
-        ass(null)->null();
-        ass(true)->notNull();
+        verify(null)->null();
+        verify(true)->notNull();
     }
 
     public function testMatchesRegularExpression(): void
     {
-        ass('foobar')
+        verify('foobar')
             ->matchesRegularExpression('/foobar/')
             ->doesNotMatchRegularExpression('/foobarbaz/');
     }
 
     public function testStringMatchesFormat(): void
     {
-        ass('somestring')
+        verify('somestring')
             ->stringMatchesFormat('%s')
             ->stringNotMatchesFormat('%i');
     }
@@ -522,33 +522,33 @@ final class PHPUnitTest extends TestCase
     {
         $formatFile = TEST_FILES_PATH . 'string_foobar.txt';
 
-        ass('foo_bar')->stringMatchesFormatFile($formatFile);
-        ass('string_not_matches')->stringNotMatchesFormatFile($formatFile);
+        verify('foo_bar')->stringMatchesFormatFile($formatFile);
+        verify('string_not_matches')->stringNotMatchesFormatFile($formatFile);
     }
 
     public function testSame(): void
     {
-        ass(1)->same(0 + 1)
+        verify(1)->same(0 + 1)
               ->notSame(true);
     }
 
     public function testSameSize(): void
     {
-        ass([1, 2])
+        verify([1, 2])
             ->sameSize([1, 2])
             ->notSameSize([1, 2, 3]);
     }
 
     public function testStringStartsWith(): void
     {
-        ass('foobar')
+        verify('foobar')
             ->stringStartsWith('fo')
             ->stringStartsNotWith('ar');
     }
 
     public function testStringEndsWith(): void
     {
-        ass('foobar')
+        verify('foobar')
             ->stringEndsWith('ar')
             ->stringEndsNotWith('foo');
     }
@@ -557,9 +557,9 @@ final class PHPUnitTest extends TestCase
     {
         $string_foobar = TEST_FILES_PATH . 'string_foobar.txt';
 
-        ass('foo_bar')
+        verify('foo_bar')
             ->stringEqualsFileCanonicalizing($string_foobar);
-        ass('notSame')
+        verify('notSame')
             ->stringNotEqualsFileCanonicalizing($string_foobar);
     }
 
@@ -567,22 +567,22 @@ final class PHPUnitTest extends TestCase
     {
         $string_foobar = TEST_FILES_PATH . 'string_foobar.txt';
 
-        ass('FOO_BAR')
+        verify('FOO_BAR')
             ->stringEqualsFileIgnoringCase($string_foobar);
-        ass('Test 123')
+        verify('Test 123')
             ->stringNotEqualsFileIgnoringCase($string_foobar);
     }
 
     public function testTrue(): void
     {
-        ass(true)->true();
-        ass(false)->notTrue();
+        verify(true)->true();
+        verify(false)->notTrue();
     }
 
     public function testFalse(): void
     {
-        ass(false)->false();
-        ass(true)->notFalse();
+        verify(false)->false();
+        verify(true)->notFalse();
     }
 
     public function testXmlFileEqualsXmlFile(): void
@@ -590,7 +590,7 @@ final class PHPUnitTest extends TestCase
         $actual = TEST_FILES_PATH . 'xml_foo.xml';
         $expected = TEST_FILES_PATH . 'xml_bar.xml';
 
-        ass($actual)
+        verify($actual)
             ->xmlFileEqualsXmlFile($actual)
             ->xmlFileNotEqualsXmlFile($expected);
     }
@@ -600,14 +600,14 @@ final class PHPUnitTest extends TestCase
         $xmlFoo = TEST_FILES_PATH . 'xml_foo.xml';
         $xmlBar = TEST_FILES_PATH . 'xml_bar.xml';
 
-        ass('<foo/>')
+        verify('<foo/>')
             ->xmlStringEqualsXmlFile($xmlFoo)
             ->xmlStringNotEqualsXmlFile($xmlBar);
     }
 
     public function testXmlStringEqualsXmlString(): void
     {
-        ass('<foo/>')
+        verify('<foo/>')
             ->xmlStringEqualsXmlString('<foo/>')
             ->xmlStringNotEqualsXmlString('<bar/>');
     }
@@ -622,7 +622,7 @@ final class PHPUnitTest extends TestCase
         $dirName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . uniqid('unreadable_dir_', true);
         mkdir($dirName, octdec('0'));
 
-        ass($dirName)
+        verify($dirName)
             ->directoryIsNotReadable()
             ->dirIsNotReadable();
 
@@ -639,7 +639,7 @@ final class PHPUnitTest extends TestCase
         $dirName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . uniqid('not_writable_dir_', true);
         mkdir($dirName, octdec('444'));
 
-        ass($dirName)
+        verify($dirName)
             ->directoryIsNotWritable()
             ->dirIsNotWritable();
 
@@ -660,7 +660,7 @@ final class PHPUnitTest extends TestCase
 
         chmod($tempFile, octdec('0'));
 
-        ass($tempFile)->fileIsNotReadable();
+        verify($tempFile)->fileIsNotReadable();
 
         unlink($tempFile);
     }

@@ -9,7 +9,7 @@ use Realodix\Dessert\Test\Fixtures\CustomAssert;
 
 final class GeneralTest extends TestCase
 {
-    public function testVariantsStaticClass(): void
+    public function testVariantsStaticClverify(): void
     {
         Assert::that(true)
             ->true()
@@ -22,7 +22,7 @@ final class GeneralTest extends TestCase
 
     public function testAndMethod(): void
     {
-        ass(1)->isInt
+        verify(1)->isInt
             ->and(true)->true;
     }
 
@@ -34,7 +34,7 @@ final class GeneralTest extends TestCase
         $myAssert->success('it works!');
         Assert::that('this also')->notEquals('works');
 
-        ass($this->getMockBuilder(\Exception::class)->getMock())
+        verify($this->getMockBuilder(\Exception::class)->getMock())
             ->instanceOf(\Exception::class);
     }
 }

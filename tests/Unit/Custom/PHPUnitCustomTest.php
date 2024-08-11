@@ -9,12 +9,12 @@ final class PHPUnitCustomTest extends TestCase
     public function testContains(): void
     {
         // Array
-        ass([3, 2])
+        verify([3, 2])
             ->contains(3)
             ->notContains(5, 'user have 5 posts');
 
         // String
-        ass('foo bar')
+        verify('foo bar')
             ->contains('o b')
             ->notContains('BAR');
     }
@@ -22,7 +22,7 @@ final class PHPUnitCustomTest extends TestCase
     public function testStringEqualsFile(): void
     {
         $stringFile = TEST_FILES_PATH . 'string_foobar.txt';
-        ass('foo_bar')
+        verify('foo_bar')
             ->stringEqualsFile($stringFile)
             ->and('another_string')
                 ->stringNotEqualsFile($stringFile);
@@ -30,7 +30,7 @@ final class PHPUnitCustomTest extends TestCase
         // JSon
         $jsonFile = TEST_FILES_PATH . 'json_simple_object.json';
         $jsonString = json_encode(['foo' => 'bar']);
-        ass($jsonString)
+        verify($jsonString)
             ->stringEqualsFile($jsonFile)
             ->and(json_encode(['foo' => 'baz']))
                 ->stringNotEqualsFile($jsonFile);
@@ -38,7 +38,7 @@ final class PHPUnitCustomTest extends TestCase
         // XML
         $xmlFoo = TEST_FILES_PATH . 'xml_foo.xml';
         $xmlBar = TEST_FILES_PATH . 'xml_bar.xml';
-        ass('<foo/>')
+        verify('<foo/>')
             ->stringEqualsFile($xmlFoo)
             ->stringNotEqualsFile($xmlBar);
     }

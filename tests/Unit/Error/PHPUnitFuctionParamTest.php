@@ -18,7 +18,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('$errors')->hasKey(true);
+        verify('$errors')->hasKey(true);
     }
 
     /** @test */
@@ -26,7 +26,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('$errors')->notHasKey(true);
+        verify('$errors')->notHasKey(true);
     }
 
     /** @test */
@@ -34,7 +34,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('not_iterable')->containsOnly('');
+        verify('not_iterable')->containsOnly('');
     }
 
     /** @test */
@@ -42,7 +42,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('not_iterable')->notContainsOnly('');
+        verify('not_iterable')->notContainsOnly('');
     }
 
     /** @test */
@@ -50,7 +50,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('not_iterable')->containsOnlyInstancesOf('');
+        verify('not_iterable')->containsOnlyInstancesOf('');
     }
 
     /** @test */
@@ -58,7 +58,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('not_countable_or_iterable')->count(1);
+        verify('not_countable_or_iterable')->count(1);
     }
 
     /** @test */
@@ -66,7 +66,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('not_countable_or_iterable')->notCount(1);
+        verify('not_countable_or_iterable')->notCount(1);
     }
 
     /** @test */
@@ -74,7 +74,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->directoryExists();
+        verify(false)->directoryExists();
     }
 
     /** @test */
@@ -82,7 +82,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->directoryDoesNotExist();
+        verify(false)->directoryDoesNotExist();
     }
 
     /** @test */
@@ -90,7 +90,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->directoryIsReadable();
+        verify(false)->directoryIsReadable();
     }
 
     /** @test */
@@ -98,7 +98,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->directoryIsNotReadable();
+        verify(false)->directoryIsNotReadable();
     }
 
     /** @test */
@@ -106,7 +106,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->directoryIsWritable();
+        verify(false)->directoryIsWritable();
     }
 
     /** @test */
@@ -114,7 +114,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->directoryIsNotWritable();
+        verify(false)->directoryIsNotWritable();
     }
 
     /** @test */
@@ -122,7 +122,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileEquals('');
+        verify(false)->fileEquals('');
     }
 
     /** @test */
@@ -130,7 +130,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileNotEquals('');
+        verify(false)->fileNotEquals('');
     }
 
     /** @test */
@@ -138,7 +138,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileEqualsCanonicalizing('');
+        verify(false)->fileEqualsCanonicalizing('');
     }
 
     /** @test */
@@ -146,7 +146,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileNotEqualsCanonicalizing('');
+        verify(false)->fileNotEqualsCanonicalizing('');
     }
 
     /** @test */
@@ -154,7 +154,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileEqualsIgnoringCase('');
+        verify(false)->fileEqualsIgnoringCase('');
     }
 
     /** @test */
@@ -162,7 +162,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileNotEqualsIgnoringCase('');
+        verify(false)->fileNotEqualsIgnoringCase('');
     }
 
     /** @test */
@@ -170,7 +170,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileExists();
+        verify(false)->fileExists();
     }
 
     /** @test */
@@ -178,7 +178,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileDoesNotExist();
+        verify(false)->fileDoesNotExist();
     }
 
     /** @test */
@@ -186,7 +186,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileIsReadable();
+        verify(false)->fileIsReadable();
     }
 
     /** @test */
@@ -194,7 +194,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileIsNotReadable();
+        verify(false)->fileIsNotReadable();
     }
 
     /** @test */
@@ -202,7 +202,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileIsWritable();
+        verify(false)->fileIsWritable();
     }
 
     /** @test */
@@ -210,7 +210,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->fileIsNotWritable();
+        verify(false)->fileIsNotWritable();
     }
 
     /** @test */
@@ -218,7 +218,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('')->instanceOf(fooBar::class);
+        verify('')->instanceOf(fooBar::class);
     }
 
     /** @test */
@@ -226,7 +226,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('')->notInstanceOf(fooBar::class);
+        verify('')->notInstanceOf(fooBar::class);
     }
 
     /** @test */
@@ -234,7 +234,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->isReadable();
+        verify(false)->isReadable();
     }
 
     /** @test */
@@ -242,7 +242,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->isNotReadable();
+        verify(false)->isNotReadable();
     }
 
     /** @test */
@@ -250,7 +250,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->isWritable();
+        verify(false)->isWritable();
     }
 
     /** @test */
@@ -258,7 +258,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->isNotWritable();
+        verify(false)->isNotWritable();
     }
 
     /** @test */
@@ -266,7 +266,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->json('');
+        verify(false)->json('');
     }
 
     /** @test */
@@ -274,7 +274,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->jsonFileEqualsJsonFile('');
+        verify(false)->jsonFileEqualsJsonFile('');
     }
 
     /** @test */
@@ -282,7 +282,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->jsonFileNotEqualsJsonFile('');
+        verify(false)->jsonFileNotEqualsJsonFile('');
     }
 
     /** @test */
@@ -290,7 +290,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->jsonStringEqualsJsonFile('');
+        verify(false)->jsonStringEqualsJsonFile('');
     }
 
     /** @test */
@@ -298,7 +298,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->jsonStringNotEqualsJsonFile('');
+        verify(false)->jsonStringNotEqualsJsonFile('');
     }
 
     /** @test */
@@ -306,7 +306,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->jsonStringEqualsJsonString('');
+        verify(false)->jsonStringEqualsJsonString('');
     }
 
     /** @test */
@@ -314,7 +314,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->jsonStringNotEqualsJsonString('');
+        verify(false)->jsonStringNotEqualsJsonString('');
     }
 
     /** @test */
@@ -322,7 +322,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->matchesRegularExpression('');
+        verify(false)->matchesRegularExpression('');
     }
 
     /** @test */
@@ -330,7 +330,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->doesNotMatchRegularExpression('');
+        verify(false)->doesNotMatchRegularExpression('');
     }
 
     /** @test */
@@ -338,7 +338,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('notObject')->objectEquals(new ValueObject(1));
+        verify('notObject')->objectEquals(new ValueObject(1));
     }
 
     /** @test */
@@ -346,7 +346,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('')->sameSize([1]);
+        verify('')->sameSize([1]);
     }
 
     /** @test */
@@ -354,7 +354,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass('')->notSameSize([1]);
+        verify('')->notSameSize([1]);
     }
 
     /** @test */
@@ -362,7 +362,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringContainsString('');
+        verify(false)->stringContainsString('');
     }
 
     /** @test */
@@ -370,7 +370,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringNotContainsString('');
+        verify(false)->stringNotContainsString('');
     }
 
     /** @test */
@@ -378,7 +378,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringContainsStringIgnoringCase('');
+        verify(false)->stringContainsStringIgnoringCase('');
     }
 
     /** @test */
@@ -386,7 +386,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringNotContainsStringIgnoringCase('');
+        verify(false)->stringNotContainsStringIgnoringCase('');
     }
 
     /** @test */
@@ -394,7 +394,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringContainsStringIgnoringLineEndings('');
+        verify(false)->stringContainsStringIgnoringLineEndings('');
     }
 
     /** @test */
@@ -402,7 +402,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringEqualsFileCanonicalizing('');
+        verify(false)->stringEqualsFileCanonicalizing('');
     }
 
     /** @test */
@@ -410,7 +410,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringNotEqualsFileCanonicalizing('');
+        verify(false)->stringNotEqualsFileCanonicalizing('');
     }
 
     /** @test */
@@ -418,7 +418,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringEqualsFileIgnoringCase('');
+        verify(false)->stringEqualsFileIgnoringCase('');
     }
 
     /** @test */
@@ -426,7 +426,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringNotEqualsFileIgnoringCase('');
+        verify(false)->stringNotEqualsFileIgnoringCase('');
     }
 
     /** @test */
@@ -434,7 +434,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringEqualIgnoringLineEndings('');
+        verify(false)->stringEqualIgnoringLineEndings('');
     }
 
     /** @test */
@@ -442,7 +442,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringMatchesFormat('');
+        verify(false)->stringMatchesFormat('');
     }
 
     /** @test */
@@ -450,7 +450,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringNotMatchesFormat('');
+        verify(false)->stringNotMatchesFormat('');
     }
 
     /** @test */
@@ -458,7 +458,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringMatchesFormatFile('');
+        verify(false)->stringMatchesFormatFile('');
     }
 
     /** @test */
@@ -466,7 +466,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringNotMatchesFormatFile('');
+        verify(false)->stringNotMatchesFormatFile('');
     }
 
     /** @test */
@@ -474,7 +474,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringStartsWith('');
+        verify(false)->stringStartsWith('');
     }
 
     /** @test */
@@ -482,7 +482,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringStartsNotWith('');
+        verify(false)->stringStartsNotWith('');
     }
 
     /** @test */
@@ -490,7 +490,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringEndsWith('');
+        verify(false)->stringEndsWith('');
     }
 
     /** @test */
@@ -498,7 +498,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->stringEndsNotWith('');
+        verify(false)->stringEndsNotWith('');
     }
 
     /** @test */
@@ -506,7 +506,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->xmlFileEqualsXmlFile('');
+        verify(false)->xmlFileEqualsXmlFile('');
     }
 
     /** @test */
@@ -514,6 +514,6 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(false)->xmlFileNotEqualsXmlFile('');
+        verify(false)->xmlFileNotEqualsXmlFile('');
     }
 }

@@ -9,49 +9,49 @@ final class CustomAssertionsTest extends TestCase
 {
     public function testHasLength()
     {
-        ass([
+        verify([
             'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
             (object) [1, 2, 3, 4, 5, 6, 7, 8, 9],
         ])
         ->each()
         ->hasLength(9);
 
-        ass([1, 2, 3])->hasLength(3);
+        verify([1, 2, 3])->hasLength(3);
     }
 
     public function testNotHasLength()
     {
-        ass([
+        verify([
             'Fortaleza', 'Sollefteå', 'Ιεράπετρα',
             (object) [1, 2, 3, 4, 5, 6, 7, 8, 9],
         ])
         ->each()
         ->notHasLength(1);
 
-        ass([1, 2, 3])->notHasLength(1);
+        verify([1, 2, 3])->notHasLength(1);
     }
 
     public function testHasLengthError()
     {
         $this->expectException(InvalidActualValue::class);
-        ass([1, 1.5, true, null])->each->hasLength(1);
+        verify([1, 1.5, true, null])->each->hasLength(1);
     }
 
     public function testStringEquals(): void
     {
-        ass('hello')
+        verify('hello')
             ->stringEquals('hello')
             ->stringNotEquals('string');
 
         // JSon
         $jsonString = json_encode(['foo' => 'bar']);
-        ass($jsonString)
+        verify($jsonString)
             ->stringEquals($jsonString)
             ->stringNotEquals(json_encode(['foo' => 'baz']));
 
         // XML
         $xmlString = '<foo/>';
-        ass($xmlString)
+        verify($xmlString)
             ->stringEquals($xmlString)
             ->stringNotEquals('<bar/>');
     }
@@ -60,7 +60,7 @@ final class CustomAssertionsTest extends TestCase
     {
         $xmlFile = TEST_FILES_PATH . 'xml_foo.xml';
 
-        ass($xmlFile)
+        verify($xmlFile)
             ->fileEqualsString('<foo/>')
             ->fileNotEqualsString('<FOO/>');
     }
@@ -69,7 +69,7 @@ final class CustomAssertionsTest extends TestCase
     {
         $xmlFile = TEST_FILES_PATH . 'xml_foo.xml';
 
-        ass($xmlFile)
+        verify($xmlFile)
             ->fileEqualsStringIgnoringCase('<FOO/>')
             ->fileNotEqualsStringIgnoringCase('<bar/>');
     }

@@ -11,7 +11,7 @@ final class OppositeTest extends TestCase
      */
     public function testNotPropertyCalls(): void
     {
-        ass(true)
+        verify(true)
             ->true()
             ->not()->false()
             ->not->false

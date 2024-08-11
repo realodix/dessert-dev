@@ -17,7 +17,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->stringEquals(true);
+        verify(true)->stringEquals(true);
     }
 
     /** @test */
@@ -25,7 +25,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->stringNotEquals(true);
+        verify(true)->stringNotEquals(true);
     }
 
     /** @test */
@@ -33,7 +33,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->fileEqualsString('string');
+        verify(true)->fileEqualsString('string');
     }
 
     /** @test */
@@ -41,7 +41,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->fileNotEqualsString('string');
+        verify(true)->fileNotEqualsString('string');
     }
 
     /** @test */
@@ -49,7 +49,7 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->fileEqualsStringIgnoringCase('string');
+        verify(true)->fileEqualsStringIgnoringCase('string');
     }
 
     /** @test */
@@ -57,6 +57,6 @@ final class CustomAssertionsFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        ass(true)->fileNotEqualsStringIgnoringCase('string');
+        verify(true)->fileNotEqualsStringIgnoringCase('string');
     }
 }
