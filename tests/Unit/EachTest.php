@@ -32,7 +32,7 @@ final class EachTest extends TestCase
     {
         $this->expectException(
             InvalidActualValue::class,
-            'Expectation value is not iterable.'
+            'Expectation value is not iterable.',
         );
 
         ass('Foobar')->each()->same('Foobar');

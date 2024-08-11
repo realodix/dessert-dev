@@ -5,14 +5,7 @@ use Realodix\Relax\Config;
 $localRules = [
     // Laravel
     'method_chaining_indentation' => false,
-
-    // Realodix
-    'binary_operator_spaces' => [
-        'operators' => [
-            '=>' => 'align_single_space',
-        ],
-    ],
 ];
 
-return Config::create('Realodix')
+return Config::create('relax')
     ->setRules($localRules);
