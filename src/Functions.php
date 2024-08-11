@@ -9,6 +9,13 @@ if (! \function_exists('ass')) {
     }
 }
 
+if (! \function_exists('that')) {
+    function that(mixed $actual): Assertion
+    {
+        return new Assertion($actual);
+    }
+}
+
 if (! \function_exists('verify')) {
     function verify(mixed $actual): Assertion
     {
