@@ -21,14 +21,14 @@ final class PHPUnitCustomTest extends TestCase
 
     public function testStringEqualsFile(): void
     {
-        $stringFile = TEST_FILES_PATH.'string_foobar.txt';
+        $stringFile = TEST_FILES_PATH . 'string_foobar.txt';
         ass('foo_bar')
             ->stringEqualsFile($stringFile)
             ->and('another_string')
                 ->stringNotEqualsFile($stringFile);
 
         // JSon
-        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
+        $jsonFile = TEST_FILES_PATH . 'json_simple_object.json';
         $jsonString = json_encode(['foo' => 'bar']);
         ass($jsonString)
             ->stringEqualsFile($jsonFile)
@@ -36,8 +36,8 @@ final class PHPUnitCustomTest extends TestCase
                 ->stringNotEqualsFile($jsonFile);
 
         // XML
-        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
-        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
+        $xmlFoo = TEST_FILES_PATH . 'xml_foo.xml';
+        $xmlBar = TEST_FILES_PATH . 'xml_bar.xml';
         ass('<foo/>')
             ->stringEqualsFile($xmlFoo)
             ->stringNotEqualsFile($xmlBar);

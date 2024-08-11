@@ -579,7 +579,7 @@ class Assertion
         if (! class_exists($expected) && ! interface_exists($expected)) {
             throw new InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
-                $expected
+                $expected,
             ), true);
         }
 
@@ -593,7 +593,7 @@ class Assertion
         if (! class_exists($expected) && ! interface_exists($expected)) {
             throw new InvalidActualValue(sprintf(
                 'Class or interface "%s" does not exist',
-                $expected
+                $expected,
             ), true);
         }
 

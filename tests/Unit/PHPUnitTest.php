@@ -174,7 +174,7 @@ final class PHPUnitTest extends TestCase
 
     public function testDirectoryNotExists(): void
     {
-        ass(__DIR__.DIRECTORY_SEPARATOR.'NotExisting')
+        ass(__DIR__ . DIRECTORY_SEPARATOR . 'NotExisting')
             ->directoryDoesNotExist();
     }
 
@@ -273,7 +273,7 @@ final class PHPUnitTest extends TestCase
         ass(__FILE__)
             ->fileEquals(__FILE__)
             ->fileNotEquals(
-                TEST_FILES_PATH.'string_foobar.txt'
+                TEST_FILES_PATH . 'string_foobar.txt',
             );
     }
 
@@ -285,8 +285,8 @@ final class PHPUnitTest extends TestCase
 
     public function testFileEqualsCanonicalizing()
     {
-        $actual = TEST_FILES_PATH.'string_foobar.txt';
-        $expected = TEST_FILES_PATH.'string_foobar_upper.txt';
+        $actual = TEST_FILES_PATH . 'string_foobar.txt';
+        $expected = TEST_FILES_PATH . 'string_foobar_upper.txt';
 
         ass($actual)
             ->fileEqualsCanonicalizing($actual)
@@ -295,9 +295,9 @@ final class PHPUnitTest extends TestCase
 
     public function testFileEqualsIgnoringCase()
     {
-        $file1 = TEST_FILES_PATH.'string_foobar.txt';
-        $file2 = TEST_FILES_PATH.'string_foobar_upper.txt';
-        $file3 = TEST_FILES_PATH.'string_foobaz.txt';
+        $file1 = TEST_FILES_PATH . 'string_foobar.txt';
+        $file2 = TEST_FILES_PATH . 'string_foobar_upper.txt';
+        $file3 = TEST_FILES_PATH . 'string_foobaz.txt';
 
         ass($file1)->fileEqualsIgnoringCase($file2);
         ass($file3)->fileNotEqualsIgnoringCase($file1);
@@ -305,13 +305,13 @@ final class PHPUnitTest extends TestCase
 
     public function testFileIsReadable()
     {
-        ass(TEST_FILES_PATH.'string_foobar.txt')
+        ass(TEST_FILES_PATH . 'string_foobar.txt')
             ->fileIsReadable();
     }
 
     public function testFileIsWritable()
     {
-        ass(TEST_FILES_PATH.'string_foobar.txt')
+        ass(TEST_FILES_PATH . 'string_foobar.txt')
             ->fileIsWritable();
     }
 
@@ -440,18 +440,18 @@ final class PHPUnitTest extends TestCase
 
     public function testIsReadable(): void
     {
-        ass(TEST_FILES_PATH.'string_foobar.txt')->isReadable();
+        ass(TEST_FILES_PATH . 'string_foobar.txt')->isReadable();
 
-        $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting.php';
+        $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting.php';
         ass($path)->isNotReadable();
     }
 
     public function testIsWritable(): void
     {
-        $path = TEST_FILES_PATH.'string_foobar.txt';
+        $path = TEST_FILES_PATH . 'string_foobar.txt';
         ass($path)->isWritable();
 
-        $path = __DIR__.\DIRECTORY_SEPARATOR.'NotExisting'.\DIRECTORY_SEPARATOR;
+        $path = __DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting' . \DIRECTORY_SEPARATOR;
         ass($path)->isNotWritable();
     }
 
@@ -464,8 +464,8 @@ final class PHPUnitTest extends TestCase
 
     public function testJsonFileEqualsJsonFile(): void
     {
-        $fileExpected = TEST_FILES_PATH.'json_array_object.json';
-        $fileActual = TEST_FILES_PATH.'json_simple_object.json';
+        $fileExpected = TEST_FILES_PATH . 'json_array_object.json';
+        $fileActual = TEST_FILES_PATH . 'json_simple_object.json';
 
         ass($fileActual)
             ->jsonFileEqualsJsonFile($fileActual)
@@ -474,7 +474,7 @@ final class PHPUnitTest extends TestCase
 
     public function testJsonStringEqualsJsonFile(): void
     {
-        $jsonFile = TEST_FILES_PATH.'json_simple_object.json';
+        $jsonFile = TEST_FILES_PATH . 'json_simple_object.json';
         $jsonString = json_encode(['foo' => 'bar']);
 
         ass($jsonString)
@@ -520,7 +520,7 @@ final class PHPUnitTest extends TestCase
 
     public function testStringMatchesFormatFile(): void
     {
-        $formatFile = TEST_FILES_PATH.'string_foobar.txt';
+        $formatFile = TEST_FILES_PATH . 'string_foobar.txt';
 
         ass('foo_bar')->stringMatchesFormatFile($formatFile);
         ass('string_not_matches')->stringNotMatchesFormatFile($formatFile);
@@ -555,7 +555,7 @@ final class PHPUnitTest extends TestCase
 
     public function testStringEqualsFileCanonicalizing(): void
     {
-        $string_foobar = TEST_FILES_PATH.'string_foobar.txt';
+        $string_foobar = TEST_FILES_PATH . 'string_foobar.txt';
 
         ass('foo_bar')
             ->stringEqualsFileCanonicalizing($string_foobar);
@@ -565,7 +565,7 @@ final class PHPUnitTest extends TestCase
 
     public function testStringEqualsFileIgnoringCase(): void
     {
-        $string_foobar = TEST_FILES_PATH.'string_foobar.txt';
+        $string_foobar = TEST_FILES_PATH . 'string_foobar.txt';
 
         ass('FOO_BAR')
             ->stringEqualsFileIgnoringCase($string_foobar);
@@ -587,8 +587,8 @@ final class PHPUnitTest extends TestCase
 
     public function testXmlFileEqualsXmlFile(): void
     {
-        $actual = TEST_FILES_PATH.'xml_foo.xml';
-        $expected = TEST_FILES_PATH.'xml_bar.xml';
+        $actual = TEST_FILES_PATH . 'xml_foo.xml';
+        $expected = TEST_FILES_PATH . 'xml_bar.xml';
 
         ass($actual)
             ->xmlFileEqualsXmlFile($actual)
@@ -597,8 +597,8 @@ final class PHPUnitTest extends TestCase
 
     public function testXmlStringEqualsXmlFile(): void
     {
-        $xmlFoo = TEST_FILES_PATH.'xml_foo.xml';
-        $xmlBar = TEST_FILES_PATH.'xml_bar.xml';
+        $xmlFoo = TEST_FILES_PATH . 'xml_foo.xml';
+        $xmlBar = TEST_FILES_PATH . 'xml_bar.xml';
 
         ass('<foo/>')
             ->xmlStringEqualsXmlFile($xmlFoo)
@@ -619,7 +619,7 @@ final class PHPUnitTest extends TestCase
             $this->markTestSkipped('Cannot test this behaviour on Windows');
         }
 
-        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('unreadable_dir_', true);
+        $dirName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . uniqid('unreadable_dir_', true);
         mkdir($dirName, octdec('0'));
 
         ass($dirName)
@@ -636,7 +636,7 @@ final class PHPUnitTest extends TestCase
             $this->markTestSkipped('Cannot test this behaviour on Windows');
         }
 
-        $dirName = sys_get_temp_dir().DIRECTORY_SEPARATOR.uniqid('not_writable_dir_', true);
+        $dirName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . uniqid('not_writable_dir_', true);
         mkdir($dirName, octdec('444'));
 
         ass($dirName)
@@ -655,7 +655,7 @@ final class PHPUnitTest extends TestCase
 
         $tempFile = tempnam(
             sys_get_temp_dir(),
-            'unreadable'
+            'unreadable',
         );
 
         chmod($tempFile, octdec('0'));
