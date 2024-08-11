@@ -9,6 +9,16 @@ if (! \function_exists('ass')) {
     }
 }
 
+if (! \function_exists('expect')) {
+    /**
+     * @param mixed $actual
+     */
+    function expect($actual): Assertion
+    {
+        return new Assertion($actual);
+    }
+}
+
 if (! \function_exists('verify')) {
     function verify(mixed $actual): Assertion
     {
