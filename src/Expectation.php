@@ -99,9 +99,9 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => $object->reflectionClass->isAbstract(),
+            fn(ObjectDescription $object): bool => $object->reflectionClass->isAbstract(),
             'to be abstract',
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
@@ -112,9 +112,9 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => $object->reflectionClass->isEnum(),
+            fn(ObjectDescription $object): bool => $object->reflectionClass->isEnum(),
             'to be enum',
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
@@ -133,9 +133,9 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => class_exists($object->name) && ! enum_exists($object->name),
+            fn(ObjectDescription $object): bool => class_exists($object->name) && ! enum_exists($object->name),
             'to be class',
-            FileLineFinder::where(fn (string $line): bool => true),
+            FileLineFinder::where(fn(string $line): bool => true),
         );
     }
 
@@ -154,9 +154,9 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => $object->reflectionClass->isInterface(),
+            fn(ObjectDescription $object): bool => $object->reflectionClass->isInterface(),
             'to be interface',
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
@@ -171,15 +171,15 @@ class Expectation
     /**
      * Asserts that the given expectation target to be subclass of the given class.
      *
-     * @param  class-string  $class
+     * @param class-string $class
      */
     public function toExtend(string $class): ArchExpectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => $class === $object->reflectionClass->getName() || $object->reflectionClass->isSubclassOf($class),
+            fn(ObjectDescription $object): bool => $class === $object->reflectionClass->getName() || $object->reflectionClass->isSubclassOf($class),
             sprintf("to extend '%s'", $class),
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
@@ -190,9 +190,9 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => $object->reflectionClass->getParentClass() === false,
+            fn(ObjectDescription $object): bool => $object->reflectionClass->getParentClass() === false,
             'to extend nothing',
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
@@ -203,16 +203,16 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => $object->reflectionClass->getInterfaceNames() === [],
+            fn(ObjectDescription $object): bool => $object->reflectionClass->getInterfaceNames() === [],
             'to implement nothing',
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
     /**
      * Asserts that the given expectation target to only implement the given interfaces.
      *
-     * @param  array<int, class-string>|class-string  $interfaces
+     * @param array<int, class-string>|class-string $interfaces
      */
     public function toOnlyImplement(array|string $interfaces): ArchExpectation
     {
@@ -220,10 +220,10 @@ class Expectation
 
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => count($interfaces) === count($object->reflectionClass->getInterfaceNames())
+            fn(ObjectDescription $object): bool => count($interfaces) === count($object->reflectionClass->getInterfaceNames())
                 && array_diff($interfaces, $object->reflectionClass->getInterfaceNames()) === [],
-            "to only implement '".implode("', '", $interfaces)."'",
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            "to only implement '" . implode("', '", $interfaces) . "'",
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
@@ -234,9 +234,9 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => str_starts_with($object->reflectionClass->getShortName(), $prefix),
+            fn(ObjectDescription $object): bool => str_starts_with($object->reflectionClass->getShortName(), $prefix),
             "to have prefix '{$prefix}'",
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
@@ -247,16 +247,16 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => str_ends_with($object->reflectionClass->getName(), $suffix),
+            fn(ObjectDescription $object): bool => str_ends_with($object->reflectionClass->getName(), $suffix),
             "to have suffix '{$suffix}'",
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
     /**
      * Asserts that the given expectation target to implement the given interfaces.
      *
-     * @param  array<int, class-string>|class-string  $interfaces
+     * @param array<int, class-string>|class-string $interfaces
      */
     public function toImplement(array|string $interfaces): ArchExpectation
     {
@@ -273,15 +273,15 @@ class Expectation
 
                 return true;
             },
-            "to implement '".implode("', '", $interfaces)."'",
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class')),
+            "to implement '" . implode("', '", $interfaces) . "'",
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
     /**
      * Asserts that the given expectation target "only" use on the given dependencies.
      *
-     * @param  array<int, string>|string  $targets
+     * @param array<int, string>|string $targets
      */
     public function toOnlyUse(array|string $targets): ArchExpectation
     {
@@ -304,7 +304,7 @@ class Expectation
     /**
      * Asserts that the given expectation dependency is used by the given targets.
      *
-     * @param  array<int, string>|string  $targets
+     * @param array<int, string>|string $targets
      */
     public function toBeUsedIn(array|string $targets): ArchExpectation
     {
@@ -314,7 +314,7 @@ class Expectation
     /**
      * Asserts that the given expectation dependency is "only" used by the given targets.
      *
-     * @param  array<int, string>|string  $targets
+     * @param array<int, string>|string $targets
      */
     public function toOnlyBeUsedIn(array|string $targets): ArchExpectation
     {
@@ -336,9 +336,9 @@ class Expectation
     {
         return Targeted::make(
             $this,
-            fn (ObjectDescription $object): bool => $object->reflectionClass->hasMethod('__invoke'),
+            fn(ObjectDescription $object): bool => $object->reflectionClass->hasMethod('__invoke'),
             'to be invokable',
-            FileLineFinder::where(fn (string $line): bool => str_contains($line, 'class'))
+            FileLineFinder::where(fn(string $line): bool => str_contains($line, 'class')),
         );
     }
 
