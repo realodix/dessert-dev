@@ -12,16 +12,14 @@ final class PHPUnitCustomTraitTest extends TestCase
         return InvalidActualValue::class;
     }
 
-    /** @test */
-    public function containsActualValue(): void
+    public function testContainsActualValue(): void
     {
         $this->expectException($this->error());
 
         verify(true)->contains(1);
     }
 
-    /** @test */
-    public function notContainsActualValue(): void
+    public function testNotContainsActualValue(): void
     {
         $this->expectException($this->error());
 

@@ -26,8 +26,7 @@ final class GeneralTest extends TestCase
             ->and(true)->true;
     }
 
-    /** @test */
-    public function canBeExtended(): void
+    public function testCanBeExtended(): void
     {
         $myAssert = new CustomAssert;
 

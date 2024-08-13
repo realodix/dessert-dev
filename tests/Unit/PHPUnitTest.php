@@ -3,6 +3,7 @@
 namespace Realodix\Dessert\Test;
 
 use PHPUnit\Framework\AssertionFailedError;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
@@ -82,9 +83,7 @@ final class PHPUnitTest extends TestCase
             ->stringNotContainsStringIgnoringCase('baz');
     }
 
-    /**
-     * @dataProvider stringContainsStringIgnoringLineEndingsProvider
-     */
+    #[DataProvider('stringContainsStringIgnoringLineEndingsProvider')]
     public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
     {
         verify($haystack)
@@ -220,18 +219,16 @@ final class PHPUnitTest extends TestCase
             ->notEqualsIgnoringCase('BAR');
     }
 
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsProvider
-     */
+
+    #[DataProvider('stringEqualIgnoringLineEndingsProvider')]
     public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
     {
         verify($actual)
             ->stringEqualIgnoringLineEndings($expected);
     }
 
-    /**
-     * @dataProvider stringEqualIgnoringLineEndingsFailProvider
-     */
+
+    #[DataProvider('stringEqualIgnoringLineEndingsFailProvider')]
     public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
     {
         $this->expectException(ExpectationFailedException::class);

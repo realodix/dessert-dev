@@ -12,48 +12,42 @@ final class CustomAssertionsFuctionParamTest extends TestCase
         return InvalidActualValue::class;
     }
 
-    /** @test */
-    public function stringEqualsActualValue(): void
+    public function testStringEqualsActualValue(): void
     {
         $this->expectException($this->error());
 
         verify(true)->stringEquals(true);
     }
 
-    /** @test */
-    public function stringNotEqualsActualValue(): void
+    public function testStringNotEqualsActualValue(): void
     {
         $this->expectException($this->error());
 
         verify(true)->stringNotEquals(true);
     }
 
-    /** @test */
-    public function fileEqualsStringActualValue(): void
+    public function testFileEqualsStringActualValue(): void
     {
         $this->expectException($this->error());
 
         verify(true)->fileEqualsString('string');
     }
 
-    /** @test */
-    public function fileNotEqualsStringActualValue(): void
+    public function testFileNotEqualsStringActualValue(): void
     {
         $this->expectException($this->error());
 
         verify(true)->fileNotEqualsString('string');
     }
 
-    /** @test */
-    public function fileEqualsStringIgnoringCaseActualValue(): void
+    public function testFileEqualsStringIgnoringCaseActualValue(): void
     {
         $this->expectException($this->error());
 
         verify(true)->fileEqualsStringIgnoringCase('string');
     }
 
-    /** @test */
-    public function fileNotEqualsStringIgnoringCaseActualValue(): void
+    public function testFileNotEqualsStringIgnoringCaseActualValue(): void
     {
         $this->expectException($this->error());
 
