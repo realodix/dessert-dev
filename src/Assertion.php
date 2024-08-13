@@ -110,6 +110,17 @@ class Assertion
         return $this;
     }
 
+    public function stringContainsStringIgnoringLineEndings(string $needle, string $message = ''): self
+    {
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
+        Assert::assertStringContainsStringIgnoringLineEndings($needle, $this->actual, $message);
+
+        return $this;
+    }
+
     public function stringContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -128,6 +139,17 @@ class Assertion
         }
 
         Assert::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function stringEqualIgnoringLineEndings(string $expected, string $message = ''): self
+    {
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
+        Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this->actual, $message);
 
         return $this;
     }
@@ -612,6 +634,17 @@ class Assertion
     public function isNotArray(string $message = ''): self
     {
         Assert::assertIsNotArray($this->actual, $message);
+
+        return $this;
+    }
+
+    public function isList(string $message = ''): self
+    {
+        if (! is_array($this->actual)) {
+            throw new InvalidActualValue('array');
+        }
+
+        Assert::assertIsList($this->actual, $message);
 
         return $this;
     }

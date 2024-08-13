@@ -255,6 +255,19 @@ final class PHPUnitTest extends TestCase
         $this->fail();
     }
 
+    public function testObjectNotEquals(): void
+    {
+        verify(new ValueObject(1))->objectNotEquals(new ValueObject(2));
+
+        try {
+            verify(new ValueObject(1))->objectNotEquals(new ValueObject(1));
+        } catch (AssertionFailedError $e) {
+            return;
+        }
+
+        $this->fail();
+    }
+
     public function testEqualsWithDelta(): void
     {
         verify(1.01)->equalsWithDelta(1.0, 0.1);
