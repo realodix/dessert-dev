@@ -93,4 +93,26 @@ trait PHPUnitPolyfillTrait
 
         return $this;
     }
+
+    public function fileMatchesFormat(string $expected, string $message = ''): self
+    {
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
+        Assert::assertFileMatchesFormat($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileMatchesFormatFile(string $expected, string $message = ''): self
+    {
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
+        Assert::assertFileMatchesFormatFile($expected, $this->actual, $message);
+
+        return $this;
+    }
 }
