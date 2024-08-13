@@ -978,17 +978,6 @@ class Assertion
         return $this;
     }
 
-    public function stringNotMatchesFormat(string $format, string $message = ''): self
-    {
-        if (! is_string($this->actual)) {
-            throw new InvalidActualValue('string');
-        }
-
-        Assert::assertStringNotMatchesFormat($format, $this->actual, $message);
-
-        return $this;
-    }
-
     public function stringMatchesFormatFile(string $formatFile, string $message = ''): self
     {
         if (! is_string($this->actual)) {
@@ -996,17 +985,6 @@ class Assertion
         }
 
         Assert::assertStringMatchesFormatFile($formatFile, $this->actual, $message);
-
-        return $this;
-    }
-
-    public function stringNotMatchesFormatFile(string $formatFile, string $message = ''): self
-    {
-        if (! is_string($this->actual)) {
-            throw new InvalidActualValue('string');
-        }
-
-        Assert::assertStringNotMatchesFormatFile($formatFile, $this->actual, $message);
 
         return $this;
     }

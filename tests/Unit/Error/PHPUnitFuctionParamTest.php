@@ -446,27 +446,11 @@ final class PHPUnitFuctionParamTest extends TestCase
     }
 
     /** @test */
-    public function stringNotMatchesFormatActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        verify(false)->stringNotMatchesFormat('');
-    }
-
-    /** @test */
     public function stringMatchesFormatFileActualValue(): void
     {
         $this->expectException($this->error());
 
         verify(false)->stringMatchesFormatFile('');
-    }
-
-    /** @test */
-    public function stringNotMatchesFormatFileActualValue(): void
-    {
-        $this->expectException($this->error());
-
-        verify(false)->stringNotMatchesFormatFile('');
     }
 
     /** @test */

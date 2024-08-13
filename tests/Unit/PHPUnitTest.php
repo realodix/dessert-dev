@@ -524,21 +524,6 @@ final class PHPUnitTest extends TestCase
             ->doesNotMatchRegularExpression('/foobarbaz/');
     }
 
-    public function testStringMatchesFormat(): void
-    {
-        verify('somestring')
-            ->stringMatchesFormat('%s')
-            ->stringNotMatchesFormat('%i');
-    }
-
-    public function testStringMatchesFormatFile(): void
-    {
-        $formatFile = TEST_FILES_PATH . 'string_foobar.txt';
-
-        verify('foo_bar')->stringMatchesFormatFile($formatFile);
-        verify('string_not_matches')->stringNotMatchesFormatFile($formatFile);
-    }
-
     public function testSame(): void
     {
         verify(1)->same(0 + 1)
