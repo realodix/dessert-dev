@@ -3,7 +3,6 @@
 namespace Realodix\Dessert\Test;
 
 use PHPUnit\Framework\AssertionFailedError;
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
@@ -13,8 +12,6 @@ use Realodix\Dessert\Test\Fixtures\ObjectEquals\ValueObject;
 
 final class PHPUnitTest extends TestCase
 {
-    use PHPUnitTestProvider;
-
     public function testArrayHasKey(): void
     {
         verify(['foo'])->arrayHasKey(0);
@@ -83,11 +80,10 @@ final class PHPUnitTest extends TestCase
             ->stringNotContainsStringIgnoringCase('baz');
     }
 
-    #[DataProvider('stringContainsStringIgnoringLineEndingsProvider')]
-    public function testStringContainsStringIgnoringLineEndings(string $needle, string $haystack): void
+    public function testStringContainsStringIgnoringLineEndings(): void
     {
-        verify($haystack)
-            ->stringContainsStringIgnoringLineEndings($needle);
+        verify("b\r\nc")
+            ->stringContainsStringIgnoringLineEndings("b\nc");
     }
 
     public function testNotStringContainsStringIgnoringLineEndings(): void
@@ -219,21 +215,17 @@ final class PHPUnitTest extends TestCase
             ->notEqualsIgnoringCase('BAR');
     }
 
-
-    #[DataProvider('stringEqualIgnoringLineEndingsProvider')]
-    public function testStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    public function testStringEqualIgnoringLineEndings(): void
     {
-        verify($actual)
-            ->stringEqualIgnoringLineEndings($expected);
+        verify("a\r\nb")
+            ->stringEqualIgnoringLineEndings("a\nb");
     }
 
-
-    #[DataProvider('stringEqualIgnoringLineEndingsFailProvider')]
-    public function testNotStringEqualIgnoringLineEndings(string $expected, string $actual): void
+    public function testNotStringEqualIgnoringLineEndings(): void
     {
         $this->expectException(ExpectationFailedException::class);
-        verify($actual)
-            ->stringEqualIgnoringLineEndings($expected);
+        verify('ab')
+            ->stringEqualIgnoringLineEndings("a\nb");
     }
 
     /**
