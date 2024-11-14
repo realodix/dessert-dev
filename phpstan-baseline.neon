@@ -1,2 +1,7 @@
 parameters:
 	ignoreErrors:
+		-
+			message: '#^Call to function method_exists\(\) with ''PHPUnit\\\\Framework\\\\Assert'' and ''assertObjectNotEqua…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Assertion.php
