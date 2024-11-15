@@ -10,8 +10,6 @@ use Realodix\Dessert\Exceptions\InvalidActualValue;
  */
 class Assertion
 {
-    use Traits\CustomTrait;
-
     /**
      * @param TValue $actual
      */
