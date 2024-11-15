@@ -10,6 +10,3 @@ parameters:
     ignoreErrors:
         - identifier: missingType.generics
         - identifier: missingType.iterableValue
-
-    # PHPUnit 10
-    # - "#Call to an undefined static method PHPUnit\\\\Framework\\\\Assert\\:\\:#"
