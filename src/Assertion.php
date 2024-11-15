@@ -12,7 +12,6 @@ class Assertion
 {
     use Traits\CustomTrait;
     use Traits\PHPUnitCustomTrait;
-    use Traits\PHPUnitPolyfillTrait;
     use Traits\PHPUnitShortNameTrait;
 
     /**
@@ -150,6 +149,28 @@ class Assertion
         }
 
         Assert::assertStringEqualsStringIgnoringLineEndings($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileMatchesFormat(string $expected, string $message = ''): self
+    {
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
+        Assert::assertFileMatchesFormat($expected, $this->actual, $message);
+
+        return $this;
+    }
+
+    public function fileMatchesFormatFile(string $expected, string $message = ''): self
+    {
+        if (! is_string($this->actual)) {
+            throw new InvalidActualValue('string');
+        }
+
+        Assert::assertFileMatchesFormatFile($expected, $this->actual, $message);
 
         return $this;
     }
@@ -374,6 +395,17 @@ class Assertion
         }
 
         Assert::assertObjectEquals($expected, $this->actual, $method, $message);
+
+        return $this;
+    }
+
+    public function objectNotEquals(object $expected, string $method = 'equals', string $message = ''): self
+    {
+        if (! is_object($this->actual)) {
+            throw new InvalidActualValue('object');
+        }
+
+        Assert::assertObjectNotEquals($expected, $this->actual, $method, $message);
 
         return $this;
     }
