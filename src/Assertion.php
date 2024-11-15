@@ -12,7 +12,6 @@ class Assertion
 {
     use Traits\CustomTrait;
     use Traits\PHPUnitCustomTrait;
-    use Traits\PHPUnitShortNameTrait;
 
     /**
      * @param TValue $actual

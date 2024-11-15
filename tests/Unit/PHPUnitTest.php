@@ -610,8 +610,7 @@ final class PHPUnitTest extends TestCase
         mkdir($dirName, octdec('0'));
 
         verify($dirName)
-            ->directoryIsNotReadable()
-            ->dirIsNotReadable();
+            ->directoryIsNotReadable();
 
         rmdir($dirName);
     }
@@ -627,8 +626,7 @@ final class PHPUnitTest extends TestCase
         mkdir($dirName, octdec('444'));
 
         verify($dirName)
-            ->directoryIsNotWritable()
-            ->dirIsNotWritable();
+            ->directoryIsNotWritable();
 
         rmdir($dirName);
     }
