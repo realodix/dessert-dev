@@ -19,7 +19,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        verify('$errors')->hasKey(true);
+        verify('$errors')->arrayHasKey(true);
     }
 
     #[Test]
@@ -27,7 +27,7 @@ final class PHPUnitFuctionParamTest extends TestCase
     {
         $this->expectException($this->error());
 
-        verify('$errors')->notHasKey(true);
+        verify('$errors')->arrayNotHasKey(true);
     }
 
     #[Test]

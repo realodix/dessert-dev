@@ -117,10 +117,6 @@ verify('string')->isNotInt();
 verify('string')->not->isInt();
 ```
 
-### PHPUnit Assertion Short Names
-
-In addition to assertions, Realodix Dessert offers you a set of PHPUnit assertion method short names. For the full list of **method short names**, please refer to [PHPUnit Assertion Short Names](/docs/phpunit-assertion-short-names.md) documentation.
-
 ## Extending
 
 In order to add more assertions you can extend the [`Assertion`](/src/Assertion.php) class:
