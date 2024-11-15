@@ -11,8 +11,8 @@ A [PHPUnit](https://phpunit.de/) wrapper that makes your testing easier. It was 
 
 #### Requirements
 
-- PHP 8.1 or higher
-- PHPUnit 11.5 or higher
+- PHP 8.2 or higher
+- PHPUnit 11.4 or higher
 
 #### Install the package
 
