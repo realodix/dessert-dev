@@ -11,7 +11,6 @@ use Realodix\Dessert\Exceptions\InvalidActualValue;
 class Assertion
 {
     use Traits\CustomTrait;
-    use Traits\PHPUnitCustomTrait;
 
     /**
      * @param TValue $actual

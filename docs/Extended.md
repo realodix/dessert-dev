@@ -1,18 +1,3 @@
-## Custom Behaviour
-
-| Assertions              | Descriptions |
-| ----------------------- | ------------ |
-| `contains()`            | [`contains`][contains] or [`stringContainsString`][stringCS] |
-| `notContains()`         | [`notContains`][contains] or [`stringNotContainsString`][stringCS] |
-| `stringEqualsFile()`    | [`stringEqualsFile`][stringEF] or [`jsonStringEqualsJsonFile`][jsonSEJF] or [`xmlStringEqualsXmlFile`][xmlSEXF] |
-| `stringNotEqualsFile()` | [`stringNotEqualsFile`][stringEF] or [`jsonStringNotEqualsJsonFile`][jsonSEJF] or [`xmlStringNotEqualsXmlFile`][xmlSEXF] |
-
-[contains]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertcontains
-[stringCS]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertstringcontainsstring
-[stringEF]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertstringequalsfile
-[jsonSEJF]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertjsonstringequalsjsonfile
-[xmlSEXF]: https://phpunit.readthedocs.io/en/9.5/assertions.html#assertxmlstringequalsxmlfile
-
 ## Custom Assertions
 
 | Assertions              | Descriptions |
